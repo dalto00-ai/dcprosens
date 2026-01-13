@@ -22,8 +22,22 @@ export default function Converter() {
         return calculateCmPer360(numericSens, numericDpi, fromGame).toFixed(1);
     }, [numericSens, numericDpi, fromGame]);
 
+    const universalEdpi = useMemo(() => {
+        const game = games.find(g => g.id === fromGame);
+        if (!game) return 'N/A';
+        // Raw Yaw * DPI * Sens to get Degrees/Inch
+        return (game.yaw * numericDpi * numericSens).toFixed(2);
+    }, [fromGame, numericDpi, numericSens]);
+
     // To verify consistency, output cm/360 should be same
     // const toCm360 = calculateCmPer360(Number(resultSens), numericDpi, toGame).toFixed(2);
+
+    const universalEdpi = useMemo(() => {
+        const game = games.find(g => g.id === fromGame);
+        if (!game) return 'N/A';
+        // Raw Yaw * DPI * Sens to get Degrees/Inch
+        return (game.yaw * numericDpi * numericSens).toFixed(2);
+    }, [fromGame, numericDpi, numericSens]);
 
     return (
         <div className={styles.converterCard}>
@@ -110,7 +124,7 @@ export default function Converter() {
               For now let's just show sens * dpi if appropriate, or maybe just skip it if confusing.
               Let's show the Raw Yaw * Dpi * Sens (Degrees/Inch approx).
            */}
-                    <div className={styles.statValue}>-</div>
+                    <div className={styles.statValue}>{universalEdpi}</div>
                 </div>
             </div>
         </div>
