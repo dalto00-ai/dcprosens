@@ -1,0 +1,18 @@
+.footer {
+    border-top: 1px solid var(--border-color);
+    padding: 3rem 0;
+    margin-top: auto;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.powered {
+    font-size: 0.9rem;
+}
