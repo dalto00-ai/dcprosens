@@ -4,6 +4,8 @@
     align-items: center;
     padding: 1.5rem 0;
     margin-bottom: 2rem;
+    gap: 2rem;
+    /* Ensure minimum spacing between Logo and Links */
 }
 
 .logo {
