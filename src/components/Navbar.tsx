@@ -12,7 +12,9 @@ export default function Navbar() {
                 <Link href="/" className={styles.link}>Converter</Link>
                 <Link href="/dpi" className={styles.link}>DPI Tool</Link>
                 <Link href="/games" className={styles.link}>Games</Link>
+                <Link href="/blog" className={styles.link}>Blog</Link>
             </div>
+
 
         </nav>
     );
