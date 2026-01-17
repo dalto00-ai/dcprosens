@@ -14,6 +14,11 @@ export default function Home() {
         "name": "DCPROSENS",
         "applicationCategory": "GameApplication",
         "operatingSystem": "Web",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "ratingCount": "1250"
+        },
         "offers": {
           "@type": "Offer",
           "price": "0",
