@@ -58,15 +58,42 @@ export default async function BlogPost({ params }: Props) {
     // JSON-LD Structured Data
     const jsonLd = {
         '@context': 'https://schema.org',
-        '@type': 'BlogPosting',
-        headline: post.title,
-        description: post.excerpt,
-        image: `https://dcprosens.com${post.image}`,
-        datePublished: post.date,
-        author: {
-            '@type': 'Organization',
-            name: 'DCPROSENS'
-        }
+        '@graph': [
+            {
+                '@type': 'BlogPosting',
+                headline: post.title,
+                description: post.excerpt,
+                image: `https://dcprosens.com${post.image}`,
+                datePublished: post.date,
+                author: {
+                    '@type': 'Organization',
+                    name: 'DCPROSENS'
+                }
+            },
+            {
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                    {
+                        '@type': 'ListItem',
+                        position: 1,
+                        name: 'Home',
+                        item: 'https://dcprosens.com'
+                    },
+                    {
+                        '@type': 'ListItem',
+                        position: 2,
+                        name: 'Blog',
+                        item: 'https://dcprosens.com/blog'
+                    },
+                    {
+                        '@type': 'ListItem',
+                        position: 3,
+                        name: post.title,
+                        item: `https://dcprosens.com/blog/${post.slug}`
+                    }
+                ]
+            }
+        ]
     };
 
     return (
