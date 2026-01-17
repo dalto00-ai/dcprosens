@@ -50,9 +50,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
 
-        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <div className="app-wrapper">
           <Navbar />
-          <main style={{ flex: 1, position: 'relative' }}>
+          <main className="main-content">
             {children}
           </main>
           <Footer />
