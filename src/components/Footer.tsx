@@ -11,8 +11,8 @@ export default function Footer() {
                     <a href="/terms" style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Terms of Service</a>
                 </div>
                 <p>&copy; {new Date().getFullYear()} DCPROSENS. All rights reserved.</p>
-                <p className={styles.powered}>
-                    Powered by <span style={{ color: 'var(--primary)' }}>Antigravity</span>
+                <p className={styles.powered} style={{ marginTop: '0.5rem', fontSize: '0.85rem' }}>
+                    Site feito com muito carinho pela <a href="https://dcoutlier.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', fontWeight: 500 }}>DCOUTLIER</a>
                 </p>
             </div>
         </footer>
