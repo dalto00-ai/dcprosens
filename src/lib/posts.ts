@@ -343,4 +343,5 @@ export const posts: BlogPost[] = [
       Use DCPROSENS to manage your Valorant sensitivity relative to other shooters (like CS2), and treat LoL as its own unique beast.</p>
     `
   }
+    },
 ];

@@ -1,3 +1,4 @@
+import Converter from '@/components/Converter';
 import ProSettings from '@/components/ProSettings';
 
 export default function Home() {
