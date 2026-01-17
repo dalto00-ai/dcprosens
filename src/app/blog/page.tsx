@@ -43,7 +43,20 @@ export default function BlogIndex() {
                         }}
                             className="hover-card"
                         >
-                            <div style={{ marginBottom: '1rem', fontSize: '0.85rem', color: 'var(--primary)', fontWeight: 600 }}>
+                            <div style={{
+                                display: 'inline-block',
+                                background: 'rgba(239, 68, 68, 0.1)',
+                                color: 'var(--primary)',
+                                padding: '0.2rem 0.6rem',
+                                borderRadius: '4px',
+                                fontSize: '0.75rem',
+                                fontWeight: '600',
+                                marginBottom: '1rem',
+                                width: 'fit-content'
+                            }}>
+                                {post.category ? post.category.toUpperCase() : 'GUIDE'}
+                            </div>
+                            <div style={{ marginBottom: '1rem', fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 500 }}>
                                 {post.readTime} • {post.date}
                             </div>
                             <h2 style={{
