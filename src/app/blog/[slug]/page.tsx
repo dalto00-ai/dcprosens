@@ -2,6 +2,7 @@ import { posts } from '@/lib/posts';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import SEOImage from '@/components/SEOImage';
 
 interface Props {
     params: Promise<{ slug: string }>;
@@ -33,6 +34,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             description: post.excerpt,
             type: 'article',
             publishedTime: post.date,
+            images: [
+                {
+                    url: post.image,
+                    width: 1200,
+                    height: 630,
+                    alt: post.title,
+                }
+            ],
         },
     };
 }
@@ -46,8 +55,27 @@ export default async function BlogPost({ params }: Props) {
         notFound();
     }
 
+    // JSON-LD Structured Data
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: post.title,
+        description: post.excerpt,
+        image: `https://dcprosens.com${post.image}`,
+        datePublished: post.date,
+        author: {
+            '@type': 'Organization',
+            name: 'DCPROSENS'
+        }
+    };
+
     return (
         <article className="container" style={{ padding: '4rem 0', maxWidth: '800px' }}>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+
             <Link href="/blog" style={{
                 display: 'inline-block',
                 marginBottom: '2rem',
@@ -66,11 +94,18 @@ export default async function BlogPost({ params }: Props) {
                 }}>
                     {post.title}
                 </h1>
-                <div style={{ display: 'flex', gap: '1rem', color: 'var(--text-secondary)', fontSize: '1rem' }}>
+                <div style={{ display: 'flex', gap: '1rem', color: 'var(--text-secondary)', fontSize: '1rem', marginBottom: '2rem' }}>
                     <span>{post.date}</span>
                     <span>•</span>
                     <span>{post.readTime}</span>
                 </div>
+
+                <SEOImage
+                    src={post.image}
+                    alt={post.title}
+                    priority={true}
+                    caption="Featured Image"
+                />
             </header>
 
             <div
