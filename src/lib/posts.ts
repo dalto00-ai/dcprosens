@@ -1,20 +1,20 @@
 export interface BlogPost {
-    slug: string;
-    title: string;
-    excerpt: string;
-    date: string;
-    readTime: string;
-    content: string; // HTML string for simplicity in static export
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  readTime: string;
+  content: string; // HTML string for simplicity in static export
 }
 
 export const posts: BlogPost[] = [
-    {
-        slug: 'valorant-to-cs2-sensitivity',
-        title: 'How to Convert Valorant Sensitivity to CS2 (Counter-Strike 2)',
-        excerpt: 'Stop guessing your aim. Learn the exact formula to transfer your muscle memory from Valorant to CS2 effectively.',
-        date: 'January 14, 2026',
-        readTime: '8 min read',
-        content: `
+  {
+    slug: 'valorant-to-cs2-sensitivity',
+    title: 'How to Convert Valorant Sensitivity to CS2 (Counter-Strike 2)',
+    excerpt: 'Stop guessing your aim. Learn the exact formula to transfer your muscle memory from Valorant to CS2 effectively.',
+    date: 'January 14, 2026',
+    readTime: '8 min read',
+    content: `
       <h2>The Ultimate Valorant to CS2 Sensitivity Guide</h2>
       <p>Switching between tactical shooters is a rite of passage for many FPS players. You've spent thousands of hours perfecting your aim in Valorant, hitting those crisp headshots with the Vandal. But now, with the release of Counter-Strike 2 (CS2), you want to see if your skills translate. The biggest hurdle? <strong>Sensitivity.</strong></p>
       
@@ -61,14 +61,14 @@ export const posts: BlogPost[] = [
       <p>Don't waste time guessing. Use math. Converting your sensitivity accurately ensures that every flick you learned in one game stays with you in the next. 
       Welcome to CS2, and may your aim be true.</p>
     `
-    },
-    {
-        slug: 'what-is-edpi-gaming-guide',
-        title: 'What is eDPI? The Ultimate Guide for Competitive Gamers',
-        excerpt: 'DPI, eDPI, Sensitivity... confused? We explain what eDPI is, why pro players rely on it, and how to calculate yours.',
-        date: 'January 13, 2026',
-        readTime: '6 min read',
-        content: `
+  },
+  {
+    slug: 'what-is-edpi-gaming-guide',
+    title: 'What is eDPI? The Ultimate Guide for Competitive Gamers',
+    excerpt: 'DPI, eDPI, Sensitivity... confused? We explain what eDPI is, why pro players rely on it, and how to calculate yours.',
+    date: 'January 13, 2026',
+    readTime: '6 min read',
+    content: `
       <h2>Understanding eDPI: The Universal Language of Aim</h2>
       <p>If you've ever looked up a pro player's settings, you've seen the term <strong>eDPI</strong>. 
       "S1mple has 1236 eDPI." "TenZ uses 320 eDPI." But what does that actually mean? And why can't we just compare normal DPI?</p>
@@ -116,14 +116,14 @@ export const posts: BlogPost[] = [
       <h3>Summary</h3>
       <p>eDPI is the most accurate way to discuss and track your sensitivity. Calculate yours today using our DPI Tool and start building consistency.</p>
     `
-    },
-    {
-        slug: 'find-perfect-mouse-sensitivity',
-        title: 'How to Find Your Perfect Mouse Sensitivity in 2026',
-        excerpt: 'Struggling to hit shots? Your sensitivity might be holding you back. Try the PSA method and these pro tips to find your aimbot settings.',
-        date: 'January 12, 2026',
-        readTime: '10 min read',
-        content: `
+  },
+  {
+    slug: 'find-perfect-mouse-sensitivity',
+    title: 'How to Find Your Perfect Mouse Sensitivity in 2026',
+    excerpt: 'Struggling to hit shots? Your sensitivity might be holding you back. Try the PSA method and these pro tips to find your aimbot settings.',
+    date: 'January 12, 2026',
+    readTime: '10 min read',
+    content: `
       <h2>The Quest for the "God Sens"</h2>
       <p>Is there such thing as a "perfect" sensitivity? Yes and no. There is no usage setting that works for everyone, but there is absolutely a perfect range <em>for you</em>. 
       If you find yourself constantly overshooting (aiming past the target) or undershooting (stopping short), your sensitivity is likely to blame.</p>
@@ -160,14 +160,14 @@ export const posts: BlogPost[] = [
       <p>Don't copy a pro's settings expecting to inherit their skill. Use the PSA method, find your natural groove, and then <strong>stick to it</strong>. 
       Standardize it across all games using DCPROSENS.</p>
     `
-    },
-    {
-        slug: 'dpi-vs-sensitivity-difference',
-        title: 'DPI vs. In-Game Sensitivity: What is the Difference?',
-        excerpt: 'Hardware vs Software. Should you use 400, 800, or 1600 DPI? We break down the technical differences and pixel skipping myths.',
-        date: 'January 10, 2026',
-        readTime: '7 min read',
-        content: `
+  },
+  {
+    slug: 'dpi-vs-sensitivity-difference',
+    title: 'DPI vs. In-Game Sensitivity: What is the Difference?',
+    excerpt: 'Hardware vs Software. Should you use 400, 800, or 1600 DPI? We break down the technical differences and pixel skipping myths.',
+    date: 'January 10, 2026',
+    readTime: '7 min read',
+    content: `
       <h2>The Hardware vs. Software Debate</h2>
       <p>When tuning your mouse, you have two main dials to turn: <strong>DPI</strong> (Dots Per Inch) on your mouse hardware, and <strong>Sensitivity</strong> in your game software. 
       Is 400 DPI with 2.0 sens the same as 800 DPI with 1.0 sens?</p>
@@ -198,14 +198,14 @@ export const posts: BlogPost[] = [
       <p>We recommend setting your mouse to <strong>1600 DPI</strong> for the best sensor performance and lowest latency, and then lowering your in-game sensitivity to reach your desired eDPI. 
       Use our converter to find the matching values.</p>
     `
-    },
-    {
-        slug: 'overwatch-2-to-apex-legends-aim',
-        title: 'How to Transfer Aim from Overwatch 2 to Apex Legends',
-        excerpt: 'Both are fast-paced tracking games, but they feel completely different. Here is how to sync your aim between OW2 and Apex.',
-        date: 'January 09, 2026',
-        readTime: '5 min read',
-        content: `
+  },
+  {
+    slug: 'overwatch-2-to-apex-legends-aim',
+    title: 'How to Transfer Aim from Overwatch 2 to Apex Legends',
+    excerpt: 'Both are fast-paced tracking games, but they feel completely different. Here is how to sync your aim between OW2 and Apex.',
+    date: 'January 09, 2026',
+    readTime: '5 min read',
+    content: `
       <h2>The Tracking Titans</h2>
       <p>Overwatch 2 and Apex Legends share a lot of DNA. Both heavily reward smooth tracking (staying on a moving target) rather than just static clicking. 
       However, switching between them can feel "floaty" or "stiff" due to engine differences.</p>
@@ -238,5 +238,109 @@ export const posts: BlogPost[] = [
       <h3>Verdict</h3>
       <p>Use DCPROSENS to get your base hipfire sensitivity matched. For FOV, try to keep Apex around 104-106 if you want it to visually resemble Overwatch, or embrace the 110 FOV advantage and let your brain adjust to the visual speed difference over a few hours.</p>
     `
-    }
+  }
+    {
+    slug: 'games-factory-sens-perfect-aim-guide',
+    title: 'Games Factory Sens: The Ultimate Guide to Perfect Sensitivity',
+    excerpt: 'Unlock the secrets of the "Games Factory" sensitivity method. Learn how to manufacture the perfect settings for any shooter using professional tools and math.',
+    date: 'January 17, 2026',
+    readTime: '9 min read',
+    content: `
+      <h2>What is the "Games Factory Sens" Trend?</h2>
+      <p>In the competitive gaming world, a new term is bubbling up in search engines: <strong>Games Factory Sens</strong>. 
+      But what does it mean? It represents a shift in how players approach their settings. 
+      Gone are the days of guessing. Players are now treating their aim settings like a <strong>factory production line</strong>: precise, calculated, and optimized for output.</p>
+      
+      <p>If you want to dominate the "Sens Game," you need to stop feeling and start calculating. 
+      Your mouse and mousepad are the machinery; your sensitivity is the calibration software. 
+      When both are tuned perfectly, you become a fragging machine.</p>
+
+      <h3>The Blueprint for Perfect Aim</h3>
+      <p>Think of <strong>DCPROSENS</strong> as your personal Sensitivity Factory. 
+      To manufacture the perfect aim, you need to follow a strict process, just like a high-end optimization factory.</p>
+
+      <h4>Phase 1: Raw Material (DPI)</h4>
+      <p>Everything starts with your mouse sensor. As discussed in our DPI guide, reliable raw input is key. 
+      Most "Aim Factories" (pro players) suggest standardized inputs like <strong>800 or 1600 DPI</strong>. 
+      Avoid strange numbers like 450 or 1150, as they make conversion mathematics messy.</p>
+
+      <h4>Phase 2: Calibration (cm/360)</h4>
+      <p>The universal unit of measurement in the Games Factory is <strong>cm/360</strong>—the physical distance needed to do a full turn. 
+      Whether you play COD, Valorant, or Roblox, 30cm on your desk is always 30cm. 
+      Use our converter to find this value for your main game, and that becomes your "Factory Standard."</p>
+
+      <h3>Mastering the "Sens Game"</h3>
+      <p>The "Sens Game" isn't just about shooting; it's about consistency. 
+      If you operate a factory, you don't change the machine settings every day. 
+      Yet, gamers change their sensitivity after every loss. This destroys your production quality (your aim).</p>
+
+      <ul>
+        <li><strong>Standardize:</strong> Find one eDPI that works.</li>
+        <li><strong>Convert:</strong> Use DCPROSENS to port that eDPI to every new game you play.</li>
+        <li><strong>Maintain:</strong> Don't change it for at least 3 weeks. Let your brain build the neural pathways.</li>
+      </ul>
+
+      <h3>Why "Factory" Settings Fail</h3>
+      <p> ironically, default "Factory Settings" in games are usually terrible. 
+      Most games launch with an overly high sensitivity (often 5cm/360) to impress casual players with "fast" movement. 
+      The first step in your personal Games Factory process is to <strong>reject the default</strong>. 
+      Lower it. Control it. Own it.</p>
+
+      <h3>Conclusion</h3>
+      <p>You are the manager of your own aim factory. 
+      Use tools like DCPROSENS to ensure your "Games Factory Sens" is calibrated to professional standards. 
+      Stop guessing, start converting, and watch your rank skyrocket.</p>
+    `
+  },
+  {
+    slug: 'riot-games-sensitivity-mastery',
+    title: 'Riot Games Sensitivity Mastery: Valorant, LoL & More',
+    excerpt: 'Dominate the Riot ecosystem. From League of Legends mouse speed to Valorant pixel precision, here is how to master the "Sens Game" in the Riot universe.',
+    date: 'January 16, 2026',
+    readTime: '11 min read',
+    content: `
+      <h2>The Riot Games Ecosystem</h2>
+      <p><strong>Riot Games</strong> has conquered the esports world with two titans: <strong>League of Legends</strong> (MOBA) and <strong>Valorant</strong> (Tactical Shooter). 
+      Millions of players alternate between these two games daily. 
+      But this creates a massive problem for your muscle memory: The "Sens Game" is completely different in each title.</p>
+
+      <h3>The "Sens Game" in 2D vs 3D</h3>
+      <p>The biggest challenge in the Riot ecosystem is that LoL is 2D (cursor movement) while Valorant is 3D (camera rotation).</p>
+      
+      <h4>League of Legends: Speed & APM</h4>
+      <p>In LoL, high sensitivity is often rewarded. You need to move your cursor across the screen instantly to kite enemies, check the minimap, and buy items. 
+      Most LoL pros use high DPI (1600-3200) and high Windows mouse speed to minimize hand movement, preserving stamina for high APM (Actions Per Minute).</p>
+
+      <h4>Valorant: Precision & Micro-Adjustment</h4>
+      <p>Valorant is the opposite. It requires low, steady sensitivity. 
+      If you tried to play Valorant with Faker's LoL sensitivity, you wouldn't be able to hit a single headshot. 
+      The average eDPI for Valorant is remarkably low (around 250 eDPI @ 800 base).</p>
+
+      <h3>How to Bridge the Gap?</h3>
+      <p>So, how do you master the Riot Games suite without ruining your aim in one or the other?</p>
+
+      <h4>Strategy 1: The "Menu Speed" Match</h4>
+      <p>Some players try to match their Valorant cursor speed (in menus/Buy menu) to their LoL cursor speed. 
+      Valorant uses your Windows pointer speed for menus. 
+      If you play LoL with raw input off, ensuring your Windows sensitivity is comfortable (usually 6/11) helps bridge the "feeling" of the mouse when navigating UI in both games.</p>
+
+      <h4>Strategy 2: The Mental Reset</h4>
+      <p>Accept that they are different skills. 
+      Treat LoL as a "Wrist Workout" and Valorant as an "Arm Workout". 
+      Using different muscle groups helps separate the neural pathways. 
+      Use your arm for 90% of turns in Valorant. Use your wrist for 90% of clicks in LoL.</p>
+
+      <h3>Optimizing Your Riot Settings</h3>
+      <p><strong>Nvidia Reflex:</strong> Both titles support Nvidia Reflex. Enable it (On + Boost) to minimize system latency. This is critical for the "Sens Game" as it connects your hand to the screen faster.</p>
+      <p><strong>Raw Input:</strong> 
+      <br>- <strong>Valorant:</strong> Always uses Raw Input (ignores Windows settings).
+      <br>- <strong>League:</strong> Check "Use Software Mouse" to enforce raw input if you want consistency, though many LoL veterans prefer the Windows acceleration curve.</p>
+
+      <h3>Conclusion</h3>
+      <p>Riot Games requires a versatile gamer. 
+      Don't try to force a mathematical 1:1 conversion between a 2D MOBA and a 3D FPS—it doesn't exist. 
+      Instead, optimize each for its intended purpose. 
+      Use DCPROSENS to manage your Valorant sensitivity relative to other shooters (like CS2), and treat LoL as its own unique beast.</p>
+    `
+  }
 ];
