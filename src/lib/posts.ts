@@ -4,6 +4,7 @@ export interface BlogPost {
   excerpt: string;
   date: string;
   readTime: string;
+  image: string; // URL to the image (local or remote)
   content: string; // HTML string for simplicity in static export
 }
 
@@ -14,6 +15,7 @@ export const posts: BlogPost[] = [
     excerpt: 'Stop guessing your aim. Learn the exact formula to transfer your muscle memory from Valorant to CS2 effectively.',
     date: 'January 14, 2026',
     readTime: '8 min read',
+    image: '/globe.svg', // Placeholder
     content: `
       <h2>The Ultimate Valorant to CS2 Sensitivity Guide</h2>
       <p>Switching between tactical shooters is a rite of passage for many FPS players. You've spent thousands of hours perfecting your aim in Valorant, hitting those crisp headshots with the Vandal. But now, with the release of Counter-Strike 2 (CS2), you want to see if your skills translate. The biggest hurdle? <strong>Sensitivity.</strong></p>
@@ -68,6 +70,7 @@ export const posts: BlogPost[] = [
     excerpt: 'DPI, eDPI, Sensitivity... confused? We explain what eDPI is, why pro players rely on it, and how to calculate yours.',
     date: 'January 13, 2026',
     readTime: '6 min read',
+    image: '/globe.svg',
     content: `
       <h2>Understanding eDPI: The Universal Language of Aim</h2>
       <p>If you've ever looked up a pro player's settings, you've seen the term <strong>eDPI</strong>. 
@@ -95,7 +98,7 @@ export const posts: BlogPost[] = [
       </ul>
 
       <p>In both examples, the <strong>eDPI</strong> is 800. This means the <em>actual</em> speed of the mouse cursor in the game world is exactly the same for both players, even though their settings look completely different.</p>
-
+      
       <h3>Why eDPI Matters</h3>
       <p>Without eDPI, comparing settings is impossible. If you tell your friend "I play on 1.5 sensitivity," that means nothing unless they know your mouse DPI. 
       But if you say "I play on 280 eDPI in Valorant," any experienced player instantly knows exactly how fast or slow that is.</p>
@@ -123,6 +126,7 @@ export const posts: BlogPost[] = [
     excerpt: 'Struggling to hit shots? Your sensitivity might be holding you back. Try the PSA method and these pro tips to find your aimbot settings.',
     date: 'January 12, 2026',
     readTime: '10 min read',
+    image: '/globe.svg',
     content: `
       <h2>The Quest for the "God Sens"</h2>
       <p>Is there such thing as a "perfect" sensitivity? Yes and no. There is no usage setting that works for everyone, but there is absolutely a perfect range <em>for you</em>. 
@@ -167,6 +171,7 @@ export const posts: BlogPost[] = [
     excerpt: 'Hardware vs Software. Should you use 400, 800, or 1600 DPI? We break down the technical differences and pixel skipping myths.',
     date: 'January 10, 2026',
     readTime: '7 min read',
+    image: '/globe.svg',
     content: `
       <h2>The Hardware vs. Software Debate</h2>
       <p>When tuning your mouse, you have two main dials to turn: <strong>DPI</strong> (Dots Per Inch) on your mouse hardware, and <strong>Sensitivity</strong> in your game software. 
@@ -205,6 +210,7 @@ export const posts: BlogPost[] = [
     excerpt: 'Both are fast-paced tracking games, but they feel completely different. Here is how to sync your aim between OW2 and Apex.',
     date: 'January 09, 2026',
     readTime: '5 min read',
+    image: '/globe.svg',
     content: `
       <h2>The Tracking Titans</h2>
       <p>Overwatch 2 and Apex Legends share a lot of DNA. Both heavily reward smooth tracking (staying on a moving target) rather than just static clicking. 
@@ -238,13 +244,14 @@ export const posts: BlogPost[] = [
       <h3>Verdict</h3>
       <p>Use DCPROSENS to get your base hipfire sensitivity matched. For FOV, try to keep Apex around 104-106 if you want it to visually resemble Overwatch, or embrace the 110 FOV advantage and let your brain adjust to the visual speed difference over a few hours.</p>
     `
-  }
-    {
+  },
+  {
     slug: 'games-factory-sens-perfect-aim-guide',
     title: 'Games Factory Sens: The Ultimate Guide to Perfect Sensitivity',
     excerpt: 'Unlock the secrets of the "Games Factory" sensitivity method. Learn how to manufacture the perfect settings for any shooter using professional tools and math.',
     date: 'January 17, 2026',
     readTime: '9 min read',
+    image: '/globe.svg',
     content: `
       <h2>What is the "Games Factory Sens" Trend?</h2>
       <p>In the competitive gaming world, a new term is bubbling up in search engines: <strong>Games Factory Sens</strong>. 
@@ -298,6 +305,7 @@ export const posts: BlogPost[] = [
     excerpt: 'Dominate the Riot ecosystem. From League of Legends mouse speed to Valorant pixel precision, here is how to master the "Sens Game" in the Riot universe.',
     date: 'January 16, 2026',
     readTime: '11 min read',
+    image: '/globe.svg',
     content: `
       <h2>The Riot Games Ecosystem</h2>
       <p><strong>Riot Games</strong> has conquered the esports world with two titans: <strong>League of Legends</strong> (MOBA) and <strong>Valorant</strong> (Tactical Shooter). 
@@ -343,5 +351,4 @@ export const posts: BlogPost[] = [
       Use DCPROSENS to manage your Valorant sensitivity relative to other shooters (like CS2), and treat LoL as its own unique beast.</p>
     `
   }
-    },
 ];
