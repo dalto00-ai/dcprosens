@@ -18,7 +18,7 @@ export const posts: BlogPost[] = [
     date: 'January 25, 2026',
     readTime: '8 min read',
     category: 'Guide',
-    image: '/globe.svg',
+    image: '/blog/deadlock-valve-sensitivity.png',
     content: `
       <h2>Valve's New Challenger</h2>
       <p>Deadlock has taken the world by storm in early 2026. Merging the MOBA lanes of Dota with the gunplay of TF2, it requires a unique aim style. 
@@ -43,7 +43,7 @@ export const posts: BlogPost[] = [
     date: 'January 24, 2026',
     readTime: '6 min read',
     category: 'News',
-    image: '/globe.svg',
+    image: '/blog/gta-vi-aim-settings.png',
     content: `
       <h2>Vice City Awaits</h2>
       <p>Rockstar's latest RAGE engine update brings more responsive controls than RDR2. 
@@ -61,7 +61,7 @@ export const posts: BlogPost[] = [
     date: 'January 22, 2026',
     readTime: '10 min read',
     category: 'Gear',
-    image: '/globe.svg',
+    image: '/blog/8khz-wireless-mouse.png',
     content: `
       <h2>The New Standard</h2>
       <p>In 2024, 4KHz was premium. In 2026, 8KHz is baseline. 
@@ -78,7 +78,7 @@ export const posts: BlogPost[] = [
     date: 'January 21, 2026',
     readTime: '7 min read',
     category: 'Gear',
-    image: '/globe.svg',
+    image: '/blog/glass-vs-cloth-mousepad.png',
     content: `
       <h2>Friction is the Enemy</h2>
       <p>The tracking meta (Apex, The Finals, Deadlock) requires zero static friction. 
@@ -116,7 +116,7 @@ export const posts: BlogPost[] = [
     date: 'January 14, 2026',
     readTime: '8 min read',
     category: 'Guide',
-    image: '/globe.svg',
+    image: '/blog/valorant-to-cs2.png',
     content: `
       <h2>The Ultimate Valorant to CS2 Sensitivity Guide</h2>
       <p>Switching between tactical shooters is a rite of passage for many FPS players...</p>
@@ -130,7 +130,7 @@ export const posts: BlogPost[] = [
     date: 'January 13, 2026',
     readTime: '6 min read',
     category: 'Guide',
-    image: '/globe.svg',
+    image: '/blog/what-is-edpi.png',
     content: `
       <h2>Understanding eDPI</h2>
       <p>If you've ever looked up a pro player's settings, you've seen the term eDPI...</p>
@@ -143,7 +143,7 @@ export const posts: BlogPost[] = [
     date: 'January 12, 2026',
     readTime: '10 min read',
     category: 'Guide',
-    image: '/globe.svg',
+    image: '/blog/perfect-sensitivity.png',
     content: `<h2>The Quest for the "God Sens"</h2><p>...</p>`
   },
   {
@@ -153,7 +153,7 @@ export const posts: BlogPost[] = [
     date: 'January 10, 2026',
     readTime: '7 min read',
     category: 'Guide',
-    image: '/globe.svg',
+    image: '/blog/dpi-vs-sensitivity.png',
     content: `<h2>The Hardware vs. Software Debate</h2><p>...</p>`
   },
   {
@@ -163,7 +163,7 @@ export const posts: BlogPost[] = [
     date: 'January 09, 2026',
     readTime: '5 min read',
     category: 'Guide',
-    image: '/globe.svg',
+    image: '/blog/overwatch-to-apex.png',
     content: `<h2>The Tracking Titans</h2><p>...</p>`
   },
   {
@@ -173,7 +173,7 @@ export const posts: BlogPost[] = [
     date: 'January 17, 2026',
     readTime: '9 min read',
     category: 'Esports',
-    image: '/globe.svg',
+    image: '/blog/games-factory-sens.png',
     content: `<h2>What is the "Games Factory Sens" Trend?</h2><p>...</p>`
   },
   {
@@ -183,7 +183,7 @@ export const posts: BlogPost[] = [
     date: 'January 16, 2026',
     readTime: '11 min read',
     category: 'Esports',
-    image: '/globe.svg',
+    image: '/blog/riot-games-sensitivity.png',
     content: `<h2>The Riot Games Ecosystem</h2><p>...</p>`
   }
 ];
