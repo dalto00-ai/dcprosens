@@ -1,4 +1,4 @@
-import Converter from '@/components/Converter';
+import ProSettings from '@/components/ProSettings';
 
 export default function Home() {
   return (
@@ -15,6 +15,8 @@ export default function Home() {
         </p>
 
         <Converter />
+
+        <ProSettings />
       </div>
     </div>
   );

@@ -110,7 +110,9 @@ export default function Converter() {
               For now let's just show sens * dpi if appropriate, or maybe just skip it if confusing.
               Let's show the Raw Yaw * Dpi * Sens (Degrees/Inch approx).
            */}
-                    <div className={styles.statValue}>-</div>
+                    <div className={styles.statValue}>
+                        {(numericSens * numericDpi).toFixed(0)}
+                    </div>
                 </div>
             </div>
         </div>
