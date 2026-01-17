@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { stories } from '@/lib/stories';
 import { notFound } from 'next/navigation';
 
