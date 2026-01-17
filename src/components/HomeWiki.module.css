@@ -1,0 +1,78 @@
+.wikiContainer {
+    margin-top: 6rem;
+    padding-bottom: 4rem;
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+    width: 100%;
+    margin-bottom: 4rem;
+}
+
+.content {
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.h2 {
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+}
+
+.h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+}
+
+.card h4 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.faq details {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    margin-bottom: 0.5rem;
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.faq details:hover {
+    border-color: var(--primary);
+}
+
+.faq summary {
+    font-weight: 600;
+    color: var(--text-primary);
+    list-style: none;
+    /* Hide default triangle */
+}
+
+.faq p {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
