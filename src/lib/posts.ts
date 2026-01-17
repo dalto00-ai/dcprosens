@@ -96,7 +96,7 @@ export const posts: BlogPost[] = [
     date: 'January 20, 2026',
     readTime: '9 min read',
     category: 'Gear',
-    image: '/globe.svg',
+    image: '/blog/snap-tap-rapid-trigger.png',
     content: `
       <h2>Perfect Counter-Strafing</h2>
       <p><strong>Snap Tap</strong> (or SOCD) ensures that you never overlap inputs. 
