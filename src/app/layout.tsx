@@ -14,6 +14,10 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "DCPROSENS | Ultimate Sensitivity Converter & DPI Tool",
   description: "The world's best sensitivity converter and gaming utility tool.",
+  other: {
+    "geo.region": "US",
+    "geo.placename": "United States",
+  },
 };
 
 export default function RootLayout({
