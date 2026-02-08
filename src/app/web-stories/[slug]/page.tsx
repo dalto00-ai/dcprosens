@@ -13,8 +13,9 @@ export async function generateStaticParams() {
 }
 
 // Start of AMP HTML Document
-export default function WebStoryPage({ params }: { params: { slug: string } }) {
-    const story = stories.find(s => s.slug === params.slug);
+export default async function WebStoryPage({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
+    const story = stories.find(s => s.slug === slug);
 
     if (!story) return notFound();
 
