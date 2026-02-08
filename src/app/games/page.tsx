@@ -1,5 +1,11 @@
 import { games } from '@/lib/games';
 import styles from '@/components/Converter.module.css';
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Supported Games | DCPROSENS",
+    description: "List of all supported games for sensitivity conversion including Valorant, CS2, Overwatch 2, and more.",
+};
 
 export default function GamesPage() {
     return (

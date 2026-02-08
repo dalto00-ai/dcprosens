@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Privacy Policy | DCPROSENS",
+    description: "Privacy Policy for DCPROSENS. Learn how we handle your data and cookies.",
+};
+
 export default function PrivacyPage() {
     return (
         <div className="container" style={{ padding: '4rem 0', maxWidth: '800px' }}>
