@@ -1,4 +1,4 @@
-"use client";
+
 
 import Converter from '@/components/Converter';
 import ProSettings from '@/components/ProSettings';
