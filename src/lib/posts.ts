@@ -12,6 +12,39 @@ export interface BlogPost {
 export const posts: BlogPost[] = [
   // NEW 2026 ARTICLES
   {
+    slug: 'fortnite-to-valorant-sensitivity-2026',
+    title: 'Fortnite to Valorant: The Ultimate Sensitivity Conversion Guide 2026',
+    excerpt: 'Moving from The Island to Future Earth? Learn why 3rd person conversion is tricky and how to match your aim perfectly.',
+    date: 'February 08, 2026',
+    readTime: '12 min read',
+    category: 'Guide',
+    image: '/blog/valorant-to-cs2.png', // Reusing placeholder or ideally would generate new one
+    content: `
+      <h2>The Third-Person Paradox</h2>
+      <p>Converting sensitivity from <strong>Fortnite (TPP)</strong> to <strong>Valorant (FPP)</strong> is the "final boss" of aim math. 
+      Because Fortnite's camera floats behind your character, your Field of View (FOV) is dynamic, while Valorant is locked at 103°.</p>
+
+      <h3>Why "360 Distance" Fails Here</h3>
+      <p>If you match your cm/360 exactly (e.g., 25cm to turn around), Valorant will feel <em>faster</em>. 
+      This is because the focal point in FPP is closer. To fix this, pros use <strong>Monitor Distance Match 0%</strong>.</p>
+
+      <h3>The Golden Ratio</h3>
+      <p>For most 16:9 users, the magic conversion formula for 2026 is:</p>
+      <div class="code-block">Fortnite % * 0.253 = Valorant Sens (Approximate)</div>
+      
+      <h3>Step-by-Step Conversion</h3>
+      <ol>
+        <li><strong>Find your eDPI in Fortnite:</strong> Formula is <code>DPI * (Sens % / 100)</code>.</li>
+        <li><strong>Understand the FOV Difference:</strong> Fortnite is roughly 80° vertical FOV. Valorant is 103° horizontal (locked).</li>
+        <li><strong>Use DCPROSENS Calculator:</strong> Don't do the math manually. Select "Fortnite" input and "Valorant" output. We handle the FOV scaling automatically.</li>
+      </ol>
+
+      <h3>ADS Sensitivity</h3>
+      <p>Don't forget your scope! Valorant's Operator requires a 0.747 multiplier to match 1:1 monitor distance with hipfire. 
+      In Fortnite, this varies by weapon. We recommend setting Valorant ADS to <strong>0.747</strong> if you want consistent tracking speed.</p>
+    `
+  },
+  {
     slug: 'deadlock-valve-sensitivity-converter',
     title: 'Deadlock Sensitivity Guide: Converting from CS2 & Overwatch',
     excerpt: 'Valve\'s new hero shooter "Deadlock" is here. Learn how to convert your aim from CS2 and Overwatch 2 to dominate in 2026.',
