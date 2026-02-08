@@ -5,13 +5,6 @@ export const metadata: Metadata = {
     description: "Learn about DCPROSENS, the ultimate sensitivity converter and DPI calculator for competitive gamers built by gamers.",
 };
 
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-    title: "About Us | DCPROSENS",
-    description: "Learn about DCPROSENS, the ultimate sensitivity converter and DPI calculator for competitive gamers built by gamers.",
-};
-
 export default function AboutPage() {
     return (
         <div className="container" style={{ padding: '4rem 0', maxWidth: '800px' }}>
