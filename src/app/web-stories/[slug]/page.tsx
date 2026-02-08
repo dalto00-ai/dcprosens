@@ -6,6 +6,12 @@ export const metadata = {
     title: 'Web Stories',
 };
 
+export async function generateStaticParams() {
+    return stories.map((story) => ({
+        slug: story.slug,
+    }));
+}
+
 // Start of AMP HTML Document
 export default function WebStoryPage({ params }: { params: { slug: string } }) {
     const story = stories.find(s => s.slug === params.slug);
