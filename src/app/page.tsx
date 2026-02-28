@@ -24,11 +24,19 @@ export default function Home() {
           "price": "0",
           "priceCurrency": "USD"
         },
-        "description": "The ultimate gaming sensitivity converter for Valorant, CS2, Overwatch, and more. Calculate cm/360 and eDPI instantly."
+        "description": "The best sens converter and mouse sensitivity calculator. Convert sens between Valorant, CS2, Overwatch, and calculate eDPI instantly."
       },
       {
         "@type": "FAQPage",
         "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How to use a sens converter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Select the game you currently play, input your sensitivity, and select the game you want to convert to. Our sensitivity calculator will instantly show your new sens and cm/360."
+            }
+          },
           {
             "@type": "Question",
             "name": "How to convert Valorant sensitivity to CS2?",
@@ -39,10 +47,10 @@ export default function Home() {
           },
           {
             "@type": "Question",
-            "name": "What is eDPI?",
+            "name": "What is the best dpi sens converter?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "eDPI (Effective Dots Per Inch) is your mouse DPI multiplied by your in-game sensitivity."
+              "text": "DCPROSENS is the most accurate DPI sens converter, supporting over 100+ games and focusing on exact cm/360 translations to preserve your muscle memory."
             }
           }
         ]
@@ -59,13 +67,13 @@ export default function Home() {
 
       <div className="hero-section">
         <h1 className="hero-title">
-          Pro Gaming <span className="text-gradient">Sensitivity</span><br />
-          Converter Tool
+          Ultimate Mouse <span className="text-gradient">Sens Converter</span><br />
+          & Calculator Tool
         </h1>
 
         <p className="hero-subtitle">
-          Enhance your aim with precision. Convert sensitivity across games,
-          calculate eDPI, and optimize your setup.
+          Enhance your aim with the most accurate sensitivity calculator.
+          Instantly convert sens across games, calculate your eDPI, and optimize your setup.
         </p>
 
         <VoiceSearch />

@@ -7,18 +7,24 @@ export default function HomeWiki() {
             <div className={styles.divider}></div>
 
             <article className={styles.content}>
-                <h2 className={styles.h2}>The Ultimate Guide to Mouse Sensitivity & Aim Conversion</h2>
+                <h2 className={styles.h2}>The Ultimate Sens Converter & Mouse Sensitivity Calculator</h2>
 
                 <p>
-                    Welcome to <strong>DCPROSENS</strong>, the industry-leading destination for competitive gamers looking to <strong>convert sensitivity</strong> between titles like <em>Valorant</em>, <em>CS2</em>, <em>Apex Legends</em>, and <em>Overwatch 2</em>.
-                    Unlike basic calculators, our engine uses the <strong>cm/360 algorithm</strong> to ensure your muscle memory translates perfectly across engines (Source, Unreal Engine, Unity, and more).
+                    Welcome to <strong>DCPROSENS</strong>, the industry-leading destination for competitive gamers looking for a precise <strong>sens converter</strong> between titles like <em>Valorant</em>, <em>CS2</em>, <em>Apex Legends</em>, and <em>Overwatch 2</em>.
+                    Unlike basic calculators, our <strong>sensitivity calculator</strong> uses the <strong>cm/360 algorithm</strong> to ensure your muscle memory translates perfectly across engines (Source, Unreal Engine, Unity, and more). If you need to <Link href="/">convert sens</Link> fast and accurately, you are in the right place.
                 </p>
 
-                <h3 className={styles.h3}>Why Sensitivity Conversion Matters for Muscle Memory</h3>
+                <h3 className={styles.h3}>How to Use Our Mouse Sens Converter</h3>
+                <p>
+                    Using our <strong>mouse sens converter</strong> is incredibly easy. First, select the game you currently play from the drop-down list. Second, input your current mouse sensitivity. Finally, select the game you want to transfer your aim to.
+                    Our tool will instantly show your new sensitivity. To get the most accurate results across all titles, we highly recommend checking out our full list of <Link href="/games">Supported Games</Link>.
+                </p>
+
+                <h3 className={styles.h3}>Why a Sens Calculator Matters for Muscle Memory</h3>
                 <p>
                     Your brain learns aim through physical distance, not in-game numbers. If you move your mouse 30cm to do a 360-degree turn in Valorant,
-                    but 25cm in CS2, your aim training is effectively useless. This is why pros like <strong>TenZ</strong>, <strong>s1mple</strong>, and <strong>Faker</strong>
-                    obsess over their <strong>eDPI</strong> (Effective Dots Per Inch). By standardizing your settings using our calculator, you maximize consistency.
+                    but 25cm in CS2, your aim training is effectively useless. This is why pros obsess over their <strong><Link href="/dpi">eDPI</Link></strong> (Effective Dots Per Inch).
+                    By standardizing your settings using a reliable <strong>dpi sens converter</strong>, you maximize consistency and climb the ranks faster.
                 </p>
 
                 <h3 className={styles.h3}>Supported Games & Engines</h3>
@@ -26,7 +32,7 @@ export default function HomeWiki() {
                     <div className={styles.card}>
                         <h4>Valorant (Unreal Engine)</h4>
                         <p>With a Yaw of 0.07, Valorant requires precise conversion math when moving to Source titles.
-                            Use our tool to calculate exact <Link href="/blog/valorant-to-cs2-sensitivity">Valorant to CS2 sensitivity</Link>.</p>
+                            Use our <strong>sens converter</strong> to calculate exact <Link href="/blog/valorant-to-cs2-sensitivity">Valorant to CS2 sensitivity</Link>.</p>
                     </div>
                     <div className={styles.card}>
                         <h4>CS:GO & CS2 (Source/Source 2)</h4>

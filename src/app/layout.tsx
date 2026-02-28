@@ -12,8 +12,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "DCPROSENS | Ultimate Sensitivity Converter & DPI Tool",
-  description: "The world's best sensitivity converter and gaming utility tool.",
+  title: "Sens Converter & Mouse Sensitivity Calculator | DCPROSENS",
+  description: "The ultimate sensitivity converter and mouse sens calculator. Convert sens between Valorant, CS2, Overwatch, and calculate eDPI instantly.",
   other: {
     "geo.region": "US",
     "geo.placename": "United States",
