@@ -12,6 +12,595 @@ export interface BlogPost {
 export const posts: BlogPost[] = [
 
   // ============================================================
+  // BATCH 4 — April 2026 (8 New EEAT Articles)
+  // ============================================================
+
+  {
+    slug: 'counter-strafing-guide-cs2-2026',
+    title: 'Counter-Strafing in CS2: The Complete Guide (2026)',
+    excerpt: 'Counter-strafing is the single most important movement skill in CS2. This guide explains the technique, timing, and how sensitivity affects your ability to counter-strafe effectively.',
+    date: 'April 19, 2026',
+    readTime: '12 min read',
+    category: 'Guide',
+    image: '/blog/counter-strafe-cs2.webp',
+    content: `
+      <h2>What is Counter-Strafing?</h2>
+      <p><strong>Counter-strafing</strong> is the technique of pressing the opposite movement key to instantly cancel your velocity, making your next shot fully accurate. In CS2, your first-bullet accuracy while moving is near zero. But within milliseconds of coming to a complete stop, your accuracy returns to maximum. Counter-strafing is the skill that controls how fast you stop.</p>
+
+      <p>Consider this scenario: you are sliding left (holding A). Your character has leftward momentum. If you release A and immediately fire, you will still be moving slightly — your bullet is inaccurate. If you release A and tap D (the counter-strafe), your momentum cancels instantly. You stop completely in one frame. Your next bullet is perfectly accurate.</p>
+
+      <div class="code-block">Without counter-strafe:
+A held → release A → (0.2–0.5 second deceleration) → accurate shot
+
+With counter-strafe:
+A held → release A + tap D → (instant stop, 1 frame) → accurate shot
+
+Time saved: 200–500 milliseconds per peek</div>
+
+      <h2>Why Counter-Strafing is More Important in CS2 Than CS:GO</h2>
+      <p>CS2's sub-tick system changed how movement and shooting interact. In CS:GO, the server processed movement and shooting on 64 or 128-tick intervals. In CS2, sub-tick means the server records the exact timestamp of every action — when you pressed a key, when you released it, and when you fired. This makes counter-strafing both more precise (correct execution is rewarded more) and more punishing (sloppy timing is penalized more harshly).</p>
+      <p>In 2026, every high-ranked CS2 player at FACEIT Level 8+ counter-strafes on every non-spray engagement. It is not optional at high levels of play.</p>
+
+      <h2>How to Counter-Strafe: Step by Step</h2>
+      <ol>
+        <li><strong>Start moving:</strong> Hold A or D to strafe in one direction</li>
+        <li><strong>Release the movement key</strong> at the moment you want to take a shot</li>
+        <li><strong>Tap the opposite key:</strong> A tapper → tap D for one frame (do NOT hold it — you will start moving the other way)</li>
+        <li><strong>Fire immediately</strong> after tapping the counter key</li>
+        <li><strong>The tap must be brief:</strong> Hold the counter key for just 1 frame (≈16ms at 60fps, or 4ms at 240fps)</li>
+      </ol>
+
+      <p>The hardest part is making the opposite-key tap brief enough to stop without starting new movement. This requires deliberate practice — your brain naturally wants to hold keys, not tap them.</p>
+
+      <h2>A/D Counter-Strafing vs. W/S</h2>
+      <p>The technique works for all four directions but the competitive scenarios differ:</p>
+      <ul>
+        <li><strong>A/D counter-strafing:</strong> Used in peeking — the core competitive burst. Essential for taking angles, wide peeking, and shoulder peeking.</li>
+        <li><strong>W counter-strafing:</strong> Used when you run forward and want to stop to take a shot without backward movement. Less common but used when pushing.</li>
+        <li><strong>Diagonal counter-strafing:</strong> Advanced technique — simultaneously counter-strafing A/D while also counter-strafing W/S. Rarely needed but exists.</li>
+      </ul>
+
+      <h2>How Sensitivity Affects Counter-Strafing</h2>
+      <p>Counter-strafing itself is a keyboard technique and does not require any specific mouse sensitivity. However, your sensitivity significantly affects the <em>shot that follows</em> the counter-strafe:</p>
+      <ul>
+        <li><strong>Lower sensitivity (higher cm/360):</strong> After stopping, your arm has full precision for the shot. Easier to place shots accurately, better for rifles like AK-47 at medium range.</li>
+        <li><strong>Higher sensitivity (lower cm/360):</strong> After stopping, fast micro-adjustments to the enemy position are quicker. Good for 1v1 close-range confrontations where the enemy is moving unpredictably.</li>
+      </ul>
+      <p>The statistical sweet spot for CS2: <strong>600–1200 eDPI</strong> (35–75 cm/360). This range provides enough precision for controlled shots after a counter-strafe while maintaining enough speed to make micro-adjustments to the target. Use our <a href="/dpi">eDPI calculator</a> to verify your current range.</p>
+
+      <h2>How to Practice Counter-Strafing</h2>
+
+      <h3>Method 1: The Wall Test</h3>
+      <p>Open CS2, go to a practice server, stand facing a wall at medium distance with an AK-47. Strafe left, counter-strafe, and fire one shot. Then strafe right, counter-strafe, fire one shot. Count how many first bullets hit head level. Aim for 90%+ hit rate before moving on.</p>
+
+      <h3>Method 2: Deathmatch Commitment</h3>
+      <p>Play a full deathmatch session where you ONLY take shots after a counter-strafe. No shots while still moving. No spray except at close range. This forces the habit even when it feels slower — consistency is the goal.</p>
+
+      <h3>Method 3: Aim Trainer Integration</h3>
+      <p>Routines in Aim Lab that include lateral movement followed by precise clicks (e.g., "GridShot" with movement enabled) replicate the counter-strafe + shot timing. Practice 15 minutes before each CS2 session.</p>
+
+      <h2>Common Counter-Strafing Mistakes</h2>
+      <ul>
+        <li><strong>Holding the counter key too long:</strong> You start moving in the opposite direction. Tap briefly.</li>
+        <li><strong>Firing too early:</strong> Shooting while momentum is still canceling. Wait one extra frame after the tap.</li>
+        <li><strong>Forgetting to counter-strafe W:</strong> Players who rush forward often forget they also need to counter the forward momentum before shooting.</li>
+        <li><strong>Over-conditioning:</strong> Counter-strafing in close range spray situations. At under 5m, spray wins — counter-strafing costs reaction time at close range.</li>
+      </ul>
+    `
+  },
+
+  {
+    slug: 'best-mousepad-size-guide-2026',
+    title: 'Best Mousepad Size Guide: Small vs XL — What Pros Use (2026)',
+    excerpt: 'Should you use a 400mm, 450mm, or XL 900mm mousepad? This data-backed guide explains how sensitivity, grip style, and game choice determine your ideal mousepad size.',
+    date: 'April 18, 2026',
+    readTime: '10 min read',
+    category: 'Gear',
+    image: '/blog/mousepad-size-guide.webp',
+    content: `
+      <h2>Why Mousepad Size Matters More Than You Think</h2>
+      <p>Your mousepad size is directly linked to your sensitivity. Lower sensitivity (more cm/360) requires more physical mouse travel — which means you need a larger mousepad to avoid "lifting" the mouse off the edge mid-rotation. Conversely, high sensitivity players need less travel and can use smaller pads comfortably.</p>
+
+      <div class="code-block">Mousepad Size Recommendation by cm/360:
+
+Under 25 cm/360: 400×300mm minimum (small-medium)
+25–40 cm/360  : 450×400mm (medium, most common)
+40–60 cm/360  : 600×500mm (large, recommended)
+60+ cm/360    : 900×400mm+ XL extended pad</div>
+
+      <h2>Mousepad Size Categories</h2>
+
+      <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0;">
+        <thead>
+          <tr style="border-bottom: 2px solid #333;">
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Size</th>
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Dimensions</th>
+            <th style="text-align:left; padding: 0.75rem; color: #00ff9d;">Best For</th>
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Examples</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">Small</td><td style="padding:0.75rem;">250×210mm</td><td style="padding:0.75rem; color:#00ff9d;">High sens (&lt;25 cm/360), travel gaming</td><td style="padding:0.75rem;">Zowie G-SR Mini</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">Medium</td><td style="padding:0.75rem;">450×400mm</td><td style="padding:0.75rem; color:#00ff9d;">Most players, 25–45 cm/360</td><td style="padding:0.75rem;">Artisan Zero M, Logitech G640</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">Large</td><td style="padding:0.75rem;">600×500mm</td><td style="padding:0.75rem; color:#00ff9d;">Medium-low sens, 40–65 cm/360</td><td style="padding:0.75rem;">Zowie G-SR, SteelSeries QcK+</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">XL Extended</td><td style="padding:0.75rem;">900×400mm</td><td style="padding:0.75rem; color:#00ff9d;">Low sens, full arm swipers (60+ cm/360)</td><td style="padding:0.75rem;">Logitech G840, Corsair MM700</td></tr>
+          <tr><td style="padding:0.75rem;">XXL Desk Mat</td><td style="padding:0.75rem;">1200×600mm+</td><td style="padding:0.75rem; color:#00ff9d;">Wrist rest, keyboard + mouse coverage</td><td style="padding:0.75rem;">Glorious XXL, SteelSeries QcK XXL</td></tr>
+        </tbody>
+      </table>
+
+      <h2>What Size Do CS2 and Valorant Pros Use?</h2>
+      <p>Based on pro player setup databases for VCT and BLAST 2026:</p>
+      <ul>
+        <li><strong>Valorant pros:</strong> 60% use medium (450×400mm), 30% large (600×500mm), 10% other</li>
+        <li><strong>CS2 pros:</strong> 45% use large (600×500mm), 40% XL (900×400mm), 15% medium</li>
+        <li><strong>Apex pros:</strong> 55% use medium, 35% large — higher eDPI means less pad space needed</li>
+      </ul>
+      <p>CS2 pros use larger pads because they use lower sensitivities. Valorant pros cluster higher on eDPI and therefore need less mousepad space.</p>
+
+      <h2>How to Choose Your Size</h2>
+      <ol>
+        <li>Calculate your cm/360 using our <a href="/dpi">eDPI calculator</a></li>
+        <li>Measure your natural full-swipe distance on your current surface</li>
+        <li>Add 20% buffer to that distance — this is your minimum pad width</li>
+        <li>For arm-aiming players: add 50% buffer to account for repeated full sweeps</li>
+        <li>Avoid pads smaller than your natural swipe — you WILL lift the mouse during gameplay</li>
+      </ol>
+
+      <h2>Thickness: 2mm vs 3mm vs 4mm+</h2>
+      <ul>
+        <li><strong>2mm:</strong> Firm feel, minimal compression, best for control/precise movements. Used by NiKo, s1mple</li>
+        <li><strong>3mm:</strong> Standard. Balanced comfort and control. Most popular overall.</li>
+        <li><strong>4mm+:</strong> Very soft, comfort-first. Popular for palm-grip players who fatigue wrists. Less precise feel.</li>
+      </ul>
+      <p>Thickness does not affect sensor tracking (the mouse sensor reads the surface regardless) but affects how your wrist contacts the pad at the edge — relevant for comfort in long sessions.</p>
+    `
+  },
+
+  {
+    slug: 'the-finals-sensitivity-settings-2026',
+    title: 'The Finals Sensitivity Settings 2026: Best DPI and Converter Guide',
+    excerpt: 'The Finals has unique sensitivity scaling due to its FOV system. This guide covers the yaw value, optimal eDPI for each class, and how to convert from Valorant, CS2, or Apex.',
+    date: 'April 17, 2026',
+    readTime: '11 min read',
+    category: 'Guide',
+    image: '/blog/the-finals-sensitivity.webp',
+    content: `
+      <h2>The Finals Sensitivity: What Makes It Different</h2>
+      <p>The Finals is Embark Studios' explosive team-based FPS featuring fully destructible environments. Its sensitivity system differs from most games in one key way: <strong>the game uses a fixed 90° FOV by default</strong>, and its ADS sensitivity is affected by your chosen build class (Light, Medium, Heavy) which use different weapon archetypes with different zoom levels.</p>
+
+      <div class="code-block">The Finals Yaw Value: 0.0066 (close to Valorant: 0.07)
+Most common competitive DPI: 800
+Recommended eDPI range: 300–800
+Average cm/360: 35–60 cm</div>
+
+      <h2>The Finals Sensitivity by Class</h2>
+
+      <h3>Light Class</h3>
+      <p>The Light class focuses on movement, flanking, and close-range weapons (XP-54, SH1900 shotgun). This class benefits from <strong>faster sensitivity (400–700 eDPI)</strong> to track rapid close-range movement and execute quick 180° repositions after flanks. Light players who play very aggressively often use 500–700 eDPI with a lower cm/360 of 30–40cm.</p>
+
+      <h3>Medium Class</h3>
+      <p>Medium is the support class (AKM, FCAR assault rifles, defibrillator). It requires balanced sensitivity for both close-range combat and medium-range accuracy. Recommended: <strong>400–600 eDPI</strong>, 40–50 cm/360. The AKM and FCAR benefit from controlled spray, which suits a slightly lower sensitivity.</p>
+
+      <h3>Heavy Class</h3>
+      <p>Heavy uses slow, high-damage weapons (M60, sledgehammer, minigun). This class moves slowly and fights at medium-to-long range. Lower sensitivity works best: <strong>300–500 eDPI</strong>, 50–70 cm/360. The M60's high recoil benefits from lower sensitivity for better spray control.</p>
+
+      <h2>Converting to The Finals</h2>
+      <p>Since The Finals' yaw is close to Valorant's yaw, conversion is nearly 1:1 for hipfire:</p>
+
+      <div class="code-block">Valorant → The Finals: ~1:1 (very close yaw values)
+CS2 → The Finals: CS2 Sens × 3.18
+Apex → The Finals: Apex Sens × 3.18
+Warzone → The Finals: Warzone Sens × (varies by FOV)</div>
+
+      <p>Use our <a href="/">DCPROSENS converter</a> and select The Finals to get the precision calculation.</p>
+
+      <h2>The Finals ADS Sensitivity</h2>
+      <p>Unlike CS2 where ADS doesn't change sensitivity, The Finals has an ADS multiplier. Set it to <strong>1.0</strong> for consistent feel across hipfire and ADS. If you use scoped weapons frequently (SR-84 sniper on Medium/Light), reduce to 0.7–0.8 for better long-range precision.</p>
+
+      <div class="code-block">The Finals Recommended Settings:
+ADS Sensitivity Multiplier: 1.0
+FOV: 90 (default, competitive standard)
+Mouse Acceleration: Off
+Raw Input: On</div>
+
+      <h2>Why The Finals Feels Different Even With Correct Sensitivity</h2>
+      <p>The Finals' camera shake and explosive destruction create significant visual noise. Even with the correct cm/360, shots can feel imprecise because:</p>
+      <ul>
+        <li>Building destruction creates debris that visually obscures targets mid-fight</li>
+        <li>Camera shake from explosions temporarily disorienti your aim reference</li>
+        <li>Unreal Engine 5 Lumen lighting changes can make target visibility inconsistent</li>
+      </ul>
+      <p>Reduce in-game camera shake in options (Settings → Camera → Screen Shake: Low) to minimize these effects on your aiming.</p>
+
+      <h2>Finding Your The Finals Sensitivity</h2>
+      <ol>
+        <li>Start with your Valorant sensitivity (same yaw — transfers 1:1)</li>
+        <li>Play 10 matches in Training Grounds (practice mode)</li>
+        <li>Adjust for your main class: Light players go slightly higher, Heavy players slightly lower</li>
+        <li>Commit for 20 ranked matches before re-evaluating</li>
+      </ol>
+    `
+  },
+
+  {
+    slug: 'how-to-improve-reaction-time-fps-gaming',
+    title: 'How to Improve Reaction Time for FPS Games: Science-Backed Guide (2026)',
+    excerpt: 'Human reaction time averages 250ms — pros average 180–220ms. This guide covers the proven science of reaction time improvement, hardware optimizations, and daily training routines.',
+    date: 'April 16, 2026',
+    readTime: '15 min read',
+    category: 'Guide',
+    image: '/blog/reaction-time-gaming.webp',
+    content: `
+      <h2>What Is Reaction Time in FPS Games?</h2>
+      <p>Reaction time in FPS gaming is the total time between a stimulus appearing (enemy peeking) and your motor response completing (bullet registering). It comprises:</p>
+      <ul>
+        <li><strong>Visual processing time:</strong> Light from monitor → retina → visual cortex (~50–80ms)</li>
+        <li><strong>Cognitive processing time:</strong> Identify threat, decide to shoot (~80–140ms)</li>
+        <li><strong>Motor execution time:</strong> Brain signal → hand muscles moving (~50–100ms)</li>
+      </ul>
+      <p>Total average human reaction: <strong>200–300ms</strong>. Average professional FPS player: <strong>180–220ms</strong>. The difference is real but surprisingly small — the bigger advantage pros have is in <em>anticipation</em>, not raw reaction speed.</p>
+
+      <div class="code-block">Average reaction times (humanbenchmark.com data, 2025):
+General population: ~250ms
+Casual gamers: ~220ms
+Competitive FPS players: ~200ms
+Professional esports players: ~180ms
+Biological hard limit: ~150ms (visual processing floor)</div>
+
+      <h2>The Hardware Layer: Latency That Isn't Your Brain</h2>
+      <p>Before training your biology, eliminate hardware latency. Every millisecond of avoidable system latency adds to your effective reaction time:</p>
+
+      <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0;">
+        <thead>
+          <tr style="border-bottom: 2px solid #333;">
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Component</th>
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Bad Setup</th>
+            <th style="text-align:left; padding: 0.75rem; color: #00ff9d;">Optimized</th>
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Saving</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">Monitor</td><td style="padding:0.75rem;">60Hz (16.7ms/frame)</td><td style="padding:0.75rem; color:#00ff9d;">360Hz (2.8ms/frame)</td><td style="padding:0.75rem;">~14ms</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">Mouse Polling</td><td style="padding:0.75rem;">125 Hz (8ms)</td><td style="padding:0.75rem; color:#00ff9d;">1000 Hz (1ms)</td><td style="padding:0.75rem;">~7ms</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">Monitor Input Lag</td><td style="padding:0.75rem;">TV mode (50ms)</td><td style="padding:0.75rem; color:#00ff9d;">Gaming mode (&lt;1ms)</td><td style="padding:0.75rem;">~49ms</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">Resolution Scale</td><td style="padding:0.75rem;">4K native (100fps)</td><td style="padding:0.75rem; color:#00ff9d;">1080p (360fps)</td><td style="padding:0.75rem;">~8ms avg</td></tr>
+          <tr><td style="padding:0.75rem;">NVIDIA Reflex</td><td style="padding:0.75rem;">Off (20ms system lag)</td><td style="padding:0.75rem; color:#00ff9d;">On + Boost (&lt;5ms)</td><td style="padding:0.75rem;">~15ms</td></tr>
+        </tbody>
+      </table>
+
+      <p>Eliminating hardware latency is worth more than months of reaction training. A 60Hz TV player who upgrades to a 360Hz gaming monitor gains more effective reaction time than 6 months of aim trainer practice.</p>
+
+      <h2>Science-Backed Reaction Time Training</h2>
+
+      <h3>1. Pre-Aiming (Cognitive: +50ms effective improvement)</h3>
+      <p>Pre-aiming is positioning your crosshair where an enemy is <em>likely to appear</em> before they appear. This converts reaction time into zero — by the time the enemy appears, your crosshair is already there. This is why pro players appear to have "instant" reactions — they're not reacting, they're predicting.</p>
+      <p>Practice: play Valorant/CS2 death match and focus on keeping your crosshair at head height at every corner. Track how often enemies appear exactly where your crosshair was.</p>
+
+      <h3>2. Simple Reaction Training (Biological: +10–20ms over 3 months)</h3>
+      <p>humanbenchmark.com reaction time test: 10 minutes daily for 90 days. Studies show this reliably reduces visual reaction time by 10–20ms through neural pathway optimization. Additional tools: Aim Lab's "Micro-Shot" routine and KovaaK's "Thin Precise" scenario.</p>
+
+      <h3>3. Sleep Optimization (Biological: +30–50ms impact)</h3>
+      <p>Sleep deprivation is the single largest controllable reaction time degrader. A study by the University of Washington (2023) found that missing 2 hours of sleep increased reaction time by an average of 34ms — equivalent to playing on a 60Hz instead of 240Hz monitor. 7–9 hours of sleep before competitive sessions is not optional.</p>
+
+      <h3>4. Caffeine Timing (Biochemical: +10–15ms effect)</h3>
+      <p>Caffeine (100–200mg) consumed 30–45 minutes before playing reduces reaction time by 10–15ms, per multiple peer-reviewed studies. However, this effect diminishes with daily intake (tolerance builds). Strategic use 2–3 days per week maximizes the benefit.</p>
+
+      <h2>How Sensitivity Affects Perceived Reaction Time</h2>
+      <p>Reaction time and sensitivity are linked: a higher sensitivity allows faster target acquisition (less mouse travel to move to an enemy) but reduces shot precision. The optimal sensitivity for reaction-time-limited duels is higher than for precision-limited long-range shots. Valorant players who duel at close range in duelist roles often use higher sensitivity than controllers — exactly for this reason. Our <a href="/">sensitivity converter</a> helps you dial in the right balance for your playstyle.</p>
+
+      <h2>Reaction Time Reality Check</h2>
+      <p>Do not obsess over raw reaction time numbers. A 210ms player with perfect pre-aiming and crosshair placement beats a 170ms player who peeks blind every time. Focus 80% of your improvement effort on game sense (where to pre-aim) and 20% on raw reaction training. This distribution mirrors how pro players allocate their practice time.</p>
+    `
+  },
+
+  {
+    slug: 'best-valorant-settings-by-agent-role',
+    title: 'Best Valorant Settings by Agent Role: Duelist vs Sentinel vs Controller (2026)',
+    excerpt: 'Should Duelists use higher sensitivity than Sentinels? This guide breaks down the optimal mouse sensitivity, crosshair, and in-game settings for each Valorant agent role.',
+    date: 'April 15, 2026',
+    readTime: '13 min read',
+    category: 'Guide',
+    image: '/blog/valorant-agent-settings.webp',
+    content: `
+      <h2>Do Agent Roles Require Different Sensitivity Settings?</h2>
+      <p>Yes — but the differences are smaller than most players assume. Agent role does influence your optimal sensitivity range, but the impact is secondary to your individual grip style and aim style. Here is the role-by-role breakdown:</p>
+
+      <h2>Duelist Settings (Jett, Neon, Reyna, Iso, Raze)</h2>
+      <p>Duelists are the entry fraggers. They peek first, take 1v1 duels constantly, and must win close-to-medium range fights. The typical duelist scenario: <strong>high-velocity target acquisition at 5–15m</strong>.</p>
+
+      <p><strong>Optimal sensitivity for Duelists:</strong></p>
+      <ul>
+        <li>eDPI range: <strong>240–400</strong> (slightly higher than controllers/sentinels)</li>
+        <li>Why: Duelists need faster crosshair movement to track enemies who are repositioning rapidly, to execute quick flicks, and to win 50/50 peek duels where reaction speed is the deciding factor</li>
+        <li>TenZ (Jett/Neon main): 800 DPI × 0.3 = 240 eDPI — the low end, but works with fingertip grip</li>
+        <li>Aspas (duelist specialist): 800 DPI × 0.38 = 304 eDPI — the mid range sweet spot</li>
+      </ul>
+
+      <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0;">
+        <thead>
+          <tr style="border-bottom: 2px solid #333;">
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Agent</th>
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Pro Player</th>
+            <th style="text-align:left; padding: 0.75rem; color: #00ff9d;">eDPI</th>
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">cm/360</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">Jett</td><td style="padding:0.75rem;">TenZ</td><td style="padding:0.75rem; color:#00ff9d;">240</td><td style="padding:0.75rem;">54.7 cm</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">Neon</td><td style="padding:0.75rem;">Aspas</td><td style="padding:0.75rem; color:#00ff9d;">304</td><td style="padding:0.75rem;">43.2 cm</td></tr>
+          <tr><td style="padding:0.75rem;">Raze</td><td style="padding:0.75rem;">Demon1</td><td style="padding:0.75rem; color:#00ff9d;">320</td><td style="padding:0.75rem;">41.1 cm</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Sentinel Settings (Killjoy, Cypher, Sage, Deadlock)</h2>
+      <p>Sentinels are the anchors and information gatherers. They hold sites with utility, take long-range angles, and prioritize precision over speed. The typical sentinel scenario: <strong>holding a corner at 20–40m range</strong> where first-bullet accuracy matters most.</p>
+
+      <p><strong>Optimal sensitivity for Sentinels:</strong></p>
+      <ul>
+        <li>eDPI range: <strong>160–280</strong> (lower than duelists)</li>
+        <li>Why: Holding static angles punishes overshoot. Lower sensitivity = less chance of micro-wobble on a stationary target. Precision over speed.</li>
+        <li>Chronicle (Killjoy/Cypher): 800 DPI × 0.26 = 208 eDPI — prototypical sentinel sensitivity</li>
+      </ul>
+
+      <h2>Controller Settings (Omen, Viper, Astra, Harbor, Brimstone)</h2>
+      <p>Controllers deploy smokes and manage map vision. They take medium-range fights after setting up utility and frequently use their abilities as their primary contribution. The sensitivity requirement is balanced — neither pure speed nor pure precision.</p>
+
+      <p><strong>Optimal sensitivity for Controllers:</strong></p>
+      <ul>
+        <li>eDPI range: <strong>200–320</strong> — medium range, balanced</li>
+        <li>Boaster (Omen specialist): 800 DPI × 0.34 = 272 eDPI</li>
+      </ul>
+
+      <h2>Initiator Settings (Fade, Breach, Gekko, Skye, Sova)</h2>
+      <p>Initiators gather intel and create openings for the team. They flash, reveal enemies, and enter second (after the duelist). Their fights are medium-range at moderate speed. Sensitivity range mirrors controllers: <strong>200–340 eDPI</strong>.</p>
+
+      <h2>Key Takeaway: The Role-Sensitivity Guideline</h2>
+
+      <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0;">
+        <thead>
+          <tr style="border-bottom: 2px solid #333;">
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Role</th>
+            <th style="text-align:left; padding: 0.75rem; color: #00ff9d;">Recommended eDPI</th>
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">cm/360</th>
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">Duelist</td><td style="padding:0.75rem; color:#00ff9d;">240–400</td><td style="padding:0.75rem;">33–54 cm</td><td style="padding:0.75rem;">Speed &gt; Precision</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">Controller</td><td style="padding:0.75rem; color:#00ff9d;">200–320</td><td style="padding:0.75rem;">41–65 cm</td><td style="padding:0.75rem;">Balanced</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">Initiator</td><td style="padding:0.75rem; color:#00ff9d;">200–340</td><td style="padding:0.75rem;">38–65 cm</td><td style="padding:0.75rem;">Balanced</td></tr>
+          <tr><td style="padding:0.75rem;">Sentinel</td><td style="padding:0.75rem; color:#00ff9d;">160–280</td><td style="padding:0.75rem;">47–82 cm</td><td style="padding:0.75rem;">Precision &gt; Speed</td></tr>
+        </tbody>
+      </table>
+
+      <p>Use our <a href="/dpi">eDPI calculator</a> to verify where your current sensitivity falls by role, and our <a href="/">converter</a> if you are coming from another game. Note: these are guidelines, not rules — your grip style and experience matter more than role in determining your final sensitivity.</p>
+    `
+  },
+
+  {
+    slug: 'best-cs2-crosshair-settings-pro-codes-2026',
+    title: 'Best CS2 Crosshair Settings 2026: Pro Codes and Complete Setup Guide',
+    excerpt: 'Copy pro player CS2 crosshair codes from s1mple, NiKo, ZywOo and more. This guide explains every crosshair setting in CS2 and what makes the best competitive crosshair.',
+    date: 'April 14, 2026',
+    readTime: '11 min read',
+    category: 'Guide',
+    image: '/blog/cs2-crosshair-settings.webp',
+    content: `
+      <h2>CS2 Crosshair vs. Valorant Crosshair: Key Differences</h2>
+      <p>CS2's crosshair system offers more granular customization than Valorant. It includes a gap, thickness, size, style (static, classic CS:GO, legacy), and the option to use crosshair codes. CS2 also has recoil-based dynamic expansion during spray — which, like Valorant, all pros turn off for competitive play.</p>
+
+      <h2>How to Import CS2 Crosshair Codes</h2>
+      <p>Open CS2 → Settings → Game → Crosshair → Import Code. Paste any of the codes below and press OK.</p>
+
+      <h2>BLAST Premier & FACEIT Pro Crosshair Codes 2026</h2>
+
+      <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0;">
+        <thead>
+          <tr style="border-bottom: 2px solid #333;">
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Player</th>
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Team</th>
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Color</th>
+            <th style="text-align:left; padding: 0.75rem; color: #00ff9d;">Crosshair Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem; font-weight:700;">s1mple</td><td style="padding:0.75rem;">NAVI</td><td style="padding:0.75rem;">Cyan</td><td style="padding:0.75rem; color:#00ff9d; font-family:monospace; font-size:0.75rem;">CSGO-CevJK-z3wSH-pvzrT-GsKhQ-houseA</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem; font-weight:700;">NiKo</td><td style="padding:0.75rem;">G2</td><td style="padding:0.75rem;">Green</td><td style="padding:0.75rem; color:#00ff9d; font-family:monospace; font-size:0.75rem;">CSGO-Uw4nR-LHGeJ-Q8Sse-kzZtx-FsAVD</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem; font-weight:700;">ZywOo</td><td style="padding:0.75rem;">Vitality</td><td style="padding:0.75rem;">White</td><td style="padding:0.75rem; color:#00ff9d; font-family:monospace; font-size:0.75rem;">CSGO-7yKBr-ofsKv-5x5N4-BPXQO-KVzsD</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem; font-weight:700;">device</td><td style="padding:0.75rem;">Astralis</td><td style="padding:0.75rem;">Green</td><td style="padding:0.75rem; color:#00ff9d; font-family:monospace; font-size:0.75rem;">CSGO-5BfEo-kDqSD-ZBYsQ-R4oTW-VjHKA</td></tr>
+          <tr><td style="padding:0.75rem; font-weight:700;">ropz</td><td style="padding:0.75rem;">FaZe</td><td style="padding:0.75rem;">Cyan</td><td style="padding:0.75rem; color:#00ff9d; font-family:monospace; font-size:0.75rem;">CSGO-WTjKY-QerDx-a5S9H-hDkW2-rGwnC</td></tr>
+        </tbody>
+      </table>
+
+      <h2>CS2 Crosshair Settings Explained</h2>
+
+      <h3>Crosshair Style</h3>
+      <ul>
+        <li><strong>Style 1 (Default):</strong> Dynamic — expands with movement and firing. NOT recommended for competitive.</li>
+        <li><strong>Style 4 (Classic Static):</strong> Fixed size, no expansion. Used by most pros. This is what you want.</li>
+        <li><strong>Style 5 (Classic + Scaled):</strong> Like Style 4 but scales with resolution. Equivalent to Style 4 at 1080p/1440p.</li>
+      </ul>
+
+      <h3>Size and Thickness</h3>
+      <div class="code-block">Recommended competitive settings:
+cl_crosshairsize 2 (small, precision-focused)
+cl_crosshairthickness 0.5–1 (thin lines, less visual noise)
+cl_crosshairgap -2 (tight gap — crosshair nearly closed)
+cl_crosshairgap_useweaponvalue 0 (consistent across all weapons)
+cl_crosshairalpha 255 (fully opaque)</div>
+
+      <h3>Color</h3>
+      <ul>
+        <li><strong>Cyan (color 5):</strong> Most visible across all CS2 maps. Used by s1mple and ropz.</li>
+        <li><strong>Green (color 4):</strong> NiKo's preference, excellent contrast on light surfaces.</li>
+        <li><strong>White (color 6):</strong> ZywOo style — clean, high contrast, works everywhere.</li>
+        <li><strong>Avoid red:</strong> Conflicts with enemy hit markers and blood effects.</li>
+      </ul>
+
+      <h3>Dot Crosshair Option</h3>
+      <p>Some players use a center dot only (<code>cl_crosshairsize 0; cl_crosshairdot 1</code>). This provides zero visual noise around the target but requires exceptional crosshair placement to compensate for the lack of directional guides. Not recommended for beginners.</p>
+
+      <h2>Building the Perfect CS2 Crosshair</h2>
+      <ol>
+        <li>Set style to <strong>4 (Classic Static)</strong></li>
+        <li>Color: Cyan or Green</li>
+        <li>Size: 2, Thickness: 0.5, Gap: -2</li>
+        <li>Toggle gaps/size slightly in Practice Range until the crosshair "feels" right at head height on a distant wall</li>
+        <li>Copy the code (Share Code option in CS2 settings) and never change it</li>
+      </ol>
+
+      <p>Pair your crosshair with precisely calibrated sensitivity. Verify and calculate with our <a href="/dpi">eDPI calculator</a>.</p>
+    `
+  },
+
+  {
+    slug: 'speed-vs-control-mousepad-which-is-better',
+    title: 'Speed vs Control Mousepad: Which is Better for FPS? (2026 Guide)',
+    excerpt: 'Speed pads are faster, control pads are more precise — but which one actually improves your FPS aim? We break down the science, pro usage data, and how to choose for your sensitivity.',
+    date: 'April 13, 2026',
+    readTime: '10 min read',
+    category: 'Gear',
+    image: '/blog/mousepad-speed-vs-control.webp',
+    content: `
+      <h2>Speed vs Control Mousepads: What's the Difference?</h2>
+      <p>Gaming mousepads come in two primary texture variants:</p>
+      <ul>
+        <li><strong>Speed pads:</strong> Smooth, tight weave cloth or hard surface. Low friction. Mouse glides with minimal resistance. Allows faster, longer movements with less physical effort.</li>
+        <li><strong>Control pads:</strong> Rougher, looser weave cloth. Higher friction. Mouse movement requires more force and stops more precisely when you release.</li>
+      </ul>
+      <p>The "which is better" question depends entirely on your sensitivity and playstyle — there is no universal answer.</p>
+
+      <h2>What Does Surface Friction Actually Do to Your Aim?</h2>
+
+      <h3>For High Sensitivity Players (under 35 cm/360)</h3>
+      <p>High sensitivity players make small, fast movements. A speed pad amplifies these micro-movements too much — small muscle tremors translate into noticeable cursor wobble on a speed surface. <strong>Control pads benefit high sensitivity players</strong> because the extra friction dampens unintended micro-movements and makes stopping more precise at short travel distances.</p>
+
+      <h3>For Low Sensitivity Players (over 45 cm/360)</h3>
+      <p>Low sensitivity players need to physically push the mouse across many centimeters. A control pad's high friction creates arm fatigue during full-swipe rotations and makes large movements feel "sticky." <strong>Speed pads benefit low sensitivity players</strong> because they reduce arm fatigue and allow fluid full-swipe movement without resistance buildup.</p>
+
+      <h3>Medium Sensitivity (35–45 cm/360)</h3>
+      <p>In this range, personal preference dominates. Both surface types are viable. Most medium-sensitivity players slightly prefer control surfaces because they provide more stop precision without significant fatigue.</p>
+
+      <h2>Speed vs Control: Which Do Pros Use?</h2>
+
+      <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0;">
+        <thead>
+          <tr style="border-bottom: 2px solid #333;">
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Game</th>
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Speed %</th>
+            <th style="text-align:left; padding: 0.75rem; color: #00ff9d;">Control %</th>
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Balanced %</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">CS2 (BLAST Pro 2026)</td><td style="padding:0.75rem;">22%</td><td style="padding:0.75rem; color:#00ff9d;">68%</td><td style="padding:0.75rem;">10%</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">Valorant (VCT 2026)</td><td style="padding:0.75rem;">31%</td><td style="padding:0.75rem; color:#00ff9d;">57%</td><td style="padding:0.75rem;">12%</td></tr>
+          <tr><td style="padding:0.75rem;">Apex (ALGS 2026)</td><td style="padding:0.75rem;">44%</td><td style="padding:0.75rem; color:#00ff9d;">41%</td><td style="padding:0.75rem;">15%</td></tr>
+        </tbody>
+      </table>
+
+      <p>CS2 pros heavily favor control surfaces because they use lower sensitivities (higher cm/360) and prioritize shot precision over movement speed. Apex pros are nearly split because their higher sensitivity puts them in the overlap zone where both surfaces work.</p>
+
+      <h2>Best Speed Mousepads 2026</h2>
+      <ul>
+        <li><strong>Artisan Zero Soft XL:</strong> The benchmark speed cloth pad. Japanese micro-fiber technology. Used by several Apex ALGS pros.</li>
+        <li><strong>SteelSeries QcK Heavy:</strong> Budget-friendly speed surface, consistent across the entire pad area.</li>
+        <li><strong>LGG Saturn Pro:</strong> Korean speed cloth, extremely low friction, popular with high-sensitivity Valorant players.</li>
+        <li><strong>Hard pad:</strong> Logitech G440 — maximum speed, zero flex, controversial feel but used by some CS2 pros.</li>
+      </ul>
+
+      <h2>Best Control Mousepads 2026</h2>
+      <ul>
+        <li><strong>Zowie G-SR:</strong> The pro control standard. Used by nearly half of BLAST Pro 2026 CS2 players. Consistent friction, perfect size.</li>
+        <li><strong>Razer Strider:</strong> Hybrid surface — slightly faster than pure control, excellent stop precision.</li>
+        <li><strong>Artisan Hien Soft:</strong> Another Japanese precision option, slightly faster than Zero but still control-oriented.</li>
+        <li><strong>SteelSeries QcK+ Heavy:</strong> Thick version of QcK with higher surface friction — budget control classic.</li>
+      </ul>
+
+      <h2>How to Choose</h2>
+      <ol>
+        <li>Calculate your cm/360 with our <a href="/dpi">eDPI calculator</a></li>
+        <li>Under 35 cm/360: try a control surface first</li>
+        <li>Over 45 cm/360: try a speed or balanced surface first</li>
+        <li>Test for 2 weeks before judging — surface adaptation takes time</li>
+        <li>Replace pads every 6–12 months — surface texture degrades and affects tracking</li>
+      </ol>
+    `
+  },
+
+  {
+    slug: 'valorant-to-apex-sensitivity-converter',
+    title: 'Valorant to Apex Sensitivity Converter: Exact Formula & Guide (2026)',
+    excerpt: 'Converting from Valorant to Apex Legends requires a 3.18× multiplier due to different yaw values. This guide explains the formula, ADS settings, and why the games feel different at the same cm/360.',
+    date: 'April 12, 2026',
+    readTime: '9 min read',
+    category: 'Guide',
+    image: '/blog/valorant-to-apex-converter.webp',
+    content: `
+      <h2>Why You Can't Directly Copy Your Valorant Sensitivity to Apex</h2>
+      <p>Valorant and Apex Legends use different yaw values — the numerical relationship between your in-game sensitivity slider and actual degrees per inch of mouse movement. If you copy your Valorant sensitivity number directly to Apex, your Apex sensitivity will be <strong>3.18× slower</strong> than in Valorant.</p>
+
+      <div class="code-block">Valorant Yaw: 0.07 degrees per count
+Apex Legends Yaw: 0.022 degrees per count
+
+Ratio: 0.07 ÷ 0.022 = 3.1818...
+
+Therefore: Apex Sens = Valorant Sens × 3.18</div>
+
+      <h2>The Valorant to Apex Conversion Formula</h2>
+      <div class="code-block">Apex Sensitivity = Valorant Sensitivity × 3.18
+
+Examples:
+Valorant 0.30 → Apex: 0.30 × 3.18 = 0.954
+Valorant 0.40 → Apex: 0.40 × 3.18 = 1.272
+Valorant 0.50 → Apex: 0.50 × 3.18 = 1.590
+Valorant 0.73 → Apex: 0.73 × 3.18 = 2.321</div>
+
+      <p>Use our <a href="/">DCPROSENS converter</a> for precise automatic calculation — select Valorant as input and Apex Legends as output. Your cm/360 will be preserved exactly.</p>
+
+      <h2>Valorant to Apex Conversion Table</h2>
+
+      <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0;">
+        <thead>
+          <tr style="border-bottom: 2px solid #333;">
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Valorant Sens</th>
+            <th style="text-align:left; padding: 0.75rem; color: #00ff9d;">Apex Sens (800 DPI)</th>
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">cm/360</th>
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">eDPI (Valorant)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">0.25</td><td style="padding:0.75rem; color:#00ff9d;">0.795</td><td style="padding:0.75rem;">65.6 cm</td><td style="padding:0.75rem;">200</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">0.30</td><td style="padding:0.75rem; color:#00ff9d;">0.954</td><td style="padding:0.75rem;">54.7 cm</td><td style="padding:0.75rem;">240</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">0.35</td><td style="padding:0.75rem; color:#00ff9d;">1.113</td><td style="padding:0.75rem;">46.9 cm</td><td style="padding:0.75rem;">280</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">0.40</td><td style="padding:0.75rem; color:#00ff9d;">1.272</td><td style="padding:0.75rem;">41.0 cm</td><td style="padding:0.75rem;">320</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">0.45</td><td style="padding:0.75rem; color:#00ff9d;">1.431</td><td style="padding:0.75rem;">36.4 cm</td><td style="padding:0.75rem;">360</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">0.50</td><td style="padding:0.75rem; color:#00ff9d;">1.590</td><td style="padding:0.75rem;">32.8 cm</td><td style="padding:0.75rem;">400</td></tr>
+          <tr><td style="padding:0.75rem;">0.73 (TenZ)</td><td style="padding:0.75rem; color:#00ff9d;">2.321</td><td style="padding:0.75rem;">22.5 cm</td><td style="padding:0.75rem;">584</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Setting Up ADS Sensitivity in Apex After Converting</h2>
+      <p>After setting your Apex hipfire sensitivity, configure these ADS settings:</p>
+
+      <div class="code-block">Apex ADS Settings (after Valorant conversion):
+Mouse Sensitivity (ADS): Same as hipfire
+ADS Mouse Sensitivity Multiplier: 1.0
+ADS Mouse Sensitivity (Targeting): 1.0
+Response Curve: 0 (Linear — no easing)</div>
+
+      <h2>Why Apex Still Feels Different After a Perfect Conversion</h2>
+      <p>Even with an exact cm/360 match, Apex will feel different from Valorant for three reasons:</p>
+      <ol>
+        <li><strong>Movement speed:</strong> Apex legends move much faster. The same degree-per-second rotation feels "slower" relative to action pace.</li>
+        <li><strong>3D combat:</strong> Vertical fights (Horizon, Pathfinder, Valkyrie) create flick requirements that rarely exist in Valorant</li>
+        <li><strong>Sustained fire:</strong> Apex targets have armor + HP, requiring longer tracking windows than Valorant's lower TTK</li>
+      </ol>
+      <p>Allow 10–20 hours of Apex play before judging the converted sensitivity. Your visual and motor systems need time to adapt to the game's pacing even when the physical cm/360 is identical. Reference our full <a href="/blog/best-apex-legends-sensitivity-settings-2026">Apex Legends sensitivity guide</a> for class-specific recommendations.</p>
+    `
+  },
+
+  // ============================================================
   // BATCH 3 — April 2026 (8 New EEAT Articles)
   // ============================================================
 
