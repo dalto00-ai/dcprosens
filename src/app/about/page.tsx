@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "About Us | DCPROSENS",
+    title: "About Us",
     description: "Learn about DCPROSENS, the ultimate sensitivity converter and DPI calculator for competitive gamers built by gamers.",
+    alternates: {
+        canonical: "https://dcprosens.com/about",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
 };
 
 export default function AboutPage() {

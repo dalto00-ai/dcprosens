@@ -25,9 +25,12 @@ export default function VoiceSearch() {
         recognition.onresult = (event: any) => {
             const text = event.results[0][0].transcript;
             setTranscript(text);
-            // In a real app, implementation would trigger search/action here
-            console.log('Voice Command:', text);
-            window.open(`https://www.google.com/search?q=site:dcprosens.com+${text}`, '_blank');
+            // Safely encode user input before appending to URL
+            window.open(
+                `https://www.google.com/search?q=site:dcprosens.com+${encodeURIComponent(text)}`,
+                '_blank',
+                'noopener,noreferrer'
+            );
         };
 
         recognition.start();
@@ -38,11 +41,16 @@ export default function VoiceSearch() {
             <button
                 className={`${styles.micButton} ${isListening ? styles.active : ''}`}
                 onClick={startListening}
+                aria-label={isListening ? 'Stop voice search' : 'Start voice search'}
                 title="Voice Search"
             >
                 {isListening ? '🎤 Listening...' : '🎤 Voice Search'}
             </button>
-            {transcript && <p className={styles.transcript}>Did you say: "{transcript}"?</p>}
+            {transcript && (
+                <p className={styles.transcript} aria-live="polite">
+                    Did you say: &quot;{transcript}&quot;?
+                </p>
+            )}
         </div>
     );
 }

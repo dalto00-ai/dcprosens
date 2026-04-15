@@ -15,12 +15,14 @@ export default function ProSettings() {
         <div className={styles.container}>
             <div className={styles.header}>
                 <h2 className={styles.title}>Pro Player Settings Database</h2>
-                <div className={styles.filters}>
+                <div className={styles.filters} role="group" aria-label="Filter by game">
                     {['All', 'Valorant', 'CS2', 'LoL'].map(game => (
                         <button
                             key={game}
                             onClick={() => setFilterGame(game)}
                             className={`${styles.filterBtn} ${filterGame === game ? styles.active : ''}`}
+                            aria-label={`Filter by ${game}`}
+                            aria-pressed={filterGame === game}
                         >
                             {game}
                         </button>
@@ -42,8 +44,8 @@ export default function ProSettings() {
                         </tr>
                     </thead>
                     <tbody>
-                        {filteredPros.map((p, i) => (
-                            <tr key={i}>
+                        {filteredPros.map((p) => (
+                            <tr key={`${p.name}-${p.game}`}>
                                 <td className={styles.playerName}>{p.name}</td>
                                 <td>{p.game}</td>
                                 <td>{p.team}</td>

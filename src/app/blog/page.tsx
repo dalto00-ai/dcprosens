@@ -1,17 +1,31 @@
 import type { Metadata } from "next";
 import Link from 'next/link';
 import { posts } from '@/lib/posts';
-import styles from '@/components/Converter.module.css';
+import blogStyles from './blog.module.css';
 
 export const metadata: Metadata = {
-    title: "Gaming Blog | DCPROSENS — Sensitivity Guides & Gear Reviews",
+    title: "Gaming Blog",
     description: "Expert guides on mouse sensitivity conversion, eDPI, cm/360, DPI settings, and the best gaming gear. Level up your aim with DCPROSENS.",
+    alternates: {
+        canonical: "https://dcprosens.com/blog",
+    },
     openGraph: {
-        title: "Gaming Blog | DCPROSENS",
+        title: "Gaming Blog | DCPROSENS — Sensitivity Guides & Gear Reviews",
         description: "Expert guides on sensitivity conversion, eDPI, and gaming gear.",
         type: "website",
+        url: "https://dcprosens.com/blog",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Gaming Blog | DCPROSENS",
+        description: "Expert guides on sensitivity conversion, eDPI, and gaming gear.",
     },
 };
+
+// Sort posts by date (most recent first)
+const sortedPosts = [...posts].sort((a, b) => {
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+});
 
 export default function BlogIndex() {
     return (
@@ -35,71 +49,29 @@ export default function BlogIndex() {
                 Master your hardware, optimize your settings, and learn the math behind the aim.
             </p>
 
-            <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                gap: '2rem'
-            }}>
-                {posts.map(post => (
+            <div className={blogStyles.grid}>
+                {sortedPosts.map(post => (
                     <Link href={`/blog/${post.slug}`} key={post.slug} style={{ display: 'block', height: '100%' }}>
-                        <div style={{
-                            background: 'var(--bg-card)',
-                            border: '1px solid var(--border-color)',
-                            borderRadius: 'var(--radius-lg)',
-                            padding: '2rem',
-                            height: '100%',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            transition: 'transform 0.2s, border-color 0.2s',
-                        }}
-                            className="hover-card"
-                        >
-                            <div style={{
-                                display: 'inline-block',
-                                background: 'rgba(239, 68, 68, 0.1)',
-                                color: 'var(--primary)',
-                                padding: '0.2rem 0.6rem',
-                                borderRadius: '4px',
-                                fontSize: '0.75rem',
-                                fontWeight: '600',
-                                marginBottom: '1rem',
-                                width: 'fit-content'
-                            }}>
+                        <div className={blogStyles.card}>
+                            <div className={blogStyles.category}>
                                 {post.category ? post.category.toUpperCase() : 'GUIDE'}
                             </div>
-                            <div style={{ marginBottom: '1rem', fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: 500 }}>
+                            <div className={blogStyles.meta}>
                                 {post.readTime} • {post.date}
                             </div>
-                            <h2 style={{
-                                fontSize: '1.5rem',
-                                marginBottom: '1rem',
-                                lineHeight: 1.3,
-                                color: 'var(--text-primary)'
-                            }}>
+                            <h2 className={blogStyles.title}>
                                 {post.title}
                             </h2>
-                            <p style={{
-                                color: 'var(--text-muted)',
-                                lineHeight: 1.6,
-                                flex: 1,
-                                marginBottom: '1.5rem'
-                            }}>
+                            <p className={blogStyles.excerpt}>
                                 {post.excerpt}
                             </p>
-                            <div style={{ color: 'var(--text-secondary)', fontWeight: 500, fontSize: '0.9rem' }}>
+                            <div className={blogStyles.readMore}>
                                 Read Article →
                             </div>
                         </div>
                     </Link>
                 ))}
             </div>
-
-            <style>{`
-        .hover-card:hover {
-          transform: translateY(-5px);
-          border-color: var(--primary) !important;
-        }
-      `}</style>
         </div>
     );
 }

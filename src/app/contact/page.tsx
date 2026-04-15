@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Contact Us | DCPROSENS",
+    title: "Contact Us",
     description: "Get in touch with the DCPROSENS team for support, bug reports, or feature suggestions.",
+    alternates: {
+        canonical: "https://dcprosens.com/contact",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
 };
 
 export default function ContactPage() {
@@ -11,7 +18,7 @@ export default function ContactPage() {
             <h1 style={{ marginBottom: '2rem' }}>Contact Us</h1>
             <div style={{ color: 'var(--text-secondary)', lineHeight: 1.8 }}>
                 <p style={{ marginBottom: '2rem' }}>
-                    Have a suggestion, found a bug, or just want to verify a game calculation? We'd love to hear from you.
+                    Have a suggestion, found a bug, or just want to verify a game calculation? We&apos;d love to hear from you.
                 </p>
 
                 <div style={{

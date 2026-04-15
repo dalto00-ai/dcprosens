@@ -3,10 +3,14 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import SEOImage from '@/components/SEOImage';
+import '../prose.css';
 
 interface Props {
     params: Promise<{ slug: string }>;
 }
+
+// Prevent dynamic rendering for unknown slugs — return 404 immediately
+export const dynamicParams = false;
 
 // 1. Generate Static Params for SSG/Export
 export async function generateStaticParams() {
@@ -27,21 +31,32 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
 
     return {
-        title: `${post.title} | DCPROSENS`,
+        title: post.title,
         description: post.excerpt,
+        alternates: {
+            canonical: `https://dcprosens.com/blog/${post.slug}`,
+        },
         openGraph: {
             title: post.title,
             description: post.excerpt,
             type: 'article',
             publishedTime: post.date,
+            url: `https://dcprosens.com/blog/${post.slug}`,
+            siteName: 'DCPROSENS',
             images: [
                 {
-                    url: post.image,
+                    url: `https://dcprosens.com${post.image}`,
                     width: 1200,
                     height: 630,
                     alt: post.title,
                 }
             ],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: post.title,
+            description: post.excerpt,
+            images: [`https://dcprosens.com${post.image}`],
         },
     };
 }
@@ -65,9 +80,11 @@ export default async function BlogPost({ params }: Props) {
                 description: post.excerpt,
                 image: `https://dcprosens.com${post.image}`,
                 datePublished: post.date,
+                url: `https://dcprosens.com/blog/${post.slug}`,
                 author: {
                     '@type': 'Organization',
-                    name: 'DCPROSENS'
+                    name: 'DCPROSENS',
+                    url: 'https://dcprosens.com',
                 }
             },
             {
@@ -144,44 +161,6 @@ export default async function BlogPost({ params }: Props) {
                     fontSize: '1.1rem'
                 }}
             />
-
-            <style>{`
-        .prose h2 {
-          color: var(--text-primary);
-          font-size: 2rem;
-          margin-top: 3rem;
-          margin-bottom: 1.5rem;
-          font-weight: 700;
-        }
-        .prose h3 {
-          color: var(--text-primary);
-          font-size: 1.5rem;
-          margin-top: 2.5rem;
-          margin-bottom: 1rem;
-          font-weight: 600;
-        }
-        .prose p {
-          margin-bottom: 1.5rem;
-        }
-        .prose ul, .prose ol {
-          margin-bottom: 1.5rem;
-          padding-left: 2rem;
-        }
-        .prose li {
-          margin-bottom: 0.5rem;
-        }
-        .prose strong {
-          color: var(--white);
-          font-weight: 600;
-        }
-        .prose code {
-          background: rgba(255, 255, 255, 0.1);
-          padding: 0.2rem 0.4rem;
-          border-radius: 4px;
-          font-family: monospace;
-          color: var(--primary);
-        }
-      `}</style>
         </article>
     );
 }

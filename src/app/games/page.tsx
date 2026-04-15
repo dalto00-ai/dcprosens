@@ -1,10 +1,22 @@
 import { games } from '@/lib/games';
-import styles from '@/components/Converter.module.css';
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Supported Games | DCPROSENS",
-    description: "List of all supported games for sensitivity conversion including Valorant, CS2, Overwatch 2, and more.",
+    title: "Supported Games",
+    description: "List of all supported games for sensitivity conversion including Valorant, CS2, Overwatch 2, Apex Legends and more. Full yaw values for precision conversion.",
+    alternates: {
+        canonical: "https://dcprosens.com/games",
+    },
+    openGraph: {
+        title: "Supported Games | DCPROSENS",
+        description: "All games supported by our sensitivity converter: Valorant, CS2, Overwatch 2, Apex Legends and more.",
+        type: "website",
+        url: "https://dcprosens.com/games",
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
 };
 
 export default function GamesPage() {

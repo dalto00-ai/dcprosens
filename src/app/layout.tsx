@@ -13,8 +13,67 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "DCPROSENS | Ultimate Sensitivity Converter & DPI Tool",
-  description: "The world's best sensitivity converter and gaming utility tool for competitive gamers. Convert sensitivity between Valorant, CS2, Apex Legends, Overwatch and more.",
+  metadataBase: new URL("https://dcprosens.com"),
+  title: {
+    default: "DCPROSENS | Ultimate Sensitivity Converter & DPI Tool",
+    template: "%s | DCPROSENS",
+  },
+  description:
+    "The world's best sensitivity converter and gaming utility tool for competitive gamers. Convert sensitivity between Valorant, CS2, Apex Legends, Overwatch and more.",
+  keywords: [
+    "sensitivity converter",
+    "gaming sensitivity",
+    "valorant sensitivity",
+    "cs2 sensitivity",
+    "eDPI calculator",
+    "DPI calculator",
+    "cm/360",
+    "mouse sensitivity",
+    "apex legends sensitivity",
+    "overwatch sensitivity",
+  ],
+  authors: [{ name: "DCPROSENS" }],
+  creator: "DCPROSENS",
+  publisher: "DCPROSENS",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://dcprosens.com",
+    siteName: "DCPROSENS",
+    title: "DCPROSENS | Ultimate Sensitivity Converter & DPI Tool",
+    description:
+      "Convert sensitivity between Valorant, CS2, Apex Legends, Overwatch and more. Calculate eDPI and cm/360 instantly.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "DCPROSENS - Ultimate Sensitivity Converter",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DCPROSENS | Ultimate Sensitivity Converter & DPI Tool",
+    description:
+      "Convert sensitivity between Valorant, CS2, Apex Legends, Overwatch and more.",
+    images: ["/og-image.png"],
+    creator: "@dcprosens",
+  },
+  alternates: {
+    canonical: "https://dcprosens.com",
+  },
   other: {
     "geo.region": "US",
     "geo.placename": "United States",
@@ -35,15 +94,13 @@ export default function RootLayout({
             src="https://www.googletagmanager.com/ns.html?id=GTM-PLJ3LS29"
             height="0"
             width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
+            style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
 
         <div className="app-wrapper">
           <Navbar />
-          <main className="main-content">
-            {children}
-          </main>
+          <main className="main-content">{children}</main>
           <Footer />
         </div>
 

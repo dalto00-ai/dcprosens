@@ -5,3 +5,5 @@ npm-debug.log
 README.md
 .next
 .git
+# Exclude raw PNG files — only WebP versions are used in production
+public/blog/*.png
