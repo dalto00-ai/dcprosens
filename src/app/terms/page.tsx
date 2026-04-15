@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Terms of Service | DCPROSENS",
+    description: "Read the Terms of Service for DCPROSENS. Understand your rights and obligations when using our sensitivity converter and gaming tools.",
+};
+
 export default function TermsPage() {
     return (
         <div className="container" style={{ padding: '4rem 0', maxWidth: '800px' }}>

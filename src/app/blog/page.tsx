@@ -1,6 +1,17 @@
+import type { Metadata } from "next";
 import Link from 'next/link';
 import { posts } from '@/lib/posts';
 import styles from '@/components/Converter.module.css';
+
+export const metadata: Metadata = {
+    title: "Gaming Blog | DCPROSENS — Sensitivity Guides & Gear Reviews",
+    description: "Expert guides on mouse sensitivity conversion, eDPI, cm/360, DPI settings, and the best gaming gear. Level up your aim with DCPROSENS.",
+    openGraph: {
+        title: "Gaming Blog | DCPROSENS",
+        description: "Expert guides on sensitivity conversion, eDPI, and gaming gear.",
+        type: "website",
+    },
+};
 
 export default function BlogIndex() {
     return (
