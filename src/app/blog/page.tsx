@@ -4,21 +4,21 @@ import { posts } from '@/lib/posts';
 import blogStyles from './blog.module.css';
 
 export const metadata: Metadata = {
-    title: "Gaming Blog",
-    description: "Expert guides on mouse sensitivity conversion, eDPI, cm/360, DPI settings, and the best gaming gear. Level up your aim with DCPROSENS.",
+    title: "Gaming Sensitivity & Aim Guides — Blog | DCPROSENS",
+    description: "Step-by-step guides on mouse sensitivity conversion, eDPI, cm/360, DPI settings, and top gaming gear reviews for Valorant, CS2, Apex & more.",
     alternates: {
         canonical: "https://dcprosens.com/blog",
     },
     openGraph: {
-        title: "Gaming Blog | DCPROSENS — Sensitivity Guides & Gear Reviews",
-        description: "Expert guides on sensitivity conversion, eDPI, and gaming gear.",
+        title: "Gaming Sensitivity & Aim Guides — Blog | DCPROSENS",
+        description: "Step-by-step guides on sensitivity conversion, eDPI, and gaming gear for Valorant, CS2 and Apex.",
         type: "website",
         url: "https://dcprosens.com/blog",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Gaming Blog | DCPROSENS",
-        description: "Expert guides on sensitivity conversion, eDPI, and gaming gear.",
+        title: "Gaming Sensitivity Guides — Blog | DCPROSENS",
+        description: "Sensitivity conversion guides, eDPI calculator tips, and gear reviews.",
     },
 };
 
@@ -28,15 +28,40 @@ const sortedPosts = [...posts].sort((a, b) => {
 });
 
 export default function BlogIndex() {
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "DCPROSENS Gaming Blog",
+        "url": "https://dcprosens.com/blog",
+        "description": "Expert guides on mouse sensitivity conversion, eDPI, cm/360, DPI and gaming gear.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "DCPROSENS",
+            "url": "https://dcprosens.com",
+        },
+        "blogPost": sortedPosts.slice(0, 5).map((post) => ({
+            "@type": "BlogPosting",
+            "headline": post.title,
+            "description": post.excerpt,
+            "url": `https://dcprosens.com/blog/${post.slug}`,
+            "datePublished": post.date,
+            "image": `https://dcprosens.com${post.image}`,
+        })),
+    };
+
     return (
         <div className="container" style={{ padding: '4rem 0' }}>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <h1 style={{
                 fontSize: '3rem',
                 fontWeight: 700,
                 marginBottom: '1rem',
                 textAlign: 'center'
             }}>
-                Gaming <span className="text-gradient">Insights</span>
+                Gaming <span className="text-gradient">Sensitivity Guides</span>
             </h1>
             <p style={{
                 textAlign: 'center',
@@ -46,7 +71,7 @@ export default function BlogIndex() {
                 marginLeft: 'auto',
                 marginRight: 'auto'
             }}>
-                Master your hardware, optimize your settings, and learn the math behind the aim.
+                Master sensitivity conversion, eDPI, cm/360 and gaming gear. Expert guides for Valorant, CS2, Apex Legends and more.
             </p>
 
             <div className={blogStyles.grid}>
