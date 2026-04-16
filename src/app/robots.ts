@@ -8,6 +8,10 @@ export default function robots(): MetadataRoute.Robots {
                 userAgent: [
                     '*',
                     'Googlebot',
+                    'Googlebot-News',         // ✅ Google News crawler
+                    'Googlebot-Image',        // ✅ Google Images crawler
+                    'Googlebot-Video',        // ✅ Google Video / Stories crawler
+                    'Storybot',               // ✅ Web Stories indexer
                     'Bingbot',
                     'Slurp',
                     'DuckDuckBot',
@@ -43,7 +47,12 @@ export default function robots(): MetadataRoute.Robots {
                 disallow: '/',
             },
         ],
-        sitemap: 'https://dcprosens.com/sitemap.xml',
+        // ✅ Multiple sitemaps declared for Google to discover all specialized feeds
+        sitemap: [
+            'https://dcprosens.com/sitemap.xml',
+            'https://dcprosens.com/image-sitemap.xml',
+            'https://dcprosens.com/news-sitemap.xml',
+        ],
         host: 'https://dcprosens.com',
     };
 }

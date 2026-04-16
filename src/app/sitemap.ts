@@ -28,11 +28,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/contact',
         '/privacy',
         '/terms',
+        '/web-stories',
     ].map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date(),
         changeFrequency: 'monthly' as const,
-        priority: route === '' ? 1 : 0.6,
+        priority: route === '' ? 1 : route === '/web-stories' ? 0.75 : 0.6,
     }));
 
     return [
@@ -41,3 +42,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ...webStories,
     ];
 }
+

@@ -70,47 +70,89 @@ export default async function BlogPost({ params }: Props) {
         notFound();
     }
 
-    // JSON-LD Structured Data
+    // JSON-LD Structured Data — NewsArticle + ImageObject + BreadcrumbList
+    const canonicalUrl = `https://dcprosens.com/blog/${post.slug}`;
+    const imageUrl = `https://dcprosens.com${post.image}`;
+    const publishDate = new Date(post.date).toISOString();
+
     const jsonLd = {
         '@context': 'https://schema.org',
         '@graph': [
             {
-                '@type': 'BlogPosting',
+                // ✅ NewsArticle — required for Google News indexing
+                '@type': 'NewsArticle',
+                '@id': `${canonicalUrl}#article`,
                 headline: post.title,
                 description: post.excerpt,
-                image: `https://dcprosens.com${post.image}`,
-                datePublished: post.date,
-                url: `https://dcprosens.com/blog/${post.slug}`,
+                articleBody: post.excerpt,
+                url: canonicalUrl,
+                datePublished: publishDate,
+                dateModified: publishDate,
+                inLanguage: 'en-US',
+                isAccessibleForFree: true,
                 author: {
                     '@type': 'Organization',
+                    '@id': 'https://dcprosens.com#organization',
                     name: 'DCPROSENS',
                     url: 'https://dcprosens.com',
-                }
+                    logo: {
+                        '@type': 'ImageObject',
+                        url: 'https://dcprosens.com/logo.png',
+                        width: 200,
+                        height: 60,
+                    },
+                },
+                publisher: {
+                    '@type': 'Organization',
+                    '@id': 'https://dcprosens.com#organization',
+                    name: 'DCPROSENS',
+                    url: 'https://dcprosens.com',
+                    logo: {
+                        '@type': 'ImageObject',
+                        url: 'https://dcprosens.com/logo.png',
+                        width: 200,
+                        height: 60,
+                    },
+                },
+                // ✅ ImageObject — required for Google Images rich results
+                image: {
+                    '@type': 'ImageObject',
+                    '@id': `${canonicalUrl}#primaryimage`,
+                    url: imageUrl,
+                    contentUrl: imageUrl,
+                    width: 1200,
+                    height: 630,
+                    caption: post.title,
+                    name: post.title,
+                    description: post.excerpt,
+                    inLanguage: 'en-US',
+                    representativeOfPage: true,
+                    license: 'https://dcprosens.com/terms',
+                    acquireLicensePage: 'https://dcprosens.com/contact',
+                },
+                mainEntityOfPage: {
+                    '@type': 'WebPage',
+                    '@id': canonicalUrl,
+                },
+                articleSection: post.category ?? 'Gaming',
+                keywords: [
+                    'gaming sensitivity',
+                    'fps settings',
+                    'pro player settings',
+                    post.category ?? 'gaming',
+                    ...post.slug.split('-').filter((w) => w.length > 4),
+                ].join(', '),
             },
             {
+                // ✅ BreadcrumbList — navigational schema
                 '@type': 'BreadcrumbList',
                 itemListElement: [
-                    {
-                        '@type': 'ListItem',
-                        position: 1,
-                        name: 'Home',
-                        item: 'https://dcprosens.com'
-                    },
-                    {
-                        '@type': 'ListItem',
-                        position: 2,
-                        name: 'Blog',
-                        item: 'https://dcprosens.com/blog'
-                    },
-                    {
-                        '@type': 'ListItem',
-                        position: 3,
-                        name: post.title,
-                        item: `https://dcprosens.com/blog/${post.slug}`
-                    }
-                ]
-            }
-        ]
+                    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://dcprosens.com' },
+                    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://dcprosens.com/blog' },
+                    { '@type': 'ListItem', position: 3, name: post.title, item: canonicalUrl },
+                ],
+            },
+        ],
     };
 
     return (
