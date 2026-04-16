@@ -1,6 +1,10 @@
 import { posts } from '@/lib/posts';
 import { stories } from '@/lib/stories';
 
+// Required for Next.js 15 App Router — route handler with dynamic data
+export const dynamic = 'force-static';
+export const revalidate = 86400; // Revalidate daily
+
 const BASE_URL = 'https://dcprosens.com';
 
 export async function GET() {

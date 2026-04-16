@@ -7,11 +7,6 @@ const PUBLICATION_LANGUAGE = 'en';
 export const dynamic = 'force-dynamic';
 
 export async function GET() {
-  // Google News only indexes articles published in the last 48 hours for "breaking news"
-  // We include the last 30 days to stay in News for evergreen topics
-  const now = new Date();
-  const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
-
   // Sort by date descending — most recent first
   const sortedPosts = [...posts].sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();

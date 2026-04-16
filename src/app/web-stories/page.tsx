@@ -175,10 +175,9 @@ export default function WebStoriesIndex() {
 
                                 {/* Text Content */}
                                 <div style={{
-                                    position: 'relative',
+                                    position: 'absolute',
                                     zIndex: 1,
                                     padding: '1.25rem',
-                                    position: 'absolute',
                                     bottom: 0,
                                     left: 0,
                                     right: 0,
