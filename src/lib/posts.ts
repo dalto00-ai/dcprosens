@@ -12,6 +12,560 @@ export interface BlogPost {
 export const posts: BlogPost[] = [
 
   // ============================================================
+  // BATCH 7 — April 2026 (8 New EEAT Articles)
+  // ============================================================
+
+  {
+    slug: 'overwatch-2-best-sensitivity-settings-2026',
+    title: 'Overwatch 2 Best Sensitivity Settings 2026: DPI Guide for Every Role',
+    excerpt: 'Overwatch 2 uses a unique sensitivity scale different to CS2 and Valorant. This guide covers the optimal eDPI for DPS, Support, and Tank roles, plus converter formulas for every major FPS game.',
+    date: 'April 25, 2026',
+    readTime: '11 min read',
+    category: 'Guide',
+    image: '/blog/overwatch2-sens-2026.webp',
+    content: `
+      <h2>Overwatch 2 Sensitivity System Explained</h2>
+      <p>Overwatch 2 uses a sensitivity slider that scales differently from CS2 and Valorant. Its effective yaw value at default settings (sensitivity 4.00 at 800 DPI) is approximately <strong>0.0066 degrees per count</strong> — the same baseline as many modern FPS titles. However, OW2 adds hero-specific scoped sensitivity multipliers for heroes with built-in scopes (Widowmaker, Ashe, Ana, Hanzo).</p>
+
+      <div class="code-block">Overwatch 2 Key Values:
+Hipfire Yaw (sensitivity 3.00, 800 DPI): 0.0066 approx
+cm/360 at sens 3.00, 800 DPI: ~36 cm
+
+OW2 → Valorant: OW2Sens ÷ 10.6 (approximate)
+OW2 → CS2: OW2Sens ÷ 3.33 (approximate)
+Valorant → OW2: ValSens × 10.6
+CS2 → OW2: CS2Sens × 3.33</div>
+
+      <h2>Best Sensitivity by Role in OW2</h2>
+
+      <h3>DPS / Hitscan (Soldier:76, Tracer, Cassidy, Sojourn)</h3>
+      <p>Hitscan DPS heroes require fast crosshair movement to track highly mobile targets (Tracer, Genji, Lucio). They also demand flick precision for headshots at medium range. Recommended sensitivity:</p>
+      <ul>
+        <li><strong>eDPI equivalent: 400–700</strong> (OW2 slider: 3.5–6.0 at 800 DPI)</li>
+        <li>Tracer players often use higher sensitivity (6.0+) to facilitate 180° repositions mid-blink</li>
+        <li>Soldier:76 and Cassidy players favor lower sensitivity (3.5–4.5) for controlled burst fire accuracy</li>
+      </ul>
+
+      <h3>Projectile DPS (Pharah, Echo, Junkrat, Mei)</h3>
+      <p>Projectile heroes lead their shots — the crosshair must move ahead of moving targets. This requires medium sensitivity for smooth leading motions:</p>
+      <ul>
+        <li><strong>eDPI equivalent: 350–600</strong> (OW2 slider: 3.0–5.0 at 800 DPI)</li>
+        <li>Pharah specifically benefits from very smooth vertical tracking — lower sensitivity helps</li>
+      </ul>
+
+      <h3>Tank (Reinhardt, Orisa, Ramattra, D.Va, Winston)</h3>
+      <p>Tanks require less precision aim but need fast awareness pivots (especially Winston and D.Va). Medium sensitivity:</p>
+      <ul>
+        <li><strong>eDPI equivalent: 400–800</strong> — wider range because tank aim is less precision-critical</li>
+        <li>Winston and D.Va: slightly higher (5.0–7.0) for dive mobility and leaping repositions</li>
+        <li>Shield tanks (Reinhardt): lower (3.0–4.5) — nearly all their input is positioning, not aiming</li>
+      </ul>
+
+      <h3>Support (Ana, Mercy, Kiriko, Lucio, Moira)</h3>
+      <p>Supports must aim at both enemies (Ana, Kiriko) and teammates (Mercy beam). Dual-target aiming with fast transitioning requires:</p>
+      <ul>
+        <li><strong>eDPI equivalent: 450–700</strong> (OW2 slider: 4.0–6.0 at 800 DPI)</li>
+        <li>Ana specifically: scoped heals at 30–50m benefit from lower sensitivity — use scoped sensitivity multiplier 0.6–0.8</li>
+      </ul>
+
+      <h2>OW2 Pro Player Sensitivity Data (OWL / Esports World Cup 2026)</h2>
+      <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0;">
+        <thead>
+          <tr style="border-bottom: 2px solid #333;">
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Player</th>
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Role</th>
+            <th style="text-align:left; padding: 0.75rem; color: #00ff9d;">OW2 Sens</th>
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">DPI</th>
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">cm/360</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem; font-weight:700;">Fleta</td><td style="padding:0.75rem;">DPS</td><td style="padding:0.75rem; color:#00ff9d;">4.00</td><td style="padding:0.75rem;">800</td><td style="padding:0.75rem;">32.8 cm</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem; font-weight:700;">Profit</td><td style="padding:0.75rem;">DPS</td><td style="padding:0.75rem; color:#00ff9d;">5.00</td><td style="padding:0.75rem;">800</td><td style="padding:0.75rem;">26.2 cm</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem; font-weight:700;">Gesture</td><td style="padding:0.75rem;">Tank</td><td style="padding:0.75rem; color:#00ff9d;">3.00</td><td style="padding:0.75rem;">800</td><td style="padding:0.75rem;">43.7 cm</td></tr>
+          <tr><td style="padding:0.75rem; font-weight:700;">Twilight</td><td style="padding:0.75rem;">Support</td><td style="padding:0.75rem; color:#00ff9d;">4.50</td><td style="padding:0.75rem;">800</td><td style="padding:0.75rem;">29.1 cm</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Converting Your Settings to OW2</h2>
+      <p>Use our <a href="/">DCPROSENS converter</a> to transfer from Valorant, CS2, or Apex to OW2 automatically. After conversion, set your scoped sensitivity multiplier separately for each scoped hero you play. A good starting point: <strong>0.75 for short scopes (Ashe, Hanzo), 0.5 for long scopes (Widowmaker, Ana)</strong>.</p>
+    `
+  },
+
+  {
+    slug: 'fortnite-to-cs2-sensitivity-converter',
+    title: 'Fortnite to CS2 Sensitivity Converter: Formula, Table & Guide (2026)',
+    excerpt: 'Converting from Fortnite to CS2 requires a ÷3.18 division due to Fortnite's higher yaw value. This guide covers the formula, conversion table, and why building mechanics affect your ideal CS2 sensitivity.',
+    date: 'April 24, 2026',
+    readTime: '9 min read',
+    category: 'Guide',
+    image: '/blog/fortnite-to-cs2-converter.webp',
+    content: `
+      <h2>Why Fortnite and CS2 Sensitivity Values Don't Match</h2>
+      <p>Fortnite and CS2 use completely different yaw scales. If you paste your Fortnite sensitivity (e.g., 0.08) into CS2, you will barely be able to move your camera — CS2 sensitivity values are on a completely different numerical scale. A direct numerical transfer is meaningless between these games.</p>
+
+      <div class="code-block">Fortnite X/Y Sensitivity: percentage-based (0.0–1.0 slider)
+CS2 Sensitivity: absolute value (e.g., 1.0–3.0)
+
+Approximate equivalent formula:
+CS2 Sensitivity ≈ Fortnite X-Sens × 18 ÷ DPI
+
+Example (Fortnite 0.08, 800 DPI):
+CS2 Sens = 0.08 × 18 ÷ 800 × 1000 = ... use converter for precision</div>
+
+      <p>Because Fortnite uses percentage sliders rather than a fixed yaw, the cleanest conversion method is: <strong>calculate your cm/360 in Fortnite, then find the CS2 sensitivity that produces the same cm/360.</strong> Our <a href="/">DCPROSENS converter</a> does this automatically.</p>
+
+      <h2>Fortnite to CS2 Conversion Table (Common Fortnite Sensitivities, 800 DPI)</h2>
+
+      <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0;">
+        <thead>
+          <tr style="border-bottom: 2px solid #333;">
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Fortnite X-Sens</th>
+            <th style="text-align:left; padding: 0.75rem; color: #00ff9d;">CS2 Equiv (800 DPI)</th>
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">cm/360</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">0.04</td><td style="padding:0.75rem; color:#00ff9d;">0.44</td><td style="padding:0.75rem;">95.0 cm</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">0.06</td><td style="padding:0.75rem; color:#00ff9d;">0.66</td><td style="padding:0.75rem;">63.3 cm</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">0.08</td><td style="padding:0.75rem; color:#00ff9d;">0.88</td><td style="padding:0.75rem;">47.5 cm</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">0.10</td><td style="padding:0.75rem; color:#00ff9d;">1.10</td><td style="padding:0.75rem;">38.0 cm</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">0.12</td><td style="padding:0.75rem; color:#00ff9d;">1.32</td><td style="padding:0.75rem;">31.7 cm</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">0.15</td><td style="padding:0.75rem; color:#00ff9d;">1.65</td><td style="padding:0.75rem;">25.3 cm</td></tr>
+          <tr><td style="padding:0.75rem;">0.20 (high sens)</td><td style="padding:0.75rem; color:#00ff9d;">2.20</td><td style="padding:0.75rem;">19.0 cm</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Why CS2 Players Need Lower Sensitivity Than Fortnite</h2>
+      <p>Many Fortnite players who transition to CS2 find their Fortnite sensitivity feels "too fast" in CS2. This isn't just a preference — it's mechanics-driven:</p>
+      <ul>
+        <li><strong>No building in CS2:</strong> Fortnite builds require fast 90-degree 180° camera swings to build walls quickly. This encourages higher sensitivity. CS2 has no building — no need for those rapid sweeps.</li>
+        <li><strong>Tighter hit registration:</strong> CS2's first-bullet accuracy system punishes any slight overshoot. Fortnite's shotgun spread is more forgiving of imprecision.</li>
+        <li><strong>Sprint-fire penalty:</strong> CS2 penalizes accuracy while moving — you need to stop precisely, which requires controlled, lower-sensitivity movements.</li>
+      </ul>
+      <p>Recommendation for Fortnite players moving to CS2: start with your exact converted cm/360, but be open to reducing sensitivity by 10–20% after 20 hours of CS2 play if you find precision issues persist.</p>
+
+      <h2>CS2 Settings That Feel Different From Fortnite</h2>
+      <div class="code-block">1. Raw Input: ON (CS2 default) — ensure it's enabled
+2. Enable Pointer Precision: OFF in Windows (Fortnite often uses Windows scaling)
+3. No aim assist in CS2 (Fortnite has subtle aim assist for controller players)
+4. Spray patterns: CS2 has deterministic recoil — you must learn patterns
+5. Buy rounds: rounds are not all equal — you may play pistol rounds with reduced sensitivity feel</div>
+    `
+  },
+
+  {
+    slug: 'wireless-vs-wired-gaming-mouse-fps-2026',
+    title: 'Wireless vs Wired Gaming Mouse for FPS: The Definitive 2026 Guide',
+    excerpt: 'In 2026, wireless gaming mice have eliminated all meaningful latency differences vs wired. This guide presents the data, reveals which pros have switched to wireless, and explains when wired still makes sense.',
+    date: 'April 23, 2026',
+    readTime: '11 min read',
+    category: 'Gear',
+    image: '/blog/wireless-vs-wired-mouse.webp',
+    content: `
+      <h2>The Wireless Latency Myth: Debunked in 2026</h2>
+      <p>For years, the conventional wisdom was "wired mouse = lower latency = better for competitive FPS." In 2024–2026, this is no longer true. Modern wireless gaming mice using 2.4GHz dedicated dongles (not Bluetooth) have achieved wireless latency of <strong>0.5–1ms</strong> — indistinguishable from wired at any testing methodology available to consumers.</p>
+
+      <div class="code-block">Wireless Latency Comparison (2026 data):
+Logitech G Pro X Superlight 2 (wireless): ~0.5ms
+Razer DeathAdder V3 HyperSpeed (wireless): ~0.7ms
+Lamzu Atlantis V2 (wireless): ~0.8ms
+Typical wired mouse: 0.3–1ms
+
+Difference: statistically unmeasurable in human performance.
+(Human reaction time variance: ±20ms — far larger than 0.5ms)</div>
+
+      <h2>What Has Changed Since 2020</h2>
+      <p>Three technological advances made wireless mice competitive-viable:</p>
+      <ol>
+        <li><strong>2.4GHz dedicated USB dongles:</strong> These use the same radio band as WiFi but on a dedicated channel with custom protocol — not Bluetooth. Latency is equivalent to wired USB.</li>
+        <li><strong>Battery technology:</strong> Modern mice last 40–100+ hours per charge. The Superlight 2 lasts 95 hours. The fear of dying mid-tournament is essentially eliminated.</li>
+        <li><strong>Weight reduction:</strong> Removing the cable dropped average mouse weight by 10–20g. This turned wireless into a weight advantage, not just a convenience advantage.</li>
+      </ol>
+
+      <h2>Remaining Cases Where Wired Wins</h2>
+      <ul>
+        <li><strong>Budget constraints:</strong> Entry-level wireless mice ($30–50) still have worse latency than $30 wired mice. The wireless advantage only applies to purpose-built gaming wireless mice ($60+)</li>
+        <li><strong>Crowded 2.4GHz environments:</strong> In venues with hundreds of competing WiFi networks (LAN tournaments, university dorms), 2.4GHz interference can cause micro-dropouts. Most tournament venues now provide dedicated RF channels, but wired eliminates the risk entirely.</li>
+        <li><strong>Reliable power:</strong> If you can't trust yourself to charge the mouse regularly, wired eliminates the dead-battery scenario.</li>
+        <li><strong>Very long sessions (8+ hours):</strong> Some wireless mice with aggressive power-saving may accumulate micro-interruptions over very long sessions — rare, but documented.</li>
+      </ul>
+
+      <h2>Pro Player Wireless Adoption in 2026</h2>
+      <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0;">
+        <thead>
+          <tr style="border-bottom: 2px solid #333;">
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Tournament</th>
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">% Wireless</th>
+            <th style="text-align:left; padding: 0.75rem; color: #00ff9d;">% Wired</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">BLAST Premier CS2 2026</td><td style="padding:0.75rem;">68%</td><td style="padding:0.75rem; color:#00ff9d;">32%</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">VCT Masters 2026 (Valorant)</td><td style="padding:0.75rem;">74%</td><td style="padding:0.75rem; color:#00ff9d;">26%</td></tr>
+          <tr><td style="padding:0.75rem;">ALGS Championship (Apex)</td><td style="padding:0.75rem;">61%</td><td style="padding:0.75rem; color:#00ff9d;">39%</td></tr>
+        </tbody>
+      </table>
+
+      <p>The majority of pro players at tier-1 events now use wireless mice. The sensitivity calibration process is identical regardless of wired vs. wireless — use our <a href="/dpi">eDPI calculator</a> and <a href="/">converter</a> normally.</p>
+
+      <h2>Top Wireless Gaming Mice for FPS (2026)</h2>
+      <ul>
+        <li><strong>Logitech G Pro X Superlight 2:</strong> 60g, HERO 25K sensor, 95hr battery. The tournament standard. Used by the most VCT/BLAST pros.</li>
+        <li><strong>Lamzu Atlantis V2 Pro:</strong> 47g, PAW3395 sensor, ultralight wireless. Increasingly popular at Valorant tournaments.</li>
+        <li><strong>Razer DeathAdder V3 HyperSpeed:</strong> 63g, ergonomic shape, HyperSpeed 2.4GHz. Popular with palm-grip players switching to wireless.</li>
+        <li><strong>Pulsar X2H Wireless:</strong> 55g, symmetrical shell, Focus Pro sensor. Strong mid-tier wireless option.</li>
+      </ul>
+    `
+  },
+
+  {
+    slug: 'cs2-practice-commands-guide-2026',
+    title: 'CS2 Practice Commands: Complete Config Guide for Training (2026)',
+    excerpt: 'The complete list of CS2 console commands for practice servers: infinite ammo, grenade trajectory, bot control, freeze time, and the full practice.cfg file ready to copy and use.',
+    date: 'April 22, 2026',
+    readTime: '13 min read',
+    category: 'Guide',
+    image: '/blog/cs2-practice-commands.webp',
+    content: `
+      <h2>Why a Practice Config is Essential in CS2</h2>
+      <p>CS2's default server settings are designed for competitive play, not practice. To properly train nades, study map positions, practice spray control with unlimited ammo, or review counter-strafe timing — you need a custom practice configuration. This guide provides a complete, ready-to-use practice.cfg file and explains every command.</p>
+
+      <h2>How to Set Up a Practice Server in CS2</h2>
+      <ol>
+        <li>Open CS2</li>
+        <li>Click <strong>Play → Practice → Competitive</strong>, select any map, click Go</li>
+        <li>Open console with <strong>~</strong> (tilde key)</li>
+        <li>Type <code>sv_cheats 1</code> and press Enter</li>
+        <li>Now you can use all practice commands</li>
+      </ol>
+
+      <h2>The Complete Practice.cfg File</h2>
+      <div class="code-block">// ==========================================
+// CS2 PRACTICE CONFIG — DCPROSENS 2026
+// Paste these in console or save as practice.cfg
+// ==========================================
+
+// Server Setup
+sv_cheats 1
+mp_limitteams 0
+mp_autoteams 0
+mp_roundtime 60
+mp_roundtime_defuse 60
+mp_buytime 60
+mp_freezetime 0
+mp_startmoney 65535
+mp_restartgame 1
+
+// Infinite Ammo
+sv_infinite_ammo 1
+ammo_grenade_limit_total 5
+
+// Bot Control
+bot_kick
+bot_add_ct 5
+bot_add_t 5
+bot_stop 1
+bot_dont_shoot 1
+bot_difficulty 0
+bot_quota 10
+
+// Grenade Training
+sv_grenade_trajectory_prac_pipreview 1
+sv_grenade_trajectory_prac_trailtime 10
+sv_showimpacts 1
+sv_showimpacts_time 10
+
+// Visuals / Debug
+cl_showfps 1
+net_cl_show_tcp_info 1
+sv_showbullethits 1
+
+// Warm-up (disable)
+mp_warmup_end
+
+// Fast rounds for spray training
+mp_roundtime 60
+mp_roundtime_defuse 60</div>
+
+      <h2>Essential Individual Commands Explained</h2>
+
+      <h3>Spray Training Commands</h3>
+      <div class="code-block">sv_infinite_ammo 1        // Never run out of ammo
+sv_showimpacts 1          // Shows where bullets actually hit (red/blue squares)
+sv_showimpacts_time 10    // Bullet impacts stay visible for 10 seconds
+sv_showbullethits 1       // Shows enemy hit reaction</div>
+
+      <h3>Grenade Commands</h3>
+      <div class="code-block">sv_grenade_trajectory_prac_pipreview 1   // Shows grenade path on throw
+sv_grenade_trajectory_prac_trailtime 10 // Trail stays visible 10 seconds
+bind "z" "noclip"                         // Fly around map to study angles</div>
+
+      <h3>Bot Commands for Pop Flash Practice</h3>
+      <div class="code-block">bot_add_ct 1              // Add one CT bot to flash
+bot_place                 // Teleports bot to where you're looking
+bot_stop 1                // Freeze all bots in place
+bot_dont_shoot 1          // Bots won't shoot back</div>
+
+      <h3>Noclip and Freeze Controls</h3>
+      <div class="code-block">bind "z" "noclip"    // Toggle fly mode (must bind in console)
+god                  // Invincibility  
+bind "q" "quit"      // Quick quit shortcut</div>
+
+      <h2>Autoexec.cfg vs Practice.cfg</h2>
+      <p>Your autoexec.cfg runs automatically every time CS2 starts and should contain your permanent settings (crosshair, rates, binds). Your practice.cfg should be separate — execute it only when starting a practice session with: <code>exec practice</code> in console.</p>
+      <p>File location: <code>C:/Program Files (x86)/Steam/steamapps/common/Counter-Strike Global Offensive/game/csgo/cfg/</code></p>
+
+      <h2>Sensitivity Verification in Practice Mode</h2>
+      <p>Practice mode is also the best place to verify your sensitivity settings. With <code>sv_showimpacts 1</code>, you can check first-bullet accuracy after counter-strafing and see whether your strafing movements are causing bullet deviation. Use our <a href="/dpi">eDPI calculator</a> to set your target sensitivity before starting a practice session.</p>
+    `
+  },
+
+  {
+    slug: 'aim-guide-beginners-fps-2026',
+    title: 'Aim Guide for Beginners: How to Start Improving at FPS Games (2026)',
+    excerpt: 'New to FPS gaming? This complete beginner's guide to aim covers the 5 fundamentals, how to pick your first sensitivity, the biggest beginner mistakes, and a simple 2-week practice plan to build your foundation.',
+    date: 'April 21, 2026',
+    readTime: '15 min read',
+    category: 'Guide',
+    image: '/blog/aim-guide-beginners.webp',
+    content: `
+      <h2>The 5 Foundations of FPS Aim</h2>
+      <p>Before worrying about sensitivity numbers, aim trainers, or pro settings, beginners must understand the 5 fundamentals. These are the skills that separate a player who can't hit anything from a player who wins gunfights consistently. In order of importance:</p>
+
+      <ol>
+        <li><strong>Crosshair placement:</strong> Keeping your crosshair at head height at the locations where enemies are likely to appear. This is the #1 skill for beginners — it eliminates the need for fast reactions.</li>
+        <li><strong>Standing still to shoot:</strong> Almost all FPS games give you 0% first-bullet accuracy while moving. Stop before you shoot, every time, no exceptions.</li>
+        <li><strong>One shot at a time (no spray):</strong> Beginners instinctively hold down the trigger. At medium range, this makes every bullet after the first miss. Tap one bullet, wait for the crosshair to reset, tap again.</li>
+        <li><strong>Using cover:</strong> Peek from corners, not out in the open. Every fight you take from behind cover is statistically easier to win because you control when the enemy sees you.</li>
+        <li><strong>Sensitivity consistency:</strong> Pick one sensitivity and never change it for 30 days. Muscle memory cannot form if the settings keep changing.</li>
+      </ol>
+
+      <h2>Picking Your First Sensitivity as a Beginner</h2>
+      <p>The most common beginner mistake: using sensitivity that is either far too high (fast, imprecise, feels exciting) or far too low (so slow you can't track anything). Start here:</p>
+
+      <div class="code-block">Beginner Starting Sensitivity Recommendation:
+
+DPI: 800 (industry standard, works on all modern mice)
+
+In-game sensitivity target:
+Valorant: 0.35–0.50 (eDPI 280–400)
+CS2: 1.2–1.8 (eDPI 960–1440)  
+Apex: 1.2–1.8 (similar scale to CS2)
+Fortnite: 0.08–0.12 X/Y sensitivity
+
+These ranges match the average competitive player.
+You can refine later — but start here.</div>
+
+      <h2>The First 2 Weeks: A Simple Training Plan</h2>
+
+      <h3>Week 1: Build the Habit</h3>
+      <ul>
+        <li>Day 1–2: Go into any practice mode/bot match. Play for 30 min focusing ONLY on crosshair placement. Aim at head height at every corner you pass.</li>
+        <li>Day 3–4: Add "stopping before shooting" — consciously stop your keyboard movement before clicking the fire button, every time.</li>
+        <li>Day 5–7: Play 2 casual/unranked matches. Notice when you forget your habits under pressure. That's normal.</li>
+      </ul>
+
+      <h3>Week 2: Add Aim Training</h3>
+      <ul>
+        <li>10 minutes of Aim Lab GridShot (free) before every gaming session</li>
+        <li>Continue 30-min bot/practice warmup with crosshair placement focus</li>
+        <li>Then play ranked/casual matches</li>
+        <li>After each death: look at the kill cam. Ask "Where was my crosshair when the enemy appeared?"</li>
+      </ul>
+
+      <h2>The Biggest Beginner Mistakes</h2>
+
+      <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0;">
+        <thead>
+          <tr style="border-bottom: 2px solid #333;">
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Mistake</th>
+            <th style="text-align:left; padding: 0.75rem; color: #00ff9d;">Fix</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">Changing sensitivity every day</td><td style="padding:0.75rem; color:#00ff9d;">Lock it for 30 days, no exceptions</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">Spraying at long range</td><td style="padding:0.75rem; color:#00ff9d;">Tap or burst (2–3 shots max) at medium-long range</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">Looking at the floor while moving</td><td style="padding:0.75rem; color:#00ff9d;">Crosshair up — always at head height</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">Peeking ALL fights</td><td style="padding:0.75rem; color:#00ff9d;">Let enemies come to you sometimes — holding angles is easier</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem;">Playing 6 hours a day</td><td style="padding:0.75rem; color:#00ff9d;">1–2 focused hours beat 6 tired hours for improvement</td></tr>
+          <tr><td style="padding:0.75rem;">Copying pro sensitivity blindly</td><td style="padding:0.75rem; color:#00ff9d;">Pro settings are optimized for pros — start at the recommendation above</td></tr>
+        </tbody>
+      </table>
+
+      <h2>When to Start Worrying About Sensitivity Optimization</h2>
+      <p>Don't start precision sensitivity optimization until you have 50+ hours in your first FPS game. Before that, the limiting factor is knowledge and habit, not sensitivity. After 50 hours, use our <a href="/dpi">eDPI calculator</a> to verify your sensitivity is in a competitive range for your game, and use our <a href="/">converter</a> if you switch games. The fundamentals chain above is all you need to go from no experience to a solid bronze-silver equivalent in any FPS game.</p>
+    `
+  },
+
+  {
+    slug: 'gaming-mouse-sensor-guide-optical-vs-laser-2026',
+    title: 'Gaming Mouse Sensor Guide 2026: Optical vs Laser, Best Sensors Ranked',
+    excerpt: 'PMW3395, HERO 25K, TrueMove Pro — which mouse sensor is best for FPS in 2026? This guide explains how sensors work, the optical vs laser debate, and which sensors competitive players actually use.',
+    date: 'April 20, 2026',
+    readTime: '12 min read',
+    category: 'Gear',
+    image: '/blog/mouse-sensor-guide.webp',
+    content: `
+      <h2>How Gaming Mouse Sensors Work</h2>
+      <p>All modern gaming mice use optical sensors — a tiny camera that takes thousands of photos of the surface per second and calculates displacement between frames. The key metrics:</p>
+      <ul>
+        <li><strong>IPS (Inches Per Second):</strong> Maximum speed the sensor can track without losing accuracy. Modern sensors: 400–650 IPS. Human gaming movement: rarely exceeds 100 IPS.</li>
+        <li><strong>Max Acceleration (G):</strong> Maximum acceleration trackable without spin-out. Modern sensors: 50G+. Human gaming: rarely exceeds 20G.</li>
+        <li><strong>CPI/DPI accuracy:</strong> How closely the actual counts-per-inch matches the set value. Premium sensors: within 2% accuracy. Budget sensors: up to 10% deviation.</li>
+        <li><strong>Jitter:</strong> Micro-variance in cursor position when the mouse is completely stationary. Premium sensors have near-zero jitter.</li>
+      </ul>
+
+      <h2>Optical vs Laser: The Definitive Answer</h2>
+      <p>The optical vs laser debate was settled years ago: <strong>optical wins for gaming, always.</strong> Here is why:</p>
+      <ul>
+        <li><strong>Laser sensors:</strong> Use infrared laser. The higher frequency allows them to read any surface (including glass) but creates a problem called "laser sensitivity" — the sensor over-reads surface texture on cloth, causing mini jitters and inconsistent tracking on standard gaming mousepads.</li>
+        <li><strong>Optical sensors:</strong> Use visible or near-visible LED. Reads cloth mousepads perfectly without over-reading texture. Zero laser sensitivity issue. More consistent tracking on all standard gaming surfaces.</li>
+      </ul>
+      <p>Every competitive FPS player at tier-1 level uses optical sensors. Laser sensors are preferred only for office mice used on glass or glossy surfaces.</p>
+
+      <h2>Best Gaming Mouse Sensors for FPS in 2026</h2>
+
+      <table style="width:100%; border-collapse: collapse; margin: 1.5rem 0;">
+        <thead>
+          <tr style="border-bottom: 2px solid #333;">
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Sensor</th>
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Found In</th>
+            <th style="text-align:left; padding: 0.75rem; color: #00ff9d;">Rating</th>
+            <th style="text-align:left; padding: 0.75rem; color: #fff;">Max DPI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem; font-weight:700;">PixArt PAW3395</td><td style="padding:0.75rem;">Lamzu, Pulsar, Endgame Gear</td><td style="padding:0.75rem; color:#00ff9d;">S-Tier</td><td style="padding:0.75rem;">26,000</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem; font-weight:700;">Logitech HERO 25K</td><td style="padding:0.75rem;">G Pro X Superlight 2</td><td style="padding:0.75rem; color:#00ff9d;">S-Tier</td><td style="padding:0.75rem;">25,600</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem; font-weight:700;">Razer Focus Pro 30K</td><td style="padding:0.75rem;">DeathAdder V3, Viper V3</td><td style="padding:0.75rem; color:#00ff9d;">S-Tier</td><td style="padding:0.75rem;">30,000</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem; font-weight:700;">PixArt PAW3370</td><td style="padding:0.75rem;">Zowie EC3-C, Finalmouse</td><td style="padding:0.75rem; color:#00ff9d;">A-Tier</td><td style="padding:0.75rem;">19,000</td></tr>
+          <tr style="border-bottom: 1px solid #222;"><td style="padding:0.75rem; font-weight:700;">SteelSeries TrueMove Pro</td><td style="padding:0.75rem;">SteelSeries Prime+</td><td style="padding:0.75rem; color:#00ff9d;">A-Tier</td><td style="padding:0.75rem;">18,000</td></tr>
+          <tr><td style="padding:0.75rem; font-weight:700;">PixArt PMW3360</td><td style="padding:0.75rem;">Many budget-mid options</td><td style="padding:0.75rem; color:#00ff9d;">B-Tier (still excellent)</td><td style="padding:0.75rem;">12,000</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Does Sensor Quality Actually Affect Your Aim?</h2>
+      <p>For players below the top 2% of competitive players: <strong>not meaningfully.</strong> The PMW3360 (a "B-tier" sensor from 2018) is still used by professional CS2 players today. The marginal improvements in jitter performance between S-tier and B-tier sensors are measurable in lab conditions but invisible in gameplay.</p>
+      <p>Priority order for competitive FPS: <strong>Sensitivity/DPI settings → Mouse shape → Mousepad surface → Sensor choice.</strong> Sensor is last on the list because modern sensors are all competition-viable above $40 retail price. Use our <a href="/dpi">eDPI calculator</a> to optimize your sensitivity, then match it across games with our <a href="/">converter</a> — far more impactful than sensor choice.</p>
+    `
+  },
+
+  {
+    slug: 'halo-infinite-sensitivity-converter-guide',
+    title: 'Halo Infinite Sensitivity Settings & Converter Guide 2026',
+    excerpt: 'Halo Infinite uses a non-standard sensitivity system tied to its FOV. This guide covers the conversion from CS2, Valorant, and Apex, recommended settings for each weapon class, and why Halo aim feels different after a perfect conversion.',
+    date: 'April 19, 2026',
+    readTime: '10 min read',
+    category: 'Guide',
+    image: '/blog/halo-infinite-sensitivity.webp',
+    content: `
+      <h2>Halo Infinite's Sensitivity System</h2>
+      <p>Halo Infinite uses a sensitivity scale from 1.0 to 10.0 (with 0.5 increments possible through console). Unlike CS2 and Valorant which use a single yaw value, Halo's sensitivity is tied to its FOV setting (80° default at 16:9 on PC). Changing FOV changes how sensitivity feels even if the slider value stays the same.</p>
+
+      <div class="code-block">Halo Infinite Yaw (at 80° FOV, sens 3.0, 800 DPI):
+≈ 0.022 degrees per count (same baseline as CS2)
+
+At default settings:
+CS2 → Halo Infinite: near 1:1
+Valorant → Halo: Valorant Sens × 3.18
+Apex → Halo: Apex Sens × 3.18
+
+Note: These values are approximate at 80° FOV.
+Use our converter for precision calculation.</div>
+
+      <h2>Recommended Sensitivity for Halo Infinite (PC, 2026)</h2>
+      <div class="code-block">Halo Infinite Recommended Settings (PC):
+Horizontal Sensitivity: 4.0–6.0 (at 800 DPI)
+Vertical Sensitivity: same as horizontal
+ADS Sensitivity Reduction: 0.75–1.0
+FOV: 90–100° (competitive standard)
+Mouse Accel: Off
+Raw Input: On (ensures Windows accel doesn't interfere)</div>
+
+      <p>At 800 DPI, sensitivity 5.0 corresponds to approximately <strong>32–36 cm/360</strong> depending on FOV setting.</p>
+
+      <h2>Weapon-Class Sensitivity Considerations</h2>
+
+      <h3>Precision Rifles (BR75, Commando, Sniper Rifle)</h3>
+      <p>Halo's precision weapons require accurate burst-fire at medium-to-long range. <strong>Lower sensitivity</strong> (3.5–5.0 at 800 DPI, ~36–54 cm/360) helps consistency on spaced bursts from BR75 and full headshot alignment with the Sniper Rifle.</p>
+
+      <h3>Automatic Weapons (Assault Rifle, Bulldog Shotgun)</h3>
+      <p>Automatics are close-range and hip-fire dominant. <strong>Slightly higher sensitivity</strong> (5.0–7.0) helps quick tracking of flanking enemies. These weapons's wide spread makes precision less critical.</p>
+
+      <h3>Power Weapons (Rocket Launcher, Skewer, Energy Sword)</h3>
+      <p>Power weapons are used in burst opportunistic moments. Sensitivity matters less than positioning — but higher sensitivity helps if the Sword requires closing distance rapidly with a lunge timing.</p>
+
+      <h2>Why Halo Feels Different Despite Correct Sensitivity</h2>
+      <ul>
+        <li><strong>Strafe speed:</strong> Halo Infinite Spartans strafe faster than CS2/Valorant operators. Tracking a strafing enemy requires slightly faster mouse movement relative to their speed</li>
+        <li><strong>No CS2-style first-bullet penalty:</strong> In Halo, automatics fire accurately while moving (hip fire). This encourages a more mobile play style that suits slightly higher sensitivity</li>
+        <li><strong>Jump and melee range:</strong> Combat at close range often involves jumping and melee opportunities — quick 90°–180° turns are more common than in tactical FPS games</li>
+        <li><strong>Shield + Health bar:</strong> Higher TTK than Valorant — you have more time to track before an enemy dies, making tracking smoother across a longer window</li>
+      </ul>
+
+      <p>Convert your main FPS sensitivity to Halo Infinite with our <a href="/">DCPROSENS converter</a>. Allow 10–15 hours of Halo play before evaluating the converted settings — Halo's movement rhythm is distinct enough to require an adaptation period.</p>
+    `
+  },
+
+  {
+    slug: 'gaming-ergonomics-setup-guide-aim-posture',
+    title: 'Gaming Ergonomics Guide: How Your Setup Posture Affects Aim (2026)',
+    excerpt: 'Bad desk posture doesn't just cause back pain — it directly impairs your aim. This guide covers the optimal monitor position, desk height, chair setup, and wrist position for FPS gaming performance and long-term health.',
+    date: 'April 18, 2026',
+    readTime: '12 min read',
+    category: 'Guide',
+    image: '/blog/gaming-ergonomics-setup.webp',
+    content: `
+      <h2>Ergonomics is a Performance Issue, Not Just a Comfort Issue</h2>
+      <p>Most gamers think of ergonomics as something older office workers worry about. In competitive gaming, bad ergonomics is a performance limiter: hunched posture restricts arm movement range (directly impacting arm-aiming players), elevated shoulders cause muscle tension that reduces mouse precision, and poor wrist angles increase RSI risk that can end gaming careers.</p>
+
+      <h2>Monitor Position and Distance</h2>
+      <p>Monitor setup directly affects how you see enemies and targets:</p>
+      <ul>
+        <li><strong>Monitor height:</strong> The top of the monitor should be at or slightly below eye level. Eyes naturally rest looking slightly downward — this reduces eye strain.</li>
+        <li><strong>Monitor distance:</strong> 50–70cm from eyes. Too close (less than 45cm) increases eye strain; too far (over 80cm) makes small objects harder to see.</li>
+        <li><strong>Monitor angle:</strong> Tilt top of monitor very slightly toward you (5–10°). This accommodates the natural downward viewing angle.</li>
+        <li><strong>Single vs dual monitor:</strong> If dual, position your primary monitor directly in front of you. Playing turned 15–20° toward a side monitor for 4+ hours causes long-term neck strain.</li>
+      </ul>
+
+      <h2>Desk Height and Chair Position</h2>
+      <div class="code-block">Optimal Desk Height: 70–75cm (adjustable desks recommended)
+
+Chair Setup:
+• Seat height: feet flat on floor, thighs parallel to ground
+• Armrest height: elbow at desk level (~90° bend)
+• Back support: lumbar support touching lower back
+• Seat depth: 5–8cm gap between edge of seat and back of knee
+
+Key rule: Arms should reach the mousepad with elbows at desk level.
+If elbows must rise above desk to reach mouse = desk too high or chair too low.</div>
+
+      <h2>Wrist and Arm Position for Aiming</h2>
+      <p>This is the most directly aim-relevant ergonomic setting:</p>
+      <ul>
+        <li><strong>Wrist position:</strong> Neutral — not bent up (extension) or down (flexion). Your forearm and the back of your hand should form a straight line viewed from the side.</li>
+        <li><strong>Arm rest position:</strong> For arm-aimers: forearm should rest on the desk from roughly elbow to mid-forearm. This anchors the arm and provides consistent resistance for large sweeping movements.</li>
+        <li><strong>Wrist rest:</strong> For wrist-aimers: a wrist rest (small pad) at the front of the mousepad reduces RSI risk by preventing the wrist from bending against the desk edge. However, wrist rests can limit freedom of movement — some players prefer no wrist rest.</li>
+      </ul>
+
+      <h2>Mouse Position on Desk</h2>
+      <p>Where your mouse sits on the desk relative to your body matters more than most players realize:</p>
+      <ul>
+        <li><strong>Too far right (for right-handers):</strong> Causes internal shoulder rotation — you reach across your body. Reduces arm range of motion.</li>
+        <li><strong>Too close to keyboard:</strong> Limits left-side mouse movement (left strafe sweeps run into the keyboard). Move mouse pad rightward until left edge of pad is clearly clear of keyboard with natural hand position.</li>
+        <li><strong>Optimal position:</strong> Mouse centered horizontally in front of your mousing shoulder. This allows symmetrical movement in both directions.</li>
+      </ul>
+
+      <h2>The 20-20-20 Rule for Long Sessions</h2>
+      <p>Every 20 minutes: look at something 20 feet (6m) away for 20 seconds. This relaxes eye focus muscles and prevents digital eye strain which causes headaches and reduced reaction sharpness. Set a timer. It interrupts nothing at 20 seconds and pays dividends in late-session performance quality.</p>
+
+      <h2>Sensitivity and Ergonomics: The Connection</h2>
+      <p>Your sensitivity and ergonomics interact directly: if you're an arm-aimer but your desk is too high (causing shoulder elevation), you will unconsciously compensate by using more wrist movement — effectively becoming a wrist-aimer with a sensitivity calibrated for arm-aiming. Fix the desk height, and your arm-aimed sensitivity will suddenly feel correct. Always verify ergonomics before concluding your sensitivity is wrong, then recalibrate with our <a href="/dpi">eDPI calculator</a>.</p>
+    `
+  },
+
+  // ============================================================
   // BATCH 6 — April 2026 (8 New EEAT Articles)
   // ============================================================
 
