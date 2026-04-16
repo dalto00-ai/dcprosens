@@ -26,7 +26,10 @@ export const posts: BlogPost[] = [
     content: `
       <h2>Why Crosshair Placement Beats Flicking</h2>
       <p>The biggest misconception in Valorant is that climbing requires insane reaction times and inhuman flicks. The reality? <strong>Over 70% of kills in Immortal/Radiant lobbies require zero mouse movement.</strong> Their crosshair was already exactly where the enemy's head appeared.</p>
-      <p>Good crosshair placement eliminates the need to react and flick. Instead of "see enemy $ightarrow$ move mouse $ightarrow$ click," the process becomes "see enemy walk into crosshair $ightarrow$ click." This saves ~200ms of reaction and movement time—an eternity in a low-TTK game like Valorant.</p>
+      <p>Good crosshair placement eliminates the need to react and flick. Instead of "see enemy $
+ightarrow$ move mouse $
+ightarrow$ click," the process becomes "see enemy walk into crosshair $
+ightarrow$ click." This saves ~200ms of reaction and movement time—an eternity in a low-TTK game like Valorant.</p>
 
       <h2>The Three Pillars of Crosshair Placement</h2>
 
@@ -454,7 +457,7 @@ CS2 → OW2: CS2Sens × 3.33</div>
   {
     slug: 'fortnite-to-cs2-sensitivity-converter',
     title: 'Fortnite to CS2 Sensitivity Converter: Formula, Table & Guide (2026)',
-    excerpt: 'Converting from Fortnite to CS2 requires a ÷3.18 division due to Fortnite's higher yaw value. This guide covers the formula, conversion table, and why building mechanics affect your ideal CS2 sensitivity.',
+    excerpt: 'Converting from Fortnite to CS2 requires a ÷3.18 division due to Fortnite\'s higher yaw value. This guide covers the formula, conversion table, and why building mechanics affect your ideal CS2 sensitivity.',
     date: 'April 24, 2026',
     readTime: '9 min read',
     category: 'Guide',
@@ -683,7 +686,7 @@ bind "q" "quit"      // Quick quit shortcut</div>
   {
     slug: 'aim-guide-beginners-fps-2026',
     title: 'Aim Guide for Beginners: How to Start Improving at FPS Games (2026)',
-    excerpt: 'New to FPS gaming? This complete beginner's guide to aim covers the 5 fundamentals, how to pick your first sensitivity, the biggest beginner mistakes, and a simple 2-week practice plan to build your foundation.',
+    excerpt: 'New to FPS gaming? This complete beginner\'s guide to aim covers the 5 fundamentals, how to pick your first sensitivity, the biggest beginner mistakes, and a simple 2-week practice plan to build your foundation.',
     date: 'April 21, 2026',
     readTime: '15 min read',
     category: 'Guide',
@@ -870,7 +873,7 @@ Raw Input: On (ensures Windows accel doesn't interfere)</div>
   {
     slug: 'gaming-ergonomics-setup-guide-aim-posture',
     title: 'Gaming Ergonomics Guide: How Your Setup Posture Affects Aim (2026)',
-    excerpt: 'Bad desk posture doesn't just cause back pain — it directly impairs your aim. This guide covers the optimal monitor position, desk height, chair setup, and wrist position for FPS gaming performance and long-term health.',
+    excerpt: 'Bad desk posture doesn\'t just cause back pain — it directly impairs your aim. This guide covers the optimal monitor position, desk height, chair setup, and wrist position for FPS gaming performance and long-term health.',
     date: 'April 18, 2026',
     readTime: '12 min read',
     category: 'Guide',
@@ -931,7 +934,7 @@ If elbows must rise above desk to reach mouse = desk too high or chair too low.<
   {
     slug: 'how-to-escape-elo-hell-valorant-cs2-2026',
     title: 'How to Escape ELO Hell in Valorant and CS2: The Real Guide (2026)',
-    excerpt: 'ELO hell is real — but it's fixable. This guide explains the ranked matchmaking science, the 5 controllable factors that get you stuck, and the exact system to climb consistently in Valorant and CS2.',
+    excerpt: 'ELO hell is real — but it\'s fixable. This guide explains the ranked matchmaking science, the 5 controllable factors that get you stuck, and the exact system to climb consistently in Valorant and CS2.',
     date: 'April 23, 2026',
     readTime: '14 min read',
     category: 'Guide',
@@ -1071,7 +1074,7 @@ If elbows must rise above desk to reach mouse = desk too high or chair too low.<
   {
     slug: 'apex-legends-controller-vs-mouse-keyboard-2026',
     title: 'Apex Legends Controller vs Mouse & Keyboard 2026: Which is Better?',
-    excerpt: 'Apex Legends' aim assist for controllers has been debated for years. This guide presents the 2026 data on controller vs. MnK performance at different ranks, when each input dominates, and what the top ALGS players use.',
+    excerpt: 'Apex Legends\' aim assist for controllers has been debated for years. This guide presents the 2026 data on controller vs. MnK performance at different ranks, when each input dominates, and what the top ALGS players use.',
     date: 'April 21, 2026',
     readTime: '13 min read',
     category: 'Guide',
@@ -1675,7 +1678,7 @@ Example: 25 cm/360 at 800 DPI
 
   {
     slug: 'aim-training-routine-fps-games-2026',
-    title: 'The Complete Aim Training Routine for FPS Games (2026): Aim Lab & KovaaK's',
+    title: 'The Complete Aim Training Routine for FPS Games (2026): Aim Lab & KovaaK\'s',
     excerpt: 'This structured daily aim training routine covers the exact scenarios, timing, and progression system to improve your Valorant, CS2, and Apex aim in 30–60 minute sessions.',
     date: 'April 19, 2026',
     readTime: '16 min read',
@@ -1862,7 +1865,7 @@ CS2: game_mode_sv_cheats → cl_csm_enabled 0 (community optimization)</div>
 
   {
     slug: 'why-you-are-not-improving-at-aiming-sensitivity-plateau',
-    title: 'Why You're Not Improving at Aiming: Breaking the Sensitivity Plateau',
+    title: 'Why You\'re Not Improving at Aiming: Breaking the Sensitivity Plateau',
     excerpt: 'Stuck at the same rank for months despite hours of ranked play? This guide identifies the 7 most common reasons FPS players plateau on aim, and the exact methods to break through each one.',
     date: 'April 17, 2026',
     readTime: '13 min read',
@@ -1920,7 +1923,7 @@ CS2: game_mode_sv_cheats → cl_csm_enabled 0 (community optimization)</div>
   {
     slug: 'xdefiant-sensitivity-settings-converter-2026',
     title: 'XDefiant Sensitivity Settings 2026: Convert from Valorant, CS2 & Apex',
-    excerpt: 'XDefiant uses a unique FOV-based sensitivity system. This guide covers the yaw value, optimal settings for each faction's playstyle, and how to convert from any major FPS game.',
+    excerpt: 'XDefiant uses a unique FOV-based sensitivity system. This guide covers the yaw value, optimal settings for each faction\'s playstyle, and how to convert from any major FPS game.',
     date: 'April 16, 2026',
     readTime: '10 min read',
     category: 'Guide',
@@ -2045,7 +2048,7 @@ CS2 2.5  → Valorant: 2.5 ÷ 3.18 = 0.786 (eDPI: 629)</div>
   {
     slug: 'battlefield-2042-sensitivity-converter-guide',
     title: 'Battlefield Sensitivity Converter: BF2042, BF1 & Convert from Any FPS (2026)',
-    excerpt: 'Battlefield's sensitivity system uses a non-standard multiplier based on FOV. This guide explains the Battlefield 2042 yaw value, per-zoom conversion table, and how to transfer from CS2, Valorant, or Apex.',
+    excerpt: 'Battlefield\'s sensitivity system uses a non-standard multiplier based on FOV. This guide explains the Battlefield 2042 yaw value, per-zoom conversion table, and how to transfer from CS2, Valorant, or Apex.',
     date: 'April 14, 2026',
     readTime: '10 min read',
     category: 'Guide',
