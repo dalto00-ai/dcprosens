@@ -40,6 +40,11 @@ export default function WebStoriesIndex() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
+            {/* CSS hover — avoids client component requirement */}
+            <style>{`
+                .story-card { transition: transform 0.25s ease, box-shadow 0.25s ease; cursor: pointer; }
+                .story-card:hover { transform: scale(1.03); box-shadow: 0 16px 50px rgba(0,255,157,0.15); }
+            `}</style>
 
             {/* Hero */}
             <div style={{
@@ -104,23 +109,14 @@ export default function WebStoriesIndex() {
                             aria-label={`Watch Web Story: ${story.title}`}
                         >
                             <article
+                                className="story-card"
                                 style={{
                                     position: 'relative',
                                     borderRadius: '20px',
                                     overflow: 'hidden',
                                     aspectRatio: '9/16',
                                     background: '#111',
-                                    cursor: 'pointer',
                                     border: '1px solid rgba(255,255,255,0.08)',
-                                    transition: 'transform 0.25s ease, box-shadow 0.25s ease',
-                                }}
-                                onMouseEnter={(e) => {
-                                    (e.currentTarget as HTMLElement).style.transform = 'scale(1.03)';
-                                    (e.currentTarget as HTMLElement).style.boxShadow = '0 16px 50px rgba(0,255,157,0.15)';
-                                }}
-                                onMouseLeave={(e) => {
-                                    (e.currentTarget as HTMLElement).style.transform = 'scale(1)';
-                                    (e.currentTarget as HTMLElement).style.boxShadow = 'none';
                                 }}
                             >
                                 {/* Cover Image */}
