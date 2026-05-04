@@ -27,14 +27,19 @@ export const metadata: Metadata = {
     "cs2 sensitivity",
     "eDPI calculator",
     "DPI calculator",
-    "cm/360",
-    "mouse sensitivity",
+    "cm/360 calculator",
+    "mouse sensitivity converter",
     "apex legends sensitivity",
     "overwatch sensitivity",
+    "pro player settings",
+    "fps sensitivity tool",
+    "valorant to cs2 converter",
   ],
-  authors: [{ name: "DCPROSENS" }],
+  authors: [{ name: "DCPROSENS", url: "https://dcprosens.com" }],
   creator: "DCPROSENS",
   publisher: "DCPROSENS",
+  category: "Gaming Tools",
+  classification: "Gaming / FPS / Esports",
   robots: {
     index: true,
     follow: true,
@@ -73,6 +78,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://dcprosens.com",
+  },
+  verification: {
+    google: "bc2564470ebbe5d4",
+    yandex: "b50282a38dee461f",
   },
   other: {
     "geo.region": "US",

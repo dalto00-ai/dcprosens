@@ -30,9 +30,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         };
     }
 
+    const keywords = [
+        'gaming sensitivity', 'fps settings', 'pro player settings',
+        post.category?.toLowerCase() ?? 'gaming',
+        ...post.slug.split('-').filter((w) => w.length > 3),
+    ];
+
     return {
         title: post.title,
         description: post.excerpt,
+        keywords,
+        authors: [{ name: 'DCPROSENS', url: 'https://dcprosens.com' }],
         alternates: {
             canonical: `https://dcprosens.com/blog/${post.slug}`,
         },
@@ -40,9 +48,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             title: post.title,
             description: post.excerpt,
             type: 'article',
-            publishedTime: post.date,
+            publishedTime: new Date(post.date).toISOString(),
+            modifiedTime: new Date(post.date).toISOString(),
             url: `https://dcprosens.com/blog/${post.slug}`,
             siteName: 'DCPROSENS',
+            locale: 'en_US',
+            authors: ['https://dcprosens.com'],
+            tags: keywords,
             images: [
                 {
                     url: `https://dcprosens.com${post.image}`,
@@ -57,6 +69,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             title: post.title,
             description: post.excerpt,
             images: [`https://dcprosens.com${post.image}`],
+            creator: '@dcprosens',
         },
     };
 }
@@ -135,6 +148,7 @@ export default async function BlogPost({ params }: Props) {
                     '@id': canonicalUrl,
                 },
                 articleSection: post.category ?? 'Gaming',
+                wordCount: post.content.replace(/<[^>]+>/g, '').split(/\s+/).length,
                 keywords: [
                     'gaming sensitivity',
                     'fps settings',
@@ -142,6 +156,10 @@ export default async function BlogPost({ params }: Props) {
                     post.category ?? 'gaming',
                     ...post.slug.split('-').filter((w) => w.length > 4),
                 ].join(', '),
+                speakable: {
+                    '@type': 'SpeakableSpecification',
+                    cssSelector: ['h1', 'h2', '.prose p:first-of-type'],
+                },
             },
             {
                 // ✅ BreadcrumbList — navigational schema

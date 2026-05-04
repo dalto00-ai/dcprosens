@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "About Us",
-    description: "Learn about DCPROSENS, the ultimate sensitivity converter and DPI calculator for competitive gamers built by gamers.",
+    title: "About DCPROSENS — Free Gaming Sensitivity Converter",
+    description: "Learn about DCPROSENS, the ultimate free sensitivity converter and eDPI calculator for competitive FPS gamers. Built by gamers for Valorant, CS2, Apex Legends and more.",
     alternates: {
         canonical: "https://dcprosens.com/about",
+    },
+    openGraph: {
+        title: "About DCPROSENS — Free Gaming Sensitivity Converter",
+        description: "The ultimate free sensitivity converter and eDPI calculator for competitive FPS gamers.",
+        url: "https://dcprosens.com/about",
+        type: "website",
     },
     robots: {
         index: true,

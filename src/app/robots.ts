@@ -3,38 +3,31 @@ import { MetadataRoute } from 'next';
 export default function robots(): MetadataRoute.Robots {
     return {
         rules: [
-            // Allow all legitimate crawlers
+            // Main crawlers — allow everything except internals
+            {
+                userAgent: '*',
+                allow: '/',
+                disallow: [
+                    '/api/',
+                    '/_next/',
+                    '/static/',
+                ],
+            },
+            // AI crawlers — allow full access for GEO/AEO
             {
                 userAgent: [
-                    '*',
-                    'Googlebot',
-                    'Googlebot-News',         // ✅ Google News crawler
-                    'Googlebot-Image',        // ✅ Google Images crawler
-                    'Googlebot-Video',        // ✅ Google Video / Stories crawler
-                    'Storybot',               // ✅ Web Stories indexer
-                    'Bingbot',
-                    'Slurp',
-                    'DuckDuckBot',
-                    'YandexBot',
-                    'Baiduspider',
-                    'Applebot',
                     'GPTBot',
                     'ChatGPT-User',
                     'Google-Extended',
                     'anthropic-ai',
                     'Claude-Web',
                     'CCBot',
-                    'Omgilibot',
                     'PerplexityBot',
+                    'Omgilibot',
                 ],
                 allow: '/',
-                disallow: [
-                    '/api/',          // Don't index API routes
-                    '/_next/',        // Don't index Next.js internals
-                    '/static/',       // Don't index static build assets
-                ],
             },
-            // Block known aggressive/scraper bots
+            // Block aggressive scrapers
             {
                 userAgent: [
                     'AhrefsBot',
@@ -47,11 +40,11 @@ export default function robots(): MetadataRoute.Robots {
                 disallow: '/',
             },
         ],
-        // ✅ Multiple sitemaps declared for Google to discover all specialized feeds
         sitemap: [
             'https://dcprosens.com/sitemap.xml',
             'https://dcprosens.com/image-sitemap.xml',
             'https://dcprosens.com/news-sitemap.xml',
+            'https://dcprosens.com/sitemap-index.xml',
         ],
         host: 'https://dcprosens.com',
     };

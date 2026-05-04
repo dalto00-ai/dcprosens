@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Contact Us",
-    description: "Get in touch with the DCPROSENS team for support, bug reports, or feature suggestions.",
+    title: "Contact DCPROSENS — Support & Feedback",
+    description: "Get in touch with the DCPROSENS team for support, bug reports, game yaw corrections, or feature suggestions for our sensitivity converter.",
     alternates: {
         canonical: "https://dcprosens.com/contact",
+    },
+    openGraph: {
+        title: "Contact DCPROSENS — Support & Feedback",
+        description: "Get in touch with the DCPROSENS team for support, bug reports or feature suggestions.",
+        url: "https://dcprosens.com/contact",
+        type: "website",
     },
     robots: {
         index: true,
