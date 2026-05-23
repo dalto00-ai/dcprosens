@@ -40,12 +40,7 @@ export default function robots(): MetadataRoute.Robots {
                 disallow: '/',
             },
         ],
-        sitemap: [
-            'https://dcprosens.com/sitemap.xml',
-            'https://dcprosens.com/image-sitemap.xml',
-            'https://dcprosens.com/news-sitemap.xml',
-            'https://dcprosens.com/sitemap-index.xml',
-        ],
+        sitemap: 'https://dcprosens.com/sitemap-index.xml',
         host: 'https://dcprosens.com',
     };
 }

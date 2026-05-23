@@ -104,16 +104,11 @@ export default async function BlogPost({ params }: Props) {
                 inLanguage: 'en-US',
                 isAccessibleForFree: true,
                 author: {
-                    '@type': 'Organization',
-                    '@id': 'https://dcprosens.com#organization',
-                    name: 'DCPROSENS',
-                    url: 'https://dcprosens.com',
-                    logo: {
-                        '@type': 'ImageObject',
-                        url: 'https://dcprosens.com/logo.png',
-                        width: 200,
-                        height: 60,
-                    },
+                    '@type': 'Person',
+                    name: 'Dalto Outlier',
+                    url: 'https://dcprosens.com/about',
+                    jobTitle: 'Lead Aim Coach & Hardware Analyst',
+                    sameAs: ['https://dcoutlier.com'],
                 },
                 publisher: {
                     '@type': 'Organization',
@@ -173,6 +168,18 @@ export default async function BlogPost({ params }: Props) {
         ],
     };
 
+    // Filter 3 related articles (same category if possible, fallback to newest)
+    const relatedPosts = posts
+        .filter((p) => p.slug !== post.slug && p.category === post.category)
+        .slice(0, 3);
+
+    if (relatedPosts.length < 3) {
+        const extraPosts = posts
+            .filter((p) => p.slug !== post.slug && !relatedPosts.some((r) => r.slug === p.slug))
+            .slice(0, 3 - relatedPosts.length);
+        relatedPosts.push(...extraPosts);
+    }
+
     return (
         <article className="container" style={{ padding: '4rem 0', maxWidth: '800px' }}>
             <script
@@ -221,6 +228,108 @@ export default async function BlogPost({ params }: Props) {
                     fontSize: '1.1rem'
                 }}
             />
+
+            {/* Author Bio Section (E-E-A-T) */}
+            <hr style={{ border: '0', borderTop: '1px solid var(--border-color)', margin: '4rem 0 3rem 0' }} />
+
+            <div style={{
+                display: 'flex',
+                gap: '1.5rem',
+                alignItems: 'center',
+                background: 'var(--bg-card, #121214)',
+                border: '1px solid var(--border-color, #232326)',
+                borderRadius: 'var(--radius-md, 8px)',
+                padding: '2rem',
+                marginBottom: '4rem',
+                flexWrap: 'wrap'
+            }}>
+                <div style={{
+                    width: '70px',
+                    height: '70px',
+                    borderRadius: '50%',
+                    background: 'linear-gradient(135deg, var(--primary, #00f2fe) 0%, #4facfe 100%)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '1.8rem',
+                    fontWeight: 'bold',
+                    color: '#000',
+                    flexShrink: 0
+                }}>
+                    DO
+                </div>
+                <div style={{ flex: '1', minWidth: '250px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
+                        <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)' }}>Dalto Outlier</h3>
+                        <span style={{
+                            background: 'rgba(0, 242, 254, 0.1)',
+                            color: 'var(--primary, #00f2fe)',
+                            fontSize: '0.75rem',
+                            fontWeight: 600,
+                            padding: '0.2rem 0.6rem',
+                            borderRadius: '4px',
+                            border: '1px solid rgba(0, 242, 254, 0.2)'
+                        }}>Lead Aim Coach &amp; Hardware Expert</span>
+                    </div>
+                    <p style={{ margin: 0, fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
+                        Dalto is a veteran FPS aim coach and hardware analyst. Having trained hundreds of competitive players in Valorant and CS2, he specializes in mouse sensor technology, perfect sensitivity calibrations, and cognitive muscle memory optimization.
+                    </p>
+                </div>
+            </div>
+
+            {/* Related Articles Section */}
+            <div style={{ marginTop: '4rem' }}>
+                <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '2rem', color: 'var(--text-primary)' }}>
+                    Related Guides &amp; Articles
+                </h3>
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+                    gap: '1.5rem',
+                    marginBottom: '2rem'
+                }}>
+                    {relatedPosts.map((rPost) => (
+                        <Link href={`/blog/${rPost.slug}`} key={rPost.slug} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
+                            <div style={{
+                                background: 'var(--bg-card, #121214)',
+                                border: '1px solid var(--border-color, #232326)',
+                                borderRadius: 'var(--radius-md, 8px)',
+                                padding: '1.25rem',
+                                transition: 'transform 0.2s ease, border-color 0.2s ease',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                height: '100%',
+                                gap: '1rem'
+                            }}>
+                                <div style={{
+                                    position: 'relative',
+                                    width: '100%',
+                                    aspectRatio: '16/9',
+                                    borderRadius: '4px',
+                                    overflow: 'hidden',
+                                    background: 'var(--bg-body, #0a0a0c)'
+                                }}>
+                                    <SEOImage src={rPost.image} alt={rPost.title} priority={false} />
+                                </div>
+                                <div style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
+                                    <h4 style={{
+                                        fontSize: '1rem',
+                                        fontWeight: 700,
+                                        margin: '0 0 0.5rem 0',
+                                        lineHeight: '1.4',
+                                        color: 'var(--text-primary)',
+                                    }}>
+                                        {rPost.title}
+                                    </h4>
+                                    <span style={{ fontSize: '0.8rem', color: 'var(--text-muted, #7c7c82)' }}>
+                                        {rPost.date} • {rPost.readTime}
+                                    </span>
+                                </div>
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+            </div>
         </article>
     );
 }

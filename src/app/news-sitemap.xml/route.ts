@@ -12,8 +12,10 @@ export async function GET() {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
   });
 
-  // Include all posts (News sitemap can include older evergreen content)
+  // Include only the 3 most recent articles to strictly comply with Google News sitemap guidelines
+  // (which states news sitemaps must only contain articles published in the last 48 hours).
   const newsEntries = sortedPosts
+    .slice(0, 3)
     .map((post) => {
       const pubDate = new Date(post.date);
       // Format: YYYY-MM-DD for Google News

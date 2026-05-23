@@ -1,10 +1,13 @@
 import https from 'https';
+import { posts } from '../src/lib/posts';
+import { stories } from '../src/lib/stories';
 
 const HOST = 'dcprosens.com';
 const KEY = 'd11bb27999754f2586c5fb8bea3a4ee4'; // Bing Key from verify file
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 
-const urlList = [
+// Core static pages
+const staticPages = [
     `https://${HOST}/`,
     `https://${HOST}/about`,
     `https://${HOST}/contact`,
@@ -13,8 +16,23 @@ const urlList = [
     `https://${HOST}/games`,
     `https://${HOST}/dpi`,
     `https://${HOST}/blog`,
-    // Add dynamic logic here if needed, for now submitting core pages
+    `https://${HOST}/web-stories`,
 ];
+
+// Dynamic blog posts
+const blogPosts = posts.map(post => `https://${HOST}/blog/${post.slug}`);
+
+// Dynamic web stories
+const webStories = stories.map(story => `https://${HOST}/web-stories/${story.slug}`);
+
+// Combine all pages
+const urlList = [
+    ...staticPages,
+    ...blogPosts,
+    ...webStories,
+];
+
+console.log(`Preparing to submit ${urlList.length} URLs to IndexNow...`);
 
 const data = JSON.stringify({
     host: HOST,
@@ -30,7 +48,7 @@ const options = {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json; charset=utf-8',
-        'Content-Length': data.length,
+        'Content-Length': Buffer.byteLength(data),
     },
 };
 

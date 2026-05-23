@@ -111,15 +111,15 @@ export default function HomeWiki() {
             <article className={styles.content}>
                 <h3 className={styles.h3}>Latest Web Stories</h3>
                 <div className={styles.grid}>
-                    <Link href="/web-stories/top-5-mice-2026" className={styles.card} style={{ textDecoration: 'none' }}>
+                    <Link href="/web-stories/top-5-gaming-mice-2026" className={styles.card} style={{ textDecoration: 'none' }}>
                         <h4>Top 5 Gaming Mice 2026</h4>
                         <p>The best wireless mice for competitive gaming this year.</p>
                     </Link>
-                    <Link href="/web-stories/valorant-vs-cs2-differences" className={styles.card} style={{ textDecoration: 'none' }}>
+                    <Link href="/web-stories/valorant-vs-cs2-sensitivity-differences" className={styles.card} style={{ textDecoration: 'none' }}>
                         <h4>Valorant vs CS2</h4>
                         <p>Key differences in movement and mechanics explaining the switch.</p>
                     </Link>
-                    <Link href="/web-stories/what-is-edpi" className={styles.card} style={{ textDecoration: 'none' }}>
+                    <Link href="/web-stories/what-is-edpi-quick-guide" className={styles.card} style={{ textDecoration: 'none' }}>
                         <h4>What is eDPI?</h4>
                         <p>A quick visual guide to understanding effective sensitivity.</p>
                     </Link>
