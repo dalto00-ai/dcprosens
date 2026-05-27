@@ -1,0 +1,45 @@
+========================================================================
+   THE PRECISION AIM SYSTEM - SYSTEM 2: PERFECT CROSSHAIR PLACEMENT
+   Autor: Dalto Outlier (Lead Aim Coach & Hardware Analyst)
+   Website: https://dcprosens.com
+========================================================================
+
+CHAPTER 1: THE GEOMETRY OF PRE-AIMING
+------------------------------------------------------------------------
+Over 70% of headshots in high-tier lobbies require zero mouse correction. They are the mathematical result of perfect pre-aiming. Pre-aiming is the art of positioning your crosshair on a corner exactly where the enemy's head will appear before you step out to peek.
+
+To master this:
+- Stop looking at the floor. Most low-tier players keep their crosshair 1 meter above the ground, forcing a vertical flick correction when an enemy appears.
+- Align your vertical crosshair coordinate with head height. In tactical shooters (CS2, Valorant), maps are built with environmental grids. Box seams, bricks, door frames, and horizontal tape indicators are intentionally set at character head height. Memorize these map anchors.
+
+CHAPTER 2: CLEARING ANGLES (SLICING THE PIE)
+------------------------------------------------------------------------
+When approaching an uncleared corner, do not wide peek blindly. Utilize the geometric technique known as "Slicing the Pie."
+1. Stand at a safe distance from the corner wall (the closer you are to the wall, the larger your shoulder exposes to the enemy before you see them).
+2. Take tiny, micro-steps to the side, slicing the angle in thin 5-degree increments.
+3. Keep your crosshair snapped to the dynamic edge of the wall, moving in perfect synchronization with your character's strafe velocity.
+4. This ensures that you only expose yourself to one potential enemy angle at any single micro-second, turning complex sites into simple individual 1v1 fights.
+
+CHAPTER 3: THE MATHEMATICS OF 0% MONITOR DISTANCE SCOPE MATCHING
+------------------------------------------------------------------------
+Standard hipfire sensitivity does not scale naturally to telescopic scopes. When you zoom in, the FOV narrows. If your camera rotation speed remains identical, the scoped crosshair speed feels hyper-sensitive.
+
+To preserve muscle memory between hipfire rifle shots and scoped sniper shots, you must match them using 0% Monitor Distance Matching (0% MDM).
+
+0% MDM matches the focal speed at the exact center pixel of your screen. Micro-flick reflexes close to your reticle feel exactly identical whether you are holding an Operator, AWP, or standard rifle.
+
+Calculated Scoped Multipliers:
+- VALORANT (Operator, Marshal, ADS): Set Scoped Sensitivity Multiplier to:
+  Zoom Multiplier = 0.847
+- CS2 (AWP, Scout): Open your developer console (~) and type:
+  zoom_sensitivity_ratio 0.818933
+
+CHAPTER 4: WIDE PEERS VS. TIGHT ANGLES (COEFICIENTS OF REACTION)
+------------------------------------------------------------------------
+Your distance from a corner also dictates how far you should place your crosshair from the wall when holding defensively.
+- If holding a close angle (tight corner), place your crosshair 20-30 pixels off the corner to compensate for human reaction time (average 150ms-200ms). If you hold too tight to the wall, enemies will run past your crosshair before you can click.
+- If holding an enemy who has a wide-angle advantage, increase the offset slightly. The speed at which they run across your screen is exponentially faster close up than far away due to focal compression.
+
+========================================================================
+PRE-AIMING ELIMINATES FLICKS. UNLOCK 100% CROSSHAIR RETICLE EFFICIENCY!
+========================================================================
