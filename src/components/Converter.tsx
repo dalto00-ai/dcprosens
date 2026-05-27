@@ -22,18 +22,30 @@ export default function Converter() {
         return calculateCmPer360(numericSens, numericDpi, fromGame).toFixed(1);
     }, [numericSens, numericDpi, fromGame]);
 
-    // To verify consistency, output cm/360 should be same
-    // const toCm360 = calculateCmPer360(Number(resultSens), numericDpi, toGame).toFixed(2);
+    // Calculate dynamic equivalence list for all other games
+    const equivalenceList = useMemo(() => {
+        return games
+            .filter(g => g.id !== fromGame)
+            .map(g => {
+                const eqSens = convertSensitivity(fromGame, g.id, numericSens, numericDpi);
+                return {
+                    id: g.id,
+                    name: g.name,
+                    sens: eqSens.toFixed(3),
+                    edpi: (eqSens * numericDpi).toFixed(0)
+                };
+            });
+    }, [fromGame, numericSens, numericDpi]);
 
     return (
         <div className={styles.converterCard}>
             <div className={styles.grid}>
                 {/* INPUT SECTION */}
                 <div>
-                    <div className={styles.sectionTitle}>Input (From)</div>
+                    <div className={styles.sectionTitle}>Entrada (From)</div>
 
                     <div className={styles.inputGroup}>
-                        <label className={styles.label}>Game</label>
+                        <label className={styles.label}>Jogo de Origem</label>
                         <select
                             className={styles.select}
                             value={fromGame}
@@ -45,37 +57,39 @@ export default function Converter() {
                         </select>
                     </div>
 
-                    <div className={styles.inputGroup}>
-                        <label className={styles.label}>Sensitivity</label>
-                        <input
-                            type="number"
-                            className={styles.input}
-                            value={sens}
-                            onChange={(e) => setSens(e.target.value)}
-                            step="0.001"
-                            min="0"
-                        />
-                    </div>
+                    <div className={styles.inlineGrid}>
+                        <div className={styles.inputGroup}>
+                            <label className={styles.label}>Sensibilidade</label>
+                            <input
+                                type="number"
+                                className={styles.input}
+                                value={sens}
+                                onChange={(e) => setSens(e.target.value)}
+                                step="0.001"
+                                min="0"
+                            />
+                        </div>
 
-                    <div className={styles.inputGroup}>
-                        <label className={styles.label}>DPI (Mouse)</label>
-                        <input
-                            type="number"
-                            className={styles.input}
-                            value={dpi}
-                            onChange={(e) => setDpi(e.target.value)}
-                            step="10"
-                            min="100"
-                        />
+                        <div className={styles.inputGroup}>
+                            <label className={styles.label}>DPI (Mouse)</label>
+                            <input
+                                type="number"
+                                className={styles.input}
+                                value={dpi}
+                                onChange={(e) => setDpi(e.target.value)}
+                                step="10"
+                                min="100"
+                            />
+                        </div>
                     </div>
                 </div>
 
                 {/* OUTPUT SECTION */}
                 <div>
-                    <div className={styles.sectionTitle}>Output (To)</div>
+                    <div className={styles.sectionTitle}>Saída (To)</div>
 
                     <div className={styles.inputGroup}>
-                        <label className={styles.label}>Game</label>
+                        <label className={styles.label}>Jogo de Destino</label>
                         <select
                             className={styles.select}
                             value={toGame}
@@ -88,12 +102,13 @@ export default function Converter() {
                     </div>
 
                     <div className={styles.resultBox}>
-                        <div className={styles.resultLabel}>Converted Sensitivity</div>
+                        <div className={styles.resultLabel}>Sensibilidade Convertida</div>
                         <div className={styles.resultValue}>{resultSens}</div>
                     </div>
                 </div>
             </div>
 
+            {/* QUICK STATS */}
             <div className={styles.statsGrid}>
                 <div className={styles.stat}>
                     <div className={styles.statLabel}>CM / 360°</div>
@@ -105,14 +120,35 @@ export default function Converter() {
                 </div>
                 <div className={styles.stat}>
                     <div className={styles.statLabel}>eDPI (Universal)</div>
-                    {/* Universal eDPI is often considered sens * dpi, but technically varies by engine. 
-              We can display effective dpi relative to CSGO/Source as a standard reference if needed.
-              For now let's just show sens * dpi if appropriate, or maybe just skip it if confusing.
-              Let's show the Raw Yaw * Dpi * Sens (Degrees/Inch approx).
-           */}
                     <div className={styles.statValue}>
                         {(numericSens * numericDpi).toFixed(0)}
                     </div>
+                </div>
+            </div>
+
+            {/* DYNAMIC MULTI-GAME EQUIVALENCE SECTION */}
+            <div className={styles.equivalenceSection}>
+                <h3 className={styles.equivalenceTitle}>Sua Equivalência em Outros Jogos</h3>
+                <p className={styles.equivalenceSubtitle}>
+                    Veja instantaneamente qual sensibilidade configurar em todos os outros motores de jogo com base no seu DPI.
+                </p>
+                <div className={styles.equivalenceGrid}>
+                    {equivalenceList.map(eq => (
+                        <div key={eq.id} className={styles.equivalenceCard}>
+                            <div className={styles.equivalenceHeader}>
+                                <span className={styles.gameIndicator}>🎮</span>
+                                <span className={styles.gameName}>{eq.name}</span>
+                            </div>
+                            <div className={styles.equivalenceValueRow}>
+                                <span className={styles.equivalenceLabel}>Sens:</span>
+                                <strong className={styles.equivalenceVal}>{eq.sens}</strong>
+                            </div>
+                            <div className={styles.equivalenceValueRow}>
+                                <span className={styles.equivalenceLabel}>eDPI:</span>
+                                <span className={styles.equivalenceEdpi}>{eq.edpi}</span>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>

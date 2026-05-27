@@ -3,6 +3,7 @@ import { Outfit } from "next/font/google";
 import Script from "next/script";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import BottomNav from "@/components/BottomNav";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -111,6 +112,7 @@ export default function RootLayout({
           <Navbar />
           <main className="main-content">{children}</main>
           <Footer />
+          <BottomNav />
         </div>
 
         <Script
