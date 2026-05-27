@@ -22,7 +22,7 @@ export default function BottomNav() {
                 className={`${styles.navItem} ${pathname === '/ads' ? styles.active : ''}`}
             >
                 <span className={styles.navIcon}>🎯</span>
-                <span className={styles.navLabel}>Mira ADS</span>
+                <span className={styles.navLabel}>ADS</span>
             </Link>
 
             <Link 
@@ -30,7 +30,7 @@ export default function BottomNav() {
                 className={`${styles.navItem} ${pathname === '/' && typeof window !== 'undefined' && window.location.hash === '#pro-comparator' ? styles.active : ''}`}
             >
                 <span className={styles.navIcon}>⚖️</span>
-                <span className={styles.navLabel}>Comparar</span>
+                <span className={styles.navLabel}>Compare</span>
             </Link>
 
             <Link 

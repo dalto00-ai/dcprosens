@@ -26,11 +26,11 @@ export default function Navbar() {
 
                 {/* DESKTOP LINKS */}
                 <div className={styles.links}>
-                    <Link href="/" className={`${styles.link} ${pathname === '/' ? styles.activeLink : ''}`}>Conversor</Link>
-                    <Link href="/ads" className={`${styles.link} ${pathname === '/ads' ? styles.activeLink : ''}`}>Mira ADS</Link>
-                    <Link href="/dpi" className={`${styles.link} ${pathname === '/dpi' ? styles.activeLink : ''}`}>Calc DPI</Link>
-                    <Link href="/ebook" className={`${styles.link} ${pathname === '/ebook' ? styles.activeLink : ''}`}>Ebook Grátis</Link>
-                    <Link href="/games" className={`${styles.link} ${pathname === '/games' ? styles.activeLink : ''}`}>Jogos</Link>
+                    <Link href="/" className={`${styles.link} ${pathname === '/' ? styles.activeLink : ''}`}>Converter</Link>
+                    <Link href="/ads" className={`${styles.link} ${pathname === '/ads' ? styles.activeLink : ''}`}>ADS Calculator</Link>
+                    <Link href="/dpi" className={`${styles.link} ${pathname === '/dpi' ? styles.activeLink : ''}`}>eDPI Calculator</Link>
+                    <Link href="/ebook" className={`${styles.link} ${pathname === '/ebook' ? styles.activeLink : ''}`}>Aim System</Link>
+                    <Link href="/games" className={`${styles.link} ${pathname === '/games' ? styles.activeLink : ''}`}>Games</Link>
                     <Link href="/blog" className={`${styles.link} ${pathname.startsWith('/blog') ? styles.activeLink : ''}`}>Blog</Link>
                 </div>
 
@@ -65,49 +65,49 @@ export default function Navbar() {
                         className={`${styles.drawerLink} ${pathname === '/' ? styles.drawerActive : ''}`}
                         onClick={closeDrawer}
                     >
-                        🏠 Conversor Principal
+                        🏠 Primary Converter
                     </Link>
                     <Link 
                         href="/ads" 
                         className={`${styles.drawerLink} ${pathname === '/ads' ? styles.drawerActive : ''}`}
                         onClick={closeDrawer}
                     >
-                        🎯 Calculadora ADS 1:1
+                        🎯 Scopes / ADS 1:1
                     </Link>
                     <Link 
                         href="/dpi" 
                         className={`${styles.drawerLink} ${pathname === '/dpi' ? styles.drawerActive : ''}`}
                         onClick={closeDrawer}
                     >
-                        📏 Calculadora eDPI
+                        📏 eDPI Calculator
                     </Link>
                     <Link 
                         href="/ebook" 
                         className={`${styles.drawerLink} ${pathname === '/ebook' ? styles.drawerActive : ''}`}
                         onClick={closeDrawer}
                     >
-                        📖 Ebook Grátis: Mira 1:1
+                        ⚡ Precision Aim System ($9)
                     </Link>
                     <Link 
                         href="/games" 
                         className={`${styles.drawerLink} ${pathname === '/games' ? styles.drawerActive : ''}`}
                         onClick={closeDrawer}
                     >
-                        🎮 Banco de Jogos (Yaws)
+                        🎮 Game Profiles Database
                     </Link>
                     <Link 
                         href="/blog" 
                         className={`${styles.drawerLink} ${pathname.startsWith('/blog') ? styles.drawerActive : ''}`}
                         onClick={closeDrawer}
                     >
-                        📰 Artigos & Guias de Mira
+                        📰 Blog Articles & Manuals
                     </Link>
                     <Link 
                         href="/#pro-comparator" 
                         className={styles.drawerLink}
                         onClick={closeDrawer}
                     >
-                        ⚖️ Comparador Visual Pro
+                        ⚖️ Pro Visual Comparator
                     </Link>
                 </div>
 

@@ -3,6 +3,7 @@ import ProSettings from '@/components/ProSettings';
 import HomeWiki from '@/components/HomeWiki';
 import VoiceSearch from '@/components/VoiceSearch';
 import ProComparator from '@/components/ProComparator';
+import EbookPopup from '@/components/EbookPopup';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -240,6 +241,7 @@ export default function Home() {
 
     return (
         <div className="container page-container">
+            <EbookPopup />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

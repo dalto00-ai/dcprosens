@@ -503,26 +503,29 @@ export default async function BlogPost({ params }: Props) {
                 boxShadow: '0 8px 32px var(--primary-glow)'
             }}>
                 <h4 style={{ margin: '0 0 0.5rem 0', color: 'var(--primary)', fontSize: '1.35rem', fontWeight: 800 }}>
-                    🎯 Calcule sua Sensibilidade Equivalente
+                    🎯 Lock In Perfect 1:1 Aim & Pro Consistency
                 </h4>
                 <p style={{ margin: '0 0 1.75rem 0', color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.5' }}>
-                    Vai mudar de jogo? Converta sua mira física entre Valorant, CS2, Apex Legends e Rainbow Six instantaneamente utilizando nosso conversor calibrado oficial!
+                    Tired of daily aim inconsistency? Calibrate your physical cm/360, scope matching, and sensor latency. Get the complete <strong>Precision Aim System (4-Part Technical Manifestos)</strong> today for only <strong>$9.00 USD</strong>!
                 </p>
-                <Link href="/" style={{
+                <Link href="/ebook" style={{
                     display: 'inline-block',
                     padding: '0.85rem 2.25rem',
                     background: 'var(--primary)',
                     color: '#000',
-                    fontWeight: 700,
+                    fontWeight: 800,
                     borderRadius: 'var(--radius-full, 50px)',
                     textDecoration: 'none',
                     fontSize: '0.95rem',
                     boxShadow: '0 4px 14px var(--primary-glow)',
-                    transition: 'transform 0.2s ease'
+                    transition: 'transform 0.2s ease',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.5px'
                 }}>
-                    Abrir Conversor de Sensibilidade →
+                    Unlock Elite Precision ($9) ⚡
                 </Link>
             </div>
+
 
             {/* Author Bio Section (E-E-A-T) */}
             <hr style={{ border: '0', borderTop: '1px solid var(--border-color)', margin: '4rem 0 3rem 0' }} />
