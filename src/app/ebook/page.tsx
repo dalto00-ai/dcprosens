@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 };
 
 export default function EbookSalesPage() {
-    const checkoutLink = "https://go.hotmart.com/P106024687A";
+    const checkoutLink = "https://pay.hotmart.com/P106024687A?off=9lctx2l1";
 
     return (
         <div className={styles.salesContainer}>

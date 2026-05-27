@@ -83,6 +83,9 @@ export const metadata: Metadata = {
   verification: {
     google: "bc2564470ebbe5d4",
     yandex: "b50282a38dee461f",
+    other: {
+      "naver-site-verification": "93e0b3ee0e795faf55c0172e4ccbd6a5b79dc3dd",
+    },
   },
   other: {
     "geo.region": "US",
