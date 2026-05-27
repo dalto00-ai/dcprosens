@@ -29,6 +29,7 @@ export default function Navbar() {
                     <Link href="/" className={`${styles.link} ${pathname === '/' ? styles.activeLink : ''}`}>Conversor</Link>
                     <Link href="/ads" className={`${styles.link} ${pathname === '/ads' ? styles.activeLink : ''}`}>Mira ADS</Link>
                     <Link href="/dpi" className={`${styles.link} ${pathname === '/dpi' ? styles.activeLink : ''}`}>Calc DPI</Link>
+                    <Link href="/ebook" className={`${styles.link} ${pathname === '/ebook' ? styles.activeLink : ''}`}>Ebook Grátis</Link>
                     <Link href="/games" className={`${styles.link} ${pathname === '/games' ? styles.activeLink : ''}`}>Jogos</Link>
                     <Link href="/blog" className={`${styles.link} ${pathname.startsWith('/blog') ? styles.activeLink : ''}`}>Blog</Link>
                 </div>
@@ -81,6 +82,13 @@ export default function Navbar() {
                         📏 Calculadora eDPI
                     </Link>
                     <Link 
+                        href="/ebook" 
+                        className={`${styles.drawerLink} ${pathname === '/ebook' ? styles.drawerActive : ''}`}
+                        onClick={closeDrawer}
+                    >
+                        📖 Ebook Grátis: Mira 1:1
+                    </Link>
+                    <Link 
                         href="/games" 
                         className={`${styles.drawerLink} ${pathname === '/games' ? styles.drawerActive : ''}`}
                         onClick={closeDrawer}
@@ -102,6 +110,7 @@ export default function Navbar() {
                         ⚖️ Comparador Visual Pro
                     </Link>
                 </div>
+
 
                 <div className={styles.drawerFooter}>
                     <p>Sensibilidade Perfeita para Pro Gamers.</p>
