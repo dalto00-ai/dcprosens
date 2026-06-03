@@ -1,0 +1,66 @@
+========================================================================
+   THE PRECISION AIM SYSTEM - SYSTEM 1: THE ARCHITECT OF PRECISION
+   Autor: Dalto Outlier (Lead Aim Coach & Hardware Analyst)
+   Website: https://dcprosens.com
+========================================================================
+
+CHAPTER 1: THE MATHEMATICS OF MOUSE INPUT & YAW VALUES
+------------------------------------------------------------------------
+To achieve absolute 1:1 muscle memory, you must understand how your game engine reads displacement. When you slide your mouse physically across your pad, the optical sensor measures counts (dots). The game engine multiplies these counts by your in-game sensitivity and a fixed constant called "Yaw".
+
+Formula:
+  Camera Rotation (Degrees) = Mouse Counts * Sensitivity * Yaw
+
+In most modern shooters built on the Quake/Source lineage (CS2, Apex Legends, Overwatch 2, Team Fortress 2, Quake Champions), the default Yaw value is exactly:
+  Yaw = 0.022
+
+In Epic Games' engines (Fortnite), the default Yaw is 0.002.
+In Riot Games' engines (Valorant), the default Yaw is exactly:
+  Yaw = 0.070
+
+Because Valorant has a much higher default Yaw, your Valorant in-game sensitivity will be significantly lower than in CS2 to achieve the exact same physical rotation on your mousepad.
+
+Example (CS2 to Valorant Conversion):
+  Valorant Sens = CS2 Sens * (0.022 / 0.070)
+  Valorant Sens = CS2 Sens / 3.181818
+
+CHAPTER 2: cm/360 - THE UNIVERSAL METRIC OF PHYSICAL SENSITIVITY
+------------------------------------------------------------------------
+Do not rely on eDPI (DPI * In-Game Sensitivity) to compare your physical speed across different games, because games use different Yaw values and field-of-view (FOV) scaling models. Instead, calculate your cm/360.
+
+cm/360 is the exact physical distance in centimeters your mouse must travel on your mousepad for your character to perform a perfect 360-degree rotation.
+
+Formula to calculate cm/360:
+  cm/360 = (360 * 2.54) / (DPI * Sensitivity * Yaw * 0.0254)
+
+Physical Classification:
+- Ultra-High Sensitivity: < 20cm/360 (Wrist aiming dominant. Risk of RSI/Tendonitis, highly inconsistent).
+- Medium/Fast Sensitivity: 20cm - 30cm/360 (Balanced wrist and forearm, ideal for tracking-heavy games like Apex/Overwatch).
+- Competitive Standard: 35cm - 50cm/360 (Forearm/Arm dominant. Standard for Valorant/CS2, maximizes micro-adjustments).
+- Low/Slow Sensitivity: > 50cm/360 (Full arm sweep, requires massive mousepad, very consistent but slow for target switches).
+
+CHAPTER 3: THE PHYSICS OF DPI DEVIATION (DPI VARIANCE)
+------------------------------------------------------------------------
+Most gamers set their mouse to 800 DPI in their software and assume the sensor reads exactly 800 DPI. In reality, due to lens manufacturing tolerances, sensor height, and mouse skate thickness, almost all mice suffer from DPI Deviation.
+
+Your 800 DPI setting might track physically at 824 DPI (a 3% deviation) or 775 DPI (a -3.1% deviation).
+
+How to test and normalize:
+1. Lay down a physical ruler alongside your mousepad.
+2. Align the mouse center with the 0cm mark.
+3. Slide the mouse exactly 10 centimeters horizontally.
+4. Record the pixel displacement on screen using a hardware tracking program (like MouseTester).
+5. If the tracking registers high deviation, adjust your in-game sensitivity slightly to match your true intended cm/360.
+
+CHAPTER 4: MINIMIZING SENSOR PROCESSING DELAYS (SWEET SPOT)
+------------------------------------------------------------------------
+Modern high-performance optical sensors (e.g., Focus Pro 35K, HERO 2) process coordinate frames inside the mouse microcontroller before sending them over USB. 
+
+To achieve the absolute lowest latency:
+- Avoid ultra-low DPI settings (like 400 DPI). At 400 DPI, the sensor must travel twice as far to register the first displacement dot compared to 800 DPI. This introduces "start-up latency."
+- Lock your mouse sensor at 800 DPI or 1600 DPI. This is the optimal physical "sweet spot" providing high resolution tracking frames without triggering sensor smoothing/jitter processing algorithms.
+- Always enable raw input in game options to completely bypass the OS cursor pointer multiplier.
+
+========================================================================
+CONFIE NO SEU CÉREBRO, ADOTE O SEU CM/360 IDEAL E MANTENHA-O CONSTANTE!
+========================================================================

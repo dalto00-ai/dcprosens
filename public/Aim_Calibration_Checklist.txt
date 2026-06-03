@@ -1,0 +1,75 @@
+========================================================================
+   DCPROSENS - AIM CALIBRATION CHECKLIST & SENSITIVITY GUIDE
+   Autor: Dalto Outlier (Lead Aim Coach & Hardware Analyst)
+   Website: https://dcprosens.com
+========================================================================
+
+Parabens por dar o primeiro passo para alcancar a consistência absoluta!
+Este guia pratico resume os pilares de calibracao de mira do nosso ebook 
+"The Architect of Precision". Siga os 6 passos abaixo para nivelar 
+sua memoria muscular.
+
+------------------------------------------------------------------------
+[ ] PASSO 1: ALINHAMENTO DO SETUP FISICO (POSTURA)
+------------------------------------------------------------------------
+- APOIO DO ANTEBRACO: Pelo menos 80% do seu antebraco deve estar apoiado 
+  sobre a mesa ou apoio do braco. Isso elimina a tensao no ombro.
+- CENTRALIZACAO: Posicione o mouse exatamente no centro do seu mousepad. 
+  Voce deve ter espaco igual para movimentar para a esquerda e direita.
+- LIMPEZA DO SENSOR: Use um cotonete seco para remover fiapos e poeira 
+  da lente do sensor do mouse. Particulas microscopicas causam "jitter" 
+  (pequenos tremores) na mira.
+
+------------------------------------------------------------------------
+[ ] PASSO 2: CONFIGURACOES DE ENGINES (SISTEMA OPERACIONAL)
+------------------------------------------------------------------------
+- ACELERACAO DO MOUSE: Desative a opcao "Aprimorar precisao do ponteiro" 
+  nas propriedades de mouse do Windows. Isso garante leitura 1:1.
+- RESOLUCAO NATIVA: Certifique-se de que a taxa de atualizacao do monitor 
+  esta no maximo (ex: 144Hz, 240Hz, 360Hz) nas configuracoes do Windows.
+- RAW INPUT: Nos jogos (CS2, Valorant), certifique-se de que a opcao 
+  "Raw Input" (Entrada Direta) esta ativada.
+
+------------------------------------------------------------------------
+[ ] PASSO 3: DYNAMIC DPI SELECTION (SWEET SPOT)
+------------------------------------------------------------------------
+- Nos sensores modernos (ex: HERO 2, Focus Pro 35K), 800 DPI a 1600 DPI 
+  apresentam a menor latencia de processamento de sinal do sensor (input lag).
+- Se voce usa 400 DPI, considere duplicar para 800 DPI e cortar a sua 
+  sensibilidade in-game pela metade. Isso reduz o "pixel skipping".
+
+------------------------------------------------------------------------
+[ ] PASSO 4: O TESTE DOS 180 GRAUS (CALIBRACAO FISICA)
+------------------------------------------------------------------------
+- Entre no servidor de treino de mira ou mapa aberto do seu jogo favorito.
+- Coloque o mouse na extremidade esquerda da sua zona de conforto de 
+  movimento e deslize-o horizontalmente ate a extremidade direita.
+- O personagem na tela deve realizar exatamente uma rotacao de 180 a 360 graus.
+- Calcule seu cm/360 real em https://dcprosens.com para registrar 
+  sua metrica fisica.
+
+------------------------------------------------------------------------
+[ ] PASSO 5: CONFIGURACAO 1:1 ADS (SCOPES)
+------------------------------------------------------------------------
+Ajuste os multiplicadores de zoom das miras para manter a memoria muscular 
+identica ao disparo padrão (Hipfire):
+- VALORANT (Operator/Marshal): 0.847 (Zoom 1) e 1.150 (Zoom 2)
+- CS2 (AWP/Scout): zoom_sensitivity_ratio 0.818933
+- APEX LEGENDS (Optic 1x): 1.0 (Optic 2x): 1.2
+- COD WARZONE: Defina ADS type como "Relative" e Coeficiente em 1.78 (16:9)
+
+------------------------------------------------------------------------
+[ ] PASSO 6: A ROTINA DE TREINO COGNITIVA (15 MINUTOS DIARIOS)
+------------------------------------------------------------------------
+Faca isso diariamente antes de iniciar suas partidas rankeadas:
+1. MICRO-FLICKS (5 MIN): Movimentos pequenos e explosivos em alvos proximos.
+   Objetivo: treinar a calibracao de micro-ajustes oculares.
+2. DYNAMIC TRACKING (5 MIN): Manter a mira perfeitamente travada em alvos 
+   moveis de curta e media distancia.
+3. FLICK-TRACK HYBRID (5 MIN): Rotacao de 90 a 180 graus com micro-ajuste.
+
+========================================================================
+Dica do Coach: A inconsistência nao vem da sua mira, mas sim de mudar de 
+sensibilidade a cada partida. Encontre seu cm/360 ideal, trave-o em 
+todos os jogos usando nosso conversor e confie no seu cerebro!
+========================================================================
