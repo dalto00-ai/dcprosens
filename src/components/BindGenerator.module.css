@@ -1,0 +1,285 @@
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+}
+
+.bindsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+}
+
+.bindRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.5rem;
+    gap: 1.5rem;
+    transition: var(--transition-fast);
+}
+
+.bindRowActive {
+    border-color: var(--primary);
+    background: rgba(0, 255, 157, 0.02);
+}
+
+.bindRow:hover {
+    border-color: var(--text-secondary);
+}
+
+@media (max-width: 600px) {
+    .bindRow {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+.bindInfo {
+    flex: 1;
+}
+
+.bindLabel {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.bindDesc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.bindSelector {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.keyButton {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    padding: 0.6rem 1.2rem;
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    min-width: 80px;
+    text-align: center;
+}
+
+.keyButtonListening {
+    background: var(--secondary);
+    border-color: #a78bfa;
+    color: #ffffff;
+    box-shadow: 0 0 12px var(--secondary-glow);
+    animation: pulse 1.5s infinite;
+}
+
+.keyButton:hover:not(.keyButtonListening) {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.clearBtn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color var(--transition-fast);
+}
+
+.clearBtn:hover {
+    color: #ff3838;
+}
+
+/* Virtual Keyboard section */
+.keyboardSection {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.keyboardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.keyboardTitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.keyboardTip {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.keyboardLayout {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+
+.keyboardRow {
+    display: flex;
+    gap: 0.4rem;
+    justify-content: center;
+    min-width: 650px;
+}
+
+.keycap {
+    background: #14151a;
+    border: 1px solid #2e303b;
+    border-radius: 4px;
+    color: var(--text-secondary);
+    padding: 0.6rem 0.2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: center;
+    box-shadow: 0 2px 0 #0c0d10;
+}
+
+.keycap:hover {
+    border-color: var(--text-primary);
+    color: var(--text-primary);
+    transform: translateY(-1px);
+}
+
+.keycapActive {
+    background: var(--secondary) !important;
+    border-color: #a78bfa !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 0 #5b21b6, 0 0 8px var(--secondary-glow);
+}
+
+.keycapBound {
+    border-color: var(--primary) !important;
+    color: var(--primary) !important;
+    box-shadow: 0 2px 0 #064e3b;
+}
+
+/* Config Output Preview */
+.previewSection {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+}
+
+.previewHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.previewTitle {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.previewActions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.previewBtn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    padding: 0.5rem 1.2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.previewBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--text-secondary);
+}
+
+.downloadBtn {
+    background: var(--primary);
+    color: #050507;
+    border-color: var(--primary);
+}
+
+.downloadBtn:hover {
+    background: var(--primary);
+    opacity: 0.9;
+}
+
+.codeArea {
+    width: 100%;
+    min-height: 250px;
+    background: #07080a;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    color: #00ff9d;
+    font-family: monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    overflow-x: auto;
+    white-space: pre;
+    resize: none;
+    outline: none;
+}
+
+.codeArea:focus {
+    border-color: var(--primary);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(112, 0, 255, 0.5);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(112, 0, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(112, 0, 255, 0);
+    }
+}

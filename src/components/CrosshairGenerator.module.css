@@ -373,3 +373,44 @@
     padding: 0.2rem 0.5rem;
     border-radius: var(--radius-full);
 }
+
+.importBox {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+}
+
+.importTitle {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+.importInput {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    border-radius: var(--radius-md);
+    padding: 0.75rem;
+    font-size: 0.85rem;
+    font-family: monospace;
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+.importInput:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 6px var(--primary-glow);
+}
+
+.importStatus {
+    font-size: 0.75rem;
+    color: var(--primary);
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
