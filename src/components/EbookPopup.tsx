@@ -46,7 +46,7 @@ export default function EbookPopup() {
                                 src="/ebook-cover.png" 
                                 alt="Precision Aim System Cover Stack" 
                                 width={180} 
-                                height={230} 
+                                height={180} 
                                 className={styles.coverImg}
                                 priority
                             />

@@ -16,6 +16,11 @@ const securityHeaders = [
     key: "Referrer-Policy",
     value: "strict-origin-when-cross-origin",
   },
+  // Ensure proper origin isolation with COOP
+  {
+    key: "Cross-Origin-Opener-Policy",
+    value: "same-origin-allow-popups",
+  },
   // Force HTTPS for 2 years (HSTS)
   {
     key: "Strict-Transport-Security",
