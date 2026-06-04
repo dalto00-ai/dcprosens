@@ -53,6 +53,14 @@ export async function GET() {
       <image:caption>Convert your gaming sensitivity between Valorant, CS2, Apex Legends and 20+ FPS games.</image:caption>
     </image:image>
   </url>
+  <url>
+    <loc>${BASE_URL}/ebook</loc>
+    <image:image>
+      <image:loc>${BASE_URL}/ebook-cover.png</image:loc>
+      <image:title>Precision Aim System Ebook Cover — DCPROSENS</image:title>
+      <image:caption>The ultimate 4-part guide to calibrating and mastering physical mouse sensitivity in FPS games.</image:caption>
+    </image:image>
+  </url>
   <!-- Blog Post Images -->
   ${postImages}
   <!-- Web Story Images -->

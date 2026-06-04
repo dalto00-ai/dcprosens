@@ -5,6 +5,7 @@ import { GoogleTagManager } from '@next/third-parties/google';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
+import LLMOptimizer from "@/components/LLMOptimizer";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -88,7 +89,17 @@ export const metadata: Metadata = {
   other: {
     "geo.region": "US",
     "geo.placename": "United States",
+    "geo.position": "37.0902;-95.7129",
+    "ICBM": "37.0902, -95.7129",
     "google-adsense-account": "ca-pub-1743865545749571",
+  },
+  alternates: {
+    canonical: "https://dcprosens.com",
+    languages: {
+      "en-US": "https://dcprosens.com",
+      "pt-BR": "https://dcprosens.com",
+      "x-default": "https://dcprosens.com",
+    },
   },
   manifest: "/manifest.json",
   appleWebApp: {
@@ -113,6 +124,7 @@ export default function RootLayout({
         <div className="app-wrapper">
           <Navbar />
           <main className="main-content">{children}</main>
+          <LLMOptimizer />
           <Footer />
           <BottomNav />
         </div>
