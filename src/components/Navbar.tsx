@@ -115,6 +115,34 @@ export default function Navbar() {
                         🖱️ Mousepad Size Calculator
                     </Link>
                     <Link 
+                        href="/mousepad-chart" 
+                        className={`${styles.drawerLink} ${pathname === '/mousepad-chart' ? styles.drawerActive : ''}`}
+                        onClick={closeDrawer}
+                    >
+                        📊 Mousepad Friction & Speed Chart
+                    </Link>
+                    <Link 
+                        href="/monitor-simulator" 
+                        className={`${styles.drawerLink} ${pathname === '/monitor-simulator' ? styles.drawerActive : ''}`}
+                        onClick={closeDrawer}
+                    >
+                        🖥️ Monitor Refresh Rate Hz Simulator
+                    </Link>
+                    <Link 
+                        href="/fps-calculator" 
+                        className={`${styles.drawerLink} ${pathname === '/fps-calculator' ? styles.drawerActive : ''}`}
+                        onClick={closeDrawer}
+                    >
+                        ⚡ FPS & Bottleneck Calculator
+                    </Link>
+                    <Link 
+                        href="/desk-space-calculator" 
+                        className={`${styles.drawerLink} ${pathname === '/desk-space-calculator' ? styles.drawerActive : ''}`}
+                        onClick={closeDrawer}
+                    >
+                        📐 Desk Space Sensitivity Calc
+                    </Link>
+                    <Link 
                         href="/polling-rate" 
                         className={`${styles.drawerLink} ${pathname === '/polling-rate' ? styles.drawerActive : ''}`}
                         onClick={closeDrawer}

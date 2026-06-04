@@ -1,0 +1,568 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+/* Configure PC Card */
+.configCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.configTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.formRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.label {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Game Tabs Selectors */
+.gameTabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .gameTabs {
+    grid-template-columns: 1fr;
+  }
+}
+
+.gameTab {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  transition: var(--transition-fast);
+  text-align: center;
+}
+
+.gameTab:hover {
+  border-color: var(--secondary);
+  background: rgba(112, 0, 255, 0.05);
+}
+
+.gameTab.activeGame {
+  border-color: var(--primary);
+  background: rgba(0, 255, 157, 0.05);
+  box-shadow: 0 0 15px rgba(0, 255, 157, 0.1);
+}
+
+.gameName {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.gameBound {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.gameTab.activeGame .gameBound {
+  color: var(--primary);
+}
+
+/* Selectors Row */
+.selectorsRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .selectorsRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+.select {
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: #08090c;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+  width: 100%;
+}
+
+.select:focus {
+  border-color: var(--primary);
+}
+
+.helperText {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: -0.25rem;
+}
+
+/* Dashboard Grid */
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .dashboardGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dashCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.dashCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardCategory {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+}
+
+/* FPS Display */
+.fpsDisplay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 0;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.fpsNum {
+  font-size: 4.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  font-family: monospace;
+  line-height: 1;
+  text-shadow: 0 0 20px var(--primary-glow);
+}
+
+.fpsUnit {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  letter-spacing: 2px;
+  margin-top: 0.5rem;
+}
+
+.gameDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.genreBadge {
+  align-self: flex-start;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  background: rgba(112, 0, 255, 0.15);
+  color: #a95fff;
+  border: 1px solid rgba(112, 0, 255, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.gameInfoText {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Bottleneck Diagnostic area */
+.bottleneckMeterArea {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.statusBadge {
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.badgeCpu {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.badgeGpu {
+  background: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.badgeBalanced {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+/* Share Bar */
+.barContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.barLabel {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.visualBar {
+  display: flex;
+  height: 12px;
+  background: #1a1a1c;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.cpuFill {
+  background: var(--secondary);
+  transition: width 0.5s ease-in-out;
+}
+
+.gpuFill {
+  background: var(--primary);
+  transition: width 0.5s ease-in-out;
+}
+
+.barLegend {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.legendCpu {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.legendCpu::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--secondary);
+}
+
+.legendGpu {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.legendGpu::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.bottleneckDesc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Upgrade and compatibility section */
+.upgradeSection {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .upgradeSection {
+    grid-template-columns: 1fr;
+  }
+}
+
+.upgradeBlock {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.subTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.subText {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.hzStatusGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hzCard {
+  display: grid;
+  grid-template-columns: 40px 140px 120px 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast);
+}
+
+@media (max-width: 600px) {
+  .hzCard {
+    grid-template-columns: 40px 1fr;
+    row-gap: 0.5rem;
+  }
+  .hzCard > *:nth-child(3),
+  .hzCard > *:nth-child(4) {
+    grid-column: 1 / span 2;
+  }
+}
+
+.hzCard.hzOk {
+  border-left: 3px solid #10b981;
+}
+
+.hzCard.hzFail {
+  border-left: 3px solid #ef4444;
+}
+
+.hzCheckIcon {
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.hzTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.hzStatusText {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.hzOk .hzStatusText {
+  color: #10b981;
+}
+
+.hzFail .hzStatusText {
+  color: #ef4444;
+}
+
+.hzDesc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Recommendation Card */
+.recommendationCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: relative;
+  justify-content: center;
+}
+
+.badgeLine {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.recBadge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  background: rgba(0, 255, 157, 0.1);
+  color: var(--primary);
+  border: 1px solid rgba(0, 255, 157, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.recTitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.recProduct {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.recText {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.buyBtn {
+  background: var(--primary);
+  color: #000;
+  text-align: center;
+  font-weight: 700;
+  padding: 0.85rem;
+  border-radius: var(--radius-md);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.buyBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 255, 157, 0.3);
+}
+
+.affiliateNote {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: -0.5rem;
+}
+
+/* FAQ section */
+.faqSection {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+}
+
+.faqTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .faqGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.faqItem h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.faqItem p {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}

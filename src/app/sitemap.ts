@@ -67,6 +67,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.8,
         },
         {
+            url: `${baseUrl}/mousepad-chart`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/monitor-simulator`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.9,
+        },
+        {
+            url: `${baseUrl}/fps-calculator`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.85,
+        },
+        {
+            url: `${baseUrl}/desk-space-calculator`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.85,
+        },
+        {
             url: `${baseUrl}/polling-rate`,
             lastModified: new Date(),
             changeFrequency: 'monthly',

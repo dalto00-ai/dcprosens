@@ -1,0 +1,278 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.controlsCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.controlGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.controlLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btnGrid {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.controlBtn {
+  background: #13141a;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.controlBtnActive {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #000;
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.controlBtn:hover:not(.controlBtnActive) {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.canvasContainer {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  background: #050507;
+  aspect-ratio: 16 / 7;
+}
+
+.canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Stats dashboard */
+.statsSection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.statsCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color 0.2s;
+}
+
+.statsCard:hover {
+  border-color: var(--primary);
+}
+
+.statsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 0.5rem;
+}
+
+.hzBadge {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.hzBadgePrimary {
+  color: var(--primary);
+}
+
+.hzBadgeSecondary {
+  color: #a95fff;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.statItem {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.5rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+}
+
+.statLabel {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.statVal {
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-family: monospace;
+  color: var(--text-primary);
+}
+
+/* Recommended monitors list */
+.recommendationsSection {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+
+.recommendationsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.monitorCard {
+  background: #13141a;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.monitorCard:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+}
+
+.monitorTag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: rgba(0, 255, 157, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  align-self: flex-start;
+}
+
+.monitorName {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  min-height: 2.5rem;
+}
+
+.monitorSpecs {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  background: rgba(0, 0, 0, 0.15);
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.buyBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  color: #000;
+  font-weight: 700;
+  padding: 0.6rem;
+  border-radius: var(--radius-md);
+  font-size: 0.8rem;
+  text-align: center;
+  transition: opacity 0.2s;
+  margin-top: auto;
+}
+
+.buyBtn:hover {
+  opacity: 0.9;
+}
+
+/* Panel comparison table */
+.panelTableContainer {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  margin-top: 1.5rem;
+}
+
+.panelTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.panelTable th {
+  background: #13141a;
+  padding: 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.panelTable td {
+  padding: 1rem;
+  font-size: 0.85rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.panelTable tr:last-child td {
+  border-bottom: none;
+}
+
+.panelTable tr:hover td {
+  background: rgba(255, 255, 255, 0.01);
+}
+
+@media (max-width: 900px) {
+  .statsSection {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .controlsCard {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+  }
+}

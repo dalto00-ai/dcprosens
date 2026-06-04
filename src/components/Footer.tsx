@@ -9,6 +9,8 @@ export default function Footer() {
                     <Link href="/" style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Conversor</Link>
                     <Link href="/ads" style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Calculadora ADS</Link>
                     <Link href="/dpi" style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Calculadora eDPI</Link>
+                    <Link href="/fps-calculator" style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>FPS Calc</Link>
+                    <Link href="/desk-space-calculator" style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Espaço na Mesa</Link>
                     <Link href="/about" style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Sobre</Link>
                     <Link href="/contact" style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Contato</Link>
                     <Link href="/privacy" style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Privacidade</Link>
