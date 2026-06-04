@@ -97,7 +97,6 @@ export const metadata: Metadata = {
     canonical: "https://dcprosens.com",
     languages: {
       "en-US": "https://dcprosens.com",
-      "pt-BR": "https://dcprosens.com",
       "x-default": "https://dcprosens.com",
     },
   },
