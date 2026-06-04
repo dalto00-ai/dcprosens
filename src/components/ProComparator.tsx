@@ -339,6 +339,26 @@ export default function ProComparator() {
                     <strong>Dalto Outlier</strong> • <em>Lead Aim Coach & Esports Specialist</em>
                 </div>
             </div>
+
+            {/* CONTEXTUAL CTA AFTER VERDICT */}
+            <div className={styles.comparatorCTA}>
+                <span className={styles.comparatorCTABadge}>⚡ Próximo Passo</span>
+                <h3 className={styles.comparatorCTATitle}>
+                    Quer treinar com a precisão de{' '}
+                    <span className="text-gradient">{selectedPro?.name}</span>?
+                </h3>
+                <p className={styles.comparatorCTADesc}>
+                    Calibre seu hardware, postura e memória muscular usando o mesmo sistema técnico que pro players de ponta utilizam. 4 manifestos completos por apenas $9.
+                </p>
+                <a
+                    href="https://pay.hotmart.com/P106024687A?off=9lctx2l1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.comparatorCTABtn}
+                >
+                    Ver o Sistema de Precisão →
+                </a>
+            </div>
         </section>
     );
 }

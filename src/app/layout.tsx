@@ -78,9 +78,6 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
     creator: "@dcprosens",
   },
-  alternates: {
-    canonical: "https://dcprosens.com",
-  },
   verification: {
     google: "bc2564470ebbe5d4",
     yandex: "b50282a38dee461f",

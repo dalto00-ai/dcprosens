@@ -24,8 +24,41 @@ export const metadata: Metadata = {
 export default function EbookSalesPage() {
     const checkoutLink = "https://pay.hotmart.com/P106024687A?off=9lctx2l1";
 
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "The Precision Aim System — 4-Part Technical Aim Manifesto",
+        "description": "Complete 4-part technical aim system covering sensor calibration, crosshair placement geometry, neuro-muscular conditioning, and zero-friction hardware matrix for competitive FPS players.",
+        "image": "https://dcprosens.com/ebook-cover.png",
+        "brand": {
+            "@type": "Brand",
+            "name": "DCPROSENS"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "9.00",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "url": checkoutLink,
+            "priceValidUntil": "2027-12-31",
+            "seller": {
+                "@type": "Organization",
+                "name": "DCPROSENS"
+            }
+        },
+        "category": "eBook / Gaming Training Guide",
+        "audience": {
+            "@type": "Audience",
+            "audienceType": "Competitive FPS Gamers"
+        }
+    };
+
     return (
         <div className={styles.salesContainer}>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             {/* HERO / VSL HEADLINE */}
             <div className={styles.heroSection}>
                 <span className={styles.promoBadge}>

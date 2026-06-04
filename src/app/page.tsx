@@ -42,13 +42,6 @@ export default function Home() {
                 "applicationCategory": "GameApplication",
                 "operatingSystem": "Web",
                 "url": "https://dcprosens.com",
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.9",
-                    "ratingCount": "1250",
-                    "bestRating": "5",
-                    "worstRating": "1",
-                },
                 "offers": {
                     "@type": "Offer",
                     "price": "0",

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from 'next/link';
+import Image from 'next/image';
 import { posts } from '@/lib/posts';
 import blogStyles from './blog.module.css';
 
@@ -78,20 +79,32 @@ export default function BlogIndex() {
                 {sortedPosts.map(post => (
                     <Link href={`/blog/${post.slug}`} key={post.slug} style={{ display: 'block', height: '100%' }}>
                         <div className={blogStyles.card}>
-                            <div className={blogStyles.category}>
-                                {post.category ? post.category.toUpperCase() : 'GUIDE'}
+                            {/* Thumbnail image */}
+                            <div className={blogStyles.cardImageWrapper}>
+                                <Image
+                                    src={post.image}
+                                    alt={post.title}
+                                    width={480}
+                                    height={200}
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                />
                             </div>
-                            <div className={blogStyles.meta}>
-                                {post.readTime} • {post.date}
-                            </div>
-                            <h2 className={blogStyles.title}>
-                                {post.title}
-                            </h2>
-                            <p className={blogStyles.excerpt}>
-                                {post.excerpt}
-                            </p>
-                            <div className={blogStyles.readMore}>
-                                Read Article →
+                            <div className={blogStyles.cardBody}>
+                                <div className={blogStyles.category}>
+                                    {post.category ? post.category.toUpperCase() : 'GUIDE'}
+                                </div>
+                                <div className={blogStyles.meta}>
+                                    {post.readTime} • {post.date}
+                                </div>
+                                <h2 className={blogStyles.title}>
+                                    {post.title}
+                                </h2>
+                                <p className={blogStyles.excerpt}>
+                                    {post.excerpt}
+                                </p>
+                                <div className={blogStyles.readMore}>
+                                    Read Article →
+                                </div>
                             </div>
                         </div>
                     </Link>

@@ -27,8 +27,10 @@ export default function Navbar() {
                 {/* DESKTOP LINKS */}
                 <div className={styles.links}>
                     <Link href="/" className={`${styles.link} ${pathname === '/' ? styles.activeLink : ''}`}>Converter</Link>
-                    <Link href="/ads" className={`${styles.link} ${pathname === '/ads' ? styles.activeLink : ''}`}>ADS Calculator</Link>
-                    <Link href="/dpi" className={`${styles.link} ${pathname === '/dpi' ? styles.activeLink : ''}`}>eDPI Calculator</Link>
+                    <Link href="/ads" className={`${styles.link} ${pathname === '/ads' ? styles.activeLink : ''}`}>ADS</Link>
+                    <Link href="/dpi" className={`${styles.link} ${pathname === '/dpi' ? styles.activeLink : ''}`}>eDPI</Link>
+                    <Link href="/sens-finder" className={`${styles.link} ${pathname === '/sens-finder' ? styles.activeLink : ''}`}>Sens Finder</Link>
+                    <Link href="/mouse-database" className={`${styles.link} ${pathname === '/mouse-database' ? styles.activeLink : ''}`}>Mice DB</Link>
                     <Link href="/ebook" className={`${styles.link} ${pathname === '/ebook' ? styles.activeLink : ''}`}>Aim System</Link>
                     <Link href="/games" className={`${styles.link} ${pathname === '/games' ? styles.activeLink : ''}`}>Games</Link>
                     <Link href="/blog" className={`${styles.link} ${pathname.startsWith('/blog') ? styles.activeLink : ''}`}>Blog</Link>
@@ -87,6 +89,20 @@ export default function Navbar() {
                         onClick={closeDrawer}
                     >
                         ⚡ Precision Aim System ($9)
+                    </Link>
+                    <Link 
+                        href="/sens-finder" 
+                        className={`${styles.drawerLink} ${pathname === '/sens-finder' ? styles.drawerActive : ''}`}
+                        onClick={closeDrawer}
+                    >
+                        🎯 Find My Sensitivity (cm/360)
+                    </Link>
+                    <Link 
+                        href="/mouse-database" 
+                        className={`${styles.drawerLink} ${pathname === '/mouse-database' ? styles.drawerActive : ''}`}
+                        onClick={closeDrawer}
+                    >
+                        🖱️ Gaming Mouse Database
                     </Link>
                     <Link 
                         href="/games" 
