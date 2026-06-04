@@ -1,0 +1,375 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---- Controls Panel ---- */
+.controlsPanel {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+}
+
+.gameTabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    background: rgba(0,0,0,0.3);
+    border-radius: var(--radius-md);
+    padding: 0.25rem;
+}
+
+.gameTab {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    font-family: inherit;
+}
+
+.gameTab.active {
+    background: var(--primary);
+    color: #000;
+}
+
+.section {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.sectionTitle {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.sliderRow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.sliderLabel {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    width: 140px;
+    flex-shrink: 0;
+}
+
+.slider {
+    flex: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    background: var(--border-color);
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+    box-shadow: 0 0 6px var(--primary-glow);
+}
+
+.slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 0 6px var(--primary-glow);
+}
+
+.sliderValue {
+    font-size: 0.82rem;
+    color: var(--primary);
+    font-weight: 700;
+    width: 38px;
+    text-align: right;
+    font-family: monospace;
+}
+
+.toggleRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.toggleLabel {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.toggle {
+    position: relative;
+    width: 40px;
+    height: 22px;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggleSlider {
+    position: absolute;
+    inset: 0;
+    background: var(--border-color);
+    border-radius: 22px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.toggleSlider::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 3px;
+    bottom: 3px;
+    background: #fff;
+    border-radius: 50%;
+    transition: var(--transition-fast);
+}
+
+.toggle input:checked + .toggleSlider {
+    background: var(--primary);
+}
+
+.toggle input:checked + .toggleSlider::before {
+    transform: translateX(18px);
+}
+
+.colorRow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.colorLabel {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    width: 140px;
+    flex-shrink: 0;
+}
+
+.colorInput {
+    width: 44px;
+    height: 30px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+    background: none;
+    cursor: pointer;
+    padding: 2px;
+}
+
+.colorHex {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-family: monospace;
+}
+
+/* ---- Preview Panel ---- */
+.previewPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: sticky;
+    top: 1rem;
+}
+
+.previewBox {
+    background: #0a0a0a;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+}
+
+.previewTitle {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.previewCanvas {
+    width: 200px;
+    height: 200px;
+    background: #111;
+    border-radius: var(--radius-md);
+    margin: 0 auto;
+    display: block;
+    border: 1px solid var(--border-color);
+}
+
+.codeBox {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+}
+
+.codeTitle {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+.codeString {
+    font-family: monospace;
+    font-size: 0.78rem;
+    color: var(--primary);
+    background: rgba(0,0,0,0.4);
+    padding: 0.75rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+    word-break: break-all;
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+    min-height: 2.5rem;
+}
+
+.actionBtns {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.copyBtn {
+    flex: 1;
+    padding: 0.65rem 1rem;
+    background: var(--primary);
+    color: #000;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    font-family: inherit;
+}
+
+.copyBtn:hover {
+    opacity: 0.85;
+}
+
+.copyBtn.copied {
+    background: #1a9e5c;
+}
+
+.exportBtn {
+    padding: 0.65rem 1rem;
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    font-family: inherit;
+}
+
+.exportBtn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* ---- Presets ---- */
+.presetsBox {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+}
+
+.presetsTitle {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.presetList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.presetItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 0.75rem;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    width: 100%;
+    text-align: left;
+    font-family: inherit;
+}
+
+.presetItem:hover {
+    border-color: var(--primary);
+    background: rgba(0, 255, 157, 0.03);
+}
+
+.presetName {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.presetGame {
+    font-size: 0.72rem;
+    color: var(--primary);
+    font-weight: 600;
+    background: rgba(0,255,157,0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-full);
+}

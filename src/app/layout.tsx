@@ -90,6 +90,15 @@ export const metadata: Metadata = {
     "geo.placename": "United States",
     "google-adsense-account": "ca-pub-1743865545749571",
   },
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "DCPROSENS",
+  },
+  formatDetection: {
+    telephone: false,
+  },
 };
 
 export default function RootLayout({

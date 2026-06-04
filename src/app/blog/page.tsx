@@ -7,6 +7,26 @@ import blogStyles from './blog.module.css';
 export const metadata: Metadata = {
     title: "Gaming Sensitivity & Aim Guides — Blog | DCPROSENS",
     description: "Step-by-step guides on mouse sensitivity conversion, eDPI, cm/360, DPI settings, and top gaming gear reviews for Valorant, CS2, Apex & more.",
+    keywords: [
+        // Blog / Content
+        'gaming blog', 'gaming sensitivity blog', 'fps tips and guides', 'sensitivity guide',
+        'gaming aim guide', 'aim improvement guide', 'how to improve aim fps', 'fps gaming tips 2025',
+        'mouse sensitivity guide', 'gaming settings guide', 'competitive gaming guide',
+        // Game specific articles
+        'valorant tips 2025', 'valorant sensitivity guide', 'valorant aim guide', 'valorant settings guide',
+        'cs2 guide', 'cs2 tips 2025', 'cs2 sensitivity settings', 'cs2 pro settings guide',
+        'apex legends tips', 'apex legends settings guide', 'apex legends aim guide',
+        'overwatch 2 sensitivity guide', 'fortnite settings guide', 'cod warzone settings',
+        // Pro analysis
+        'pro player analysis', 'pro gamer settings breakdown', 'tenz settings analysis',
+        's1mple settings guide', 'zywoo cs2 settings breakdown', 'aspas valorant guide',
+        'imperialhal settings', 'pro player gear review', 'esports settings database',
+        // Topics
+        'what is edpi guide', 'cm360 explained', 'mouse dpi guide', 'best gaming mouse guide',
+        'mouse sensitivity explained', 'how to find perfect sensitivity', 'gaming monitor guide',
+        'polling rate explained', 'raw input gaming', 'aim trainer tips', 'kovaaks guide',
+        'aimlabs settings', 'crosshair guide valorant', 'best crosshair settings cs2',
+    ],
     alternates: {
         canonical: "https://dcprosens.com/blog",
     },

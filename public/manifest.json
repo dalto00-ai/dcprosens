@@ -1,0 +1,58 @@
+{
+  "name": "DCPROSENS — Sensitivity Converter & Gaming Tools",
+  "short_name": "DCPROSENS",
+  "description": "The ultimate gaming sensitivity converter, pro player settings database, mouse database and gaming tools for FPS players.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#00ff9d",
+  "orientation": "portrait-primary",
+  "lang": "en",
+  "categories": ["games", "utilities", "sports"],
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Sensitivity Converter",
+      "short_name": "Converter",
+      "description": "Convert sensitivity between games",
+      "url": "/",
+      "icons": [{ "src": "/favicon.ico", "sizes": "any" }]
+    },
+    {
+      "name": "Sens Finder",
+      "short_name": "Sens Finder",
+      "description": "Find sensitivity from cm/360",
+      "url": "/sens-finder",
+      "icons": [{ "src": "/favicon.ico", "sizes": "any" }]
+    },
+    {
+      "name": "Pro Players",
+      "short_name": "Pros",
+      "description": "Pro player settings database",
+      "url": "/pros",
+      "icons": [{ "src": "/favicon.ico", "sizes": "any" }]
+    },
+    {
+      "name": "Mouse Database",
+      "short_name": "Mice DB",
+      "description": "Gaming mouse database",
+      "url": "/mouse-database",
+      "icons": [{ "src": "/favicon.ico", "sizes": "any" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

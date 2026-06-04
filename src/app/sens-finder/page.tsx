@@ -4,6 +4,26 @@ import SensFinderClient from '@/components/SensFinderClient';
 export const metadata: Metadata = {
     title: "Find My Sensitivity — cm/360 to All Games Calculator | DCPROSENS",
     description: "Enter your ideal cm/360 and instantly get your exact in-game sensitivity for Valorant, CS2, Apex Legends, Overwatch 2 and more. One cm/360, all games.",
+    keywords: [
+        // Reverse calculator core
+        'find my sensitivity', 'sensitivity finder', 'reverse sensitivity calculator',
+        'cm360 to sensitivity', 'cm per 360 calculator', 'cm360 calculator all games',
+        'find in-game sensitivity from cm360', 'sensitivity from cm per 360',
+        'cm360 to valorant sensitivity', 'cm360 to cs2 sensitivity', 'cm360 to apex sensitivity',
+        // Concepts
+        'what is cm360', 'cm per 360 gaming', 'centimeters per 360 explained',
+        'universal sensitivity standard', 'hardware independent sensitivity', 'physical sensitivity gaming',
+        'cm360 pro players', 'what cm360 do pros use', 'best cm360 fps games',
+        'pro cm360 valorant', 'pro cm360 cs2', 'cm360 apex legends pros',
+        // Tool features
+        'sensitivity calculator all games at once', 'one sensitivity all games',
+        'convert cm360 to all games', 'sensitivity for every game', 'sensitivity calculator free 2025',
+        'dpi 400 sensitivity finder', 'dpi 800 sensitivity finder', 'sensitivity by cm360',
+        // Long tail
+        'how many cm to do 360 gaming', 'mouse movement per 360 degrees',
+        'what cm360 should i use', 'best cm360 for valorant', 'ideal cm360 for cs2',
+        '40cm360 sensitivity valorant', '45cm360 sensitivity', '50cm360 sensitivity cs2',
+    ],
     alternates: {
         canonical: "https://dcprosens.com/sens-finder",
     },
@@ -21,6 +41,15 @@ export const metadata: Metadata = {
 };
 
 export default function SensFinderPage() {
+    const breadcrumb = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dcprosens.com" },
+            { "@type": "ListItem", "position": 2, "name": "Sens Finder", "item": "https://dcprosens.com/sens-finder" },
+        ],
+    };
+
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
@@ -45,6 +74,10 @@ export default function SensFinderPage() {
 
     return (
         <div className="container" style={{ padding: '4rem 0 6rem' }}>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+            />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -5,6 +5,30 @@ import { mouseDatabase } from '@/lib/mouseDatabase';
 export const metadata: Metadata = {
     title: "Best Gaming Mice 2025 — Pro Player Mouse Database | DCPROSENS",
     description: "Browse the ultimate database of pro gaming mice. Filter by weight, sensor, shape and connectivity. Find the perfect mouse used by top FPS professionals.",
+    keywords: [
+        // Core gaming mouse
+        'best gaming mouse 2025', 'pro gaming mouse', 'gaming mouse database', 'gaming mouse comparison',
+        'best fps gaming mouse', 'competitive gaming mouse', 'pro player mouse', 'esports mouse',
+        'gaming mouse filter', 'gaming mouse weight', 'lightweight gaming mouse', 'ultralight gaming mouse',
+        // Specific models
+        'logitech g pro x superlight 2', 'razer deathadder v3', 'pulsar xlite v3',
+        'zowie ec2', 'zowie fk2', 'finalmouse starlight', 'lamzu atlantis',
+        'g-wolves hts', 'vaxee np-01s', 'endgame gear xm2we',
+        'best logitech gaming mouse', 'best razer gaming mouse', 'best zowie mouse',
+        // What mouse do pros use
+        'what mouse does tenz use', 'what mouse does s1mple use 2025', 'what mouse does zywoo use',
+        'what mouse does aspas use', 'imperialhal mouse', 'niko cs2 mouse',
+        'valorant pro mouse', 'cs2 pro mouse', 'apex legends pro mouse setup',
+        // Specs & features
+        'gaming mouse sensor', 'PixArt 3395 gaming mouse', 'hero sensor mouse', 'focus pro sensor',
+        'gaming mouse polling rate', '4000hz gaming mouse', '8000hz gaming mouse',
+        'wired vs wireless gaming mouse', 'best wireless gaming mouse 2025',
+        'gaming mouse shape symmetrical', 'ergonomic gaming mouse', 'claw grip mouse', 'fingertip grip mouse',
+        // Long tail
+        'best mouse for valorant 2025', 'best mouse for cs2 2025', 'best mouse for apex legends',
+        'gaming mouse under 50 grams', 'gaming mouse under 60 grams',
+        'gaming mouse buying guide', 'how to choose gaming mouse', 'mouse for fps games',
+    ],
     alternates: {
         canonical: "https://dcprosens.com/mouse-database",
     },
@@ -22,6 +46,15 @@ export const metadata: Metadata = {
 };
 
 export default function MouseDatabasePage() {
+    const breadcrumb = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dcprosens.com" },
+            { "@type": "ListItem", "position": 2, "name": "Gaming Mouse Database", "item": "https://dcprosens.com/mouse-database" },
+        ],
+    };
+
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "ItemList",
@@ -39,6 +72,10 @@ export default function MouseDatabasePage() {
 
     return (
         <div className="container" style={{ padding: '4rem 0 6rem' }}>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+            />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

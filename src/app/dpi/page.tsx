@@ -5,6 +5,25 @@ import Link from 'next/link';
 export const metadata: Metadata = {
     title: "DPI Calculator — What is DPI & eDPI? Mouse Sensitivity Explained",
     description: "Free DPI & eDPI calculator for gamers. Learn what DPI means, what eDPI is, and find your perfect mouse sensitivity for Valorant, CS2, Apex Legends and more.",
+    keywords: [
+        // Core DPI keywords
+        'dpi calculator', 'edpi calculator', 'dpi calculator gaming', 'mouse dpi calculator',
+        'effective dpi calculator', 'gaming dpi calculator', 'what is dpi gaming', 'what is edpi',
+        'edpi meaning', 'dpi meaning gaming', 'dots per inch calculator', 'effective dots per inch',
+        // Game-specific
+        'valorant dpi calculator', 'cs2 dpi calculator', 'apex legends dpi', 'overwatch 2 dpi',
+        'what dpi for valorant', 'best dpi for cs2', 'best dpi for apex legends',
+        'tenz dpi', 's1mple dpi', 'zywoo dpi', 'aspas dpi', 'best valorant dpi 2025',
+        // Settings & comparisons
+        '400 dpi vs 800 dpi', '400 dpi gaming', '800 dpi gaming', '1600 dpi gaming',
+        'what dpi should i use', 'what dpi do pros use', 'pro player dpi settings',
+        'optimal dpi for fps', 'best dpi for fps games', 'best dpi for competitive gaming',
+        // Long tail
+        'how to calculate edpi', 'edpi formula', 'dpi sensitivity calculator free',
+        'mouse sensitivity edpi', 'change dpi without affecting aim', 'dpi vs sensitivity',
+        'how does dpi affect gaming', 'is higher dpi better for gaming', 'low dpi high sens vs high dpi low sens',
+        'mouse polling rate vs dpi', 'gaming mouse dpi guide 2025',
+    ],
     alternates: {
         canonical: "https://dcprosens.com/dpi",
     },
@@ -26,6 +45,15 @@ export const metadata: Metadata = {
 };
 
 export default function DpiPage() {
+    const breadcrumb = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dcprosens.com" },
+            { "@type": "ListItem", "position": 2, "name": "DPI Calculator", "item": "https://dcprosens.com/dpi" },
+        ],
+    };
+
     const jsonLd = {
         "@context": "https://schema.org",
         "@graph": [
@@ -80,6 +108,30 @@ export default function DpiPage() {
                             text: "In gaming, DPI (Dots Per Inch) determines how sensitive your mouse hardware is. A 400 DPI mouse sends 400 movement signals per inch moved. A 800 DPI mouse sends 800 signals. Higher DPI gives more cursor precision but feels faster, which is why in-game sensitivity must be adjusted accordingly.",
                         },
                     },
+                    {
+                        "@type": "Question",
+                        name: "What is the best eDPI for FPS games?",
+                        acceptedAnswer: {
+                            "@type": "Answer",
+                            text: "For FPS games like Valorant and CS2, the sweet spot is 200–800 eDPI. Valorant pros average around 240–320 eDPI. CS2 pros average around 400–800 eDPI. If you are a beginner, start at 400 eDPI (e.g., 800 DPI × 0.5) and adjust from there.",
+                        },
+                    },
+                    {
+                        "@type": "Question",
+                        name: "Does higher DPI mean better aim?",
+                        acceptedAnswer: {
+                            "@type": "Answer",
+                            text: "No. Higher DPI does not mean better aim. DPI only affects cursor speed. What matters is your eDPI (DPI × sensitivity). A 400 DPI × 2.0 sensitivity setup is identical in feel to 800 DPI × 1.0 sensitivity. Focus on finding a consistent eDPI rather than maximizing DPI.",
+                        },
+                    },
+                    {
+                        "@type": "Question",
+                        name: "How do I convert my DPI settings to a new mouse?",
+                        acceptedAnswer: {
+                            "@type": "Answer",
+                            text: "To switch DPI without changing your sensitivity feel, keep your eDPI constant. If you go from 400 DPI to 800 DPI, halve your in-game sensitivity. Example: 400 DPI × 2.0 sens → 800 DPI × 1.0 sens. Both equal 800 eDPI with identical mouse feel.",
+                        },
+                    },
                 ],
             },
             {
@@ -100,6 +152,10 @@ export default function DpiPage() {
 
     return (
         <div className="container" style={{ padding: '4rem 0', maxWidth: '900px' }}>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+            />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

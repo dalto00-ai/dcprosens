@@ -10,16 +10,24 @@ export const metadata: Metadata = {
     title: "Sensitivity Converter — Valorant to CS2, Apex, Overwatch | DCPROSENS",
     description: "Free gaming sensitivity converter. Convert mouse sensitivity between Valorant, CS2, Apex Legends, Overwatch 2 and 10+ games. Calculate eDPI and cm/360 instantly.",
     keywords: [
-        "sensitivity converter",
-        "valorant to cs2 sensitivity",
-        "cs2 sensitivity converter",
-        "apex legends sensitivity converter",
-        "edpi calculator",
-        "cm360 calculator",
-        "mouse dpi calculator",
-        "gaming sensitivity tool",
-        "pro player sensitivity settings",
-        "overwatch 2 sensitivity converter",
+        // Tool keywords
+        'sensitivity converter', 'mouse sensitivity converter', 'gaming sensitivity calculator',
+        'valorant to cs2 sensitivity', 'cs2 sensitivity converter', 'apex legends sensitivity converter',
+        'overwatch 2 sensitivity converter', 'fortnite sensitivity converter', 'cod warzone sensitivity',
+        'rainbow six siege sensitivity', 'pubg sensitivity converter', 'battlefield sensitivity',
+        // Feature keywords
+        'edpi calculator', 'cm360 calculator', 'cm per 360 calculator', 'dpi calculator gaming',
+        'mouse dpi calculator', 'true sensitivity calculator', 'game sensitivity calculator free',
+        'online sensitivity converter', 'sensitivity converter tool 2025',
+        // Pro keywords
+        'pro player sensitivity settings', 'tenz sensitivity', 's1mple dpi settings',
+        'zywoo cs2 settings', 'aspas valorant sens', 'what sensitivity do pros use',
+        'copy pro player sensitivity', 'pro gamer mouse settings',
+        // Long tail
+        'how to convert valorant sensitivity to cs2', 'valorant sensitivity same feel cs2',
+        'apex legends to valorant sensitivity', 'best sensitivity for fps games',
+        'low sensitivity vs high sensitivity fps', 'ideal sensitivity gaming',
+        '400 dpi vs 800 dpi gaming', 'what dpi should i use for fps',
     ],
     alternates: {
         canonical: "https://dcprosens.com",

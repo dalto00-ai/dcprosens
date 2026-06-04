@@ -30,9 +30,10 @@ export default function Navbar() {
                     <Link href="/ads" className={`${styles.link} ${pathname === '/ads' ? styles.activeLink : ''}`}>ADS</Link>
                     <Link href="/dpi" className={`${styles.link} ${pathname === '/dpi' ? styles.activeLink : ''}`}>eDPI</Link>
                     <Link href="/sens-finder" className={`${styles.link} ${pathname === '/sens-finder' ? styles.activeLink : ''}`}>Sens Finder</Link>
+                    <Link href="/crosshair" className={`${styles.link} ${pathname === '/crosshair' ? styles.activeLink : ''}`}>Crosshair</Link>
+                    <Link href="/pros" className={`${styles.link} ${pathname.startsWith('/pros') ? styles.activeLink : ''}`}>Pros</Link>
                     <Link href="/mouse-database" className={`${styles.link} ${pathname === '/mouse-database' ? styles.activeLink : ''}`}>Mice DB</Link>
-                    <Link href="/ebook" className={`${styles.link} ${pathname === '/ebook' ? styles.activeLink : ''}`}>Aim System</Link>
-                    <Link href="/games" className={`${styles.link} ${pathname === '/games' ? styles.activeLink : ''}`}>Games</Link>
+                    <Link href="/gear" className={`${styles.link} ${pathname === '/gear' ? styles.activeLink : ''}`}>Gear</Link>
                     <Link href="/blog" className={`${styles.link} ${pathname.startsWith('/blog') ? styles.activeLink : ''}`}>Blog</Link>
                 </div>
 
@@ -84,6 +85,34 @@ export default function Navbar() {
                         📏 eDPI Calculator
                     </Link>
                     <Link 
+                        href="/sens-finder" 
+                        className={`${styles.drawerLink} ${pathname === '/sens-finder' ? styles.drawerActive : ''}`}
+                        onClick={closeDrawer}
+                    >
+                        🔍 Find My Sensitivity (cm/360)
+                    </Link>
+                    <Link 
+                        href="/crosshair" 
+                        className={`${styles.drawerLink} ${pathname === '/crosshair' ? styles.drawerActive : ''}`}
+                        onClick={closeDrawer}
+                    >
+                        ✛ Crosshair Generator
+                    </Link>
+                    <Link 
+                        href="/mousepad-calculator" 
+                        className={`${styles.drawerLink} ${pathname === '/mousepad-calculator' ? styles.drawerActive : ''}`}
+                        onClick={closeDrawer}
+                    >
+                        🖱️ Mousepad Size Calculator
+                    </Link>
+                    <Link 
+                        href="/polling-rate" 
+                        className={`${styles.drawerLink} ${pathname === '/polling-rate' ? styles.drawerActive : ''}`}
+                        onClick={closeDrawer}
+                    >
+                        ⚡ Polling Rate Guide
+                    </Link>
+                    <Link 
                         href="/ebook" 
                         className={`${styles.drawerLink} ${pathname === '/ebook' ? styles.drawerActive : ''}`}
                         onClick={closeDrawer}
@@ -91,11 +120,18 @@ export default function Navbar() {
                         ⚡ Precision Aim System ($9)
                     </Link>
                     <Link 
-                        href="/sens-finder" 
-                        className={`${styles.drawerLink} ${pathname === '/sens-finder' ? styles.drawerActive : ''}`}
+                        href="/pros" 
+                        className={`${styles.drawerLink} ${pathname.startsWith('/pros') ? styles.drawerActive : ''}`}
                         onClick={closeDrawer}
                     >
-                        🎯 Find My Sensitivity (cm/360)
+                        👤 Pro Player Settings
+                    </Link>
+                    <Link 
+                        href="/setups" 
+                        className={`${styles.drawerLink} ${pathname === '/setups' ? styles.drawerActive : ''}`}
+                        onClick={closeDrawer}
+                    >
+                        🏆 Pro Full Setups
                     </Link>
                     <Link 
                         href="/mouse-database" 
@@ -103,6 +139,13 @@ export default function Navbar() {
                         onClick={closeDrawer}
                     >
                         🖱️ Gaming Mouse Database
+                    </Link>
+                    <Link 
+                        href="/gear" 
+                        className={`${styles.drawerLink} ${pathname === '/gear' ? styles.drawerActive : ''}`}
+                        onClick={closeDrawer}
+                    >
+                        ⚙️ Gear Database (Keyboards, Headsets...)
                     </Link>
                     <Link 
                         href="/games" 
