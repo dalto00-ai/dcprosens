@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import Script from "next/script";
-import { GoogleTagManager } from '@next/third-parties/google';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
 import LLMOptimizer from "@/components/LLMOptimizer";
+import AnalyticsLoader from "@/components/AnalyticsLoader";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -118,7 +118,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <GoogleTagManager gtmId="GTM-PLJ3LS29" />
       <body className={`${outfit.variable}`}>
         <div className="app-wrapper">
           <Navbar />
@@ -128,12 +127,7 @@ export default function RootLayout({
           <BottomNav />
         </div>
 
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1743865545749571"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
+        <AnalyticsLoader />
       </body>
     </html>
   );

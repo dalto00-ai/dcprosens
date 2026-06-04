@@ -45,8 +45,9 @@ export default function Converter() {
                     <div className={styles.sectionTitle}>Entrada (From)</div>
 
                     <div className={styles.inputGroup}>
-                        <label className={styles.label}>Jogo de Origem</label>
+                        <label className={styles.label} htmlFor="from-game-select">Jogo de Origem</label>
                         <select
+                            id="from-game-select"
                             className={styles.select}
                             value={fromGame}
                             onChange={(e) => setFromGame(e.target.value)}
@@ -59,8 +60,9 @@ export default function Converter() {
 
                     <div className={styles.inlineGrid}>
                         <div className={styles.inputGroup}>
-                            <label className={styles.label}>Sensibilidade</label>
+                            <label className={styles.label} htmlFor="input-sensibility">Sensibilidade</label>
                             <input
+                                id="input-sensibility"
                                 type="number"
                                 className={styles.input}
                                 value={sens}
@@ -71,8 +73,9 @@ export default function Converter() {
                         </div>
 
                         <div className={styles.inputGroup}>
-                            <label className={styles.label}>DPI (Mouse)</label>
+                            <label className={styles.label} htmlFor="input-dpi">DPI (Mouse)</label>
                             <input
+                                id="input-dpi"
                                 type="number"
                                 className={styles.input}
                                 value={dpi}
@@ -89,8 +92,9 @@ export default function Converter() {
                     <div className={styles.sectionTitle}>Saída (To)</div>
 
                     <div className={styles.inputGroup}>
-                        <label className={styles.label}>Jogo de Destino</label>
+                        <label className={styles.label} htmlFor="to-game-select">Jogo de Destino</label>
                         <select
+                            id="to-game-select"
                             className={styles.select}
                             value={toGame}
                             onChange={(e) => setToGame(e.target.value)}
@@ -128,7 +132,7 @@ export default function Converter() {
 
             {/* DYNAMIC MULTI-GAME EQUIVALENCE SECTION */}
             <div className={styles.equivalenceSection}>
-                <h3 className={styles.equivalenceTitle}>Sua Equivalência em Outros Jogos</h3>
+                <h2 className={styles.equivalenceTitle}>Sua Equivalência em Outros Jogos</h2>
                 <p className={styles.equivalenceSubtitle}>
                     Veja instantaneamente qual sensibilidade configurar em todos os outros motores de jogo com base no seu DPI.
                 </p>

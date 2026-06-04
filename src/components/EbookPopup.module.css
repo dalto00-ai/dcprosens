@@ -140,7 +140,7 @@
 
 .modalText {
   font-size: 0.88rem;
-  color: var(--text-secondary);
+  color: #d1d1d6;
   line-height: 1.5;
   margin: 0;
 }
@@ -154,7 +154,7 @@
 
 .oldPrice {
   font-size: 0.95rem;
-  color: var(--text-muted);
+  color: #9999a3;
   text-decoration: line-through;
 }
 
@@ -197,7 +197,7 @@
 .secondaryBtn {
   background: none;
   border: none;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   font-size: 0.78rem;
   cursor: pointer;
   transition: color var(--transition-fast);

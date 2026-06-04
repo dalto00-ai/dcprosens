@@ -130,8 +130,9 @@ export default function ProComparator() {
                     <h3 className={styles.panelTitle}>Sua Configuração</h3>
                     
                     <div className={styles.inputGroup}>
-                        <label className={styles.label}>Jogo</label>
+                        <label className={styles.label} htmlFor="pro-user-game">Jogo</label>
                         <select 
+                            id="pro-user-game"
                             className={styles.select}
                             value={userGame}
                             onChange={(e) => setUserGame(e.target.value)}
@@ -143,8 +144,9 @@ export default function ProComparator() {
                     </div>
 
                     <div className={styles.inputGroup}>
-                        <label className={styles.label}>Sensibilidade In-game</label>
+                        <label className={styles.label} htmlFor="pro-user-sens">Sensibilidade In-game</label>
                         <input 
+                            id="pro-user-sens"
                             type="number"
                             className={styles.input}
                             value={userSens}
@@ -155,8 +157,9 @@ export default function ProComparator() {
                     </div>
 
                     <div className={styles.inputGroup}>
-                        <label className={styles.label}>DPI do Mouse</label>
+                        <label className={styles.label} htmlFor="pro-user-dpi">DPI do Mouse</label>
                         <input 
+                            id="pro-user-dpi"
                             type="number"
                             className={styles.input}
                             value={userDpi}
@@ -179,8 +182,9 @@ export default function ProComparator() {
                     <h3 className={styles.panelTitle}>Selecionar Pro Player</h3>
                     
                     <div className={styles.inputGroup}>
-                        <label className={styles.label}>Jogador Profissional</label>
+                        <label className={styles.label} htmlFor="pro-select-player">Jogador Profissional</label>
                         <select 
+                            id="pro-select-player"
                             className={styles.select}
                             value={selectedProName}
                             onChange={(e) => setSelectedProName(e.target.value)}
@@ -235,10 +239,11 @@ export default function ProComparator() {
                 {/* ROTATION SLIDER */}
                 <div className={styles.sliderContainer}>
                     <div className={styles.sliderLabelRow}>
-                        <span>Ângulo de Rotação:</span>
+                        <label className={styles.label} htmlFor="pro-rotation-slider" style={{ textTransform: 'none' }}>Ângulo de Rotação:</label>
                         <strong className={styles.sliderValue}>{rotationAngle}°</strong>
                     </div>
                     <input 
+                        id="pro-rotation-slider"
                         type="range"
                         min="0"
                         max="360"

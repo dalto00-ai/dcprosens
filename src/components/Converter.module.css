@@ -26,7 +26,7 @@
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     margin-bottom: 1rem;
     font-weight: 600;
 }
@@ -106,7 +106,7 @@
 
 .statLabel {
     font-size: 0.8rem;
-    color: var(--text-muted);
+    color: var(--text-secondary);
 }
 
 .statValue {
