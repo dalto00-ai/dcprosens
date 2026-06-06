@@ -142,9 +142,9 @@ export default function Navbar() {
                     >
                         📐 Desk Space Sensitivity Calc
                     </Link>
-                    <Link 
-                        href="/polling-rate" 
-                        className={`${styles.drawerLink} ${pathname === '/polling-rate' ? styles.drawerActive : ''}`}
+                    <Link
+                        href="/blog/polling-rate-explained-1000hz-vs-4000hz-vs-8000hz"
+                        className={styles.drawerLink}
                         onClick={closeDrawer}
                     >
                         ⚡ Polling Rate Guide

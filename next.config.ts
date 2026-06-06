@@ -65,6 +65,17 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      // /polling-rate was linked in the navbar and sitemap but the page was
+      // never built; send visitors and indexed links to the equivalent guide.
+      {
+        source: "/polling-rate",
+        destination: "/blog/polling-rate-explained-1000hz-vs-4000hz-vs-8000hz",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

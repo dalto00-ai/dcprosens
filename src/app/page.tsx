@@ -139,8 +139,8 @@ export default function Home() {
                 "logo": {
                     "@type": "ImageObject",
                     "url": "https://dcprosens.com/og-image.png",
-                    "width": 1200,
-                    "height": 630,
+                    "width": 1024,
+                    "height": 1024,
                 },
                 "sameAs": [
                     "https://dcprosens.com",

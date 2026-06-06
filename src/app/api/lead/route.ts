@@ -24,16 +24,25 @@ export async function POST(request: Request) {
             );
         }
 
+        // Reject obviously abusive payloads (bots posting huge strings)
+        if (name.length > 120 || email.length > 254 || String(game).length > 60) {
+            return NextResponse.json(
+                { error: 'Campo excede o tamanho máximo permitido' },
+                { status: 400 }
+            );
+        }
+
         // Local paths setup
         const dirPath = path.join(process.cwd(), 'src/lib');
         const filePath = path.join(dirPath, 'leads.json');
+        const tmpPath = path.join(dirPath, `leads.${process.pid}.${Date.now()}.tmp`);
 
         // Verify dir exists
         if (!fs.existsSync(dirPath)) {
             fs.mkdirSync(dirPath, { recursive: true });
         }
 
-        let leads = [];
+        let leads: Array<{ name: string; email: string; game: string; timestamp: string }> = [];
         if (fs.existsSync(filePath)) {
             try {
                 const fileData = fs.readFileSync(filePath, 'utf8');
@@ -53,9 +62,21 @@ export async function POST(request: Request) {
         };
 
         leads.push(newLead);
-        
-        // Write to local json file
-        fs.writeFileSync(filePath, JSON.stringify(leads, null, 2), 'utf8');
+
+        // Bound file growth: keep only the most recent entries.
+        // NOTE: this file lives on local disk — it is reset on every redeploy
+        // in containerized/standalone environments. Treat it as a temporary
+        // buffer, not a source of truth; export it regularly or replace it
+        // with a real datastore/email provider before relying on it.
+        const MAX_LEADS = 5000;
+        if (leads.length > MAX_LEADS) {
+            leads = leads.slice(leads.length - MAX_LEADS);
+        }
+
+        // Atomic write: write to a temp file then rename over the target so a
+        // crash or concurrent request never leaves leads.json truncated/corrupt.
+        fs.writeFileSync(tmpPath, JSON.stringify(leads, null, 2), 'utf8');
+        fs.renameSync(tmpPath, filePath);
 
         return NextResponse.json({ success: true });
     } catch (error) {

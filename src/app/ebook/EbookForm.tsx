@@ -93,7 +93,7 @@ export default function EbookForm() {
                         </div>
                         
                         <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '1.5rem', textAlign: 'center' }}>
-                            Um link de download alternativo em formato PDF de alta resolução também foi enviado para: <strong>{email}</strong>
+                            Seu cadastro foi salvo com o e-mail <strong>{email}</strong>. O download do guia já está disponível no botão acima — sem necessidade de checar sua caixa de entrada.
                         </p>
                     </div>
                 ) : (

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
         type: 'website',
         url: 'https://dcprosens.com/web-stories',
         siteName: 'DCPROSENS',
-        images: [{ url: 'https://dcprosens.com/og-image.webp', width: 1200, height: 630, alt: 'DCPROSENS Web Stories' }],
+        images: [{ url: 'https://dcprosens.com/og-image.png', width: 1024, height: 1024, alt: 'DCPROSENS Web Stories' }],
     },
 };
 
