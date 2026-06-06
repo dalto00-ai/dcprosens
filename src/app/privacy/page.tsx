@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Privacy Policy",
-    description: "Privacy Policy for DCPROSENS. Learn how we handle your data and cookies.",
+    description: "Privacy Policy for DCPROSENS. Learn how we handle your data, cookies, analytics, advertising and affiliate links.",
     alternates: {
         canonical: "https://dcprosens.com/privacy",
     },
@@ -12,64 +12,98 @@ export const metadata: Metadata = {
     },
 };
 
+const h2Style = { color: 'var(--text-primary)', marginTop: '2.5rem', marginBottom: '1.2rem' };
+
 export default function PrivacyPage() {
     return (
         <div className="container" style={{ padding: '4rem 0', maxWidth: '800px' }}>
             <h1 style={{ marginBottom: '2rem' }}>Privacy Policy for DCPROSENS</h1>
             <div style={{ color: 'var(--text-secondary)', lineHeight: 1.8 }}>
-                <p style={{ marginBottom: '1.5rem' }}><strong>Effective Date:</strong> January 1, 2026</p>
+                <p style={{ marginBottom: '1.5rem' }}><strong>Effective Date:</strong> June 6, 2026</p>
 
                 <p style={{ marginBottom: '1.5rem' }}>
-                    At DCPROSENS (accessible from https://dcprosens.com), one of our main priorities is the privacy of our visitors.
-                    This Privacy Policy document contains types of information that is collected and recorded by DCPROSENS and how we use it.
+                    DCPROSENS (accessible from <a href="https://dcprosens.com" style={{ color: 'var(--primary)' }}>https://dcprosens.com</a>) is a free gaming sensitivity converter and toolset for FPS players.
+                    This page explains, in plain terms, what data our site collects, how it is used, and the choices you have. If anything here is unclear, reach out via the e-mail at the bottom of this page.
                 </p>
 
-                <h2 style={{ color: 'var(--text-primary)', marginTop: '2.5rem', marginBottom: '1.2rem' }}>1. Information We Collect</h2>
+                <h2 style={h2Style}>1. The Converter Tools Run in Your Browser</h2>
                 <p>
-                    DCPROSENS operates primarily as a client-side utility tool. We do not require you to create an account or provide personal identification information (PII) to use our sensitivity converters or DPI tools.
-                    All calculations regarding sensitivity, DPI, and eDPI are performed locally within your browser. Your gaming settings are not uploaded to our servers.
+                    Our sensitivity converter, eDPI calculator, cm/360 calculator and similar tools do not require an account, login, or any personal information.
+                    All conversions are calculated locally in your browser using JavaScript — the DPI and sensitivity values you type are never transmitted to or stored on our servers.
                 </p>
 
-                <h2 style={{ color: 'var(--text-primary)', marginTop: '2.5rem', marginBottom: '1.2rem' }}>2. Log Files</h2>
+                <h2 style={h2Style}>2. Information Collected Automatically (Log Files &amp; Analytics)</h2>
                 <p>
-                    DCPROSENS follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this as a part of hosting services&apos; analytics.
-                    The information collected by log files includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks.
-                    These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users&apos; movement on the website, and gathering demographic information.
+                    Like most websites, our hosting infrastructure automatically logs standard technical information for every visit — such as IP address, browser type, device/operating system, referring page, and timestamps.
+                    This is used purely to operate, secure, and troubleshoot the site, and is not linked to your identity.
+                </p>
+                <p>
+                    We also use <strong>Google Analytics</strong>, loaded through <strong>Google Tag Manager (GTM)</strong>, to understand how visitors use DCPROSENS (e.g., which pages and tools are most popular) so we can improve the site.
+                    Google Analytics uses cookies and similar technologies to collect aggregated, anonymized usage statistics. You can learn more about how Google handles this data at{' '}
+                    <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)' }}>policies.google.com/technologies/partner-sites</a>, and you can opt out of Google Analytics tracking using the{' '}
+                    <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)' }}>Google Analytics Opt-out Browser Add-on</a>.
                 </p>
 
-                <h2 style={{ color: 'var(--text-primary)', marginTop: '2.5rem', marginBottom: '1.2rem' }}>3. Cookies and Web Beacons</h2>
+                <h2 style={h2Style}>3. Cookies</h2>
                 <p>
-                    Like any other website, DCPROSENS uses &quot;cookies&quot;. These cookies are used to store information including visitors&apos; preferences (such as your last selected game) and the pages on the website that the visitor accessed or visited.
-                    The information is used to optimize the users&apos; experience by customizing our web page content based on visitors&apos; browser type and/or other information.
+                    DCPROSENS uses cookies and similar local-storage technologies to remember your preferences (such as the last game you selected in the converter) and to power the analytics and advertising described in this policy.
+                    Most browsers let you refuse or delete cookies through their settings; doing so may affect how some features of the site behave, but the core converter tools will continue to work.
                 </p>
 
-                <h2 style={{ color: 'var(--text-primary)', marginTop: '2.5rem', marginBottom: '1.2rem' }}>4. Google DoubleClick DART Cookie</h2>
+                <h2 style={h2Style}>4. Advertising — Google AdSense &amp; Consent</h2>
                 <p>
-                    Google is one of a third-party vendor on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to dcprosens.com and other sites on the internet.
-                    However, visitors may choose to decline the use of DART cookies by visiting the Google ad and content network Privacy Policy at the following URL – <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)' }}>https://policies.google.com/technologies/ads</a>
+                    DCPROSENS displays ads served through <strong>Google AdSense</strong>. Google and its advertising partners may use cookies and similar technologies to serve ads based on your prior visits to this and other websites,
+                    and to measure ad performance. You can learn more about how Google uses this data, and the choices available to you, at{' '}
+                    <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)' }}>policies.google.com/technologies/ads</a>, and manage personalized-ad settings at{' '}
+                    <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)' }}>adssettings.google.com</a>.
+                </p>
+                <p>
+                    Where required by applicable law (such as the GDPR in the EEA/UK or the CCPA/CPRA in California), we display a consent banner powered by <strong>Google&apos;s Privacy &amp; messaging (Funding Choices)</strong> tool before
+                    personalized ads or non-essential cookies are activated, so you can review and manage your choices.
                 </p>
 
-                <h2 style={{ color: 'var(--text-primary)', marginTop: '2.5rem', marginBottom: '1.2rem' }}>5. Google AdSense</h2>
+                <h2 style={h2Style}>5. Affiliate Links (Amazon Associates)</h2>
                 <p>
-                    We use Google AdSense to display advertisements. Google uses cookies to serve ads based on your prior visits to our website or other websites.
-                    Google&apos;s use of advertising cookies enables it and its partners to serve ads to your users based on their visit to your sites and/or other sites on the Internet.
+                    Some pages — such as our gear recommendations and pro-settings guides — contain links to products on Amazon (e.g., mice, mousepads, monitors). DCPROSENS participates in the <strong>Amazon Associates Program</strong>,
+                    an affiliate advertising program. If you click one of these links and make a qualifying purchase, we may earn a small commission at no extra cost to you. We only recommend gear we believe is genuinely useful to competitive FPS players,
+                    and our recommendations are independent of any commission we may receive.
                 </p>
 
-                <h2 style={{ color: 'var(--text-primary)', marginTop: '2.5rem', marginBottom: '1.2rem' }}>6. CCPA Privacy Rights (Do Not Sell My Personal Information)</h2>
+                <h2 style={h2Style}>6. The Free Ebook Download Form</h2>
                 <p>
-                    Under the CCPA, among other rights, California consumers have the right to request that a business that collects a consumer&apos;s personal data disclose the categories and specific pieces of personal data that a business has collected about consumers.
-                    If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us.
+                    If you choose to download our free ebook (&quot;The Architect of Precision&quot;), we ask for your <strong>name</strong>, <strong>e-mail address</strong>, and <strong>main game</strong>. This information is stored securely on our servers
+                    so we can provide the download and, where you have not objected, occasionally share related gaming-sensitivity content. We do not sell this information to third parties.
+                    You can request that we delete your data at any time by emailing us at the address below — we will action the request promptly.
                 </p>
 
-                <h2 style={{ color: 'var(--text-primary)', marginTop: '2.5rem', marginBottom: '1.2rem' }}>7. GDPR Data Protection Rights</h2>
+                <h2 style={h2Style}>7. Children&apos;s Privacy</h2>
                 <p>
-                    We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:
-                    The right to access, rectification, erasure, restrict processing, object to processing, and data portability.
+                    DCPROSENS is not directed at children under 13 (or the equivalent minimum age in your jurisdiction), and we do not knowingly collect personal information from them.
+                    If you believe a child has provided us with personal information, please contact us so we can remove it.
                 </p>
 
-                <h2 style={{ color: 'var(--text-primary)', marginTop: '2.5rem', marginBottom: '1.2rem' }}>8. Contact Us</h2>
+                <h2 style={h2Style}>8. CCPA Privacy Rights (California)</h2>
                 <p>
-                    If you have any questions about our Privacy Policy, do not hesitate to contact us via our Contact page or email support at support@dcprosens.com.
+                    Under the CCPA/CPRA, California residents have the right to request that we disclose the categories and specific pieces of personal data we have collected about them, request deletion of that data,
+                    and opt out of the sale or sharing of personal information (DCPROSENS does not sell personal information). To exercise any of these rights, please contact us — we aim to respond within one month.
+                </p>
+
+                <h2 style={h2Style}>9. GDPR Data Protection Rights (EEA/UK)</h2>
+                <p>
+                    If you are located in the EEA or UK, you have the right to access, rectify, erase, restrict or object to the processing of your personal data, and the right to data portability.
+                    To exercise any of these rights regarding data you have submitted to us (for example, through the ebook form), please contact us using the details below.
+                </p>
+
+                <h2 style={h2Style}>10. Changes to This Policy</h2>
+                <p>
+                    We may update this Privacy Policy from time to time to reflect changes in our practices or for legal/regulatory reasons. The &quot;Effective Date&quot; at the top of this page indicates when it was last revised.
+                    We encourage you to review this page periodically.
+                </p>
+
+                <h2 style={h2Style}>11. Contact Us</h2>
+                <p>
+                    If you have any questions about this Privacy Policy or how your data is handled, please reach us via our <a href="/contact" style={{ color: 'var(--primary)' }}>Contact page</a> or by emailing{' '}
+                    <a href="mailto:support@dcprosens.com" style={{ color: 'var(--primary)' }}>support@dcprosens.com</a>.
                 </p>
             </div>
         </div>
