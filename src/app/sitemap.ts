@@ -206,5 +206,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ...staticRoutes,
         ...blogPosts,
         ...webStories,
-    ];
+    ].map((route) => {
+        if (route.lastModified) {
+            const dateObj = typeof route.lastModified === 'string'
+                ? new Date(route.lastModified)
+                : route.lastModified;
+            return {
+                ...route,
+                lastModified: dateObj.toISOString().split('T')[0],
+            };
+        }
+        return route;
+    });
 }

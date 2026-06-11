@@ -3,7 +3,7 @@ export const dynamic = 'force-dynamic';
 const BASE_URL = 'https://dcprosens.com';
 
 export async function GET() {
-  const now = new Date().toISOString();
+  const now = new Date().toISOString().split('T')[0];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
