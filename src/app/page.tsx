@@ -264,8 +264,11 @@ export default function Home() {
                 <VoiceSearch />
 
                 {/* Leaderboard 728x90 desktop / 320x50 mobile — acima do converter */}
-                <div className="ad-leaderboard-wrap" style={{ display: 'none' }}>
-                    {/* rendered via CSS media queries in globals */}
+                <div className="ad-desktop-only">
+                    <AdsterraBanner size="728x90" margin={16} />
+                </div>
+                <div className="ad-mobile-only">
+                    <AdsterraBanner size="320x50" margin={12} />
                 </div>
 
                 <Converter />
@@ -293,8 +296,8 @@ export default function Home() {
 
                 <HomeWiki />
 
-                {/* Native Banner final — antes do footer (alta visibilidade) */}
-                <AdsterraNative />
+                {/* 300x250 final — antes do footer (alta visibilidade, funciona em todos os devices) */}
+                <AdsterraBanner size="300x250" margin={24} />
             </div>
         </div>
     );

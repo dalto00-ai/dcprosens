@@ -2,11 +2,10 @@
 
 import { useEffect, useRef } from "react";
 
-/**
- * Adsterra Native Banner
- * Alto RPM — usar em posições de destaque entre seções de conteúdo.
- * Script ID: 22fbfc0d329775fb328afde575e28a12
- */
+const CONTAINER_ID = "container-22fbfc0d329775fb328afde575e28a12";
+const SCRIPT_SRC =
+  "https://pl29886188.effectivecpmnetwork.com/22fbfc0d329775fb328afde575e28a12/invoke.js";
+
 export default function AdsterraNative() {
   const containerRef = useRef<HTMLDivElement>(null);
   const loaded = useRef(false);
@@ -18,13 +17,19 @@ export default function AdsterraNative() {
     const container = containerRef.current;
     if (!container) return;
 
-    // Inject the invoke script once
+    // Script must be a sibling inserted AFTER the container div,
+    // not a child — Adsterra locates the container by ID from outside.
     const script = document.createElement("script");
     script.async = true;
     script.dataset.cfasync = "false";
-    script.src =
-      "https://pl29886188.effectivecpmnetwork.com/22fbfc0d329775fb328afde575e28a12/invoke.js";
-    container.appendChild(script);
+    script.src = SCRIPT_SRC;
+
+    const parent = container.parentElement;
+    if (parent) {
+      parent.insertBefore(script, container.nextSibling);
+    } else {
+      document.body.appendChild(script);
+    }
   }, []);
 
   return (
@@ -36,11 +41,7 @@ export default function AdsterraNative() {
         justifyContent: "center",
       }}
     >
-      <div
-        id="container-22fbfc0d329775fb328afde575e28a12"
-        ref={containerRef}
-        style={{ width: "100%" }}
-      />
+      <div id={CONTAINER_ID} ref={containerRef} style={{ width: "100%" }} />
     </div>
   );
 }

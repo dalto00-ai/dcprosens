@@ -51,12 +51,14 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: https: blob:",
-      // Connect: GTM + Adsterra endpoints
+      // Connect: GTM + Adsterra endpoints (ad tracking uses multiple domains)
       "connect-src 'self'" +
         " https://www.google-analytics.com" +
         " https://analytics.google.com" +
         " https://*.effectivecpmnetwork.com" +
-        " https://*.highperformanceformat.com",
+        " https://*.highperformanceformat.com" +
+        " https://*.adsterra.com" +
+        " https://*.adsterranetwork.com",
       // Frames: Adsterra banners are iframes
       "frame-src 'self'" +
         " https://www.googletagmanager.com" +
