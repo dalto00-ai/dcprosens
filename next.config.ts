@@ -36,12 +36,33 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://www.googletagmanager.com https://www.google-analytics.com https://fundingchoicesmessages.google.com https://*.googlesyndication.com https://*.doubleclick.net https://*.google.com",
+      // Scripts: GTM + Adsterra (popunder, social bar, native, banners)
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval'" +
+        " https://www.googletagmanager.com" +
+        " https://www.google-analytics.com" +
+        // Adsterra — popunder & social bar
+        " https://pl29886187.effectivecpmnetwork.com" +
+        " https://pl29886188.effectivecpmnetwork.com" +
+        " https://pl29886189.effectivecpmnetwork.com" +
+        " https://*.effectivecpmnetwork.com" +
+        // Adsterra — banners (highperformanceformat)
+        " https://www.highperformanceformat.com" +
+        " https://*.highperformanceformat.com",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: https: blob:",
-      "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://*.googlesyndication.com https://pagead2.googlesyndication.com",
-      "frame-src 'self' https://www.googletagmanager.com https://tpc.googlesyndication.com https://googleads.g.doubleclick.net https://fundingchoicesmessages.google.com https://*.google.com",
+      // Connect: GTM + Adsterra endpoints
+      "connect-src 'self'" +
+        " https://www.google-analytics.com" +
+        " https://analytics.google.com" +
+        " https://*.effectivecpmnetwork.com" +
+        " https://*.highperformanceformat.com",
+      // Frames: Adsterra banners are iframes
+      "frame-src 'self'" +
+        " https://www.googletagmanager.com" +
+        " https://*.effectivecpmnetwork.com" +
+        " https://*.highperformanceformat.com" +
+        " https://*.adsterra.com",
       "object-src 'none'",
       "base-uri 'self'",
       "form-action 'self'",
