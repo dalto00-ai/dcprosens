@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from 'next/link';
-import Image from 'next/image';
+import BlogImage from '@/components/BlogImage';
 import { posts } from '@/lib/posts';
 import blogStyles from './blog.module.css';
 
@@ -101,7 +101,7 @@ export default function BlogIndex() {
                         <div className={blogStyles.card}>
                             {/* Thumbnail image */}
                             <div className={blogStyles.cardImageWrapper}>
-                                <Image
+                                <BlogImage
                                     src={post.image}
                                     alt={post.title}
                                     width={480}

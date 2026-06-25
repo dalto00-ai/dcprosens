@@ -1,28 +1,27 @@
 import Image, { ImageProps } from 'next/image';
 import styles from './SEOImage.module.css';
+import { resolveBlogImage } from '@/utils/blogImageResolver';
 
 interface SEOImageProps extends Omit<ImageProps, 'alt'> {
-    alt: string; // Make alt mandatory
+    alt: string;
     caption?: string;
     priority?: boolean;
 }
 
 export default function SEOImage({ alt, caption, src, priority = false, ...props }: SEOImageProps) {
-    if (!alt) {
-        console.warn('SEOImage: "alt" attribute is missing. This hurts SEO.');
-    }
+    const resolvedSrc = resolveBlogImage(src as string);
 
     return (
         <figure className={styles.figure}>
             <div className={styles.imageWrapper}>
                 <Image
-                    src={src}
+                    src={resolvedSrc}
                     alt={alt}
-                    fill // Use fill for responsive container
+                    fill
                     priority={priority}
                     loading={priority ? 'eager' : 'lazy'}
                     className={styles.image}
-                    sizes="(max-width: 768px) 100vw, 800px" // Optimization for common blog widths
+                    sizes="(max-width: 768px) 100vw, 800px"
                     style={{ objectFit: 'cover' }}
                     {...props}
                 />
