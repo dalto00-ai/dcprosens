@@ -45,9 +45,11 @@ const securityHeaders = [
         " https://pl29886188.effectivecpmnetwork.com" +
         " https://pl29886189.effectivecpmnetwork.com" +
         " https://*.effectivecpmnetwork.com" +
-        // Adsterra — banners (highperformanceformat)
+        // Adsterra — banners (highperformanceformat) + ad delivery (realsrv)
         " https://www.highperformanceformat.com" +
-        " https://*.highperformanceformat.com",
+        " https://*.highperformanceformat.com" +
+        " https://syndication.realsrv.com" +
+        " https://*.realsrv.com",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: https: blob:",
@@ -58,13 +60,16 @@ const securityHeaders = [
         " https://*.effectivecpmnetwork.com" +
         " https://*.highperformanceformat.com" +
         " https://*.adsterra.com" +
-        " https://*.adsterranetwork.com",
-      // Frames: Adsterra banners are iframes
+        " https://*.adsterranetwork.com" +
+        " https://*.realsrv.com",
+      // Frames: Adsterra delivers ad iframes from syndication.realsrv.com
       "frame-src 'self'" +
         " https://www.googletagmanager.com" +
         " https://*.effectivecpmnetwork.com" +
         " https://*.highperformanceformat.com" +
-        " https://*.adsterra.com",
+        " https://*.adsterra.com" +
+        " https://*.realsrv.com" +
+        " https://syndication.realsrv.com",
       "object-src 'none'",
       "base-uri 'self'",
       "form-action 'self'",
