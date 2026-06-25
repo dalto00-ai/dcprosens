@@ -33,12 +33,15 @@ export default function AnalyticsLoader() {
       gtmScript.src = "https://www.googletagmanager.com/gtm.js?id=GTM-PLJ3LS29";
       document.head.appendChild(gtmScript);
 
-      // 3. Google AdSense Library
-      const adsScript = document.createElement("script");
-      adsScript.async = true;
-      adsScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1743865545749571";
-      adsScript.crossOrigin = "anonymous";
-      document.head.appendChild(adsScript);
+      // 3. Adsterra Popunder
+      const popunderScript = document.createElement("script");
+      popunderScript.src = "https://pl29886187.effectivecpmnetwork.com/e4/ea/93/e4ea9365381f766d70b3de5d606bf578.js";
+      document.head.appendChild(popunderScript);
+
+      // 4. Adsterra Social Bar
+      const socialBarScript = document.createElement("script");
+      socialBarScript.src = "https://pl29886189.effectivecpmnetwork.com/a6/25/75/a6257530db11b0e78ee3cdddec3edaf6.js";
+      document.head.appendChild(socialBarScript);
     };
 
     // Listen to user interaction events (passive where possible for better scroll performance)

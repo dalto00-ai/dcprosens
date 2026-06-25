@@ -171,3 +171,23 @@ a {
   color: var(--primary) !important;
 }
 
+/* ─── Adsterra — Responsive Ad Visibility ────────────────────────────── */
+
+/* Desktop only: ≥ 769px */
+.ad-desktop-only  { display: block; }
+.ad-tablet-only   { display: none;  }
+.ad-mobile-only   { display: none;  }
+
+@media (max-width: 768px) {
+  /* Tablet / small desktop: 481–768px */
+  .ad-desktop-only { display: none;  }
+  .ad-tablet-only  { display: block; }
+  .ad-mobile-only  { display: none;  }
+}
+
+@media (max-width: 480px) {
+  /* Mobile: ≤ 480px */
+  .ad-desktop-only { display: none;  }
+  .ad-tablet-only  { display: none;  }
+  .ad-mobile-only  { display: block; }
+}

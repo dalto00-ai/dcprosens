@@ -4,6 +4,8 @@ import HomeWiki from '@/components/HomeWiki';
 import VoiceSearch from '@/components/VoiceSearch';
 import ProComparator from '@/components/ProComparator';
 import EbookPopup from '@/components/EbookPopup';
+import AdsterraBanner from '@/components/AdsterraBanner';
+import AdsterraNative from '@/components/AdsterraNative';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -261,13 +263,38 @@ export default function Home() {
 
                 <VoiceSearch />
 
+                {/* Leaderboard 728x90 desktop / 320x50 mobile — acima do converter */}
+                <div className="ad-leaderboard-wrap" style={{ display: 'none' }}>
+                    {/* rendered via CSS media queries in globals */}
+                </div>
+
                 <Converter />
+
+                {/* Native Banner (alto RPM) — entre converter e pro settings */}
+                <AdsterraNative />
 
                 <ProSettings />
 
+                {/* 300x250 entre ProSettings e ProComparator */}
+                <AdsterraBanner size="300x250" margin={24} />
+
                 <ProComparator />
 
+                {/* 728x90 desktop / 468x60 tablet — abaixo do comparador */}
+                <div className="ad-desktop-only">
+                    <AdsterraBanner size="728x90" margin={24} />
+                </div>
+                <div className="ad-tablet-only">
+                    <AdsterraBanner size="468x60" margin={24} />
+                </div>
+                <div className="ad-mobile-only">
+                    <AdsterraBanner size="320x50" margin={16} />
+                </div>
+
                 <HomeWiki />
+
+                {/* Native Banner final — antes do footer (alta visibilidade) */}
+                <AdsterraNative />
             </div>
         </div>
     );
