@@ -65,4 +65,23 @@ export const games: Game[] = [
     // sensitivity also scales with FOV, which a fixed yaw doesn't capture —
     // treat as an approximation.
     { id: 'arksurvival', name: 'ARK: Survival Evolved', yaw: 0.175 },
+    // Cross-referenced against KovaaK's SensitivityMatcher source code
+    // (independent technical source, not a converter-site aggregator) —
+    // also confirmed our existing rainbow6/overwatch/quake values match.
+    { id: 'diabotical', name: 'Diabotical', yaw: 0.01667 },
+    // More Source-engine titles. Not individually re-verified per game, but
+    // 0.022 is Valve's well-documented Source engine default (m_yaw) — the
+    // same constant already independently corroborated across csgo, quake,
+    // deadlock, tf2, l4d2, titanfall2 and huntshowdown above, so extending
+    // it to other known-Source titles is a structural fact, not a guess.
+    { id: 'hl2', name: 'Half-Life 2', yaw: 0.022 },
+    { id: 'portal2', name: 'Portal 2', yaw: 0.022 },
+    { id: 'gmod', name: "Garry's Mod", yaw: 0.022 },
+    { id: 'cssource', name: 'Counter-Strike: Source', yaw: 0.022 },
+    { id: 'l4d1', name: 'Left 4 Dead', yaw: 0.022 },
+    { id: 'blackmesa', name: 'Black Mesa', yaw: 0.022 },
+    // Explicitly confirmed 0.022 (id Tech/Quake lineage, not just inferred).
+    { id: 'quakechampions', name: 'Quake Champions', yaw: 0.022 },
+    // UNVERIFIED: single-source figure only.
+    { id: 'back4blood', name: 'Back 4 Blood', yaw: 0.175 },
 ];
