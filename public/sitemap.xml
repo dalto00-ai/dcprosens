@@ -907,6 +907,30 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/dpi-guide</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/dpi-guide/lol</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/dpi-guide/dota2</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/dpi-guide/freefire</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/setups</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
