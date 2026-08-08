@@ -126,6 +126,7 @@ export default function Home() {
             title: "⚡ Training & Utilities",
             tools: [
                 { icon: "🕹️", name: "Sensitivity Test Game", desc: "Free mini-game that measures your flick speed and precision.", href: "/sensitivity-test", tag: "NEW" },
+                { icon: "🧪", name: "Aim Lab", desc: "4 premium training modes — Micro-Flick, Dynamic Click, Strafe Peek, and Ghost vs Pro.", href: "/aim-lab", tag: "PREMIUM" },
                 { icon: "🎮", name: "Online Aim Trainer", desc: "Practice flicking, tracking and reaction time in-browser.", href: "/aim-trainer", tag: "" },
                 { icon: "📝", name: "Custom Aim Routines", desc: "Structured daily training built around your weaknesses.", href: "/aim-routines", tag: "" },
                 { icon: "⚡", name: "Reaction Time Test", desc: "Benchmark your visual reaction time scientifically.", href: "/reaction-time-test", tag: "" },

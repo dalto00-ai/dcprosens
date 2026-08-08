@@ -21,6 +21,13 @@ interface UserData {
     dpi: number;
     game: string;
   };
+  aimLabHistory?: {
+    mode: string;
+    score: number;
+    accuracy: number;
+    avgReaction: number;
+    timestamp: string;
+  }[];
   createdAt?: string;
 }
 
