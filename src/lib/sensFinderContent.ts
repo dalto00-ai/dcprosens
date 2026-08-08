@@ -270,6 +270,84 @@ export const sensFinderContent: SensFinderGameContent[] = [
             },
         ],
     },
+    {
+        gameId: 'doom2016',
+        displayName: 'DOOM (2016)',
+        engine: 'id Tech 6',
+        category: 'Classic Arena FPS',
+        blurb: 'DOOM (2016) runs on id Tech 6, the same engine lineage as DOOM Eternal, and shares the 0.022 yaw convention that traces back to the original Quake engine — the same value used by CS2, TF2, and the entire Source/id Tech family.',
+        faqs: [
+            {
+                q: 'Does my CS2 or DOOM Eternal sensitivity carry over to DOOM 2016?',
+                a: 'Yes — all three share the same 0.022 yaw, so the same sensitivity at the same DPI produces the same cm/360 with no conversion needed.',
+            },
+        ],
+    },
+    {
+        gameId: 'halo',
+        displayName: 'Halo Infinite',
+        engine: 'Slipspace Engine (343 Industries)',
+        category: 'Arena Shooter',
+        blurb: 'Halo Infinite uses a yaw of 0.0225, confirmed via KovaaK\'s Sensitivity Matcher — close to, but not exactly, the 0.022 Source/id Tech standard, so a straight CS2 or Valorant number needs the converter above rather than a direct copy.',
+        faqs: [
+            {
+                q: 'Can I just use my CS2 sensitivity number in Halo Infinite?',
+                a: 'Almost, but not quite — Halo\'s yaw (0.0225) is very close to CS2\'s (0.022) but not identical. Run it through the converter above to keep your cm/360 exact rather than eyeballing it.',
+            },
+        ],
+    },
+    {
+        gameId: 'quake2',
+        displayName: 'Quake II',
+        engine: 'id Tech 2 (Quake II Engine)',
+        category: 'Classic Arena FPS',
+        blurb: 'Quake II is one of the original sources of the 0.022 m_yaw convention that the entire Source and id Tech engine family still uses today, from CS2 to TF2 to DOOM Eternal.',
+        faqs: [
+            {
+                q: 'Why does Quake II share a yaw with modern games like CS2?',
+                a: 'The 0.022 m_yaw default originated in id Software\'s Quake engines and was carried forward through GoldSrc, Source, and id Tech — Quake II\'s sensitivity converts 1:1 with any of them at the same DPI.',
+            },
+        ],
+    },
+    {
+        gameId: 'payday2',
+        displayName: 'Payday 2',
+        engine: 'Diesel Engine',
+        category: 'Co-op Heist Shooter',
+        blurb: 'Payday 2 runs on Starbreeze\'s Diesel engine with its own 0.0156 yaw, sitting between the Source-family standard (0.022) and the CoD/Overwatch family (0.0066) — worth converting explicitly rather than assuming either.',
+        faqs: [
+            {
+                q: 'Is Payday 2 sensitivity the same as Payday 3?',
+                a: 'No — Payday 3 moved to Unreal Engine, a different engine with its own separate yaw. Use the converter above rather than copying your Payday 2 number directly.',
+            },
+        ],
+    },
+    {
+        gameId: 'drg',
+        displayName: 'Deep Rock Galactic',
+        engine: 'Unreal Engine 4',
+        category: 'Co-op Survival Shooter',
+        blurb: 'Deep Rock Galactic uses a yaw of 0.0134 on Unreal Engine 4 — Unreal titles rescale mouse input per game, so this value is specific to DRG and does not carry over to other UE4/UE5 shooters without converting.',
+        faqs: [
+            {
+                q: 'Does this sensitivity work for other Unreal Engine games too?',
+                a: 'No — Unreal Engine developers rescale mouse input per title, so each game needs its own verified yaw. Deep Rock Galactic\'s 0.0134 is specific to this game; use the converter above when switching titles.',
+            },
+        ],
+    },
+    {
+        gameId: 'riskofrain2',
+        displayName: 'Risk of Rain 2',
+        engine: 'Unity Engine',
+        category: 'Roguelite Shooter',
+        blurb: 'Risk of Rain 2 uses a notably high yaw (0.5) on Unity, similar in scale to Minecraft and Roblox — expect the converted sensitivity number to look small compared to CS2 or Valorant at the same physical cm/360.',
+        faqs: [
+            {
+                q: 'Why does my converted Risk of Rain 2 sensitivity look so low?',
+                a: 'Risk of Rain 2\'s yaw (0.5) is roughly 22x higher than CS2\'s (0.022), so the same physical mouse movement needs a much smaller in-game number to match — that is expected, not an error.',
+            },
+        ],
+    },
 ];
 
 export function getSensFinderContent(gameId: string): SensFinderGameContent | undefined {

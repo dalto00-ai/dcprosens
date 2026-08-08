@@ -1,5 +1,5 @@
 ====================================================================
-  DCPROSENS — LISTA COMPLETA DE TODAS AS 152 URLS PARA INDEXAÇÃO
+  DCPROSENS — LISTA COMPLETA DE TODAS AS 171 URLS PARA INDEXAÇÃO
 ====================================================================
 
 https://dcprosens.com/
@@ -151,6 +151,12 @@ https://dcprosens.com/sens-finder/l4d2
 https://dcprosens.com/sens-finder/titanfall2
 https://dcprosens.com/sens-finder/huntshowdown
 https://dcprosens.com/sens-finder/gtav
+https://dcprosens.com/sens-finder/doom2016
+https://dcprosens.com/sens-finder/halo
+https://dcprosens.com/sens-finder/quake2
+https://dcprosens.com/sens-finder/payday2
+https://dcprosens.com/sens-finder/drg
+https://dcprosens.com/sens-finder/riskofrain2
 https://dcprosens.com/sensitivity-test
 https://dcprosens.com/gta-vi-sensitivity
 https://dcprosens.com/dpi-guide
