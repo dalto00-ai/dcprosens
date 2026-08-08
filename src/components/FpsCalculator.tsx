@@ -414,7 +414,7 @@ export default function FpsCalculator() {
           </div>
           <div className={styles.faqItem}>
             <h4>How can I reduce CPU bottlenecks without upgrading?</h4>
-            <p>If you have a CPU bottleneck, you can reduce its impact by: 1) Closing all background applications (like Discord, Chrome browser tabs, or recording software), 2) Enabling XMP/EXPO in your motherboard BIOS to speed up RAM, or 3) Capping your FPS to match your monitor's refresh rate to stabilize frame times.</p>
+            <p>If you have a CPU bottleneck, you can reduce its impact by: 1) Closing all background applications (like Discord, Chrome browser tabs, or recording software), 2) Enabling XMP/EXPO in your motherboard BIOS to speed up RAM, or 3) Capping your FPS to match your monitor&apos;s refresh rate to stabilize frame times.</p>
           </div>
           <div className={styles.faqItem}>
             <h4>How can I reduce GPU bottlenecks?</h4>

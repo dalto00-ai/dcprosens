@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import ProCompare from '@/components/ProCompare';
+import PremiumGuard from '@/components/PremiumGuard';
 
 export const metadata: Metadata = {
     title: 'Pro Player Settings Compare Tool 2025 — Valorant & CS2 | DCPROSENS',
@@ -93,7 +93,9 @@ export default function ProComparePage() {
             </div>
 
             {/* Interactive component */}
-            <ProCompare />
+            <PremiumGuard previewTitle="Pro Player Compare">
+                <ProCompare />
+            </PremiumGuard>
 
             {/* Technical SEO Copy */}
             <div

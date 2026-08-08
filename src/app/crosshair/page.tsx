@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import CrosshairGenerator from '@/components/CrosshairGenerator';
 import Link from 'next/link';
+import PremiumGuard from '@/components/PremiumGuard';
 
 export const metadata: Metadata = {
     title: 'Crosshair Generator 2025 — Valorant & CS2 Custom Crosshair | DCPROSENS',
@@ -126,7 +127,9 @@ export default function CrosshairPage() {
 
             {/* Tool */}
             <div className="container" style={{ maxWidth: 1100 }}>
-                <CrosshairGenerator />
+                <PremiumGuard previewTitle="Crosshair Generator">
+                    <CrosshairGenerator />
+                </PremiumGuard>
             </div>
 
             {/* SEO Article */}

@@ -10,7 +10,7 @@ interface GearItem {
   link: string;
 }
 
-const GEAR_SUGGESTIONS = {
+const GEAR_SUGGESTIONS: Record<string, GearItem[]> = {
   XL: [
     {
       name: 'SteelSeries QcK Heavy XXL',

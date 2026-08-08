@@ -1,0 +1,12 @@
+{
+  "appId": "com.dcprosens.app",
+  "appName": "DCPROSENS",
+  "webDir": "www",
+  "server": {
+    "url": "https://app.dcprosens.com",
+    "cleartext": true
+  },
+  "android": {
+    "allowMixedContent": true
+  }
+}

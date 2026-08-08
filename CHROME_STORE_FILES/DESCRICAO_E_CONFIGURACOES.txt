@@ -1,0 +1,69 @@
+====================================================================
+  GUIA DE PREENCHIMENTO E ARQUIVOS — CHROME WEB STORE (DCPROSENS)
+====================================================================
+
+PASTA DE ARQUIVOS:
+/home/usuario/Documentos/GOOGLE ANTIGRAVIY/DCPROSENS/CHROME_STORE_FILES/
+
+====================================================================
+1. ÍCONE DA STORE (128x128 pixels):
+   - Envie o arquivo: 1_ICONE_DA_STORE_128x128.png
+   - Formato: 128x128 pixels, RGB (sem canal alfa).
+
+2. PRINTS / SCREENSHOTS (1280x800 pixels):
+   - Envie o arquivo: 2_PRINT_OU_SCREENSHOT_1280x800.png
+   - Formato: 1280x800 pixels, RGB (sem canal alfa).
+
+3. BLOCO PROMOCIONAL PEQUENO (440x280 pixels):
+   - Envie o arquivo: 3_BLOCO_PROMOCIONAL_PEQUENO_440x280.png
+   - Formato: 440x280 pixels, RGB (sem canal alfa).
+
+4. BLOCO PROMOCIONAL DE LETREIRO (1400x560 pixels):
+   - Envie o arquivo: 4_BLOCO_PROMOCIONAL_LETREIRO_1400x560.png
+   - Formato: 1400x560 pixels, RGB (sem canal alfa).
+
+====================================================================
+TEXTOS DA PÁGINA (COPIE E COLE NO PAINEL DO DESENVOLVEDOR):
+====================================================================
+
+TÍTULO DO PACOTE (Title):
+DCPROSENS - Sensitivity Converter
+
+RESUMO DO PACOTE (Short Description - max 132 caracteres):
+Instantly convert mouse sensitivity and calculate physical cm/360 distance across FPS game engines from your side panel.
+
+DESCRIÇÃO COMPLETA (Detailed Description - SEM PALAVRAS-CHAVE EXCESSIVAS):
+Convert mouse sensitivity on-the-fly directly from your Chrome browser side panel without leaving your active tab.
+
+DCPROSENS preserves your physical muscle memory 1-to-1 by calculating exact distance per 360-degree rotation across popular FPS game engines.
+
+FEATURES
+• Precise Engine Conversions — Accurately match sensitivity between different game rotation scales using exact 3D engine yaw ratios.
+• cm/360 & Inches/360 Calculator — Instantly calculate the physical distance your mouse must travel on your pad to complete a full 360° turn.
+• eDPI Calculator — Compare effective sensitivity regardless of your mouse hardware DPI settings.
+• Pro Player Feel Matcher — Match your eDPI against professional esports player configurations.
+• Side Panel Integration — Open instantly via keyboard shortcut (Ctrl+Shift+S / Cmd+Shift+S) or toolbar icon.
+• Dark & Light Modes — Dynamic theme toggle with automatic local storage saving.
+
+HOW TO USE
+1. Click the DCPROSENS icon in your browser toolbar or press Ctrl+Shift+S (Cmd+Shift+S on Mac) to open the side panel.
+2. Select your source game engine and target game engine.
+3. Enter your current sensitivity and mouse DPI.
+4. View your converted sensitivity and physical distance calculations instantly.
+
+PRIVACY & SECURITY
+DCPROSENS runs 100% locally inside your browser sandbox. It does not track, collect, or transmit any personal browsing data or usage history.
+
+SUPPORT & DASHBOARD
+Access full Aim Training tools, PSA method calibration, and complete crosshair generators at https://dcprosens.com.
+Need help or found a bug? Contact us at support@dcprosens.com.
+
+CATEGORIA*:
+Ferramentas (Utilitários)
+
+IDIOMA*:
+Inglês (English)
+
+PROPÓSITO ÚNICO (Single Purpose):
+Convert mouse sensitivity and calculate physical distance across FPS game engines in a browser side panel.
+====================================================================

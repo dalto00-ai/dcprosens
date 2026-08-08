@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from 'react';
-import { mouseDatabase, MouseSpec } from '@/lib/mouseDatabase';
+import { mouseDatabase } from '@/lib/mouseDatabase';
 import styles from './MouseDatabaseClient.module.css';
 
 type SortKey = 'weight' | 'price' | 'proScore' | 'rating';

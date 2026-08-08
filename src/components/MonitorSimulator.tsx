@@ -229,7 +229,6 @@ export default function MonitorSimulator() {
 
         // Check frame duration based on simulation refresh rate
         const frameDuration = 1000 / lane.hz;
-        let didUpdate = false;
 
         while (lane.accumulator >= frameDuration) {
           lane.currentX = continuousX;
@@ -241,7 +240,6 @@ export default function MonitorSimulator() {
           }
 
           lane.accumulator -= frameDuration;
-          didUpdate = true;
         }
 
         // Draw Trails (Ghosting simulation)

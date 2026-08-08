@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import AimRoutineGenerator from '@/components/AimRoutineGenerator';
 import Link from 'next/link';
+import PremiumGuard from '@/components/PremiumGuard';
 
 export const metadata: Metadata = {
     title: "Custom Aim Training Routine Generator — Aimlabs & KovaaKs | DCPROSENS",
@@ -116,7 +117,9 @@ export default function AimRoutinesPage() {
                 Generate a custom 30-minute daily aim training playlist for KovaaKs or Aimlabs optimized for your main game, rank, and mechanical weaknesses.
             </p>
 
-            <AimRoutineGenerator />
+            <PremiumGuard previewTitle="Aim Routine Generator">
+                <AimRoutineGenerator />
+            </PremiumGuard>
 
             <article style={{ marginTop: '5rem', color: 'var(--text-secondary)', lineHeight: 1.8 }}>
                 <h2 style={{ color: 'var(--text-primary)', fontSize: '2rem', fontWeight: 700, marginBottom: '1.5rem' }}>
@@ -146,7 +149,7 @@ export default function AimRoutinesPage() {
                         <strong style={{ color: 'var(--text-primary)' }}>Phase 3: Weakness Targeting (10 Minutes).</strong> Targets your specific mechanical weaknesses, such as micro-adjustments or fast target-switching.
                     </li>
                     <li>
-                        <strong style={{ color: 'var(--text-primary)' }}>Phase 4: Cooldown &amp; Integration (5 Minutes).</strong> Integrates your trainer mouse control back into your actual game environment (e.g. via Deathmatch or specialized custom maps).
+                        <strong style={{ color: 'var(--text-primary)' }}>Phase 4: Cool-down (5 Minutes).</strong> Consists of relaxed, high-accuracy practice to solidify neural pathways.
                     </li>
                 </ul>
 

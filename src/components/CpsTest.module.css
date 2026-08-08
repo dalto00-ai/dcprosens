@@ -1,0 +1,175 @@
+.card {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.durationRow {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.durationBtn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.5rem 1.1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.durationBtn:hover {
+    border-color: var(--primary);
+    color: var(--text-primary);
+}
+
+.durationActive {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #000;
+}
+
+.clickPad {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: 320px;
+    background: rgba(0, 255, 157, 0.06);
+    border: 2px dashed var(--primary);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.05s, background var(--transition-fast);
+}
+
+.clickPad:active {
+    transform: scale(0.98);
+    background: rgba(0, 255, 157, 0.12);
+}
+
+.clickPadIdle {
+    background: rgba(255, 255, 255, 0.02);
+    border-style: solid;
+    border-color: var(--border-color);
+}
+
+.bigNumber {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--primary);
+    line-height: 1;
+}
+
+.padLabel {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.timeLeft {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+.resultBox {
+    margin-top: 2rem;
+    background: rgba(0, 255, 157, 0.05);
+    border: 1px solid var(--primary);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+}
+
+.resultValue {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 0.25rem;
+}
+
+.resultSub {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 480px) {
+    .statsGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.stat {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 0.85rem;
+}
+
+.statLabel {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.3rem;
+}
+
+.statValue {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.primaryBtn {
+    margin-top: 1.5rem;
+    background: var(--primary);
+    color: #000;
+    padding: 0.9rem 2rem;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    border: none;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    box-shadow: 0 4px 14px rgba(0, 255, 157, 0.25);
+}
+
+.primaryBtn:hover {
+    transform: translateY(-1.5px);
+    box-shadow: 0 6px 20px rgba(0, 255, 157, 0.45);
+}

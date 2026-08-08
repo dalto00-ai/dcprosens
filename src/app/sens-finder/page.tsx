@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import SensFinderClient from '@/components/SensFinderClient';
+import { sensFinderContent } from '@/lib/sensFinderContent';
+import PremiumGuard from '@/components/PremiumGuard';
 
 export const metadata: Metadata = {
     title: "Find My Sensitivity — cm/360 to All Games Calculator | DCPROSENS",
@@ -65,7 +68,7 @@ export default function SensFinderPage() {
         },
         "featureList": [
             "Reverse cm/360 sensitivity calculator",
-            "Converts to 8+ major FPS games simultaneously",
+            "Converts to 12+ major FPS games simultaneously",
             "One-click copy for each game",
             "DPI presets: 400, 800, 1000, 1600, 3200",
             "Pro average cm/360 reference presets",
@@ -118,7 +121,7 @@ export default function SensFinderPage() {
                 {[
                     { icon: '📐', title: 'Pro Average', desc: '40–55 cm/360 is where most Valorant & CS2 pros play' },
                     { icon: '🖱️', title: 'Any DPI', desc: 'Works for 400, 800, 1600, 3200 DPI — your choice' },
-                    { icon: '🎮', title: '8 Games', desc: 'Valorant, CS2, Apex, OW2, Fortnite, CoD and more' },
+                    { icon: '🎮', title: '12 Games', desc: 'Valorant, CS2, Apex, OW2, Fortnite, CoD and more' },
                     { icon: '⚡', title: 'One Click', desc: 'Copy any sensitivity with a single tap' },
                 ].map(item => (
                     <div key={item.title} style={{
@@ -139,7 +142,41 @@ export default function SensFinderPage() {
                 ))}
             </div>
 
-            <SensFinderClient />
+            <PremiumGuard previewTitle="Sens Finder">
+                <SensFinderClient />
+            </PremiumGuard>
+
+            {/* PER-GAME DEDICATED PAGES */}
+            <div style={{ marginTop: '4rem' }}>
+                <h2 style={{ color: 'var(--text-primary)', fontSize: '1.4rem', fontWeight: 700, marginBottom: '1.25rem', textAlign: 'center' }}>
+                    Dedicated Sensitivity Guides by Game
+                </h2>
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+                    gap: '1rem',
+                }}>
+                    {sensFinderContent.map((g) => (
+                        <Link
+                            key={g.gameId}
+                            href={`/sens-finder/${g.gameId}`}
+                            style={{
+                                background: 'var(--bg-card)',
+                                border: '1px solid var(--border-color)',
+                                borderRadius: 'var(--radius-md)',
+                                padding: '1.1rem',
+                                textDecoration: 'none',
+                                color: 'var(--text-primary)',
+                                fontWeight: 600,
+                                fontSize: '0.9rem',
+                                transition: 'border-color 0.2s',
+                            }}
+                        >
+                            {g.displayName} →
+                        </Link>
+                    ))}
+                </div>
+            </div>
 
             {/* SEO CONTENT SECTION */}
             <div style={{

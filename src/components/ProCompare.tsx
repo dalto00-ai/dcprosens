@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { pros, ProPlayer } from "@/lib/pros";
+import { pros } from "@/lib/pros";
 import { mouseDatabase } from "@/lib/mouseDatabase";
 import styles from "./ProCompare.module.css";
 
@@ -375,16 +375,13 @@ export default function ProCompare() {
                 <span className={styles.promoBadge}>💡 Master Your Sensitivity</span>
                 <h3 className={styles.promoTitle}>Want to play with the consistency of these pros?</h3>
                 <p className={styles.promoDesc}>
-                    Calibrate your aim, optimize your setup, and bypass years of trial and error.
-                    Get our definitive guide to technical mouse control and sensitivity customization.
+                    Unlock all 20+ premium tools including the PSA Method, custom aim routines, crosshair generator, and advanced pro analytics.
                 </p>
                 <a
-                    href="https://pay.hotmart.com/P106024687A?off=9lctx2l1"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/pricing"
                     className={styles.promoBtn}
                 >
-                    Get the Technical Aim System Now ($9) →
+                    View Premium Plans →
                 </a>
             </div>
         </div>

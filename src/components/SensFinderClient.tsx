@@ -15,7 +15,7 @@ const COMMON_CM360 = [
 ];
 
 // Filter to main FPS games only
-const FPS_GAMES = ['valorant', 'csgo', 'apex', 'overwatch', 'cod', 'rainbow6', 'fortnite', 'pubg'];
+const FPS_GAMES = ['valorant', 'csgo', 'apex', 'overwatch', 'cod', 'rainbow6', 'fortnite', 'pubg', 'marvelrivals', 'thefinals', 'rust', 'deadlock'];
 
 export default function SensFinderClient() {
     const [targetCm, setTargetCm] = useState<number | string>(45);

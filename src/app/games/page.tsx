@@ -3,14 +3,14 @@ import type { Metadata } from "next";
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: "Games Supported — Sensitivity Converter for 13+ FPS Games",
-    description: "Complete list of games supported by DCPROSENS sensitivity converter: Valorant, CS2, Apex Legends, Overwatch 2, Fortnite, CoD Warzone, Rainbow Six Siege and more.",
+    title: "Games Supported — Sensitivity Converter for 17+ FPS Games",
+    description: "Complete list of games supported by DCPROSENS sensitivity converter: Valorant, CS2, Apex Legends, Overwatch 2, Fortnite, CoD Warzone, Rainbow Six Siege, Marvel Rivals, THE FINALS and more.",
     alternates: {
         canonical: "https://dcprosens.com/games",
     },
     openGraph: {
-        title: "Games Supported — Sensitivity Converter for 13+ FPS Games",
-        description: "Valorant, CS2, Apex Legends, Overwatch 2, Fortnite, Warzone and 7 more games. Free sensitivity converter.",
+        title: "Games Supported — Sensitivity Converter for 17+ FPS Games",
+        description: "Valorant, CS2, Apex Legends, Overwatch 2, Fortnite, Warzone, Marvel Rivals, THE FINALS and more. Free sensitivity converter.",
         type: "website",
         url: "https://dcprosens.com/games",
     },

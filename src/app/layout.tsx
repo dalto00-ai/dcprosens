@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
+import Script from "next/script";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
 import AnalyticsLoader from "@/components/AnalyticsLoader";
+import { AuthProvider } from "@/components/AuthProvider";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -85,6 +87,7 @@ export const metadata: Metadata = {
     },
   },
   other: {
+    "google-adsense-account": "ca-pub-1743865545749571",
     "geo.region": "US",
     "geo.placename": "United States",
     "geo.position": "37.0902;-95.7129",
@@ -116,14 +119,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${outfit.variable}`}>
-        <div className="app-wrapper">
-          <Navbar />
-          <main className="main-content">{children}</main>
-          <Footer />
-          <BottomNav />
-        </div>
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1743865545749571"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+        <AuthProvider>
+          <div className="app-wrapper">
+            <Navbar />
+            <main className="main-content">{children}</main>
+            <Footer />
+            <BottomNav />
+          </div>
 
-        <AnalyticsLoader />
+          <AnalyticsLoader />
+        </AuthProvider>
       </body>
     </html>
   );

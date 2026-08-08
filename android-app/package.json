@@ -1,0 +1,15 @@
+{
+  "name": "dcprosens-mobile",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "init": "cap init",
+    "sync": "cap sync",
+    "open:android": "cap open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/cli": "^6.1.2",
+    "@capacitor/core": "^6.1.2"
+  }
+}

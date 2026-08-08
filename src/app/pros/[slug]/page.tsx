@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { pros, getProBySlug } from '@/lib/pros';
-import CopyButton from './CopyButton';
+import CopyButton from '@/components/CopyButton';
 
 interface Props {
     params: Promise<{ slug: string }>;

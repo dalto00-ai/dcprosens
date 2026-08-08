@@ -85,10 +85,51 @@
     margin-bottom: 0.5rem;
 }
 
+.resultValueRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
 .resultValue {
     font-size: 2.5rem;
     font-weight: 700;
     color: var(--text-primary);
+}
+
+/* ══════ COPY BUTTON ══════ */
+.copyBtn {
+    padding: 0.4rem 0.8rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.copyBtn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(0, 255, 157, 0.08);
+}
+
+.copyBtnDone {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(0, 255, 157, 0.12);
+    animation: copyPulse 0.3s ease;
+}
+
+@keyframes copyPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
 
 .statsGrid {
@@ -113,6 +154,309 @@
     font-size: 1.1rem;
     font-weight: 600;
     color: var(--text-secondary);
+}
+
+/* ══════ SENSITIVITY CATEGORY BADGE ══════ */
+.sensCategoryRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.25rem;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-md);
+    flex-wrap: wrap;
+}
+
+.sensCategoryBadge {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid;
+    border-radius: var(--radius-full);
+    min-width: 0;
+}
+
+.sensCategoryIcon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.sensCategoryLabel {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.sensCategoryDesc {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    line-height: 1.3;
+}
+
+.sensProAvg {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.sensProAvgLabel {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.sensProAvgValue {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* ══════ POLLING RATE SECTION ══════ */
+.pollingSection {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+}
+
+.pollingSectionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.pollingSectionTitle {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.pollingSelect {
+    padding: 0.35rem 0.6rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--primary);
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.pollingStatsRow {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.pollingStat {
+    text-align: center;
+}
+
+.pollingStatLabel {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 0.2rem;
+}
+
+.pollingStatValue {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* ══════ WINDOWS TIP ══════ */
+.winTipToggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.55rem 0.8rem;
+    background: rgba(245, 158, 11, 0.06);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    border-radius: var(--radius-sm);
+    color: #f59e0b;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 0.5rem;
+}
+
+.winTipToggle:hover {
+    background: rgba(245, 158, 11, 0.1);
+}
+
+.winTipArrow {
+    font-size: 0.6rem;
+}
+
+.winTipBox {
+    padding: 0.75rem 1rem;
+    background: rgba(245, 158, 11, 0.04);
+    border: 1px solid rgba(245, 158, 11, 0.12);
+    border-radius: var(--radius-sm);
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+}
+
+.winTipBox p {
+    margin: 0 0 0.4rem;
+    color: #f59e0b;
+}
+
+.winTipBox ul {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.winTipBox li {
+    margin-bottom: 0.25rem;
+}
+
+/* ══════ PROFILE BAR ══════ */
+.profileBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    flex-wrap: wrap;
+}
+
+.profileLeft {
+    flex: 1;
+    min-width: 0;
+    overflow-x: auto;
+}
+
+.profileChips {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.profileChip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0.65rem;
+    background: rgba(0, 255, 157, 0.06);
+    border: 1px solid rgba(0, 255, 157, 0.18);
+    border-radius: var(--radius-full);
+    color: var(--primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    white-space: nowrap;
+}
+
+.profileChip:hover {
+    background: rgba(0, 255, 157, 0.12);
+    border-color: var(--primary);
+}
+
+.profileChipDelete {
+    font-size: 0.85rem;
+    opacity: 0.5;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.profileChipDelete:hover {
+    opacity: 1;
+    color: #ef4444;
+}
+
+.profileActions {
+    flex-shrink: 0;
+}
+
+.profileSaveToggle {
+    padding: 0.35rem 0.7rem;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.profileSaveToggle:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.profileSaveToggle:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.profileSaveForm {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.profileInput {
+    padding: 0.35rem 0.6rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--primary);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.78rem;
+    width: 130px;
+}
+
+.profileInput:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-glow);
+}
+
+.profileSaveBtn {
+    padding: 0.35rem 0.6rem;
+    background: var(--primary);
+    border: none;
+    border-radius: var(--radius-sm);
+    color: #000;
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.profileCancelBtn {
+    padding: 0.35rem 0.45rem;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+    cursor: pointer;
+    font-family: inherit;
 }
 
 /* DYNAMIC MULTI-GAME EQUIVALENCE TABLE styles */
@@ -203,4 +547,61 @@
 .equivalenceEdpi {
     color: var(--text-primary);
     font-weight: 500;
+}
+
+.showAllBtn {
+    display: block;
+    margin: 1.5rem auto 0;
+    padding: 0.65rem 1.5rem;
+    background: transparent;
+    border: 1px solid var(--primary);
+    border-radius: var(--radius-full);
+    color: var(--primary);
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.showAllBtn:hover {
+    background: rgba(0, 255, 157, 0.1);
+}
+
+.quickGamesRow {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.quickGameBtn {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 0.35rem 0.6rem;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: all var(--transition-fast);
+}
+
+.quickGameBtn:hover {
+    border-color: var(--primary);
+    color: var(--text-primary);
+}
+
+.quickGameBtnActive {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(0, 255, 157, 0.05);
+    box-shadow: 0 0 8px rgba(0, 255, 157, 0.1);
+}
+
+.quickGameIcon {
+    font-size: 0.85rem;
 }

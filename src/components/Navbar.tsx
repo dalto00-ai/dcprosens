@@ -1,13 +1,53 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useAuth } from '@/components/AuthProvider';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
+    const { user, loading } = useAuth();
+
+    const [loginUrl, setLoginUrl] = useState('/login');
+    const [dashboardUrl, setDashboardUrl] = useState('/dashboard');
+    const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+
+    useEffect(() => {
+        // `window` doesn't exist at static-export build time, so the initial
+        // render (both server-built HTML and the first client pass) must use
+        // the relative default to match — hostname-based URLs are only safe
+        // to apply after mount, which is why this can't be computed inline
+        // during render without causing a hydration mismatch.
+        if (typeof window !== 'undefined' && window.location.hostname === 'dcprosens.com') {
+            /* eslint-disable react-hooks/set-state-in-effect -- intentional: only known after mount */
+            setLoginUrl('https://app.dcprosens.com/login/');
+            setDashboardUrl('https://app.dcprosens.com/dashboard/');
+            /* eslint-enable react-hooks/set-state-in-effect */
+        }
+
+        // Theme Initialization
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        setTheme(savedTheme as 'dark' | 'light');
+        if (savedTheme === 'light') {
+            document.body.classList.add('light-theme');
+        } else {
+            document.body.classList.remove('light-theme');
+        }
+    }, []);
+
+    const toggleTheme = () => {
+        const nextTheme = theme === 'dark' ? 'light' : 'dark';
+        setTheme(nextTheme);
+        localStorage.setItem('theme', nextTheme);
+        if (nextTheme === 'light') {
+            document.body.classList.add('light-theme');
+        } else {
+            document.body.classList.remove('light-theme');
+        }
+    };
 
     const toggleDrawer = () => {
         setIsOpen(!isOpen);
@@ -24,32 +64,175 @@ export default function Navbar() {
                     DC<span>PROSENS</span>
                 </Link>
 
-                {/* DESKTOP LINKS */}
+                {/* DESKTOP LINKS - CATEGORIZED WITH DROPDOWNS */}
                 <div className={styles.links}>
-                    <Link href="/" className={`${styles.link} ${pathname === '/' ? styles.activeLink : ''}`}>Converter</Link>
-                    <Link href="/ads" className={`${styles.link} ${pathname === '/ads' ? styles.activeLink : ''}`}>ADS</Link>
-                    <Link href="/dpi" className={`${styles.link} ${pathname === '/dpi' ? styles.activeLink : ''}`}>eDPI</Link>
-                    <Link href="/sens-finder" className={`${styles.link} ${pathname === '/sens-finder' ? styles.activeLink : ''}`}>Sens Finder</Link>
-                    <Link href="/psa-calculator" className={`${styles.link} ${pathname === '/psa-calculator' ? styles.activeLink : ''}`}>PSA Calc</Link>
-                    <Link href="/crosshair" className={`${styles.link} ${pathname === '/crosshair' ? styles.activeLink : ''}`}>Crosshair</Link>
-                    <Link href="/pros" className={`${styles.link} ${pathname.startsWith('/pros') && pathname !== '/pros/compare' ? styles.activeLink : ''}`}>Pros</Link>
-                    <Link href="/pros/compare" className={`${styles.link} ${pathname === '/pros/compare' ? styles.activeLink : ''}`}>Compare</Link>
-                    <Link href="/mouse-database" className={`${styles.link} ${pathname === '/mouse-database' ? styles.activeLink : ''}`}>Mice DB</Link>
-                    <Link href="/gear" className={`${styles.link} ${pathname === '/gear' ? styles.activeLink : ''}`}>Gear</Link>
+                    {/* DROP DOWN 1: AIM & SENSITIVITY */}
+                    <div className={styles.dropdown}>
+                        <span className={styles.dropdownToggle}>Aim &amp; Sens</span>
+                        <div className={styles.dropdownMenu}>
+                            <Link href="/" className={`${styles.dropdownItem} ${pathname === '/' ? styles.activeItem : ''}`} prefetch={false}>
+                                🎯 Sensitivity Converter
+                            </Link>
+                            <Link href="/ads" className={`${styles.dropdownItem} ${pathname === '/ads' ? styles.activeItem : ''}`} prefetch={false}>
+                                🔭 ADS &amp; Scope 1:1
+                            </Link>
+                            <Link href="/dpi" className={`${styles.dropdownItem} ${pathname === '/dpi' ? styles.activeItem : ''}`} prefetch={false}>
+                                📏 DPI &amp; eDPI Calc
+                            </Link>
+                            <Link href="/sens-finder" className={`${styles.dropdownItem} ${pathname === '/sens-finder' ? styles.activeItem : ''}`} prefetch={false}>
+                                🔍 cm/360 Sensitivity Finder
+                            </Link>
+                            <Link href="/psa-calculator" className={`${styles.dropdownItem} ${pathname === '/psa-calculator' ? styles.activeItem : ''}`} prefetch={false}>
+                                📐 PSA Method Calculator
+                            </Link>
+                            <Link href="/aim-routines" className={`${styles.dropdownItem} ${pathname === '/aim-routines' ? styles.activeItem : ''}`} prefetch={false}>
+                                📅 Custom Aim Routines
+                            </Link>
+                            <Link href="/aim-trainer" className={`${styles.dropdownItem} ${pathname === '/aim-trainer' ? styles.activeItem : ''}`} prefetch={false}>
+                                🎮 Online 3D Aim Trainer
+                            </Link>
+                            <Link href="/fov-converter" className={`${styles.dropdownItem} ${pathname === '/fov-converter' ? styles.activeItem : ''}`} prefetch={false}>
+                                🖥️ FOV Converter
+                            </Link>
+                            <Link href="/stretched-resolution" className={`${styles.dropdownItem} ${pathname === '/stretched-resolution' ? styles.activeItem : ''}`} prefetch={false}>
+                                📺 Stretched Resolution Calc
+                            </Link>
+                        </div>
+                    </div>
+
+                    {/* DROP DOWN 2: PRO PLAYERS */}
+                    <div className={styles.dropdown}>
+                        <span className={styles.dropdownToggle}>Pro Players</span>
+                        <div className={styles.dropdownMenu}>
+                            <Link href="/pros" className={`${styles.dropdownItem} ${pathname.startsWith('/pros') && pathname !== '/pros/compare' ? styles.activeItem : ''}`} prefetch={false}>
+                                👤 Pro Settings Database
+                            </Link>
+                            <Link href="/pros/compare" className={`${styles.dropdownItem} ${pathname === '/pros/compare' ? styles.activeItem : ''}`} prefetch={false}>
+                                ⚖️ Pro Compare Tool
+                            </Link>
+                            <Link href="/setups" className={`${styles.dropdownItem} ${pathname === '/setups' ? styles.activeItem : ''}`} prefetch={false}>
+                                🏆 Pro Full Setups
+                            </Link>
+                            <Link href="/crosshair-database" className={`${styles.dropdownItem} ${pathname === '/crosshair-database' ? styles.activeItem : ''}`} prefetch={false}>
+                                📋 Pro Crosshairs List
+                            </Link>
+                            <Link href="/crosshair" className={`${styles.dropdownItem} ${pathname === '/crosshair' ? styles.activeItem : ''}`} prefetch={false}>
+                                ✛ Crosshair Generator
+                            </Link>
+                        </div>
+                    </div>
+
+                    {/* DROP DOWN 3: GEAR & UTILITIES */}
+                    <div className={styles.dropdown}>
+                        <span className={styles.dropdownToggle}>Gear &amp; Databases</span>
+                        <div className={styles.dropdownMenu}>
+                            <Link href="/mouse-database" className={`${styles.dropdownItem} ${pathname === '/mouse-database' ? styles.activeItem : ''}`} prefetch={false}>
+                                🖱️ Gaming Mouse Specs
+                            </Link>
+                            <Link href="/gear" className={`${styles.dropdownItem} ${pathname === '/gear' ? styles.activeItem : ''}`} prefetch={false}>
+                                ⚙️ Keyboard, Monitors &amp; Headsets
+                            </Link>
+                            <Link href="/mouse-finder" className={`${styles.dropdownItem} ${pathname === '/mouse-finder' ? styles.activeItem : ''}`} prefetch={false}>
+                                🔍 Ergonomic Mouse Finder
+                            </Link>
+                            <Link href="/mousepad-calculator" className={`${styles.dropdownItem} ${pathname === '/mousepad-calculator' ? styles.activeItem : ''}`} prefetch={false}>
+                                📐 Mousepad Size Calculator
+                            </Link>
+                            <Link href="/mousepad-chart" className={`${styles.dropdownItem} ${pathname === '/mousepad-chart' ? styles.activeItem : ''}`} prefetch={false}>
+                                📊 Mousepad Friction Chart
+                            </Link>
+                            <Link href="/monitor-simulator" className={`${styles.dropdownItem} ${pathname === '/monitor-simulator' ? styles.activeItem : ''}`} prefetch={false}>
+                                🖥️ Refresh Rate Hz Simulator
+                            </Link>
+                        </div>
+                    </div>
+
+                    {/* DROP DOWN 4: MORE TOOLS */}
+                    <div className={styles.dropdown}>
+                        <span className={styles.dropdownToggle}>More</span>
+                        <div className={styles.dropdownMenu}>
+                            <Link href="/fps-calculator" className={`${styles.dropdownItem} ${pathname === '/fps-calculator' ? styles.activeItem : ''}`} prefetch={false}>
+                                ⚡ Bottleneck &amp; FPS Calc
+                            </Link>
+                            <Link href="/desk-space-calculator" className={`${styles.dropdownItem} ${pathname === '/desk-space-calculator' ? styles.activeItem : ''}`} prefetch={false}>
+                                📐 Desk Space Required Calc
+                            </Link>
+                            <Link href="/dpi-analyzer" className={`${styles.dropdownItem} ${pathname === '/dpi-analyzer' ? styles.activeItem : ''}`} prefetch={false}>
+                                🧪 Mouse DPI Analyzer
+                            </Link>
+                            <Link href="/cps-test" className={`${styles.dropdownItem} ${pathname === '/cps-test' ? styles.activeItem : ''}`} prefetch={false}>
+                                🖱️ CPS Click Speed Test
+                            </Link>
+                            <Link href="/reaction-time-test" className={`${styles.dropdownItem} ${pathname === '/reaction-time-test' ? styles.activeItem : ''}`} prefetch={false}>
+                                ⚡ Reaction Time Test
+                            </Link>
+                            <Link href="/bind-generator" className={`${styles.dropdownItem} ${pathname === '/bind-generator' ? styles.activeItem : ''}`} prefetch={false}>
+                                🎛️ CS2 Bind Generator
+                            </Link>
+                            <Link href="/ebook" className={`${styles.dropdownItem} ${pathname === '/ebook' ? styles.activeItem : ''}`} prefetch={false}>
+                                📚 Precision Aim System Ebook
+                            </Link>
+                        </div>
+                    </div>
+
                     <Link href="/blog" className={`${styles.link} ${pathname.startsWith('/blog') ? styles.activeLink : ''}`}>Blog</Link>
+
+                    {/* THEME TOGGLE BUTTON */}
+                    <button 
+                        className={styles.themeToggle} 
+                        onClick={toggleTheme} 
+                        aria-label="Toggle theme mode"
+                    >
+                        {theme === 'dark' ? (
+                            <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                        ) : (
+                            <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        )}
+                    </button>
+
+                    {!loading && (
+                        user ? (
+                            <Link href={dashboardUrl} className={`${styles.link} ${styles.loginBtn}`}>Dashboard</Link>
+                        ) : (
+                            <Link href={loginUrl} className={`${styles.link} ${styles.loginBtn}`}>Log In / Sign Up</Link>
+                        )
+                    )}
                 </div>
 
                 {/* MOBILE HAMBURGER BUTTON */}
-                <button 
-                    className={`${styles.hamburger} ${isOpen ? styles.hamburgerActive : ''}`} 
-                    onClick={toggleDrawer}
-                    aria-label="Toggle Navigation Menu"
-                    aria-expanded={isOpen}
-                >
-                    <span className={styles.bar}></span>
-                    <span className={styles.bar}></span>
-                    <span className={styles.bar}></span>
-                </button>
+                <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
+                    <button 
+                        className={styles.themeToggle} 
+                        style={{ border: 'none', fontSize: '1.2rem', padding: '0 0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                        onClick={toggleTheme} 
+                        aria-label="Toggle theme mode"
+                    >
+                        {theme === 'dark' ? '☀️' : '🌙'}
+                    </button>
+
+                    <button 
+                        className={`${styles.hamburger} ${isOpen ? styles.hamburgerActive : ''}`} 
+                        onClick={toggleDrawer}
+                        aria-label="Toggle Navigation Menu"
+                        aria-expanded={isOpen}
+                    >
+                        <span className={styles.bar}></span>
+                        <span className={styles.bar}></span>
+                        <span className={styles.bar}></span>
+                    </button>
+                </div>
             </nav>
 
             {/* MOBILE SIDEBAR DRAWER OVERLAY */}
@@ -64,201 +247,135 @@ export default function Navbar() {
                     <button className={styles.closeBtn} onClick={closeDrawer} aria-label="Close menu">✕</button>
                 </div>
                 
-                <div className={styles.drawerLinks}>
-                    <Link 
-                        href="/" 
-                        className={`${styles.drawerLink} ${pathname === '/' ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', padding: '0 0.5rem' }}>
+                    <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Theme Mode</span>
+                    <button 
+                        onClick={toggleTheme} 
+                        style={{ 
+                            background: 'rgba(255,255,255,0.05)', 
+                            border: '1px solid var(--border-color)', 
+                            borderRadius: '20px', 
+                            padding: '0.3rem 1rem', 
+                            cursor: 'pointer',
+                            color: 'var(--text-primary)',
+                            fontSize: '0.85rem',
+                            display: 'flex',
+                            gap: '0.4rem',
+                            alignItems: 'center'
+                        }}
                     >
-                        🏠 Primary Converter
-                    </Link>
-                    <Link 
-                        href="/ads" 
-                        className={`${styles.drawerLink} ${pathname === '/ads' ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
-                    >
-                        🎯 Scopes / ADS 1:1
-                    </Link>
-                    <Link 
-                        href="/dpi" 
-                        className={`${styles.drawerLink} ${pathname === '/dpi' ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
-                    >
-                        📏 eDPI Calculator
-                    </Link>
-                    <Link 
-                        href="/sens-finder" 
-                        className={`${styles.drawerLink} ${pathname === '/sens-finder' ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
-                    >
-                        🔍 Find My Sensitivity (cm/360)
-                    </Link>
-                    <Link 
-                        href="/psa-calculator" 
-                        className={`${styles.drawerLink} ${pathname === '/psa-calculator' ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
-                    >
-                        📐 PSA Method Calculator
-                    </Link>
-                    <Link 
-                        href="/crosshair" 
-                        className={`${styles.drawerLink} ${pathname === '/crosshair' ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
-                    >
-                        ✛ Crosshair Generator
-                    </Link>
-                    <Link 
-                        href="/mousepad-calculator" 
-                        className={`${styles.drawerLink} ${pathname === '/mousepad-calculator' ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
-                    >
-                        🖱️ Mousepad Size Calculator
-                    </Link>
-                    <Link 
-                        href="/mousepad-chart" 
-                        className={`${styles.drawerLink} ${pathname === '/mousepad-chart' ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
-                    >
-                        📊 Mousepad Friction & Speed Chart
-                    </Link>
-                    <Link 
-                        href="/monitor-simulator" 
-                        className={`${styles.drawerLink} ${pathname === '/monitor-simulator' ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
-                    >
-                        🖥️ Monitor Refresh Rate Hz Simulator
-                    </Link>
-                    <Link 
-                        href="/fps-calculator" 
-                        className={`${styles.drawerLink} ${pathname === '/fps-calculator' ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
-                    >
-                        ⚡ FPS & Bottleneck Calculator
-                    </Link>
-                    <Link 
-                        href="/desk-space-calculator" 
-                        className={`${styles.drawerLink} ${pathname === '/desk-space-calculator' ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
-                    >
-                        📐 Desk Space Sensitivity Calc
-                    </Link>
-                    <Link
-                        href="/blog/polling-rate-explained-1000hz-vs-4000hz-vs-8000hz"
-                        className={styles.drawerLink}
-                        onClick={closeDrawer}
-                    >
-                        ⚡ Polling Rate Guide
-                    </Link>
-                    <Link 
-                        href="/mouse-finder" 
-                        className={`${styles.drawerLink} ${pathname === '/mouse-finder' ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
-                    >
-                        🔍 Ergonomic Mouse Finder
-                    </Link>
-                    <Link 
-                        href="/dpi-analyzer" 
-                        className={`${styles.drawerLink} ${pathname === '/dpi-analyzer' ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
-                    >
-                        🧪 Mouse DPI Analyzer
-                    </Link>
-                    <Link 
-                        href="/stretched-resolution" 
-                        className={`${styles.drawerLink} ${pathname === '/stretched-resolution' ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
-                    >
-                        🖥️ Stretched Resolution Calc
-                    </Link>
-                    <Link 
-                        href="/aim-routines" 
-                        className={`${styles.drawerLink} ${pathname === '/aim-routines' ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
-                    >
-                        📅 Custom Aim Routines
-                    </Link>
-                    <Link 
-                        href="/bind-generator" 
-                        className={`${styles.drawerLink} ${pathname === '/bind-generator' ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
-                    >
-                        🎛️ CS2 Bind Generator
-                    </Link>
-                    <Link 
-                        href="/aim-trainer" 
-                        className={`${styles.drawerLink} ${pathname === '/aim-trainer' ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
-                    >
-                        🎯 Online Aim Trainer
-                    </Link>
-                    <Link 
-                        href="/ebook" 
-                        className={`${styles.drawerLink} ${pathname === '/ebook' ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
-                    >
-                        ⚡ Precision Aim System ($9)
-                    </Link>
-                    <Link 
-                        href="/pros" 
-                        className={`${styles.drawerLink} ${pathname.startsWith('/pros') && pathname !== '/pros/compare' ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
-                    >
-                        👤 Pro Player Settings
-                    </Link>
-                    <Link 
-                        href="/pros/compare" 
-                        className={`${styles.drawerLink} ${pathname === '/pros/compare' ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
-                    >
-                        ⚖️ Pro Player Compare Tool
-                    </Link>
-                    <Link 
-                        href="/setups" 
-                        className={`${styles.drawerLink} ${pathname === '/setups' ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
-                    >
-                        🏆 Pro Full Setups
-                    </Link>
-                    <Link 
-                        href="/mouse-database" 
-                        className={`${styles.drawerLink} ${pathname === '/mouse-database' ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
-                    >
-                        🖱️ Gaming Mouse Database
-                    </Link>
-                    <Link 
-                        href="/gear" 
-                        className={`${styles.drawerLink} ${pathname === '/gear' ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
-                    >
-                        ⚙️ Gear Database (Keyboards, Headsets...)
-                    </Link>
-                    <Link 
-                        href="/games" 
-                        className={`${styles.drawerLink} ${pathname === '/games' ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
-                    >
-                        🎮 Game Profiles Database
-                    </Link>
-                    <Link 
-                        href="/blog" 
-                        className={`${styles.drawerLink} ${pathname.startsWith('/blog') ? styles.drawerActive : ''}`}
-                        onClick={closeDrawer}
-                    >
-                        📰 Blog Articles & Manuals
-                    </Link>
-                    <Link 
-                        href="/#pro-comparator" 
-                        className={styles.drawerLink}
-                        onClick={closeDrawer}
-                    >
-                        ⚖️ Pro Visual Comparator
-                    </Link>
+                        {theme === 'dark' ? '☀️ Light' : '🌙 Dark'}
+                    </button>
                 </div>
 
+                <div className={styles.drawerLinks} style={{ overflowY: 'auto', flex: 1, paddingBottom: '2rem' }}>
+                    <div className={styles.drawerCategory}>🎯 Aim &amp; Sensitivity</div>
+                    <Link href="/" className={`${styles.drawerLink} ${pathname === '/' ? styles.drawerActive : ''}`} onClick={closeDrawer}>
+                        🏠 Primary Converter
+                    </Link>
+                    <Link href="/ads" className={`${styles.drawerLink} ${pathname === '/ads' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        🎯 Scopes / ADS 1:1
+                    </Link>
+                    <Link href="/dpi" className={`${styles.drawerLink} ${pathname === '/dpi' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        📏 eDPI Calculator
+                    </Link>
+                    <Link href="/sens-finder" className={`${styles.drawerLink} ${pathname === '/sens-finder' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        🔍 Find My Sensitivity
+                    </Link>
+                    <Link href="/psa-calculator" className={`${styles.drawerLink} ${pathname === '/psa-calculator' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        📐 PSA Method Calc
+                    </Link>
+                    <Link href="/aim-routines" className={`${styles.drawerLink} ${pathname === '/aim-routines' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        📅 Custom Aim Routines
+                    </Link>
+                    <Link href="/aim-trainer" className={`${styles.drawerLink} ${pathname === '/aim-trainer' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        🎯 Online Aim Trainer
+                    </Link>
+                    <Link href="/fov-converter" className={`${styles.drawerLink} ${pathname === '/fov-converter' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        🖥️ FOV Converter
+                    </Link>
+                    <Link href="/stretched-resolution" className={`${styles.drawerLink} ${pathname === '/stretched-resolution' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        🖥️ Stretched Resolution
+                    </Link>
+
+                    <div className={styles.drawerCategory}>👤 Pro Settings</div>
+                    <Link href="/pros" className={`${styles.drawerLink} ${pathname.startsWith('/pros') && pathname !== '/pros/compare' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        👤 Pro Player Database
+                    </Link>
+                    <Link href="/pros/compare" className={`${styles.drawerLink} ${pathname === '/pros/compare' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        ⚖️ Settings Compare Tool
+                    </Link>
+                    <Link href="/setups" className={`${styles.drawerLink} ${pathname === '/setups' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        🏆 Pro Full Setups
+                    </Link>
+                    <Link href="/crosshair-database" className={`${styles.drawerLink} ${pathname === '/crosshair-database' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        📋 Pro Crosshairs
+                    </Link>
+                    <Link href="/crosshair" className={`${styles.drawerLink} ${pathname === '/crosshair' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        ✛ Crosshair Generator
+                    </Link>
+
+                    <div className={styles.drawerCategory}>🔌 Gear &amp; Specs</div>
+                    <Link href="/mouse-database" className={`${styles.drawerLink} ${pathname === '/mouse-database' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        🖱️ Gaming Mouse Specs
+                    </Link>
+                    <Link href="/gear" className={`${styles.drawerLink} ${pathname === '/gear' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        ⚙️ Peripherals Database
+                    </Link>
+                    <Link href="/mouse-finder" className={`${styles.drawerLink} ${pathname === '/mouse-finder' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        🔍 Mouse Finder
+                    </Link>
+                    <Link href="/mousepad-calculator" className={`${styles.drawerLink} ${pathname === '/mousepad-calculator' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        📐 Mousepad Size Calc
+                    </Link>
+                    <Link href="/mousepad-chart" className={`${styles.drawerLink} ${pathname === '/mousepad-chart' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        📊 Friction Speed Chart
+                    </Link>
+                    <Link href="/monitor-simulator" className={`${styles.drawerLink} ${pathname === '/monitor-simulator' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        🖥️ Refresh Rate Simulator
+                    </Link>
+
+                    <div className={styles.drawerCategory}>⚡ Extra Utilities</div>
+                    <Link href="/fps-calculator" className={`${styles.drawerLink} ${pathname === '/fps-calculator' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        ⚡ FPS &amp; Bottleneck Calc
+                    </Link>
+                    <Link href="/desk-space-calculator" className={`${styles.drawerLink} ${pathname === '/desk-space-calculator' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        📐 Desk Space Required
+                    </Link>
+                    <Link href="/dpi-analyzer" className={`${styles.drawerLink} ${pathname === '/dpi-analyzer' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        🧪 Mouse DPI Analyzer
+                    </Link>
+                    <Link href="/cps-test" className={`${styles.drawerLink} ${pathname === '/cps-test' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        🖱️ CPS Click Test
+                    </Link>
+                    <Link href="/reaction-time-test" className={`${styles.drawerLink} ${pathname === '/reaction-time-test' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        ⚡ Reaction Time Test
+                    </Link>
+                    <Link href="/bind-generator" className={`${styles.drawerLink} ${pathname === '/bind-generator' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        🎛️ CS2 Bind Generator
+                    </Link>
+                    <Link href="/ebook" className={`${styles.drawerLink} ${pathname === '/ebook' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        📚 Aim System Ebook ($9)
+                    </Link>
+                    <Link href="/blog" className={`${styles.drawerLink} ${pathname.startsWith('/blog') ? styles.drawerActive : ''}`} onClick={closeDrawer}>
+                        📰 Blog Articles
+                    </Link>
+
+                    {!loading && (
+                        user ? (
+                            <Link href={dashboardUrl} className={`${styles.drawerLink} ${pathname === '/dashboard' ? styles.drawerActive : ''}`} onClick={closeDrawer}>
+                                💻 Dashboard SaaS
+                            </Link>
+                        ) : (
+                            <Link href={loginUrl} className={`${styles.drawerLink} ${pathname === '/login' ? styles.drawerActive : ''}`} onClick={closeDrawer}>
+                                🔑 Log In / Sign Up
+                            </Link>
+                        )
+                    )}
+                </div>
 
                 <div className={styles.drawerFooter}>
-                    <p>Sensibilidade Perfeita para Pro Gamers.</p>
+                    <p>Perfect Sensitivity for Pro Gamers.</p>
                 </div>
             </div>
         </header>

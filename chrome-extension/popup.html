@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DCPROSENS Converter</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-brand">
+        <img src="icon-48.png" alt="Logo" class="logo-icon">
+        <h1>DC<span>PROSENS</span></h1>
+      </div>
+      <div class="header-actions">
+        <span class="pro-tag">17 GAMES</span>
+        <button type="button" id="theme-toggle" class="theme-toggle" title="Toggle light / dark mode" aria-label="Toggle light / dark mode">🌙</button>
+      </div>
+    </div>
+
+    <!-- Quick Converter Form -->
+    <div class="converter-box">
+      <div class="input-group">
+        <label for="from-game">Source Game</label>
+        <select id="from-game">
+          <option value="valorant">Valorant</option>
+          <option value="csgo">CS2 / CS:GO</option>
+          <option value="apex">Apex Legends</option>
+          <option value="overwatch">Overwatch 2</option>
+          <option value="fortnite">Fortnite</option>
+          <option value="rainbow6">Rainbow Six Siege</option>
+          <option value="cod">Call of Duty</option>
+          <option value="bf2042">Battlefield 2042</option>
+          <option value="pubg">PUBG</option>
+          <option value="destiny2">Destiny 2</option>
+          <option value="quake">Quake / Source</option>
+          <option value="roblox">Roblox</option>
+          <option value="minecraft">Minecraft</option>
+          <option value="marvelrivals">Marvel Rivals</option>
+          <option value="thefinals">THE FINALS</option>
+          <option value="rust">Rust</option>
+          <option value="deadlock">Deadlock</option>
+        </select>
+      </div>
+
+      <button type="button" id="swap-btn" class="swap-btn" title="Swap games" aria-label="Swap source and target games">
+        <span>⇅</span> Swap
+      </button>
+
+      <div class="input-row">
+        <div class="input-group">
+          <label for="sens-input">Sensitivity</label>
+          <input type="number" id="sens-input" step="0.001" value="0.5">
+        </div>
+        <div class="input-group">
+          <label for="dpi-input">DPI</label>
+          <input type="number" id="dpi-input" step="50" value="800">
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="to-game">Target Game</label>
+        <select id="to-game">
+          <option value="csgo">CS2 / CS:GO</option>
+          <option value="valorant" selected>Valorant</option>
+          <option value="apex">Apex Legends</option>
+          <option value="overwatch">Overwatch 2</option>
+          <option value="fortnite">Fortnite</option>
+          <option value="rainbow6">Rainbow Six Siege</option>
+          <option value="cod">Call of Duty</option>
+          <option value="bf2042">Battlefield 2042</option>
+          <option value="pubg">PUBG</option>
+          <option value="destiny2">Destiny 2</option>
+          <option value="quake">Quake / Source</option>
+          <option value="roblox">Roblox</option>
+          <option value="minecraft">Minecraft</option>
+          <option value="marvelrivals">Marvel Rivals</option>
+          <option value="thefinals">THE FINALS</option>
+          <option value="rust">Rust</option>
+          <option value="deadlock">Deadlock</option>
+        </select>
+      </div>
+
+      <!-- Result Box: value is always computed but blurred until Pro -->
+      <div id="result-box" class="result-box result-locked">
+        <div class="result-label">Converted Sensitivity</div>
+        <div class="result-row">
+          <div class="result-value blurred" id="result-sens">1.590</div>
+          <button type="button" id="copy-btn" class="copy-btn" title="Copy full result">📋 Copy</button>
+        </div>
+        <div class="result-lock-overlay">
+          <span>🔒</span> Unlock to see your converted sensitivity
+          <small>e.g. 0.5 sens in Valorant → 1.591 in CS2</small>
+        </div>
+      </div>
+
+      <!-- Extension Extra Stats (all Pro-gated — a real example sits next to
+           each lock so visitors see exactly what unlocking gives them). -->
+      <div class="stats-box">
+        <div class="stat-item stat-locked" data-lock="1">
+          <span class="stat-label">CM/360</span>
+          <div class="stat-main">
+            <span class="stat-value blurred" id="stat-cm">32.4 cm</span>
+            <span class="lock-badge">🔒 PRO</span>
+          </div>
+          <span class="lock-example">TenZ: 54.4cm</span>
+        </div>
+        <div class="stat-item stat-locked" data-lock="1">
+          <span class="stat-label">Inches/360</span>
+          <div class="stat-main">
+            <span class="stat-value blurred" id="stat-inches">12.8"</span>
+            <span class="lock-badge">🔒 PRO</span>
+          </div>
+          <span class="lock-example">TenZ: 21.4"</span>
+        </div>
+        <div class="stat-item stat-locked" data-lock="1">
+          <span class="stat-label">eDPI</span>
+          <div class="stat-main">
+            <span class="stat-value blurred" id="stat-edpi">400</span>
+            <span class="lock-badge">🔒 PRO</span>
+          </div>
+          <span class="lock-example">TenZ: 240</span>
+        </div>
+      </div>
+
+      <!-- Sensitivity Category Badge -->
+      <div id="sens-badge" class="badge-row badge-locked" title="Unlock Classification in Pro Tier">
+        <span class="badge-icon">🔒</span>
+        <div class="badge-text-col">
+          <span class="badge-text">Speed Category (PRO Only)</span>
+          <span class="badge-example">e.g. TenZ = 💪 Low (Pro Average Zone)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRICING CARD — real Stripe Payment Links -->
+    <div class="pro-teaser-card">
+      <div class="pro-teaser-header">
+        <span class="pro-teaser-title">👑 UNLOCK DCPROSENS PRO</span>
+      </div>
+      <ul class="pro-teaser-list">
+        <li>🔒 All 17 games — instant conversion, no limits</li>
+        <li>🔒 250+ Pro Player Setups & Gear Database</li>
+        <li>🔒 Step-by-Step PSA Aim Calibration Suite</li>
+        <li>🔒 Crosshair Code Generator & Aim Trainer</li>
+      </ul>
+
+      <div class="pricing-tiers">
+        <a href="https://buy.stripe.com/6oUcN44IV9nQcZI4LW1ck00" id="plan-monthly" target="_blank" rel="noopener" class="pricing-tier">
+          <span class="pricing-tier-name">Monthly</span>
+          <span class="pricing-tier-price">$9.99<small>/mo</small></span>
+        </a>
+        <a href="https://buy.stripe.com/bJe6oGb7jarUgbU7Y81ck01" id="plan-semiannual" target="_blank" rel="noopener" class="pricing-tier pricing-tier-best">
+          <span class="pricing-tier-badge">Best Value</span>
+          <span class="pricing-tier-name">Semi-Annual</span>
+          <span class="pricing-tier-price">$4.99<small>/mo</small></span>
+        </a>
+        <a href="https://buy.stripe.com/14AcN44IV9nQbVEfqA1ck02" id="plan-annual" target="_blank" rel="noopener" class="pricing-tier">
+          <span class="pricing-tier-name">Annual</span>
+          <span class="pricing-tier-price">$2.99<small>/mo</small></span>
+        </a>
+      </div>
+    </div>
+
+    <!-- MINI PRO DATABASE (free teaser, drives interest in the full site database) -->
+    <div class="pro-db-card">
+      <div class="pro-db-header">🎮 Real Pro Player Settings</div>
+      <div class="pro-db-list" id="pro-db-list"></div>
+
+      <!-- Free mini calculator: matches eDPI so the physical mouse distance
+           for a 360° turn is identical to the chosen pro, in their own game. -->
+      <div class="pro-match-box">
+        <div class="pro-match-title">🎯 Match a Pro's Feel <span class="free-pill">FREE</span></div>
+        <div class="pro-match-row">
+          <select id="match-pro-select"></select>
+          <input type="number" id="match-dpi-input" step="50" value="800" aria-label="Your mouse DPI">
+        </div>
+        <div class="pro-match-result">
+          Your sens to move like <strong id="match-pro-name"></strong> in <span id="match-pro-game"></span>:
+          <span class="pro-match-value" id="match-result">0.000</span>
+        </div>
+        <p class="pro-match-note">Matches eDPI (DPI × sens) — same physical mouse distance for a 360° turn.</p>
+      </div>
+
+      <a href="https://dcprosens.com/pros" target="_blank" class="pro-db-link">See full 250+ database →</a>
+    </div>
+
+    <!-- Footer Links -->
+    <div class="footer">
+      <a href="https://dcprosens.com" target="_blank" class="dashboard-btn">
+        🌍 Visit dcprosens.com
+      </a>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

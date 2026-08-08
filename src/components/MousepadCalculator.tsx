@@ -194,9 +194,6 @@ export default function MousepadCalculator() {
     const pads = PAD_PRODUCTS[recommendation.category];
     const padViz = getPadVizSize(recommendation);
 
-    const minMs = (10 / 100) * 100;
-    const maxMs = 100;
-
     return (
         <div className={styles.wrapper}>
             {/* Input Card */}

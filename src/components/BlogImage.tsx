@@ -17,13 +17,14 @@ interface BlogImageProps {
   priority?: boolean;
 }
 
-export default function BlogImage({ src, ...props }: BlogImageProps) {
+export default function BlogImage({ src, alt, ...props }: BlogImageProps) {
   const [imgSrc, setImgSrc] = useState(() => resolveBlogImage(src));
 
   return (
     <Image
       {...props}
       src={imgSrc}
+      alt={alt}
       onError={() => setImgSrc(DEFAULT)}
     />
   );

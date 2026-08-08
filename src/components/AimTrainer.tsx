@@ -109,7 +109,8 @@ export default function AimTrainer() {
     const playSound = useCallback((type: 'hit' | 'miss' | 'track') => {
         if (typeof window === 'undefined') return;
         try {
-            const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
+            const AudioContextClass =
+                window.AudioContext || (window as unknown as { webkitAudioContext?: typeof window.AudioContext }).webkitAudioContext;
             if (!AudioContextClass) return;
             const ctx = new AudioContextClass();
             
@@ -465,8 +466,9 @@ export default function AimTrainer() {
         }
 
         // Loop next animation frame
+        // eslint-disable-next-line react-hooks/immutability -- intentional self-referencing rAF loop; `draw` is only invoked async, after this assignment has run
         requestRef.current = requestAnimationFrame(draw);
-    }, [playSound, spawnGridshotTarget, spawnReflexTarget, calculateAccuracy, calculateKps, calculateAvgReaction]);
+    }, [playSound, spawnReflexTarget, calculateAccuracy, calculateKps, calculateAvgReaction]);
 
     // Handle mouse move (raw movement when pointer locked)
     const handleMouseMove = useCallback((e: MouseEvent) => {
@@ -679,7 +681,7 @@ export default function AimTrainer() {
                     <label className={styles.label}>Game</label>
                     <select 
                         value={game} 
-                        onChange={(e) => setGame(e.target.value as any)}
+                        onChange={(e) => setGame(e.target.value as 'valorant' | 'cs2' | 'apex')}
                         className={styles.select}
                         disabled={isPlaying}
                     >

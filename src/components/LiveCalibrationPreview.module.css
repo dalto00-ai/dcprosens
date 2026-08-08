@@ -1,0 +1,109 @@
+.card {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto 2rem;
+    background: #0b0b0f;
+    border: 1px solid rgba(0, 255, 157, 0.25);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0, 255, 157, 0.08);
+}
+
+.chrome {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.6rem 0.85rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.chromeTitle {
+    margin-left: 0.35rem;
+    font-size: 0.75rem;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.liveBadge {
+    margin-left: auto;
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: #00ff9d;
+    letter-spacing: 0.05em;
+    animation: pulse 1.6s ease-in-out infinite;
+}
+
+.body {
+    padding: 1rem 1.1rem 1.15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    row-gap: 0.3rem;
+    align-items: baseline;
+}
+
+.rowLabel {
+    font-size: 0.7rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.rowValue {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #ffffff;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+}
+
+.rowBarTrack {
+    grid-column: 1 / -1;
+    height: 3px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+}
+
+.rowBarFill {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, #00ff9d, #00d482);
+    border-radius: 2px;
+    transition: width 0.1s linear;
+}
+
+.scanline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(180deg, transparent, rgba(0, 255, 157, 0.06), transparent);
+    animation: scan 4s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+@keyframes scan {
+    0% { top: -40%; }
+    100% { top: 100%; }
+}

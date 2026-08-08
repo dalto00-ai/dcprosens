@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import AimTrainer from '@/components/AimTrainer';
 import Link from 'next/link';
+import PremiumGuard from '@/components/PremiumGuard';
 
 export const metadata: Metadata = {
     title: 'Online Aim Trainer 3D — Test Reaction Time & Click Precision | DCPROSENS',
@@ -127,7 +128,9 @@ export default function AimTrainerPage() {
 
             {/* Trainer Component Container */}
             <div className="container" style={{ maxWidth: 1000 }}>
-                <AimTrainer />
+                <PremiumGuard previewTitle="Aim Trainer">
+                    <AimTrainer />
+                </PremiumGuard>
             </div>
 
             {/* SEO Article */}
@@ -161,13 +164,6 @@ export default function AimTrainerPage() {
                     <h2 style={{ color: 'var(--text-primary)', fontSize: '1.8rem', fontWeight: 700, marginTop: '3rem', marginBottom: '1.5rem' }}>
                         Sensitivity Equivalents &amp; DPI Multipliers
                     </h2>
-                    <p style={{ marginBottom: '1.5rem' }}>
-                        Different game engines translate physical mouse movement using different yaw values. For instance, CS2 and Apex Legends share the same Source engine base multiplier of <code style={{ color: 'var(--primary)', fontFamily: 'monospace' }}>0.022</code> degrees per count, while Valorant utilizes <code style={{ color: 'var(--primary)', fontFamily: 'monospace' }}>0.07</code>.
-                    </p>
-                    <p style={{ marginBottom: '1.5rem' }}>
-                        Our aim trainer does the heavy lifting: when you move your mouse, we apply the correct game conversion factors so that your training is always relevant.
-                    </p>
-
                     <div style={{ overflowX: 'auto', marginBottom: '2rem' }}>
                         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
                             <thead>
@@ -178,31 +174,37 @@ export default function AimTrainerPage() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {[
-                                    { game: 'Valorant', yaw: '0.07', sens: '0.35 (at 800 DPI)', edpi: '280' },
-                                    { game: 'CS2 (Source)', yaw: '0.022', sens: '1.10 (at 800 DPI)', edpi: '880' },
-                                    { game: 'Apex Legends', yaw: '0.022', sens: '1.10 (at 800 DPI)', edpi: '880' },
-                                ].map(row => (
-                                    <tr key={row.game} style={{ borderBottom: '1px solid var(--border-color)' }}>
-                                        <td style={{ padding: '0.75rem', color: 'var(--text-primary)', fontWeight: 600 }}>{row.game}</td>
-                                        <td style={{ padding: '0.75rem', color: 'var(--text-secondary)' }}>{row.yaw}</td>
-                                        <td style={{ padding: '0.75rem', color: 'var(--primary)' }}>{row.sens}</td>
-                                        <td style={{ padding: '0.75rem', color: 'var(--text-secondary)' }}>{row.edpi}</td>
-                                    </tr>
-                                ))}
+                                <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+                                    <td>Valorant</td>
+                                    <td>0.07</td>
+                                    <td>0.4</td>
+                                    <td>320 (at 800 DPI)</td>
+                                </tr>
+                                <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+                                    <td>CS2 / Source</td>
+                                    <td>0.022</td>
+                                    <td>1.27</td>
+                                    <td>1016 (at 800 DPI)</td>
+                                </tr>
+                                <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+                                    <td>Overwatch 2</td>
+                                    <td>0.0066</td>
+                                    <td>4.24</td>
+                                    <td>3392 (at 800 DPI)</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
 
                     <h2 style={{ color: 'var(--text-primary)', fontSize: '1.8rem', fontWeight: 700, marginTop: '3rem', marginBottom: '1.5rem' }}>
-                        Tips for Achieving &ldquo;Aim God&rdquo; Status
+                        Calibrating Your Environment
                     </h2>
-                    <ol style={{ paddingLeft: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '3rem' }}>
+                    <p style={{ marginBottom: '1.5rem' }}>
+                        To ensure that your training translates accurately to actual competitive matches, follow these guidelines:
+                    </p>
+                    <ol style={{ paddingLeft: '1.25rem', marginBottom: '2rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                         <li>
-                            <strong>Don&apos;t rush:</strong> In Gridshot, focus on landing 100% of your shots. Speed comes naturally once your hand has mastered the pathing.
-                        </li>
-                        <li>
-                            <strong>Be smooth in Tracking:</strong> Minimize tense wrist movements. Try to make a single, continuous sweep rather than nervous micro-flicks.
+                            <strong>Disable mouse acceleration:</strong> In Windows settings, make sure &quot;Enhance pointer precision&quot; is unchecked. In-game, always use raw input.
                         </li>
                         <li>
                             <strong>Sit correctly:</strong> Ensure your arm and forearm are positioned at a 90-degree angle to keep movements consistent.

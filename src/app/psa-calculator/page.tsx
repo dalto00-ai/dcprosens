@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import PSACalculator from '@/components/PSACalculator';
+import PremiumGuard from '@/components/PremiumGuard';
 
 export const metadata: Metadata = {
     title: 'PSA Method Calculator — Find Your Perfect Mouse Sensitivity | DCPROSENS',
@@ -86,7 +87,9 @@ export default function PSACalculatorPage() {
             </div>
 
             {/* Interactive component */}
-            <PSACalculator />
+            <PremiumGuard previewTitle="PSA Method Calculator">
+                <PSACalculator />
+            </PremiumGuard>
 
             {/* Explanatory Copy & FAQs */}
             <div
@@ -161,7 +164,7 @@ export default function PSACalculatorPage() {
                         </h4>
                         <p>
                             The PSA method is universally applicable to any first-person or third-person tactical shooter, including Valorant, CS2, Apex Legends, Overwatch 2, and Call of Duty: Warzone.
-                            Just make sure to enter the starting values corresponding to the selected game's engine scale.
+                            Just make sure to enter the starting values corresponding to the selected game&apos;s engine scale.
                         </p>
                     </div>
                 </div>

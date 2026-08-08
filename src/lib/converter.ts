@@ -1,4 +1,4 @@
-import { games, Game } from './games';
+import { games } from './games';
 
 /**
  * Calculates centimeters per 360 degree turn.
@@ -33,7 +33,7 @@ export function convertSensitivity(
     fromGameId: string,
     toGameId: string,
     fromSens: number,
-    dpi: number // DPI is actually constant for the mouse, but needed if we want eDPI changes. 
+    _dpi: number // Kept for API shape / future eDPI-aware conversion; not used yet — DPI is constant for the mouse.
     // For pure sens conversion between games (same mouse DPI), it's:
     // sens1 * yaw1 = sens2 * yaw2  => sens2 = sens1 * yaw1 / yaw2
 ): number {

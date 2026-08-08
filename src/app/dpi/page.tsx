@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import DpiCalculator from '@/components/DpiCalculator';
 import Link from 'next/link';
+import PremiumGuard from '@/components/PremiumGuard';
 
 export const metadata: Metadata = {
     title: "DPI Calculator — What is DPI & eDPI? Mouse Sensitivity Explained",
@@ -168,7 +169,9 @@ export default function DpiPage() {
                 Enter your mouse DPI and in-game sensitivity to calculate your eDPI instantly.
             </p>
 
-            <DpiCalculator />
+            <PremiumGuard previewTitle="DPI / eDPI Calculator">
+                <DpiCalculator />
+            </PremiumGuard>
 
             {/* --- SEO Content Section: What is DPI? --- */}
             <article style={{ marginTop: '5rem', color: 'var(--text-secondary)', lineHeight: 1.8 }}>

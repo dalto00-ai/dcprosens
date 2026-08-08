@@ -126,14 +126,14 @@ export default function DpiAnalyzerPage() {
                     When you buy a gaming mouse and set it to 800 DPI, you expect it to move exactly 800 pixels on screen for every inch moved on your mousepad. However, in reality, almost all gaming mice suffer from some amount of <strong style={{ color: 'var(--text-primary)' }}>DPI deviation</strong>. 
                 </p>
                 <p style={{ marginBottom: '1.5rem' }}>
-                    DPI deviation is the discrepancy between your mouse's nominal (configured) DPI and its real, physical DPI. A positive deviation means your mouse moves faster than expected, while a negative deviation means it moves slower. In competitive gaming (like CS2, Valorant, or Apex Legends), even a minor deviation can throw off your muscle memory if you change mice or mousepads.
+                    DPI deviation is the discrepancy between your mouse&apos;s nominal (configured) DPI and its real, physical DPI. A positive deviation means your mouse moves faster than expected, while a negative deviation means it moves slower. In competitive gaming (like CS2, Valorant, or Apex Legends), even a minor deviation can throw off your muscle memory if you change mice or mousepads.
                 </p>
 
                 <h3 style={{ color: 'var(--text-primary)', fontSize: '1.5rem', fontWeight: 600, marginTop: '2.5rem', marginBottom: '1rem' }}>
                     What Causes Mouse Sensor Deviation?
                 </h3>
                 <p style={{ marginBottom: '1.5rem' }}>
-                    Sensor deviation isn't necessarily a sign of a defective mouse. It is caused by physical and environmental variables, including:
+                    Sensor deviation isn&apos;t necessarily a sign of a defective mouse. It is caused by physical and environmental variables, including:
                 </p>
                 <ul style={{ paddingLeft: '1.5rem', marginBottom: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                     <li>

@@ -34,7 +34,7 @@ export interface ProPlayer {
 }
 
 // cm/360 formula: (360 / (sens * yaw * dpi)) * 2.54
-// Valorant yaw: 0.07, CS2 yaw: 0.022, Apex yaw: 0.022, OW2 yaw: 0.006326531
+// Valorant yaw: 0.07, CS2 yaw: 0.022, Apex yaw: 0.022, OW2 yaw: 0.0066
 
 function cm360Valorant(dpi: number, sens: number): number {
     return parseFloat(((360 / (sens * 0.07 * dpi)) * 2.54).toFixed(2));
@@ -46,7 +46,7 @@ function cm360Apex(dpi: number, sens: number): number {
     return parseFloat(((360 / (sens * 0.022 * dpi)) * 2.54).toFixed(2));
 }
 function cm360OW2(dpi: number, sens: number): number {
-    return parseFloat(((360 / (sens * 0.006326531 * dpi)) * 2.54).toFixed(2));
+    return parseFloat(((360 / (sens * 0.0066 * dpi)) * 2.54).toFixed(2));
 }
 
 export const pros: ProPlayer[] = [

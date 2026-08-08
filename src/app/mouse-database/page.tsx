@@ -149,7 +149,7 @@ export default function MouseDatabasePage() {
                 lineHeight: 1.8,
             }}>
                 <h2 style={{ color: 'var(--text-primary)', fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>
-                    What makes a gaming mouse "pro-grade"?
+                    What makes a gaming mouse &quot;pro-grade&quot;?
                 </h2>
                 <p style={{ marginBottom: '1rem' }}>
                     Pro players prioritize three factors above all else: <strong style={{ color: 'var(--text-primary)' }}>weight</strong> (lighter = faster flicks),

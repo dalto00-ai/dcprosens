@@ -40,7 +40,7 @@ export default function EbookForm() {
                 setErrorMessage(data.error || 'Algo deu errado. Tente novamente.');
                 setStatus('error');
             }
-        } catch (err) {
+        } catch {
             setErrorMessage('Falha de conexão com o servidor. Verifique sua internet.');
             setStatus('error');
         }

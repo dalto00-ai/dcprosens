@@ -46,7 +46,7 @@ export default function HomeWiki() {
                     </div>
                     <div className={styles.card}>
                         <h4>Overwatch 2 → CS2 / Apex</h4>
-                        <p>Overwatch 2&apos;s unique yaw (0.006327) requires precise math. Select OW2 as input and get an exact conversion instantly.</p>
+                        <p>Overwatch 2&apos;s unique yaw (0.0066) requires precise math. Select OW2 as input and get an exact conversion instantly.</p>
                     </div>
                 </div>
 

@@ -32,7 +32,7 @@ DCPROSENS is a free gaming sensitivity converter and toolset for competitive FPS
 - Valorant: yaw 0.07
 - CS:GO / CS2: yaw 0.022
 - Apex Legends: yaw 0.022
-- Overwatch 2: yaw 0.006326531
+- Overwatch 2: yaw 0.0066
 - Call of Duty Warzone / MW3: yaw 0.0066
 - Rainbow Six Siege: yaw 0.00572
 - Fortnite: yaw 0.005555
@@ -40,6 +40,12 @@ DCPROSENS is a free gaming sensitivity converter and toolset for competitive FPS
 - PUBG: yaw 0.00707
 - Destiny 2: yaw 0.0066
 - Quake / Source Engine: yaw 0.022
+- Roblox: yaw 0.2
+- Minecraft (Java): yaw 0.6
+- Deadlock (Valve, Source 2 engine): yaw 0.022
+- The Finals (Embark Studios): yaw 0.0066
+- Marvel Rivals (NetEase, Unreal Engine 5): yaw 0.022
+- Rust: yaw 0.11247
 
 ## Conversion Formulas
 

@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Not source code — compiled/copied output from other build pipelines:
+    "android-app/**",
+    "chrome-extension/**",
   ]),
 ]);
 

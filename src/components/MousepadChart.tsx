@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useMemo, useRef, useEffect } from "react";
-import Link from "next/link";
+import { useState, useMemo, useRef } from "react";
 import styles from "./MousepadChart.module.css";
 
 interface Mousepad {

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import styles from './DPIAnalyzer.module.css';
 
 export default function DPIAnalyzer() {
@@ -22,6 +22,24 @@ export default function DPIAnalyzer() {
 
     const accumulatedXRef = useRef<number>(0);
     const zoneRef = useRef<HTMLDivElement>(null);
+
+    const finishTest = useCallback(() => {
+        const counts = Math.abs(accumulatedXRef.current);
+        setFinalCounts(counts);
+
+        // Convert distance to inches
+        const inches = distanceUnit === 'cm' ? targetDistance / 2.54 : targetDistance;
+
+        if (inches <= 0) return;
+
+        const calculatedRealDpi = Math.round(counts / inches);
+        setRealDpi(calculatedRealDpi);
+
+        const calculatedDeviation = ((calculatedRealDpi - nominalDpi) / nominalDpi) * 100;
+        setDeviation(calculatedDeviation);
+
+        setTestFinished(true);
+    }, [distanceUnit, targetDistance, nominalDpi]);
 
     // Handle Pointer Lock state changes
     useEffect(() => {
@@ -55,7 +73,7 @@ export default function DPIAnalyzer() {
             document.removeEventListener('pointerlockchange', handlePointerLockChange);
             document.removeEventListener('pointerlockerror', handlePointerLockError);
         };
-    }, [nominalDpi, targetDistance, distanceUnit]);
+    }, [nominalDpi, targetDistance, distanceUnit, finishTest]);
 
     // Handle Mouse movement and click (to stop)
     useEffect(() => {
@@ -90,10 +108,10 @@ export default function DPIAnalyzer() {
 
         if (zoneRef.current) {
             try {
-                // Request pointer lock
-                const promise = zoneRef.current.requestPointerLock() as any;
-                if (promise && typeof promise.catch === 'function') {
-                    promise.catch((err: any) => {
+                // Request pointer lock (older browsers don't return a promise, hence the guard)
+                const maybePromise = zoneRef.current.requestPointerLock();
+                if (maybePromise && typeof maybePromise.catch === 'function') {
+                    maybePromise.catch((err: unknown) => {
                         console.error("Pointer lock error: ", err);
                     });
                 }
@@ -107,24 +125,6 @@ export default function DPIAnalyzer() {
         if (document.pointerLockElement === zoneRef.current) {
             document.exitPointerLock();
         }
-    };
-
-    const finishTest = () => {
-        const counts = Math.abs(accumulatedXRef.current);
-        setFinalCounts(counts);
-
-        // Convert distance to inches
-        const inches = distanceUnit === 'cm' ? targetDistance / 2.54 : targetDistance;
-
-        if (inches <= 0) return;
-
-        const calculatedRealDpi = Math.round(counts / inches);
-        setRealDpi(calculatedRealDpi);
-
-        const calculatedDeviation = ((calculatedRealDpi - nominalDpi) / nominalDpi) * 100;
-        setDeviation(calculatedDeviation);
-
-        setTestFinished(true);
     };
 
     // Calculate rating and color code for deviation

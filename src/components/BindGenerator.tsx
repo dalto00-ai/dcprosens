@@ -77,6 +77,19 @@ export default function BindGenerator() {
     const [copied, setCopied] = useState<boolean>(false);
     const containerRef = useRef<HTMLDivElement>(null);
 
+    const mapJsKeyToCs2 = (key: string): string => {
+        const k = key.toLowerCase();
+        if (k === ' ') return 'space';
+        if (k === 'control') return 'ctrl';
+        if (k === 'altgraph') return 'alt';
+        if (k === 'meta') return 'win';
+        if (k === 'arrowup') return 'uparrow';
+        if (k === 'arrowdown') return 'downarrow';
+        if (k === 'arrowleft') return 'leftarrow';
+        if (k === 'arrowright') return 'rightarrow';
+        return k;
+    };
+
     // Global Key Listener for physical key binds
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
@@ -107,19 +120,6 @@ export default function BindGenerator() {
             window.removeEventListener('keydown', handleKeyDown, true);
         };
     }, [activeAction]);
-
-    const mapJsKeyToCs2 = (key: string): string => {
-        const k = key.toLowerCase();
-        if (k === ' ') return 'space';
-        if (k === 'control') return 'ctrl';
-        if (k === 'altgraph') return 'alt';
-        if (k === 'meta') return 'win';
-        if (k === 'arrowup') return 'uparrow';
-        if (k === 'arrowdown') return 'downarrow';
-        if (k === 'arrowleft') return 'leftarrow';
-        if (k === 'arrowright') return 'rightarrow';
-        return k;
-    };
 
     // Keyboard Visual Layout config
     const keyboardRows = [
@@ -174,7 +174,7 @@ export default function BindGenerator() {
     };
 
     const getActionForKey = (key: string): string | null => {
-        const found = Object.entries(binds).find(([_, k]) => k === key);
+        const found = Object.entries(binds).find(([, k]) => k === key);
         return found ? found[0] : null;
     };
 

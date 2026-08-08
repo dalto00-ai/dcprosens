@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+node_modules/
+**/node_modules/
 /.pnp
 .pnp.*
 .yarn/*
@@ -43,3 +45,17 @@ next-env.d.ts
 # local databases and archives
 *.zip
 src/lib/leads.json
+
+# mobile app build artifacts (large binaries, never commit)
+*.apk
+*.aab
+android-app/android/**/build/
+android-app/android/.gradle/
+android-app/www/
+
+# local secrets / MCP config with live tokens
+.mcp.json
+
+# Firebase Admin service account key — full admin access to Firestore/Auth.
+# See secrets/README.md before touching anything in this folder.
+/secrets/

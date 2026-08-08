@@ -21,10 +21,10 @@ export default function AdsCalculator() {
             <div className={styles.cardGrid}>
                 {/* INPUT PANEL */}
                 <div className={styles.panelCard}>
-                    <h2 className={styles.panelTitle}>Parâmetros Principais</h2>
+                    <h2 className={styles.panelTitle}>Main Parameters</h2>
                     
                     <div className={styles.inputGroup}>
-                        <label className={styles.label}>Jogo de Origem</label>
+                        <label className={styles.label}>Source Game</label>
                         <select
                             className={styles.select}
                             value={game}
@@ -39,7 +39,7 @@ export default function AdsCalculator() {
 
                     <div className={styles.inlineGrid}>
                         <div className={styles.inputGroup}>
-                            <label className={styles.label}>Sensibilidade (Hipfire)</label>
+                            <label className={styles.label}>Sensitivity (Hipfire)</label>
                             <input
                                 type="number"
                                 className={styles.input}
@@ -51,7 +51,7 @@ export default function AdsCalculator() {
                         </div>
 
                         <div className={styles.inputGroup}>
-                            <label className={styles.label}>DPI do Mouse</label>
+                            <label className={styles.label}>Mouse DPI</label>
                             <input
                                 type="number"
                                 className={styles.input}
@@ -64,14 +64,14 @@ export default function AdsCalculator() {
                     </div>
 
                     <div className={styles.quickStat}>
-                        <span>Seu eDPI Atual:</span>
+                        <span>Your Current eDPI:</span>
                         <strong>{edpi}</strong>
                     </div>
                 </div>
 
                 {/* RESULTS PANEL */}
                 <div className={styles.panelCard}>
-                    <h2 className={styles.panelTitle}>Resultados ADS 1:1 Recomendados</h2>
+                    <h2 className={styles.panelTitle}>Recommended 1:1 ADS Results</h2>
 
                     {game === 'valorant' && (
                         <div className={styles.resultsWrapper}>
@@ -79,16 +79,16 @@ export default function AdsCalculator() {
                                 <div className={styles.resultHeader}>
                                     <span className={styles.scopeIcon}>🔍</span>
                                     <div>
-                                        <h4 className={styles.scopeTitle}>Mira 1x Zoom (Marshal / Outlaw / Operator Zoom 1)</h4>
-                                        <p className={styles.scopeDesc}>Consistência perfeita para microflicks</p>
+                                        <h4 className={styles.scopeTitle}>1x Zoom Scope (Marshal / Outlaw / Operator Zoom 1)</h4>
+                                        <p className={styles.scopeDesc}>Perfect consistency for micro-flicks</p>
                                     </div>
                                 </div>
                                 <div className={styles.resultValueBlock}>
-                                    <span className={styles.resultLabel}>Multiplicador no Jogo:</span>
+                                    <span className={styles.resultLabel}>In-Game Multiplier:</span>
                                     <strong className={styles.resultVal}>0.847</strong>
                                 </div>
                                 <div className={styles.calculatedSens}>
-                                    Sensibilidade Real Mirado: <strong>{(numSens * 0.847).toFixed(3)}</strong>
+                                    Actual Scoped Sensitivity: <strong>{(numSens * 0.847).toFixed(3)}</strong>
                                 </div>
                             </div>
 
@@ -96,16 +96,16 @@ export default function AdsCalculator() {
                                 <div className={styles.resultHeader}>
                                     <span className={styles.scopeIcon}>🔭</span>
                                     <div>
-                                        <h4 className={styles.scopeTitle}>Mira 2.5x Zoom (Operator Zoom 2)</h4>
-                                        <p className={styles.scopeDesc}>Consistência perfeita para alvos com zoom máximo</p>
+                                        <h4 className={styles.scopeTitle}>2.5x Zoom Scope (Operator Zoom 2)</h4>
+                                        <p className={styles.scopeDesc}>Perfect consistency for maximum zoom targets</p>
                                     </div>
                                 </div>
                                 <div className={styles.resultValueBlock}>
-                                    <span className={styles.resultLabel}>Multiplicador no Jogo:</span>
+                                    <span className={styles.resultLabel}>In-Game Multiplier:</span>
                                     <strong className={styles.resultVal}>1.150</strong>
                                 </div>
                                 <div className={styles.calculatedSens}>
-                                    Sensibilidade Real Mirado: <strong>{(numSens * 1.15).toFixed(3)}</strong>
+                                    Actual Scoped Sensitivity: <strong>{(numSens * 1.15).toFixed(3)}</strong>
                                 </div>
                             </div>
                         </div>
@@ -117,8 +117,8 @@ export default function AdsCalculator() {
                                 <div className={styles.resultHeader}>
                                     <span className={styles.scopeIcon}>🎯</span>
                                     <div>
-                                        <h4 className={styles.scopeTitle}>Zoom de Precisão (AWP / Scout / SSG 08)</h4>
-                                        <p className={styles.scopeDesc}>Consistência de 0% monitor distance match ( AWPer Standard )</p>
+                                        <h4 className={styles.scopeTitle}>Precision Zoom (AWP / Scout / SSG 08)</h4>
+                                        <p className={styles.scopeDesc}>0% Monitor Distance Match consistency (AWPer Standard)</p>
                                     </div>
                                 </div>
                                 <div className={styles.resultValueBlock}>
@@ -126,7 +126,7 @@ export default function AdsCalculator() {
                                     <strong className={styles.resultVal}>0.818933</strong>
                                 </div>
                                 <div className={styles.consoleCommand}>
-                                    Comando do Console: <code className={styles.code}>zoom_sensitivity_ratio 0.818933</code>
+                                    Console Command: <code className={styles.code}>zoom_sensitivity_ratio 0.818933</code>
                                 </div>
                             </div>
                         </div>
@@ -134,15 +134,15 @@ export default function AdsCalculator() {
 
                     {game === 'apex' && (
                         <div className={styles.resultsWrapper}>
-                            <p className={styles.infoText}>Configure sua sensibilidade por nível de mira óptica (Optic Sensitivity) no Apex Legends:</p>
+                            <p className={styles.infoText}>Configure your per-optic sensitivity (Optic Sensitivity) inside Apex Legends:</p>
                             
                             <div className={styles.scrollContainer}>
                                 <table className={styles.table}>
                                     <thead>
                                         <tr>
-                                            <th>Mira Óptica</th>
-                                            <th>Multiplicador Recom.</th>
-                                            <th>Sens. Resultante</th>
+                                            <th>Optic Zoom</th>
+                                            <th>Recom. Multiplier</th>
+                                            <th>Resulting Sens</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -193,19 +193,19 @@ export default function AdsCalculator() {
                                 <div className={styles.resultHeader}>
                                     <span className={styles.scopeIcon}>🎮</span>
                                     <div>
-                                        <h4 className={styles.scopeTitle}>Coeficiente de Distância do Monitor (Monitor Distance Coefficient)</h4>
-                                        <p className={styles.scopeDesc}>Adaptação de sensibilidade proporcional à tela</p>
+                                        <h4 className={styles.scopeTitle}>Monitor Distance Coefficient</h4>
+                                        <p className={styles.scopeDesc}>Screen-proportional sensitivity scaling</p>
                                     </div>
                                 </div>
                                 
                                 <div className={styles.infoBox}>
-                                    <p style={{ marginBottom: '0.75rem' }}>No Call of Duty, defina o <strong>ADS Sensitivity Type</strong> como <strong>Relative</strong>.</p>
+                                    <p style={{ marginBottom: '0.75rem' }}>In Call of Duty, set your <strong>ADS Sensitivity Type</strong> to <strong>Relative</strong>.</p>
                                     <div className={styles.resultValueBlock} style={{ marginBottom: '0.75rem' }}>
-                                        <span className={styles.resultLabel}>Coeficiente 16:9 Widescreen:</span>
+                                        <span className={styles.resultLabel}>16:9 Widescreen Coefficient:</span>
                                         <strong className={styles.resultVal}>1.78</strong>
                                     </div>
                                     <div className={styles.resultValueBlock}>
-                                        <span className={styles.resultLabel}>Coeficiente 4:3 Legacy:</span>
+                                        <span className={styles.resultLabel}>4:3 Legacy Coefficient:</span>
                                         <strong className={styles.resultVal}>1.33</strong>
                                     </div>
                                 </div>

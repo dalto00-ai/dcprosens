@@ -207,3 +207,134 @@
   color: var(--text-muted);
   text-align: center;
 }
+
+.loginBtn {
+  border: 1px solid var(--primary);
+  border-radius: var(--radius-md);
+  padding: 0.4rem 0.9rem;
+  color: var(--primary) !important;
+  font-weight: 600;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.loginBtn:hover {
+  background: var(--primary);
+  color: #000000 !important;
+}
+
+/* Dropdown Container */
+.dropdown {
+  position: relative;
+}
+
+.dropdownToggle {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color var(--transition-fast);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 0;
+}
+
+.dropdownToggle::after {
+  content: '▾';
+  font-size: 0.75rem;
+  opacity: 0.7;
+  transition: transform 0.2s;
+}
+
+.dropdown:hover .dropdownToggle {
+  color: var(--primary);
+}
+
+.dropdown:hover .dropdownToggle::after {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu Box */
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: rgba(15, 16, 20, 0.96);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  min-width: 250px;
+  padding: 0.75rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 1050;
+}
+
+.dropdown:hover .dropdownMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdownItem {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dropdownItem:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+  color: var(--primary);
+  padding-left: 1rem;
+}
+
+.activeItem {
+  color: var(--primary) !important;
+  background-color: rgba(0, 255, 157, 0.04);
+}
+
+/* Theme Toggle Button */
+.themeToggle {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  padding: 0;
+}
+
+.themeToggle:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Collapsible accordion styling for mobile drawer */
+.drawerCategory {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--primary);
+  letter-spacing: 0.1em;
+  padding-left: 0.5rem;
+  border-left: 2px solid var(--primary);
+}
