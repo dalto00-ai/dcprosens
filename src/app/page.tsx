@@ -109,6 +109,7 @@ export default function Home() {
                 { icon: "🖥️", name: "Full Pro Setups", desc: "Complete rig breakdowns of elite players.", href: "/setups", tag: "" },
                 { icon: "✛", name: "Crosshair Generator", desc: "Design and export custom crosshairs for Valorant & CS2.", href: "/crosshair", tag: "EXCLUSIVE" },
                 { icon: "🗂️", name: "Crosshair Database", desc: "Browse and copy pro player crosshair codes instantly.", href: "/crosshair-database", tag: "" },
+                { icon: "📡", name: "Streamer Sensitivity Widget", desc: "Free embeddable widget for your Twitch panel or bio — viewers convert your sens to their game.", href: "/widget", tag: "NEW" },
             ],
         },
         {

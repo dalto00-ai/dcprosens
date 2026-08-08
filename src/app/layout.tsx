@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import Script from "next/script";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import BottomNav from "@/components/BottomNav";
+import SiteChrome from "@/components/SiteChrome";
 import AnalyticsLoader from "@/components/AnalyticsLoader";
 import { AuthProvider } from "@/components/AuthProvider";
 import "./globals.css";
@@ -126,13 +124,7 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
         <AuthProvider>
-          <div className="app-wrapper">
-            <Navbar />
-            <main className="main-content">{children}</main>
-            <Footer />
-            <BottomNav />
-          </div>
-
+          <SiteChrome>{children}</SiteChrome>
           <AnalyticsLoader />
         </AuthProvider>
       </body>
