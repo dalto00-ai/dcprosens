@@ -90,4 +90,15 @@ export const games: Game[] = [
     // technical source, via yaw = 0.07 (our Valorant value) / 7.367413.
     // Treat as a rough starting point only; replace if a better source shows up.
     { id: 'splitgate', name: 'Splitgate', yaw: 0.009501 },
+    // Single-source, specific figure (not shared with any existing entry).
+    { id: 'helldivers2', name: 'Helldivers 2', yaw: 0.0175 },
+    // GoldSrc — Source engine's direct technical predecessor, same 0.022
+    // m_yaw default, well documented (Liquipedia, Steam guides).
+    { id: 'cs16', name: 'Counter-Strike 1.6', yaw: 0.022 },
+    { id: 'halflife', name: 'Half-Life', yaw: 0.022 },
+    // Same 0.0066 family as our existing cod (Warzone/MW3) entry — modern
+    // CoD titles share this convention across the IW/Treyarch engines.
+    { id: 'codbo6', name: 'Call of Duty: Black Ops 6', yaw: 0.0066 },
+    // UNVERIFIED: single-source figure only.
+    { id: 'paladins', name: 'Paladins', yaw: 0.0092 },
 ];
