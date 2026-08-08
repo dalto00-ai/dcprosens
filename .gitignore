@@ -53,6 +53,11 @@ android-app/android/**/build/
 android-app/android/.gradle/
 android-app/www/
 
+# Android app signing key — compromise lets someone else sign updates
+# for the same Play Store listing. Never commit, local or otherwise.
+*.jks
+*.keystore
+
 # local secrets / MCP config with live tokens
 .mcp.json
 
