@@ -271,6 +271,126 @@ export const sensFinderContent: SensFinderGameContent[] = [
         ],
     },
     {
+        gameId: 'hl2',
+        displayName: 'Half-Life 2',
+        engine: 'Source',
+        category: 'Classic FPS',
+        blurb: "Half-Life 2 helped define the Source engine's 0.022 m_yaw convention that CS2, TF2, and dozens of other Valve and Valve-licensed titles still use today.",
+        faqs: [
+            { q: 'Can I copy my CS2 sensitivity straight into Half-Life 2?', a: 'Yes — identical 0.022 yaw, so the same sensitivity and DPI gives you the same cm/360.' },
+        ],
+    },
+    {
+        gameId: 'portal2',
+        displayName: 'Portal 2',
+        engine: 'Source',
+        category: 'Puzzle FPS',
+        blurb: "Portal 2 shares the Source engine's 0.022 yaw with the rest of Valve's catalog — precise aim isn't the focus of Portal's puzzles, but the conversion is exact if you want consistent camera feel across Valve titles.",
+        faqs: [
+            { q: 'Does portal-shooting need different sensitivity than a normal FPS?', a: 'No — the yaw and turn rate work identically to any other Source-engine title; only the objective (placing portals, not eliminating enemies) differs.' },
+        ],
+    },
+    {
+        gameId: 'gmod',
+        displayName: "Garry's Mod",
+        engine: 'Source',
+        category: 'Sandbox',
+        blurb: "Garry's Mod runs on the original Source engine and inherits its 0.022 yaw — useful if you're setting up any first-person sandbox or roleplay server and want your aim to feel identical to CS2 or TF2.",
+        faqs: [
+            { q: "Do custom Garry's Mod gamemodes change the sensitivity math?", a: "Most don't — the underlying Source engine camera code stays the same across gamemodes unless a specific addon explicitly rescales mouse input." },
+        ],
+    },
+    {
+        gameId: 'cssource',
+        displayName: 'Counter-Strike: Source',
+        engine: 'Source',
+        category: 'Tactical Shooter',
+        blurb: "The predecessor to CS:GO and CS2, Counter-Strike: Source uses the exact same 0.022 yaw its successors kept for nearly two decades.",
+        faqs: [
+            { q: "Has CS's yaw value ever changed across CS:Source, CS:GO, and CS2?", a: 'No — all three generations kept the same 0.022 m_yaw default, which is why sensitivity numbers have carried over unchanged across CS titles since 2004.' },
+        ],
+    },
+    {
+        gameId: 'l4d1',
+        displayName: 'Left 4 Dead',
+        engine: 'Source',
+        category: 'Co-op Survival Shooter',
+        blurb: "The original Left 4 Dead shares Left 4 Dead 2's Source engine and identical 0.022 yaw — sensitivity transfers directly between the two games.",
+        faqs: [
+            { q: 'Is my sensitivity the same in Left 4 Dead and Left 4 Dead 2?', a: 'Yes — both run on the same Source engine build with the same 0.022 yaw, so no conversion is needed between them.' },
+        ],
+    },
+    {
+        gameId: 'blackmesa',
+        displayName: 'Black Mesa',
+        engine: 'Source',
+        category: 'Classic FPS Remake',
+        blurb: "Black Mesa, the fan-made-turned-official remake of the original Half-Life, runs on Source and keeps the same 0.022 yaw as every other title in Valve's engine family.",
+        faqs: [
+            { q: 'Does Black Mesa play differently from Half-Life 2 in terms of sensitivity?', a: 'No — same engine, same yaw. The remake changes visuals and some level design, not the underlying camera or input code.' },
+        ],
+    },
+    {
+        gameId: 'quakechampions',
+        displayName: 'Quake Champions',
+        engine: 'id Tech / Quake lineage',
+        category: 'Arena Shooter',
+        blurb: "Quake Champions modernizes the classic Quake formula but keeps the franchise's defining 0.022 m_yaw convention, confirmed directly rather than just inferred from genre.",
+        faqs: [
+            { q: 'Does Quake Champions convert 1:1 with CS2?', a: 'Yes — both use 0.022 yaw, so the same sensitivity and DPI produces an identical cm/360 in either game.' },
+        ],
+    },
+    {
+        gameId: 'back4blood',
+        displayName: 'Back 4 Blood',
+        engine: 'Unreal Engine 4',
+        category: 'Co-op Survival Shooter',
+        blurb: "Back 4 Blood's yaw (0.175) is a single-source figure — treat it as a solid starting point for this Left 4 Dead spiritual successor rather than a fully cross-verified value.",
+        faqs: [
+            { q: 'Is Back 4 Blood\'s sensitivity similar to Left 4 Dead 2\'s, since they\'re spiritually related?', a: 'No — despite sharing some of the same designers, Back 4 Blood runs on a completely different engine (Unreal Engine 4 vs Source) with its own distinct yaw.' },
+        ],
+    },
+    {
+        gameId: 'splitgate',
+        displayName: 'Splitgate',
+        engine: 'Unreal Engine 4',
+        category: 'Arena Shooter',
+        blurb: "Splitgate is the weakest-confidence entry in our full list — its yaw (0.009501) was derived from a Valorant-to-Splitgate ratio quoted by a gaming-news site rather than a dedicated technical source. Treat it as a rough starting point only.",
+        faqs: [
+            { q: "Why is Splitgate's yaw less certain than other games here?", a: "It wasn't independently measured — it's back-calculated from a single published sensitivity ratio, so small inaccuracies are more likely than with our directly-sourced entries." },
+        ],
+    },
+    {
+        gameId: 'helldivers2',
+        displayName: 'Helldivers 2',
+        engine: 'Autodesk Stingray (Arrowhead)',
+        category: 'Co-op Third-Person Shooter',
+        blurb: "Helldivers 2's yaw (0.0175) numerically matches Fallout 76 and Battalion 1944, though all three run on entirely unrelated engines — a reminder that identical yaw values don't always imply a shared engine lineage.",
+        faqs: [
+            { q: "Does Helldivers 2's third-person-leaning camera change the sensitivity math?", a: 'No — the yaw conversion works the same for the over-the-shoulder camera as it would for a pure first-person title; only the visual perspective differs.' },
+        ],
+    },
+    {
+        gameId: 'cs16',
+        displayName: 'Counter-Strike 1.6',
+        engine: 'GoldSrc',
+        category: 'Tactical Shooter',
+        blurb: "Counter-Strike 1.6 runs on GoldSrc, Source's direct technical predecessor, and uses the same 0.022 m_yaw default that carried forward into every Source-engine title since.",
+        faqs: [
+            { q: 'Does my CS2 sensitivity match my old CS 1.6 muscle memory?', a: 'Yes — GoldSrc and Source share the identical 0.022 yaw convention, so a properly converted cm/360 should feel the same across both generations.' },
+        ],
+    },
+    {
+        gameId: 'halflife',
+        displayName: 'Half-Life',
+        engine: 'GoldSrc',
+        category: 'Classic FPS',
+        blurb: "The original Half-Life runs on GoldSrc and shares the 0.022 m_yaw default with CS 1.6 and every later Source-engine title.",
+        faqs: [
+            { q: "Is Half-Life's sensitivity the same as Half-Life 2's?", a: 'Yes numerically (both 0.022), even though the games run on different engine generations (GoldSrc vs Source) — the m_yaw convention carried forward unchanged.' },
+        ],
+    },
+    {
         gameId: 'doom2016',
         displayName: 'DOOM (2016)',
         engine: 'id Tech 6',
@@ -294,6 +414,256 @@ export const sensFinderContent: SensFinderGameContent[] = [
                 q: 'Can I just use my CS2 sensitivity number in Halo Infinite?',
                 a: 'Almost, but not quite — Halo\'s yaw (0.0225) is very close to CS2\'s (0.022) but not identical. Run it through the converter above to keep your cm/360 exact rather than eyeballing it.',
             },
+        ],
+    },
+    {
+        gameId: 'codbo6',
+        displayName: 'Call of Duty: Black Ops 6',
+        engine: 'IW / Treyarch Engine',
+        category: 'Tactical Shooter',
+        blurb: "Black Ops 6 shares the 0.0066 yaw used across modern Call of Duty titles since the IW engine's Warzone era, so sensitivity carries over cleanly from Warzone or MW3.",
+        faqs: [
+            { q: 'Do I need to reconvert if I switch between Black Ops 6 and Warzone?', a: 'No — both share the same 0.0066 yaw, so the same sensitivity number at the same DPI gives an identical cm/360 in either game.' },
+        ],
+    },
+    {
+        gameId: 'paladins',
+        displayName: 'Paladins',
+        engine: 'Unreal Engine 3/4 (Evil Mojo)',
+        category: 'Hero Shooter',
+        blurb: "Paladins' yaw (0.0092) is a single-source figure specific to this hero shooter — don't assume it matches Hi-Rez's other titles like Smite without converting explicitly.",
+        faqs: [
+            { q: 'Is Paladins often compared to Overwatch 2 for sensitivity?', a: 'The genres are similar, but the yaw values differ (0.0092 vs 0.0066) — use the converter above rather than copying the number directly between the two.' },
+        ],
+    },
+    {
+        gameId: 'quake3',
+        displayName: 'Quake III Arena',
+        engine: 'id Tech 3',
+        category: 'Classic Arena FPS',
+        blurb: "Quake III Arena is one of the two titles (alongside the original Quake) that established the id Tech / Source-family 0.022 m_yaw convention still used by CS2 and dozens of other games today.",
+        faqs: [
+            { q: "Is Quake III Arena's sensitivity the same as Counter-Strike 2's?", a: 'Yes — both use 0.022 yaw. Quake III Arena predates CS2 by over two decades, but the underlying convention never changed.' },
+        ],
+    },
+    {
+        gameId: 'doometernal',
+        displayName: 'DOOM Eternal',
+        engine: 'id Tech 7',
+        category: 'Classic Arena FPS',
+        blurb: "DOOM Eternal runs on id Tech 7 and confirms the 0.022 m_yaw convention carried forward from id Software's original Quake engines all the way to their newest titles.",
+        faqs: [
+            { q: "Does DOOM Eternal's fast-paced combat need a different cm/360 than CS2?", a: 'The yaw conversion keeps physical mouse movement identical — many DOOM Eternal players do prefer a faster (smaller cm/360) feel for its acrobatic combat, but that is a personal choice, not a technical requirement.' },
+        ],
+    },
+    {
+        gameId: 'csconditionzero',
+        displayName: 'Counter-Strike: Condition Zero',
+        engine: 'GoldSrc',
+        category: 'Tactical Shooter',
+        blurb: "Condition Zero is one of Valve's own official GoldSrc-era Counter-Strike releases and shares the 0.022 m_yaw default with CS 1.6 and the entire Source-family lineage.",
+        faqs: [
+            { q: 'Is Condition Zero different from third-party CS spinoffs?', a: 'Yes — Condition Zero is an official Valve release on the standard GoldSrc engine, unlike some regional third-party Counter-Strike ports that modified the underlying code and are not guaranteed to share this yaw.' },
+        ],
+    },
+    {
+        gameId: 'tfc',
+        displayName: 'Team Fortress Classic',
+        engine: 'GoldSrc',
+        category: 'Class-Based Shooter',
+        blurb: "Team Fortress Classic, the original class-based shooter that TF2 later modernized, runs on GoldSrc with the same 0.022 m_yaw default as CS 1.6.",
+        faqs: [
+            { q: 'Does TFC play the same as TF2 in terms of sensitivity?', a: 'The yaw is identical (0.022) between both, even though TF2 moved to the newer Source engine — the convention held steady across the transition.' },
+        ],
+    },
+    {
+        gameId: 'fallout76',
+        displayName: 'Fallout 76',
+        engine: 'Creation Engine (Bethesda)',
+        category: 'Survival RPG',
+        blurb: "Fallout 76's yaw (0.0175) is a single-source figure — Bethesda's Creation Engine handles sensitivity differently from Source/id Tech, and this value hasn't been cross-verified against a second independent source.",
+        faqs: [
+            { q: 'Does this apply to other Fallout or Elder Scrolls titles?', a: "No — Bethesda's Creation Engine games each need their own verification, and we don't have a confirmed value for Fallout 4 or Skyrim in our data yet." },
+        ],
+    },
+    {
+        gameId: 'battalion1944',
+        displayName: 'Battalion 1944',
+        engine: 'Unreal Engine 4',
+        category: 'Tactical Shooter',
+        blurb: "Battalion 1944's yaw (0.0175) comes directly from KovaaK's own Sensitivity Matcher tool source code — an official technical source, not a converter-site aggregator.",
+        faqs: [
+            { q: 'Why does Battalion 1944 need its own value instead of a generic Unreal Engine number?', a: "Unreal Engine developers rescale mouse input per title, so there's no single 'Unreal Engine yaw' — Battalion 1944's 0.0175 is specific to this game." },
+        ],
+    },
+    {
+        gameId: 'reflexarena',
+        displayName: 'Reflex Arena',
+        engine: 'Custom (id Tech-inspired)',
+        category: 'Arena Shooter',
+        blurb: "Reflex Arena shares its exact yaw constant with Rainbow Six Siege (0.005730), confirmed directly in KovaaK's own Sensitivity Matcher source code as a shared built-in preset.",
+        faqs: [
+            { q: 'Why would an arena shooter share a yaw with a tactical shooter like Rainbow Six Siege?', a: "It's coincidental rather than a shared engine lineage — KovaaK's tool groups them together because they happen to measure the same, not because they're related games." },
+        ],
+    },
+    {
+        gameId: 'krunker',
+        displayName: 'Krunker.io',
+        engine: 'Custom (three.js / WebGL)',
+        category: 'Browser Shooter',
+        blurb: "Krunker.io's yaw (0.1376) was derived from a public GitHub sensitivity-converter repository whose other listed games independently matched our already-confirmed values — a solid cross-validation for a browser-based title with no official technical documentation.",
+        faqs: [
+            { q: 'Is Krunker.io\'s sensitivity comparable to other browser shooters like Shell Shockers?', a: "We don't have a verified value for other browser shooters yet — don't assume they share Krunker's yaw without checking." },
+        ],
+    },
+    {
+        gameId: 'wolfnewcolossus',
+        displayName: 'Wolfenstein II: The New Colossus',
+        engine: 'id Tech 6',
+        category: 'Classic FPS',
+        blurb: "Wolfenstein II runs on id Tech 6, the same engine family as DOOM 2016, and shares the 0.022 m_yaw convention.",
+        faqs: [
+            { q: 'Does this apply to Wolfenstein: The New Order too?', a: "No — The New Order runs on the older id Tech 5, a different generation without a confirmed value in our data. Don't assume it shares New Colossus's number." },
+        ],
+    },
+    {
+        gameId: 'wolfyoungblood',
+        displayName: 'Wolfenstein: Youngblood',
+        engine: 'id Tech 6',
+        category: 'Co-op FPS',
+        blurb: "Youngblood shares id Tech 6 with Wolfenstein II: The New Colossus and DOOM 2016, all confirmed at the same 0.022 yaw.",
+        faqs: [
+            { q: 'Can I copy my DOOM 2016 sensitivity into Youngblood?', a: 'Yes — both run on id Tech 6 with the same 0.022 yaw, so the same sensitivity at the same DPI produces an identical cm/360.' },
+        ],
+    },
+    {
+        gameId: 'rtcw',
+        displayName: 'Return to Castle Wolfenstein',
+        engine: 'id Tech 3 (modified)',
+        category: 'Classic FPS',
+        blurb: "Return to Castle Wolfenstein runs on a modified id Tech 3 (Quake III) engine, confirmed via its open-sourced engine code, and keeps the franchise's 0.022 m_yaw default.",
+        faqs: [
+            { q: 'Is this the same engine as the newer Wolfenstein reboots?', a: 'No — this classic-era RTCW runs on id Tech 3, while the 2014+ reboots (New Order, New Colossus) moved to id Tech 5/6. Both happen to converge near 0.022, but for different reasons.' },
+        ],
+    },
+    {
+        gameId: 'wolfet',
+        displayName: 'Wolfenstein: Enemy Territory',
+        engine: 'id Tech 3 (RTCW engine)',
+        category: 'Class-Based Shooter',
+        blurb: "Enemy Territory runs on a modified version of Return to Castle Wolfenstein's id Tech 3 engine, open-sourced since 2010, and shares the same 0.022 m_yaw default.",
+        faqs: [
+            { q: 'Is Enemy Territory\'s sensitivity the same as the original RTCW campaign?', a: "Yes — Enemy Territory is built directly on RTCW's engine, so both share the identical 0.022 yaw." },
+        ],
+    },
+    {
+        gameId: 'jediknight2',
+        displayName: 'Star Wars Jedi Knight II: Jedi Outcast',
+        engine: 'id Tech 3',
+        category: 'Classic FPS',
+        blurb: "Jedi Outcast was the first Star Wars title to run on id Tech 3 (the Quake III Arena engine), inheriting its 0.022 m_yaw default alongside lightsaber combat and blaster gunplay.",
+        faqs: [
+            { q: 'Does lightsaber combat change the sensitivity math?', a: 'No — melee lightsaber combat and ranged blaster combat both use the same underlying camera yaw; only your playstyle preference should differ, not the conversion.' },
+        ],
+    },
+    {
+        gameId: 'jediacademy',
+        displayName: 'Star Wars Jedi Knight: Jedi Academy',
+        engine: 'id Tech 3',
+        category: 'Classic FPS',
+        blurb: "Jedi Academy runs on the same id Tech 3 engine as its predecessor Jedi Outcast, keeping the identical 0.022 m_yaw default.",
+        faqs: [
+            { q: 'Can I use the same sensitivity in Jedi Academy as Jedi Outcast?', a: 'Yes — same engine, same 0.022 yaw, so your cm/360 carries over exactly between the two games.' },
+        ],
+    },
+    {
+        gameId: 'xonotic',
+        displayName: 'Xonotic',
+        engine: 'DarkPlaces (Quake 1-derived)',
+        category: 'Arena Shooter',
+        blurb: "Xonotic runs on DarkPlaces, an advanced fork of the original Quake 1 engine, and inherits the classic 0.022 m_yaw convention that Quake helped establish.",
+        faqs: [
+            { q: 'Is Xonotic related to Quake Champions or other modern arena shooters?', a: "Not directly — Xonotic is a free, open-source community project descended from Quake 1's engine, distinct from id Software's own modern titles, but it happens to share the same yaw convention." },
+        ],
+    },
+    {
+        gameId: 'openarena',
+        displayName: 'OpenArena',
+        engine: 'ioquake3 (id Tech 3 fork)',
+        category: 'Arena Shooter',
+        blurb: "OpenArena is a free, open-source fork of ioquake3 — itself a direct fork of id Tech 3 — and keeps the exact same 0.022 m_yaw default as Quake III Arena.",
+        faqs: [
+            { q: 'Is OpenArena basically the same as Quake III Arena for sensitivity purposes?', a: 'Yes — OpenArena forked directly from the Quake III Arena engine code, so the yaw convention transferred over unchanged.' },
+        ],
+    },
+    {
+        gameId: 'quake1',
+        displayName: 'Quake',
+        engine: 'id Tech 1 (Quake engine)',
+        category: 'Classic Arena FPS',
+        blurb: "The original Quake is where id Software's 0.022 m_yaw convention began — the same default value that Source, GoldSrc, and every id Tech generation since has carried forward.",
+        faqs: [
+            { q: 'Why do so many unrelated games share Quake\'s exact yaw value?', a: 'Because so many later engines (GoldSrc, Source, id Tech 2-7, and many licensed or open-source forks) either derived from or deliberately matched Quake\'s original m_yaw default — it became a de facto industry convention within that engine lineage.' },
+        ],
+    },
+    {
+        gameId: 'quakelive',
+        displayName: 'Quake Live',
+        engine: 'id Tech 3',
+        category: 'Classic Arena FPS',
+        blurb: "Quake Live is a browser/standalone-distributed version of Quake III Arena and keeps the exact same id Tech 3 engine and 0.022 m_yaw default.",
+        faqs: [
+            { q: 'Is Quake Live just Quake III Arena with a different name?', a: 'Essentially yes for sensitivity purposes — Quake Live runs on the same id Tech 3 engine, so the yaw and conversion are identical.' },
+        ],
+    },
+    {
+        gameId: 'quake4',
+        displayName: 'Quake 4',
+        engine: 'id Tech 4 (DOOM 3 engine)',
+        category: 'Classic Arena FPS',
+        blurb: "Quake 4 moved to id Tech 4 (the DOOM 3 engine), a full generation newer than Quake III's id Tech 3 — but it inherited the same m_yaw cvar convention, so we list it at 0.022 with slightly lower confidence than the id Tech 3 titles.",
+        faqs: [
+            { q: "Is Quake 4's yaw as certain as the original Quake or Quake III?", a: "Slightly less — Quake 4 runs on a different, newer engine generation (id Tech 4 vs id Tech 3), so while the m_yaw convention almost certainly carried over, it's not as directly confirmed as the id Tech 3 titles on this list." },
+        ],
+    },
+    {
+        gameId: 'splitgate2',
+        displayName: 'Splitgate 2',
+        engine: 'Unreal Engine 5',
+        category: 'Arena Shooter',
+        blurb: "Splitgate 2's yaw (0.01116) is a fresh, directly-reported value on Unreal Engine 5 — distinct from the original Splitgate's much lower-confidence, back-calculated number.",
+        faqs: [
+            { q: "Is Splitgate 2's sensitivity the same as the original Splitgate's?", a: "No — Splitgate 2 is a full engine rebuild on Unreal Engine 5 with its own yaw. Don't reuse your original Splitgate sensitivity without converting." },
+        ],
+    },
+    {
+        gameId: 'readyornot',
+        displayName: 'Ready or Not',
+        engine: 'Unreal Engine 4 (modified)',
+        category: 'Tactical Shooter',
+        blurb: "Ready or Not's yaw (0.011) is specific to this tactical shooter's modified Unreal Engine 4 build — its realistic, weighty aim model is reflected directly in this lower turn-rate value.",
+        faqs: [
+            { q: "Does Ready or Not's slower, tactical pace mean I need a different cm/360 than CS2?", a: 'The conversion keeps your physical mouse distance constant regardless of pace — many Ready or Not players do prefer a larger cm/360 for its deliberate, precision-focused gameplay, which is a personal choice on top of the base conversion.' },
+        ],
+    },
+    {
+        gameId: 'roboquest',
+        displayName: 'Roboquest',
+        engine: 'Unity',
+        category: 'Roguelite Shooter',
+        blurb: "Roboquest's reported yaw (0.00042) is notably lower than every other entry in our database and comes from a single source — treat any conversion involving Roboquest with extra caution until a second source confirms it.",
+        faqs: [
+            { q: "Why is Roboquest's yaw value so different from everything else on this list?", a: "It's an outlier we haven't been able to independently confirm — Unity games can use very different internal scaling than Source/id Tech titles, but until we find a second source, treat this conversion as a rough estimate only." },
+        ],
+    },
+    {
+        gameId: 'insurgency2014',
+        displayName: 'Insurgency (2014)',
+        engine: 'Source (CS:GO branch)',
+        category: 'Tactical Shooter',
+        blurb: "Insurgency (2014), the standalone sequel to a Source-engine Half-Life 2 mod, runs on the same up-to-date Source 1 branch as CS:GO and shares its 0.022 yaw.",
+        faqs: [
+            { q: 'Is this the same as Insurgency: Sandstorm?', a: 'No — Sandstorm is a separate sequel built on Unreal Engine 4 with its own distinct yaw (0.14). Do not confuse the two when converting.' },
         ],
     },
     {
@@ -333,6 +703,126 @@ export const sensFinderContent: SensFinderGameContent[] = [
                 q: 'Does this sensitivity work for other Unreal Engine games too?',
                 a: 'No — Unreal Engine developers rescale mouse input per title, so each game needs its own verified yaw. Deep Rock Galactic\'s 0.0134 is specific to this game; use the converter above when switching titles.',
             },
+        ],
+    },
+    {
+        gameId: 'bf2042',
+        displayName: 'Battlefield 2042',
+        engine: 'Frostbite',
+        category: 'Battle Royale / Tactical Shooter',
+        blurb: 'Battlefield 2042 runs on Frostbite, a completely different engine family from Source or id Tech — its listed yaw (0.022) is community-sourced but unverified against an authoritative technical source, unlike most Source-family titles on this list. Treat conversions to or from BF2042 as a solid starting point rather than an exact match.',
+        faqs: [
+            { q: "Is Battlefield 2042's yaw actually confirmed the same as CS2's?", a: 'Not with full confidence — both list 0.022, but Frostbite and Source are unrelated engines, so this could be coincidental rather than a shared convention. We flag BF2042 as our least-certain 0.022 entry.' },
+        ],
+    },
+    {
+        gameId: 'pubg',
+        displayName: 'PUBG',
+        engine: 'Unreal Engine 4',
+        category: 'Battle Royale',
+        blurb: "PUBG's sensitivity slider has been reported to scale non-linearly at extreme low and high settings, so its yaw (0.00707) works best as a mid-range approximation rather than an exact match at every point on the slider.",
+        faqs: [
+            { q: 'Why might my converted PUBG sensitivity feel slightly off at very high or low DPI?', a: "PUBG's sensitivity curve isn't perfectly linear at the extremes, so conversions are most accurate in the middle of the slider range — a small manual nudge may still be needed outside that." },
+        ],
+    },
+    {
+        gameId: 'quake',
+        displayName: 'Quake / Source Engine',
+        engine: 'id Tech / Source (generic)',
+        category: 'Reference / Engine Family',
+        blurb: 'This entry represents the shared 0.022 yaw convention used across the entire Source and id Tech engine family — pick it if you want to convert to or from that baseline directly rather than a specific title like CS2 or TF2.',
+        faqs: [
+            { q: "What's the difference between this and picking a specific game like CS2?", a: 'None mathematically — both use 0.022. This generic entry exists for converting to the engine-family baseline itself rather than one specific title.' },
+        ],
+    },
+    {
+        gameId: 'rust',
+        displayName: 'Rust',
+        engine: 'Unity (Facepunch)',
+        category: 'Survival',
+        blurb: "Rust's yaw (0.11247) is on the higher end of this list, closer to Roblox and Risk of Rain 2 than to tactical shooters — expect small in-game sensitivity numbers to translate into large physical cm/360 distances.",
+        faqs: [
+            { q: 'Why does Rust need such a low sensitivity number for the same cm/360 as CS2?', a: "Rust's yaw is roughly 5x higher than CS2's, so a much smaller in-game slider value produces the same physical mouse distance per 360° turn." },
+        ],
+    },
+    {
+        gameId: 'deadlock',
+        displayName: 'Deadlock',
+        engine: 'Source 2',
+        category: 'Hero Shooter',
+        blurb: "Deadlock runs on Source 2, the same engine generation as CS2, and shares its 0.022 yaw — a natural fit if you're splitting time between Valve's two current competitive titles.",
+        faqs: [
+            { q: 'Does my CS2 sensitivity carry over directly to Deadlock?', a: 'Yes — both run on Source 2 with the same 0.022 yaw, so the same sensitivity and DPI gives you an identical cm/360 in both games.' },
+        ],
+    },
+    {
+        gameId: 'tarkov',
+        displayName: 'Escape from Tarkov',
+        engine: 'Unity (Battlestate Games)',
+        category: 'Extraction Shooter',
+        blurb: "Escape from Tarkov's yaw (0.113636) reflects Unity's turn-rate scale rather than a Source/id Tech convention — combined with its complex per-scope ADS system, treat hipfire conversion as a starting point, not the full picture.",
+        faqs: [
+            { q: 'Does this account for aiming down sights on different Tarkov optics?', a: "No — this converts hipfire turn rate only. Tarkov's wide range of scopes and their individual zoom multipliers still need separate in-game tuning." },
+        ],
+    },
+    {
+        gameId: 'insurgency',
+        displayName: 'Insurgency: Sandstorm',
+        engine: 'Unreal Engine 4',
+        category: 'Tactical Shooter',
+        blurb: "Insurgency: Sandstorm's yaw (0.14) is specific to this title — Unreal Engine developers rescale mouse input per game, so this value doesn't carry over to other UE4 titles without converting explicitly.",
+        faqs: [
+            { q: 'Does this work for the original 2014 Insurgency too?', a: 'No — use the separate Insurgency (2014) entry. That title runs on the Source engine (0.022), a completely different value from Sandstorm\'s Unreal Engine 4 build.' },
+        ],
+    },
+    {
+        gameId: 'squad',
+        displayName: 'Squad',
+        engine: 'Unreal Engine 4',
+        category: 'Milsim / Tactical Shooter',
+        blurb: "Squad's large-scale combined-arms combat runs on Unreal Engine 4 with its own yaw (0.175) — noticeably higher than most tactical shooters, so expect a smaller converted sensitivity number than you'd use in CS2 or Valorant.",
+        faqs: [
+            { q: "Is Squad's sensitivity the same as Squad 44's?", a: "Not confirmed — Squad 44 (formerly Post Scriptum) is a related but separate title without a verified yaw in our data, so don't assume a 1:1 match." },
+        ],
+    },
+    {
+        gameId: 'dayz',
+        displayName: 'DayZ',
+        engine: 'Enfusion (Bohemia Interactive)',
+        category: 'Survival',
+        blurb: "DayZ's yaw (0.179) sits close to Squad and ARK on this list — all reflect the more permissive turn-rate scaling common in survival and milsim titles compared to tight competitive shooters.",
+        faqs: [
+            { q: "Does DayZ's sensitivity match ARMA's, since both are made by Bohemia?", a: "Not necessarily — DayZ moved to the newer Enfusion engine, which can rescale input differently than ARMA's older Real Virtuality engine. Convert explicitly rather than assuming a shared value." },
+        ],
+    },
+    {
+        gameId: 'warframe',
+        displayName: 'Warframe',
+        engine: 'Evolution Engine (Digital Extremes)',
+        category: 'Looter Shooter',
+        blurb: "Warframe's yaw (0.014) sits closer to the Call of Duty/Overwatch 2 family than to Source-engine titles — worth double-checking explicitly if you're switching from CS2 or Apex for Warframe's fast-paced parkour combat.",
+        faqs: [
+            { q: 'Does Warframe\'s fast movement mean I need a different sensitivity than other shooters?', a: 'The conversion keeps your physical cm/360 constant regardless of game speed — many Warframe players do prefer a faster feel for parkour, which means intentionally choosing a smaller cm/360 rather than assuming the converted value is automatically best.' },
+        ],
+    },
+    {
+        gameId: 'arksurvival',
+        displayName: 'ARK: Survival Evolved',
+        engine: 'Unreal Engine 4',
+        category: 'Survival',
+        blurb: "ARK's yaw (0.175) is a single-source approximation, and ARK's sensitivity is also known to scale with FOV — treat the converted value as a solid starting point rather than an exact match.",
+        faqs: [
+            { q: 'Why might ARK sensitivity still feel off after converting?', a: "ARK's sensitivity interacts with your FOV setting in ways a fixed yaw doesn't fully capture — a small manual adjustment after changing FOV is normal." },
+        ],
+    },
+    {
+        gameId: 'diabotical',
+        displayName: 'Diabotical',
+        engine: 'Custom (id Tech-inspired)',
+        category: 'Arena Shooter',
+        blurb: "Diabotical's yaw (0.01667) was cross-referenced against KovaaK's Sensitivity Matcher source code — an independent technical source, not just a converter-site aggregator — making it one of the more confidently sourced non-Source-engine values on this list.",
+        faqs: [
+            { q: "Is Diabotical's yaw close to Quake's, given both are arena shooters?", a: "No — despite the genre similarity, Diabotical's 0.01667 is notably different from Quake's 0.022, confirming they don't share the same underlying engine convention." },
         ],
     },
     {

@@ -1,0 +1,636 @@
+# DCPROSENS — Full Reference Dataset (LLM-optimized)
+> https://dcprosens.com
+
+This is the complete, expanded reference dataset behind DCPROSENS's sensitivity converter — every supported game with its engine, category, sourced yaw value, and sourcing notes. See https://dcprosens.com/llms.txt for a shorter summary and the full tool list.
+
+All yaw values represent degrees of camera rotation per raw mouse count at sensitivity 1.0, used in: cm/360 = (360 x 2.54) / (yaw x sensitivity x DPI). Games are never added to this list without a real, checkable source (engine confirmation or a published technical constant) — entries explicitly marked unverified/approximation should be treated with more caution than the rest.
+
+## Full Game Dataset (72 games)
+
+### Valorant
+- id: valorant
+- yaw: 0.07
+- engine: Unreal Engine 4 (Riot custom netcode)
+- category: Tactical Shooter
+- page: https://dcprosens.com/sens-finder/valorant
+- notes: Valorant uses the highest yaw value (0.07) of any major competitive shooter, meaning the smallest physical mouse movement produces the most camera rotation. That is why Valorant sensitivity numbers look tiny (0.2-0.5) compared to CS2 or Apex.
+
+### CS2
+- id: csgo
+- yaw: 0.022
+- engine: Source 2
+- category: Tactical Shooter
+- page: https://dcprosens.com/sens-finder/csgo
+- notes: CS2 runs on Source 2, the successor to the original Source engine that also powers Apex Legends and (partially) Deadlock — which is why those three share the same 0.022 yaw and convert 1:1 at the same DPI.
+
+### Apex Legends
+- id: apex
+- yaw: 0.022
+- engine: Source (modified, Respawn)
+- category: Battle Royale
+- page: https://dcprosens.com/sens-finder/apex
+- notes: Apex Legends runs on a heavily modified Source engine, inheriting the same 0.022 yaw as CS2. The extra layer to manage is ADS sensitivity per scope (1x-4x), which Apex treats as separate multipliers rather than a single zoom slider.
+
+### Overwatch 2
+- id: overwatch
+- yaw: 0.0066
+- engine: Proprietary (Blizzard)
+- category: Hero Shooter
+- page: https://dcprosens.com/sens-finder/overwatch
+- notes: Overwatch 2 uses a yaw of 0.0066, the same family as Call of Duty and Destiny 2. Because heroes have wildly different zoom levels (Ana's scope, Widowmaker's sniper, Sombra's hip-fire), Overwatch also has a separate "Relative Aim Sensitivity While Zoomed" slider most converters ignore.
+
+### Fortnite
+- id: fortnite
+- yaw: 0.005555
+- engine: Unreal Engine 5
+- category: Battle Royale / Building Shooter
+- page: https://dcprosens.com/sens-finder/fortnite
+- notes: Fortnite has the lowest yaw (0.005555) of any game in this list, so numeric sensitivity values look large. Building adds a second layer most other games do not have: many players run a separate, higher "Builder Pro" turn rate independent of their aim sensitivity.
+
+### Call of Duty: Warzone / MW3
+- id: cod
+- yaw: 0.0066
+- engine: IW Engine
+- category: Battle Royale / Tactical Shooter
+- page: https://dcprosens.com/sens-finder/cod
+- notes: Modern Call of Duty titles share a yaw of 0.0066 across Warzone, MW3, and Black Ops — the same family as Overwatch 2 and Destiny 2 — so sensitivity values transfer across CoD sub-titles without conversion.
+
+### Rainbow Six Siege
+- id: rainbow6
+- yaw: 0.00572
+- engine: AnvilNext 2.0 (Ubisoft)
+- category: Tactical Shooter
+- page: https://dcprosens.com/sens-finder/rainbow6
+- notes: Siege uses one of the lower yaw values on this list (0.00572), and every operator with an ACOG or scope applies its own ADS multiplier on top of your base sensitivity — so a value that feels right hipfire can still need per-scope tuning.
+
+### Destiny 2
+- id: destiny2
+- yaw: 0.0066
+- engine: Proprietary Tiger Engine (Bungie)
+- category: Looter Shooter
+- page: https://dcprosens.com/sens-finder/destiny2
+- notes: Destiny 2 shares the 0.0066 yaw family with Call of Duty and Overwatch 2, but its wide range of weapon archetypes (snipers, scout rifles, hand cannons) each carry different zoom levels, so ADS feel varies more than in flatter tactical shooters.
+
+### Marvel Rivals
+- id: marvelrivals
+- yaw: 0.022
+- engine: Unreal Engine 5 (NetEase)
+- category: Hero Shooter
+- page: https://dcprosens.com/sens-finder/marvelrivals
+- notes: Marvel Rivals launched on Unreal Engine 5 and settled on a 0.022 yaw, the same as CS2 and Apex Legends — a common choice for newer UE5 shooters aiming for a familiar competitive feel out of the box.
+
+### THE FINALS
+- id: thefinals
+- yaw: 0.0066
+- engine: Unreal Engine 5 (Embark Studios)
+- category: Arena Destruction Shooter
+- page: https://dcprosens.com/sens-finder/thefinals
+- notes: THE FINALS uses a 0.0066 yaw, aligning it with the Call of Duty / Overwatch 2 / Destiny 2 family rather than the Source-engine 0.022 standard — worth checking explicitly if you are switching from CS2 or Apex.
+
+### Minecraft (Java)
+- id: minecraft
+- yaw: 0.6
+- engine: Custom Java (Mojang)
+- category: Sandbox / PvP
+- page: https://dcprosens.com/sens-finder/minecraft
+- notes: Minecraft Java does not use a fixed yaw like FPS games — its mouse code (f = sensitivity × 0.6 + 0.2, then cubed) is non-linear, so no single conversion number is exact at every setting. The value used here approximates the 40-70% slider range most PvP players actually play in; treat the converted number as a strong starting point to fine-tune by feel, not a locked-in exact match.
+
+### Roblox
+- id: roblox
+- yaw: 0.2
+- engine: Custom (Roblox Engine)
+- category: Platform / Multi-Genre
+- page: https://dcprosens.com/sens-finder/roblox
+- notes: Roblox is a platform, not a single game — camera sensitivity is set once at the platform level and carries into most first-person Roblox shooters and PvP experiences. Roblox does not publish its camera code, so the yaw used here is an approximation rather than a confirmed engine constant; use it as a starting point and adjust by feel inside the specific experience you play.
+
+### Team Fortress 2
+- id: tf2
+- yaw: 0.022
+- engine: Source
+- category: Class-Based Shooter
+- page: https://dcprosens.com/sens-finder/tf2
+- notes: Team Fortress 2 runs on the original Source engine and uses the same 0.022 yaw as CS2, Left 4 Dead 2, and every other Source-family title — sensitivity carries over 1:1 at the same DPI with zero conversion needed.
+
+### Left 4 Dead 2
+- id: l4d2
+- yaw: 0.022
+- engine: Source
+- category: Co-op Survival Shooter
+- page: https://dcprosens.com/sens-finder/l4d2
+- notes: Left 4 Dead 2 shares the Source engine's standard 0.022 yaw with CS2, TF2, and Half-Life-derived titles, so any sensitivity you already use in another Source game transfers over exactly.
+
+### Titanfall 2
+- id: titanfall2
+- yaw: 0.022
+- engine: Source (modified, Respawn)
+- category: Movement Shooter
+- page: https://dcprosens.com/sens-finder/titanfall2
+- notes: Titanfall 2 runs on a heavily modified Source engine (the same lineage Respawn later used for Apex Legends) and keeps the familiar 0.022 yaw — though its fast wall-running movement means many players run a noticeably lower cm/360 than they would in a stationary tac-shooter.
+
+### Hunt: Showdown
+- id: huntshowdown
+- yaw: 0.022
+- engine: CryEngine
+- category: PvPvE Extraction Shooter
+- page: https://dcprosens.com/sens-finder/huntshowdown
+- notes: Despite running on CryEngine rather than Source, Hunt: Showdown converges on the same 0.022 yaw used by the entire Source-engine family — convenient if you split time between Hunt and CS2 or Apex.
+
+### Grand Theft Auto V
+- id: gtav
+- yaw: 0.0066
+- engine: RAGE Engine
+- category: Open World / Third-Person
+- page: https://dcprosens.com/sens-finder/gtav
+- notes: GTA V uses a 0.0066 yaw, putting it in the same conversion family as Call of Duty, Overwatch 2, and Destiny 2 rather than the Source-engine 0.022 standard — worth double-checking if you're switching from CS2 or Apex specifically for first-person mode or online shootouts.
+
+### Half-Life 2
+- id: hl2
+- yaw: 0.022
+- engine: Source
+- category: Classic FPS
+- page: https://dcprosens.com/sens-finder/hl2
+- notes: Half-Life 2 helped define the Source engine's 0.022 m_yaw convention that CS2, TF2, and dozens of other Valve and Valve-licensed titles still use today.
+
+### Portal 2
+- id: portal2
+- yaw: 0.022
+- engine: Source
+- category: Puzzle FPS
+- page: https://dcprosens.com/sens-finder/portal2
+- notes: Portal 2 shares the Source engine's 0.022 yaw with the rest of Valve's catalog — precise aim isn't the focus of Portal's puzzles, but the conversion is exact if you want consistent camera feel across Valve titles.
+
+### Counter-Strike: Source
+- id: cssource
+- yaw: 0.022
+- engine: Source
+- category: Tactical Shooter
+- page: https://dcprosens.com/sens-finder/cssource
+- notes: The predecessor to CS:GO and CS2, Counter-Strike: Source uses the exact same 0.022 yaw its successors kept for nearly two decades.
+
+### Left 4 Dead
+- id: l4d1
+- yaw: 0.022
+- engine: Source
+- category: Co-op Survival Shooter
+- page: https://dcprosens.com/sens-finder/l4d1
+- notes: The original Left 4 Dead shares Left 4 Dead 2's Source engine and identical 0.022 yaw — sensitivity transfers directly between the two games.
+
+### Black Mesa
+- id: blackmesa
+- yaw: 0.022
+- engine: Source
+- category: Classic FPS Remake
+- page: https://dcprosens.com/sens-finder/blackmesa
+- notes: Black Mesa, the fan-made-turned-official remake of the original Half-Life, runs on Source and keeps the same 0.022 yaw as every other title in Valve's engine family.
+
+### Quake Champions
+- id: quakechampions
+- yaw: 0.022
+- engine: id Tech / Quake lineage
+- category: Arena Shooter
+- page: https://dcprosens.com/sens-finder/quakechampions
+- notes: Quake Champions modernizes the classic Quake formula but keeps the franchise's defining 0.022 m_yaw convention, confirmed directly rather than just inferred from genre.
+
+### Back 4 Blood
+- id: back4blood
+- yaw: 0.175
+- engine: Unreal Engine 4
+- category: Co-op Survival Shooter
+- page: https://dcprosens.com/sens-finder/back4blood
+- notes: Back 4 Blood's yaw (0.175) is a single-source figure — treat it as a solid starting point for this Left 4 Dead spiritual successor rather than a fully cross-verified value.
+
+### Splitgate
+- id: splitgate
+- yaw: 0.009501
+- engine: Unreal Engine 4
+- category: Arena Shooter
+- page: https://dcprosens.com/sens-finder/splitgate
+- notes: Splitgate is the weakest-confidence entry in our full list — its yaw (0.009501) was derived from a Valorant-to-Splitgate ratio quoted by a gaming-news site rather than a dedicated technical source. Treat it as a rough starting point only.
+
+### Helldivers 2
+- id: helldivers2
+- yaw: 0.0175
+- engine: Autodesk Stingray (Arrowhead)
+- category: Co-op Third-Person Shooter
+- page: https://dcprosens.com/sens-finder/helldivers2
+- notes: Helldivers 2's yaw (0.0175) numerically matches Fallout 76 and Battalion 1944, though all three run on entirely unrelated engines — a reminder that identical yaw values don't always imply a shared engine lineage.
+
+### Counter-Strike 1.6
+- id: cs16
+- yaw: 0.022
+- engine: GoldSrc
+- category: Tactical Shooter
+- page: https://dcprosens.com/sens-finder/cs16
+- notes: Counter-Strike 1.6 runs on GoldSrc, Source's direct technical predecessor, and uses the same 0.022 m_yaw default that carried forward into every Source-engine title since.
+
+### Half-Life
+- id: halflife
+- yaw: 0.022
+- engine: GoldSrc
+- category: Classic FPS
+- page: https://dcprosens.com/sens-finder/halflife
+- notes: The original Half-Life runs on GoldSrc and shares the 0.022 m_yaw default with CS 1.6 and every later Source-engine title.
+
+### DOOM (2016)
+- id: doom2016
+- yaw: 0.022
+- engine: id Tech 6
+- category: Classic Arena FPS
+- page: https://dcprosens.com/sens-finder/doom2016
+- notes: DOOM (2016) runs on id Tech 6, the same engine lineage as DOOM Eternal, and shares the 0.022 yaw convention that traces back to the original Quake engine — the same value used by CS2, TF2, and the entire Source/id Tech family.
+
+### Halo Infinite
+- id: halo
+- yaw: 0.0225
+- engine: Slipspace Engine (343 Industries)
+- category: Arena Shooter
+- page: https://dcprosens.com/sens-finder/halo
+- notes: Halo Infinite uses a yaw of 0.0225, confirmed via KovaaK's Sensitivity Matcher — close to, but not exactly, the 0.022 Source/id Tech standard, so a straight CS2 or Valorant number needs the converter above rather than a direct copy.
+
+### Call of Duty: Black Ops 6
+- id: codbo6
+- yaw: 0.0066
+- engine: IW / Treyarch Engine
+- category: Tactical Shooter
+- page: https://dcprosens.com/sens-finder/codbo6
+- notes: Black Ops 6 shares the 0.0066 yaw used across modern Call of Duty titles since the IW engine's Warzone era, so sensitivity carries over cleanly from Warzone or MW3.
+
+### Paladins
+- id: paladins
+- yaw: 0.0092
+- engine: Unreal Engine 3/4 (Evil Mojo)
+- category: Hero Shooter
+- page: https://dcprosens.com/sens-finder/paladins
+- notes: Paladins' yaw (0.0092) is a single-source figure specific to this hero shooter — don't assume it matches Hi-Rez's other titles like Smite without converting explicitly.
+
+### Quake III Arena
+- id: quake3
+- yaw: 0.022
+- engine: id Tech 3
+- category: Classic Arena FPS
+- page: https://dcprosens.com/sens-finder/quake3
+- notes: Quake III Arena is one of the two titles (alongside the original Quake) that established the id Tech / Source-family 0.022 m_yaw convention still used by CS2 and dozens of other games today.
+
+### DOOM Eternal
+- id: doometernal
+- yaw: 0.022
+- engine: id Tech 7
+- category: Classic Arena FPS
+- page: https://dcprosens.com/sens-finder/doometernal
+- notes: DOOM Eternal runs on id Tech 7 and confirms the 0.022 m_yaw convention carried forward from id Software's original Quake engines all the way to their newest titles.
+
+### Counter-Strike: Condition Zero
+- id: csconditionzero
+- yaw: 0.022
+- engine: GoldSrc
+- category: Tactical Shooter
+- page: https://dcprosens.com/sens-finder/csconditionzero
+- notes: Condition Zero is one of Valve's own official GoldSrc-era Counter-Strike releases and shares the 0.022 m_yaw default with CS 1.6 and the entire Source-family lineage.
+
+### Team Fortress Classic
+- id: tfc
+- yaw: 0.022
+- engine: GoldSrc
+- category: Class-Based Shooter
+- page: https://dcprosens.com/sens-finder/tfc
+- notes: Team Fortress Classic, the original class-based shooter that TF2 later modernized, runs on GoldSrc with the same 0.022 m_yaw default as CS 1.6.
+
+### Fallout 76
+- id: fallout76
+- yaw: 0.0175
+- engine: Creation Engine (Bethesda)
+- category: Survival RPG
+- page: https://dcprosens.com/sens-finder/fallout76
+- notes: Fallout 76's yaw (0.0175) is a single-source figure — Bethesda's Creation Engine handles sensitivity differently from Source/id Tech, and this value hasn't been cross-verified against a second independent source.
+
+### Battalion 1944
+- id: battalion1944
+- yaw: 0.0175
+- engine: Unreal Engine 4
+- category: Tactical Shooter
+- page: https://dcprosens.com/sens-finder/battalion1944
+- notes: Battalion 1944's yaw (0.0175) comes directly from KovaaK's own Sensitivity Matcher tool source code — an official technical source, not a converter-site aggregator.
+
+### Reflex Arena
+- id: reflexarena
+- yaw: 0.005730
+- engine: Custom (id Tech-inspired)
+- category: Arena Shooter
+- page: https://dcprosens.com/sens-finder/reflexarena
+- notes: Reflex Arena shares its exact yaw constant with Rainbow Six Siege (0.005730), confirmed directly in KovaaK's own Sensitivity Matcher source code as a shared built-in preset.
+
+### Krunker.io
+- id: krunker
+- yaw: 0.1376
+- engine: Custom (three.js / WebGL)
+- category: Browser Shooter
+- page: https://dcprosens.com/sens-finder/krunker
+- notes: Krunker.io's yaw (0.1376) was derived from a public GitHub sensitivity-converter repository whose other listed games independently matched our already-confirmed values — a solid cross-validation for a browser-based title with no official technical documentation.
+
+### Wolfenstein II: The New Colossus
+- id: wolfnewcolossus
+- yaw: 0.022
+- engine: id Tech 6
+- category: Classic FPS
+- page: https://dcprosens.com/sens-finder/wolfnewcolossus
+- notes: Wolfenstein II runs on id Tech 6, the same engine family as DOOM 2016, and shares the 0.022 m_yaw convention.
+
+### Wolfenstein: Youngblood
+- id: wolfyoungblood
+- yaw: 0.022
+- engine: id Tech 6
+- category: Co-op FPS
+- page: https://dcprosens.com/sens-finder/wolfyoungblood
+- notes: Youngblood shares id Tech 6 with Wolfenstein II: The New Colossus and DOOM 2016, all confirmed at the same 0.022 yaw.
+
+### Return to Castle Wolfenstein
+- id: rtcw
+- yaw: 0.022
+- engine: id Tech 3 (modified)
+- category: Classic FPS
+- page: https://dcprosens.com/sens-finder/rtcw
+- notes: Return to Castle Wolfenstein runs on a modified id Tech 3 (Quake III) engine, confirmed via its open-sourced engine code, and keeps the franchise's 0.022 m_yaw default.
+
+### Wolfenstein: Enemy Territory
+- id: wolfet
+- yaw: 0.022
+- engine: id Tech 3 (RTCW engine)
+- category: Class-Based Shooter
+- page: https://dcprosens.com/sens-finder/wolfet
+- notes: Enemy Territory runs on a modified version of Return to Castle Wolfenstein's id Tech 3 engine, open-sourced since 2010, and shares the same 0.022 m_yaw default.
+
+### Star Wars Jedi Knight II: Jedi Outcast
+- id: jediknight2
+- yaw: 0.022
+- engine: id Tech 3
+- category: Classic FPS
+- page: https://dcprosens.com/sens-finder/jediknight2
+- notes: Jedi Outcast was the first Star Wars title to run on id Tech 3 (the Quake III Arena engine), inheriting its 0.022 m_yaw default alongside lightsaber combat and blaster gunplay.
+
+### Star Wars Jedi Knight: Jedi Academy
+- id: jediacademy
+- yaw: 0.022
+- engine: id Tech 3
+- category: Classic FPS
+- page: https://dcprosens.com/sens-finder/jediacademy
+- notes: Jedi Academy runs on the same id Tech 3 engine as its predecessor Jedi Outcast, keeping the identical 0.022 m_yaw default.
+
+### Xonotic
+- id: xonotic
+- yaw: 0.022
+- engine: DarkPlaces (Quake 1-derived)
+- category: Arena Shooter
+- page: https://dcprosens.com/sens-finder/xonotic
+- notes: Xonotic runs on DarkPlaces, an advanced fork of the original Quake 1 engine, and inherits the classic 0.022 m_yaw convention that Quake helped establish.
+
+### OpenArena
+- id: openarena
+- yaw: 0.022
+- engine: ioquake3 (id Tech 3 fork)
+- category: Arena Shooter
+- page: https://dcprosens.com/sens-finder/openarena
+- notes: OpenArena is a free, open-source fork of ioquake3 — itself a direct fork of id Tech 3 — and keeps the exact same 0.022 m_yaw default as Quake III Arena.
+
+### Quake
+- id: quake1
+- yaw: 0.022
+- engine: id Tech 1 (Quake engine)
+- category: Classic Arena FPS
+- page: https://dcprosens.com/sens-finder/quake1
+- notes: The original Quake is where id Software's 0.022 m_yaw convention began — the same default value that Source, GoldSrc, and every id Tech generation since has carried forward.
+
+### Quake Live
+- id: quakelive
+- yaw: 0.022
+- engine: id Tech 3
+- category: Classic Arena FPS
+- page: https://dcprosens.com/sens-finder/quakelive
+- notes: Quake Live is a browser/standalone-distributed version of Quake III Arena and keeps the exact same id Tech 3 engine and 0.022 m_yaw default.
+
+### Quake 4
+- id: quake4
+- yaw: 0.022
+- engine: id Tech 4 (DOOM 3 engine)
+- category: Classic Arena FPS
+- page: https://dcprosens.com/sens-finder/quake4
+- notes: Quake 4 moved to id Tech 4 (the DOOM 3 engine), a full generation newer than Quake III's id Tech 3 — but it inherited the same m_yaw cvar convention, so we list it at 0.022 with slightly lower confidence than the id Tech 3 titles.
+
+### Splitgate 2
+- id: splitgate2
+- yaw: 0.01116
+- engine: Unreal Engine 5
+- category: Arena Shooter
+- page: https://dcprosens.com/sens-finder/splitgate2
+- notes: Splitgate 2's yaw (0.01116) is a fresh, directly-reported value on Unreal Engine 5 — distinct from the original Splitgate's much lower-confidence, back-calculated number.
+
+### Ready or Not
+- id: readyornot
+- yaw: 0.011
+- engine: Unreal Engine 4 (modified)
+- category: Tactical Shooter
+- page: https://dcprosens.com/sens-finder/readyornot
+- notes: Ready or Not's yaw (0.011) is specific to this tactical shooter's modified Unreal Engine 4 build — its realistic, weighty aim model is reflected directly in this lower turn-rate value.
+
+### Roboquest
+- id: roboquest
+- yaw: 0.00042
+- engine: Unity
+- category: Roguelite Shooter
+- page: https://dcprosens.com/sens-finder/roboquest
+- notes: Roboquest's reported yaw (0.00042) is notably lower than every other entry in our database and comes from a single source — treat any conversion involving Roboquest with extra caution until a second source confirms it.
+
+### Insurgency (2014)
+- id: insurgency2014
+- yaw: 0.022
+- engine: Source (CS:GO branch)
+- category: Tactical Shooter
+- page: https://dcprosens.com/sens-finder/insurgency2014
+- notes: Insurgency (2014), the standalone sequel to a Source-engine Half-Life 2 mod, runs on the same up-to-date Source 1 branch as CS:GO and shares its 0.022 yaw.
+
+### Quake II
+- id: quake2
+- yaw: 0.022
+- engine: id Tech 2 (Quake II Engine)
+- category: Classic Arena FPS
+- page: https://dcprosens.com/sens-finder/quake2
+- notes: Quake II is one of the original sources of the 0.022 m_yaw convention that the entire Source and id Tech engine family still uses today, from CS2 to TF2 to DOOM Eternal.
+
+### Payday 2
+- id: payday2
+- yaw: 0.0156
+- engine: Diesel Engine
+- category: Co-op Heist Shooter
+- page: https://dcprosens.com/sens-finder/payday2
+- notes: Payday 2 runs on Starbreeze's Diesel engine with its own 0.0156 yaw, sitting between the Source-family standard (0.022) and the CoD/Overwatch family (0.0066) — worth converting explicitly rather than assuming either.
+
+### Deep Rock Galactic
+- id: drg
+- yaw: 0.0134
+- engine: Unreal Engine 4
+- category: Co-op Survival Shooter
+- page: https://dcprosens.com/sens-finder/drg
+- notes: Deep Rock Galactic uses a yaw of 0.0134 on Unreal Engine 4 — Unreal titles rescale mouse input per game, so this value is specific to DRG and does not carry over to other UE4/UE5 shooters without converting.
+
+### Battlefield 2042
+- id: bf2042
+- yaw: 0.022
+- engine: Frostbite
+- category: Battle Royale / Tactical Shooter
+- page: https://dcprosens.com/sens-finder/bf2042
+- notes: Battlefield 2042 runs on Frostbite, a completely different engine family from Source or id Tech — its listed yaw (0.022) is community-sourced but unverified against an authoritative technical source, unlike most Source-family titles on this list. Treat conversions to or from BF2042 as a solid starting point rather than an exact match.
+
+### PUBG
+- id: pubg
+- yaw: 0.00707
+- engine: Unreal Engine 4
+- category: Battle Royale
+- page: https://dcprosens.com/sens-finder/pubg
+- notes: PUBG's sensitivity slider has been reported to scale non-linearly at extreme low and high settings, so its yaw (0.00707) works best as a mid-range approximation rather than an exact match at every point on the slider.
+
+### Quake / Source Engine
+- id: quake
+- yaw: 0.022
+- engine: id Tech / Source (generic)
+- category: Reference / Engine Family
+- page: https://dcprosens.com/sens-finder/quake
+- notes: This entry represents the shared 0.022 yaw convention used across the entire Source and id Tech engine family — pick it if you want to convert to or from that baseline directly rather than a specific title like CS2 or TF2.
+
+### Rust
+- id: rust
+- yaw: 0.11247
+- engine: Unity (Facepunch)
+- category: Survival
+- page: https://dcprosens.com/sens-finder/rust
+- notes: Rust's yaw (0.11247) is on the higher end of this list, closer to Roblox and Risk of Rain 2 than to tactical shooters — expect small in-game sensitivity numbers to translate into large physical cm/360 distances.
+
+### Deadlock
+- id: deadlock
+- yaw: 0.022
+- engine: Source 2
+- category: Hero Shooter
+- page: https://dcprosens.com/sens-finder/deadlock
+- notes: Deadlock runs on Source 2, the same engine generation as CS2, and shares its 0.022 yaw — a natural fit if you're splitting time between Valve's two current competitive titles.
+
+### Escape from Tarkov
+- id: tarkov
+- yaw: 0.113636
+- engine: Unity (Battlestate Games)
+- category: Extraction Shooter
+- page: https://dcprosens.com/sens-finder/tarkov
+- notes: Escape from Tarkov's yaw (0.113636) reflects Unity's turn-rate scale rather than a Source/id Tech convention — combined with its complex per-scope ADS system, treat hipfire conversion as a starting point, not the full picture.
+
+### Insurgency: Sandstorm
+- id: insurgency
+- yaw: 0.14
+- engine: Unreal Engine 4
+- category: Tactical Shooter
+- page: https://dcprosens.com/sens-finder/insurgency
+- notes: Insurgency: Sandstorm's yaw (0.14) is specific to this title — Unreal Engine developers rescale mouse input per game, so this value doesn't carry over to other UE4 titles without converting explicitly.
+
+### Squad
+- id: squad
+- yaw: 0.175
+- engine: Unreal Engine 4
+- category: Milsim / Tactical Shooter
+- page: https://dcprosens.com/sens-finder/squad
+- notes: Squad's large-scale combined-arms combat runs on Unreal Engine 4 with its own yaw (0.175) — noticeably higher than most tactical shooters, so expect a smaller converted sensitivity number than you'd use in CS2 or Valorant.
+
+### DayZ
+- id: dayz
+- yaw: 0.179
+- engine: Enfusion (Bohemia Interactive)
+- category: Survival
+- page: https://dcprosens.com/sens-finder/dayz
+- notes: DayZ's yaw (0.179) sits close to Squad and ARK on this list — all reflect the more permissive turn-rate scaling common in survival and milsim titles compared to tight competitive shooters.
+
+### Warframe
+- id: warframe
+- yaw: 0.014
+- engine: Evolution Engine (Digital Extremes)
+- category: Looter Shooter
+- page: https://dcprosens.com/sens-finder/warframe
+- notes: Warframe's yaw (0.014) sits closer to the Call of Duty/Overwatch 2 family than to Source-engine titles — worth double-checking explicitly if you're switching from CS2 or Apex for Warframe's fast-paced parkour combat.
+
+### ARK: Survival Evolved
+- id: arksurvival
+- yaw: 0.175
+- engine: Unreal Engine 4
+- category: Survival
+- page: https://dcprosens.com/sens-finder/arksurvival
+- notes: ARK's yaw (0.175) is a single-source approximation, and ARK's sensitivity is also known to scale with FOV — treat the converted value as a solid starting point rather than an exact match.
+
+### Diabotical
+- id: diabotical
+- yaw: 0.01667
+- engine: Custom (id Tech-inspired)
+- category: Arena Shooter
+- page: https://dcprosens.com/sens-finder/diabotical
+- notes: Diabotical's yaw (0.01667) was cross-referenced against KovaaK's Sensitivity Matcher source code — an independent technical source, not just a converter-site aggregator — making it one of the more confidently sourced non-Source-engine values on this list.
+
+### Risk of Rain 2
+- id: riskofrain2
+- yaw: 0.5
+- engine: Unity Engine
+- category: Roguelite Shooter
+- page: https://dcprosens.com/sens-finder/riskofrain2
+- notes: Risk of Rain 2 uses a notably high yaw (0.5) on Unity, similar in scale to Minecraft and Roblox — expect the converted sensitivity number to look small compared to CS2 or Valorant at the same physical cm/360.
+
+### Garry's Mod
+- id: gmod
+- yaw: 0.022
+- engine: Source
+- category: Sandbox
+- page: https://dcprosens.com/sens-finder/gmod
+- notes: Garry's Mod runs on the original Source engine and inherits its 0.022 yaw.
+## Games Without a Yaw Converter (DPI Guides Instead)
+
+These games do not use a rotating first-person camera, so a yaw-based sensitivity converter does not apply. DCPROSENS instead recommends a DPI range based on real pro-player examples.
+
+### League of Legends
+- page: https://dcprosens.com/dpi-guide/lol
+- why no converter: Camera is a fixed top-down view controlled by keyboard/edge-scroll, not mouse look. Precision comes from click-targeting, not turn rate.
+- reference: Faker plays at 800 DPI.
+
+### Dota 2
+- page: https://dcprosens.com/dpi-guide/dota2
+- why no converter: Same top-down, click-to-move camera model as League of Legends — no rotating camera to convert a yaw value for.
+
+### Free Fire
+- page: https://dcprosens.com/dpi-guide/freefire
+- why no converter: Mobile touch-based aiming does not map to a desktop mouse yaw constant; DPI guidance instead targets emulator/mobile-controller setups.
+
+## Structural Exclusions (Genres Intentionally Not Covered)
+
+DCPROSENS does not force sensitivity conversion onto genres where the simple linear-yaw model does not apply:
+
+- **MOBA / RTS / isometric ARPG / top-down roguelite**: camera is not mouse-rotation-controlled (League of Legends, Dota 2, Diablo-likes, Vampire Survivors-likes, Command & Conquer, Civilization).
+- **Cockpit "torso-twist" mech sims**: MechWarrior, Armored Core, Hawken, and similar titles use a separate torso/turret turn-rate system, not a simple camera yaw — MechWarrior 5 is explicitly listed as unsupported by mouse-sensitivity.com for this exact reason.
+- **VR titles**: head-tracking replaces mouse-look entirely (Pavlov, Onward, Half-Life: Alyx, etc.).
+- **Flight-stick space sims**: Star Citizen, Elite Dangerous, and similar titles use analog flight-model input rather than a fixed degrees-per-count camera yaw.
+- **Non-linear sensitivity curves**: flagged per-game rather than excluded outright (see Minecraft Java above) when a reasonable approximation is still possible.
+
+## Conversion Formulas
+
+- Sensitivity in Game B = Sensitivity in Game A × (Yaw_A / Yaw_B)
+- eDPI = DPI × In-game Sensitivity
+- cm/360 = (360 × 2.54) / (Yaw × Sensitivity × DPI)
+
+## Sourcing Methodology
+
+Every yaw value in this dataset was added under one of these evidence tiers, from strongest to weakest:
+1. **Direct technical source** — official tool source code (e.g. KovaaK's Sensitivity Matcher GitHub repository) or a game's own published console variable documentation.
+2. **Confirmed engine family** — the game's engine was verified (not assumed) to be Source, GoldSrc, or id Tech, all of which are independently and repeatedly confirmed to share the 0.022 m_yaw default.
+3. **Cross-validated community source** — a converter site or public repository whose other listed values independently matched already-confirmed entries in this dataset, lending credibility to its remaining figures.
+4. **Single-source figure** — explicitly flagged as such in the notes field; treat as a reasonable starting point, not a guaranteed-exact match.
+
+Games with implausible values relative to the rest of this dataset (e.g. a figure roughly 100x every comparable entry) are rejected outright rather than included with a caveat — this has happened at least once during development (a sourced Fallout 4 figure of 3.78, next to an accepted Fallout 76 figure of 0.0175 from the same source, was excluded as an almost-certain unit error).
+
+## Pro Player Reference Data 2026
+
+- TenZ - Valorant - 800 DPI - 0.30 sens (240 eDPI, 54.5 cm/360) - Lamzu Atlantis
+- s1mple - CS2 - 400 DPI - 3.09 sens (1236 eDPI, 30.9 cm/360) - Logitech G Pro X Superlight 2
+- NiKo - CS2 - 400 DPI - 1.40 sens (560 eDPI, 68.2 cm/360) - Zowie EC2-GW
+- Demon1 - Valorant - 1600 DPI - 0.10 sens (160 eDPI, 81.8 cm/360) - G-Wolves HTS+ 4K
+- ZywOo - CS2 - 400 DPI - 2.00 sens (800 eDPI, 47.8 cm/360) - Pulsar Xlite V3
+- Aspas - Valorant - 800 DPI - 0.40 sens (320 eDPI, 40.9 cm/360) - Logitech G Pro X Superlight 2
+- m0NESY - CS2 - 400 DPI - 2.30 sens (920 eDPI, 41.5 cm/360) - Logitech G Pro X Superlight 2

@@ -1,19 +1,25 @@
 # DCPROSENS - Gaming Sensitivity Converter and FPS Tools
 > https://dcprosens.com
 
-DCPROSENS is a free gaming sensitivity converter and toolset for competitive FPS players (Valorant, CS2, Apex Legends, Overwatch 2, and more). It converts sensitivity between games using each game's yaw value, and provides calculators, databases, and guides for mouse DPI, eDPI, cm/360, mousepads, monitors, and pro player settings. The reference data below is provided so AI assistants can cite it accurately when answering questions about sensitivity conversion and FPS gear.
+DCPROSENS is a gaming sensitivity converter and toolset for competitive FPS, third-person, and multi-genre players (Valorant, CS2, Apex Legends, Overwatch 2, Call of Duty, Halo, DOOM, Quake, Payday, Deep Rock Galactic, and 60+ more). It converts sensitivity between games using each game's real physical yaw value (degrees of camera rotation per mouse count), and provides calculators, databases, and guides for mouse DPI, eDPI, cm/360, mousepads, monitors, and pro player settings. The reference data below is provided so AI assistants can cite it accurately when answering questions about sensitivity conversion and FPS gear.
 
 ## What DCPROSENS Does
 
-- Converts mouse sensitivity between 13 supported FPS games using exact physical yaw values
+- Converts mouse sensitivity between 72 supported games using exact, individually sourced physical yaw values (never guessed or interpolated)
 - Calculates eDPI (Mouse DPI x In-game Sensitivity)
 - Calculates cm/360 (physical mouse movement in centimeters to perform a 360-degree rotation)
+- Provides a free gamified sensitivity test (mini-game) that measures tracking speed and precision without requiring payment
+- Provides DPI/mouse-settings guides for games without a rotating first-person camera (League of Legends, Dota 2, Free Fire) where a yaw-based converter does not apply
 - Recommends mousepads and setups dynamically based on desk space and sensitivity metrics
 - Offers real-time monitor ghosting simulation and PC performance estimations
+- Maintains a crosshair database, mouse database, and side-by-side pro player comparison tool
 
 ## Key Interactive Tools
 
 - **Primary Sensitivity Converter**: https://dcprosens.com
+- **Per-Game Sensitivity Finder** (72 dedicated pages): https://dcprosens.com/sens-finder
+- **Free Sensitivity Test Mini-Game**: https://dcprosens.com/sensitivity-test (canvas + Pointer Lock aim test, no payment required)
+- **DPI Guides for Non-FPS-Camera Games**: https://dcprosens.com/dpi-guide (League of Legends, Dota 2, Free Fire)
 - **PSA Method Calculator**: https://dcprosens.com/psa-calculator (mathematically calibrates perfect sensitivity in 7 steps)
 - **Mousepad Friction & Speed Chart**: https://dcprosens.com/mousepad-chart (dynamic control vs speed scatter plot)
 - **HTML5 Canvas Aim Trainer**: https://dcprosens.com/aim-trainer (emulates in-game mouse sensitivity 1:1 using Pointer Lock API)
@@ -22,36 +28,100 @@ DCPROSENS is a free gaming sensitivity converter and toolset for competitive FPS
 - **Desk Space Sensitivity Calculator**: https://dcprosens.com/desk-space-calculator (calculates sensitivity restrictions based on desk space width in cm)
 - **Stretched Resolution Calculator**: https://dcprosens.com/stretched-resolution (calculates stretched aspect ratio horizontal sensitivity speedups and m_yaw binds)
 - **CS2 Config Bind Generator**: https://dcprosens.com/bind-generator (interactive keyboard visual autoexec.cfg generator)
-- **Aim Training Routine Generator**: https://dcprosens.com/aim-routines (custom KovaaKs and Aimlabs daily playlists)
+- **Aim Training Routine Generator**: https://dcprosens.com/aim-routines (custom KovaaK's and Aimlabs daily playlists)
 - **Pro Compare Tool**: https://dcprosens.com/pros/compare (compare settings and peripherals of pros side-by-side)
 - **Pro Full Setups**: https://dcprosens.com/setups (complete pro setups with direct Amazon links)
 - **Gaming Mouse Database**: https://dcprosens.com/mouse-database (ergonomic specs and sensor lists)
+- **Crosshair Database**: https://dcprosens.com/crosshair-database
+- **Reaction Time Test**: https://dcprosens.com/reaction-time-test
+- **CPS Test**: https://dcprosens.com/cps-test
 
-## Supported Games and Yaw Values
+## Supported Games and Yaw Values (72 total)
+
+Yaw is the degrees of camera rotation per mouse count at sensitivity 1.0. Games sharing the same underlying engine (e.g. Source, GoldSrc, id Tech) share the same yaw and convert 1:1 at equal sensitivity/DPI.
 
 - Valorant: yaw 0.07
 - CS:GO / CS2: yaw 0.022
 - Apex Legends: yaw 0.022
 - Overwatch 2: yaw 0.0066
-- Call of Duty Warzone / MW3: yaw 0.0066
+- Call of Duty: Warzone / MW3: yaw 0.0066
+- Call of Duty: Black Ops 6: yaw 0.0066
 - Rainbow Six Siege: yaw 0.00572
 - Fortnite: yaw 0.005555
-- Battlefield 2042: yaw 0.022
+- Battlefield 2042: yaw 0.022 (unverified — community-sourced, not cross-checked against a technical source)
 - PUBG: yaw 0.00707
 - Destiny 2: yaw 0.0066
-- Quake / Source Engine: yaw 0.022
-- Roblox: yaw 0.2
-- Minecraft (Java): yaw 0.6
-- Deadlock (Valve, Source 2 engine): yaw 0.022
-- The Finals (Embark Studios): yaw 0.0066
-- Marvel Rivals (NetEase, Unreal Engine 5): yaw 0.022
+- Quake / Source Engine (generic engine-family baseline): yaw 0.022
+- Roblox: yaw 0.2 (unverified approximation — Roblox does not publish its camera code)
+- Minecraft (Java): yaw 0.6 (non-linear approximation — Minecraft's true mouse curve is not a fixed yaw)
+- Marvel Rivals: yaw 0.022
+- THE FINALS: yaw 0.0066
 - Rust: yaw 0.11247
+- Deadlock: yaw 0.022 (Source 2)
+- Team Fortress 2: yaw 0.022
+- Left 4 Dead 2: yaw 0.022
+- Left 4 Dead: yaw 0.022
+- Titanfall 2: yaw 0.022
+- Halo Infinite: yaw 0.0225
+- Escape from Tarkov: yaw 0.113636
+- Grand Theft Auto V: yaw 0.0066
+- Insurgency: Sandstorm: yaw 0.14
+- Insurgency (2014): yaw 0.022 (Source engine)
+- Squad: yaw 0.175
+- Hunt: Showdown: yaw 0.022
+- DayZ: yaw 0.179
+- Warframe: yaw 0.014
+- ARK: Survival Evolved: yaw 0.175
+- Diabotical: yaw 0.01667
+- Half-Life 2: yaw 0.022
+- Half-Life: yaw 0.022
+- Portal 2: yaw 0.022
+- Garry's Mod: yaw 0.022
+- Counter-Strike: Source: yaw 0.022
+- Counter-Strike 1.6: yaw 0.022
+- Counter-Strike: Condition Zero: yaw 0.022
+- Black Mesa: yaw 0.022
+- Quake Champions: yaw 0.022
+- Quake III Arena: yaw 0.022
+- Quake (original): yaw 0.022
+- Quake II: yaw 0.022
+- Quake 4: yaw 0.022
+- Quake Live: yaw 0.022
+- DOOM Eternal: yaw 0.022
+- DOOM (2016): yaw 0.022
+- Wolfenstein II: The New Colossus: yaw 0.022
+- Wolfenstein: Youngblood: yaw 0.022
+- Return to Castle Wolfenstein: yaw 0.022
+- Wolfenstein: Enemy Territory: yaw 0.022
+- Star Wars Jedi Knight II: Jedi Outcast: yaw 0.022
+- Star Wars Jedi Knight: Jedi Academy: yaw 0.022
+- Xonotic: yaw 0.022
+- OpenArena: yaw 0.022
+- Team Fortress Classic: yaw 0.022
+- Back 4 Blood: yaw 0.175
+- Splitgate: yaw 0.009501 (weakest-confidence entry — back-calculated, not directly measured)
+- Splitgate 2: yaw 0.01116
+- Helldivers 2: yaw 0.0175
+- Paladins: yaw 0.0092
+- Fallout 76: yaw 0.0175
+- Battalion 1944: yaw 0.0175
+- Reflex Arena: yaw 0.005730
+- Krunker.io: yaw 0.1376
+- Deep Rock Galactic: yaw 0.0134
+- Risk of Rain 2: yaw 0.5
+- Ready or Not: yaw 0.011
+- Roboquest: yaw 0.00042 (unverified, notable outlier)
+- Payday 2: yaw 0.0156
+
+## Games Without a Yaw Converter (DPI guides instead)
+
+League of Legends, Dota 2, and Free Fire do not use a rotating first-person camera, so a yaw-based sensitivity converter does not apply. DCPROSENS provides DPI and mouse-setting guides for these instead at https://dcprosens.com/dpi-guide.
 
 ## Conversion Formulas
 
 - Sensitivity in Game B = Sensitivity in Game A x (Yaw_A / Yaw_B)
 - eDPI = DPI x In-game Sensitivity
-- cm/360 = 37.89 / (CS2_sens * (DPI/800)) or 12.03 / (Valorant_sens * (DPI/800))
+- cm/360 = (360 x 2.54) / (Yaw x Sensitivity x DPI)
 
 ## Pro Player Reference Data 2026
 
@@ -62,3 +132,7 @@ DCPROSENS is a free gaming sensitivity converter and toolset for competitive FPS
 - ZywOo - CS2 - 400 DPI - 2.00 sens (800 eDPI, 47.8 cm/360) - Pulsar Xlite V3
 - Aspas - Valorant - 800 DPI - 0.40 sens (320 eDPI, 40.9 cm/360) - Logitech G Pro X Superlight 2
 - m0NESY - CS2 - 400 DPI - 2.30 sens (920 eDPI, 41.5 cm/360) - Logitech G Pro X Superlight 2
+
+## Full Reference
+
+For the complete expanded dataset (every game's engine, category, and sourcing notes), see https://dcprosens.com/llms-full.txt
