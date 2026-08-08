@@ -67,7 +67,12 @@ export default function AimLabPage() {
                 </p>
             </div>
 
-            <PremiumGuard previewTitle="Aim Lab">
+            <PremiumGuard
+                previewTitle="Aim Lab"
+                altAccessField="aimLabAccess"
+                altAccessPrice="$1"
+                altAccessLabel="Aim Lab"
+            >
                 <AimLab />
             </PremiumGuard>
         </div>

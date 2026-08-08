@@ -9,19 +9,37 @@ interface PremiumGuardProps {
   children: React.ReactNode;
   /** Shown in the animated preview card's title bar, e.g. "PSA Calculator". */
   previewTitle?: string;
+  /**
+   * Name of a boolean field on the user's Firestore doc that, on its own,
+   * also unlocks this specific tool — e.g. "aimLabAccess" for the $1
+   * standalone Aim Lab purchase. Grants access to THIS tool only; it does
+   * not imply a full Pro subscription.
+   */
+  altAccessField?: 'aimLabAccess';
+  /** Price shown on the standalone unlock button, e.g. "$1". Required if altAccessField is set. */
+  altAccessPrice?: string;
+  /** Label for what the standalone purchase unlocks, e.g. "Aim Lab". */
+  altAccessLabel?: string;
 }
 
-export default function PremiumGuard({ children, previewTitle }: PremiumGuardProps) {
+export default function PremiumGuard({
+  children,
+  previewTitle,
+  altAccessField,
+  altAccessPrice,
+  altAccessLabel,
+}: PremiumGuardProps) {
   const { user, userData, loading } = useAuth();
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'annual' | 'lifetime'>('monthly');
+  const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'annual' | 'lifetime' | 'aimlab'>('monthly');
 
-  const openCheckout = (plan: 'monthly' | 'annual' | 'lifetime') => {
+  const openCheckout = (plan: 'monthly' | 'annual' | 'lifetime' | 'aimlab') => {
     setSelectedPlan(plan);
     setModalOpen(true);
   };
 
   const isPremium = userData?.subscriptionStatus === 'active' || userData?.subscriptionStatus === 'premium';
+  const hasAltAccess = !!(altAccessField && userData?.[altAccessField]);
 
   // Renderiza spinner de carregamento
   if (loading) {
@@ -52,8 +70,10 @@ export default function PremiumGuard({ children, previewTitle }: PremiumGuardPro
     );
   }
 
-  // Caso o usuário possua assinatura Premium, renderiza o conteúdo normalmente
-  if (user && isPremium) {
+  // Full Pro subscription unlocks everything; the narrower altAccessField
+  // (e.g. the $1 Aim Lab purchase) only unlocks the specific tool it was
+  // bought for — both paths render the same way from here.
+  if (user && (isPremium || hasAltAccess)) {
     return <>{children}</>;
   }
 
@@ -268,6 +288,36 @@ export default function PremiumGuard({ children, previewTitle }: PremiumGuardPro
             </button>
           </div>
         </div>
+
+        {altAccessField && (
+          <div style={{
+            marginTop: '2.5rem',
+            paddingTop: '2rem',
+            borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+            textAlign: 'center',
+            maxWidth: '480px',
+          }}>
+            <p style={{ color: '#64748b', fontSize: '0.85rem', marginBottom: '0.85rem' }}>
+              Only want {altAccessLabel || 'this tool'}? Skip the subscription.
+            </p>
+            <button
+              onClick={() => openCheckout('aimlab')}
+              style={{
+                background: 'transparent',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                color: '#cbd5e1',
+                borderRadius: '8px',
+                padding: '0.65rem 1.5rem',
+                fontWeight: 600,
+                fontSize: '0.85rem',
+                cursor: 'pointer',
+                transition: 'all 0.2s',
+              }}
+            >
+              Unlock {altAccessLabel || 'this tool'} only — {altAccessPrice || '$1'} one-time
+            </button>
+          </div>
+        )}
       </div>
 
       <StripeCheckoutModal

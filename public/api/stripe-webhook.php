@@ -100,7 +100,22 @@ try {
             $userId = $session['client_reference_id'] ?? ($session['metadata']['userId'] ?? null);
             $plan = $session['metadata']['plan'] ?? null;
 
-            if (!$userId || !$plan || !plan_grants_access($plan)) {
+            if (!$userId || !$plan) {
+                break; // no linked account, nothing to grant
+            }
+
+            // Aim Lab standalone purchase ($1, one-time) grants a narrow
+            // feature flag, not full subscriptionStatus — it must NOT unlock
+            // the rest of the Pro tools.
+            if ($plan === 'aimlab') {
+                firestore_update_user($firebaseProjectId, $accessToken, $userId, [
+                    'aimLabAccess' => true,
+                    'aimLabPurchasedAt' => gmdate('c'),
+                ]);
+                break;
+            }
+
+            if (!plan_grants_access($plan)) {
                 break; // e.g. the ebook purchase — not a premium plan, nothing to grant
             }
 

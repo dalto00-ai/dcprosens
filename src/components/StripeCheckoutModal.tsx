@@ -7,7 +7,7 @@ import styles from './StripeCheckoutModal.module.css';
 interface StripeCheckoutModalProps {
   isOpen: boolean;
   onClose: () => void;
-  plan: 'monthly' | 'annual' | 'lifetime';
+  plan: 'monthly' | 'annual' | 'lifetime' | 'aimlab';
   /** Adds a 3-day free trial (still collects a card; only valid for monthly/annual). */
   trial?: boolean;
 }
@@ -148,8 +148,17 @@ export const StripeCheckoutModal: React.FC<StripeCheckoutModalProps> = ({
       <div className={styles.modalContainer} onClick={(e) => e.stopPropagation()}>
         <div className={styles.modalHeader}>
           <h3>
-            ⚡ DCPROSENS Pro <span className={styles.badge}>
-              {trial ? '3-Day Free Trial' : plan === 'lifetime' ? 'Lifetime' : plan === 'annual' ? 'Annual (Save 33%)' : 'Monthly'}
+            {plan === 'aimlab' ? '🧪 Aim Lab' : '⚡ DCPROSENS Pro'}{' '}
+            <span className={styles.badge}>
+              {plan === 'aimlab'
+                ? 'Standalone — $1'
+                : trial
+                ? '3-Day Free Trial'
+                : plan === 'lifetime'
+                ? 'Lifetime'
+                : plan === 'annual'
+                ? 'Annual (Save 33%)'
+                : 'Monthly'}
             </span>
           </h3>
           <button className={styles.closeButton} onClick={onClose} aria-label="Close modal">

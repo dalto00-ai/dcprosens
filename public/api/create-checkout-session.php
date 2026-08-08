@@ -58,6 +58,11 @@ switch ($plan) {
         $planName = 'The Precision Aim System (4-Part Ebook & Training System)';
         $isPaymentOneTime = true;
         break;
+    case 'aimlab':
+        $amount = 100;   // $1.00 USD, one-time, standalone (not the full subscription)
+        $planName = 'DCPROSENS Aim Lab (Standalone Access)';
+        $isPaymentOneTime = true;
+        break;
     case 'lifetime':
         $amount = 14900; // $149.00 one-time
         $planName = 'DCPROSENS Pro Membership (Lifetime)';
@@ -92,6 +97,7 @@ $returnUrl = ($plan === 'ebook')
 $descriptions = [
     'ebook' => 'Complete 4-Part Precision Aim System Ebook (Instant PDF Download)',
     'lifetime' => 'One-time payment. Unlimited access to all pro tools, forever.',
+    'aimlab' => 'One-time payment. Permanent access to Aim Lab only (does not include other Pro tools).',
 ];
 $description = $descriptions[$plan] ?? 'Unlimited access to all pro tools, PSA method calculator, crosshair database & gear specs';
 

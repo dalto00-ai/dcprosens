@@ -28,6 +28,9 @@ interface UserData {
     avgReaction: number;
     timestamp: string;
   }[];
+  /** $1 one-time standalone unlock for Aim Lab only — separate from subscriptionStatus. */
+  aimLabAccess?: boolean;
+  aimLabPurchasedAt?: string;
   createdAt?: string;
 }
 
