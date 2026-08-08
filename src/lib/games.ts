@@ -105,4 +105,15 @@ export const games: Game[] = [
     // esreality), same 0.022 as our existing Quake/Quake Champions entries.
     { id: 'quake3', name: 'Quake III Arena', yaw: 0.022 },
     { id: 'doometernal', name: 'DOOM Eternal', yaw: 0.022 },
+    // Official Valve GoldSrc titles from the same era/tech as CS 1.6 —
+    // not individually re-verified, but this is Valve's own well-documented
+    // default, not a third-party port/spinoff with unknown modifications
+    // (unlike Counter-Strike Online/Neo, which were deliberately excluded).
+    { id: 'csconditionzero', name: 'Counter-Strike: Condition Zero', yaw: 0.022 },
+    { id: 'tfc', name: 'Team Fortress Classic', yaw: 0.022 },
+    // UNVERIFIED: single-source figure. (Fallout 4's figure from the same
+    // source was 3.78 — implausible next to every other entry in this file,
+    // almost certainly a unit mix-up — so it was left out entirely rather
+    // than trusted just because it came from the same place as this one.)
+    { id: 'fallout76', name: 'Fallout 76', yaw: 0.0175 },
 ];
