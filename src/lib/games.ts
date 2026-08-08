@@ -84,4 +84,10 @@ export const games: Game[] = [
     { id: 'quakechampions', name: 'Quake Champions', yaw: 0.022 },
     // UNVERIFIED: single-source figure only.
     { id: 'back4blood', name: 'Back 4 Blood', yaw: 0.175 },
+    // WEAKEST-CONFIDENCE entry in this file — not a directly published yaw.
+    // Derived from a Valorant->Splitgate sensitivity ratio (x7.367413)
+    // quoted by a gaming-news site (Sportskeeda), not a sensitivity-focused
+    // technical source, via yaw = 0.07 (our Valorant value) / 7.367413.
+    // Treat as a rough starting point only; replace if a better source shows up.
+    { id: 'splitgate', name: 'Splitgate', yaw: 0.009501 },
 ];
