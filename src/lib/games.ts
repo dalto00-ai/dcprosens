@@ -101,4 +101,8 @@ export const games: Game[] = [
     { id: 'codbo6', name: 'Call of Duty: Black Ops 6', yaw: 0.0066 },
     // UNVERIFIED: single-source figure only.
     { id: 'paladins', name: 'Paladins', yaw: 0.0092 },
+    // id Tech/Quake lineage — confirmed via technical forums (quake3world,
+    // esreality), same 0.022 as our existing Quake/Quake Champions entries.
+    { id: 'quake3', name: 'Quake III Arena', yaw: 0.022 },
+    { id: 'doometernal', name: 'DOOM Eternal', yaw: 0.022 },
 ];
