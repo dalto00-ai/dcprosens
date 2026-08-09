@@ -16,8 +16,50 @@ export default function Footer() {
                     <Link href="/privacy" prefetch={false} style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Privacidade</Link>
                 </div>
                 <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
-                    <a 
-                        href="https://chromewebstore.google.com/detail/dcprosens-sensitivity-con/hamlcadjopefnhcebjafcllomlphapbc" 
+                    <a
+                        href="https://www.tiktok.com/@dcprosens"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="DCPROSENS on TikTok"
+                        style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '0.5rem',
+                            padding: '0.5rem 1rem',
+                            background: 'rgba(255, 255, 255, 0.05)',
+                            border: '1px solid var(--border-color)',
+                            borderRadius: '8px',
+                            color: '#fff',
+                            fontSize: '0.82rem',
+                            fontWeight: 600,
+                            textDecoration: 'none'
+                        }}
+                    >
+                        🎵 TikTok
+                    </a>
+                    <a
+                        href="https://x.com/dcprosens"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="DCPROSENS on X"
+                        style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '0.5rem',
+                            padding: '0.5rem 1rem',
+                            background: 'rgba(255, 255, 255, 0.05)',
+                            border: '1px solid var(--border-color)',
+                            borderRadius: '8px',
+                            color: '#fff',
+                            fontSize: '0.82rem',
+                            fontWeight: 600,
+                            textDecoration: 'none'
+                        }}
+                    >
+                        𝕏 Twitter/X
+                    </a>
+                    <a
+                        href="https://chromewebstore.google.com/detail/dcprosens-sensitivity-con/hamlcadjopefnhcebjafcllomlphapbc"
                         target="_blank" 
                         rel="noopener noreferrer"
                         style={{
