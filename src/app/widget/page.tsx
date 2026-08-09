@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import WidgetGenerator from "@/components/WidgetGenerator";
 
 export const metadata: Metadata = {
-    title: "Embeddable Sensitivity Widget for Streamers — Free | DCPROSENS",
+    title: "Embeddable Sensitivity Widget for Streamers — Free",
     description:
         "Generate a free embeddable sensitivity widget for your Twitch panel, stream overlay, or bio link. Viewers see your settings and instantly convert them to their own game.",
     keywords: [

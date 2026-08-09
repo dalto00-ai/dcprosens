@@ -1,10 +1,11 @@
 ====================================================================
-  DCPROSENS — LISTA COMPLETA DE TODAS AS 220 URLS PARA INDEXAÇÃO
+  DCPROSENS — LISTA COMPLETA DE TODAS AS 222 URLS PARA INDEXAÇÃO
 ====================================================================
 
 https://dcprosens.com/
 https://dcprosens.com/Ebooks/Precision_Aim_System_Premium_Manifestos
 https://dcprosens.com/about
+https://dcprosens.com/aim-lab
 https://dcprosens.com/aim-routines
 https://dcprosens.com/aim-trainer
 https://dcprosens.com/bind-generator
@@ -221,4 +222,5 @@ https://dcprosens.com/web-stories/how-to-rank-up-fast-fps-2026
 https://dcprosens.com/web-stories/top-5-gaming-mice-2026
 https://dcprosens.com/web-stories/valorant-vs-cs2-sensitivity-differences
 https://dcprosens.com/web-stories/what-is-edpi-quick-guide
+https://dcprosens.com/widget
 https://dcprosens.com/yandex_b50282a38dee461f

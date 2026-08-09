@@ -4,7 +4,7 @@ import ProsList from './ProsList';
 
 // ─── SEO Metadata ─────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
-    title: 'Pro Player Sensitivity Settings 2025 — TenZ, s1mple, ZywOo, NiKo | DCPROSENS',
+    title: 'Pro Player Sensitivity Settings 2025 — TenZ, s1mple, ZywOo, NiKo',
     description:
         'Find exact sensitivity settings for 20+ pro players. TenZ uses 0.3 @ 800 DPI (240 eDPI). s1mple uses 3.09 @ 400 DPI. ZywOo, NiKo, Aspas, Demon1, ropz, dev1ce, m0NESY settings and more.',
     keywords: [

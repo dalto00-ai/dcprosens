@@ -4,7 +4,7 @@ import { pros } from '@/lib/pros';
 import CopyButton from '@/components/CopyButton';
 
 export const metadata: Metadata = {
-    title: 'Pro Valorant Crosshair Codes — Copy TenZ, Aspas, yay & More | DCPROSENS',
+    title: 'Pro Valorant Crosshair Codes — Copy TenZ, Aspas, yay & More',
     description:
         'Real, ready-to-import Valorant crosshair codes from pro players: TenZ, Aspas, Demon1, Boaster, yay. Copy the code and import it directly in-game.',
     keywords: [

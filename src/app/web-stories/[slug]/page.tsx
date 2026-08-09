@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (!story) return { title: 'Story Not Found' };
 
     return {
-        title: `${story.title} | DCPROSENS Web Stories`,
+        title: `${story.title} — Web Stories`,
         description: story.excerpt,
         alternates: { canonical: `https://dcprosens.com/web-stories/${story.slug}` },
         openGraph: {

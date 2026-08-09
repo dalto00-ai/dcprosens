@@ -5,7 +5,7 @@ import { posts } from '@/lib/posts';
 import blogStyles from './blog.module.css';
 
 export const metadata: Metadata = {
-    title: "Gaming Sensitivity & Aim Guides — Blog | DCPROSENS",
+    title: "Gaming Sensitivity & Aim Guides — Blog",
     description: "Step-by-step guides on mouse sensitivity conversion, eDPI, cm/360, DPI settings, and top gaming gear reviews for Valorant, CS2, Apex & more.",
     keywords: [
         // Blog / Content

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import PremiumGuard from '@/components/PremiumGuard';
 
 export const metadata: Metadata = {
-    title: 'Online Aim Trainer 3D — Test Reaction Time & Click Precision | DCPROSENS',
+    title: 'Online Aim Trainer 3D — Test Reaction Time & Click Precision',
     description: 'Improve your FPS clicking accuracy with our free browser-based aim trainer. Practice flicking, micro-adjustments, and tracking with simulated game sensitivity.',
     keywords: [
         'aim trainer online',

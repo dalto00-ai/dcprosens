@@ -3,7 +3,7 @@ import MonitorSimulator from '@/components/MonitorSimulator';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: 'Monitor Refresh Rate Hz Simulator — 60Hz vs 144Hz vs 240Hz vs 360Hz | DCPROSENS',
+    title: 'Monitor Refresh Rate Hz Simulator — 60Hz vs 144Hz vs 240Hz vs 360Hz',
     description: 'See the visual difference between 60Hz, 144Hz, 240Hz, and 360Hz refresh rates. Simulate monitor ghosting, motion blur, and response times in real time.',
     keywords: [
         'monitor refresh rate simulator',

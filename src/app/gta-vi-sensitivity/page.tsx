@@ -3,7 +3,7 @@ import Link from "next/link";
 import NotifyMeForm from "@/components/NotifyMeForm";
 
 export const metadata: Metadata = {
-    title: "GTA VI Sensitivity Converter — Coming Soon | DCPROSENS",
+    title: "GTA VI Sensitivity Converter — Coming Soon",
     description: "GTA VI hasn't launched yet, so there's no verified sensitivity/yaw data to convert accurately. Sign up and we'll email you the moment our GTA VI sensitivity converter goes live.",
     keywords: [
         'gta vi sensitivity', 'gta 6 sensitivity converter', 'gta vi mouse sensitivity',

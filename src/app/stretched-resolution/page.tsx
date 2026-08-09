@@ -3,7 +3,7 @@ import StretchedResCalc from '@/components/StretchedResCalc';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: "Stretched Resolution Sensitivity Calculator — 4:3 FOV & m_yaw | DCPROSENS",
+    title: "Stretched Resolution Sensitivity Calculator — 4:3 FOV & m_yaw",
     description: "Calculate how stretching your resolution (e.g., 4:3 in CS2 or R6 Siege) affects your mouse sensitivity. Adjust FOV and calculate m_yaw corrections for a perfect 1:1 feel.",
     keywords: [
         'stretched resolution sensitivity',

@@ -3,7 +3,7 @@ import PremiumGuard from "@/components/PremiumGuard";
 import AimLab from "@/components/AimLab";
 
 export const metadata: Metadata = {
-    title: "Aim Lab — Premium Precision Training | DCPROSENS",
+    title: "Aim Lab — Premium Precision Training",
     description:
         "Four premium aim-training modes: Micro-Flick precision, Dynamic Click Timing, Strafe Peek reflex, and Ghost vs Pro — play using a real pro player's exact sensitivity.",
     keywords: [

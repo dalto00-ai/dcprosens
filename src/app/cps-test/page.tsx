@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import CpsTest from '@/components/CpsTest';
 
 export const metadata: Metadata = {
-    title: 'CPS Test — Click Speed Test (Clicks Per Second) | DCPROSENS',
+    title: 'CPS Test — Click Speed Test (Clicks Per Second)',
     description:
         'Test your clicks per second (CPS) with a free online click speed test. Choose 5s, 10s, 30s, or 60s and see if you can beat your record.',
     keywords: [

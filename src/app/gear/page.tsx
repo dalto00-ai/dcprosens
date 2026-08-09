@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { keyboards, headsets, monitors, mousepads } from '@/lib/gearDatabase';
 
 export const metadata: Metadata = {
-    title: "Pro Gaming Gear Database 2025 — Best Keyboards, Headsets, Monitors, Mousepads | DCPROSENS",
+    title: "Pro Gaming Gear Database 2025 — Best Keyboards, Headsets, Monitors, Mousepads",
     description: "Complete pro gaming gear database. Best gaming keyboards, headsets, monitors and mousepads used by TenZ, s1mple, ZywOo, NiKo, Aspas and more pro players. Filter by type, brand and budget.",
     keywords: [
         // Keyboards

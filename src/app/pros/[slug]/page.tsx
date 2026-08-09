@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (!pro) return { title: 'Player Not Found' };
 
     return {
-        title: `${pro.name} Sensitivity Settings 2025 — ${pro.game} DPI & Config | DCPROSENS`,
+        title: `${pro.name} Sensitivity Settings 2025 — ${pro.game} DPI & Config`,
         description: `${pro.name} uses ${pro.dpi} DPI and ${pro.sens} sensitivity in ${pro.game} (${pro.edpi} eDPI, ${pro.cm360} cm/360). Mouse: ${pro.mouse}. Full config, crosshair, mousepad, keyboard, monitor and more.`,
         keywords: [
             `${pro.name} sensitivity`,

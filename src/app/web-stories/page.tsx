@@ -3,7 +3,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Web Stories — Gaming Sensitivity Tips | DCPROSENS',
+    title: 'Web Stories — Gaming Sensitivity Tips',
     description: 'Quick visual guides on gaming sensitivity, pro settings, and FPS optimization. Tap through our Web Stories for bite-sized gaming knowledge.',
     alternates: { canonical: 'https://dcprosens.com/web-stories' },
     openGraph: {

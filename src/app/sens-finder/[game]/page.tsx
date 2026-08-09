@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const game = games.find((g) => g.id === gameId);
     if (!content || !game) return { title: 'Game Not Found' };
 
-    const title = `${content.displayName} Sensitivity Converter — cm/360 & eDPI Calculator | DCPROSENS`;
+    const title = `${content.displayName} Sensitivity Converter — cm/360 & eDPI Calculator`;
     const description = `Convert your ${content.displayName} sensitivity to any other FPS game (or vice versa) with an exact cm/360 match. Yaw: ${game.yaw}, engine: ${content.engine}.`;
 
     return {

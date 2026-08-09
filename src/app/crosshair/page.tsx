@@ -4,7 +4,7 @@ import Link from 'next/link';
 import PremiumGuard from '@/components/PremiumGuard';
 
 export const metadata: Metadata = {
-    title: 'Crosshair Generator 2025 — Valorant & CS2 Custom Crosshair | DCPROSENS',
+    title: 'Crosshair Generator 2025 — Valorant & CS2 Custom Crosshair',
     description: 'Create your perfect gaming crosshair for Valorant and CS2. Customize color, size, gap, thickness and dot. Generate crosshair code instantly. Pro crosshair presets: TenZ, aspas, yay, s1mple.',
     keywords: [
         'valorant crosshair generator',

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { pros } from '@/lib/pros';
 
 export const metadata: Metadata = {
-    title: 'Pro Gaming Setups 2025 — What Gear Do Pros Use? | DCPROSENS',
+    title: 'Pro Gaming Setups 2025 — What Gear Do Pros Use?',
     description:
         'Complete pro player gaming setups: mouse, keyboard, headset, monitor, and mousepad. Find out exactly what TenZ, s1mple, ZywOo, Aspas, ImperialHal and more use in 2025.',
     keywords: [

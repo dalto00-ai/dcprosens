@@ -3,7 +3,7 @@ import MouseFinder from '@/components/MouseFinder';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: "Mouse Finder Quiz 2025 — Find the Best Gaming Mouse | DCPROSENS",
+    title: "Mouse Finder Quiz 2025 — Find the Best Gaming Mouse",
     description: "Take our 4-step ergonomic quiz to find the perfect gaming mouse. Input your hand size and grip style to match with top mice used by FPS professionals.",
     keywords: [
         'mouse finder',

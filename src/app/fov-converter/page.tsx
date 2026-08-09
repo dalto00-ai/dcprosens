@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import FovConverter from '@/components/FovConverter';
 
 export const metadata: Metadata = {
-    title: 'FOV Converter — Convert Field of View Between Aspect Ratios | DCPROSENS',
+    title: 'FOV Converter — Convert Field of View Between Aspect Ratios',
     description:
         'Convert your horizontal field of view (FOV) between aspect ratios (16:9, 21:9, 32:9, 4:3) using the Hor+ scaling formula used by most modern game engines.',
     keywords: [

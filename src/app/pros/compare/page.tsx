@@ -3,7 +3,7 @@ import ProCompare from '@/components/ProCompare';
 import PremiumGuard from '@/components/PremiumGuard';
 
 export const metadata: Metadata = {
-    title: 'Pro Player Settings Compare Tool 2025 — Valorant & CS2 | DCPROSENS',
+    title: 'Pro Player Settings Compare Tool 2025 — Valorant & CS2',
     description:
         'Compare mouse sensitivity settings, eDPI, cm/360, mouse, keyboard, headset, and monitor specs of top pro players like TenZ, s1mple, aspas, ZywOo, and more side-by-side.',
     keywords: [

@@ -19,6 +19,8 @@ DCPROSENS is a gaming sensitivity converter and toolset for competitive FPS, thi
 - **Primary Sensitivity Converter**: https://dcprosens.com
 - **Per-Game Sensitivity Finder** (72 dedicated pages): https://dcprosens.com/sens-finder
 - **Free Sensitivity Test Mini-Game**: https://dcprosens.com/sensitivity-test (canvas + Pointer Lock aim test, no payment required)
+- **Aim Lab** (Premium): https://dcprosens.com/aim-lab (4 training modes — Micro-Flick, Dynamic Click Timing, Strafe Peek, Ghost vs Pro; unlockable via full subscription or a $1 standalone one-time purchase)
+- **Streamer Sensitivity Widget Generator**: https://dcprosens.com/widget (free, no account needed — generates an embeddable iframe widget for Twitch panels/bio links showing a streamer's sensitivity with a built-in converter for viewers)
 - **DPI Guides for Non-FPS-Camera Games**: https://dcprosens.com/dpi-guide (League of Legends, Dota 2, Free Fire)
 - **PSA Method Calculator**: https://dcprosens.com/psa-calculator (mathematically calibrates perfect sensitivity in 7 steps)
 - **Mousepad Friction & Speed Chart**: https://dcprosens.com/mousepad-chart (dynamic control vs speed scatter plot)

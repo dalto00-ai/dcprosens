@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import ReactionTimeTest from '@/components/ReactionTimeTest';
 
 export const metadata: Metadata = {
-    title: 'Reaction Time Test — Measure Your Visual Reaction Speed | DCPROSENS',
+    title: 'Reaction Time Test — Measure Your Visual Reaction Speed',
     description:
         'Test your visual reaction time in milliseconds with a free online reaction test. 5 attempts, average and best time, no download required.',
     keywords: [

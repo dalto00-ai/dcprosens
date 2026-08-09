@@ -4,7 +4,7 @@ import Link from 'next/link';
 import PremiumGuard from '@/components/PremiumGuard';
 
 export const metadata: Metadata = {
-    title: "Custom Aim Training Routine Generator — Aimlabs & KovaaKs | DCPROSENS",
+    title: "Custom Aim Training Routine Generator — Aimlabs & KovaaKs",
     description: "Get a personalized 30-minute aim training routine. Select your game, rank, and target weaknesses to generate step-by-step training playlists for KovaaKs and Aimlabs.",
     keywords: [
         'aim routine generator', 'aim training generator', 'kovaaks routine generator', 'aimlabs routine generator',

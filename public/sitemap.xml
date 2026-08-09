@@ -19,6 +19,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/aim-lab</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/aim-routines</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -1310,6 +1316,12 @@
   </url>
   <url>
     <loc>https://dcprosens.com/web-stories/what-is-edpi-quick-guide</loc>
+    <lastmod>2026-08-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/widget</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
