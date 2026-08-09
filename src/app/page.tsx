@@ -215,6 +215,30 @@ export default function Home() {
                     </section>
                 </ScrollReveal>
 
+                {/* ═══════════ FREE AIM TRAINER SPOTLIGHT ═══════════ */}
+                <ScrollReveal>
+                    <section className="home-cta-section" style={{ marginTop: '3rem' }}>
+                        <div className="home-cta-inner">
+                            <span className="home-section-badge">🎮 100% FREE — NO SIGN-UP</span>
+                            <h2 className="home-cta-title">
+                                Test Your Aim <span className="text-gradient">Right Now</span>
+                            </h2>
+                            <p className="home-cta-desc">
+                                Our browser-based Aim Trainer simulates your exact in-game sensitivity — Gridshot flicks,
+                                target tracking, and reflex drills. Free forever, no account needed.
+                            </p>
+                            <div className="home-cta-buttons">
+                                <Link href="/aim-trainer" className="home-cta-btn-primary">
+                                    Play Free Now →
+                                </Link>
+                                <Link href="/aim-lab" className="home-cta-btn-secondary">
+                                    Want More? Try Aim Lab
+                                </Link>
+                            </div>
+                        </div>
+                    </section>
+                </ScrollReveal>
+
                 {/* ═══════════ COMPLETE TOOL SUITE ═══════════ */}
                 <ScrollReveal>
                     <section className="home-tools-section">

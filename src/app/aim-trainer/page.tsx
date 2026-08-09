@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import AimTrainer from '@/components/AimTrainer';
 import Link from 'next/link';
-import PremiumGuard from '@/components/PremiumGuard';
 
 export const metadata: Metadata = {
     title: 'Online Aim Trainer 3D',
@@ -126,11 +125,10 @@ export default function AimTrainerPage() {
                 </div>
             </section>
 
-            {/* Trainer Component Container */}
+            {/* Trainer Component Container — free, no PremiumGuard: this is the
+                hook tool meant to attract public before the Aim Lab upsell. */}
             <div className="container" style={{ maxWidth: 1000 }}>
-                <PremiumGuard previewTitle="Aim Trainer">
-                    <AimTrainer />
-                </PremiumGuard>
+                <AimTrainer />
             </div>
 
             {/* SEO Article */}
