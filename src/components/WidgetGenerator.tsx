@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { games } from "@/lib/games";
+import PremiumGuard from "@/components/PremiumGuard";
 import styles from "./WidgetGenerator.module.css";
 
 export default function WidgetGenerator() {
@@ -35,69 +36,72 @@ export default function WidgetGenerator() {
     };
 
     return (
-        <div className={styles.wrap}>
-            <div className={styles.form}>
-                <label className={styles.field}>
-                    <span>Display name</span>
-                    <input
-                        type="text"
-                        value={name}
-                        maxLength={24}
-                        onChange={(e) => setName(e.target.value)}
-                        placeholder="YourName"
-                    />
-                </label>
-
-                <label className={styles.field}>
-                    <span>Game</span>
-                    <select value={game} onChange={(e) => setGame(e.target.value)}>
-                        {games.map((g) => (
-                            <option key={g.id} value={g.id}>
-                                {g.name}
-                            </option>
-                        ))}
-                    </select>
-                </label>
-
-                <div className={styles.row}>
+        <PremiumGuard previewTitle="Streamer Sensitivity Widget">
+            <div className={styles.wrap}>
+                <div className={styles.form}>
                     <label className={styles.field}>
-                        <span>Sensitivity</span>
+                        <span>Display name</span>
                         <input
-                            type="number"
-                            step="0.001"
-                            value={sens}
-                            onChange={(e) => setSens(e.target.value)}
+                            type="text"
+                            value={name}
+                            maxLength={24}
+                            onChange={(e) => setName(e.target.value)}
+                            placeholder="YourName"
                         />
                     </label>
+
                     <label className={styles.field}>
-                        <span>DPI</span>
-                        <input
-                            type="number"
-                            step="50"
-                            value={dpi}
-                            onChange={(e) => setDpi(e.target.value)}
-                        />
+                        <span>Game</span>
+                        <select value={game} onChange={(e) => setGame(e.target.value)}>
+                            {games.map((g) => (
+                                <option key={g.id} value={g.id}>
+                                    {g.name}
+                                </option>
+                            ))}
+                        </select>
                     </label>
+
+                    <div className={styles.row}>
+                        <label className={styles.field}>
+                            <span>Sensitivity</span>
+                            <input
+                                type="number"
+                                step="0.001"
+                                value={sens}
+                                onChange={(e) => setSens(e.target.value)}
+                            />
+                        </label>
+                        <label className={styles.field}>
+                            <span>DPI</span>
+                            <input
+                                type="number"
+                                step="50"
+                                value={dpi}
+                                onChange={(e) => setDpi(e.target.value)}
+                            />
+                        </label>
+                    </div>
+                </div>
+
+                <div className={styles.previewCol}>
+                    <p className={styles.previewLabel}>Live preview</p>
+                    <div className={styles.previewFrame}>
+                        <iframe
+                            src={embedUrl}
+                            width="340"
+                            height="240"
+                            style={{ border: "none", borderRadius: "10px" }}
+                            title="Widget preview"
+                        />
+                    </div>
+
+                    <button type="button" className={styles.copyBtn} onClick={copyCode}>
+                        {copied ? "Copied!" : "Copy embed code"}
+                    </button>
+                    <textarea className={styles.codeBox} readOnly value={iframeCode} rows={3} />
                 </div>
             </div>
-
-            <div className={styles.previewCol}>
-                <p className={styles.previewLabel}>Live preview</p>
-                <div className={styles.previewFrame}>
-                    <iframe
-                        src={embedUrl}
-                        width="340"
-                        height="240"
-                        style={{ border: "none", borderRadius: "10px" }}
-                        title="Widget preview"
-                    />
-                </div>
-
-                <button type="button" className={styles.copyBtn} onClick={copyCode}>
-                    {copied ? "Copied!" : "Copy embed code"}
-                </button>
-                <textarea className={styles.codeBox} readOnly value={iframeCode} rows={3} />
-            </div>
-        </div>
+        </PremiumGuard>
     );
 }
+

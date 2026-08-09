@@ -66,12 +66,30 @@ export default function Navbar() {
 
                 {/* DESKTOP LINKS - CATEGORIZED WITH DROPDOWNS */}
                 <div className={styles.links}>
-                    {/* DROP DOWN 1: AIM & SENSITIVITY */}
+                    {/* DROP DOWN 1: AIM GAMES & CALIBRATORS */}
                     <div className={styles.dropdown}>
-                        <span className={styles.dropdownToggle}>Aim &amp; Sens</span>
+                        <span className={styles.dropdownToggle}>Aim &amp; Games</span>
                         <div className={styles.dropdownMenu}>
                             <Link href="/" className={`${styles.dropdownItem} ${pathname === '/' ? styles.activeItem : ''}`} prefetch={false}>
                                 🎯 Sensitivity Converter
+                            </Link>
+                            <Link href="/aim-trainer" className={`${styles.dropdownItem} ${pathname === '/aim-trainer' ? styles.activeItem : ''}`} prefetch={false}>
+                                🎮 Online 3D Aim Trainer <span style={{ fontSize: '0.68rem', background: '#00ff9d', color: '#000', padding: '0.15rem 0.4rem', borderRadius: '4px', fontWeight: 800, marginLeft: '0.4rem' }}>FREE</span>
+                            </Link>
+                            <Link href="/aim-lab" className={`${styles.dropdownItem} ${pathname === '/aim-lab' ? styles.activeItem : ''}`} prefetch={false}>
+                                ⚡ Aim Lab Pro <span style={{ fontSize: '0.68rem', background: 'linear-gradient(135deg, #ff4757, #ff6b81)', color: '#fff', padding: '0.15rem 0.4rem', borderRadius: '4px', fontWeight: 800, marginLeft: '0.4rem' }}>PREMIUM</span>
+                            </Link>
+                            <Link href="/sensitivity-test" className={`${styles.dropdownItem} ${pathname === '/sensitivity-test' ? styles.activeItem : ''}`} prefetch={false}>
+                                🕹️ Sensitivity Test <span style={{ fontSize: '0.68rem', background: 'rgba(0,255,157,0.15)', color: '#00ff9d', border: '1px solid #00ff9d', padding: '0.1rem 0.35rem', borderRadius: '4px', fontWeight: 700, marginLeft: '0.4rem' }}>2 TRIALS</span>
+                            </Link>
+                            <Link href="/widget" className={`${styles.dropdownItem} ${pathname === '/widget' ? styles.activeItem : ''}`} prefetch={false}>
+                                📡 Streamer Sens Widget <span style={{ fontSize: '0.68rem', background: '#3b82f6', color: '#fff', padding: '0.15rem 0.4rem', borderRadius: '4px', fontWeight: 800, marginLeft: '0.4rem' }}>PRO</span>
+                            </Link>
+                            <Link href="/psa-calculator" className={`${styles.dropdownItem} ${pathname === '/psa-calculator' ? styles.activeItem : ''}`} prefetch={false}>
+                                📐 PSA Method Calculator
+                            </Link>
+                            <Link href="/sens-finder" className={`${styles.dropdownItem} ${pathname === '/sens-finder' ? styles.activeItem : ''}`} prefetch={false}>
+                                🔍 cm/360 Sensitivity Finder
                             </Link>
                             <Link href="/ads" className={`${styles.dropdownItem} ${pathname === '/ads' ? styles.activeItem : ''}`} prefetch={false}>
                                 🔭 ADS &amp; Scope 1:1
@@ -79,17 +97,8 @@ export default function Navbar() {
                             <Link href="/dpi" className={`${styles.dropdownItem} ${pathname === '/dpi' ? styles.activeItem : ''}`} prefetch={false}>
                                 📏 DPI &amp; eDPI Calc
                             </Link>
-                            <Link href="/sens-finder" className={`${styles.dropdownItem} ${pathname === '/sens-finder' ? styles.activeItem : ''}`} prefetch={false}>
-                                🔍 cm/360 Sensitivity Finder
-                            </Link>
-                            <Link href="/psa-calculator" className={`${styles.dropdownItem} ${pathname === '/psa-calculator' ? styles.activeItem : ''}`} prefetch={false}>
-                                📐 PSA Method Calculator
-                            </Link>
                             <Link href="/aim-routines" className={`${styles.dropdownItem} ${pathname === '/aim-routines' ? styles.activeItem : ''}`} prefetch={false}>
                                 📅 Custom Aim Routines
-                            </Link>
-                            <Link href="/aim-trainer" className={`${styles.dropdownItem} ${pathname === '/aim-trainer' ? styles.activeItem : ''}`} prefetch={false}>
-                                🎮 Online 3D Aim Trainer
                             </Link>
                             <Link href="/fov-converter" className={`${styles.dropdownItem} ${pathname === '/fov-converter' ? styles.activeItem : ''}`} prefetch={false}>
                                 🖥️ FOV Converter
@@ -269,9 +278,21 @@ export default function Navbar() {
                 </div>
 
                 <div className={styles.drawerLinks} style={{ overflowY: 'auto', flex: 1, paddingBottom: '2rem' }}>
-                    <div className={styles.drawerCategory}>🎯 Aim &amp; Sensitivity</div>
+                    <div className={styles.drawerCategory}>🎯 Aim &amp; Sensitivity Games</div>
                     <Link href="/" className={`${styles.drawerLink} ${pathname === '/' ? styles.drawerActive : ''}`} onClick={closeDrawer}>
                         🏠 Primary Converter
+                    </Link>
+                    <Link href="/aim-trainer" className={`${styles.drawerLink} ${pathname === '/aim-trainer' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        🎮 Online 3D Aim Trainer (FREE)
+                    </Link>
+                    <Link href="/aim-lab" className={`${styles.drawerLink} ${pathname === '/aim-lab' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        ⚡ Aim Lab Pro (PREMIUM)
+                    </Link>
+                    <Link href="/sensitivity-test" className={`${styles.drawerLink} ${pathname === '/sensitivity-test' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        🕹️ Sensitivity Test (2 TRIALS)
+                    </Link>
+                    <Link href="/widget" className={`${styles.drawerLink} ${pathname === '/widget' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        📡 Streamer Sens Widget (PRO)
                     </Link>
                     <Link href="/ads" className={`${styles.drawerLink} ${pathname === '/ads' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         🎯 Scopes / ADS 1:1
@@ -287,9 +308,6 @@ export default function Navbar() {
                     </Link>
                     <Link href="/aim-routines" className={`${styles.drawerLink} ${pathname === '/aim-routines' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         📅 Custom Aim Routines
-                    </Link>
-                    <Link href="/aim-trainer" className={`${styles.drawerLink} ${pathname === '/aim-trainer' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
-                        🎯 Online Aim Trainer
                     </Link>
                     <Link href="/fov-converter" className={`${styles.drawerLink} ${pathname === '/fov-converter' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         🖥️ FOV Converter

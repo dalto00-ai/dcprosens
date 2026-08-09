@@ -219,20 +219,23 @@ export default function Home() {
                 <ScrollReveal>
                     <section className="home-cta-section" style={{ marginTop: '3rem' }}>
                         <div className="home-cta-inner">
-                            <span className="home-section-badge">🎮 100% FREE — NO SIGN-UP</span>
+                            <span className="home-section-badge">🎮 100% FREE — NO SIGN-UP REQUIRED</span>
                             <h2 className="home-cta-title">
-                                Test Your Aim <span className="text-gradient">Right Now</span>
+                                Practice &amp; Test Your Aim <span className="text-gradient">Right Now</span>
                             </h2>
                             <p className="home-cta-desc">
                                 Our browser-based Aim Trainer simulates your exact in-game sensitivity — Gridshot flicks,
-                                target tracking, and reflex drills. Free forever, no account needed.
+                                target tracking, and reflex drills. Free forever, no registration needed.
                             </p>
-                            <div className="home-cta-buttons">
+                            <div className="home-cta-buttons" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
                                 <Link href="/aim-trainer" className="home-cta-btn-primary">
-                                    Play Free Now →
+                                    🎮 Play Free Aim Trainer →
+                                </Link>
+                                <Link href="/sensitivity-test" className="home-cta-btn-secondary" style={{ border: '1px solid #00ff9d', color: '#00ff9d' }}>
+                                    🕹️ Sensitivity Test (2 Free Trials)
                                 </Link>
                                 <Link href="/aim-lab" className="home-cta-btn-secondary">
-                                    Want More? Try Aim Lab
+                                    ⚡ Unlock Aim Lab Pro
                                 </Link>
                             </div>
                         </div>

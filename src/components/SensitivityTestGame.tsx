@@ -269,7 +269,7 @@ function MobileGame({ onFinish }: { onFinish: (results: RoundResult[]) => void }
 /* ======================================================
    ROOT COMPONENT — picks desktop vs mobile, shows results
    ====================================================== */
-export default function SensitivityTestGame() {
+export default function SensitivityTestGame({ onFinish }: { onFinish?: () => void }) {
     // Detected client-side only, after mount: `window`/touch capability is
     // unavailable at static-export build time, so guessing here would cause
     // a hydration mismatch between the server-built markup and the client.
@@ -281,7 +281,10 @@ export default function SensitivityTestGame() {
         setIsTouch('ontouchstart' in window || navigator.maxTouchPoints > 0);
     }, []);
 
-    const handleFinish = (r: RoundResult[]) => setResults(r);
+    const handleFinish = (r: RoundResult[]) => {
+        setResults(r);
+        onFinish?.();
+    };
     const playAgain = () => setResults(null);
 
     if (isTouch === null) {
