@@ -11,25 +11,30 @@ import styles from "./AimLab.module.css";
 
 type Mode = "microflick" | "dynamicclick" | "strafepeek" | "ghostvspro";
 
-const MODE_META: Record<Mode, { label: string; icon: string; desc: string }> = {
+const MODE_META: Record<Mode, { label: string; icon: string; desc: string; tag: string; recommended?: boolean }> = {
     microflick: {
         label: "Micro-Flick",
         icon: "🎯",
+        tag: "FLICKING",
+        recommended: true,
         desc: "Small, tightly clustered targets — trains fine correction, not raw flick speed. Built for Valorant/CS2 headshot precision.",
     },
     dynamicclick: {
         label: "Dynamic Click",
         icon: "🏓",
+        tag: "CLICKING",
         desc: "Targets bounce around the arena on a short timer — click them before they expire. Combines movement prediction with click timing.",
     },
     strafepeek: {
         label: "Strafe Peek",
         icon: "🚪",
+        tag: "STRAFE-AIMING",
         desc: "A target flashes out from behind cover for 300-500ms, then retreats. Trains reaction and crosshair placement on common peek angles.",
     },
     ghostvspro: {
         label: "Ghost vs Pro",
         icon: "👻",
+        tag: "PRO SIM",
         desc: "Play using a pro player's exact real sensitivity (converted to true cm/360) and see how their settings actually feel.",
     },
 };
@@ -583,7 +588,11 @@ export default function AimLab() {
                         }}
                         disabled={isPlaying}
                     >
-                        <span>{MODE_META[m].icon}</span> {MODE_META[m].label}
+                        {MODE_META[m].recommended && (
+                            <span className={styles.modeTabRecommended}>★ Start here</span>
+                        )}
+                        <span className={styles.modeTabTag}>{MODE_META[m].tag}</span>
+                        <span>{MODE_META[m].icon} {MODE_META[m].label}</span>
                     </button>
                 ))}
             </div>

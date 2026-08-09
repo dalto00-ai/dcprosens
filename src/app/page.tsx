@@ -5,10 +5,66 @@ import VoiceSearch from '@/components/VoiceSearch';
 import { AnimatedCounter, LiveActivityFeed, FloatingParticles, CompetitorTable, ScrollReveal } from '@/components/HomeAnimations';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { games as gameList } from '@/lib/games';
+import { pros } from '@/lib/pros';
+
+const toolCategories = [
+    {
+        title: "🎯 Aim & Sensitivity",
+        tools: [
+            { icon: "🔄", name: "1:1 Sensitivity Converter", desc: "Convert across dozens of game engines with precise cm/360 matching.", href: "/", tag: "MOST POPULAR" },
+            { icon: "📐", name: "PSA Method Calculator", desc: "Find your scientifically perfect sensitivity using neuromuscular testing.", href: "/psa-calculator", tag: "EXCLUSIVE" },
+            { icon: "🔭", name: "Scopes & ADS 1:1", desc: "Match hip-fire and ADS sensitivity at every zoom level.", href: "/ads", tag: "" },
+            { icon: "🔎", name: "Sensitivity Finder", desc: "Guided sensitivity discovery through structured iterations.", href: "/sens-finder", tag: "" },
+            { icon: "📏", name: "FOV Converter", desc: "Convert field of view between horizontal, vertical, and diagonal formats.", href: "/fov-converter", tag: "" },
+            { icon: "📺", name: "Stretched Resolution Calc", desc: "Calculate effective FOV and pixel ratio for 4:3 stretched.", href: "/stretched-resolution", tag: "" },
+        ],
+    },
+    {
+        title: "🏆 Pro Players & Crosshairs",
+        tools: [
+            { icon: "📊", name: "Pro Settings Database", desc: "DPI, sensitivity, eDPI, cm/360 and hardware of top pros.", href: "/pros", tag: "UPDATED DAILY" },
+            { icon: "⚖️", name: "Pro Compare Tool", desc: "Side-by-side comparison of pro configurations and gear.", href: "/pros/compare", tag: "" },
+            { icon: "🖥️", name: "Full Pro Setups", desc: "Complete rig breakdowns of elite players.", href: "/setups", tag: "" },
+            { icon: "✛", name: "Crosshair Generator", desc: "Design and export custom crosshairs for Valorant & CS2.", href: "/crosshair", tag: "EXCLUSIVE" },
+            { icon: "🗂️", name: "Crosshair Database", desc: "Browse and copy pro player crosshair codes instantly.", href: "/crosshair-database", tag: "" },
+            { icon: "📡", name: "Streamer Sensitivity Widget", desc: "Free embeddable widget for your Twitch panel or bio — viewers convert your sens to their game.", href: "/widget", tag: "NEW" },
+        ],
+    },
+    {
+        title: "🔌 Gear & Hardware",
+        tools: [
+            { icon: "🖱️", name: "Mouse Spec Database", desc: "Sensor, dimension, weight and switch data for today's top competitive mice.", href: "/mouse-database", tag: "" },
+            { icon: "🤲", name: "Ergonomic Mouse Finder", desc: "Find the perfect mouse for your hand size and grip style.", href: "/mouse-finder", tag: "AI POWERED" },
+            { icon: "📐", name: "Mousepad Size Calculator", desc: "Calculate minimum pad dimensions based on cm/360.", href: "/mousepad-calculator", tag: "" },
+            { icon: "📊", name: "Mousepad Friction Chart", desc: "Compare friction of cloth, hybrid and glass pads.", href: "/mousepad-chart", tag: "EXCLUSIVE" },
+            { icon: "📈", name: "DPI Analyzer", desc: "Test your mouse actual DPI vs. advertised.", href: "/dpi-analyzer", tag: "EXCLUSIVE" },
+        ],
+    },
+    {
+        title: "⚡ Training & Utilities",
+        tools: [
+            { icon: "🕹️", name: "Sensitivity Test Game", desc: "Free mini-game that measures your flick speed and precision.", href: "/sensitivity-test", tag: "NEW" },
+            { icon: "🧪", name: "Aim Lab", desc: "4 premium training modes — Micro-Flick, Dynamic Click, Strafe Peek, and Ghost vs Pro.", href: "/aim-lab", tag: "PREMIUM" },
+            { icon: "🎮", name: "Online Aim Trainer", desc: "Practice flicking, tracking and reaction time in-browser.", href: "/aim-trainer", tag: "" },
+            { icon: "📝", name: "Custom Aim Routines", desc: "Structured daily training built around your weaknesses.", href: "/aim-routines", tag: "" },
+            { icon: "⚡", name: "Reaction Time Test", desc: "Benchmark your visual reaction time scientifically.", href: "/reaction-time-test", tag: "" },
+            { icon: "🖱️", name: "CPS Click Speed Test", desc: "Test clicks per second with jitter and drag modes.", href: "/cps-test", tag: "" },
+            { icon: "💻", name: "FPS & Bottleneck Calc", desc: "Estimate maximum FPS and identify hardware bottlenecks.", href: "/fps-calculator", tag: "" },
+            { icon: "📺", name: "Hz Refresh Simulator", desc: "See the visual difference between 60Hz to 360Hz.", href: "/monitor-simulator", tag: "" },
+            { icon: "📏", name: "Desk Space Calculator", desc: "Check if your desk supports your cm/360 for full arm sweeps.", href: "/desk-space-calculator", tag: "" },
+            { icon: "⌨️", name: "CS2 Bind Generator", desc: "Generate optimized key-bind configs for Counter-Strike 2.", href: "/bind-generator", tag: "" },
+        ],
+    },
+];
+
+const gameCount = gameList.length;
+const proCount = pros.length;
+const toolCount = toolCategories.reduce((n, c) => n + c.tools.length, 0);
 
 export const metadata: Metadata = {
     title: "DCPROSENS — Gaming Sensitivity Converter & DPI Calculator",
-    description: "Convert mouse sensitivity between Valorant, CS2, Apex Legends, Overwatch 2 and 15+ games. Pro player settings database, PSA calculator, crosshair creator, aim trainer, and 20+ precision tools. Free.",
+    description: `Convert mouse sensitivity between Valorant, CS2, Apex Legends, Overwatch 2 and ${gameCount}+ games. Pro player settings database, PSA calculator, crosshair creator, aim trainer, and ${toolCount}+ precision tools. Free.`,
     keywords: [
         'sensitivity converter', 'mouse sensitivity converter', 'gaming sensitivity calculator',
         'valorant to cs2 sensitivity', 'cs2 sensitivity converter', 'apex legends sensitivity converter',
@@ -32,7 +88,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: "DCPROSENS — #1 Gaming Sensitivity Calibration Platform",
-        description: "Convert sensitivity between Valorant, CS2, Apex, Overwatch 2 and 15+ games. Pro settings, aim tools & more.",
+        description: `Convert sensitivity between Valorant, CS2, Apex, Overwatch 2 and ${gameCount}+ games. Pro settings, aim tools & more.`,
         url: "https://dcprosens.com",
         type: "website",
     },
@@ -51,7 +107,7 @@ export default function Home() {
                 "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
                 "description": "The ultimate gaming sensitivity converter for Valorant, CS2, Overwatch 2, Apex Legends and more.",
                 "featureList": [
-                    "Sensitivity conversion between 15+ games",
+                    `Sensitivity conversion between ${gameCount}+ games`,
                     "Real-time cm/360 calculation",
                     "eDPI calculator",
                     "Pro player settings database",
@@ -76,7 +132,7 @@ export default function Home() {
                 "@type": "WebSite",
                 "name": "DCPROSENS",
                 "url": "https://dcprosens.com",
-                "description": "Free gaming sensitivity converter for Valorant, CS2, Apex Legends, Overwatch 2 and 15+ FPS games.",
+                "description": `Free gaming sensitivity converter for Valorant, CS2, Apex Legends, Overwatch 2 and ${gameCount}+ FPS games.`,
                 "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://dcprosens.com/blog?q={search_term_string}" }, "query-input": "required name=search_term_string" },
             },
             {
@@ -89,57 +145,7 @@ export default function Home() {
         ],
     };
 
-    const toolCategories = [
-        {
-            title: "🎯 Aim & Sensitivity",
-            tools: [
-                { icon: "🔄", name: "1:1 Sensitivity Converter", desc: "Convert across 15+ game engines with precise cm/360 matching.", href: "/", tag: "MOST POPULAR" },
-                { icon: "📐", name: "PSA Method Calculator", desc: "Find your scientifically perfect sensitivity using neuromuscular testing.", href: "/psa-calculator", tag: "EXCLUSIVE" },
-                { icon: "🔭", name: "Scopes & ADS 1:1", desc: "Match hip-fire and ADS sensitivity at every zoom level.", href: "/ads", tag: "" },
-                { icon: "🔎", name: "Sensitivity Finder", desc: "Guided sensitivity discovery through structured iterations.", href: "/sens-finder", tag: "" },
-                { icon: "📏", name: "FOV Converter", desc: "Convert field of view between horizontal, vertical, and diagonal formats.", href: "/fov-converter", tag: "" },
-                { icon: "📺", name: "Stretched Resolution Calc", desc: "Calculate effective FOV and pixel ratio for 4:3 stretched.", href: "/stretched-resolution", tag: "" },
-            ],
-        },
-        {
-            title: "🏆 Pro Players & Crosshairs",
-            tools: [
-                { icon: "📊", name: "Pro Settings Database", desc: "DPI, sensitivity, eDPI, cm/360 and hardware of top pros.", href: "/pros", tag: "UPDATED DAILY" },
-                { icon: "⚖️", name: "Pro Compare Tool", desc: "Side-by-side comparison of pro configurations and gear.", href: "/pros/compare", tag: "" },
-                { icon: "🖥️", name: "Full Pro Setups", desc: "Complete rig breakdowns of elite players.", href: "/setups", tag: "" },
-                { icon: "✛", name: "Crosshair Generator", desc: "Design and export custom crosshairs for Valorant & CS2.", href: "/crosshair", tag: "EXCLUSIVE" },
-                { icon: "🗂️", name: "Crosshair Database", desc: "Browse and copy pro player crosshair codes instantly.", href: "/crosshair-database", tag: "" },
-                { icon: "📡", name: "Streamer Sensitivity Widget", desc: "Free embeddable widget for your Twitch panel or bio — viewers convert your sens to their game.", href: "/widget", tag: "NEW" },
-            ],
-        },
-        {
-            title: "🔌 Gear & Hardware",
-            tools: [
-                { icon: "🖱️", name: "Mouse Spec Database", desc: "Sensor, dimension, weight and switch data for 200+ mice.", href: "/mouse-database", tag: "" },
-                { icon: "🤲", name: "Ergonomic Mouse Finder", desc: "Find the perfect mouse for your hand size and grip style.", href: "/mouse-finder", tag: "AI POWERED" },
-                { icon: "📐", name: "Mousepad Size Calculator", desc: "Calculate minimum pad dimensions based on cm/360.", href: "/mousepad-calculator", tag: "" },
-                { icon: "📊", name: "Mousepad Friction Chart", desc: "Compare friction of cloth, hybrid and glass pads.", href: "/mousepad-chart", tag: "EXCLUSIVE" },
-                { icon: "📈", name: "DPI Analyzer", desc: "Test your mouse actual DPI vs. advertised.", href: "/dpi-analyzer", tag: "EXCLUSIVE" },
-            ],
-        },
-        {
-            title: "⚡ Training & Utilities",
-            tools: [
-                { icon: "🕹️", name: "Sensitivity Test Game", desc: "Free mini-game that measures your flick speed and precision.", href: "/sensitivity-test", tag: "NEW" },
-                { icon: "🧪", name: "Aim Lab", desc: "4 premium training modes — Micro-Flick, Dynamic Click, Strafe Peek, and Ghost vs Pro.", href: "/aim-lab", tag: "PREMIUM" },
-                { icon: "🎮", name: "Online Aim Trainer", desc: "Practice flicking, tracking and reaction time in-browser.", href: "/aim-trainer", tag: "" },
-                { icon: "📝", name: "Custom Aim Routines", desc: "Structured daily training built around your weaknesses.", href: "/aim-routines", tag: "" },
-                { icon: "⚡", name: "Reaction Time Test", desc: "Benchmark your visual reaction time scientifically.", href: "/reaction-time-test", tag: "" },
-                { icon: "🖱️", name: "CPS Click Speed Test", desc: "Test clicks per second with jitter and drag modes.", href: "/cps-test", tag: "" },
-                { icon: "💻", name: "FPS & Bottleneck Calc", desc: "Estimate maximum FPS and identify hardware bottlenecks.", href: "/fps-calculator", tag: "" },
-                { icon: "📺", name: "Hz Refresh Simulator", desc: "See the visual difference between 60Hz to 360Hz.", href: "/monitor-simulator", tag: "" },
-                { icon: "📏", name: "Desk Space Calculator", desc: "Check if your desk supports your cm/360 for full arm sweeps.", href: "/desk-space-calculator", tag: "" },
-                { icon: "⌨️", name: "CS2 Bind Generator", desc: "Generate optimized key-bind configs for Counter-Strike 2.", href: "/bind-generator", tag: "" },
-            ],
-        },
-    ];
-
-    const games = [
+    const trustBarGames = [
         "Valorant", "CS2", "Apex Legends", "Overwatch 2", "Fortnite",
         "Call of Duty", "R6 Siege", "PUBG", "Battlefield", "Halo Infinite",
         "Destiny 2", "The Finals", "Deadlock", "XDefiant", "Marvel Rivals",
@@ -167,25 +173,25 @@ export default function Home() {
                 </h1>
 
                 <p className="hero-subtitle" style={{ marginBottom: '2rem', maxWidth: '650px' }}>
-                    Convert sensitivity across 15+ games, study pro player setups, calibrate your aim scientifically,
-                    and access 20+ precision tools — all in one place.
+                    Convert sensitivity across {gameCount}+ games, study pro player setups, calibrate your aim scientifically,
+                    and access {toolCount}+ precision tools — all in one place.
                 </p>
 
                 {/* Animated Stats Counter */}
                 <div className="home-stats-row">
                     <div className="home-stat-item">
-                        <span className="home-stat-number"><AnimatedCounter target={15} suffix="+" /></span>
+                        <span className="home-stat-number"><AnimatedCounter target={gameCount} suffix="+" /></span>
                         <span className="home-stat-label">Games</span>
                     </div>
                     <div className="home-stat-divider"></div>
                     <div className="home-stat-item">
-                        <span className="home-stat-number"><AnimatedCounter target={24} suffix="+" /></span>
+                        <span className="home-stat-number"><AnimatedCounter target={toolCount} suffix="+" /></span>
                         <span className="home-stat-label">Tools</span>
                     </div>
                     <div className="home-stat-divider"></div>
                     <div className="home-stat-item">
-                        <span className="home-stat-number"><AnimatedCounter target={200} suffix="+" /></span>
-                        <span className="home-stat-label">Mouse Specs</span>
+                        <span className="home-stat-number"><AnimatedCounter target={proCount} suffix="+" /></span>
+                        <span className="home-stat-label">Pro Players</span>
                     </div>
                     <div className="home-stat-divider"></div>
                     <div className="home-stat-item">
@@ -202,7 +208,7 @@ export default function Home() {
                     <section className="home-games-section">
                         <p className="home-games-label">SUPPORTING ALL MAJOR COMPETITIVE TITLES</p>
                         <div className="home-games-grid">
-                            {games.map((game) => (
+                            {trustBarGames.map((game) => (
                                 <span key={game} className="home-game-chip">{game}</span>
                             ))}
                         </div>
@@ -218,7 +224,7 @@ export default function Home() {
                                 Everything You Need to <span className="text-gradient">Dominate</span>
                             </h2>
                             <p className="home-section-desc">
-                                Not just a converter. A complete calibration ecosystem with 24+ tools.
+                                Not just a converter. A complete calibration ecosystem with {toolCount}+ tools.
                                 No competitor offers this breadth of features in one platform.
                             </p>
                         </div>
@@ -282,7 +288,7 @@ export default function Home() {
                             <div className="home-why-card">
                                 <div className="home-why-icon">🎯</div>
                                 <h3>All-In-One Platform</h3>
-                                <p>24+ tools in one place. Sensitivity converter, pro databases, aim trainer, crosshair tools, mouse finder, DPI analyzer.</p>
+                                <p>{toolCount}+ tools in one place. Sensitivity converter, pro databases, aim trainer, crosshair tools, mouse finder, DPI analyzer.</p>
                             </div>
                             <div className="home-why-card">
                                 <div className="home-why-icon">🆓</div>
@@ -482,7 +488,7 @@ export default function Home() {
                                 Ready to Go <span className="text-gradient">Premium</span>?
                             </h2>
                             <p className="home-cta-desc">
-                                Unlock all 24+ tools, advanced pro comparisons, custom aim routines, crosshair generator,
+                                Unlock all {toolCount}+ tools, advanced pro comparisons, custom aim routines, crosshair generator,
                                 mousepad analytics, DPI analyzer and more. Plans start at just $3.90/month.
                             </p>
                             <div className="home-cta-buttons">

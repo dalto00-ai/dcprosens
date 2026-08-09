@@ -727,6 +727,7 @@ export default function AimTrainer() {
                             className={`${styles.modeTab} ${gameMode === 'gridshot' ? styles.activeTab : ''}`}
                             disabled={isPlaying}
                         >
+                            <span className={styles.modeTabRecommended}>★ Start here</span>
                             🎯 Flicking
                         </button>
                         <button

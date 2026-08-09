@@ -9,7 +9,7 @@ export const metadata: Metadata = {
         canonical: "https://dcprosens.com/games",
     },
     openGraph: {
-        title: "Games Supported — Sensitivity Converter for 17+ FPS Games",
+        title: `Games Supported — Sensitivity Converter for ${games.length}+ FPS Games`,
         description: "Valorant, CS2, Apex Legends, Overwatch 2, Fortnite, Warzone, Marvel Rivals, THE FINALS and more. Free sensitivity converter.",
         type: "website",
         url: "https://dcprosens.com/games",
