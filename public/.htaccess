@@ -34,6 +34,29 @@ RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
+# Legacy bare-slug blog URLs (missing /blog/ prefix) still crawled by Google —
+# 301 to the real /blog/<slug> location instead of 404ing.
+RewriteRule ^cs2-spray-control-guide-ak47-m4/?$ /blog/cs2-spray-control-guide-ak47-m4 [L,R=301]
+RewriteRule ^minecraft-pvp-sensitivity-guide-2026/?$ /blog/minecraft-pvp-sensitivity-guide-2026 [L,R=301]
+RewriteRule ^aim-training-routine-fps-games-2026/?$ /blog/aim-training-routine-fps-games-2026 [L,R=301]
+RewriteRule ^aim-lab-kovaks-sensitivity-guide/?$ /blog/aim-lab-kovaks-sensitivity-guide [L,R=301]
+RewriteRule ^the-finals-sensitivity-settings-2026/?$ /blog/the-finals-sensitivity-settings-2026 [L,R=301]
+RewriteRule ^60hz-vs-144hz-vs-360hz-gaming-monitor-fps-guide/?$ /blog/60hz-vs-144hz-vs-360hz-gaming-monitor-fps-guide [L,R=301]
+RewriteRule ^how-to-improve-reaction-time-fps-gaming/?$ /blog/how-to-improve-reaction-time-fps-gaming [L,R=301]
+RewriteRule ^valorant-to-apex-sensitivity-converter/?$ /blog/valorant-to-apex-sensitivity-converter [L,R=301]
+RewriteRule ^speed-vs-control-mousepad-which-is-better/?$ /blog/speed-vs-control-mousepad-which-is-better [L,R=301]
+RewriteRule ^colorblind-mode-settings-valorant-cs2-2026/?$ /blog/colorblind-mode-settings-valorant-cs2-2026 [L,R=301]
+RewriteRule ^what-is-cm360-guide/?$ /blog/what-is-cm360-guide [L,R=301]
+RewriteRule ^best-fps-games-to-improve-aim-2026/?$ /blog/best-fps-games-to-improve-aim-2026 [L,R=301]
+RewriteRule ^fortnite-to-cs2-sensitivity-converter/?$ /blog/fortnite-to-cs2-sensitivity-converter [L,R=301]
+RewriteRule ^ptfe-mouse-skates-glass-guide-friction/?$ /blog/ptfe-mouse-skates-glass-guide-friction [L,R=301]
+RewriteRule ^overwatch-2-best-sensitivity-settings-2026/?$ /blog/overwatch-2-best-sensitivity-settings-2026 [L,R=301]
+RewriteRule ^what-is-edpi-gaming-guide/?$ /blog/what-is-edpi-gaming-guide [L,R=301]
+RewriteRule ^cs2-to-valorant-sensitivity-converter-guide/?$ /blog/cs2-to-valorant-sensitivity-converter-guide [L,R=301]
+RewriteRule ^best-mousepad-size-guide-2026/?$ /blog/best-mousepad-size-guide-2026 [L,R=301]
+RewriteRule ^valorant-crosshair-placement-guide-2026/?$ /blog/valorant-crosshair-placement-guide-2026 [L,R=301]
+RewriteRule ^find-perfect-mouse-sensitivity/?$ /blog/find-perfect-mouse-sensitivity [L,R=301]
+
 # Clean URL to HTML mapping
 # e.g., /pricing -> /pricing.html
 RewriteCond %{DOCUMENT_ROOT}/$1.html -f
