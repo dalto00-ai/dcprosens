@@ -6,6 +6,43 @@ import SEOImage from '@/components/SEOImage';
 import { mouseProducts, keyboardProduct } from '@/lib/affiliates';
 import '../prose.css';
 
+interface TocEntry {
+    id: string;
+    text: string;
+}
+
+function slugifyHeading(text: string): string {
+    return text
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .trim()
+        .replace(/\s+/g, '-');
+}
+
+/**
+ * Extracts every <h2> in the post content for the table of contents, and
+ * returns the same HTML with an id="" injected into each <h2> so the TOC
+ * links actually land somewhere. Content is authored HTML (not markdown),
+ * so this is a light regex pass rather than a full parser.
+ */
+function buildTocAndAnchoredContent(html: string): { toc: TocEntry[]; html: string } {
+    const toc: TocEntry[] = [];
+    const seen = new Set<string>();
+    const anchored = html.replace(/<h2>(.*?)<\/h2>/g, (_match, inner: string) => {
+        const text = inner.replace(/<[^>]+>/g, '');
+        let id = slugifyHeading(text);
+        if (seen.has(id)) {
+            let i = 2;
+            while (seen.has(`${id}-${i}`)) i++;
+            id = `${id}-${i}`;
+        }
+        seen.add(id);
+        toc.push({ id, text });
+        return `<h2 id="${id}">${inner}</h2>`;
+    });
+    return { toc, html: anchored };
+}
+
 interface Props {
     params: Promise<{ slug: string }>;
 }
@@ -88,6 +125,7 @@ export default async function BlogPost({ params }: Props) {
     const canonicalUrl = `https://dcprosens.com/blog/${post.slug}`;
     const imageUrl = `https://dcprosens.com${post.image}`;
     const publishDate = new Date(post.date).toISOString();
+    const { toc, html: anchoredContent } = buildTocAndAnchoredContent(post.content);
 
     const jsonLd = {
         '@context': 'https://schema.org',
@@ -166,6 +204,20 @@ export default async function BlogPost({ params }: Props) {
                     { '@type': 'ListItem', position: 3, name: post.title, item: canonicalUrl },
                 ],
             },
+            // ✅ FAQPage — only added when the post has structured FAQ data
+            // (AEO: lets Google/AI assistants lift a direct answer out of the page)
+            ...(post.faqs && post.faqs.length > 0
+                ? [
+                      {
+                          '@type': 'FAQPage',
+                          mainEntity: post.faqs.map((f) => ({
+                              '@type': 'Question',
+                              name: f.q,
+                              acceptedAnswer: { '@type': 'Answer', text: f.a },
+                          })),
+                      },
+                  ]
+                : []),
         ],
     };
 
@@ -220,15 +272,101 @@ export default async function BlogPost({ params }: Props) {
                 />
             </header>
 
+            {post.summary && (
+                <div style={{
+                    background: 'var(--bg-card)',
+                    border: '1px solid var(--primary)',
+                    borderRadius: 'var(--radius-md, 8px)',
+                    padding: '1.25rem 1.5rem',
+                    marginBottom: '2.5rem',
+                }}>
+                    <p style={{
+                        margin: 0,
+                        fontSize: '0.7rem',
+                        fontWeight: 800,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.08em',
+                        color: 'var(--primary)',
+                        marginBottom: '0.5rem',
+                    }}>
+                        TL;DR
+                    </p>
+                    <p style={{ margin: 0, color: 'var(--text-primary)', lineHeight: 1.7, fontSize: '1.02rem' }}>
+                        {post.summary}
+                    </p>
+                </div>
+            )}
+
+            {toc.length >= 3 && (
+                <nav
+                    aria-label="Table of contents"
+                    style={{
+                        background: 'var(--bg-card)',
+                        border: '1px solid var(--border-color)',
+                        borderRadius: 'var(--radius-md, 8px)',
+                        padding: '1.25rem 1.5rem',
+                        marginBottom: '2.5rem',
+                    }}
+                >
+                    <p style={{
+                        margin: '0 0 0.75rem',
+                        fontSize: '0.7rem',
+                        fontWeight: 800,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.08em',
+                        color: 'var(--text-muted)',
+                    }}>
+                        In This Article
+                    </p>
+                    <ol style={{ margin: 0, paddingLeft: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                        {toc.map((entry) => (
+                            <li key={entry.id} style={{ fontSize: '0.95rem' }}>
+                                <a href={`#${entry.id}`} style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>
+                                    {entry.text}
+                                </a>
+                            </li>
+                        ))}
+                    </ol>
+                </nav>
+            )}
+
             <div
                 className="prose"
-                dangerouslySetInnerHTML={{ __html: post.content }}
+                dangerouslySetInnerHTML={{ __html: anchoredContent }}
                 style={{
                     color: 'var(--text-secondary)',
                     lineHeight: 1.8,
                     fontSize: '1.1rem'
                 }}
             />
+
+            {post.faqs && post.faqs.length > 0 && (
+                <div style={{ marginTop: '3rem' }}>
+                    <h2 style={{ color: 'var(--text-primary)', fontSize: '1.6rem', fontWeight: 800, marginBottom: '1.25rem' }}>
+                        Frequently Asked Questions
+                    </h2>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+                        {post.faqs.map((item) => (
+                            <details
+                                key={item.q}
+                                style={{
+                                    background: 'var(--bg-card)',
+                                    border: '1px solid var(--border-color)',
+                                    borderRadius: 'var(--radius-md, 8px)',
+                                    padding: '1.1rem 1.35rem',
+                                }}
+                            >
+                                <summary style={{ color: 'var(--text-primary)', fontWeight: 700, cursor: 'pointer', fontSize: '1rem' }}>
+                                    {item.q}
+                                </summary>
+                                <p style={{ marginTop: '0.65rem', marginBottom: 0, color: 'var(--text-secondary)', lineHeight: 1.7 }}>
+                                    {item.a}
+                                </p>
+                            </details>
+                        ))}
+                    </div>
+                </div>
+            )}
 
             {/* Programmatic Amazon Affiliate Products Integration */}
             {(post.slug.includes('mouse') || post.slug.includes('weight') || post.slug.includes('setup')) && (

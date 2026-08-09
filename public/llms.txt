@@ -35,6 +35,7 @@ DCPROSENS is a gaming sensitivity converter and toolset for competitive FPS, thi
 - **Pro Full Setups**: https://dcprosens.com/setups (complete pro setups with direct Amazon links)
 - **Gaming Mouse Database**: https://dcprosens.com/mouse-database (ergonomic specs and sensor lists)
 - **Crosshair Database**: https://dcprosens.com/crosshair-database
+- **Blog / Guides** (88 in-depth articles): https://dcprosens.com/blog — covers sensitivity conversion, DPI, crosshair settings, hardware (mousepads, mice, keyboards), and per-game guides, each with FAQ schema for direct-answer citation
 - **Reaction Time Test**: https://dcprosens.com/reaction-time-test
 - **CPS Test**: https://dcprosens.com/cps-test
 

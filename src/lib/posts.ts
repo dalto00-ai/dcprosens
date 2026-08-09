@@ -5,6 +5,7 @@ import { postsChunk03 } from './posts-data/chunk-03';
 import { postsChunk04 } from './posts-data/chunk-04';
 import { postsChunk05 } from './posts-data/chunk-05';
 import { postsChunk06 } from './posts-data/chunk-06';
+import { postsChunk07 } from './posts-data/chunk-07';
 
 export type { BlogPost };
 
@@ -17,4 +18,5 @@ export const posts: BlogPost[] = [
   ...postsChunk04,
   ...postsChunk05,
   ...postsChunk06,
+  ...postsChunk07,
 ];
