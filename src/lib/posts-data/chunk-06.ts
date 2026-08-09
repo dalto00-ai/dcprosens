@@ -8,7 +8,7 @@ export const postsChunk06: BlogPost[] = [
 
   {
     slug: 'fortnite-to-valorant-sensitivity-2026',
-    title: 'Fortnite to Valorant: The Ultimate Sensitivity Conversion Guide 2026',
+    title: 'Fortnite to Valorant Sensitivity Conversion',
     excerpt: 'Moving from The Island to Future Earth? Learn why 3rd person conversion is tricky and how to match your aim perfectly.',
     date: 'February 08, 2026',
     readTime: '12 min read',
@@ -80,7 +80,7 @@ export const postsChunk06: BlogPost[] = [
   },
   {
     slug: 'deadlock-valve-sensitivity-converter',
-    title: 'Deadlock Sensitivity Guide: Converting from CS2 & Overwatch',
+    title: 'Deadlock Sensitivity Converter Guide',
     excerpt: 'Valve\'s new hero shooter "Deadlock" is here. Learn how to convert your aim from CS2 and Overwatch 2 to dominate in 2026.',
     date: 'January 25, 2026',
     readTime: '8 min read',
@@ -144,7 +144,7 @@ export const postsChunk06: BlogPost[] = [
   },
   {
     slug: 'gta-vi-aim-settings-pc',
-    title: 'GTA VI PC Aim Settings: Preparing for the Launch',
+    title: 'GTA VI PC Aim Settings Guide',
     excerpt: 'GTA 6 comes to PC later this year. Here is how to prepare your mouse settings for Vice City\'s open world combat.',
     date: 'January 24, 2026',
     readTime: '6 min read',
@@ -314,7 +314,7 @@ export const postsChunk06: BlogPost[] = [
   },
   {
     slug: 'snap-tap-rapid-trigger-keyboards',
-    title: 'Snap Tap & Rapid Trigger: The Movement Revolution',
+    title: 'Snap Tap & Rapid Trigger Explained',
     excerpt: 'Wooting started it. Razer perfected it. Now everyone has it. How SOCD and Rapid Trigger changed strafing forever.',
     date: 'January 20, 2026',
     readTime: '9 min read',

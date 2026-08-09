@@ -7,7 +7,7 @@ import type { BlogPost } from './types';
 export const postsChunk07: BlogPost[] = [
   {
     slug: 'sensitivity-converter-explained',
-    title: 'What Is a Sensitivity Converter? How Cross-Game Aim Actually Works',
+    title: 'What Is a Sensitivity Converter?',
     excerpt: 'Sensitivity numbers mean nothing on their own — a converter translates them into a physical distance so your aim transfers cleanly between games.',
     date: 'February 2, 2026',
     readTime: '10 min read',
@@ -110,7 +110,7 @@ export const postsChunk07: BlogPost[] = [
   },
   {
     slug: 'cs2-bind-generator-guide',
-    title: 'How to Use a CS2 Bind Generator (Buy Binds, Jump Throw, Radar Zoom)',
+    title: 'How to Use a CS2 Bind Generator',
     excerpt: 'A bind generator writes valid CS2 console commands for you — here is what each common bind actually does and how to install them correctly.',
     date: 'February 3, 2026',
     readTime: '9 min read',
@@ -213,7 +213,7 @@ export const postsChunk07: BlogPost[] = [
   },
   {
     slug: 'crosshair-generator-guide',
-    title: 'How to Build the Perfect CS2/Valorant Crosshair with a Crosshair Generator',
+    title: 'Build the Perfect CS2/Valorant Crosshair',
     excerpt: 'Every visible pixel of your crosshair is a trade-off between precision and target visibility — here is how to actually tune one instead of copying a pro\'s code blindly.',
     date: 'February 4, 2026',
     readTime: '9 min read',
@@ -474,7 +474,7 @@ export const postsChunk07: BlogPost[] = [
   },
   {
     slug: 'psa-method-more-games-guide',
-    title: 'The PSA Method for Minecraft, Rainbow Six Siege, and Beyond',
+    title: 'The PSA Method for Minecraft & Rainbow Six',
     excerpt: 'The PSA calibration process works the same way in any game with aim-based combat — here is how to apply it outside Valorant and CS2.',
     date: 'February 7, 2026',
     readTime: '8 min read',
@@ -544,7 +544,7 @@ export const postsChunk07: BlogPost[] = [
   },
   {
     slug: 'valorant-cs2-crosshair-converter-guide',
-    title: 'Valorant to CS2 Crosshair Converter: Matching Your Crosshair Between Games',
+    title: 'Valorant to CS2 Crosshair Converter',
     excerpt: 'Crosshair settings do not convert with a formula the way sensitivity does — here is how to actually rebuild a consistent crosshair across both games.',
     date: 'February 8, 2026',
     readTime: '7 min read',
@@ -625,7 +625,7 @@ export const postsChunk07: BlogPost[] = [
   },
   {
     slug: 'pc-bottleneck-cpu-gpu-guide',
-    title: 'How to Fix a CPU or GPU Bottleneck and Get More FPS',
+    title: 'How to Fix a CPU or GPU Bottleneck',
     excerpt: 'A bottleneck means one component is holding the rest of your PC back — here is how to identify which one, and what actually fixes it versus what just wastes money.',
     date: 'February 9, 2026',
     readTime: '10 min read',
@@ -732,7 +732,7 @@ export const postsChunk07: BlogPost[] = [
   },
   {
     slug: 'apex-legends-ads-sensitivity-guide',
-    title: 'Apex Legends ADS Sensitivity: The Complete Guide to Per-Optic Settings',
+    title: 'Apex Legends ADS Sensitivity Guide',
     excerpt: 'Apex treats every scope magnification as its own separate sensitivity multiplier — get this wrong and your aim breaks the moment you pick up a new optic.',
     date: 'February 10, 2026',
     readTime: '8 min read',
@@ -835,7 +835,7 @@ export const postsChunk07: BlogPost[] = [
   },
   {
     slug: 'mousepad-speed-chart-guide',
-    title: 'Mousepad Speed Chart: How to Pick the Right Pad for Your Sensitivity',
+    title: 'Mousepad Speed Chart: Pick the Right Pad',
     excerpt: "A mousepad's surface material changes how much your sensitivity setting actually has to compensate for friction — here is how to match pad to playstyle.",
     date: 'February 11, 2026',
     readTime: '7 min read',

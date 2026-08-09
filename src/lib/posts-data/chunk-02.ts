@@ -3,7 +3,7 @@ import type { BlogPost } from './types';
 export const postsChunk02: BlogPost[] = [
   {
     slug: 'wireless-vs-wired-gaming-mouse-fps-2026',
-    title: 'Wireless vs Wired Gaming Mouse for FPS: The Definitive 2026 Guide',
+    title: 'Wireless vs Wired Gaming Mouse for FPS',
     excerpt: 'In 2026, wireless gaming mice have eliminated all meaningful latency differences vs wired. This guide presents the data, reveals which pros have switched to wireless, and explains when wired still makes sense.',
     date: 'April 23, 2026',
     readTime: '11 min read',
@@ -107,7 +107,7 @@ Difference: statistically unmeasurable in human performance.
 
   {
     slug: 'cs2-practice-commands-guide-2026',
-    title: 'CS2 Practice Commands: Complete Config Guide for Training (2026)',
+    title: 'CS2 Practice Commands: Complete Config Guide',
     excerpt: 'The complete list of CS2 console commands for practice servers: infinite ammo, grenade trajectory, bot control, freeze time, and the full practice.cfg file ready to copy and use.',
     date: 'April 22, 2026',
     readTime: '13 min read',
@@ -248,7 +248,7 @@ bind "q" "quit"      // Quick quit shortcut</div>
 
   {
     slug: 'aim-guide-beginners-fps-2026',
-    title: 'Aim Guide for Beginners: How to Start Improving at FPS Games (2026)',
+    title: 'Beginner\'s Aim Guide for FPS Games',
     excerpt: 'New to FPS gaming? This complete beginner\'s guide to aim covers the 5 fundamentals, how to pick your first sensitivity, the biggest beginner mistakes, and a simple 2-week practice plan to build your foundation.',
     date: 'April 21, 2026',
     readTime: '15 min read',
@@ -364,7 +364,7 @@ You can refine later — but start here.</div>
 
   {
     slug: 'gaming-mouse-sensor-guide-optical-vs-laser-2026',
-    title: 'Gaming Mouse Sensor Guide 2026: Optical vs Laser, Best Sensors Ranked',
+    title: 'Gaming Mouse Sensor Guide: Optical vs Laser',
     excerpt: 'PMW3395, HERO 25K, TrueMove Pro — which mouse sensor is best for FPS in 2026? This guide explains how sensors work, the optical vs laser debate, and which sensors competitive players actually use.',
     date: 'April 20, 2026',
     readTime: '12 min read',
@@ -456,7 +456,7 @@ You can refine later — but start here.</div>
 
   {
     slug: 'halo-infinite-sensitivity-converter-guide',
-    title: 'Halo Infinite Sensitivity Settings & Converter Guide 2026',
+    title: 'Halo Infinite Sensitivity Converter Guide',
     excerpt: 'Halo Infinite uses a non-standard sensitivity system tied to its FOV. This guide covers the conversion from CS2, Valorant, and Apex, recommended settings for each weapon class, and why Halo aim feels different after a perfect conversion.',
     date: 'April 19, 2026',
     readTime: '10 min read',
@@ -552,7 +552,7 @@ Raw Input: On (ensures Windows accel doesn't interfere)</div>
 
   {
     slug: 'gaming-ergonomics-setup-guide-aim-posture',
-    title: 'Gaming Ergonomics Guide: How Your Setup Posture Affects Aim (2026)',
+    title: 'Gaming Ergonomics Guide: Setup Posture & Aim',
     excerpt: 'Bad desk posture doesn\'t just cause back pain — it directly impairs your aim. This guide covers the optimal monitor position, desk height, chair setup, and wrist position for FPS gaming performance and long-term health.',
     date: 'April 18, 2026',
     readTime: '12 min read',
@@ -652,7 +652,7 @@ If elbows must rise above desk to reach mouse = desk too high or chair too low.<
 
   {
     slug: 'how-to-escape-elo-hell-valorant-cs2-2026',
-    title: 'How to Escape ELO Hell in Valorant and CS2: The Real Guide (2026)',
+    title: 'How to Escape ELO Hell in Valorant & CS2',
     excerpt: 'ELO hell is real — but it\'s fixable. This guide explains the ranked matchmaking science, the 5 controllable factors that get you stuck, and the exact system to climb consistently in Valorant and CS2.',
     date: 'April 23, 2026',
     readTime: '14 min read',
@@ -751,7 +751,7 @@ If elbows must rise above desk to reach mouse = desk too high or chair too low.<
 
   {
     slug: 'mouse-weight-guide-light-vs-heavy-fps-2026',
-    title: 'Mouse Weight Guide for FPS: Light vs Heavy — What Actually Matters (2026)',
+    title: 'Mouse Weight Guide: Light vs Heavy for FPS',
     excerpt: 'Gaming mice now range from 38g to 130g. Does lighter always mean better? This data-driven guide explains how mouse weight affects sensitivity feel, fatigue, precision, and what the pros actually use.',
     date: 'April 22, 2026',
     readTime: '11 min read',
@@ -870,7 +870,7 @@ If elbows must rise above desk to reach mouse = desk too high or chair too low.<
 
   {
     slug: 'apex-legends-controller-vs-mouse-keyboard-2026',
-    title: 'Apex Legends Controller vs Mouse & Keyboard 2026: Which is Better?',
+    title: 'Apex Legends Controller vs Mouse & Keyboard',
     excerpt: 'Apex Legends\' aim assist for controllers has been debated for years. This guide presents the 2026 data on controller vs. MnK performance at different ranks, when each input dominates, and what the top ALGS players use.',
     date: 'April 21, 2026',
     readTime: '13 min read',
@@ -984,7 +984,7 @@ Zoom Sensitivity Multiplier: 1.0</div>
 
   {
     slug: 'colorblind-mode-settings-valorant-cs2-2026',
-    title: 'Best Colorblind Settings for Valorant and CS2: Complete 2026 Guide',
+    title: 'Best Colorblind Settings for Valorant & CS2',
     excerpt: '8% of men have some form of color blindness. This guide covers the best colorblind mode settings for Valorant, CS2, and other FPS games — including crosshair colors, enemy highlight settings, and third-party tools.',
     date: 'April 20, 2026',
     readTime: '11 min read',
@@ -1098,7 +1098,7 @@ cl_crosshaircolor_b 255</div>
 
   {
     slug: 'best-fov-settings-valorant-cs2-apex-2026',
-    title: 'Best FOV Settings for Valorant, CS2, and Apex Legends (2026 Guide)',
+    title: 'Best FOV Settings for Valorant, CS2 & Apex',
     excerpt: 'Field of View directly affects how your sensitivity feels. This guide explains the ideal FOV for each major FPS game, how changing FOV requires a sensitivity adjustment, and what pro players use in 2026.',
     date: 'April 19, 2026',
     readTime: '12 min read',
@@ -1199,7 +1199,7 @@ Use Field of View Affected: ON (for ADS FOV to scale with hipfire FOV)</div>
 
   {
     slug: 'how-to-stop-tilting-fps-games-mental-guide',
-    title: 'How to Stop Tilting in FPS Games: The Mental Performance Guide (2026)',
+    title: 'How to Stop Tilting in FPS Games',
     excerpt: 'Tilt destroys aim, costs rank, and burns out players at every level. This science-backed guide covers what tilting does to your brain, the 5-second rule, and the exact protocols competitive players use to maintain mental performance.',
     date: 'April 18, 2026',
     readTime: '13 min read',
@@ -1299,7 +1299,7 @@ Use Field of View Affected: ON (for ADS FOV to scale with hipfire FOV)</div>
 
   {
     slug: 'best-fps-games-to-improve-aim-2026',
-    title: 'Best FPS Games to Improve Your Aim in 2026: Ranked Guide',
+    title: 'Best FPS Games to Improve Your Aim',
     excerpt: 'Not all FPS games improve aim equally. This guide ranks the top games for aim development based on their mechanics, skill transfer, and what specific skills each game trains best.',
     date: 'April 17, 2026',
     readTime: '12 min read',

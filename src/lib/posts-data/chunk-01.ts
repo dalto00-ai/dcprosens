@@ -3,7 +3,7 @@ import type { BlogPost } from './types';
 export const postsChunk01: BlogPost[] = [
   {
     slug: 'mouse-sensor-jitter-latency-muscle-memory',
-    title: 'Mouse Sensor Jitter & Latency: The Silent Killers of Muscle Memory',
+    title: 'Mouse Sensor Jitter & Latency Explained',
     excerpt: 'Are micro-stutters and sensor latency ruining your flicks? Learn the physics of sensor jitter, how to identify it, and why professional FPS aim training starts with precise hardware calibrations.',
     date: 'May 27, 2026',
     readTime: '11 min read',
@@ -79,7 +79,7 @@ export const postsChunk01: BlogPost[] = [
 
   {
     slug: 'the-math-behind-operator-awp-focal-matching',
-    title: 'The Math Behind Scope Matching: Calibrating 1:1 Operator & AWP Sensitivity',
+    title: 'The Math Behind Scope Sensitivity Matching',
     excerpt: 'Calibrating your scope zoom ratio is crucial to preserve motor reflexes between hipfire and scoped zoom. We break down focal lens matching formulas and 0% Monitor Distance matching for Valorant and CS2.',
     date: 'May 26, 2026',
     readTime: '13 min read',
@@ -153,7 +153,7 @@ export const postsChunk01: BlogPost[] = [
 
   {
     slug: 'why-counter-strafe-rapid-trigger-fps-meta',
-    title: 'Why Rapid Trigger & Analog Keyboards are the New FPS Counter-Strafing Meta',
+    title: 'Rapid Trigger & Analog Keyboards Explained',
     excerpt: 'Tactical FPS movement requires stopping instantly to gain 100% first-bullet accuracy. Learn how magnetic Hall Effect keyboards with Rapid Trigger are redefining pre-aiming and angle peeks in Valorant and CS2.',
     date: 'May 25, 2026',
     readTime: '10 min read',
@@ -222,7 +222,7 @@ export const postsChunk01: BlogPost[] = [
 
   {
     slug: 'valorant-crosshair-placement-guide-2026',
-    title: 'Valorant Crosshair Placement Guide: The #1 Secret to Ranking Up',
+    title: 'Valorant Crosshair Placement Guide',
     excerpt: 'Raw aim gets you to Gold; crosshair placement gets you to Immortal. This visual guide breaks down head height alignment, angle isolation, and pre-aiming common spots on Valorant maps.',
     date: 'April 26, 2026',
     readTime: '12 min read',
@@ -300,7 +300,7 @@ ightarrow$ click." This saves ~200ms of reaction and movement time—an eternity
 
   {
     slug: 'cs2-peeking-guide-wide-swing-jiggle-2026',
-    title: 'CS2 Peeking Guide: How to Clear Angles Like a Pro (2026)',
+    title: 'CS2 Peeking Guide: Clear Angles Like a Pro',
     excerpt: 'From jiggle peeks to Ferrari swings, how you peek determines if you live or die in CS2. Learn the geometry of CS2 angles, peekers advantage, and when to use each peeking technique.',
     date: 'April 25, 2026',
     readTime: '14 min read',
@@ -381,7 +381,7 @@ ightarrow$ click." This saves ~200ms of reaction and movement time—an eternity
 
   {
     slug: 'best-keyboard-keybinds-fps-games-2026',
-    title: 'Optimal FPS Keyboard Keybinds: Move Faster, React Quicker (2026)',
+    title: 'Best FPS Keyboard Keybinds Guide',
     excerpt: 'Are your default keybinds slowing you down? This guide covers the best keybind optimization for tactical FPS and movement shooters, freeing up your fingers for maximum efficiency.',
     date: 'April 24, 2026',
     readTime: '9 min read',
@@ -464,7 +464,7 @@ ightarrow$ click." This saves ~200ms of reaction and movement time—an eternity
 
   {
     slug: '60hz-vs-144hz-vs-360hz-gaming-monitor-fps-guide',
-    title: 'Gaming Monitors Guide 2026: 60Hz vs 144Hz vs 360Hz vs 540Hz',
+    title: 'Gaming Monitor Hz Guide: 60Hz to 540Hz',
     excerpt: 'Does refresh rate actually make you a better player? We break down the science of motion clarity, input lag, and the diminishing returns of ultra-high refresh rate monitors for competitive FPS.',
     date: 'April 23, 2026',
     readTime: '11 min read',
@@ -554,7 +554,7 @@ ightarrow$ click." This saves ~200ms of reaction and movement time—an eternity
 
   {
     slug: 'low-sensitivity-vs-high-sensitivity-aim-better',
-    title: 'Low vs High Sensitivity: Which is Actually Better for Aim? (2026)',
+    title: 'Low vs High Sensitivity: Which is Better?',
     excerpt: 'The eternal debate in FPS gaming: wrist vs. arm, low vs. high. We analyze pro distributions, biomechanics, and consistency metrics to determine the optimal sensitivity range for competitive play.',
     date: 'April 22, 2026',
     readTime: '13 min read',
@@ -638,7 +638,7 @@ ightarrow$ click." This saves ~200ms of reaction and movement time—an eternity
 
   {
     slug: 'ptfe-mouse-skates-glass-guide-friction',
-    title: 'Mouse Skates Guide 2026: PTFE vs Glass Feet & Friction Dynamics',
+    title: 'Mouse Skates Guide: PTFE vs Glass Feet',
     excerpt: 'You bought a $150 mouse and a $50 mousepad, but ignored the skates. We analyze 100% pure PTFE, glass skates, and how static vs. dynamic friction affects your micro-adjustments in FPS games.',
     date: 'April 21, 2026',
     readTime: '10 min read',
@@ -727,7 +727,7 @@ Glass Skates + Glass Pad: Absolute zero friction. Only for the most dedicated hi
 
   {
     slug: 'cs2-recoil-control-spray-transfer-guide',
-    title: 'CS2 Recoil Control & Spray Transfer Guide: Mastering the Pattern',
+    title: 'CS2 Recoil Control & Spray Transfer Guide',
     excerpt: 'Unlike Valorant, CS2 features deterministic spray patterns. Learn the exact mechanical movements to control the AK-47, M4A4, and how to successfully execute multi-target spray transfers.',
     date: 'April 20, 2026',
     readTime: '14 min read',
@@ -808,7 +808,7 @@ Glass Skates + Glass Pad: Absolute zero friction. Only for the most dedicated hi
 
   {
     slug: 'apex-legends-ranked-tier-list-2026-meta',
-    title: 'Apex Legends Ranked Tier List: Climbing the 2026 Meta',
+    title: 'Apex Legends Ranked Tier List Guide',
     excerpt: 'The definitive Apex Legends character tier list for Ranked play in 2026. From movement skirmishers to lockdown controllers, find out which legends dominate the high-elo ALGS meta and why.',
     date: 'April 19, 2026',
     readTime: '11 min read',
@@ -896,7 +896,7 @@ Glass Skates + Glass Pad: Absolute zero friction. Only for the most dedicated hi
 
   {
     slug: 'overwatch-2-best-sensitivity-settings-2026',
-    title: 'Overwatch 2 Best Sensitivity Settings 2026: DPI Guide for Every Role',
+    title: 'Overwatch 2 Sensitivity Settings by Role',
     excerpt: 'Overwatch 2 uses a unique sensitivity scale different to CS2 and Valorant. This guide covers the optimal eDPI for DPS, Support, and Tank roles, plus converter formulas for every major FPS game.',
     date: 'April 25, 2026',
     readTime: '11 min read',
@@ -1012,7 +1012,7 @@ CS2 → OW2: CS2Sens × 3.33</div>
 
   {
     slug: 'fortnite-to-cs2-sensitivity-converter',
-    title: 'Fortnite to CS2 Sensitivity Converter: Formula, Table & Guide (2026)',
+    title: 'Fortnite to CS2 Sensitivity Converter Guide',
     excerpt: 'Converting from Fortnite to CS2 requires a ÷3.18 division due to Fortnite\'s higher yaw value. This guide covers the formula, conversion table, and why building mechanics affect your ideal CS2 sensitivity.',
     date: 'April 24, 2026',
     readTime: '9 min read',

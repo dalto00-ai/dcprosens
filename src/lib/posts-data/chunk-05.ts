@@ -3,7 +3,7 @@ import type { BlogPost } from './types';
 export const postsChunk05: BlogPost[] = [
   {
     slug: 'best-cs2-sensitivity-settings-2026',
-    title: 'Best CS2 Sensitivity Settings 2026: Complete Pro Analysis',
+    title: 'Best CS2 Sensitivity Settings Guide',
     excerpt: 'What mouse sensitivity, DPI and eDPI should you use in CS2? We break down every BLAST Premier pro\'s settings with data, role analysis and beginner recommendations.',
     date: 'April 16, 2026',
     readTime: '14 min read',
@@ -140,7 +140,7 @@ sensitivity 1.5       // Set your sensitivity (example value)</div>
 
   {
     slug: 'warzone-sensitivity-converter-guide',
-    title: 'Warzone Sensitivity Converter: Convert from CS2, Valorant & Apex (2026)',
+    title: 'Warzone Sensitivity Converter Guide',
     excerpt: 'Moving to Call of Duty Warzone from a PC FPS? Here\'s the exact sensitivity conversion formula, ADS settings guide, and what CoD pro players use in 2026.',
     date: 'April 15, 2026',
     readTime: '10 min read',
@@ -277,7 +277,7 @@ Invert Mouse: OFF</div>
 
   {
     slug: 'aim-lab-kovaks-sensitivity-guide',
-    title: 'Aim Lab & KovaaK\'s Sensitivity Guide: Train Like a Pro (2026)',
+    title: 'Aim Lab & KovaaK\'s Sensitivity Guide',
     excerpt: 'Which sensitivity should you use in aim trainers? This guide explains how to sync Aim Lab and KovaaK\'s perfectly with your game settings for maximum training ROI.',
     date: 'April 14, 2026',
     readTime: '11 min read',
@@ -426,7 +426,7 @@ For CS2 (yaw 0.022), 400 DPI, 2.0 sens:
 
   {
     slug: 'rainbow-six-siege-sensitivity-converter',
-    title: 'Rainbow Six Siege Sensitivity Converter: Full Guide with ADS Settings (2026)',
+    title: 'Rainbow Six Siege Sensitivity Converter',
     excerpt: 'Rainbow Six Siege has the most complex sensitivity system of any FPS. This guide explains Mouse DPI, per-scope ADS settings, and how to convert from CS2 and Valorant.',
     date: 'April 13, 2026',
     readTime: '12 min read',
@@ -554,7 +554,7 @@ Multiplier ≈ 0.32–0.38</div>
 
   {
     slug: 'how-to-improve-aim-valorant-2026',
-    title: 'How to Improve Aim in Valorant: The Complete 2026 Guide',
+    title: 'How to Improve Aim in Valorant',
     excerpt: 'Bad aim in Valorant? This guide covers crosshair placement, sensitivity optimization, aim training routines, and the mental framework to actually get better — backed by pro coaching data.',
     date: 'April 12, 2026',
     readTime: '16 min read',
@@ -679,7 +679,7 @@ Multiplier ≈ 0.32–0.38</div>
 
   {
     slug: 'overwatch-2-sensitivity-converter-guide',
-    title: 'Overwatch 2 Sensitivity Converter: Convert from CS2, Valorant & Apex (2026)',
+    title: 'Overwatch 2 Sensitivity Converter Guide',
     excerpt: 'Convert your mouse sensitivity to and from Overwatch 2 accurately. Includes the full OW2 yaw value, ADS settings for all heroes, and a complete hero-by-hero sensitivity guide.',
     date: 'April 11, 2026',
     readTime: '11 min read',
@@ -821,7 +821,7 @@ Or: Use "0% monitor distance match" ≈ 40% for 2× scopes</div>
 
   {
     slug: 'best-gaming-mouse-for-fps-2026',
-    title: 'Best Gaming Mouse for FPS in 2026: Sensor, Weight & DPI Guide',
+    title: 'Best Gaming Mouse for FPS: Sensor & DPI Guide',
     excerpt: 'The Logitech G Pro X Superlight 2, Razer Viper V4 Pro, Lamzu Atlantis... which gaming mouse is actually best for competitive FPS in 2026? We break down sensor specs, weight, and what pro players actually use.',
     date: 'April 10, 2026',
     readTime: '13 min read',
@@ -939,7 +939,7 @@ Or: Use "0% monitor distance match" ≈ 40% for 2× scopes</div>
 
   {
     slug: 'what-is-mouse-dpi-complete-guide',
-    title: 'What is Mouse DPI? The Complete Gaming Guide (2026)',
+    title: 'What is Mouse DPI? A Complete Guide',
     excerpt: 'DPI confused you? We break down exactly what DPI means for gaming, how it affects your aim, and what DPI pros actually use in 2026.',
     date: 'April 15, 2026',
     readTime: '14 min read',
@@ -1111,7 +1111,7 @@ Player B: 800 DPI × 1.0 sens = 800 eDPI
 
   {
     slug: '400-dpi-vs-800-dpi-fps-games',
-    title: '400 DPI vs 800 DPI for FPS Games: A Data-Driven Comparison (2026)',
+    title: '400 DPI vs 800 DPI for FPS Games',
     excerpt: 'Is 400 DPI actually better than 800 DPI for CS2 and Valorant? We analyzed 50+ pro player settings and sensor data to give you a definitive answer.',
     date: 'April 14, 2026',
     readTime: '11 min read',
@@ -1219,7 +1219,7 @@ The difference is in micro-feel, not performance.</div>
 
   {
     slug: 'how-to-use-sensitivity-converter',
-    title: 'How to Use a Sensitivity Converter: Complete Step-by-Step Guide (2026)',
+    title: 'How to Use a Sensitivity Converter',
     excerpt: 'Never guess your sensitivity again. This guide teaches you exactly how sensitivity converters work, what cm/360 means, and how to get a perfect aim conversion every time.',
     date: 'April 13, 2026',
     readTime: '12 min read',
@@ -1326,7 +1326,7 @@ Example: OW2 5.0 × 0.09 = 0.45 in Valorant</div>
 
   {
     slug: 'cs2-to-apex-legends-sensitivity-converter',
-    title: 'CS2 to Apex Legends Sensitivity: Exact Conversion Guide (2026)',
+    title: 'CS2 to Apex Legends Sensitivity Guide',
     excerpt: 'CS2 and Apex share the same yaw. Find out why the conversion is 1:1, what to do about ADS sensitivity, and how pros transfer their aim between both games.',
     date: 'April 12, 2026',
     readTime: '9 min read',
@@ -1459,7 +1459,7 @@ Example: Apex 1.5 → CS2 1.5</div>
 
   {
     slug: 'what-is-cm360-guide',
-    title: 'What is cm/360? The Universal Aim Standard Explained for Gamers',
+    title: 'What is cm/360? The Universal Aim Standard',
     excerpt: 'cm/360 is the only metric that lets you compare sensitivity across every FPS game. Learn what it means, how to calculate yours, and what the pros use.',
     date: 'April 11, 2026',
     readTime: '10 min read',
@@ -1602,7 +1602,7 @@ Where Yaw values are:
 
   {
     slug: 'mouse-acceleration-gaming-turn-off',
-    title: 'Mouse Acceleration in Gaming: Why You Must Turn It Off (Valorant & CS2 Guide)',
+    title: 'Mouse Acceleration in Gaming: Turn It Off',
     excerpt: 'If you have Enhance Pointer Precision enabled in Windows, your aim will never be consistent. Here is what mouse acceleration does, why pros hate it, and exactly how to disable it.',
     date: 'April 10, 2026',
     readTime: '10 min read',

@@ -3,7 +3,7 @@ import type { BlogPost } from './types';
 export const postsChunk03: BlogPost[] = [
   {
     slug: 'hunt-showdown-sensitivity-converter-guide',
-    title: 'Hunt: Showdown Sensitivity Converter & Best Settings Guide (2026)',
+    title: 'Hunt: Showdown Sensitivity Converter Guide',
     excerpt: 'Hunt: Showdown has unique scoped sensitivity scaling tied to its FOV system. This guide covers the yaw value, per-weapon scope conversion, and how to transfer settings from CS2, Valorant, or Apex.',
     date: 'April 16, 2026',
     readTime: '10 min read',
@@ -119,7 +119,7 @@ Sharpening: 50–70 (improves target visibility in bayou fog)</div>
 
   {
     slug: 'wrist-aiming-vs-arm-aiming-guide',
-    title: 'Wrist Aiming vs Arm Aiming: Which is Better for FPS? (Science-Backed Guide)',
+    title: 'Wrist vs Arm Aiming: Which is Better?',
     excerpt: 'Should you aim with your wrist or your arm? This guide breaks down the biomechanics, pro player data, injury risk, and exactly what sensitivity range suits each aiming style.',
     date: 'April 21, 2026',
     readTime: '12 min read',
@@ -263,7 +263,7 @@ Sharpening: 50–70 (improves target visibility in bayou fog)</div>
 
   {
     slug: 'minecraft-pvp-sensitivity-guide-2026',
-    title: 'Best Minecraft PVP Sensitivity Settings 2026: Java & Bedrock Guide',
+    title: 'Best Minecraft PVP Sensitivity Settings',
     excerpt: 'Minecraft PVP uses a completely different sensitivity system than modern FPS games. This guide covers Java vs Bedrock settings, converting from other games, and what sensitivity top ranked PVP players use.',
     date: 'April 20, 2026',
     readTime: '11 min read',
@@ -386,7 +386,7 @@ Example: 25 cm/360 at 800 DPI
 
   {
     slug: 'aim-training-routine-fps-games-2026',
-    title: 'The Complete Aim Training Routine for FPS Games (2026): Aim Lab & KovaaK\'s',
+    title: 'Complete Aim Training Routine for FPS Games',
     excerpt: 'This structured daily aim training routine covers the exact scenarios, timing, and progression system to improve your Valorant, CS2, and Apex aim in 30–60 minute sessions.',
     date: 'April 19, 2026',
     readTime: '16 min read',
@@ -505,7 +505,7 @@ Example: 25 cm/360 at 800 DPI
 
   {
     slug: 'how-to-boost-fps-valorant-cs2-low-end-pc-2026',
-    title: 'How to Boost FPS in Valorant and CS2 on Low-End PC (2026 Guide)',
+    title: 'Boost FPS in Valorant and CS2 on Low-End PC',
     excerpt: 'Getting 240+ FPS on a mid-spec PC is achievable with the right settings. This guide covers Valorant and CS2 FPS optimization, Windows settings, and hardware upgrades that deliver the biggest performance gains.',
     date: 'April 18, 2026',
     readTime: '14 min read',
@@ -651,7 +651,7 @@ CS2: game_mode_sv_cheats → cl_csm_enabled 0 (community optimization)</div>
 
   {
     slug: 'why-you-are-not-improving-at-aiming-sensitivity-plateau',
-    title: 'Why You\'re Not Improving at Aiming: Breaking the Sensitivity Plateau',
+    title: 'Why You\'re Not Improving at Aiming',
     excerpt: 'Stuck at the same rank for months despite hours of ranked play? This guide identifies the 7 most common reasons FPS players plateau on aim, and the exact methods to break through each one.',
     date: 'April 17, 2026',
     readTime: '13 min read',
@@ -747,7 +747,7 @@ CS2: game_mode_sv_cheats → cl_csm_enabled 0 (community optimization)</div>
 
   {
     slug: 'xdefiant-sensitivity-settings-converter-2026',
-    title: 'XDefiant Sensitivity Settings 2026: Convert from Valorant, CS2 & Apex',
+    title: 'XDefiant Sensitivity Settings Guide',
     excerpt: 'XDefiant uses a unique FOV-based sensitivity system. This guide covers the yaw value, optimal settings for each faction\'s playstyle, and how to convert from any major FPS game.',
     date: 'April 16, 2026',
     readTime: '10 min read',
@@ -845,7 +845,7 @@ General ADS advice: Set to "Relative" in XDefiant options
 
   {
     slug: 'cs2-to-valorant-sensitivity-converter-guide',
-    title: 'CS2 to Valorant Sensitivity Converter: Exact Formula & Guide (2026)',
+    title: 'CS2 to Valorant Sensitivity Converter',
     excerpt: 'Converting from CS2 to Valorant requires dividing by 3.18 due to different yaw values. This complete guide covers the formula, a full conversion table, and why the games feel different even at the same cm/360.',
     date: 'April 15, 2026',
     readTime: '9 min read',
@@ -950,7 +950,7 @@ CS2 2.5  → Valorant: 2.5 ÷ 3.18 = 0.786 (eDPI: 629)</div>
 
   {
     slug: 'battlefield-2042-sensitivity-converter-guide',
-    title: 'Battlefield Sensitivity Converter: BF2042, BF1 & Convert from Any FPS (2026)',
+    title: 'Battlefield Sensitivity Converter Guide',
     excerpt: 'Battlefield\'s sensitivity system uses a non-standard multiplier based on FOV. This guide explains the Battlefield 2042 yaw value, per-zoom conversion table, and how to transfer from CS2, Valorant, or Apex.',
     date: 'April 14, 2026',
     readTime: '10 min read',
@@ -1063,7 +1063,7 @@ Field of View: 74–90° (higher = wider view, adjust sensitivity accordingly)</
 
   {
     slug: 'counter-strafing-guide-cs2-2026',
-    title: 'Counter-Strafing in CS2: The Complete Guide (2026)',
+    title: 'Counter-Strafing in CS2: The Complete Guide',
     excerpt: 'Counter-strafing is the single most important movement skill in CS2. This guide explains the technique, timing, and how sensitivity affects your ability to counter-strafe effectively.',
     date: 'April 19, 2026',
     readTime: '12 min read',
@@ -1176,7 +1176,7 @@ Time saved: 200–500 milliseconds per peek</div>
 
   {
     slug: 'best-mousepad-size-guide-2026',
-    title: 'Best Mousepad Size Guide: Small vs XL — What Pros Use (2026)',
+    title: 'Best Mousepad Size Guide: Small vs XL',
     excerpt: 'Should you use a 400mm, 450mm, or XL 900mm mousepad? This data-backed guide explains how sensitivity, grip style, and game choice determine your ideal mousepad size.',
     date: 'April 18, 2026',
     readTime: '10 min read',
@@ -1282,7 +1282,7 @@ Under 25 cm/360: 400×300mm minimum (small-medium)
 
   {
     slug: 'the-finals-sensitivity-settings-2026',
-    title: 'The Finals Sensitivity Settings 2026: Best DPI and Converter Guide',
+    title: 'The Finals Sensitivity Settings & Converter',
     excerpt: 'The Finals has unique sensitivity scaling due to its FOV system. This guide covers the yaw value, optimal eDPI for each class, and how to convert from Valorant, CS2, or Apex.',
     date: 'April 17, 2026',
     readTime: '11 min read',
@@ -1387,7 +1387,7 @@ Raw Input: On</div>
 
   {
     slug: 'how-to-improve-reaction-time-fps-gaming',
-    title: 'How to Improve Reaction Time for FPS Games: Science-Backed Guide (2026)',
+    title: 'How to Improve Reaction Time for FPS Games',
     excerpt: 'Human reaction time averages 250ms — pros average 180–220ms. This guide covers the proven science of reaction time improvement, hardware optimizations, and daily training routines.',
     date: 'April 16, 2026',
     readTime: '15 min read',

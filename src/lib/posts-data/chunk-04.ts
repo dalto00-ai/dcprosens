@@ -3,7 +3,7 @@ import type { BlogPost } from './types';
 export const postsChunk04: BlogPost[] = [
   {
     slug: 'best-valorant-settings-by-agent-role',
-    title: 'Best Valorant Settings by Agent Role: Duelist vs Sentinel vs Controller (2026)',
+    title: 'Best Valorant Settings by Agent Role',
     excerpt: 'Should Duelists use higher sensitivity than Sentinels? This guide breaks down the optimal mouse sensitivity, crosshair, and in-game settings for each Valorant agent role.',
     date: 'April 15, 2026',
     readTime: '13 min read',
@@ -126,7 +126,7 @@ export const postsChunk04: BlogPost[] = [
 
   {
     slug: 'best-cs2-crosshair-settings-pro-codes-2026',
-    title: 'Best CS2 Crosshair Settings 2026: Pro Codes and Complete Setup Guide',
+    title: 'Best CS2 Crosshair Settings & Pro Codes',
     excerpt: 'Copy pro player CS2 crosshair codes from s1mple, NiKo, ZywOo and more. This guide explains every crosshair setting in CS2 and what makes the best competitive crosshair.',
     date: 'April 14, 2026',
     readTime: '11 min read',
@@ -241,7 +241,7 @@ cl_crosshairalpha 255 (fully opaque)</div>
 
   {
     slug: 'speed-vs-control-mousepad-which-is-better',
-    title: 'Speed vs Control Mousepad: Which is Better for FPS? (2026 Guide)',
+    title: 'Speed vs Control Mousepad: Which is Better?',
     excerpt: 'Speed pads are faster, control pads are more precise — but which one actually improves your FPS aim? We break down the science, pro usage data, and how to choose for your sensitivity.',
     date: 'April 13, 2026',
     readTime: '10 min read',
@@ -355,7 +355,7 @@ cl_crosshairalpha 255 (fully opaque)</div>
 
   {
     slug: 'valorant-to-apex-sensitivity-converter',
-    title: 'Valorant to Apex Sensitivity Converter: Exact Formula & Guide (2026)',
+    title: 'Valorant to Apex Sensitivity Converter',
     excerpt: 'Converting from Valorant to Apex Legends requires a 3.18× multiplier due to different yaw values. This guide explains the formula, ADS settings, and why the games feel different at the same cm/360.',
     date: 'April 12, 2026',
     readTime: '9 min read',
@@ -470,7 +470,7 @@ Response Curve: 0 (Linear — no easing)</div>
 
   {
     slug: 'best-apex-legends-sensitivity-settings-2026',
-    title: 'Best Apex Legends Sensitivity Settings 2026: Pro Player Guide',
+    title: 'Best Apex Legends Sensitivity Settings',
     excerpt: 'What DPI, sensitivity, and ADS settings do Apex Legends pros use in 2026? We break down ALGS Championship player data, the ideal cm/360 for each legend class, and how to find your perfect Apex sensitivity.',
     date: 'April 17, 2026',
     readTime: '13 min read',
@@ -606,7 +606,7 @@ From Overwatch 2: OW2 Sensitivity × 0.288</div>
 
   {
     slug: 'best-fortnite-sensitivity-settings-2026',
-    title: 'Best Fortnite Sensitivity Settings 2026: Building, Editing & Aim Guide',
+    title: 'Best Fortnite Sensitivity Settings Guide',
     excerpt: 'Fortnite sensitivity is different from other FPS games. This guide covers the best DPI, X/Y sensitivity, and ADS settings for competitive Fortnite in 2026, with data from FNCS pros.',
     date: 'April 17, 2026',
     readTime: '12 min read',
@@ -751,7 +751,7 @@ From CS2: Fortnite % = CS2 Sens × (0.022/0.005555) / DPI × 100</div>
 
   {
     slug: 'mouse-grip-style-guide-palm-claw-fingertip',
-    title: 'Mouse Grip Styles: Palm vs Claw vs Fingertip — Which is Best for FPS?',
+    title: 'Mouse Grip Styles: Palm vs Claw vs Fingertip',
     excerpt: 'Your grip style determines your ideal mouse shape, weight, and sensitivity. This complete guide explains palm, claw, and fingertip grips with pro player examples and sensitivity recommendations for each.',
     date: 'April 16, 2026',
     readTime: '11 min read',
@@ -909,7 +909,7 @@ From CS2: Fortnite % = CS2 Sens × (0.022/0.005555) / DPI × 100</div>
 
   {
     slug: 'polling-rate-explained-1000hz-vs-4000hz-vs-8000hz',
-    title: 'Mouse Polling Rate Explained: 1000Hz vs 4000Hz vs 8000Hz (2026)',
+    title: 'Mouse Polling Rate: 1000Hz vs 4000Hz vs 8000Hz',
     excerpt: 'What is mouse polling rate, does 8000Hz actually improve your aim, and which polling rate should you use in 2026? We break down the science, hardware requirements, and practical impact.',
     date: 'April 16, 2026',
     readTime: '10 min read',
@@ -996,7 +996,7 @@ From CS2: Fortnite % = CS2 Sens × (0.022/0.005555) / DPI × 100</div>
 
   {
     slug: 'best-valorant-crosshair-settings-2026',
-    title: 'Best Valorant Crosshair Settings 2026: Pro Codes & Complete Guide',
+    title: 'Best Valorant Crosshair Settings & Pro Codes',
     excerpt: 'Copy the exact crosshair codes of TenZ, Aspas, Chronicle and top VCT pros. This guide explains what makes a crosshair competitive and how to optimize yours for any playstyle.',
     date: 'April 15, 2026',
     readTime: '12 min read',
@@ -1091,7 +1091,7 @@ Offset (gap): 1–3 px</div>
 
   {
     slug: 'pubg-sensitivity-converter-guide',
-    title: 'PUBG Sensitivity Converter: Convert from Valorant, CS2 & Apex (2026)',
+    title: 'PUBG Sensitivity Converter Guide',
     excerpt: 'PUBG has 11 separate sensitivity sliders. This guide explains the yaw value, per-scope settings, and how to convert your sensitivity from any game to PUBG perfectly.',
     date: 'April 14, 2026',
     readTime: '11 min read',
@@ -1184,7 +1184,7 @@ ADS FOV: 70 (competitive standard)</div>
 
   {
     slug: 'cs2-spray-control-guide-ak47-m4',
-    title: 'CS2 Spray Control Guide: Master the AK-47 and M4A4 Patterns (2026)',
+    title: 'CS2 Spray Control Guide: AK-47 and M4A4',
     excerpt: 'CS2 spray control is one of the highest skill-cap mechanics in competitive gaming. This guide covers AK-47, M4A4, M4A1-S patterns, how sensitivity affects spray, and the fastest way to learn.',
     date: 'April 13, 2026',
     readTime: '14 min read',
@@ -1280,7 +1280,7 @@ M4A1-S: 25 rounds, tighter, less horizontal</div>
 
   {
     slug: 'dpi-for-monitor-resolution-1080p-1440p-4k',
-    title: 'Best DPI for Your Monitor Resolution: 1080p, 1440p and 4K Guide',
+    title: 'Best DPI for Your Monitor Resolution',
     excerpt: 'Does monitor resolution affect what DPI you should use? The answer is nuanced. This guide explains how 1080p, 1440p, and 4K affect your effective sensitivity and what to change (if anything).',
     date: 'April 12, 2026',
     readTime: '9 min read',
@@ -1368,7 +1368,7 @@ M4A1-S: 25 rounds, tighter, less horizontal</div>
 
   {
     slug: 'best-valorant-sensitivity-settings-2026',
-    title: 'Best Valorant Sensitivity Settings 2026: Pro Player Guide',
+    title: 'Best Valorant Sensitivity Settings Guide',
     excerpt: 'What sensitivity should you use in Valorant? We analyzed every VCT pro player\'s settings to find the optimal DPI, sensitivity, and eDPI ranges for every playstyle.',
     date: 'April 16, 2026',
     readTime: '13 min read',
