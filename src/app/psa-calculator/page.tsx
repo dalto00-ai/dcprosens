@@ -3,7 +3,7 @@ import PSACalculator from '@/components/PSACalculator';
 import PremiumGuard from '@/components/PremiumGuard';
 
 export const metadata: Metadata = {
-    title: 'PSA Method Calculator — Find Your Perfect Mouse Sensitivity',
+    title: 'PSA Method Calculator — Perfect Sensitivity',
     description:
         'Use the Perfect Sensitivity Approximation (PSA) method to mathematically calculate your ideal FPS gaming sensitivity. Guide your aiming sweet spot for Valorant, CS2, and Apex Legends.',
     keywords: [

@@ -3,7 +3,7 @@ import AdsCalculator from './AdsCalculator';
 import PremiumGuard from '@/components/PremiumGuard';
 
 export const metadata: Metadata = {
-    title: "1:1 ADS Scope Sensitivity Calculator — Valorant, CS2, Apex",
+    title: "1:1 ADS Sensitivity Calculator",
     description: "Free gaming ADS and scope sensitivity converter. Calculate the perfect 1:1 zoom sensitivity for Valorant Operator, CS2 AWP, Apex Legends, and CoD Warzone to preserve muscle memory.",
     keywords: [
         // ADS / Scope core

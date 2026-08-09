@@ -4,7 +4,7 @@ import ProsList from './ProsList';
 
 // ─── SEO Metadata ─────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
-    title: 'Pro Player Sensitivity Settings 2025 — TenZ, s1mple, ZywOo, NiKo',
+    title: 'Pro Player Sensitivity Settings 2026',
     description:
         'Find exact sensitivity settings for 20+ pro players. TenZ uses 0.3 @ 800 DPI (240 eDPI). s1mple uses 3.09 @ 400 DPI. ZywOo, NiKo, Aspas, Demon1, ropz, dev1ce, m0NESY settings and more.',
     keywords: [
@@ -50,8 +50,13 @@ export const metadata: Metadata = {
 export default function ProsPage() {
     return (
         <Suspense fallback={
-            <div className="container" style={{ padding: '8rem 0', textAlign: 'center', color: 'var(--text-secondary)' }}>
-                <div style={{ fontSize: '1.2rem', marginBottom: '1rem' }}>Carregando banco de dados de pros...</div>
+            <div className="container" style={{ padding: '4rem 0 6rem', textAlign: 'center', color: 'var(--text-secondary)' }}>
+                <h1 className="hero-title" style={{ marginBottom: '1rem' }}>
+                    Pro Player <span className="text-gradient">Sensitivity</span> Hub
+                </h1>
+                <p className="hero-subtitle" style={{ marginBottom: '2rem' }}>
+                    Exact DPI, sensitivity, eDPI and cm/360 for 20+ world-class FPS professionals.
+                </p>
                 <div className="spinner" style={{ margin: '0 auto' }}></div>
             </div>
         }>

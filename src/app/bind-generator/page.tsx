@@ -3,7 +3,7 @@ import BindGenerator from '@/components/BindGenerator';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: "CS2 Bind Generator 2025 — Jumpthrow, Radar Zoom, Autoexec CFG",
+    title: "CS2 Bind Generator 2026",
     description: "Generate custom CS2 console binds instantly. Create jumpthrow binds, radar toggles, drop bomb binds, and download your autoexec.cfg file free.",
     keywords: [
         'cs2 bind generator', 'cs2 config generator', 'cs2 jumpthrow bind 2025', 'cs2 radar toggle bind',

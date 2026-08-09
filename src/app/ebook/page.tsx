@@ -3,7 +3,7 @@ import Image from 'next/image';
 import styles from './EbookSales.module.css';
 
 export const metadata: Metadata = {
-    title: "The Precision Aim System - 1:1 Aim & Pro Muscle Memory",
+    title: "The Precision Aim System Ebook",
     description: "Lock in 1:1 aim translation, calibrate angle geometry, and master pro-level muscle memory. Complete 4-part Technical Aim System for just $9.00 USD.",
     alternates: {
         canonical: "https://dcprosens.com/ebook",

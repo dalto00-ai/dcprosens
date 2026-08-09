@@ -22,8 +22,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const pro = getProBySlug(slug);
     if (!pro) return { title: 'Player Not Found' };
 
+    // Title budget is ~47 chars before " | DCPROSENS" is appended (keeps the
+    // full <title> under Google/Bing's ~60-char cutoff) — name+game combos
+    // range up to 23 chars, so the tier below covers the worst case safely.
+    const titleTiers = [
+        `${pro.name} — ${pro.game} Sensitivity Settings`,
+        `${pro.name} — ${pro.game} Settings`,
+        `${pro.name} Settings`,
+    ];
+    const title = titleTiers.find((t) => t.length <= 47) ?? titleTiers[titleTiers.length - 1];
+
     return {
-        title: `${pro.name} Sensitivity Settings 2025 — ${pro.game} DPI & Config`,
+        title,
         description: `${pro.name} uses ${pro.dpi} DPI and ${pro.sens} sensitivity in ${pro.game} (${pro.edpi} eDPI, ${pro.cm360} cm/360). Mouse: ${pro.mouse}. Full config, crosshair, mousepad, keyboard, monitor and more.`,
         keywords: [
             `${pro.name} sensitivity`,

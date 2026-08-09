@@ -135,6 +135,9 @@ export default function LoginPage() {
   if (loading || user) {
     return (
       <div className={styles.loadingContainer}>
+        <h1 className={styles.title}>
+          DC<span>PROSENS</span> SaaS
+        </h1>
         <div className={styles.spinner}></div>
         <p>Verifying authentication...</p>
       </div>

@@ -3,7 +3,7 @@ import MouseDatabaseClient from '@/components/MouseDatabaseClient';
 import { mouseDatabase } from '@/lib/mouseDatabase';
 
 export const metadata: Metadata = {
-    title: "Best Gaming Mice 2025 — Pro Player Mouse Database",
+    title: "Best Gaming Mice 2026 — Mouse Database",
     description: "Browse the ultimate database of pro gaming mice. Filter by weight, sensor, shape and connectivity. Find the perfect mouse used by top FPS professionals.",
     keywords: [
         // Core gaming mouse

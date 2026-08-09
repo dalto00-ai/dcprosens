@@ -18,8 +18,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const story = stories.find((s) => s.slug === slug);
     if (!story) return { title: 'Story Not Found' };
 
+    // Title budget is ~47 chars before " | DCPROSENS" is appended.
+    const titleTiers = [
+        `${story.title} — Web Stories`,
+        `${story.title} — Story`,
+        story.title,
+    ];
+    const title = titleTiers.find((t) => t.length <= 47) ?? titleTiers[titleTiers.length - 1];
+
     return {
-        title: `${story.title} — Web Stories`,
+        title,
         description: story.excerpt,
         alternates: { canonical: `https://dcprosens.com/web-stories/${story.slug}` },
         openGraph: {
@@ -227,16 +235,29 @@ export default async function WebStoryPage({ params }: Props) {
                                 </div>
                             )}
 
-                            <h2 style={{
-                                fontSize: 'clamp(1.8rem, 6vw, 2.8rem)',
-                                fontWeight: 800,
-                                lineHeight: 1.1,
-                                marginBottom: '1rem',
-                                textShadow: '0 2px 30px rgba(0,0,0,0.9)',
-                                letterSpacing: '-0.02em',
-                            }}>
-                                {page.title}
-                            </h2>
+                            {index === 0 ? (
+                                <h1 style={{
+                                    fontSize: 'clamp(1.8rem, 6vw, 2.8rem)',
+                                    fontWeight: 800,
+                                    lineHeight: 1.1,
+                                    marginBottom: '1rem',
+                                    textShadow: '0 2px 30px rgba(0,0,0,0.9)',
+                                    letterSpacing: '-0.02em',
+                                }}>
+                                    {page.title}
+                                </h1>
+                            ) : (
+                                <h2 style={{
+                                    fontSize: 'clamp(1.8rem, 6vw, 2.8rem)',
+                                    fontWeight: 800,
+                                    lineHeight: 1.1,
+                                    marginBottom: '1rem',
+                                    textShadow: '0 2px 30px rgba(0,0,0,0.9)',
+                                    letterSpacing: '-0.02em',
+                                }}>
+                                    {page.title}
+                                </h2>
+                            )}
 
                             {page.description && (
                                 <p style={{

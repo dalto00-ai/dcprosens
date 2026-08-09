@@ -5,7 +5,7 @@ import { sensFinderContent } from '@/lib/sensFinderContent';
 import PremiumGuard from '@/components/PremiumGuard';
 
 export const metadata: Metadata = {
-    title: "Find My Sensitivity — cm/360 to All Games Calculator",
+    title: "Sensitivity Finder — cm/360 Calculator",
     description: "Enter your ideal cm/360 and instantly get your exact in-game sensitivity for Valorant, CS2, Apex Legends, Overwatch 2 and more. One cm/360, all games.",
     keywords: [
         // Reverse calculator core

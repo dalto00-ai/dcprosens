@@ -18,7 +18,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const content = getDpiGuideContent(gameId);
     if (!content) return { title: 'Game Not Found' };
 
-    const title = `Best DPI & Mouse Settings for ${content.displayName} (${new Date().getFullYear()})`;
+    // Title budget is ~47 chars before " | DCPROSENS" is appended.
+    const titleTiers = [
+        `Best DPI & Mouse Settings for ${content.displayName}`,
+        `Best DPI Settings for ${content.displayName}`,
+        `${content.displayName} DPI Guide`,
+    ];
+    const title = titleTiers.find((t) => t.length <= 47) ?? titleTiers[titleTiers.length - 1];
     const description = `What DPI do ${content.displayName} pros actually use? ${content.dpiRange}`;
 
     return {

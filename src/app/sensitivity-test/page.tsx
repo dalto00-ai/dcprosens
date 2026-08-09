@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import SensitivityTestGated from "@/components/SensitivityTestGated";
 
 export const metadata: Metadata = {
-    title: "Sensitivity Test Game — Find Your Speed & Precision",
+    title: "Sensitivity Test Game — Free Aim Test",
     description: "Free browser mini-game that measures your flick speed and precision, then tells you whether your mouse sensitivity is too high, too low, or balanced. Works on desktop and mobile.",
     keywords: [
         'sensitivity test game', 'mouse sensitivity test', 'aim precision test',

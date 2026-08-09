@@ -3,7 +3,7 @@ import Link from "next/link";
 import { dpiGuideContent } from "@/lib/dpiGuideContent";
 
 export const metadata: Metadata = {
-    title: "DPI & Mouse Settings Guides — Games Without a Sensitivity Converter",
+    title: "DPI & Mouse Settings Guides",
     description: "Best DPI and mouse settings for games that don't use a rotating first-person camera (MOBAs, mobile battle royales) — League of Legends, Dota 2, Free Fire and more.",
     alternates: {
         canonical: "https://dcprosens.com/dpi-guide",

@@ -3,7 +3,7 @@ import MousepadCalculator from '@/components/MousepadCalculator';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: 'Mousepad Size Calculator — Find the Perfect Gaming Mousepad',
+    title: 'Mousepad Size Calculator',
     description: 'Find the ideal gaming mousepad size for your sensitivity. Enter your cm/360 and DPI to get personalized recommendations. Best large, XL and extended mousepads for low sensitivity gamers.',
     keywords: [
         'mousepad size calculator',

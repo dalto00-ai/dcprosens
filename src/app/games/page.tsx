@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: "Games Supported — Sensitivity Converter for 17+ FPS Games",
+    title: "Games Supported — Sensitivity Converter",
     description: "Complete list of games supported by DCPROSENS sensitivity converter: Valorant, CS2, Apex Legends, Overwatch 2, Fortnite, CoD Warzone, Rainbow Six Siege, Marvel Rivals, THE FINALS and more.",
     alternates: {
         canonical: "https://dcprosens.com/games",

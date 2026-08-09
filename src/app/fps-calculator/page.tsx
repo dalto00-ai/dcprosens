@@ -3,7 +3,7 @@ import FpsCalculator from '@/components/FpsCalculator';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'FPS & Bottleneck Calculator — Estimate Valorant, CS2 & Apex FPS',
+  title: 'FPS & Bottleneck Calculator',
   description: 'Check if your PC CPU or GPU is bottlenecking your game performance. Estimate average frames per second (FPS) for Valorant, CS2, and Apex Legends, and get upgrade tips.',
   keywords: [
     'fps calculator',

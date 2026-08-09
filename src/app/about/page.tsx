@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "About DCPROSENS — Free Gaming Sensitivity Converter",
+    title: "About Us",
     description: "Learn about DCPROSENS, the ultimate free sensitivity converter and eDPI calculator for competitive FPS gamers. Built by gamers for Valorant, CS2, Apex Legends and more.",
     alternates: {
         canonical: "https://dcprosens.com/about",

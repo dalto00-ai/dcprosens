@@ -3,7 +3,7 @@ import MousepadChart from '@/components/MousepadChart';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: 'Mousepad Friction & Speed Chart 2025 — Control vs Speed',
+    title: 'Mousepad Speed Chart — Control vs Speed',
     description: 'Compare mousepad static friction, dynamic friction, and stopping power. View the ultimate interactive mousepad database with Artisan, SteelSeries, Logitech, and Zowie.',
     keywords: [
         'mousepad friction chart',

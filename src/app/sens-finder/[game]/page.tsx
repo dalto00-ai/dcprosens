@@ -22,7 +22,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const game = games.find((g) => g.id === gameId);
     if (!content || !game) return { title: 'Game Not Found' };
 
-    const title = `${content.displayName} Sensitivity Converter — cm/360 & eDPI Calculator`;
+    // Title budget is ~47 chars before " | DCPROSENS" is appended (keeps the
+    // full <title> under Google/Bing's ~60-char cutoff) — game display names
+    // range from 4 to 38 chars, so the suffix tier has to flex to fit.
+    const titleTiers = [
+        `${content.displayName} Sensitivity Converter`,
+        `${content.displayName} Sens Converter`,
+        content.displayName,
+    ];
+    const title = titleTiers.find((t) => t.length <= 47) ?? titleTiers[titleTiers.length - 1];
     const description = `Convert your ${content.displayName} sensitivity to any other FPS game (or vice versa) with an exact cm/360 match. Yaw: ${game.yaw}, engine: ${content.engine}.`;
 
     return {

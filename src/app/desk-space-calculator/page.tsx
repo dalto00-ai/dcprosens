@@ -3,7 +3,7 @@ import DeskSpaceCalculator from '@/components/DeskSpaceCalculator';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Desk Space Sensitivity Calculator — Match DPI & Desk Size',
+  title: 'Desk Space Sensitivity Calculator',
   description: 'Calculate the ideal mouse sensitivity and mousepad size for your physical desk space. Avoid hitting your keyboard or sliding off your desk during flick shots.',
   keywords: [
     'desk space sensitivity calculator',

@@ -3,7 +3,7 @@ import DPIAnalyzer from '@/components/DPIAnalyzer';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-    title: "Mouse DPI Analyzer — Test Real Mouse DPI & Sensor Deviation",
+    title: "Mouse DPI Analyzer",
     description: "Check if your gaming mouse has sensor deviation. Measure a physical distance, move your mouse, and calculate your real DPI vs declared DPI online.",
     keywords: [
         'mouse dpi analyzer', 'dpi deviation calculator', 'test mouse dpi online', 'real mouse dpi test',

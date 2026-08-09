@@ -7,7 +7,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "DCPROSENS — The #1 Gaming Sensitivity Calibration Platform | Converter, Pro Settings & Aim Tools",
+    title: "DCPROSENS — Gaming Sensitivity Converter & DPI Calculator",
     description: "Convert mouse sensitivity between Valorant, CS2, Apex Legends, Overwatch 2 and 15+ games. Pro player settings database, PSA calculator, crosshair creator, aim trainer, and 20+ precision tools. Free.",
     keywords: [
         'sensitivity converter', 'mouse sensitivity converter', 'gaming sensitivity calculator',

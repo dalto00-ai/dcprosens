@@ -4,7 +4,7 @@ import Link from 'next/link';
 import PremiumGuard from '@/components/PremiumGuard';
 
 export const metadata: Metadata = {
-    title: "DPI Calculator — What is DPI & eDPI? Mouse Sensitivity Explained",
+    title: "DPI Calculator — What is DPI & eDPI?",
     description: "Free DPI & eDPI calculator for gamers. Learn what DPI means, what eDPI is, and find your perfect mouse sensitivity for Valorant, CS2, Apex Legends and more.",
     keywords: [
         // Core DPI keywords
