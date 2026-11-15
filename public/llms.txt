@@ -54,6 +54,8 @@ DCPROSENS is a gaming sensitivity converter and calibration platform for competi
 - **Audio, Stereo & Mic Tester**: https://dcprosens.com/sound-test/ (L/R stereo channel test, Web Audio frequency sweep, and live microphone waveform monitor)
 - **Dead Pixel & Monitor Screen Test**: https://dcprosens.com/dead-pixel-test/ (fullscreen solid-color panel test for dead/stuck pixels, backlight bleed, and uniformity)
 - **Gaming Ping & Jitter Test**: https://dcprosens.com/ping-test/ (real-time browser latency, min/avg/max ping, jitter variance, and stability tester)
+- **GTA VI Vice City Command Center**: https://dcprosens.com/gta-vi-sensitivity/ (3-scale RAGE sensitivity converter, PS5/Xbox stick deadzone calibrator, and Vice City weapon recoil matrix)
+- **Viral Gaming Video Studio**: https://dcprosens.com/viral-studio/ (client-side 9:16 TikTok/Shorts comparison reel generator and live streamer HUD overlay)
 - **About & Methodology (Dalto Cardoso)**: https://dcprosens.com/about/
 
 ## Esports Technical Field Guides (Complete 18-Volume Library — 2026 Editions)

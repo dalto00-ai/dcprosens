@@ -741,6 +741,14 @@
       "path": "/ping-test/"
     },
     {
+      "name": "GTA VI Command Center",
+      "path": "/gta-vi-sensitivity/"
+    },
+    {
+      "name": "Viral 9:16 Video Studio",
+      "path": "/viral-studio/"
+    },
+    {
       "name": "Esports Field Guides Catalog",
       "path": "/ebooks/"
     },

@@ -55,6 +55,11 @@ interface UserData {
   /** $1 one-time standalone unlock for Aim Lab only — separate from subscriptionStatus. */
   aimLabAccess?: boolean;
   aimLabPurchasedAt?: string;
+  /** Viral Video Studio credits & GTA VI Day-One Promo Pack */
+  videoCreditsGranted?: number;
+  videoCreditsUsed?: number;
+  videoCreditsPack?: string;
+  gta6ProPack?: boolean;
   createdAt?: string;
 }
 

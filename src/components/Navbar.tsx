@@ -205,6 +205,9 @@ export default function Navbar() {
                             <Link href="/community/" className={`${styles.dropdownItem} ${pathname.startsWith('/community') ? styles.activeItem : ''}`} prefetch={false}>
                                 👑 Pro Community &amp; Hub
                             </Link>
+                            <Link href="/viral-studio/" className={`${styles.dropdownItem} ${(pathname === '/viral-studio' || pathname === '/viral-studio/') ? styles.activeItem : ''}`} prefetch={false}>
+                                🎬 Viral 9:16 Video Studio
+                            </Link>
                         </div>
                     </div>
 
@@ -413,6 +416,9 @@ export default function Navbar() {
                     </Link>
                     <Link href="/reaction-time-test/" className={`${styles.drawerLink} ${(pathname === '/reaction-time-test' || pathname === '/reaction-time-test/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         ⚡ Reaction Time Test
+                    </Link>
+                    <Link href="/viral-studio/" className={`${styles.drawerLink} ${(pathname === '/viral-studio' || pathname === '/viral-studio/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        🎬 Viral 9:16 Video Studio
                     </Link>
                     <Link href="/bind-generator/" className={`${styles.drawerLink} ${(pathname === '/bind-generator' || pathname === '/bind-generator/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         🎛️ CS2 Bind Generator

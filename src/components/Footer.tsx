@@ -19,6 +19,7 @@ export default function Footer() {
                     <Link href="/games/" prefetch={false} style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>All Games</Link>
                     <Link href="/dpi-guide/" prefetch={false} style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>DPI Guide</Link>
                     <Link href="/gta-vi-sensitivity/" prefetch={false} style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>GTA VI Sensitivity</Link>
+                    <Link href="/viral-studio/" prefetch={false} style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Viral Video Studio</Link>
                     <Link href="/pricing/" prefetch={false} style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Pricing</Link>
                     <Link href="/deals/" prefetch={false} style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Gear Deals</Link>
                     <Link href="/advertise/" prefetch={false} style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Advertise</Link>

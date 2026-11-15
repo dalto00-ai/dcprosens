@@ -62,6 +62,7 @@ const toolCategories = [
             { icon: "📺", name: "Hz Refresh Simulator", desc: "See the visual difference between 60Hz to 360Hz.", href: "/monitor-simulator/", tag: "" },
             { icon: "📏", name: "Desk Space Calculator", desc: "Check if your desk supports your cm/360 for full arm sweeps.", href: "/desk-space-calculator/", tag: "" },
             { icon: "⌨️", name: "CS2 Bind Generator", desc: "Generate optimized key-bind configs for Counter-Strike 2.", href: "/bind-generator/", tag: "" },
+            { icon: "🎬", name: "Viral 9:16 Video Studio", desc: "Create TikTok & Shorts sensitivity comparison reels and live HUD overlays in-browser.", href: "/viral-studio/", tag: "CREATOR" },
         ],
     },
 ];
