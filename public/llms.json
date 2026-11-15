@@ -3,7 +3,7 @@
   "description": "Gaming Sensitivity Converter, Pro Player Database, and Aim Calibration Tools",
   "url": "https://dcprosens.com/",
   "lastUpdated": "2026-11-15",
-  "articlesCount": 446,
+  "articlesCount": 460,
   "license": "cite with attribution to https://dcprosens.com",
   "formulas": {
     "sensitivityConversion": "Sensitivity_B = Sensitivity_A * (Yaw_A / Yaw_B)",
@@ -719,6 +719,26 @@
     {
       "name": "Crosshair Generator",
       "path": "/crosshair/"
+    },
+    {
+      "name": "Keyboard & NKRO Test",
+      "path": "/keyboard-test/"
+    },
+    {
+      "name": "Gamepad & Drift Tester",
+      "path": "/gamepad-tester/"
+    },
+    {
+      "name": "Audio & Mic Tester",
+      "path": "/sound-test/"
+    },
+    {
+      "name": "Dead Pixel Screen Test",
+      "path": "/dead-pixel-test/"
+    },
+    {
+      "name": "Gaming Ping & Jitter Test",
+      "path": "/ping-test/"
     },
     {
       "name": "Esports Field Guides Catalog",

@@ -41,6 +41,11 @@ const toolCategories = [
             { icon: "📐", name: "Mousepad Size Calculator", desc: "Calculate minimum pad dimensions based on cm/360.", href: "/mousepad-calculator/", tag: "" },
             { icon: "📊", name: "Mousepad Friction Chart", desc: "Compare friction of cloth, hybrid and glass pads.", href: "/mousepad-chart/", tag: "EXCLUSIVE" },
             { icon: "📈", name: "DPI Analyzer", desc: "Test your mouse actual DPI vs. advertised.", href: "/dpi-analyzer/", tag: "EXCLUSIVE" },
+            { icon: "⌨️", name: "Keyboard & NKRO Test", desc: "Check key switches, ghosting, chattering, and latency in real time.", href: "/keyboard-test/", tag: "NEW" },
+            { icon: "🎮", name: "Gamepad & Drift Tester", desc: "Measure stick drift, circularity error, and controller triggers.", href: "/gamepad-tester/", tag: "NEW" },
+            { icon: "🔊", name: "Audio & Mic Tester", desc: "Verify L/R stereo imaging, frequency sweeps, and live mic input.", href: "/sound-test/", tag: "NEW" },
+            { icon: "🌈", name: "Dead Pixel Screen Test", desc: "Fullscreen panel inspection for stuck or dead subpixels and bleed.", href: "/dead-pixel-test/", tag: "NEW" },
+            { icon: "🌐", name: "Gaming Ping & Jitter Test", desc: "Measure live HTTP latency, jitter, and connection stability.", href: "/ping-test/", tag: "NEW" },
         ],
     },
     {

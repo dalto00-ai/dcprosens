@@ -11,6 +11,11 @@ export default function Footer() {
                     <Link href="/dpi/" prefetch={false} style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>eDPI Calculator</Link>
                     <Link href="/fps-calculator/" prefetch={false} style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>FPS Calc</Link>
                     <Link href="/desk-space-calculator/" prefetch={false} style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Desk Space Calculator</Link>
+                    <Link href="/keyboard-test/" prefetch={false} style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Keyboard Test</Link>
+                    <Link href="/gamepad-tester/" prefetch={false} style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Gamepad Tester</Link>
+                    <Link href="/sound-test/" prefetch={false} style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Sound Test</Link>
+                    <Link href="/dead-pixel-test/" prefetch={false} style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Dead Pixel Test</Link>
+                    <Link href="/ping-test/" prefetch={false} style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>Ping Test</Link>
                     <Link href="/games/" prefetch={false} style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>All Games</Link>
                     <Link href="/dpi-guide/" prefetch={false} style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>DPI Guide</Link>
                     <Link href="/gta-vi-sensitivity/" prefetch={false} style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>GTA VI Sensitivity</Link>

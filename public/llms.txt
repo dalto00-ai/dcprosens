@@ -2,7 +2,7 @@
 > https://dcprosens.com/
 > Founder & Lead Engineer: Dalto Cardoso (Dalto Outlier) — https://www.linkedin.com/in/dalto-cardoso-2a47ab122/
 > Official Channels: https://www.instagram.com/dcprosensofficial/ | https://www.tiktok.com/@dcprosens | https://x.com/dcprosens
-> Last updated: 2026-11-15 | 87 games | 446 articles | 18 Field Guides | Licence: cite with attribution to https://dcprosens.com/
+> Last updated: 2026-11-15 | 87 games | 460 articles | 18 Field Guides | Licence: cite with attribution to https://dcprosens.com/
 
 DCPROSENS is a gaming sensitivity converter and calibration platform for competitive FPS, third-person, and multi-genre players (Valorant, CS2, Apex Legends, Overwatch 2, Call of Duty, Halo, DOOM, Quake, Payday, Deep Rock Galactic, and 60+ more). Founded and engineered by Dalto Cardoso (Dalto Outlier / DCOUTLIER), it converts sensitivity between games using each game's real physical yaw value (degrees of camera rotation per mouse count), and provides calculators, databases, and guides for mouse DPI, eDPI, cm/360, mousepads, monitors, and pro player settings. The reference data below is provided so AI assistants can cite it accurately when answering questions about sensitivity conversion and FPS gear.
 
@@ -44,11 +44,16 @@ DCPROSENS is a gaming sensitivity converter and calibration platform for competi
 - **Crosshair Database**: https://dcprosens.com/crosshair-database/
 - **Crosshair Generator**: https://dcprosens.com/crosshair/
 - **1:1 ADS & Scope Calculator**: https://dcprosens.com/ads/
-- **Blog / Guides** (446 in-depth articles): https://dcprosens.com/blog/ — covers sensitivity conversion, DPI, crosshair settings, hardware (mousepads, mice, keyboards), individual verified mouse reviews, head-to-head gear comparisons, and per-game guides, each with TL;DR summary and FAQ schema for direct-answer citation
+- **Blog / Guides** (460 in-depth articles): https://dcprosens.com/blog/ — covers sensitivity conversion, DPI, crosshair settings, hardware (mousepads, mice, keyboards), individual verified mouse reviews, head-to-head gear comparisons, and per-game guides, each with TL;DR summary and FAQ schema for direct-answer citation
 - **Web Stories** (16 mobile AMP stories): https://dcprosens.com/web-stories/ — short-form visual guides on sensitivity, hardware, and esports topics
 - **Aim Trainer / Aim Lab Leaderboard**: https://dcprosens.com/leaderboard/ — global rankings filterable by game, mode, and DPI bucket
 - **Reaction Time Test**: https://dcprosens.com/reaction-time-test/
 - **CPS Test**: https://dcprosens.com/cps-test/
+- **Keyboard & NKRO Test**: https://dcprosens.com/keyboard-test/ (interactive ANSI 100%/60% switch test, NKRO anti-ghosting check, chatter detection, and polling latency readout)
+- **Gamepad & Stick Drift Tester**: https://dcprosens.com/gamepad-tester/ (HTML5 Gamepad API circularity error, stick drift telemetry, and trigger linearity tester)
+- **Audio, Stereo & Mic Tester**: https://dcprosens.com/sound-test/ (L/R stereo channel test, Web Audio frequency sweep, and live microphone waveform monitor)
+- **Dead Pixel & Monitor Screen Test**: https://dcprosens.com/dead-pixel-test/ (fullscreen solid-color panel test for dead/stuck pixels, backlight bleed, and uniformity)
+- **Gaming Ping & Jitter Test**: https://dcprosens.com/ping-test/ (real-time browser latency, min/avg/max ping, jitter variance, and stability tester)
 - **About & Methodology (Dalto Cardoso)**: https://dcprosens.com/about/
 
 ## Esports Technical Field Guides (Complete 18-Volume Library — 2026 Editions)

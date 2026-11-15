@@ -156,6 +156,21 @@ export default function Navbar() {
                             <Link href="/monitor-simulator/" className={`${styles.dropdownItem} ${(pathname === '/monitor-simulator' || pathname === '/monitor-simulator/') ? styles.activeItem : ''}`} prefetch={false}>
                                 🖥️ Refresh Rate Hz Simulator
                             </Link>
+                            <Link href="/keyboard-test/" className={`${styles.dropdownItem} ${(pathname === '/keyboard-test' || pathname === '/keyboard-test/') ? styles.activeItem : ''}`} prefetch={false}>
+                                ⌨️ Keyboard &amp; NKRO Test
+                            </Link>
+                            <Link href="/gamepad-tester/" className={`${styles.dropdownItem} ${(pathname === '/gamepad-tester' || pathname === '/gamepad-tester/') ? styles.activeItem : ''}`} prefetch={false}>
+                                🎮 Gamepad Drift Tester
+                            </Link>
+                            <Link href="/sound-test/" className={`${styles.dropdownItem} ${(pathname === '/sound-test' || pathname === '/sound-test/') ? styles.activeItem : ''}`} prefetch={false}>
+                                🔊 Audio &amp; Mic Tester
+                            </Link>
+                            <Link href="/dead-pixel-test/" className={`${styles.dropdownItem} ${(pathname === '/dead-pixel-test' || pathname === '/dead-pixel-test/') ? styles.activeItem : ''}`} prefetch={false}>
+                                🌈 Dead Pixel Screen Test
+                            </Link>
+                            <Link href="/ping-test/" className={`${styles.dropdownItem} ${(pathname === '/ping-test' || pathname === '/ping-test/') ? styles.activeItem : ''}`} prefetch={false}>
+                                🌐 Gaming Ping &amp; Jitter Test
+                            </Link>
                         </div>
                     </div>
 
@@ -360,6 +375,21 @@ export default function Navbar() {
                     </Link>
                     <Link href="/monitor-simulator/" className={`${styles.drawerLink} ${(pathname === '/monitor-simulator' || pathname === '/monitor-simulator/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         🖥️ Refresh Rate Simulator
+                    </Link>
+                    <Link href="/keyboard-test/" className={`${styles.drawerLink} ${(pathname === '/keyboard-test' || pathname === '/keyboard-test/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        ⌨️ Keyboard &amp; NKRO Test
+                    </Link>
+                    <Link href="/gamepad-tester/" className={`${styles.drawerLink} ${(pathname === '/gamepad-tester' || pathname === '/gamepad-tester/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        🎮 Gamepad Drift Tester
+                    </Link>
+                    <Link href="/sound-test/" className={`${styles.drawerLink} ${(pathname === '/sound-test' || pathname === '/sound-test/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        🔊 Audio &amp; Mic Tester
+                    </Link>
+                    <Link href="/dead-pixel-test/" className={`${styles.drawerLink} ${(pathname === '/dead-pixel-test' || pathname === '/dead-pixel-test/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        🌈 Dead Pixel Screen Test
+                    </Link>
+                    <Link href="/ping-test/" className={`${styles.drawerLink} ${(pathname === '/ping-test' || pathname === '/ping-test/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        🌐 Gaming Ping &amp; Jitter Test
                     </Link>
 
                     <div className={styles.drawerCategory}>⚡ Extra Utilities</div>
