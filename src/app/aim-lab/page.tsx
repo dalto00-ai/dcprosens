@@ -66,7 +66,7 @@ export default function AimLabPage() {
         name: "DCPROSENS Aim Lab",
         applicationCategory: "GameApplication",
         operatingSystem: "Web",
-        url: "https://dcprosens.com/aim-lab",
+        url: "https://dcprosens.com/aim-lab/",
         description:
             "Premium browser-based aim training with four distinct modes: Micro-Flick, Dynamic Click Timing, Strafe Peek, and Ghost vs Pro.",
         offers: { "@type": "Offer", price: "4.99", priceCurrency: "USD" },

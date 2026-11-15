@@ -86,7 +86,7 @@ export default function ProComparePage() {
                 '@type': 'ListItem',
                 position: 1,
                 name: 'Home',
-                item: 'https://dcprosens.com',
+                item: 'https://dcprosens.com/',
             },
             {
                 '@type': 'ListItem',

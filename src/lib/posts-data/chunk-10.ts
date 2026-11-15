@@ -64,8 +64,8 @@ export const postsChunk10: BlogPost[] = [
       '@type': 'Dataset',
       name: 'FPS Game Yaw Constant Reference Table',
       description: 'Yaw constants (degrees of camera rotation per mouse count) for competitive FPS and third-person shooter titles, with source confidence per entry.',
-      creator: { '@type': 'Organization', name: 'DCPROSENS', url: 'https://dcprosens.com' },
-      license: 'https://dcprosens.com/terms',
+      creator: { '@type': 'Organization', name: 'DCPROSENS', url: 'https://dcprosens.com/' },
+      license: 'https://dcprosens.com/terms/',
       variableMeasured: 'Yaw constant (degrees per mouse count)',
     })}</script>
       <h2>What a Yaw Value Actually Is</h2>

@@ -322,6 +322,7 @@ export default function Converter({ initialFromGame, initialToGame, initialSens,
 
                 <a
                     href={`/aim-trainer/?dpi=${numericDpi}&sens=${resultSens}`}
+                    rel="nofollow"
                     className={styles.testInTrainerBtn}
                 >
                     🎯 Test this sensitivity now in Aim Trainer (free) →

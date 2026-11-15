@@ -4,7 +4,7 @@ import Link from 'next/link';
 import AffiliateDisclosure from '@/components/AffiliateDisclosure';
 
 export const metadata: Metadata = {
-    title: "Mousepad Speed Chart & Friction Tier List (Artisan, Zowie, Glass Pads) | DCPROSENS",
+    title: "Mousepad Speed Chart & Friction Tier List (2026)",
     description: "Interactive Mousepad Speed Chart & Friction Master Sheet. Compare static and dynamic friction across 45+ esports pads including Artisan Zero/Hien/Raiden, Zowie G-SR, LGG Saturn Pro, and Wallhack SP-004.",
     keywords: [
         'mousepad speed chart',
@@ -56,7 +56,7 @@ export default function MousepadChartPage() {
                 '@type': 'ListItem',
                 'position': 1,
                 'name': 'Home',
-                'item': 'https://dcprosens.com',
+                'item': 'https://dcprosens.com/',
             },
             {
                 '@type': 'ListItem',

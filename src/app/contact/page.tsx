@@ -15,7 +15,7 @@ export const metadata: Metadata = {
         images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
         title: "Contact DCPROSENS — Support & Feedback",
         description: "Get in touch with the DCPROSENS team for support, bug reports or feature suggestions.",
-        url: "https://dcprosens.com/contact",
+        url: "https://dcprosens.com/contact/",
         type: "website",
     },
     robots: {

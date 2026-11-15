@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         title: "Custom Aim Training Routine Generator — Aimlabs & KovaaKs | DCPROSENS",
         description: "Generate a personalized 30-minute aim training routine for KovaaKs and Aimlabs based on your game, rank, and weaknesses.",
         type: "website",
-        url: "https://dcprosens.com/aim-routines",
+        url: "https://dcprosens.com/aim-routines/",
     },
     twitter: {
         card: "summary_large_image",
@@ -43,8 +43,8 @@ export default function AimRoutinesPage() {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dcprosens.com" },
-            { "@type": "ListItem", "position": 2, "name": "Aim Routines", "item": "https://dcprosens.com/aim-routines" },
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dcprosens.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Aim Routines", "item": "https://dcprosens.com/aim-routines/" },
         ],
     };
 
@@ -93,7 +93,7 @@ export default function AimRoutinesPage() {
                 name: "DCPROSENS Aim Training Routine Generator",
                 applicationCategory: "UtilitiesApplication",
                 operatingSystem: "Web",
-                url: "https://dcprosens.com/aim-routines",
+                url: "https://dcprosens.com/aim-routines/",
                 description: "Get a custom KovaaKs and Aimlabs aim training playlist based on your rank, game, and mechanical weaknesses.",
                 offers: {
                     "@type": "Offer",

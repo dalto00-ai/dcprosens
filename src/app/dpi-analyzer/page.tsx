@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         title: "Mouse DPI Analyzer — Test Real Mouse DPI & Sensor Deviation | DCPROSENS",
         description: "Verify your gaming mouse sensor accuracy. Calculate your real DPI and correct sensor deviation easily.",
         type: "website",
-        url: "https://dcprosens.com/dpi-analyzer",
+        url: "https://dcprosens.com/dpi-analyzer/",
     },
     twitter: {
         card: "summary_large_image",
@@ -42,8 +42,8 @@ export default function DpiAnalyzerPage() {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dcprosens.com" },
-            { "@type": "ListItem", "position": 2, "name": "DPI Analyzer", "item": "https://dcprosens.com/dpi-analyzer" },
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dcprosens.com/" },
+            { "@type": "ListItem", "position": 2, "name": "DPI Analyzer", "item": "https://dcprosens.com/dpi-analyzer/" },
         ],
     };
 
@@ -92,7 +92,7 @@ export default function DpiAnalyzerPage() {
                 name: "DCPROSENS Mouse DPI Analyzer",
                 applicationCategory: "UtilitiesApplication",
                 operatingSystem: "Web",
-                url: "https://dcprosens.com/dpi-analyzer",
+                url: "https://dcprosens.com/dpi-analyzer/",
                 description: "Measure real mouse DPI and calculate sensor deviation using pointer-lock measurements.",
                 offers: {
                     "@type": "Offer",

@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
             title,
             description,
-            url: `https://dcprosens.com/sens-finder/${gameId}`,
+            url: `https://dcprosens.com/sens-finder/${gameId}/`,
             type: 'website',
             siteName: 'DCPROSENS',
         },
@@ -79,7 +79,7 @@ export default async function SensFinderGamePage({ params }: Props) {
     const game = games.find((g) => g.id === gameId);
     if (!content || !game) notFound();
 
-    const canonicalUrl = `https://dcprosens.com/sens-finder/${gameId}`;
+    const canonicalUrl = `https://dcprosens.com/sens-finder/${gameId}/`;
     const relatedPros = getProsByGame(gameId).slice(0, 2);
 
     const jsonLd = {
@@ -104,7 +104,7 @@ export default async function SensFinderGamePage({ params }: Props) {
             {
                 '@type': 'BreadcrumbList',
                 itemListElement: [
-                    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://dcprosens.com' },
+                    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://dcprosens.com/' },
                     { '@type': 'ListItem', position: 2, name: 'Sens Finder', item: 'https://dcprosens.com/sens-finder/' },
                     { '@type': 'ListItem', position: 3, name: content.displayName, item: canonicalUrl },
                 ],

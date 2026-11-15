@@ -19,7 +19,7 @@ export default function WidgetGenerator() {
             dpi: String(Number(dpi) || 0),
             name: name.trim() || "Streamer",
         });
-        return `https://dcprosens.com/embed?${params.toString()}`;
+        return `https://dcprosens.com/embed/?${params.toString()}`;
     }, [game, sens, dpi, name]);
 
     const iframeCode = `<iframe src="${embedUrl}" width="340" height="240" style="border:none;border-radius:10px;" title="${name || "Streamer"}'s sensitivity"></iframe>`;

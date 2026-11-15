@@ -32,7 +32,7 @@ export default function LoginPage() {
       return;
     }
     if (!loading && user) {
-      router.push("/dashboard");
+      router.push("/dashboard/");
     }
   }, [user, loading, router]);
 
@@ -66,7 +66,7 @@ export default function LoginPage() {
         } catch {}
       }
 
-      router.push("/dashboard");
+      router.push("/dashboard/");
     } catch (err) {
       console.error(err);
       const message = err instanceof Error ? err.message : String(err);
@@ -113,7 +113,7 @@ export default function LoginPage() {
         // Login
         await signInWithEmailAndPassword(auth, email, password);
       }
-      router.push("/dashboard");
+      router.push("/dashboard/");
     } catch (err) {
       console.error(err);
       const code = err instanceof FirebaseError ? err.code : undefined;

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
         title: "Sensitivity Test Game — Find Your Speed & Precision",
         description: "Free mini-game that measures your flick speed and precision to help you dial in your mouse sensitivity.",
         type: "website",
-        url: "https://dcprosens.com/sensitivity-test",
+        url: "https://dcprosens.com/sensitivity-test/",
     },
     twitter: {
         card: "summary_large_image",

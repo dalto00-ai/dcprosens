@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'DCPROSENS 360° VIP Overhaul | 1:1 Latency & Sensitivity Consultation',
+  title: '360° VIP Overhaul — 1:1 Latency & Aim Tuning',
   description: 'Eliminate PC input lag and micro-stutters with DCPROSENS 1:1 private esports consultation and our proprietary 3-click Optimizer Engine. Grade A+ Tournament Ready.',
   alternates: {
     canonical: 'https://dcprosens.com/vip-overhaul/',

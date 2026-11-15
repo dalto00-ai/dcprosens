@@ -23,7 +23,7 @@ export const stories: WebStory[] = [
     // ───────────────────────────────────────────────────
     {
         slug: 'gta-6-2027-pro-aim-and-controller-settings-guide',
-        title: 'GTA 6 (2027 Meta): 5 Pro Aim & Controller Settings You Must Lock Day 1',
+        title: 'GTA 6 (2027): 5 Pro Aim & Controller Settings for Day 1',
         excerpt: "Don't let Rockstar's heavy RAGE 9 default deadzones ruin your first gunfight in Vice City.",
         coverImage: '/web-stories/assets/gta-6-2027-pro-aim-and-controller-settings-guide-poster.webp',
         publishDate: 'October 19, 2026',
@@ -59,7 +59,7 @@ export const stories: WebStory[] = [
     },
     {
         slug: 'valorant-to-cs2-2027-sensitivity-conversion-31818-formula',
-        title: 'Valorant to CS2 (2027 Guide): Why You Must Multiply Your Sens by 3.1818',
+        title: 'Valorant to CS2 (2027): Multiply Your Sens by 3.1818',
         excerpt: '90% of players copy 0.35 from Valorant straight into CS2—and wonder why they whiff every easy micro-flick.',
         coverImage: '/web-stories/assets/valorant-to-cs2-2027-sensitivity-conversion-31818-formula-poster.webp',
         publishDate: 'October 19, 2026',
@@ -95,7 +95,7 @@ export const stories: WebStory[] = [
     },
     {
         slug: '800-dpi-vs-1600-dpi-2027-sensor-latency-benchmark',
-        title: '800 DPI vs 1600 DPI in 2027: Why Every Pro Switched (+10cm Ruler Test)',
+        title: '800 DPI vs 1600 DPI (2027): Why Every Pro Switched',
         excerpt: 'Still using 400 or 800 DPI on a 2000Hz–8000Hz wireless mouse? You are leaving 0.8ms of reaction speed on the table.',
         coverImage: '/web-stories/assets/800-dpi-vs-1600-dpi-2027-sensor-latency-benchmark-poster.webp',
         publishDate: 'October 19, 2026',
@@ -131,7 +131,7 @@ export const stories: WebStory[] = [
     },
     {
         slug: 'donk-800-edpi-vs-demon1-160-edpi-2027-pro-settings',
-        title: 'donk (800 eDPI) vs Demon1 (160 eDPI): Which 2027 Pro Aim Style Fits You?',
+        title: 'donk (800 eDPI) vs Demon1 (160 eDPI): 2027 Aim Styles',
         excerpt: 'Two world champions, two radically different biomechanics. Which sensitivity corridor matches your hand and desk setup in 2027?',
         coverImage: '/web-stories/assets/donk-800-edpi-vs-demon1-160-edpi-2027-pro-settings-poster.webp',
         publishDate: 'October 19, 2026',
@@ -167,7 +167,7 @@ export const stories: WebStory[] = [
     },
     {
         slug: '2027-esports-hardware-meta-rapid-trigger-and-480hz-oled',
-        title: '2027 Esports Hardware Meta: 0.1mm Rapid Trigger, 8000Hz Mice & 480Hz OLED',
+        title: '2027 Esports Gear Meta: Rapid Trigger, 8KHz & 480Hz OLED',
         excerpt: 'Why upgrading your keyboard, monitor, and mousepad in 2027 requires recalibrating your in-game sensitivity.',
         coverImage: '/web-stories/assets/2027-esports-hardware-meta-rapid-trigger-and-480hz-oled-poster.webp',
         publishDate: 'October 19, 2026',

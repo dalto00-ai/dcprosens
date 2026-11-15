@@ -174,7 +174,7 @@ export default function DashboardPage() {
   // Redireciona para o login caso o usuário não esteja autenticado
   useEffect(() => {
     if (!loading && !user) {
-      router.push("/login");
+      router.push("/login/");
     }
   }, [user, loading, router]);
 

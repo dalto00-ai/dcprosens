@@ -95,7 +95,7 @@ export default function FovConverterPage() {
             {
                 '@type': 'BreadcrumbList',
                 itemListElement: [
-                    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://dcprosens.com' },
+                    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://dcprosens.com/' },
                     { '@type': 'ListItem', position: 2, name: 'FOV Converter', item: 'https://dcprosens.com/fov-converter/' },
                 ],
             },

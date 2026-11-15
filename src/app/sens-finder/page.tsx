@@ -5,7 +5,7 @@ import { sensFinderContent } from '@/lib/sensFinderContent';
 import TrialGate from '@/components/TrialGate';
 
 export const metadata: Metadata = {
-    title: "Sensitivity Finder — cm/360 to All Games Calculator | DCPROSENS",
+    title: "Sensitivity Finder — cm/360 to All Games Calculator",
     description: "Enter your ideal cm/360 and instantly get your exact in-game sensitivity for Valorant, CS2, Apex Legends, Overwatch 2 and 80+ games. One cm/360, all games.",
     keywords: [
         'find my sensitivity', 'sensitivity finder', 'reverse sensitivity calculator',
@@ -46,8 +46,8 @@ export default function SensFinderPage() {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dcprosens.com" },
-            { "@type": "ListItem", "position": 2, "name": "Sens Finder", "item": "https://dcprosens.com/sens-finder" },
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dcprosens.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Sens Finder", "item": "https://dcprosens.com/sens-finder/" },
         ],
     };
 
@@ -57,7 +57,7 @@ export default function SensFinderPage() {
         "name": "DCPROSENS Find My Sensitivity — Reverse cm/360 Calculator",
         "applicationCategory": "GameApplication",
         "operatingSystem": "Web",
-        "url": "https://dcprosens.com/sens-finder",
+        "url": "https://dcprosens.com/sens-finder/",
         "description": "Enter your desired cm/360 sensitivity and instantly get precise in-game sensitivity values for Valorant, CS2, Apex Legends, Overwatch 2 and more.",
         "offers": {
             "@type": "Offer",

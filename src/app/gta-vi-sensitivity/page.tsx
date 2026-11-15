@@ -22,7 +22,7 @@ export const metadata: Metadata = {
         title: "GTA VI Sensitivity Converter — Coming Soon",
         description: "Sign up to get notified the moment our GTA VI sensitivity converter goes live, with real verified data.",
         type: "website",
-        url: "https://dcprosens.com/gta-vi-sensitivity",
+        url: "https://dcprosens.com/gta-vi-sensitivity/",
     },
     robots: {
         index: true,

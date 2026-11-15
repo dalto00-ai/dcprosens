@@ -59,7 +59,7 @@ export default function WebStoriesIndex() {
         itemListElement: stories.map((story, i) => ({
             '@type': 'ListItem',
             position: i + 1,
-            url: `https://dcprosens.com/web-stories/${story.slug}`,
+            url: `https://dcprosens.com/web-stories/${story.slug}/`,
             name: story.title,
             image: `https://dcprosens.com${story.coverImage}`,
         })),

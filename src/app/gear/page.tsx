@@ -48,7 +48,7 @@ export const metadata: Metadata = {
         title: "Pro Gaming Gear Database 2026 — Keyboards, Headsets, Monitors, Mousepads | DCPROSENS",
         description: "Every piece of gear used by top FPS pros. Filter keyboards, headsets, monitors and mousepads by specs and budget.",
         type: "website",
-        url: "https://dcprosens.com/gear",
+        url: "https://dcprosens.com/gear/",
     },
 };
 
@@ -129,7 +129,7 @@ export default function GearPage() {
         "@type": "CollectionPage",
         "name": "Pro Gaming Gear Database — DCPROSENS",
         "description": "Complete database of keyboards, headsets, monitors, and mousepads used by professional FPS gamers.",
-        "url": "https://dcprosens.com/gear",
+        "url": "https://dcprosens.com/gear/",
     };
 
     return (

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Esports Field Guides & Training Compendiums — DCPROSENS',
+  title: 'Esports Field Guides & Training Compendiums',
   description:
     'Tactical field guides and engineering manuals for competitive FPS players: Sensitivity calibration, crosshair angle geometry, 15-min warm-up routines, pad friction, zero-latency input lag, and controller aim assist.',
   alternates: {

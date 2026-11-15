@@ -63,7 +63,7 @@ export default async function ConvertPairPage({ params }: Props) {
     const toGame = games.find((g) => g.id === pair.toId);
     if (!fromGame || !toGame) notFound();
 
-    const canonicalUrl = `https://dcprosens.com/convert/${slug}`;
+    const canonicalUrl = `https://dcprosens.com/convert/${slug}/`;
     const ratio = fromGame.yaw / toGame.yaw;
     const isIdenticalYaw = fromGame.yaw === toGame.yaw;
 
@@ -96,7 +96,7 @@ export default async function ConvertPairPage({ params }: Props) {
             {
                 '@type': 'BreadcrumbList',
                 itemListElement: [
-                    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://dcprosens.com' },
+                    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://dcprosens.com/' },
                     { '@type': 'ListItem', position: 2, name: `${pair.fromLabel} to ${pair.toLabel}`, item: canonicalUrl },
                 ],
             },

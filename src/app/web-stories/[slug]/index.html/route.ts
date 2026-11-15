@@ -87,7 +87,7 @@ function generateStoryHtml(story: WebStory): string {
             '@type': 'Organization',
             '@id': `${BASE}#organization`,
             name: 'DCPROSENS',
-            url: BASE,
+            url: `${BASE}/`,
             logo: { '@type': 'ImageObject', url: `${BASE}/logo.webp` },
         },
         image: {

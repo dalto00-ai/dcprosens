@@ -41,7 +41,7 @@ export const metadata: Metadata = {
         title: "Best Gaming Mice for Pro FPS Players — Mouse Database | DCPROSENS",
         description: "Filter and compare top gaming mice by weight, sensor, shape, and what pro players use. Affiliate links to Amazon included.",
         type: "website",
-        url: "https://dcprosens.com/mouse-database",
+        url: "https://dcprosens.com/mouse-database/",
     },
     twitter: {
         card: "summary_large_image",
@@ -56,8 +56,8 @@ export default function MouseDatabasePage() {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dcprosens.com" },
-            { "@type": "ListItem", "position": 2, "name": "Gaming Mouse Database", "item": "https://dcprosens.com/mouse-database" },
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dcprosens.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Gaming Mouse Database", "item": "https://dcprosens.com/mouse-database/" },
         ],
     };
 
@@ -66,13 +66,13 @@ export default function MouseDatabasePage() {
         "@type": "ItemList",
         "name": "Best Pro Gaming Mice 2026 — DCPROSENS Database",
         "description": "Comprehensive database of professional gaming mice with specs, pro player usage and affiliate links.",
-        "url": "https://dcprosens.com/mouse-database",
+        "url": "https://dcprosens.com/mouse-database/",
         "numberOfItems": mouseDatabase.length,
         "itemListElement": mouseDatabase.slice(0, 10).map((mouse, index) => ({
             "@type": "ListItem",
             "position": index + 1,
             "name": mouse.name,
-            "url": `https://dcprosens.com/mouse-database#${mouse.id}`,
+            "url": `https://dcprosens.com/mouse-database/#${mouse.id}`,
         })),
     };
 

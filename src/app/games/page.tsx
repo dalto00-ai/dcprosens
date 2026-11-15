@@ -16,7 +16,7 @@ export const metadata: Metadata = {
         title: `Games Supported — Sensitivity Converter for ${games.length}+ FPS Games`,
         description: "Valorant, CS2, Apex Legends, Overwatch 2, Fortnite, Warzone, Marvel Rivals, THE FINALS and more. Free sensitivity converter.",
         type: "website",
-        url: "https://dcprosens.com/games",
+        url: "https://dcprosens.com/games/",
     },
     robots: {
         index: true,
@@ -29,7 +29,7 @@ export default function GamesPage() {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Games Supported by DCPROSENS Sensitivity Converter",
-        "url": "https://dcprosens.com/games",
+        "url": "https://dcprosens.com/games/",
         "numberOfItems": games.length,
         "itemListElement": games.map((game, i) => ({
             "@type": "ListItem",

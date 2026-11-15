@@ -36,7 +36,7 @@ export const metadata: Metadata = {
         title: "Mouse Finder Quiz 2026 — Find the Best Gaming Mouse for Your Hand | DCPROSENS",
         description: "Take our 4-step ergonomic quiz to find the perfect gaming mouse. Input your hand size and grip style to match with top mice used by FPS professionals.",
         type: "website",
-        url: "https://dcprosens.com/mouse-finder",
+        url: "https://dcprosens.com/mouse-finder/",
     },
     twitter: {
         card: "summary_large_image",

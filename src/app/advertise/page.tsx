@@ -17,7 +17,7 @@ export const metadata: Metadata = {
         title: "Advertise With DCPROSENS",
         description:
             "Reach a highly engaged, gear-buying audience of competitive FPS players.",
-        url: "https://dcprosens.com/advertise",
+        url: "https://dcprosens.com/advertise/",
         type: "website",
     },
     robots: {
@@ -109,7 +109,7 @@ export default function AdvertisePage() {
         name: "Advertise With DCPROSENS",
         description:
             "Reach a highly engaged, gear-buying audience of competitive FPS players on DCPROSENS.",
-        url: "https://dcprosens.com/advertise",
+        url: "https://dcprosens.com/advertise/",
     };
 
     return (

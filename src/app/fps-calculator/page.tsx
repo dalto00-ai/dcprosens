@@ -3,7 +3,7 @@ import FpsCalculator from '@/components/FpsCalculator';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: "FPS Calculator — Valorant, CS2, Fortnite & Apex PC Benchmark | DCPROSENS",
+  title: "FPS Calculator — Valorant, CS2 & Apex PC Benchmark",
   description: "Free Valorant FPS Calculator, CS2 FPS Calculator & Fortnite FPS Estimator. Select your CPU, GPU, RAM and resolution (1080p, 1440p, 4K) to calculate average FPS, 1% lows, and hardware bottlenecks.",
   keywords: [
     "fps calculator",

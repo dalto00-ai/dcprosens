@@ -5,7 +5,7 @@ import Link from 'next/link';
 import TrialGate from '@/components/TrialGate';
 
 export const metadata: Metadata = {
-    title: "What is a DPI Setting? DPI Calculator & Mouse DPI Guide (2026)",
+    title: "What is DPI? DPI Calculator & Mouse Guide (2026)",
     description: "What is a DPI setting on a mouse? Learn what DPI means, how mouse DPI affects gaming aim, 400 vs 800 vs 1600 DPI differences, and calculate your exact eDPI instantly.",
     keywords: [
         // Core DPI keywords
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
         title: "DPI Calculator — What is DPI & eDPI? Mouse Sensitivity Explained",
         description: "Free DPI & eDPI calculator. Understand what DPI is and find your perfect mouse sensitivity for competitive gaming.",
         type: "website",
-        url: "https://dcprosens.com/dpi",
+        url: "https://dcprosens.com/dpi/",
     },
     twitter: {
         card: "summary_large_image",
@@ -56,8 +56,8 @@ export default function DpiPage() {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dcprosens.com" },
-            { "@type": "ListItem", "position": 2, "name": "DPI Calculator", "item": "https://dcprosens.com/dpi" },
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dcprosens.com/" },
+            { "@type": "ListItem", "position": 2, "name": "DPI Calculator", "item": "https://dcprosens.com/dpi/" },
         ],
     };
 
@@ -146,7 +146,7 @@ export default function DpiPage() {
                 name: "DCPROSENS DPI & eDPI Calculator",
                 applicationCategory: "UtilitiesApplication",
                 operatingSystem: "Web",
-                url: "https://dcprosens.com/dpi",
+                url: "https://dcprosens.com/dpi/",
                 description: "Free online DPI and eDPI calculator for competitive gamers.",
                 offers: {
                     "@type": "Offer",

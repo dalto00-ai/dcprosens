@@ -40,7 +40,7 @@ export default function EmbedWidget() {
             <div className={styles.card}>
                 <p className={styles.errorState}>
                     Invalid or missing game parameter.{" "}
-                    <a href="https://dcprosens.com/widget" style={{ color: "#00ff9d" }}>
+                    <a href="https://dcprosens.com/widget/" style={{ color: "#00ff9d" }}>
                         Generate a widget →
                     </a>
                 </p>
@@ -97,7 +97,7 @@ export default function EmbedWidget() {
             </div>
 
             <div className={styles.footer}>
-                <a href="https://dcprosens.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://dcprosens.com/" target="_blank" rel="noopener noreferrer">
                     Powered by DCPROSENS
                 </a>
             </div>

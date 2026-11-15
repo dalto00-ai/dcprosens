@@ -68,7 +68,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
             title: `${pro.name} Sensitivity Settings 2026 — ${pro.game} | DCPROSENS`,
             description: `${pro.name} uses ${pro.dpi} DPI and ${pro.sens} sensitivity in ${pro.game}. Mouse: ${pro.mouse}. eDPI: ${pro.edpi}. cm/360: ${pro.cm360}.`,
-            url: `https://dcprosens.com/pros/${pro.slug}`,
+            url: `https://dcprosens.com/pros/${pro.slug}/`,
             type: 'profile',
             siteName: 'DCPROSENS',
         },
@@ -100,7 +100,7 @@ export default async function ProPlayerPage({ params }: Props) {
     const analysis = buildProAnalysis(pro);
 
     const gameColor = GAME_COLORS[pro.game] ?? { bg: 'rgba(255,255,255,0.08)', color: 'var(--text-secondary)' };
-    const canonicalUrl = `https://dcprosens.com/pros/${pro.slug}`;
+    const canonicalUrl = `https://dcprosens.com/pros/${pro.slug}/`;
 
     // ─── Game ID mapping for sensitivity converter link ───────────────────────
     const GAME_CONVERTER_MAP: Record<string, string> = {
@@ -144,7 +144,7 @@ export default async function ProPlayerPage({ params }: Props) {
             {
                 '@type': 'BreadcrumbList',
                 itemListElement: [
-                    { '@type': 'ListItem', position: 1, name: 'Home',        item: 'https://dcprosens.com' },
+                    { '@type': 'ListItem', position: 1, name: 'Home',        item: 'https://dcprosens.com/' },
                     { '@type': 'ListItem', position: 2, name: 'Pro Players', item: 'https://dcprosens.com/pros/' },
                     { '@type': 'ListItem', position: 3, name: pro.name,      item: canonicalUrl },
                 ],

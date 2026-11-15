@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         title: "Pricing — DCPROSENS Premium Plans",
         description: "Unlock the full DCPROSENS toolkit: sensitivity converter, PSA finder, pro player database & compare, and the browser extension.",
         type: "website",
-        url: "https://dcprosens.com/pricing",
+        url: "https://dcprosens.com/pricing/",
     },
     twitter: {
         card: "summary_large_image",

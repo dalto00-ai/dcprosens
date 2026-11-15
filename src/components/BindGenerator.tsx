@@ -182,7 +182,7 @@ export default function BindGenerator() {
     const generateConfigText = (): string => {
         let text = `// =========================================================\n`;
         text += `// DCPROSENS CS2 CONFIG & AUTOEXEC\n`;
-        text += `// Generated online: https://dcprosens.com/bind-generator\n`;
+        text += `// Generated online: https://dcprosens.com/bind-generator/\n`;
         text += `// Place this file in: steamapps/common/Counter-Strike Global Offensive/game/csgo/cfg/autoexec.cfg\n`;
         text += `// =========================================================\n\n`;
 

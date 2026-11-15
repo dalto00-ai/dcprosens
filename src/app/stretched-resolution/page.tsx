@@ -38,7 +38,7 @@ export const metadata: Metadata = {
         title: "Stretched Resolution Sensitivity Calculator — 4:3 FOV & m_yaw | DCPROSENS",
         description: "See how a 4:3 stretched resolution in CS2 or Siege changes your effective sensitivity, and get the m_yaw correction for a 1:1 feel.",
         type: "website",
-        url: "https://dcprosens.com/stretched-resolution",
+        url: "https://dcprosens.com/stretched-resolution/",
     },
     twitter: {
         card: "summary_large_image",

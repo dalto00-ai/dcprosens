@@ -22,7 +22,7 @@ export default function PrivacyPage() {
                 <p style={{ marginBottom: '1.5rem' }}><strong>Effective Date:</strong> June 6, 2026</p>
 
                 <p style={{ marginBottom: '1.5rem' }}>
-                    DCPROSENS (accessible from <a href="https://dcprosens.com" style={{ color: 'var(--primary)' }}>https://dcprosens.com</a>) is a free gaming sensitivity converter and toolset for FPS players.
+                    DCPROSENS (accessible from <a href="https://dcprosens.com/" style={{ color: 'var(--primary)' }}>https://dcprosens.com/</a>) is a free gaming sensitivity converter and toolset for FPS players.
                     This page explains, in plain terms, what data our site collects, how it is used, and the choices you have. If anything here is unclear, reach out via the e-mail at the bottom of this page.
                 </p>
 
@@ -52,7 +52,7 @@ export default function PrivacyPage() {
 
                 <h2 style={h2Style}>4. Google AdSense &amp; DoubleClick DART Cookies</h2>
                 <p>
-                    Google is one of our third-party advertising partners. Google uses cookies, including the <strong>DoubleClick DART cookie</strong>, to serve ads to visitors based upon their visit to <a href="https://dcprosens.com" style={{ color: 'var(--primary)' }}>dcprosens.com</a> and other websites on the internet.
+                    Google is one of our third-party advertising partners. Google uses cookies, including the <strong>DoubleClick DART cookie</strong>, to serve ads to visitors based upon their visit to <a href="https://dcprosens.com/" style={{ color: 'var(--primary)' }}>dcprosens.com</a> and other websites on the internet.
                 </p>
                 <p>
                     The DART cookie enables Google and its partner ad networks to display relevant advertisements to our users based on their browsing patterns and interests.

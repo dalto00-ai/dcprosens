@@ -10,7 +10,7 @@ const postCount = posts.length;
 const proCount = pros.length;
 
 export const metadata: Metadata = {
-    title: "About DCPROSENS — Founder Dalto Cardoso & How We Source Our Data",
+    title: "About DCPROSENS — Dalto Cardoso & Data Methodology",
     description:
         "Meet Dalto Cardoso (Dalto Outlier), founder of DCPROSENS & DCOUTLIER. Learn how every game's yaw value is sourced and verified, our correction policy, and how the platform is built.",
     alternates: { canonical: "https://dcprosens.com/about/" },

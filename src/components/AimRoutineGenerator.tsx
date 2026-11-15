@@ -286,7 +286,7 @@ export default function AimRoutineGenerator() {
             text += `\n`;
         });
 
-        text += `Generate your custom routine online at: https://dcprosens.com/aim-routines`;
+        text += `Generate your custom routine online at: https://dcprosens.com/aim-routines/`;
 
         navigator.clipboard.writeText(text).then(() => {
             setCopied(true);
@@ -318,7 +318,7 @@ export default function AimRoutineGenerator() {
             text += `\n`;
         });
 
-        text += `Generate your custom routine online at: https://dcprosens.com/aim-routines`;
+        text += `Generate your custom routine online at: https://dcprosens.com/aim-routines/`;
 
         const element = document.createElement("a");
         const file = new Blob([text], { type: 'text/plain;charset=utf-8' });

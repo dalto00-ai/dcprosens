@@ -152,7 +152,7 @@ export default function SetupsPage() {
             '@type': 'ListItem',
             position: index + 1,
             name: `${pro.name} Gaming Setup — ${pro.game}`,
-            url: `https://dcprosens.com/pros/${pro.slug}`,
+            url: `https://dcprosens.com/pros/${pro.slug}/`,
             description: `${pro.name} uses ${pro.mouse}, ${pro.keyboard}, ${pro.headset} at ${pro.dpi} DPI.`,
         })),
     };
@@ -161,7 +161,7 @@ export default function SetupsPage() {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://dcprosens.com' },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://dcprosens.com/' },
             { '@type': 'ListItem', position: 2, name: 'Pro Setups', item: 'https://dcprosens.com/setups/' },
         ],
     };

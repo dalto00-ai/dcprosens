@@ -3,7 +3,7 @@ import Link from 'next/link';
 import AffiliateDisclosure from '@/components/AffiliateDisclosure';
 
 export const metadata: Metadata = {
-    title: "Pro Gaming Setup Deals 2026 — Verified Esports Hardware",
+    title: "Pro Gaming Setup Deals 2026 — Verified Gear",
     description: "Curated competitive FPS gear used by TenZ, Aspas, s1mple and Demon1. Verified mice, rapid-trigger keyboards, precision pads and 360Hz monitors on Amazon.",
     alternates: {
         canonical: "https://dcprosens.com/deals/",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
         images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Setup Deals" }],
         title: "Pro Gaming Setup Deals 2026 — Verified Esports Hardware | DCPROSENS",
         description: "The exact gaming mice, keyboards and mousepads used by champions, with direct Amazon verified links.",
-        url: "https://dcprosens.com/deals",
+        url: "https://dcprosens.com/deals/",
         type: "website",
     },
     robots: {

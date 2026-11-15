@@ -65,7 +65,7 @@ export default function WidgetPage() {
         name: "DCPROSENS Sensitivity Widget Generator",
         applicationCategory: "GameApplication",
         operatingSystem: "Web",
-        url: "https://dcprosens.com/widget",
+        url: "https://dcprosens.com/widget/",
         description:
             "Free embeddable widget generator that lets streamers share their gaming sensitivity, with a built-in converter so viewers can find their own equivalent.",
         offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },

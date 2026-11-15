@@ -35,8 +35,8 @@ export default function ProsList() {
         '@graph': [
             {
                 '@type': 'WebPage',
-                '@id': 'https://dcprosens.com/pros',
-                url: 'https://dcprosens.com/pros',
+                '@id': 'https://dcprosens.com/pros/',
+                url: 'https://dcprosens.com/pros/',
                 name: 'Pro Player Sensitivity Settings 2026 — DCPROSENS',
                 description:
                     'Database of exact sensitivity, DPI, eDPI and cm/360 settings for 20+ professional FPS players in Valorant, CS2, Apex Legends, Overwatch 2 and Fortnite.',
@@ -45,8 +45,8 @@ export default function ProsList() {
                 breadcrumb: {
                     '@type': 'BreadcrumbList',
                     itemListElement: [
-                        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://dcprosens.com' },
-                        { '@type': 'ListItem', position: 2, name: 'Pro Players', item: 'https://dcprosens.com/pros' },
+                        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://dcprosens.com/' },
+                        { '@type': 'ListItem', position: 2, name: 'Pro Players', item: 'https://dcprosens.com/pros/' },
                     ],
                 },
             },
@@ -54,13 +54,13 @@ export default function ProsList() {
                 '@type': 'ItemList',
                 name: 'Pro Player Sensitivity Settings Database 2026',
                 description: 'Complete list of pro player sensitivity, DPI, eDPI and gear settings for top FPS professionals.',
-                url: 'https://dcprosens.com/pros',
+                url: 'https://dcprosens.com/pros/',
                 numberOfItems: pros.length,
                 itemListElement: pros.map((pro, i) => ({
                     '@type': 'ListItem',
                     position: i + 1,
                     name: `${pro.name} — ${pro.game} Sensitivity Settings`,
-                    url: `https://dcprosens.com/pros/${pro.slug}`,
+                    url: `https://dcprosens.com/pros/${pro.slug}/`,
                     description: `${pro.name} uses ${pro.dpi} DPI and ${pro.sens} sensitivity in ${pro.game} (${pro.edpi} eDPI, ${pro.cm360} cm/360). Mouse: ${pro.mouse}.`,
                 })),
             },

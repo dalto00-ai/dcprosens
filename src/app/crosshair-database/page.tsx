@@ -89,7 +89,7 @@ export default function CrosshairDatabasePage() {
             {
                 '@type': 'BreadcrumbList',
                 itemListElement: [
-                    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://dcprosens.com' },
+                    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://dcprosens.com/' },
                     { '@type': 'ListItem', position: 2, name: 'Crosshair Database', item: 'https://dcprosens.com/crosshair-database/' },
                 ],
             },

@@ -4,7 +4,7 @@ import TrialGate from '@/components/TrialGate';
 import JsonLd, { breadcrumb, howTo, graph } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-    title: 'PSA Method Calculator (Free) — Valorant, CS2, Apex & Overwatch | DCPROSENS',
+    title: 'PSA Method Calculator (Free) — Valorant, CS2 & Apex',
     description:
         'Free PSA Method Calculator (Perfect Sensitivity Approximation). Find your exact natural mouse sensitivity, eDPI, and cm/360 in 7 steps for Valorant, CS2, Apex Legends, Overwatch 2, Warzone & Minecraft.',
     keywords: [

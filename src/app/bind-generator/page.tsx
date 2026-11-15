@@ -22,7 +22,7 @@ export const metadata: Metadata = {
         title: "CS2 Bind Generator 2026 — Jumpthrow, Radar Zoom, Autoexec CFG | DCPROSENS",
         description: "Generate and download your custom CS2 autoexec.cfg with jumpthrow, radar toggle, and drop bomb binds instantly.",
         type: "website",
-        url: "https://dcprosens.com/bind-generator",
+        url: "https://dcprosens.com/bind-generator/",
     },
     twitter: {
         card: "summary_large_image",
@@ -41,8 +41,8 @@ export default function BindGeneratorPage() {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dcprosens.com" },
-            { "@type": "ListItem", "position": 2, "name": "CS2 Bind Generator", "item": "https://dcprosens.com/bind-generator" },
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dcprosens.com/" },
+            { "@type": "ListItem", "position": 2, "name": "CS2 Bind Generator", "item": "https://dcprosens.com/bind-generator/" },
         ],
     };
 
@@ -91,7 +91,7 @@ export default function BindGeneratorPage() {
                 name: "DCPROSENS CS2 Bind & Autoexec Generator",
                 applicationCategory: "UtilitiesApplication",
                 operatingSystem: "Web",
-                url: "https://dcprosens.com/bind-generator",
+                url: "https://dcprosens.com/bind-generator/",
                 description: "Free online CS2 bind generator. Create jumpthrows, radar toggles, mute voice binds, and export autoexec.cfg configs.",
                 offers: {
                     "@type": "Offer",

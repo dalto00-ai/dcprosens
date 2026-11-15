@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { EBOOKS_CATALOG, getEbookBySlug, MASTER_BUNDLE } from '@/data/ebooksData';
 import { EbookDetailActionButton } from '@/components/EbookDetailActionButtons';
+import { seoTitle } from '@/utils/seoText';
 import styles from './EbookDetail.module.css';
 
 type Props = {
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${book.title} (Field Guide) — DCPROSENS`,
+    title: seoTitle(book.title, 52),
     description: book.shortDesc,
     alternates: {
       canonical: `https://dcprosens.com/ebooks/${book.slug}/`,
@@ -37,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${book.title} — DCPROSENS Esports Field Guide`,
       description: book.shortDesc,
-      url: `https://dcprosens.com/ebooks/${book.slug}`,
+      url: `https://dcprosens.com/ebooks/${book.slug}/`,
       images: [
         {
           url: book.mockupImage,
@@ -91,7 +92,7 @@ export default async function EbookDetailPage({ params }: Props) {
           seller: {
             '@type': 'Organization',
             name: 'DCPROSENS',
-            url: 'https://dcprosens.com',
+            url: 'https://dcprosens.com/',
           },
         },
         aggregateRating: {

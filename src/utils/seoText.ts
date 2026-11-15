@@ -17,7 +17,7 @@
  * finished titles of 72 characters, because the suffix was not counted.
  */
 export const TITLE_SUFFIX_LENGTH = " | DCPROSENS".length;
-export const TITLE_LIMIT = 65 - TITLE_SUFFIX_LENGTH;
+export const TITLE_LIMIT = 60 - TITLE_SUFFIX_LENGTH;
 export const DESCRIPTION_LIMIT = 158;
 
 /** Cuts at the last word boundary that fits, never mid-word. */

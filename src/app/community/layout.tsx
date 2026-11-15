@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'DCPROSENS Pro Community — Precision Aim & Zero-Latency Hub',
+  title: 'Pro Community — Precision Aim & Zero-Latency Hub',
   description:
     'Private competitive gaming community for tactical FPS players. Share telemetry setups, access pro coach VOD reviews, zero-latency Windows tuning, and curated config presets.',
   alternates: {

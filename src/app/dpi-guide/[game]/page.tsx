@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
             title,
             description,
-            url: `https://dcprosens.com/dpi-guide/${gameId}`,
+            url: `https://dcprosens.com/dpi-guide/${gameId}/`,
             type: 'website',
             siteName: 'DCPROSENS',
         },
@@ -71,7 +71,7 @@ export default async function DpiGuidePage({ params }: Props) {
     const content = getDpiGuideContent(gameId);
     if (!content) notFound();
 
-    const canonicalUrl = `https://dcprosens.com/dpi-guide/${gameId}`;
+    const canonicalUrl = `https://dcprosens.com/dpi-guide/${gameId}/`;
 
     const jsonLd = {
         '@context': 'https://schema.org',
@@ -95,7 +95,7 @@ export default async function DpiGuidePage({ params }: Props) {
             {
                 '@type': 'BreadcrumbList',
                 itemListElement: [
-                    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://dcprosens.com' },
+                    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://dcprosens.com/' },
                     { '@type': 'ListItem', position: 2, name: 'DPI Guides', item: 'https://dcprosens.com/dpi-guide/' },
                     { '@type': 'ListItem', position: 3, name: content.displayName, item: canonicalUrl },
                 ],
