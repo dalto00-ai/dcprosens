@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { dpiGuideContent, getDpiGuideContent } from '@/lib/dpiGuideContent';
+import { seoDescription } from '@/utils/seoText';
 
 interface Props {
     params: Promise<{ game: string }>;
@@ -25,7 +26,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         `${content.displayName} DPI Guide`,
     ];
     const title = titleTiers.find((t) => t.length <= 47) ?? titleTiers[titleTiers.length - 1];
-    const description = `What DPI do ${content.displayName} pros actually use? ${content.dpiRange}`;
+    // Template output length varies with the game name and the DPI range, so
+    // it is trimmed to what a search result renders rather than assumed to fit.
+    const description = seoDescription(
+        `What DPI do ${content.displayName} pros actually use? ${content.dpiRange}`
+    );
 
     return {
         title,
@@ -38,9 +43,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             `${content.displayName.toLowerCase()} mouse settings`,
         ],
         alternates: {
-            canonical: `https://dcprosens.com/dpi-guide/${gameId}`,
+            canonical: `https://dcprosens.com/dpi-guide/${gameId}/`,
         },
         openGraph: {
+            // Inherited from the root layout only when this page omits openGraph
+            // entirely — declaring the object here replaces the parent's, so the
+            // image has to be restated or the page ships with no og:image at all.
+            images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
             title,
             description,
             url: `https://dcprosens.com/dpi-guide/${gameId}`,
@@ -52,6 +61,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             title,
             description,
             creator: '@dcprosens',
+            images: ["/og-image.png"],
         },
     };
 }
@@ -86,7 +96,7 @@ export default async function DpiGuidePage({ params }: Props) {
                 '@type': 'BreadcrumbList',
                 itemListElement: [
                     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://dcprosens.com' },
-                    { '@type': 'ListItem', position: 2, name: 'DPI Guides', item: 'https://dcprosens.com/dpi-guide' },
+                    { '@type': 'ListItem', position: 2, name: 'DPI Guides', item: 'https://dcprosens.com/dpi-guide/' },
                     { '@type': 'ListItem', position: 3, name: content.displayName, item: canonicalUrl },
                 ],
             },
@@ -171,6 +181,23 @@ export default async function DpiGuidePage({ params }: Props) {
                     ))}
                 </ul>
             </div>
+
+            {content.deepDive && content.deepDive.length > 0 && (
+                <div style={{ marginTop: '3rem', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
+                    {content.deepDive.map((section) => (
+                        <div key={section.heading} style={{ marginBottom: '2.25rem' }}>
+                            <h2 style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--text-primary)', margin: '0 0 0.85rem' }}>
+                                {section.heading}
+                            </h2>
+                            <div style={{ color: 'var(--text-secondary)', lineHeight: 1.85, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                                {section.paragraphs.map((paragraph, i) => (
+                                    <p key={i} style={{ margin: 0 }}>{paragraph}</p>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            )}
 
             <div
                 style={{

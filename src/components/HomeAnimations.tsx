@@ -43,50 +43,10 @@ export function AnimatedCounter({ target, suffix = '', prefix = '' }: { target: 
 }
 
 /* ======================================================
-   LIVE ACTIVITY FEED — Simulated real-time conversions
+   LIVE ACTIVITY FEED — Deprecated / Removed for AdSense compliance
    ====================================================== */
-const activityData = [
-    { from: 'Valorant', to: 'CS2', sens: '0.3', result: '0.954', country: '🇺🇸', time: '2s ago' },
-    { from: 'Apex', to: 'Valorant', sens: '2.5', result: '0.786', country: '🇧🇷', time: '5s ago' },
-    { from: 'CS2', to: 'Overwatch 2', sens: '1.8', result: '6.26', country: '🇰🇷', time: '8s ago' },
-    { from: 'Fortnite', to: 'Valorant', sens: '45%', result: '0.42', country: '🇩🇪', time: '12s ago' },
-    { from: 'Overwatch 2', to: 'CS2', sens: '4.0', result: '1.15', country: '🇯🇵', time: '15s ago' },
-    { from: 'Valorant', to: 'Apex', sens: '0.5', result: '1.59', country: '🇬🇧', time: '18s ago' },
-    { from: 'R6 Siege', to: 'Valorant', sens: '12', result: '0.98', country: '🇫🇷', time: '22s ago' },
-    { from: 'CS2', to: 'Valorant', sens: '2.0', result: '0.629', country: '🇹🇷', time: '25s ago' },
-];
-
 export function LiveActivityFeed() {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [isVisible, setIsVisible] = useState(true);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setIsVisible(false);
-            setTimeout(() => {
-                setCurrentIndex((prev) => (prev + 1) % activityData.length);
-                setIsVisible(true);
-            }, 400);
-        }, 3500);
-
-        return () => clearInterval(interval);
-    }, []);
-
-    const activity = activityData[currentIndex];
-
-    return (
-        <div className="home-live-feed">
-            <div className="home-live-dot"></div>
-            <div className={`home-live-text ${isVisible ? 'home-live-visible' : 'home-live-hidden'}`}>
-                <span className="home-live-flag">{activity.country}</span>
-                <span>
-                    <strong>{activity.from}</strong> → <strong>{activity.to}</strong>
-                    <span className="home-live-detail"> ({activity.sens} → {activity.result})</span>
-                </span>
-                <span className="home-live-time">{activity.time}</span>
-            </div>
-        </div>
-    );
+    return null;
 }
 
 /* ======================================================

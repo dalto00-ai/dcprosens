@@ -838,6 +838,209 @@ export const sensFinderContent: SensFinderGameContent[] = [
             },
         ],
     },
+    {
+        gameId: 'deltaforce',
+        displayName: 'Delta Force',
+        engine: 'Unreal Engine 5',
+        category: 'Tactical Shooter',
+        blurb: 'Delta Force runs on an optimized branch of Unreal Engine 5, using the standard Unreal yaw multiplier (0.005555) — the same value as Fortnite. That means a much larger in-game sensitivity number is needed to match the same physical cm/360 as Source-engine games like CS2.',
+        faqs: [
+            {
+                q: 'What DPI and sensitivity should I use in Delta Force?',
+                a: 'Delta Force shares its yaw constant with Fortnite (0.005555), so converting from a Source-engine game like CS2 will produce a noticeably higher in-game sensitivity number for the same physical mouse movement — that is expected, not an error.',
+            },
+            {
+                q: 'Does Delta Force sensitivity differ between Hazard Operations and Havoc Warfare?',
+                a: 'No — the core mouse yaw is the same across both modes; only aim-down-sights (ADS) multipliers per weapon/scope change, the same way they do in most modern shooters.',
+            },
+        ],
+    },
+    {
+        gameId: 'arcraiders',
+        displayName: 'Arc Raiders',
+        engine: 'Unreal Engine 5 (modified, with NVIDIA)',
+        category: 'Extraction Shooter',
+        blurb: 'Arc Raiders runs on a heavily customized Unreal Engine 5 build co-developed with NVIDIA — Embark skipped Lumen and Nanite in favor of a performance-first pipeline. Its yaw (0.0066) puts it in the Call of Duty / Overwatch 2 / Destiny 2 conversion family rather than the lower Fortnite/UE-default value, despite also running on Unreal.',
+        faqs: [
+            {
+                q: 'Does Arc Raiders use the standard Unreal Engine sensitivity scale?',
+                a: 'No — even though it runs on Unreal Engine 5, Embark tuned Arc Raiders to a 0.0066 yaw (the CoD/Overwatch 2/Destiny 2 family) rather than the 0.005555 default that other Unreal titles like Fortnite and Delta Force use. Always convert per-game rather than assuming "Unreal Engine" implies one fixed value.',
+            },
+            {
+                q: 'Does this cover aiming down sights on different scopes?',
+                a: 'This converts hipfire/turn sensitivity via cm/360. Arc Raiders applies its own ADS multiplier per weapon and scope, which still needs separate in-game tuning.',
+            },
+        ],
+    },
+    {
+        gameId: 'marathon',
+        displayName: 'Marathon',
+        engine: 'Tiger Engine (Bungie, evolved blam! engine)',
+        category: 'Extraction Shooter',
+        blurb: "Marathon runs on Bungie's Tiger Engine, the same evolved blam! engine lineage that powers Destiny 2 — which is exactly why both share the same 0.0066 yaw. If you already have a cm/360 dialed in from Destiny 2, it carries over to Marathon with no conversion needed.",
+        faqs: [
+            {
+                q: 'Does my Destiny 2 sensitivity transfer to Marathon?',
+                a: "Yes for hipfire — both run on Bungie's Tiger Engine lineage and share the same 0.0066 yaw, so the same sensitivity and DPI produces an identical cm/360 in both games.",
+            },
+        ],
+    },
+    {
+        gameId: 'farlight84',
+        displayName: 'Farlight 84',
+        engine: 'Unreal Engine 4',
+        category: 'Battle Royale',
+        blurb: 'Farlight 84 runs on Unreal Engine 4 and uses the standard Unreal yaw multiplier (0.005555) — the same value as Fortnite and Delta Force — so converting from a Source-engine game like CS2 produces a noticeably larger in-game sensitivity number for the same physical cm/360.',
+        faqs: [
+            {
+                q: 'Why does my Farlight 84 sensitivity number look so much bigger than CS2?',
+                a: "Farlight 84 shares its yaw constant (0.005555) with Fortnite and Delta Force, roughly 4x lower than CS2's 0.022 — the same physical mouse movement needs a proportionally larger in-game number. That is expected, not an error.",
+            },
+        ],
+    },
+    {
+        gameId: 'repo',
+        displayName: 'R.E.P.O.',
+        engine: 'Unity',
+        category: 'Co-op Extraction Horror',
+        blurb: "R.E.P.O. is built in Unity by Swedish studio Semiwork, their first multiplayer title. Its listed yaw (0.022) happens to land on the same Source-engine-style convention as CS2 and Apex, even though the underlying engine and genre — physics-based co-op horror extraction — are completely different.",
+        faqs: [
+            {
+                q: "Does R.E.P.O.'s physics-based grabbing affect the sensitivity conversion?",
+                a: 'No — camera/aim sensitivity and the physics-based object-grabbing controls are handled separately. This converter only applies to your camera turn rate, not how objects are picked up or carried.',
+            },
+        ],
+    },
+    {
+        gameId: 'peak',
+        displayName: 'PEAK',
+        engine: 'Unity',
+        category: 'Co-op Climbing',
+        blurb: "PEAK, the co-op climbing game from Aggro Crab and Landfall Games, runs on Unity. Its yaw (0.022) matches the Source-engine convention used by CS2 and Apex, so if you already have a cm/360 you like from a Source-family shooter, the same DPI and sensitivity number will feel identical here.",
+        faqs: [
+            {
+                q: 'Does climbing movement in PEAK change how sensitivity feels?',
+                a: 'No — the camera yaw works the same as any first-person title. Climbing physics and stamina affect movement speed and camera shake, not the underlying turn-rate math.',
+            },
+        ],
+    },
+    {
+        gameId: 'fragpunk',
+        displayName: 'FragPunk',
+        engine: 'Unreal Engine 5',
+        category: 'Hero Shooter',
+        blurb: 'FragPunk runs on Unreal Engine 5 with Lumen, Virtual Shadows, and Nanite disabled for performance — a common choice for competitive UE5 shooters. It uses the standard Unreal yaw multiplier (0.005555), the same value as Fortnite and Delta Force, so expect a larger in-game sensitivity number than you would use in CS2 for the same cm/360.',
+        faqs: [
+            {
+                q: "Do FragPunk's Shard cards (round-modifier powerups) change sensitivity?",
+                a: 'No — Shard cards alter weapon behavior, movement, and round rules, not the base mouse yaw. Your converted sensitivity stays the same regardless of which cards are active.',
+            },
+        ],
+    },
+    {
+        gameId: 'combatmaster',
+        displayName: 'Combat Master',
+        engine: 'Unity',
+        category: 'Tactical Shooter',
+        blurb: 'Combat Master, developed by Alfa Bravo and originally a mobile-only release before coming to PC, runs on Unity. Its yaw (0.022) lands on the same Source-engine-style convention as CS2 and Apex despite the different engine, so sensitivity converts 1:1 at the same DPI.',
+        faqs: [
+            {
+                q: 'Can I use my CS2 sensitivity directly in Combat Master?',
+                a: 'Yes for hipfire — both list a 0.022 yaw, so the same sensitivity and DPI give you the same cm/360 even though Combat Master runs on Unity rather than Source.',
+            },
+        ],
+    },
+    {
+        gameId: 'bloodstrike',
+        displayName: 'Blood Strike',
+        engine: 'Proprietary (NetEase in-house engine)',
+        category: 'Battle Royale',
+        blurb: "Blood Strike runs on a proprietary NetEase in-house engine rather than Unreal or Unity — NetEase has not publicly confirmed which specific internal engine powers this title. Its yaw (0.005555) matches the standard Unreal convention used by Fortnite and Delta Force, so treat the conversion itself as reliable while noting the engine detail is closed-source.",
+        faqs: [
+            {
+                q: 'Why does Blood Strike need a much higher sensitivity number than CS2 for the same feel?',
+                a: "Blood Strike's yaw (0.005555) is roughly 4x lower than CS2's (0.022), so a larger in-game sensitivity value is needed to produce the same physical cm/360 — that is expected, not an error.",
+            },
+        ],
+    },
+    {
+        gameId: 'strinova',
+        displayName: 'Strinova',
+        engine: 'Unreal Engine 4',
+        category: 'Tactical Shooter',
+        blurb: "Strinova, the anime-styled 5v5 tactical shooter from Day1 Studio, runs on Unreal Engine 4. It uses the standard Unreal yaw multiplier (0.005555), the same value as Fortnite, so a Source-engine sensitivity from CS2 or Apex needs the converter above rather than a direct copy.",
+        faqs: [
+            {
+                q: "Does Strinova's 2D \"stringification\" mechanic affect sensitivity?",
+                a: 'No — switching between the 3D and flattened 2D forms changes collision and movement, not the camera yaw. Your converted sensitivity applies the same in both states.',
+            },
+        ],
+    },
+    {
+        gameId: 'seaofthieves',
+        displayName: 'Sea of Thieves',
+        engine: 'Unreal Engine 4',
+        category: 'Action-Adventure',
+        blurb: "Sea of Thieves runs on Unreal Engine 4 — Rare has said publicly it has no near-term plan to move to UE5 given how much bespoke tooling the game relies on. Its yaw (0.005555) matches the standard Unreal default shared with Fortnite and Delta Force.",
+        faqs: [
+            {
+                q: 'Does aiming on a moving ship affect the sensitivity conversion?',
+                a: "No — the underlying camera yaw is constant whether you're on solid ground or a rocking ship deck. Any perceived difference comes from the ship's motion adding to your view, not a change in mouse sensitivity itself.",
+            },
+        ],
+    },
+    {
+        gameId: 'deadbydaylight',
+        displayName: 'Dead by Daylight',
+        engine: 'Unreal Engine 5 (originally Unreal Engine 4)',
+        category: 'Asymmetric Horror',
+        blurb: 'Dead by Daylight launched on Unreal Engine 4 in 2016 and migrated to Unreal Engine 5 in 2024. Its yaw (0.005555) matches the standard Unreal default used by Fortnite and Delta Force, so a Source-engine sensitivity from CS2 needs converting rather than copying directly.',
+        faqs: [
+            {
+                q: 'Do Killers and Survivors use the same sensitivity conversion?',
+                a: 'Yes — the base camera yaw is shared across both roles. Killer power add-ons and Survivor perks can add situational camera effects, but they do not change the underlying turn-rate math.',
+            },
+        ],
+    },
+    {
+        gameId: 'ultrakill',
+        displayName: 'Ultrakill',
+        engine: 'Unity',
+        category: 'Boomer Shooter',
+        blurb: 'Ultrakill runs on Unity (currently on the 2022 LTS branch) and lists a 0.022 yaw, the same Source-engine-style convention as CS2 and Apex — convenient if you split time between Ultrakill and any Source-family competitive shooter.',
+        faqs: [
+            {
+                q: "Does Ultrakill's fast movement (dashing, wall-jumping) mean I need a different cm/360?",
+                a: 'The conversion keeps your physical mouse distance constant regardless of movement speed — many Ultrakill players do prefer a smaller cm/360 (higher sensitivity) for its acrobatic combat, but that is a personal preference layered on top of the base conversion, not a requirement.',
+            },
+        ],
+    },
+    {
+        gameId: 'enlisted',
+        displayName: 'Enlisted',
+        engine: 'Dagor Engine',
+        category: 'Milsim / Tactical Shooter',
+        blurb: "Enlisted runs on Gaijin Entertainment's Dagor Engine — the same engine that powers War Thunder — built by developer Darkflow Software. Its yaw (0.0175) matches Helldivers 2, Battalion 1944, and Fallout 76 numerically, though none of those titles share an engine lineage with Enlisted.",
+        faqs: [
+            {
+                q: 'Does controlling AI squadmates in Enlisted affect my personal sensitivity?',
+                a: "No — squad orders and AI soldier control are separate systems from your own camera aim. The yaw conversion only applies to your own character's look sensitivity.",
+            },
+        ],
+    },
+    {
+        gameId: 'crossfire',
+        displayName: 'CrossFire',
+        engine: 'Lithtech Jupiter EX',
+        category: 'Tactical Shooter',
+        blurb: "The long-running CrossFire, Smilegate's globally popular tactical shooter (especially across Asia), runs on a modified Lithtech Jupiter EX engine — distinct from the Unreal Engine builds used by newer franchise spin-offs like CrossfireX and the upcoming CrossFire AAA project. Its listed yaw (0.022) matches the Source-engine convention used by CS2 and Apex.",
+        faqs: [
+            {
+                q: 'Is this the same as CrossfireX or the new CrossFire AAA game?',
+                a: 'No — this entry covers the original long-running CrossFire PC title on Lithtech Jupiter EX. CrossfireX (Unreal Engine 4/Northlight) and the upcoming CrossFire AAA project (Unreal Engine 5) are separate titles that may use different sensitivity scaling.',
+            },
+        ],
+    },
 ];
 
 export function getSensFinderContent(gameId: string): SensFinderGameContent | undefined {

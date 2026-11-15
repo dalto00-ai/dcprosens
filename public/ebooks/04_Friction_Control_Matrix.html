@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friction & Control Matrix — DCPROSENS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-page: #06080d;
+            --bg-card: #0c101a;
+            --bg-card-alt: #101624;
+            --primary: #00ff9d;
+            --primary-glow: rgba(0, 255, 157, 0.25);
+            --secondary: #00e5ff;
+            --secondary-glow: rgba(0, 229, 255, 0.2);
+            --accent-red: #ff2a5f;
+            --accent-amber: #ffb703;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+            --border-subtle: rgba(255, 255, 255, 0.07);
+            --border-primary: rgba(0, 255, 157, 0.25);
+            --border-secondary: rgba(0, 229, 255, 0.25);
+        }
+
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #030407;
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            max-height: 297mm;
+            min-height: 297mm;
+            box-sizing: border-box;
+            padding: 13mm 15mm 11mm 15mm;
+            background: var(--bg-page);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            page-break-after: always;
+            break-after: page;
+        }
+
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                radial-gradient(circle at 85% 15%, rgba(0, 229, 255, 0.04) 0%, transparent 40%),
+                radial-gradient(circle at 15% 85%, rgba(0, 255, 157, 0.04) 0%, transparent 40%),
+                linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 20px 20px, 20px 20px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .page > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Running Header & Footer */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 2.8mm;
+            border-bottom: 1px solid var(--border-subtle);
+            margin-bottom: 3.2mm;
+        }
+
+        .header-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.8pt;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        .header-tag::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 6px var(--primary);
+        }
+
+        .header-sub {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.5pt;
+            letter-spacing: 0.08em;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        .page-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2.8mm;
+            border-top: 1px solid var(--border-subtle);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.5pt;
+            letter-spacing: 0.06em;
+            color: var(--text-dim);
+        }
+
+        .footer-brand { color: var(--text-muted); font-weight: 600; }
+        .footer-brand span { color: var(--primary); }
+        .footer-num { color: var(--secondary); font-weight: 700; }
+
+        /* Titles & Text */
+        .title-block { margin-bottom: 3.2mm; }
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.5pt;
+            font-weight: 700;
+            color: var(--secondary);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 1mm;
+        }
+        .page-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 19pt;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin-bottom: 1.5mm;
+        }
+        .page-desc {
+            font-size: 8.8pt;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* Cards & Layout */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5mm; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2mm; }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            padding: 3mm 4mm;
+        }
+        .card.glow-primary { border-color: var(--border-primary); box-shadow: 0 0 15px rgba(0, 255, 157, 0.04); }
+        .card.glow-secondary { border-color: var(--border-secondary); box-shadow: 0 0 15px rgba(0, 229, 255, 0.04); }
+
+        .card-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 10pt;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .card-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8pt;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .card-desc {
+            font-size: 8.2pt;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+
+        /* Steps */
+        .step-list { display: flex; flex-direction: column; gap: 2.2mm; }
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 3mm;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            padding: 2.5mm 3.5mm;
+        }
+        .step-num {
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(0, 255, 157, 0.2), rgba(0, 229, 255, 0.2));
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8pt;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .step-content h4 { font-size: 9pt; font-weight: 700; color: #ffffff; margin-bottom: 0.8mm; }
+        .step-content p { font-size: 8pt; color: var(--text-muted); line-height: 1.35; }
+
+        /* Tables */
+        .spec-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+            background: var(--bg-card);
+            font-size: 8pt;
+        }
+        .spec-table th {
+            background: var(--bg-card-alt);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.2pt;
+            font-weight: 700;
+            color: var(--secondary);
+            text-align: left;
+            padding: 2.2mm 3mm;
+            border-bottom: 1px solid var(--border-subtle);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .spec-table td {
+            padding: 2.2mm 3mm;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--text-muted);
+            line-height: 1.3;
+        }
+        .spec-table tr:last-child td { border-bottom: none; }
+        .spec-table td strong { color: #ffffff; font-weight: 600; }
+
+        /* Callouts */
+        .callout {
+            border-left: 3px solid var(--primary);
+            background: linear-gradient(90deg, rgba(0, 255, 157, 0.06), transparent);
+            border-radius: 0 6px 6px 0;
+            padding: 2.5mm 3.2mm;
+            font-size: 8.2pt;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+        .callout strong { color: #ffffff; }
+        .callout.alert-red { border-left-color: var(--accent-red); background: linear-gradient(90deg, rgba(255, 42, 95, 0.08), transparent); }
+        .callout.alert-cyan { border-left-color: var(--secondary); background: linear-gradient(90deg, rgba(0, 229, 255, 0.06), transparent); }
+
+        /* Worksheet Fields */
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm; margin-bottom: 2mm; }
+        .field-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 5px;
+            padding: 1.8mm 2.8mm;
+        }
+        .field-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 6.8pt;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.2mm;
+        }
+        .field-line {
+            height: 16px;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.5pt;
+            color: var(--primary);
+        }
+
+        /* Checklists */
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 2.5mm;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 5px;
+            padding: 2.2mm 3mm;
+            margin-bottom: 1.8mm;
+        }
+        .check-box-mock {
+            width: 13px;
+            height: 13px;
+            min-width: 13px;
+            border: 1.5px solid var(--primary);
+            border-radius: 3px;
+            margin-top: 1.5px;
+        }
+        .check-text h5 { font-size: 8.5pt; font-weight: 700; color: #ffffff; margin-bottom: 0.5mm; }
+        .check-text p { font-size: 7.5pt; color: var(--text-muted); line-height: 1.25; }
+
+        .progress-pill {
+            background: var(--bg-card-alt);
+            border: 1px solid var(--border-primary);
+            border-radius: 5px;
+            padding: 2.2mm 3mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.5pt;
+        }
+        .progress-val { color: var(--primary); font-weight: 700; }
+
+        /* Cover Page Styling */
+        .cover-page {
+            padding: 0;
+            background: #06080d;
+            position: relative;
+        }
+        .cover-bg-img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+        .cover-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(6,8,13,0.85) 0%, rgba(6,8,13,0.2) 40%, rgba(6,8,13,0.1) 65%, rgba(6,8,13,0.95) 100%);
+            z-index: 2;
+        }
+        .cover-inner {
+            position: relative;
+            z-index: 3;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 14mm 16mm 12mm 16mm;
+        }
+        .cover-logo-brand {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13pt;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            color: #ffffff;
+        }
+        .cover-logo-brand span { color: var(--primary); }
+        .cover-badge-pill {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.5pt;
+            letter-spacing: 0.12em;
+            color: var(--secondary);
+            border: 1px solid var(--border-secondary);
+            padding: 1.5mm 3.5mm;
+            border-radius: 20px;
+            background: rgba(0, 229, 255, 0.08);
+        }
+        .cover-footer-box {
+            background: rgba(12, 16, 26, 0.88);
+            border: 1px solid var(--border-primary);
+            border-radius: 8px;
+            padding: 4.5mm 5.5mm;
+            backdrop-filter: blur(12px);
+        }
+        .cover-footer-box h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 25pt;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin-bottom: 2mm;
+            text-transform: uppercase;
+        }
+        .cover-footer-box h1 span {
+            background: linear-gradient(135deg, #00ff9d 0%, #00e5ff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .cover-footer-box p {
+            font-size: 9.5pt;
+            color: var(--text-muted);
+            line-height: 1.4;
+            margin-bottom: 3mm;
+        }
+        .cover-meta-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 2.5mm;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.5pt;
+            color: var(--text-dim);
+        }
+        .cover-meta-bar span { color: var(--primary); font-weight: 700; }
+    </style>
+</head>
+<body>
+
+<section class="page cover-page">
+    <img class="cover-bg-img" src="file:///home/usuario/Documentos/GOOGLE%20ANTIGRAVIY/DCPROSENS/public/ebooks/cover_friction_control_matrix.jpg" alt="Cover Background">
+    <div class="cover-overlay"></div>
+    <div class="cover-inner">
+        <div class="cover-top">
+            <div class="cover-logo-brand">DCPROSENS<span>.</span></div>
+            <div class="cover-badge-pill">FIELD GUIDE 04 // HARDWARE &amp; FRICTION PHYSICS</div>
+        </div>
+        <div class="cover-footer-box">
+            <h1>FRICTION &amp;<br><span>CONTROL MATRIX.</span></h1>
+            <p>The complete engineering guide to mousepad weaves, virgin PTFE skates, mouse weight dynamics, and zero-humidity glide.</p>
+            <div class="cover-meta-bar">
+                <div>AUTHOR: <span>DALTO OUTLIER</span> // AIM &amp; PERFORMANCE LAB</div>
+                <div>01 / 10</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">04 / FRICTION & GEAR</div>
+            <div class="header-sub">SURFACE PHYSICS</div>
+        </div>
+        <div class="title-block">
+            <div class="section-label">STEP 00 // FRICTION MECHANICS</div>
+            <h2 class="page-title">Static vs dynamic friction explained.</h2>
+            <p class="page-desc">The two physical forces that dictate your mouse tracking speed, stopping power, and micro-precision.</p>
+        </div>
+        
+    <div class="grid-2" style="margin-bottom: 3.5mm;">
+        <div class="card glow-primary">
+            <div class="card-title"><span>STATIC FRICTION (μs)</span><span class="card-num">INITIAL FORCE</span></div>
+            <p class="card-desc">The resistance required to initiate movement from a dead stop. <strong>High static friction</strong> makes tiny 5-pixel headshot micro-adjustments feel sticky, jerky, and sluggish.</p>
+        </div>
+        <div class="card glow-secondary">
+            <div class="card-title"><span>DYNAMIC FRICTION (μk)</span><span class="card-num">GLIDE RESISTANCE</span></div>
+            <p class="card-desc">The resistance felt while your mouse is actively gliding across the pad. <strong>Controlled dynamic friction</strong> provides vital stopping power when terminating high-speed flicks.</p>
+        </div>
+    </div>
+    <div class="card" style="margin-bottom: 3.5mm;">
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 10pt; font-weight: 700; color: #fff; margin-bottom: 1.5mm;">
+            The Esports Holy Grail: Low Static + High Dynamic Friction
+        </div>
+        <p style="font-size: 8.2pt; color: var(--text-muted); line-height: 1.35; margin-bottom: 2mm;">
+            Competitive players do not want frictionless ice; they want instantaneous micro-adjustments combined with stable braking force.
+        </p>
+        <div class="grid-3" style="gap: 2mm;">
+            <div style="background: var(--bg-card-alt); padding: 2mm; border-radius: 4px; font-size: 7.8pt;">
+                <strong style="color: var(--accent-red);">Mud Pad (High μs / High μk):</strong> Sticky micro-adjustments, causes overshoot from overcompensating.
+            </div>
+            <div style="background: var(--bg-card-alt); padding: 2mm; border-radius: 4px; font-size: 7.8pt;">
+                <strong style="color: var(--accent-amber);">Glass Pad (Low μs / Low μk):</strong> Zero friction, incredible tracking, zero stopping power.
+            </div>
+            <div style="background: var(--bg-card-alt); padding: 2mm; border-radius: 4px; font-size: 7.8pt;">
+                <strong style="color: var(--primary);">Artisan Zero / Saturn (Low μs / Med μk):</strong> Effortless micro-aim + crisp, locked-in stopping power.
+            </div>
+        </div>
+    </div>
+    <div class="callout alert-cyan">
+        <strong>Hardware Secret:</strong> If your micro-adjustments feel like they are fighting glue, your pad has excessive static friction. Upgrading skates or cleaning your pad solves this immediately.
+    </div>
+    
+    </div>
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>FRICTION & CONTROL MATRIX</span></div>
+        <div class="footer-meta">DCPROSENS RESEARCH LAB</div>
+        <div class="footer-num">02 / 10</div>
+    </div>
+</section>
+
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">04 / FRICTION & GEAR</div>
+            <div class="header-sub">PAD TAXONOMY</div>
+        </div>
+        <div class="title-block">
+            <div class="section-label">STEP 01 // SURFACE SPECTRUM</div>
+            <h2 class="page-title">The mousepad surface spectrum.</h2>
+            <p class="page-desc">Decoding control cloth, hybrid weaves, glass surfaces, and Japanese Poron foam base hardness.</p>
+        </div>
+        
+    <div class="grid-3" style="margin-bottom: 3.5mm;">
+        <div class="card glow-primary">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--primary); font-weight: 700;">CONTROL CLOTH</div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 11pt; color: #fff; font-weight: 700; margin: 1mm 0;">Artisan Zero / Saturn Pro</div>
+            <p style="font-size: 7.8pt; color: var(--text-muted);">Micro-textured cloth weave. High stopping power, medium glide speed. <strong>Best for Valorant &amp; CS2.</strong></p>
+        </div>
+        <div class="card glow-secondary">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--secondary); font-weight: 700;">HYBRID CORDURA</div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 11pt; color: #fff; font-weight: 700; margin: 1mm 0;">Artisan Hayate Otsu / Hien</div>
+            <p style="font-size: 7.8pt; color: var(--text-muted);">Rough poly-weave. Fast glide, low initial friction, indestructible durability. <strong>Best for Apex &amp; Overwatch.</strong></p>
+        </div>
+        <div class="card">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--accent-amber); font-weight: 700;">HARD GLASS</div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 11pt; color: #fff; font-weight: 700; margin: 1mm 0;">Skypad 3.0 / Wallhack SP-004</div>
+            <p style="font-size: 7.8pt; color: var(--text-muted);">Tempered glass surface. Ultra-fast, zero static friction. Requires arm sleeve. <strong>Fast tracking only.</strong></p>
+        </div>
+    </div>
+    <div class="card" style="margin-bottom: 3.5mm;">
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 10pt; font-weight: 700; color: #fff; margin-bottom: 1.5mm;">
+            Poron Foam Base Hardness (Mid vs Soft vs XSoft)
+        </div>
+        <p style="font-size: 8.2pt; color: var(--text-muted); line-height: 1.35;">
+            High-end Japanese mousepads use Japanese Poron foam bases that react to downward hand pressure:
+        </p>
+        <div class="grid-3" style="gap: 2mm; margin-top: 1.5mm;">
+            <div style="background: var(--bg-card-alt); padding: 2mm; border-radius: 4px; font-size: 7.8pt;">
+                <strong>MID (Firm):</strong> Consistent speed regardless of hand pressure. Highly predictable for fast arm swipers.
+            </div>
+            <div style="background: var(--bg-card-alt); padding: 2mm; border-radius: 4px; font-size: 7.8pt;">
+                <strong>SOFT (Balanced):</strong> Moderate cushion. Allows you to dig your mouse skates into the pad for emergency braking.
+            </div>
+            <div style="background: var(--bg-card-alt); padding: 2mm; border-radius: 4px; font-size: 7.8pt;">
+                <strong>XSOFT (Plush):</strong> Deep compression. Provides extreme dynamic stopping power when clamping down on flicks.
+            </div>
+        </div>
+    </div>
+    <div class="callout">
+        <strong>Recommendation:</strong> If you are unsure, choose <strong>SOFT</strong>. It offers the ideal balance of uniform glide and controlled stopping compression.
+    </div>
+    
+    </div>
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>FRICTION & CONTROL MATRIX</span></div>
+        <div class="footer-meta">DCPROSENS RESEARCH LAB</div>
+        <div class="footer-num">03 / 10</div>
+    </div>
+</section>
+
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">04 / FRICTION & GEAR</div>
+            <div class="header-sub">SKATES & FEET</div>
+        </div>
+        <div class="title-block">
+            <div class="section-label">STEP 02 // SKATE DYNAMICS</div>
+            <h2 class="page-title">Mouse skates: virgin PTFE vs glass vs dots.</h2>
+            <p class="page-desc">How skate material, thickness (0.8mm), and surface area dictate your initial launch speed and pad wear.</p>
+        </div>
+        
+    <div class="grid-2" style="margin-bottom: 3.5mm;">
+        <div class="card glow-primary">
+            <div class="card-title"><span>100% VIRGIN GRADE PTFE</span><span class="card-num">PRO CHOICE</span></div>
+            <p class="card-desc"><strong>What it is:</strong> Pure white fluoropolymer with zero colored additives or recycled fillers.<br><strong>Performance:</strong> Predictable, smooth, self-lubricating glide. Rounded curved edges prevent pad scratching. <strong>Used by 95% of pros.</strong></p>
+        </div>
+        <div class="card glow-secondary">
+            <div class="card-title"><span>HARDENED GLASS SKATES</span><span class="card-num">NICHE</span></div>
+            <p class="card-desc"><strong>What it is:</strong> Polished aluminosilicate glass (e.g. Superglides).<br><strong>Performance:</strong> Blistering initial speed, but creates extreme pad wear on cloth and slows down drastically under high ambient humidity.</p>
+        </div>
+    </div>
+    <div class="card" style="margin-bottom: 3.5mm;">
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 10pt; font-weight: 700; color: #fff; margin-bottom: 1.5mm;">
+            Full-Coverage Skates vs Universal PTFE Dots
+        </div>
+        <div class="grid-2" style="gap: 2mm;">
+            <div style="background: var(--bg-card-alt); padding: 2.5mm; border-radius: 4px; font-size: 8pt;">
+                <strong>Full-Coverage Corner Skates:</strong> Larger surface area disperses downward hand pressure. Slower glide, more controlled stopping power on soft cloth pads.
+            </div>
+            <div style="background: var(--bg-card-alt); padding: 2.5mm; border-radius: 4px; font-size: 8pt;">
+                <strong>Universal 6mm PTFE Dots (X-Raypad / Tiger Ice):</strong> Minimal surface contact area. Drastically reduces static friction and creates lightning-fast initial glide on textured pads.
+            </div>
+        </div>
+    </div>
+    <div class="callout alert-red">
+        <strong>Replacement Interval:</strong> Mouse skates wear down microscopic grooves every 4 to 6 months of intense gaming. When the bevelled edges flatten, your mouse base starts scraping the pad. Replace skates twice a year.
+    </div>
+    
+    </div>
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>FRICTION & CONTROL MATRIX</span></div>
+        <div class="footer-meta">DCPROSENS RESEARCH LAB</div>
+        <div class="footer-num">04 / 10</div>
+    </div>
+</section>
+
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">04 / FRICTION & GEAR</div>
+            <div class="header-sub">MASS & MOMENTUM</div>
+        </div>
+        <div class="title-block">
+            <div class="section-label">STEP 03 // WEIGHT DYNAMICS</div>
+            <h2 class="page-title">Mouse weight & momentum physics.</h2>
+            <p class="page-desc">Why 45g to 60g is the undisputed competitive standard, and how weight distribution dictates stopping accuracy.</p>
+        </div>
+        
+    <div class="card glow-primary" style="margin-bottom: 3.5mm;">
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 10pt; font-weight: 700; color: #fff; margin-bottom: 1mm;">
+            Inertia &amp; Momentum: The Physics of Mouse Weight
+        </div>
+        <p style="font-size: 8.2pt; color: var(--text-muted); line-height: 1.35;">
+            Force = Mass × Acceleration. A heavy 100g mouse carries twice the momentum of a 50g mouse during a high-speed flick. To stop a heavy mouse, your wrist must exert double the braking force, causing muscle fatigue and overshoot.
+        </p>
+    </div>
+    <div class="grid-3" style="margin-bottom: 3.5mm;">
+        <div class="card">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--accent-red); font-weight: 700;">HEAVY TIER (&gt;80g)</div>
+            <p class="card-desc" style="margin-top: 1mm;">Legacy mice (G502, DeathAdder Elite). High wrist fatigue, slow direction changes, excessive tendon strain over 3+ hour sessions.</p>
+        </div>
+        <div class="card glow-primary">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--primary); font-weight: 700;">SWEET SPOT (45g–60g)</div>
+            <p class="card-desc" style="margin-top: 1mm;">Logitech Superlight 2 (60g), Razer Viper V3 Pro (54g), BeastX (42g). Perfect structural rigidity, zero hand fatigue, stable micro-aim.</p>
+        </div>
+        <div class="card">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--secondary); font-weight: 700;">EXTREME (&lt;35g)</div>
+            <p class="card-desc" style="margin-top: 1mm;">Carbon fiber shells. Zero inertia, but can induce micro-jitters under adrenaline if your mousepad has insufficient dynamic stopping power.</p>
+        </div>
+    </div>
+    <div class="card glow-secondary" style="margin-bottom: 3.5mm;">
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 9.5pt; font-weight: 700; color: #fff; margin-bottom: 1mm;">
+            Center of Gravity (Weight Distribution)
+        </div>
+        <p style="font-size: 8pt; color: var(--text-muted); line-height: 1.35;">
+            Always ensure your mouse has a <strong>balanced 50/50 center of mass</strong>. A rear-heavy mouse will drag its tail during flicks, lifting the optical sensor slightly off the pad and causing tracking spin-outs.
+        </p>
+    </div>
+    <div class="callout">
+        <strong>Rule of Thumb:</strong> Transitioning from an 85g mouse to a 55g mouse immediately shaves 15–20ms off your physical target deceleration time.
+    </div>
+    
+    </div>
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>FRICTION & CONTROL MATRIX</span></div>
+        <div class="footer-meta">DCPROSENS RESEARCH LAB</div>
+        <div class="footer-num">05 / 10</div>
+    </div>
+</section>
+
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">04 / FRICTION & GEAR</div>
+            <div class="header-sub">CLIMATE SCIENCE</div>
+        </div>
+        <div class="title-block">
+            <div class="section-label">STEP 04 // HUMIDITY DEFENSE</div>
+            <h2 class="page-title">Humidity, temperature & sweat management.</h2>
+            <p class="page-desc">Prevent your mousepad from turning into sticky mud during summer matches with moisture-resistant gear and arm sleeves.</p>
+        </div>
+        
+    <div class="card glow-secondary" style="margin-bottom: 3.5mm;">
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 10pt; font-weight: 700; color: #fff; margin-bottom: 1mm;">
+            The Silent Aim Killer: Relative Humidity (&gt;60% RH)
+        </div>
+        <p style="font-size: 8.2pt; color: var(--text-muted); line-height: 1.35;">
+            Standard cloth mousepads (like SteelSeries QcK) are made of woven polyester and rubber that absorb moisture from ambient air and palm sweat. At 65% humidity, a cloth pad's dynamic friction increases by up to <strong>35%</strong>, turning your glide into mud.
+        </p>
+    </div>
+    <div class="grid-2" style="margin-bottom: 3.5mm;">
+        <div class="card">
+            <div class="card-title"><span>01 / Compression Arm Sleeves</span><span class="card-num">GEAR</span></div>
+            <p class="card-desc">Polyester-spandex gaming arm sleeves eliminate forearm skin friction against the desk and pad. They prevent sweat transfer and guarantee identical forearm glide in summer and winter.</p>
+        </div>
+        <div class="card glow-primary">
+            <div class="card-title"><span>02 / Humidity-Resistant Weaves</span><span class="card-num">SURFACE</span></div>
+            <p class="card-desc">Upgrade to closed-structure hybrid weaves (Artisan Hayate Otsu, LGG Saturn Pro) or treated Cordura pads. These repel atmospheric moisture and maintain uniform friction year-round.</p>
+        </div>
+    </div>
+    <div class="card" style="margin-bottom: 3.5mm;">
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 9.5pt; font-weight: 700; color: #fff; margin-bottom: 1mm;">
+            Room Environment Calibration
+        </div>
+        <p style="font-size: 8pt; color: var(--text-muted); line-height: 1.35;">
+            Keep your competitive room temperature at <strong>20°C–23°C (68°F–73°F)</strong> with relative humidity below 50%. A small desk dehumidifier will permanently stabilize your mousepad glide speed.
+        </p>
+    </div>
+    <div class="callout alert-cyan">
+        <strong>Tournament Pro Tip:</strong> At LAN events where stage lighting causes humidity spikes, pros always pack a fresh, sealed backup mousepad and a compression sleeve.
+    </div>
+    
+    </div>
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>FRICTION & CONTROL MATRIX</span></div>
+        <div class="footer-meta">DCPROSENS RESEARCH LAB</div>
+        <div class="footer-num">06 / 10</div>
+    </div>
+</section>
+
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">04 / FRICTION & GEAR</div>
+            <div class="header-sub">EQUIPMENT CARE</div>
+        </div>
+        <div class="title-block">
+            <div class="section-label">STEP 05 // CLEANING PROTOCOL</div>
+            <h2 class="page-title">Deep cleaning & maintenance protocol.</h2>
+            <p class="page-desc">Safely wash cloth and hybrid mousepads without damaging micro-weaves, restoring factory out-of-the-box glide in 20 minutes.</p>
+        </div>
+        
+    <div class="card glow-primary" style="margin-bottom: 3.5mm;">
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 10pt; font-weight: 700; color: #fff; margin-bottom: 1mm;">
+            The 20-Minute Pad Restoration Protocol (Wash Guide)
+        </div>
+        <p style="font-size: 8.2pt; color: var(--text-muted); line-height: 1.35;">
+            Dead skin cells, dried sweat, and dust accumulate between micro-weaves every month, creating uneven slow spots in your aiming zone. Clean your pad every 30 days using this verified method:
+        </p>
+    </div>
+    <div class="step-list" style="margin-bottom: 3.5mm;">
+        <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-content"><h4>Lukewarm Water Soak (Never Hot)</h4><p>Place pad flat in bathtub or large sink. Soak thoroughly with lukewarm water (25°C–30°C). Hot water dissolves the natural Poron rubber base adhesive.</p></div>
+        </div>
+        <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-content"><h4>Gentle Dish Soap Foam (Zero Bleach)</h4><p>Apply 2 drops of mild grease-cutting dish soap (Dawn). Use a soft microfiber cloth or your clean palms in gentle circular motions. Never use abrasive brushes.</p></div>
+        </div>
+        <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-content"><h4>Thorough Low-Pressure Rinse</h4><p>Rinse until the water runs 100% clear with zero soap bubbles. Residual dried soap creates horrific sticky friction when dry.</p></div>
+        </div>
+        <div class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-content"><h4>Flat Air Dry (Towel Sandwich)</h4><p>Sandwich pad between two dry towels, press down gently to extract excess moisture, then lay completely flat on a table for 12 hours. Never hang with clips or tumble dry.</p></div>
+        </div>
+    </div>
+    <div class="callout alert-red">
+        <strong>Absolute Prohibition:</strong> Never expose mousepads to direct sunlight or hairdryers. Heat warps the rubber base permanently and ruins stitched borders.
+    </div>
+    
+    </div>
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>FRICTION & CONTROL MATRIX</span></div>
+        <div class="footer-meta">DCPROSENS RESEARCH LAB</div>
+        <div class="footer-num">07 / 10</div>
+    </div>
+</section>
+
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">04 / FRICTION & GEAR</div>
+            <div class="header-sub">HARDWARE AUDIT</div>
+        </div>
+        <div class="title-block">
+            <div class="section-label">STEP 06 // THE WORKSHEET</div>
+            <h2 class="page-title">Hardware synergy audit worksheet.</h2>
+            <p class="page-desc">Audit your mouse, pad, and skates combo to pinpoint friction bottlenecks and determine maintenance intervals.</p>
+        </div>
+        
+    <div class="form-row">
+        <div class="field-box"><div class="field-label">CURRENT MOUSE MODEL &amp; WEIGHT</div><div class="field-line">e.g. Superlight 2 // 60 grams</div></div>
+        <div class="field-box"><div class="field-label">MOUSEPAD SURFACE &amp; BASE</div><div class="field-line">e.g. Artisan Zero Soft // 4mm</div></div>
+    </div>
+    <div class="form-row" style="margin-bottom: 3.5mm;">
+        <div class="field-box"><div class="field-label">SKATES INSTALLED</div><div class="field-line">Stock PTFE / Tiger Ice / Corepad / Dots</div></div>
+        <div class="field-box"><div class="field-label">LAST CLEANED DATE</div><div class="field-line">Date: _______</div></div>
+    </div>
+    <div style="margin-bottom: 3.5mm;">
+        <table class="spec-table">
+            <thead>
+                <tr><th style="width: 25%;">Hardware Test</th><th style="width: 30%;">Assessment Criteria</th><th style="width: 25%;">Observed Telemetry</th><th style="width: 20%;">Action Needed</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Static Friction (Micro)</strong></td><td>5-pixel crosshair nudge</td><td>[  ] Clean  [  ] Sticky</td><td>Clean / Dots</td></tr>
+                <tr><td><strong>Stopping Power (Brake)</strong></td><td>High-speed flick clamp</td><td>[  ] Firm  [  ] Slippery</td><td>Softer Base</td></tr>
+                <tr><td><strong>Vertical vs Horiz Glide</strong></td><td>X/Y axis speed parity</td><td>[  ] 1:1  [  ] Y-Axis Slower</td><td>Rotate / Replace</td></tr>
+                <tr><td><strong>Skate Edge Wear</strong></td><td>Fingernail bevel test</td><td>[  ] Smooth  [  ] Sharp Edge</td><td>Replace Skates</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="card glow-primary">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5mm;">
+            <span style="font-family: 'Space Grotesk', sans-serif; font-size: 9.5pt; font-weight: 700; color: #fff;">MY HARDWARE SYNERGY RATING</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--primary);">RATING</span>
+        </div>
+        <div style="font-size: 8pt; color: var(--text-muted);">
+            [  ] Flawless Synergy (Glide is uniform &amp; effortless) &nbsp;|&nbsp; [  ] Friction Imbalance (Skates or pad need replacement)
+        </div>
+    </div>
+    
+    </div>
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>FRICTION & CONTROL MATRIX</span></div>
+        <div class="footer-meta">DCPROSENS RESEARCH LAB</div>
+        <div class="footer-num">08 / 10</div>
+    </div>
+</section>
+
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">04 / FRICTION & GEAR</div>
+            <div class="header-sub">BUYER'S GUIDE</div>
+        </div>
+        <div class="title-block">
+            <div class="section-label">STEP 07 // RECOMMENDATION MATRIX</div>
+            <h2 class="page-title">The competitive pad & skate combinations.</h2>
+            <p class="page-desc">Exact hardware pairings optimized for tactical shooters, tracking-heavy arena shooters, and high-mobility games.</p>
+        </div>
+        
+    <div style="margin-bottom: 3.5mm;">
+        <table class="spec-table">
+            <thead>
+                <tr><th style="width: 25%;">Game Genre</th><th style="width: 25%;">Ideal Pad Recommendation</th><th style="width: 25%;">Ideal Skates Setup</th><th style="width: 25%;">Primary Advantage</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Tactical Shooters</strong><br>(CS2 / Valorant)</td><td><strong>Artisan Zero (Soft)</strong><br>or Lethal Gaming Saturn Pro</td><td>Full-Size Virgin PTFE<br>(Corepad Pro / Tiger Ice)</td><td>Maximum stopping power, controlled micro-adjusts on headshots.</td></tr>
+                <tr><td><strong>Fast Tracking</strong><br>(Apex / Overwatch)</td><td><strong>Artisan Hayate Otsu</strong><br>or Artisan Hien (Soft)</td><td>Tiger Ice V2<br>or 6mm PTFE Dots</td><td>Zero static friction, smooth directional tracking switches.</td></tr>
+                <tr><td><strong>Battle Royale</strong><br>(Warzone / Fortnite)</td><td><strong>LGG Venus Pro</strong><br>or Razer Gigantus V2</td><td>Standard Virgin PTFE<br>(0.8mm thickness)</td><td>Balanced speed and stability across close and long range duels.</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="grid-2" style="margin-bottom: 3.5mm;">
+        <div class="card glow-primary">
+            <div class="card-title"><span>TOP VALUE COMBO</span></div>
+            <p class="card-desc"><strong>Lethal Gaming Gear Saturn + Corepad Skatez ($45 total):</strong> Delivers 95% of Artisan performance with lifetime durability and zero humidity sensitivity.</p>
+        </div>
+        <div class="card glow-secondary">
+            <div class="card-title"><span>FLAGSHIP ESPORTS COMBO</span></div>
+            <p class="card-desc"><strong>Logitech G Pro X Superlight 2 (60g) + Artisan Zero Soft + Tiger Ice V2 Skates:</strong> The gold standard used by major CS2 and Valorant Champions winners.</p>
+        </div>
+    </div>
+    <div class="callout">
+        <strong>Hardware Investment Rule:</strong> A $50 premium mousepad paired with fresh skates improves your aim more than upgrading a $2,000 graphics card.
+    </div>
+    
+    </div>
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>FRICTION & CONTROL MATRIX</span></div>
+        <div class="footer-meta">DCPROSENS RESEARCH LAB</div>
+        <div class="footer-num">09 / 10</div>
+    </div>
+</section>
+
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">04 / FRICTION & GEAR</div>
+            <div class="header-sub">DIRECTORY & NEXT STEPS</div>
+        </div>
+        <div class="title-block">
+            <div class="section-label">FINAL SUMMARY // PERFECTION</div>
+            <h2 class="page-title">Unlock perfect physical glide.</h2>
+            <p class="page-desc">Build the ultimate mouse and mousepad synergy and experience effortless mechanical stopping power.</p>
+        </div>
+        
+    <div class="grid-2" style="margin-bottom: 3.5mm;">
+        <div class="card glow-primary">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 10pt; font-weight: 700; color: #fff; margin-bottom: 1.5mm;">
+                The 3 Laws of Friction
+            </div>
+            <ul style="font-size: 8pt; color: var(--text-muted); line-height: 1.4; padding-left: 3.5mm;">
+                <li><strong>1. Low Static, High Dynamic:</strong> Effortless micro-aim + crisp stopping power.</li>
+                <li><strong>2. PTFE is King:</strong> Avoid glass skates unless you play pure tracking arena titles.</li>
+                <li><strong>3. Clean Every 30 Days:</strong> Never let sweat and dust destroy your pad's glide.</li>
+            </ul>
+        </div>
+        <div class="card glow-secondary">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 10pt; font-weight: 700; color: #fff; margin-bottom: 1.5mm;">
+                Verified Amazon Gear Deals
+            </div>
+            <p style="font-size: 8pt; color: var(--text-muted); line-height: 1.35;">
+                Browse our curated gear guide with verified lowest prices on Superlight 2, Artisan Zero, Razer Viper V3 Pro, and Corepad skates at <strong>dcprosens.com/deals</strong>.
+            </p>
+        </div>
+    </div>
+    <div class="card glow-primary" style="background: linear-gradient(135deg, rgba(0, 255, 157, 0.1), rgba(0, 229, 255, 0.05)); border-color: var(--primary); padding: 4mm 5mm;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <div style="font-family: 'Space Grotesk', sans-serif; font-size: 11pt; font-weight: 700; color: #fff;">
+                    Visit The DCPROSENS Hardware Lab
+                </div>
+                <div style="font-size: 8.2pt; color: var(--text-muted); margin-top: 1mm;">
+                    Access real-time sensor tests, skate friction telemetry, and pro gear databases at <strong>dcprosens.com</strong>
+                </div>
+            </div>
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 8pt; font-weight: 700; color: var(--primary); padding: 2mm 3.5mm; background: rgba(0, 255, 157, 0.15); border-radius: 4px; border: 1px solid var(--primary);">
+                DCPROSENS.COM ➔
+            </div>
+        </div>
+    </div>
+    
+    </div>
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>FRICTION & CONTROL MATRIX</span></div>
+        <div class="footer-meta">DCPROSENS RESEARCH LAB</div>
+        <div class="footer-num">10 / 10</div>
+    </div>
+</section>
+</body></html>

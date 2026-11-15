@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { games } from "@/lib/games";
-import PremiumGuard from "@/components/PremiumGuard";
+import TrialGate from "@/components/TrialGate";
 import styles from "./WidgetGenerator.module.css";
 
 export default function WidgetGenerator() {
@@ -36,7 +36,7 @@ export default function WidgetGenerator() {
     };
 
     return (
-        <PremiumGuard previewTitle="Streamer Sensitivity Widget">
+        <TrialGate toolId="streamer-widget" previewTitle="Streamer Sensitivity Widget">
             <div className={styles.wrap}>
                 <div className={styles.form}>
                     <label className={styles.field}>
@@ -101,7 +101,7 @@ export default function WidgetGenerator() {
                     <textarea className={styles.codeBox} readOnly value={iframeCode} rows={3} />
                 </div>
             </div>
-        </PremiumGuard>
+        </TrialGate>
     );
 }
 

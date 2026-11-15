@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { pros, getProBySlug } from '@/lib/pros';
 import CopyButton from '@/components/CopyButton';
+import { buildProAnalysis } from '@/lib/proAnalysis';
 
 interface Props {
     params: Promise<{ slug: string }>;
@@ -34,7 +35,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     return {
         title,
-        description: `${pro.name} uses ${pro.dpi} DPI and ${pro.sens} sensitivity in ${pro.game} (${pro.edpi} eDPI, ${pro.cm360} cm/360). Mouse: ${pro.mouse}. Full config, crosshair, mousepad, keyboard, monitor and more.`,
+        // Trimmed to what a search result actually renders — the tail listing
+        // every peripheral was always cut off, taking the cm/360 with it.
+        description: `${pro.name} plays ${pro.game} at ${pro.dpi} DPI and ${pro.sens} sens — ${pro.edpi} eDPI, ${pro.cm360} cm/360. Full config, gear and crosshair.`,
         keywords: [
             `${pro.name} sensitivity`,
             `${pro.name} dpi`,
@@ -45,7 +48,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             `${pro.game} pro settings`,
             `${pro.game} sensitivity`,
             `${pro.team} settings`,
-            'pro player dpi 2025',
+            'pro player dpi 2026',
             `${pro.name} ${pro.game} setup`,
             `${pro.name} gear`,
             `${pro.name} keyboard`,
@@ -53,13 +56,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             `${pro.name} edpi`,
             `${pro.name} cm360`,
             `professional ${pro.game} settings`,
-            'pro gamer sensitivity 2025',
+            'pro gamer sensitivity 2026',
         ],
         alternates: {
-            canonical: `https://dcprosens.com/pros/${pro.slug}`,
+            canonical: `https://dcprosens.com/pros/${pro.slug}/`,
         },
         openGraph: {
-            title: `${pro.name} Sensitivity Settings 2025 — ${pro.game} | DCPROSENS`,
+            // Inherited from the root layout only when this page omits openGraph
+            // entirely — declaring the object here replaces the parent's, so the
+            // image has to be restated or the page ships with no og:image at all.
+            images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
+            title: `${pro.name} Sensitivity Settings 2026 — ${pro.game} | DCPROSENS`,
             description: `${pro.name} uses ${pro.dpi} DPI and ${pro.sens} sensitivity in ${pro.game}. Mouse: ${pro.mouse}. eDPI: ${pro.edpi}. cm/360: ${pro.cm360}.`,
             url: `https://dcprosens.com/pros/${pro.slug}`,
             type: 'profile',
@@ -67,9 +74,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         },
         twitter: {
             card: 'summary_large_image',
-            title: `${pro.name} Sensitivity & Settings 2025 | DCPROSENS`,
+            title: `${pro.name} Sensitivity & Settings 2026 | DCPROSENS`,
             description: `${pro.name} — ${pro.dpi} DPI, ${pro.sens} sens, ${pro.edpi} eDPI in ${pro.game}. Mouse: ${pro.mouse}.`,
             creator: '@dcprosens',
+            images: ["/og-image.png"],
         },
     };
 }
@@ -88,6 +96,8 @@ export default async function ProPlayerPage({ params }: Props) {
     const { slug } = await params;
     const pro = getProBySlug(slug);
     if (!pro) notFound();
+
+    const analysis = buildProAnalysis(pro);
 
     const gameColor = GAME_COLORS[pro.game] ?? { bg: 'rgba(255,255,255,0.08)', color: 'var(--text-secondary)' };
     const canonicalUrl = `https://dcprosens.com/pros/${pro.slug}`;
@@ -126,7 +136,7 @@ export default async function ProPlayerPage({ params }: Props) {
                 '@type': 'WebPage',
                 '@id': canonicalUrl + '#webpage',
                 url: canonicalUrl,
-                name: `${pro.name} Sensitivity Settings 2025 — DCPROSENS`,
+                name: `${pro.name} Sensitivity Settings 2026 — DCPROSENS`,
                 description: `Complete sensitivity, DPI, eDPI, gear and crosshair settings for ${pro.name} (${pro.game}).`,
                 inLanguage: 'en-US',
                 about: { '@id': canonicalUrl },
@@ -135,7 +145,7 @@ export default async function ProPlayerPage({ params }: Props) {
                 '@type': 'BreadcrumbList',
                 itemListElement: [
                     { '@type': 'ListItem', position: 1, name: 'Home',        item: 'https://dcprosens.com' },
-                    { '@type': 'ListItem', position: 2, name: 'Pro Players', item: 'https://dcprosens.com/pros' },
+                    { '@type': 'ListItem', position: 2, name: 'Pro Players', item: 'https://dcprosens.com/pros/' },
                     { '@type': 'ListItem', position: 3, name: pro.name,      item: canonicalUrl },
                 ],
             },
@@ -160,7 +170,7 @@ export default async function ProPlayerPage({ params }: Props) {
             }}>
                 <Link href="/" style={{ color: 'var(--text-muted)' }}>Home</Link>
                 <span>›</span>
-                <Link href="/pros" style={{ color: 'var(--text-muted)' }}>Pro Players</Link>
+                <Link href="/pros/" style={{ color: 'var(--text-muted)' }}>Pro Players</Link>
                 <span>›</span>
                 <span style={{ color: 'var(--text-primary)' }}>{pro.name}</span>
             </nav>
@@ -575,6 +585,72 @@ export default async function ProPlayerPage({ params }: Props) {
                 </div>
             )}
 
+            {/* ── SETTINGS ANALYSIS ─────────────────────────────────────────── */}
+            {/* Derived entirely from this player's own numbers (see
+                lib/proAnalysis.ts) — the profiles used to be spec tables with a
+                two-line bio, which Google filed as "crawled, not indexed". */}
+            <section style={{ marginBottom: '3rem' }}>
+                <h2 style={{ fontSize: '1.35rem', fontWeight: 800, marginBottom: '0.4rem', color: 'var(--text-primary)' }}>
+                    What {pro.name}&apos;s Settings Actually Mean
+                </h2>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.86rem', margin: '0 0 1.25rem' }}>
+                    Calculated from {pro.name}&apos;s DPI, in-game sensitivity and gear against every other {pro.game} pro in our database.
+                </p>
+                <div style={{ color: 'var(--text-secondary)', lineHeight: 1.85, display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '75ch' }}>
+                    {analysis.paragraphs.map((para, i) => (
+                        <p key={i} style={{ margin: 0 }}>{para}</p>
+                    ))}
+                </div>
+
+                {analysis.conversions.length > 0 && (
+                    <>
+                        <h3 style={{ fontSize: '1.05rem', fontWeight: 700, margin: '2rem 0 0.75rem', color: 'var(--text-primary)' }}>
+                            {pro.name}&apos;s Sensitivity in Other Games
+                        </h3>
+                        <p style={{ color: 'var(--text-secondary)', margin: '0 0 1rem', maxWidth: '75ch', lineHeight: 1.8 }}>
+                            Each value below produces the same {pro.cm360} cm/360 as {pro.name}&apos;s {pro.game} setup, using each
+                            game&apos;s real yaw constant rather than a shared approximation.
+                        </p>
+                        <div style={{ overflowX: 'auto' }}>
+                            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
+                                <thead>
+                                    <tr style={{ borderBottom: '1px solid var(--border-color)' }}>
+                                        <th style={{ textAlign: 'left', padding: '0.6rem 0.6rem 0.6rem 0' }}>Game</th>
+                                        <th style={{ textAlign: 'left', padding: '0.6rem' }}>Sensitivity</th>
+                                        <th style={{ textAlign: 'left', padding: '0.6rem' }}>Matches</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {analysis.conversions.map((c) => (
+                                        <tr key={c.game} style={{ borderBottom: '1px solid var(--border-color)' }}>
+                                            <td style={{ padding: '0.6rem 0.6rem 0.6rem 0', color: 'var(--text-primary)', fontWeight: 600 }}>{c.game}</td>
+                                            <td style={{ padding: '0.6rem', fontVariantNumeric: 'tabular-nums' }}>{c.sens}</td>
+                                            <td style={{ padding: '0.6rem', color: 'var(--text-muted)' }}>{c.note}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </>
+                )}
+
+                {analysis.peers.length > 0 && (
+                    <p style={{ color: 'var(--text-secondary)', marginTop: '1.5rem', lineHeight: 1.8, maxWidth: '75ch' }}>
+                        Compare against other {pro.game} pros:{' '}
+                        {analysis.peers.map((peer, i) => (
+                            <span key={peer.slug}>
+                                {i > 0 && ', '}
+                                <Link href={`/pros/${peer.slug}/`} style={{ color: 'var(--primary)' }}>
+                                    {peer.name} ({peer.edpi} eDPI)
+                                </Link>
+                            </span>
+                        ))}
+                        {' — or put them side by side in the '}
+                        <Link href="/pros/compare/" style={{ color: 'var(--primary)' }}>Pro Compare tool</Link>.
+                    </p>
+                )}
+            </section>
+
             {/* ── BOTTOM CTAs ───────────────────────────────────────────────── */}
             <div style={{
                 display: 'grid',
@@ -582,7 +658,7 @@ export default async function ProPlayerPage({ params }: Props) {
                 gap: '1rem',
                 marginBottom: '3rem',
             }}>
-                <Link href="/ebook" style={{
+                <Link href="/ebook/" style={{
                     display: 'block',
                     background: 'var(--bg-card)',
                     border: '1px solid var(--border-color)',
@@ -603,7 +679,7 @@ export default async function ProPlayerPage({ params }: Props) {
                     </span>
                 </Link>
 
-                <Link href="/mouse-database" style={{
+                <Link href="/mouse-database/" style={{
                     display: 'block',
                     background: 'var(--bg-card)',
                     border: '1px solid var(--border-color)',
@@ -624,7 +700,7 @@ export default async function ProPlayerPage({ params }: Props) {
                     </span>
                 </Link>
 
-                <Link href="/pros" style={{
+                <Link href="/pros/" style={{
                     display: 'block',
                     background: 'var(--bg-card)',
                     border: '1px solid var(--border-color)',
@@ -647,7 +723,7 @@ export default async function ProPlayerPage({ params }: Props) {
             </div>
 
             {/* ── BACK LINK ─────────────────────────────────────────────────── */}
-            <Link href="/pros" style={{
+            <Link href="/pros/" style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '0.4rem',

@@ -1,0 +1,25 @@
+# Scoped override for /adsterra/* — the isolated Adsterra banner documents.
+#
+# Two things in the root .htaccess make these files unusable as-is:
+#
+#   1. `X-Frame-Options: DENY` is sent site-wide. DENY blocks framing from
+#      EVERY origin including our own, so the same-origin <iframe> that
+#      AdsterraBanner.tsx renders would come up blank. It is unset and
+#      re-sent as SAMEORIGIN here — only dcprosens.com may frame these.
+#   2. The root CSP is `default-src 'self'`, which blocks highrevenueformat.com
+#      and the chain of ad hosts each banner redirects through.
+#
+# Scoping it with SetEnvIf + env= in the root file does not work: LiteSpeed
+# (the server this site actually runs on) silently ignores that, which is why
+# /embed and /web-stories already use directory-level files. Same mechanism.
+#
+# The policy below is deliberately loose because an ad tag chains through hosts
+# we cannot enumerate. It is contained: these documents hold nothing but the ad
+# tag, read no query string, and expose no account state.
+<IfModule mod_headers.c>
+  Header always unset X-Frame-Options
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-Robots-Tag "noindex, nofollow"
+  Header always unset Content-Security-Policy
+  Header always set Content-Security-Policy "default-src 'self' https: data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: blob: https:; font-src 'self' data: https:; connect-src 'self' https:; frame-src 'self' https: data: blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'self'"
+</IfModule>

@@ -8,41 +8,41 @@ import styles from "./ProCompare.module.css";
 // Affiliate links for common gear items (replicated and extended from setups)
 const affiliateLinks: Record<string, string> = {
     'Logitech G Pro X Superlight 2':
-        'https://www.amazon.com/Logitech-Superlight-Lightspeed-Wireless-Gaming/dp/B09NBHGDLM?tag=dcprosens-20',
+        'https://www.amazon.com/Logitech-Superlight-Wireless-Pro-Grade-Programmable/dp/B09NBWL8J5?tag=dcoutlier-20',
     'Logitech G Pro X Superlight':
-        'https://www.amazon.com/Logitech-Superlight-Wireless-Gaming-Mouse/dp/B087LXCTFJ?tag=dcprosens-20',
+        'https://www.amazon.com/dp/B09B388RT4?tag=dcoutlier-20&linkCode=ll1&language=en_US&ref_=as_li_ss_tl',
     'Logitech G PRO X':
-        'https://www.amazon.com/Logitech-Mechanical-Gaming-Keyboard-Switches/dp/B07Y1YC8GG?tag=dcprosens-20',
+        'https://www.amazon.com/s?k=Logitech+Mechanical+Gaming+Keyboard+Switches&crid=2GZ29Q6IE9CHR&sprefix=logitech+mechanical+gaming+keyboard+switches%2Caps%2C244&linkCode=ll2&tag=dcoutlier-20&linkId=88246b09b7823a04708ca6f9cf21cf8a&language=en_US&ref_=as_li_ss_tl',
     'Logitech G PRO X 2':
-        'https://www.amazon.com/Logitech-Gaming-Headset-Microphone-Drivers/dp/B09Z7C66HN?tag=dcprosens-20',
+        'https://www.amazon.com/dp/B0G3V45SV1?tag=dcoutlier-20&linkCode=ll1&language=en_US&ref_=as_li_ss_tl',
     'BenQ ZOWIE XL2546K':
-        'https://www.amazon.com/BenQ-ZOWIE-XL2546K-Esports-Monitor/dp/B08ZHDRKDX?tag=dcprosens-20',
+        'https://www.amazon.com/s?k=BenQ+ZOWIE+XL2546K+Esports+Monitor&crid=14IQGX297M72S&sprefix=benq+zowie+xl2546k+esports+monitor%2Caps%2C232&linkCode=ll2&tag=dcoutlier-20&linkId=1d7ce9eb3fd32ec3317d7855f1aed662&language=en_US&ref_=as_li_ss_tl',
     'ASUS ROG Swift PG259QN':
-        'https://www.amazon.com/ASUS-ROG-PG259QN-1ms-Monitor/dp/B08PY82FMY?tag=dcprosens-20',
+        'https://www.amazon.com/s?k=ASUS+ROG+PG259QN+1ms+Monitor&crid=JOHIIDYFD3YG&sprefix=asus+rog+pg259qn+1ms+monitor%2Caps%2C276&linkCode=ll2&tag=dcoutlier-20&linkId=06f4282a39e0bb4696f3ee476335197a&language=en_US&ref_=as_li_ss_tl',
     'Razer BlackShark V2 Pro':
-        'https://www.amazon.com/Razer-BlackShark-V2-Pro-Wireless/dp/B08KFQZZ8R?tag=dcprosens-20',
+        'https://www.amazon.com/s?k=Razer+BlackShark+V2+Pro+Wireless&crid=16KL6B5Y880G1&sprefix=razer+blackshark+v2+pro+wireless%2Caps%2C292&linkCode=ll2&tag=dcoutlier-20&linkId=0f7d6ab4f22e3dd2a7976e81e61b1bba&language=en_US&ref_=as_li_ss_tl',
     'Razer BlackWidow V4 Pro':
-        'https://www.amazon.com/Razer-BlackWidow-Mechanical-Gaming-Keyboard/dp/B0BY2BQ1DV?tag=dcprosens-20',
+        'https://www.amazon.com/dp/B0FCTPBDP3?tag=dcoutlier-20&linkCode=ll1&language=en_US&ref_=as_li_ss_tl',
     'Zowie EC2-GW':
-        'https://www.amazon.com/BenQ-ZOWIE-EC2-GW-Professional-Gaming/dp/B09Y13TMJL?tag=dcprosens-20',
+        'https://www.amazon.com/s?k=BenQ+ZOWIE+EC2+GW+Professional+Gaming&crid=2RR2PZRP1ZFKV&sprefix=benq+zowie+ec2+gw+professional+gaming%2Caps%2C252&linkCode=ll2&tag=dcoutlier-20&linkId=f94b6090d4c2fedf1437023c45c0cb52&language=en_US&ref_=as_li_ss_tl',
     'Artisan Zero FX M':
-        'https://www.amazon.com/Artisan-Japan-Gaming-Mousepad-FX-ZERO/dp/B07WFQTC27?tag=dcprosens-20',
+        'https://www.amazon.com/s?k=Artisan+Japan+Gaming+Mousepad+FX+ZERO&crid=1UMUG3RKJRBIF&sprefix=artisan+japan+gaming+mousepad+fx+zero%2Caps%2C248&linkCode=ll2&tag=dcoutlier-20&linkId=092b7bc0b3956de46a8f81f93136aa21&language=en_US&ref_=as_li_ss_tl',
     'Artisan Zero FX L':
-        'https://www.amazon.com/Artisan-Japan-Gaming-Mousepad-FX-ZERO/dp/B07WFQTC28?tag=dcprosens-20',
+        'https://www.amazon.com/s?k=Artisan+Japan+Gaming+Mousepad+FX+ZERO&crid=1UMUG3RKJRBIF&sprefix=artisan+japan+gaming+mousepad+fx+zero%2Caps%2C248&linkCode=ll2&tag=dcoutlier-20&linkId=092b7bc0b3956de46a8f81f93136aa21&language=en_US&ref_=as_li_ss_tl',
     'Logitech G640':
-        'https://www.amazon.com/Logitech-G640-Cloth-Gaming-Mousepad/dp/B0794TLLX9?tag=dcprosens-20',
+        'https://www.amazon.com/dp/B0BHMKVF1P?tag=dcoutlier-20&linkCode=ll1&language=en_US&ref_=as_li_ss_tl',
     'Logitech G840':
-        'https://www.amazon.com/Logitech-Ultra-Thin-Gaming-Mouse-Pad/dp/B01LDTB5XY?tag=dcprosens-20',
+        'https://www.amazon.com/dp/B0BHMN52LY?tag=dcoutlier-20&linkCode=ll1&language=en_US&ref_=as_li_ss_tl',
     'Wooting 60HE':
-        'https://www.amazon.com/Wooting-60HE-Keyboard/dp/B0CJQFJK2F?tag=dcprosens-20',
+        'https://www.amazon.com/s?k=Wooting+60HE+Keyboard&crid=210PUMYONV20O&sprefix=wooting+60he+keyboard%2Caps%2C297&linkCode=ll2&tag=dcoutlier-20&linkId=fb192abdc39d6ef2b2cfc7dfa45b88a2&language=en_US&ref_=as_li_ss_tl',
     'HyperX Cloud Alpha':
-        'https://www.amazon.com/HyperX-Cloud-Alpha-Pro-Gaming/dp/B076955561?tag=dcprosens-20',
+        'https://www.amazon.com/s?k=HyperX+Cloud+Alpha+Pro+Gaming&crid=1FC1RPWE92SSZ&sprefix=hyperx+cloud+alpha+pro+gaming%2Caps%2C274&linkCode=ll2&tag=dcoutlier-20&linkId=72ce571b3a47253cf8cbf4e4cfeaee4a&language=en_US&ref_=as_li_ss_tl',
     'SteelSeries Arctis Pro':
-        'https://www.amazon.com/SteelSeries-Arctis-Pro-Gaming-Headset/dp/B079YBMS4M?tag=dcprosens-20',
+        'https://www.amazon.com/s?k=SteelSeries+Arctis+Pro+Gaming+Headset&crid=QS9K26EOAGSX&sprefix=steelseries+arctis+pro+gaming+headset%2Caps%2C284&linkCode=ll2&tag=dcoutlier-20&linkId=53450b939f38005694e11d1a2a6a15ef&language=en_US&ref_=as_li_ss_tl',
     'Pulsar Xlite V3':
-        'https://www.amazon.com/Pulsar-Gaming-Gears-Lightweight-Wireless/dp/B0C7Q7NZ3X?tag=dcprosens-20',
+        'https://www.amazon.com/dp/B0FVV7HYCP?tag=dcoutlier-20&linkCode=ll1&language=en_US&ref_=as_li_ss_tl',
     'Alienware AW2521H':
-        'https://www.amazon.com/Alienware-AW2521H-360Hz-IPS-Gaming-Monitor/dp/B08LXPJ5LP?tag=dcprosens-20',
+        'https://www.amazon.com/dp/B08XWKCC68?tag=dcoutlier-20&linkCode=ll1&language=en_US&ref_=as_li_ss_tl',
 };
 
 function getAffiliateLink(item: string): string {
@@ -56,7 +56,7 @@ function getAffiliateLink(item: string): string {
         }
     }
     // Fallback: Amazon search
-    return `https://www.amazon.com/s?k=${encodeURIComponent(item)}&tag=dcprosens-20`;
+    return `https://www.amazon.com/s?k=${encodeURIComponent(item)}&tag=dcoutlier-20`;
 }
 
 function getMouseWeight(mouse: string): number | null {
@@ -378,7 +378,7 @@ export default function ProCompare() {
                     Unlock all 20+ premium tools including the PSA Method, custom aim routines, crosshair generator, and advanced pro analytics.
                 </p>
                 <a
-                    href="/pricing"
+                    href="/pricing/"
                     className={styles.promoBtn}
                 >
                     View Premium Plans →

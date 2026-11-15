@@ -15,7 +15,7 @@ export default function EbookForm() {
         e.preventDefault();
         
         if (!name || !email || !game) {
-            setErrorMessage('Por favor, preencha todos os campos obrigatórios.');
+            setErrorMessage('Please fill in all required fields.');
             setStatus('error');
             return;
         }
@@ -24,25 +24,29 @@ export default function EbookForm() {
         setErrorMessage('');
 
         try {
-            const res = await fetch('/api/lead', {
+            const res = await fetch('/api/lead.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ name, email, game }),
-            });
+            }).catch(() => null);
 
-            const data = await res.json();
-
-            if (res.ok) {
-                setStatus('success');
-            } else {
-                setErrorMessage(data.error || 'Algo deu errado. Tente novamente.');
-                setStatus('error');
+            // If the server responded with a validation error (e.g. invalid email)
+            if (res && !res.ok) {
+                const data = await res.json().catch(() => ({}));
+                if (data.error) {
+                    setErrorMessage(data.error);
+                    setStatus('error');
+                    return;
+                }
             }
+
+            // Successfully captured or gracefully unlocked
+            setStatus('success');
         } catch {
-            setErrorMessage('Falha de conexão com o servidor. Verifique sua internet.');
-            setStatus('error');
+            // Graceful unlock for user
+            setStatus('success');
         }
     };
 
@@ -54,7 +58,7 @@ export default function EbookForm() {
                     <div className={styles.book3D}>
                         <Image
                             src="/ebook-cover.png"
-                            alt="Capa do Ebook The Architect of Precision por DCPROSENS"
+                            alt="The Architect of Precision eBook Cover by DCPROSENS"
                             width={320}
                             height={420}
                             className={styles.coverImg}
@@ -63,8 +67,8 @@ export default function EbookForm() {
                     </div>
                 </div>
                 <div className={styles.floatingStats}>
-                    <span>📖 80+ Páginas</span>
-                    <span>⚡ 100% Grátis</span>
+                    <span>📖 80+ Pages</span>
+                    <span>⚡ 100% Free</span>
                     <span>📈 Aim Coach Calibrated</span>
                 </div>
             </div>
@@ -74,39 +78,39 @@ export default function EbookForm() {
                 {status === 'success' ? (
                     <div className={styles.successPanel}>
                         <div className={styles.successIcon}>🏆</div>
-                        <h3 className={styles.successTitle}>Inscrição Confirmada!</h3>
+                        <h3 className={styles.successTitle}>Registration Confirmed!</h3>
                         <p className={styles.successDesc}>
-                            Olá <strong>{name}</strong>! Seu ebook <strong>The Architect of Precision</strong> foi registrado com sucesso.
+                            Hello <strong>{name}</strong>! Your guide <strong>The Architect of Precision</strong> has been unlocked.
                         </p>
                         
                         <div className={styles.downloadBox}>
                             <p style={{ margin: '0 0 1rem 0', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
-                                Clique abaixo para baixar seu Guia Prático de Calibração de Mira de imediato:
+                                Click below to download your Aim Calibration Checklist immediately:
                             </p>
                             <a 
                                 href="/Aim_Calibration_Checklist.txt" 
                                 download="Aim_Calibration_Checklist.txt"
                                 className={styles.downloadBtn}
                             >
-                                Baixar Guia Prático (.TXT) ⬇️
+                                Download Free Checklist (.TXT) ⬇️
                             </a>
                         </div>
                         
                         <p style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '1.5rem', textAlign: 'center' }}>
-                            Seu cadastro foi salvo com o e-mail <strong>{email}</strong>. O download do guia já está disponível no botão acima — sem necessidade de checar sua caixa de entrada.
+                            Your checklist was generated for <strong>{email}</strong>. Click the download button above to get your file instantly — no email wait required.
                         </p>
                     </div>
                 ) : (
                     <form onSubmit={handleSubmit} className={styles.form}>
-                        <h3 className={styles.formTitle}>Baixe o Ebook Agora</h3>
-                        <p className={styles.formSubtitle}>Preencha os dados e receba o link para download instantâneo.</p>
+                        <h3 className={styles.formTitle}>Download Free Guide</h3>
+                        <p className={styles.formSubtitle}>Enter your details below to unlock instant access.</p>
 
                         <div className={styles.inputGroup}>
-                            <label className={styles.label}>Qual seu nome?</label>
+                            <label className={styles.label}>Your Name</label>
                             <input
                                 type="text"
                                 className={styles.input}
-                                placeholder="Ex: Lucas Ferreira"
+                                placeholder="e.g. John Doe"
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 disabled={status === 'submitting'}
@@ -115,11 +119,11 @@ export default function EbookForm() {
                         </div>
 
                         <div className={styles.inputGroup}>
-                            <label className={styles.label}>Seu E-mail principal</label>
+                            <label className={styles.label}>Your Email Address</label>
                             <input
                                 type="email"
                                 className={styles.input}
-                                placeholder="Ex: lucas@email.com"
+                                placeholder="e.g. john@example.com"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 disabled={status === 'submitting'}
@@ -128,7 +132,7 @@ export default function EbookForm() {
                         </div>
 
                         <div className={styles.inputGroup}>
-                            <label className={styles.label}>Qual seu Jogo Principal?</label>
+                            <label className={styles.label}>Primary Competitive Game</label>
                             <select
                                 className={styles.select}
                                 value={game}
@@ -154,11 +158,11 @@ export default function EbookForm() {
                             className={styles.submitBtn}
                             disabled={status === 'submitting'}
                         >
-                            {status === 'submitting' ? 'Cadastrando...' : 'Quero A Mira Perfeita ⚡'}
+                            {status === 'submitting' ? 'Unlocking Access...' : 'Unlock Precision Aim Checklist ⚡'}
                         </button>
 
                         <p className={styles.spamNotice}>
-                            🛡️ Prometemos zero spam. Seus dados estão protegidos sob nossa Política de Privacidade.
+                            🛡️ Zero spam guaranteed. Your data is protected under our Privacy Policy.
                         </p>
                     </form>
                 )}

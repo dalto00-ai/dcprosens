@@ -16,19 +16,19 @@ const GEAR_SUGGESTIONS: Record<string, GearItem[]> = {
       name: 'SteelSeries QcK Heavy XXL',
       dimensions: '900 x 400 mm (4mm thick)',
       type: 'Control Cloth',
-      link: 'https://www.amazon.com/dp/B014W2XKXQ?tag=dcprosens-20'
+      link: 'https://www.amazon.com/s?k=SteelSeries+QcK+Heavy+XXL&crid=2HJO9OR64VW0H&sprefix=steelseries+qck+heavy+xxl%2Caps%2C265&linkCode=ll2&tag=dcoutlier-20&linkId=562ff37d1b872d9e23fd344a235cdae4&language=en_US&ref_=as_li_ss_tl'
     },
     {
       name: 'Logitech G840 XL',
       dimensions: '900 x 400 mm (3mm thick)',
       type: 'Balanced Cloth',
-      link: 'https://www.amazon.com/dp/B01MXZTWZB?tag=dcprosens-20'
+      link: 'https://www.amazon.com/s?k=Logitech+G840+XL&crid=2RCGCL3GGWPOH&sprefix=logitech+g840+xl%2Caps%2C254&linkCode=ll2&tag=dcoutlier-20&linkId=62cda0239449f4dcb6b32f4026a24495&language=en_US&ref_=as_li_ss_tl'
     },
     {
       name: 'Artisan Zero XL (Soft)',
       dimensions: '490 x 420 mm (4mm thick)',
       type: 'Premium Hybrid Control',
-      link: 'https://www.amazon.com/dp/B085TGXL39?tag=dcprosens-20'
+      link: 'https://www.amazon.com/dp/B0B38FBNRV?tag=dcoutlier-20&linkCode=ll1&language=en_US&ref_=as_li_ss_tl'
     }
   ],
   Large: [
@@ -36,19 +36,19 @@ const GEAR_SUGGESTIONS: Record<string, GearItem[]> = {
       name: 'SteelSeries QcK+ Large',
       dimensions: '450 x 400 mm (2mm thick)',
       type: 'Classic Control',
-      link: 'https://www.amazon.com/dp/B000UB2YOI?tag=dcprosens-20'
+      link: 'https://www.amazon.com/s?k=SteelSeries+QcK%2B+Large&crid=7NEGT6FSRHU8&sprefix=steelseries+qck%2B+large%2Caps%2C258&linkCode=ll2&tag=dcoutlier-20&linkId=1a73621ecce20c5e0a321cfe01666de5&language=en_US&ref_=as_li_ss_tl'
     },
     {
       name: 'Logitech G640 Large',
       dimensions: '460 x 400 mm (3mm thick)',
       type: 'Balanced Glide',
-      link: 'https://www.amazon.com/dp/B07CG1HD4P?tag=dcprosens-20'
+      link: 'https://www.amazon.com/dp/B0BHMKVF1P?tag=dcoutlier-20&linkCode=ll1&language=en_US&ref_=as_li_ss_tl'
     },
     {
       name: 'Artisan Hayate Otsu L (XSoft)',
       dimensions: '420 x 330 mm (4mm thick)',
       type: 'Premium Speed/Control Hybrid',
-      link: 'https://www.amazon.com/dp/B085TGX9MC?tag=dcprosens-20'
+      link: 'https://www.amazon.com/s?k=Artisan+Zero+Mid+%28Soft%29&crid=1AXV45EC8ISG9&sprefix=artisan+zero+mid+soft+%2Caps%2C263&linkCode=ll2&tag=dcoutlier-20&linkId=7298ebe8e92488c4801cee756bf4bd04&language=en_US&ref_=as_li_ss_tl'
     }
   ],
   Medium: [
@@ -56,13 +56,13 @@ const GEAR_SUGGESTIONS: Record<string, GearItem[]> = {
       name: 'SteelSeries QcK Medium',
       dimensions: '320 x 270 mm (2mm thick)',
       type: 'Compact Control',
-      link: 'https://www.amazon.com/dp/B000UB2YOI?tag=dcprosens-20'
+      link: 'https://www.amazon.com/s?k=SteelSeries+QcK%2B+Large&crid=7NEGT6FSRHU8&sprefix=steelseries+qck%2B+large%2Caps%2C258&linkCode=ll2&tag=dcoutlier-20&linkId=1a73621ecce20c5e0a321cfe01666de5&language=en_US&ref_=as_li_ss_tl'
     },
     {
       name: 'Razer Gigantus V2 Medium',
       dimensions: '360 x 275 mm (3mm thick)',
       type: 'Soft Textured Cloth',
-      link: 'https://www.amazon.com/dp/B0883N8BS4?tag=dcprosens-20'
+      link: 'https://www.amazon.com/s?k=Razer+Gigantus+V2+Medium&crid=2XRXOGXBC49TM&sprefix=razer+gigantus+v2+medium%2Caps%2C273&linkCode=ll2&tag=dcoutlier-20&linkId=19c7ac6c0721627e71f068b473817a1d&language=en_US&ref_=as_li_ss_tl'
     }
   ],
   Small: [
@@ -70,13 +70,13 @@ const GEAR_SUGGESTIONS: Record<string, GearItem[]> = {
       name: 'SteelSeries QcK Mini',
       dimensions: '250 x 210 mm (2mm thick)',
       type: 'Ultra Compact Cloth',
-      link: 'https://www.amazon.com/dp/B000UB2YOI?tag=dcprosens-20'
+      link: 'https://www.amazon.com/s?k=SteelSeries+QcK%2B+Large&crid=7NEGT6FSRHU8&sprefix=steelseries+qck%2B+large%2Caps%2C258&linkCode=ll2&tag=dcoutlier-20&linkId=1a73621ecce20c5e0a321cfe01666de5&language=en_US&ref_=as_li_ss_tl'
     },
     {
       name: 'Logitech G240 Small',
       dimensions: '340 x 280 mm (1mm thin)',
       type: 'Budget Control',
-      link: 'https://www.amazon.com/dp/B00Y33YVHK?tag=dcprosens-20'
+      link: 'https://www.amazon.com/s?k=Logitech+G440+Hard&crid=2WCMMQ7SQZHSP&sprefix=logitech+g440+hard%2Caps%2C262&linkCode=ll2&tag=dcoutlier-20&linkId=68c9e59f8ae0faef76fef29462355e84&language=en_US&ref_=as_li_ss_tl'
     }
   ]
 };

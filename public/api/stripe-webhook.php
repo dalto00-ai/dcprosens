@@ -7,6 +7,7 @@
 // This endpoint is called by Stripe's servers directly, never by the
 // browser — there is no CORS handling here on purpose.
 
+require_once __DIR__ . '/lib/secrets.php';
 require_once __DIR__ . '/lib/firestore.php';
 
 header('Content-Type: application/json; charset=utf-8');

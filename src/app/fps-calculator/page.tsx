@@ -3,37 +3,39 @@ import FpsCalculator from '@/components/FpsCalculator';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'FPS & Bottleneck Calculator',
-  description: 'Check if your PC CPU or GPU is bottlenecking your game performance. Estimate average frames per second (FPS) for Valorant, CS2, and Apex Legends, and get upgrade tips.',
+  title: "FPS Calculator — Valorant, CS2, Fortnite & Apex PC Benchmark | DCPROSENS",
+  description: "Free Valorant FPS Calculator, CS2 FPS Calculator & Fortnite FPS Estimator. Select your CPU, GPU, RAM and resolution (1080p, 1440p, 4K) to calculate average FPS, 1% lows, and hardware bottlenecks.",
   keywords: [
-    'fps calculator',
-    'pc bottleneck calculator',
-    'cpu gpu bottleneck',
-    'valorant fps calculator',
-    'cs2 bottleneck check',
-    'apex legends fps test',
-    'pc bottleneck checker',
-    'ryzen 7800x3d gaming fps',
-    'gpu bottleneck test',
-    'monitor refresh rate compatibility',
-    'gaming pc bottleneck calculator',
-    'how to reduce cpu bottleneck',
-    'fps limit apex legends',
-    'valorant cpu bound',
+    "fps calculator",
+    "valorant fps calculator",
+    "cs2 fps calculator",
+    "fortnite fps calculator",
+    "pc bottleneck calculator",
+    "gaming fps estimator",
+    "how many fps will i get",
+    "cpu gpu bottleneck",
+    "apex legends fps test",
+    "pc bottleneck checker",
+    "gpu bottleneck test",
+    "monitor refresh rate compatibility",
+    "gaming pc bottleneck calculator",
+    "valorant cpu bound",
   ],
   alternates: {
-    canonical: 'https://dcprosens.com/fps-calculator',
+    canonical: "https://dcprosens.com/fps-calculator/",
   },
   openGraph: {
-    title: 'FPS & Bottleneck Calculator — Estimate Valorant, CS2 & Apex FPS | DCPROSENS',
-    description: 'Check if your CPU or GPU is bottlenecking your game. Estimate average FPS for Valorant, CS2, and Apex Legends instantly, and get monitor and hardware advice.',
-    type: 'website',
-    url: 'https://dcprosens.com/fps-calculator',
+    images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — FPS & Bottleneck Calculator" }],
+    title: "FPS Calculator — Valorant, CS2, Fortnite & Apex PC Benchmark | DCPROSENS",
+    description: "Check if your CPU or GPU is bottlenecking your gaming PC. Estimate FPS for Valorant, CS2, Fortnite and Apex Legends instantly.",
+    type: "website",
+    url: "https://dcprosens.com/fps-calculator/",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'FPS & Bottleneck Calculator | DCPROSENS',
-    description: 'Check CPU/GPU bottlenecks and estimate Valorant, CS2, & Apex FPS.',
+    card: "summary_large_image",
+    title: "FPS Calculator — Valorant, CS2, Fortnite & Apex | DCPROSENS",
+    description: "Check CPU/GPU bottlenecks and estimate Valorant, CS2, Fortnite & Apex FPS.",
+    images: ["/og-image.png"],
   },
   robots: { index: true, follow: true },
 };
@@ -47,7 +49,7 @@ export default function FpsCalculatorPage() {
         name: 'DCPROSENS FPS and Bottleneck Calculator',
         applicationCategory: 'UtilitiesApplication',
         operatingSystem: 'Web',
-        url: 'https://dcprosens.com/fps-calculator',
+        url: 'https://dcprosens.com/fps-calculator/',
         description: 'Check CPU and GPU bottleneck percentages and estimate gaming FPS for Valorant, Counter-Strike 2, and Apex Legends.',
         featureList: [
           'CPU selector with gaming power scores',
@@ -179,7 +181,7 @@ export default function FpsCalculatorPage() {
           <div style={{ marginTop: '3.5rem', textAlign: 'center', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-lg)', padding: '2rem' }}>
             <h4 style={{ color: 'var(--text-primary)', fontSize: '1.25rem', marginBottom: '0.75rem' }}>Need to align your sensitivity with your desk space?</h4>
             <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '0.9rem' }}>Calculate the ideal mousepad size and physical sensitivity boundaries for your physical desk setup.</p>
-            <Link href="/desk-space-calculator" style={{
+            <Link href="/desk-space-calculator/" style={{
               display: 'inline-block',
               background: 'var(--primary)',
               color: '#000',

@@ -23,18 +23,23 @@ export const metadata: Metadata = {
         'aim laboratory online',
     ],
     alternates: {
-        canonical: 'https://dcprosens.com/aim-trainer',
+        canonical: 'https://dcprosens.com/aim-trainer/',
     },
     openGraph: {
+        // Inherited from the root layout only when this page omits openGraph
+        // entirely — declaring the object here replaces the parent's, so the
+        // image has to be restated or the page ships with no og:image at all.
+        images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
         title: 'Online Aim Trainer 3D — Test Reaction & Click Precision | DCPROSENS',
         description: 'Improve your FPS clicking accuracy with our free browser-based aim trainer. Custom game sensitivity support for Valorant, CS2, and Apex.',
         type: 'website',
-        url: 'https://dcprosens.com/aim-trainer',
+        url: 'https://dcprosens.com/aim-trainer/',
     },
     twitter: {
         card: 'summary_large_image',
         title: 'Online Aim Trainer 3D — Test FPS Reaction | DCPROSENS',
         description: 'Train your reaction time, clicking precision, and tracking with custom game sensitivity.',
+        images: ["/og-image.png"],
     },
     robots: { index: true, follow: true },
 };
@@ -48,7 +53,7 @@ export default function AimTrainerPage() {
                 name: 'DCPROSENS Aim Trainer 3D',
                 applicationCategory: 'GameApplication',
                 operatingSystem: 'Web',
-                url: 'https://dcprosens.com/aim-trainer',
+                url: 'https://dcprosens.com/aim-trainer/',
                 description: 'Free online browser-based 3D aim trainer. Practice flicking (Gridshot), tracking, and reflexes with exact in-game sensitivity simulation.',
                 featureList: [
                     'Gridshot (Flicking Mode) with random target respawn',
@@ -214,7 +219,7 @@ export default function AimTrainerPage() {
 
                     <div style={{ marginTop: '3rem', textAlign: 'center' }}>
                         <p style={{ marginBottom: '1rem', color: 'var(--text-secondary)' }}>Need to check your DPI configuration?</p>
-                        <Link href="/dpi" style={{
+                        <Link href="/dpi/" style={{
                             display: 'inline-block',
                             background: 'var(--primary)',
                             color: '#000',

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import CpsTest from '@/components/CpsTest';
+import ToolExplainer, { type ToolExplainerSection, type ToolExplainerFaq } from '@/components/ToolExplainer';
 
 export const metadata: Metadata = {
     title: 'CPS Test — Click Speed Test (Clicks Per Second)',
@@ -11,12 +12,16 @@ export const metadata: Metadata = {
         'how many clicks per second', 'click speed calculator', 'jitter clicking test',
     ],
     alternates: {
-        canonical: 'https://dcprosens.com/cps-test',
+        canonical: 'https://dcprosens.com/cps-test/',
     },
     openGraph: {
+        // Inherited from the root layout only when this page omits openGraph
+        // entirely — declaring the object here replaces the parent's, so the
+        // image has to be restated or the page ships with no og:image at all.
+        images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
         title: 'CPS Test — Click Speed Test | DCPROSENS',
         description: 'Test your clicks per second (CPS) with a free online click speed test.',
-        url: 'https://dcprosens.com/cps-test',
+        url: 'https://dcprosens.com/cps-test/',
         type: 'website',
         siteName: 'DCPROSENS',
     },
@@ -25,8 +30,47 @@ export const metadata: Metadata = {
         title: 'CPS Test | DCPROSENS',
         description: 'Test your clicks per second with a free online click speed test.',
         creator: '@dcprosens',
+        images: ["/og-image.png"],
     },
 };
+
+
+// Written copy for this page, kept beside the component that renders it.
+// These tool pages shipped with a widget and almost no text, which is what
+// Google's "crawled, not indexed" bucket and AdSense's thin-content rejection
+// were both pointing at.
+const explainerSections: ToolExplainerSection[] = [
+        {
+            heading: "The three techniques",
+            body: [
+                <>Normal clicking is one finger, one press per click. Most people land between 6 and 9 CPS, and it is the only mode that reflects what you actually do in a shooter.</>,
+                <>Jitter clicking tenses the forearm to produce a tremor that the mouse reads as rapid clicks. It can reach 10 to 14 CPS and carries a genuine risk of strain injury with sustained use.</>,
+                <>Drag clicking drags a finger across the mouse button so surface friction produces multiple registrations from one motion. Scores can exceed 20 CPS, and it depends heavily on the button coating rather than on the player.</>,
+            ],
+        },
+        {
+            heading: "What CPS is and is not good for",
+            body: [
+                <>It matters in Minecraft PvP, where hit rate is tied to click rate, and in a small number of other games with click-driven combat.</>,
+                <>It matters almost not at all in tactical shooters. CS2 and Valorant reward the timing and accuracy of a single click, and spamming faster does not improve either.</>,
+                <>If your goal is FPS aim, the sensitivity test and the aim trainer measure something that will actually change your results. CPS is a fun benchmark, not a competitive one.</>,
+            ],
+        },
+        {
+            heading: "A word on strain",
+            body: [
+                <>Jitter clicking works by deliberately tensing the forearm to induce a tremor, which is close to the opposite of what you want your arm doing for hours a day.</>,
+                <>If you feel any tingling, aching or numbness in the forearm or wrist, stop. Repetitive strain injuries from clicking techniques are well documented and are far harder to reverse than to avoid.</>,
+                <>No leaderboard position is worth a hand that hurts when you use it.</>,
+            ],
+        },
+];
+
+const explainerFaqs: ToolExplainerFaq[] = [
+        { q: "What is a good CPS score?", a: "For normal clicking, 6 to 9 clicks per second is typical and above 10 is high. Jitter clicking reaches 10 to 14, and drag clicking can exceed 20 — but those are different techniques and are not comparable to normal clicking." },
+        { q: "Does CPS matter in CS2 or Valorant?", a: "Very little. Both reward the timing and accuracy of one click, not how many you can produce. CPS matters in Minecraft PvP and a small number of click-driven games." },
+        { q: "Is drag clicking bad for my mouse?", a: "It wears the button coating and shortens switch life noticeably, and some mice cannot register it at all. It also puts unusual strain on your hand, which is the more important cost." },
+];
 
 export default function CpsTestPage() {
     const jsonLd = {
@@ -37,7 +81,7 @@ export default function CpsTestPage() {
                 name: 'DCPROSENS CPS Test',
                 applicationCategory: 'GameApplication',
                 operatingSystem: 'Web',
-                url: 'https://dcprosens.com/cps-test',
+                url: 'https://dcprosens.com/cps-test/',
                 description: 'Free online clicks-per-second (CPS) test with 5s, 10s, 30s, and 60s modes.',
                 offers: {
                     '@type': 'Offer',
@@ -49,7 +93,7 @@ export default function CpsTestPage() {
                 '@type': 'BreadcrumbList',
                 itemListElement: [
                     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://dcprosens.com' },
-                    { '@type': 'ListItem', position: 2, name: 'CPS Test', item: 'https://dcprosens.com/cps-test' },
+                    { '@type': 'ListItem', position: 2, name: 'CPS Test', item: 'https://dcprosens.com/cps-test/' },
                 ],
             },
             {
@@ -144,6 +188,12 @@ export default function CpsTestPage() {
                     </div>
                 </div>
             </div>
+            <ToolExplainer
+                intro={<>This test counts clicks per second across a fixed window, in normal, jitter and drag modes. The three modes measure genuinely different techniques, and the numbers they produce are not comparable to each other — a strong drag score and a strong normal-click score come from different mechanics.</>}
+                sections={explainerSections}
+                faqs={explainerFaqs}
+            />
+
         </div>
     );
 }

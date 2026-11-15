@@ -1,36 +1,51 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { keyboards, headsets, monitors, mousepads } from '@/lib/gearDatabase';
+import AffiliateDisclosure from '@/components/AffiliateDisclosure';
+
+const imageWrapperStyle: React.CSSProperties = {
+    position: 'relative',
+    width: '100%',
+    aspectRatio: '1 / 1',
+    borderRadius: 'var(--radius-md)',
+    overflow: 'hidden',
+    background: 'rgba(255,255,255,0.03)',
+};
 
 export const metadata: Metadata = {
     title: "Pro Gaming Gear Database 2026",
-    description: "Complete pro gaming gear database. Best gaming keyboards, headsets, monitors and mousepads used by TenZ, s1mple, ZywOo, NiKo, Aspas and more pro players. Filter by type, brand and budget.",
+    description: "Keyboards, headsets, monitors and mousepads used by TenZ, s1mple, ZywOo, NiKo and Aspas, with verified specs. Filter by type, brand and budget.",
     keywords: [
         // Keyboards
-        "best gaming keyboard 2025", "wooting 60he review", "logitech g pro x keyboard",
+        "best gaming keyboard 2026", "wooting 60he review", "logitech g pro x keyboard",
         "steelseries apex pro tkl", "gaming keyboard for fps", "mechanical keyboard valorant",
         "rapid trigger keyboard", "hall effect keyboard gaming", "cs2 pro keyboard", "60 percent keyboard gaming",
         // Headsets
-        "best gaming headset 2025", "logitech g pro x 2 lightspeed", "sennheiser hd 560s gaming",
+        "best gaming headset 2026", "logitech g pro x 2 lightspeed", "sennheiser hd 560s gaming",
         "hyperx cloud alpha review", "best headset for fps gaming", "gaming headset valorant",
         "cs2 pro headset", "wireless gaming headset", "best wired gaming headset",
         // Monitors
-        "best gaming monitor 2025", "benq zowie xl2546k review", "240hz monitor gaming",
+        "best gaming monitor 2026", "benq zowie xl2546k review", "240hz monitor gaming",
         "360hz monitor gaming", "best monitor for cs2", "best monitor for valorant",
         "1080p 240hz monitor", "asus rog swift pg259qn", "gaming monitor under 400",
         // Mousepads
-        "best gaming mousepad 2025", "artisan zero fx review", "logitech g640 review",
+        "best gaming mousepad 2026", "artisan zero fx review", "logitech g640 review",
         "xl mousepad gaming", "best mousepad for low sensitivity", "cloth vs hard mousepad",
         "steelseries qck heavy review", "logitech g840 xl review", "mousepad for valorant",
         // General
         "pro gaming gear", "esports equipment", "what gear do pro players use",
-        "gaming setup 2025", "tenz setup", "s1mple setup", "best gaming peripherals",
+        "gaming setup 2026", "tenz setup", "s1mple setup", "best gaming peripherals",
     ],
     alternates: {
-        canonical: "https://dcprosens.com/gear",
+        canonical: "https://dcprosens.com/gear/",
     },
     openGraph: {
-        title: "Pro Gaming Gear Database 2025 — Keyboards, Headsets, Monitors, Mousepads | DCPROSENS",
+        // Inherited from the root layout only when this page omits openGraph
+        // entirely — declaring the object here replaces the parent's, so the
+        // image has to be restated or the page ships with no og:image at all.
+        images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
+        title: "Pro Gaming Gear Database 2026 — Keyboards, Headsets, Monitors, Mousepads | DCPROSENS",
         description: "Every piece of gear used by top FPS pros. Filter keyboards, headsets, monitors and mousepads by specs and budget.",
         type: "website",
         url: "https://dcprosens.com/gear",
@@ -144,7 +159,7 @@ export default function GearPage() {
                         { label: '🎧 Headsets', href: '#headsets' },
                         { label: '🖥️ Monitors', href: '#monitors' },
                         { label: '🖱️ Mousepads', href: '#mousepads' },
-                        { label: '🖱️ Mice', href: '/mouse-database' },
+                        { label: '🖱️ Mice', href: '/mouse-database/' },
                     ].map(l => (
                         <a key={l.label} href={l.href} style={{
                             background: 'var(--bg-card)', border: '1px solid var(--border-color)',
@@ -163,6 +178,11 @@ export default function GearPage() {
                 <div style={gridStyle}>
                     {keyboards.map(kb => (
                         <div key={kb.id} style={cardStyle}>
+                            {kb.image && (
+                                <div style={imageWrapperStyle}>
+                                    <Image src={kb.image} alt={kb.name} fill style={{ objectFit: 'cover' }} sizes="300px" />
+                                </div>
+                            )}
                             {kb.badge && <span style={badgeStyle}>{kb.badge}</span>}
                             <div>
                                 <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{kb.brand}</div>
@@ -196,6 +216,11 @@ export default function GearPage() {
                 <div style={gridStyle}>
                     {headsets.map(h => (
                         <div key={h.id} style={cardStyle}>
+                            {h.image && (
+                                <div style={imageWrapperStyle}>
+                                    <Image src={h.image} alt={h.name} fill style={{ objectFit: 'cover' }} sizes="300px" />
+                                </div>
+                            )}
                             {h.badge && <span style={badgeStyle}>{h.badge}</span>}
                             <div>
                                 <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{h.brand}</div>
@@ -229,6 +254,11 @@ export default function GearPage() {
                 <div style={gridStyle}>
                     {monitors.map(m => (
                         <div key={m.id} style={cardStyle}>
+                            {m.image && (
+                                <div style={imageWrapperStyle}>
+                                    <Image src={m.image} alt={m.name} fill style={{ objectFit: 'cover' }} sizes="300px" />
+                                </div>
+                            )}
                             {m.badge && <span style={badgeStyle}>{m.badge}</span>}
                             <div>
                                 <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{m.brand}</div>
@@ -264,6 +294,11 @@ export default function GearPage() {
                 <div style={gridStyle}>
                     {mousepads.map(mp => (
                         <div key={mp.id} style={cardStyle}>
+                            {mp.image && (
+                                <div style={imageWrapperStyle}>
+                                    <Image src={mp.image} alt={mp.name} fill style={{ objectFit: 'cover' }} sizes="300px" />
+                                </div>
+                            )}
                             {mp.badge && <span style={badgeStyle}>{mp.badge}</span>}
                             <div>
                                 <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{mp.brand}</div>
@@ -299,12 +334,13 @@ export default function GearPage() {
             }}>
                 <h2 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.75rem' }}>Also Check Out</h2>
                 <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                    <Link href="/mouse-database" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}>🖱️ Mouse Database →</Link>
-                    <Link href="/pros" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}>👤 Pro Player Settings →</Link>
-                    <Link href="/setups" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}>🏆 Full Pro Setups →</Link>
+                    <Link href="/mouse-database/" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}>🖱️ Mouse Database →</Link>
+                    <Link href="/pros/" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}>👤 Pro Player Settings →</Link>
+                    <Link href="/setups/" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}>🏆 Full Pro Setups →</Link>
                     <Link href="/" style={{ color: 'var(--primary)', fontWeight: 600, textDecoration: 'none' }}>🎮 Sensitivity Converter →</Link>
                 </div>
             </div>
+            <AffiliateDisclosure />
         </div>
     );
 }

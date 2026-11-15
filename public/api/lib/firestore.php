@@ -172,6 +172,38 @@ function firestore_decode_fields(array $fields): array
 }
 
 /**
+ * Fetch a single document by id. Returns null if it doesn't exist (404),
+ * instead of throwing — callers use this for existence checks, where "not
+ * found" is an expected, valid outcome rather than an error.
+ *
+ * @return array<string, mixed>|null decoded fields (includes '_id'), or null if not found
+ * @throws RuntimeException on any failure other than 404.
+ */
+function firestore_get_document(string $projectId, string $accessToken, string $collection, string $docId): ?array
+{
+    $url = "https://firestore.googleapis.com/v1/projects/{$projectId}/databases/(default)/documents/{$collection}/{$docId}";
+
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Authorization: Bearer ' . $accessToken]);
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if ($httpCode === 404) {
+        return null;
+    }
+    if ($httpCode < 200 || $httpCode >= 300) {
+        throw new RuntimeException("Firestore get failed for {$collection}/{$docId}: HTTP {$httpCode} — {$response}");
+    }
+
+    $doc = json_decode($response, true);
+    $decoded = firestore_decode_fields($doc['fields'] ?? []);
+    $decoded['_id'] = $docId;
+    return $decoded;
+}
+
+/**
  * Run a simple structured query: WHERE field == value, capped at $limit.
  * Used to read approved reviews server-side — going through the service
  * account here means this doesn't depend on Firestore security rules
@@ -238,7 +270,16 @@ function firestore_query_where(
         $results[] = $decoded;
     }
 
-    usort($results, fn($a, $b) => strcmp($b[$orderByField] ?? '', $a[$orderByField] ?? ''));
+    usort($results, function ($a, $b) use ($orderByField) {
+        $valA = $a[$orderByField] ?? '';
+        $valB = $b[$orderByField] ?? '';
+        // Numeric fields (e.g. a score) must sort numerically, not lexically —
+        // strcmp() on "45" vs "5" would otherwise rank "45" below "5".
+        if (is_numeric($valA) && is_numeric($valB)) {
+            return $valB <=> $valA;
+        }
+        return strcmp((string)$valB, (string)$valA);
+    });
 
     return array_slice($results, 0, $limit);
 }

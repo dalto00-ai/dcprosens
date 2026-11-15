@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import MousepadCalculator from '@/components/MousepadCalculator';
 import Link from 'next/link';
+import AffiliateDisclosure from '@/components/AffiliateDisclosure';
 
 export const metadata: Metadata = {
     title: 'Mousepad Size Calculator',
-    description: 'Find the ideal gaming mousepad size for your sensitivity. Enter your cm/360 and DPI to get personalized recommendations. Best large, XL and extended mousepads for low sensitivity gamers.',
+    description: 'Enter your cm/360 and DPI to find the mousepad size that actually contains your 180° swipe. Large, XL and extended picks for low-sensitivity players.',
     keywords: [
         'mousepad size calculator',
         'gaming mousepad size guide',
@@ -17,23 +18,28 @@ export const metadata: Metadata = {
         'extended mousepad gaming',
         'large mousepad fps',
         'best mousepad valorant',
-        'best mousepad cs2 2025',
+        'best mousepad cs2 2026',
         'steelseries qck heavy review',
         'mousepad thickness guide',
     ],
     alternates: {
-        canonical: 'https://dcprosens.com/mousepad-calculator',
+        canonical: 'https://dcprosens.com/mousepad-calculator/',
     },
     openGraph: {
+        // Inherited from the root layout only when this page omits openGraph
+        // entirely — declaring the object here replaces the parent's, so the
+        // image has to be restated or the page ships with no og:image at all.
+        images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
         title: 'Mousepad Size Calculator — Find Your Perfect Gaming Pad | DCPROSENS',
         description: 'Enter your cm/360 sensitivity and DPI to get personalized mousepad size recommendations. Includes pro player data and top product picks.',
         type: 'website',
-        url: 'https://dcprosens.com/mousepad-calculator',
+        url: 'https://dcprosens.com/mousepad-calculator/',
     },
     twitter: {
         card: 'summary_large_image',
         title: 'Mousepad Size Calculator | DCPROSENS',
         description: 'Find the perfect mousepad size for your gaming sensitivity. Free tool.',
+        images: ["/og-image.png"],
     },
     robots: { index: true, follow: true },
 };
@@ -47,7 +53,7 @@ export default function MousepadCalculatorPage() {
                 name: 'DCPROSENS Mousepad Size Calculator',
                 applicationCategory: 'UtilitiesApplication',
                 operatingSystem: 'Web',
-                url: 'https://dcprosens.com/mousepad-calculator',
+                url: 'https://dcprosens.com/mousepad-calculator/',
                 description: 'Free online tool to find the ideal mousepad size based on your cm/360 gaming sensitivity.',
                 featureList: [
                     'cm/360 sensitivity input',
@@ -193,7 +199,7 @@ export default function MousepadCalculatorPage() {
 
                     <div style={{ marginTop: '3rem', textAlign: 'center' }}>
                         <p style={{ marginBottom: '1rem', color: 'var(--text-secondary)' }}>Need your exact sensitivity in cm/360?</p>
-                        <Link href="/sens-finder" style={{
+                        <Link href="/sens-finder/" style={{
                             display: 'inline-block',
                             background: 'var(--primary)',
                             color: '#000',
@@ -206,6 +212,7 @@ export default function MousepadCalculatorPage() {
                     </div>
                 </article>
             </div>
+            <AffiliateDisclosure />
         </div>
     );
 }

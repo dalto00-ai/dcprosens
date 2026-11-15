@@ -3,7 +3,7 @@ import { posts } from '../src/lib/posts';
 import { stories } from '../src/lib/stories';
 
 const HOST = 'dcprosens.com';
-const KEY = 'd11bb27999754f2586c5fb8bea3a4ee4'; // Bing Key from verify file
+const KEY = '61d5d9d3b13e474893b5e52432e2b70c'; // Bing Key from verify file
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 
 // Core static pages

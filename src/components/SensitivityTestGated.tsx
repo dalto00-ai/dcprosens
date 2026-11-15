@@ -1,37 +1,30 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import { useAuth } from '@/components/AuthProvider';
+import { useTrialCount } from '@/utils/useTrialCount';
 import SensitivityTestGame from '@/components/SensitivityTestGame';
 import PremiumGuard from '@/components/PremiumGuard';
 
-const MAX_FREE_TRIALS = 2;
+const MAX_FREE_TRIALS = 3;
 const STORAGE_KEY = 'dcprosens_sens_test_trials';
 
 export default function SensitivityTestGated() {
     const { userData, loading } = useAuth();
-    const [trialsCount, setTrialsCount] = useState<number>(0);
-    const [isMounted, setIsMounted] = useState<boolean>(false);
-
-    useEffect(() => {
-        setIsMounted(true);
-        const stored = localStorage.getItem(STORAGE_KEY);
-        if (stored) {
-            setTrialsCount(parseInt(stored, 10) || 0);
-        }
-    }, []);
+    // null until hydration completes — see useTrialCount.
+    const [trialsCount, setTrialsCount] = useTrialCount(STORAGE_KEY);
 
     const isPremium = userData?.subscriptionStatus === 'active' || userData?.subscriptionStatus === 'premium';
 
     const handleGameFinish = () => {
         if (!isPremium) {
-            const nextCount = trialsCount + 1;
-            setTrialsCount(nextCount);
-            localStorage.setItem(STORAGE_KEY, nextCount.toString());
+            // ?? 0 is unreachable in practice (the null guard below renders a
+            // loading state before the game can fire this), but keeps the handler
+            // correct on its own terms rather than leaning on render order.
+            setTrialsCount((trialsCount ?? 0) + 1);
         }
     };
 
-    if (loading || !isMounted) {
+    if (loading || trialsCount === null) {
         return (
             <div style={{ display: 'flex', justifyContent: 'center', padding: '4rem 0', color: '#94a3b8' }}>
                 Loading...

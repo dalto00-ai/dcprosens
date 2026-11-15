@@ -1,9 +1,30 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState } from "react";
-import { User, onAuthStateChanged, signOut } from "firebase/auth";
-import { doc, onSnapshot } from "firebase/firestore";
-import { auth, db } from "@/lib/firebase";
+import type { User } from "firebase/auth";
+
+// `import type` only — erased at build time, so it pulls no runtime code.
+//
+// AuthProvider lives in the root layout, so anything it imports statically
+// lands in the chunk every single page loads. Importing the Firebase Auth and
+// Firestore SDKs here put ~570 KB of JavaScript in front of a static blog
+// article that never touches an account: a blog page was shipping 1.17 MB of
+// JS in total. The SDK is now pulled in with a dynamic import after mount, so
+// it downloads in parallel with rendering instead of blocking it, and the
+// initial bundle no longer carries it at all.
+//
+// /login, /dashboard and Aim Lab still import Firebase statically. That is
+// correct — those routes cannot function without it, and the cost lands only
+// on their own chunks.
+
+export interface SavedProfile {
+  id: string;
+  name: string;
+  sens: number;
+  dpi: number;
+  game: string;
+  createdAt: string;
+}
 
 interface UserData {
   uid?: string;
@@ -21,6 +42,9 @@ interface UserData {
     dpi: number;
     game: string;
   };
+  /** Named, multi-entry sensitivity presets — separate from the single
+   * "active" savedSettings above, which Aim Lab reads directly. */
+  savedProfiles?: SavedProfile[];
   aimLabHistory?: {
     mode: string;
     score: number;
@@ -54,39 +78,78 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribeAuth = onAuthStateChanged(auth, (firebaseUser) => {
-      setUser(firebaseUser);
-      
-      if (!firebaseUser) {
-        setUserData(null);
-        setLoading(false);
-      }
+    let cancelled = false;
+    let unsubscribeAuth: (() => void) | undefined;
+
+    (async () => {
+      const [{ onAuthStateChanged }, { auth }] = await Promise.all([
+        import("firebase/auth"),
+        import("@/lib/firebase"),
+      ]);
+      if (cancelled) return;
+
+      unsubscribeAuth = onAuthStateChanged(auth, (firebaseUser) => {
+        setUser(firebaseUser);
+        if (!firebaseUser) {
+          setUserData(null);
+          setLoading(false);
+        }
+      });
+    })().catch((error) => {
+      // A blocked or failed SDK load must not leave the whole site stuck on a
+      // loading state — every consumer treats `loading: false, user: null` as
+      // "signed out", which is the correct fallback here.
+      console.error("Auth failed to initialise:", error);
+      if (!cancelled) setLoading(false);
     });
 
-    return () => unsubscribeAuth();
+    return () => {
+      cancelled = true;
+      unsubscribeAuth?.();
+    };
   }, []);
 
   useEffect(() => {
     if (!user) return;
 
-    // Escuta alterações em tempo real no documento do usuário no Firestore
-    const userDocRef = doc(db, "users", user.uid);
-    const unsubscribeDoc = onSnapshot(userDocRef, (docSnap) => {
-      if (docSnap.exists()) {
-        setUserData(docSnap.data() as UserData);
-      } else {
-        setUserData(null);
-      }
-      setLoading(false);
-    }, (error) => {
-      console.error("Erro ao obter documento do usuário:", error);
-      setLoading(false);
+    let cancelled = false;
+    let unsubscribeDoc: (() => void) | undefined;
+
+    (async () => {
+      const [{ doc, onSnapshot }, { db }] = await Promise.all([
+        import("firebase/firestore"),
+        import("@/lib/firebase"),
+      ]);
+      if (cancelled) return;
+
+      // Real-time listener on the user's Firestore document.
+      unsubscribeDoc = onSnapshot(
+        doc(db, "users", user.uid),
+        (docSnap) => {
+          setUserData(docSnap.exists() ? (docSnap.data() as UserData) : null);
+          setLoading(false);
+        },
+        (error) => {
+          console.error("Failed to read the user document:", error);
+          setLoading(false);
+        }
+      );
+    })().catch((error) => {
+      console.error("Firestore failed to initialise:", error);
+      if (!cancelled) setLoading(false);
     });
 
-    return () => unsubscribeDoc();
+    return () => {
+      cancelled = true;
+      unsubscribeDoc?.();
+    };
   }, [user]);
 
   const logout = async () => {
+    const [{ signOut }, { auth }] = await Promise.all([
+      import("firebase/auth"),
+      import("@/lib/firebase"),
+    ]);
     await signOut(auth);
   };
 

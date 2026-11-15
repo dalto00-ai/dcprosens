@@ -6,7 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prebuild": "node scripts/sync-blog-images.mjs",
+    "sync:images": "node scripts/sync-blog-images.mjs",
+    "sitemaps": "node scripts/generate-sitemaps.mjs",
+    "verify": "bash scripts/verify-build.sh",
+    "check:images": "node scripts/check-blog-images.mjs",
+    "build:full": "npm run build && npm run sitemaps && npm run verify",
+    "indexnow": "node scripts/submit-indexnow.mjs",
+    "test:auth": "php scripts/tests/firebase-auth-test.php"
   },
   "dependencies": {
     "@next/third-parties": "^16.2.7",

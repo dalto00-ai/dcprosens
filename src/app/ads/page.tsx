@@ -1,40 +1,38 @@
 import type { Metadata } from 'next';
 import AdsCalculator from './AdsCalculator';
-import PremiumGuard from '@/components/PremiumGuard';
+import TrialGate from '@/components/TrialGate';
 
 export const metadata: Metadata = {
-    title: "1:1 ADS Sensitivity Calculator",
-    description: "Free gaming ADS and scope sensitivity converter. Calculate the perfect 1:1 zoom sensitivity for Valorant Operator, CS2 AWP, Apex Legends, and CoD Warzone to preserve muscle memory.",
+    title: "1:1 ADS Sensitivity Calculator — Apex Legends, R6 Siege, Valorant & PUBG | DCPROSENS",
+    description: "Calculate true 1:1 ADS & scope sensitivity multipliers for Apex Legends, Rainbow Six Siege, Valorant, CS2, PUBG, and Warzone using focal-length Monitor Distance Matching (0% MDH).",
     keywords: [
-        // ADS / Scope core
-        'ads sensitivity calculator', 'scope sensitivity calculator', 'zoom sensitivity calculator',
+        'ads sensitivity calculator', 'apex legends ads sensitivity 1 to 1', '1 to 1 ads sensitivity rainbow six siege',
+        'pubg scopes sensitivity calculator', 'scope sensitivity calculator', 'zoom sensitivity calculator',
         'ads sensitivity converter', '1:1 ads sensitivity', 'scope multiplier calculator',
         'aim down sights sensitivity', 'scope sensitivity multiplier', 'zoom sensitivity multiplier',
         'monitor distance match', 'focal length match sensitivity', 'ads sensitivity guide',
-        // Game-specific ADS
         'valorant zoom sensitivity multiplier', 'valorant operator sensitivity', 'valorant marshal scope sens',
         'cs2 zoom sensitivity ratio', 'cs2 awp sensitivity', 'cs2 scope sensitivity command',
         'zoom_sensitivity_ratio cs2', 'zoom_sensitivity_ratio_mouse_pitch',
         'apex legends per zoom sensitivity', 'apex scope sensitivity', 'apex ads multiplier',
         'cod warzone ads sensitivity', 'warzone multiplier sensitivity', 'fortnite scope sensitivity',
         'rainbow six siege ads sensitivity', 'overwatch 2 scope sensitivity',
-        // Concepts
         'hipfire vs ads sensitivity', 'hipfire sensitivity', 'ads vs hipfire feel',
         '1:1 scope sensitivity formula', 'what is 1:1 scope sensitivity', 'monitor distance sensitivity',
         '0% monitor distance match', '100% monitor distance match', 'relative aim sensitivity',
         'scope sensitivity pro settings', 'best ads multiplier valorant', 'best awp sens cs2',
-        // Long tail
-        'how to set scope sensitivity to 1:1', 'keep same sensitivity while scoping',
-        'same feel hipfire and ads', 'ads sensitivity no change aim feel',
-        'calculate zoom sensitivity valorant', 'calculate scope multiplier gaming',
     ],
     alternates: {
-        canonical: "https://dcprosens.com/ads",
+        canonical: "https://dcprosens.com/ads/",
     },
     openGraph: {
-        title: "1:1 ADS Scope Sensitivity Calculator — Valorant, CS2, Apex | DCPROSENS",
-        description: "Calculate the perfect 1:1 zoom sensitivity for Valorant, CS2, Apex Legends, and CoD Warzone.",
-        url: "https://dcprosens.com/ads",
+        // Inherited from the root layout only when this page omits openGraph
+        // entirely — declaring the object here replaces the parent's, so the
+        // image has to be restated or the page ships with no og:image at all.
+        images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
+        title: "1:1 ADS Scope Sensitivity Calculator — Valorant, CS2, Apex, R6 | DCPROSENS",
+        description: "Calculate the perfect 1:1 zoom sensitivity for Valorant, CS2, Apex Legends, R6 Siege, and CoD Warzone.",
+        url: "https://dcprosens.com/ads/",
         type: "website",
     },
     robots: {
@@ -48,8 +46,8 @@ export default function AdsPage() {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
         "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dcprosens.com" },
-            { "@type": "ListItem", "position": 2, "name": "ADS Sensitivity Calculator", "item": "https://dcprosens.com/ads" },
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dcprosens.com/" },
+            { "@type": "ListItem", "position": 2, "name": "ADS Sensitivity Calculator", "item": "https://dcprosens.com/ads/" },
         ],
     };
 
@@ -117,9 +115,9 @@ export default function AdsPage() {
                 Calculate the perfect Aim Down Sights (ADS) multiplier for scopes (AWP, Operator, optical sights) and match your hipfire muscle memory.
             </p>
 
-            <PremiumGuard previewTitle="ADS Sensitivity Calculator">
+            <TrialGate toolId="ads-calculator" previewTitle="ADS Sensitivity Calculator">
                 <AdsCalculator />
-            </PremiumGuard>
+            </TrialGate>
 
             {/* HIGH-INTENT EEAT WIKI SECTION */}
             <div style={{ marginTop: '4rem', borderTop: '1px solid var(--border-color)', paddingTop: '3rem' }}>
@@ -138,6 +136,84 @@ export default function AdsPage() {
                         <li><strong>CS2 / CS:GO (AWP & Scout)</strong>: The console command <code>zoom_sensitivity_ratio 0.818933</code> (or rounded to <code>0.82</code>) provides the mathematically perfect 1:1 focal length ratio for rapid scoped adjustments.</li>
                         <li><strong>Apex Legends</strong>: Apex allows per-zoom level sensitivity. Set <strong>1.0</strong> for 1x optics, <strong>1.2</strong> for 2x optics, and <strong>1.3</strong> for 3x optics to maintain a steady physical tracking speed.</li>
                     </ul>
+
+                    <h3 style={{ color: 'var(--text-primary)', marginTop: '2rem' }}>The Three Ways a Game Can Scale Zoomed Aim</h3>
+                    <p>
+                        Almost every argument about &ldquo;the correct ADS sensitivity&rdquo; is really an argument about which
+                        of three things you want held constant. They are mutually exclusive: you cannot have all three at once,
+                        which is why no single multiplier is universally right.
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>0% Monitor Distance Match (focal length)</strong> keeps the rotation-per-count identical at the
+                            very centre of the screen. A tiny correction on a target sitting on your crosshair moves the camera by the
+                            same number of degrees hipfire or scoped. This is what the calculator above defaults to, and it is why
+                            CS2&apos;s <code>0.818933</code> is the value most AWPers converge on: the small adjustments that decide a
+                            duel happen near the centre, not at the screen edge.
+                        </li>
+                        <li>
+                            <strong>100% Monitor Distance Match</strong> keeps travel across the <em>full width</em> of the monitor
+                            constant instead. A target at the edge of your hipfire screen stays at the edge of the mouse sweep when
+                            scoped. It feels more natural for wide tracking, and worse for micro-correction, which is the opposite
+                            trade-off.
+                        </li>
+                        <li>
+                            <strong>Viewspeed / hybrid</strong> methods split the difference by weighting vertical and horizontal
+                            movement separately. Some players prefer them on very high zoom levels, where 0% MDM can feel sluggish
+                            when swinging onto a target that was never on the crosshair to begin with.
+                        </li>
+                    </ul>
+                    <p>
+                        If you only take one thing from this page: pick one method and apply it to every scope in every game. The
+                        cost of switching methods per weapon is that your hands never build a single, transferable reflex.
+                    </p>
+
+                    <h3 style={{ color: 'var(--text-primary)', marginTop: '2rem' }}>Why FOV Changes the Answer</h3>
+                    <p>
+                        Zoom multipliers are computed against your hipfire field of view, so two players running the same
+                        <code>zoom_sensitivity_ratio</code> at different FOVs do <em>not</em> get the same scoped feel. Raising FOV
+                        widens the hipfire image without changing the scope, which effectively increases the jump between the two
+                        states — so a wide-FOV player has more work for the multiplier to do.
+                    </p>
+                    <p>
+                        Two practical consequences. First, changing your FOV means re-deriving your ADS multiplier, not just your
+                        hipfire sensitivity. Second, in games that expose separate FOV values for hipfire and ADS, the two have to be
+                        set before any multiplier is calculated, or the number you land on is answering the wrong question.
+                    </p>
+
+                    <h3 style={{ color: 'var(--text-primary)', marginTop: '2rem' }}>The Mistakes That Cost the Most Duels</h3>
+                    <ul>
+                        <li>
+                            <strong>Tuning the scope by feel after every bad round.</strong> Scoped aim is the part of aiming you use
+                            least often per match, so it takes the longest to build a reflex for. Changing it weekly guarantees you
+                            never do. Set it mathematically, then leave it alone for at least a month of play.
+                        </li>
+                        <li>
+                            <strong>Copying a pro&apos;s multiplier without their DPI and FOV.</strong> The multiplier is a ratio
+                            applied on top of a hipfire sensitivity. Lifting the ratio alone, onto a different cm/360, produces a
+                            scoped speed that player has never used.
+                        </li>
+                        <li>
+                            <strong>Leaving Windows pointer speed off 6/11.</strong> Any other step makes the operating system scale
+                            counts before the game receives them, so every multiplier you compute downstream is applied to an input
+                            that has already been altered.
+                        </li>
+                        <li>
+                            <strong>Forgetting that some games apply the multiplier per zoom stage.</strong> Apex and Overwatch 2
+                            expose separate values per optic or per hero; a single global number silently leaves the other stages
+                            mismatched.
+                        </li>
+                    </ul>
+
+                    <h3 style={{ color: 'var(--text-primary)', marginTop: '2rem' }}>Checking Your Own Number Without Trusting Anyone</h3>
+                    <p>
+                        The multiplier is only correct if it survives a test. Put your crosshair on a fixed reference point on a wall,
+                        make a small deliberate movement — a couple of centimetres, no more — and note where the crosshair lands.
+                        Scope in and repeat the identical physical movement. Under a 0% monitor-distance match the crosshair should
+                        finish on the same feature of the wall in both cases. If the scoped attempt overshoots, the multiplier is too
+                        high; if it falls short, too low. That test takes under a minute and is worth more than any settings list,
+                        including this one.
+                    </p>
                 </div>
             </div>
         </div>

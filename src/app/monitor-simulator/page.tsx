@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import MonitorSimulator from '@/components/MonitorSimulator';
 import Link from 'next/link';
+import AffiliateDisclosure from '@/components/AffiliateDisclosure';
 
 export const metadata: Metadata = {
     title: 'Monitor Hz Simulator — 60-360Hz Compare',
@@ -22,18 +23,23 @@ export const metadata: Metadata = {
         'test ufo clone simulator',
     ],
     alternates: {
-        canonical: 'https://dcprosens.com/monitor-simulator',
+        canonical: 'https://dcprosens.com/monitor-simulator/',
     },
     openGraph: {
+        // Inherited from the root layout only when this page omits openGraph
+        // entirely — declaring the object here replaces the parent's, so the
+        // image has to be restated or the page ships with no og:image at all.
+        images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
         title: 'Monitor Refresh Rate Hz Simulator — 60Hz vs 144Hz vs 240Hz vs 360Hz | DCPROSENS',
         description: 'Test the real-time visual difference of high refresh rates. Compare 60Hz, 144Hz, and 240Hz/360Hz side-by-side with response time ghosting simulation.',
         type: 'website',
-        url: 'https://dcprosens.com/monitor-simulator',
+        url: 'https://dcprosens.com/monitor-simulator/',
     },
     twitter: {
         card: 'summary_large_image',
         title: 'Monitor Refresh Rate Hz Simulator | DCPROSENS',
         description: 'Compare 60Hz, 144Hz, 240Hz, and 360Hz refresh rates. Simulate monitor ghosting in real-time.',
+        images: ["/og-image.png"],
     },
     robots: { index: true, follow: true },
 };
@@ -53,7 +59,7 @@ export default function MonitorSimulatorPage() {
                 '@type': 'ListItem',
                 'position': 2,
                 'name': 'Monitor Hz Simulator',
-                'item': 'https://dcprosens.com/monitor-simulator',
+                'item': 'https://dcprosens.com/monitor-simulator/',
             },
         ],
     };
@@ -81,7 +87,7 @@ export default function MonitorSimulatorPage() {
                         'price': '799.00',
                         'priceCurrency': 'USD',
                         'availability': 'https://schema.org/InStock',
-                        'url': 'https://www.amazon.com/dp/B0BZR9T1M5',
+                        'url': 'https://dcprosens.com/monitor-simulator',
                     },
                 },
             },
@@ -102,7 +108,7 @@ export default function MonitorSimulatorPage() {
                         'price': '599.00',
                         'priceCurrency': 'USD',
                         'availability': 'https://schema.org/InStock',
-                        'url': 'https://www.amazon.com/dp/B0BGLV299V',
+                        'url': 'https://dcprosens.com/monitor-simulator',
                     },
                 },
             },
@@ -123,7 +129,7 @@ export default function MonitorSimulatorPage() {
                         'price': '349.00',
                         'priceCurrency': 'USD',
                         'availability': 'https://schema.org/InStock',
-                        'url': 'https://www.amazon.com/dp/B0C63HD5V8',
+                        'url': 'https://dcprosens.com/monitor-simulator',
                     },
                 },
             },
@@ -144,7 +150,7 @@ export default function MonitorSimulatorPage() {
                         'price': '149.00',
                         'priceCurrency': 'USD',
                         'availability': 'https://schema.org/InStock',
-                        'url': 'https://www.amazon.com/dp/B0B586K79X',
+                        'url': 'https://dcprosens.com/monitor-simulator',
                     },
                 },
             },
@@ -241,7 +247,7 @@ export default function MonitorSimulatorPage() {
                         <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', marginBottom: '1.5rem' }}>
                             Adjusting your monitor refresh rate is just half the battle. Use our multi-game Sensitivity Finder to align your game sensitivities across Valorant, Apex, CS2 and more.
                         </p>
-                        <Link href="/sens-finder" style={{
+                        <Link href="/sens-finder/" style={{
                             display: 'inline-block',
                             background: 'var(--primary)',
                             color: '#000',
@@ -255,6 +261,7 @@ export default function MonitorSimulatorPage() {
                     </div>
                 </article>
             </div>
+            <AffiliateDisclosure />
         </div>
     );
 }

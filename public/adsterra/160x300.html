@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Ad 160x300</title>
+<style>
+  html,body{margin:0;padding:0;overflow:hidden;background:transparent}
+  body{width:160px;height:300px}
+</style>
+</head>
+<body>
+<!--
+  Adsterra 160x300 banner, isolated in its own document on purpose.
+  The banner format is driven by a GLOBAL `atOptions` object that each
+  invoke.js reads at load time. Two banners on the same document race for
+  that single global and the second one wins both slots, so every format
+  gets its own same-origin file and the page frames it.
+  Headers for this directory come from public/adsterra/.htaccess.
+-->
+<script type="text/javascript">
+  atOptions = {
+    'key': '8511ce8b00fb36868de0075c90259382',
+    'format': 'iframe',
+    'height': 300,
+    'width': 160,
+    'params': {}
+  };
+</script>
+<script type="text/javascript" src="https://www.highrevenueformat.com/8511ce8b00fb36868de0075c90259382/invoke.js"></script>
+</body>
+</html>

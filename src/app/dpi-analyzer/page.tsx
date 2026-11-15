@@ -13,9 +13,13 @@ export const metadata: Metadata = {
         'mouse movement counts', 'pointer lock dpi test', 'mouse sensor test tool'
     ],
     alternates: {
-        canonical: "https://dcprosens.com/dpi-analyzer",
+        canonical: "https://dcprosens.com/dpi-analyzer/",
     },
     openGraph: {
+        // Inherited from the root layout only when this page omits openGraph
+        // entirely — declaring the object here replaces the parent's, so the
+        // image has to be restated or the page ships with no og:image at all.
+        images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
         title: "Mouse DPI Analyzer — Test Real Mouse DPI & Sensor Deviation | DCPROSENS",
         description: "Verify your gaming mouse sensor accuracy. Calculate your real DPI and correct sensor deviation easily.",
         type: "website",
@@ -25,6 +29,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Mouse DPI Analyzer — Test Real Mouse DPI & Sensor Deviation",
         description: "Check if your gaming mouse has sensor deviation and calculate your real DPI online.",
+        images: ["/og-image.png"],
     },
     robots: {
         index: true,

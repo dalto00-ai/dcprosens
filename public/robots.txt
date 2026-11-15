@@ -1,9 +1,25 @@
+# Google AdSense Crawler
+User-agent: Mediapartners-Google
+Allow: /
+
 User-agent: *
 Allow: /
-Disallow: /dashboard
-Disallow: /dashboard/
-Disallow: /login
-Disallow: /login/
+
+# /dashboard, /login and /embed are deliberately NOT disallowed here.
+# They each carry <meta name="robots" content="noindex, nofollow">, and a
+# Disallow rule would stop Google from ever fetching the page to read that
+# tag — leaving the URL eligible to appear in results as a bare, snippet-less
+# "blocked by robots.txt" entry that can never be removed. Letting the
+# crawler in is what actually gets them dropped from the index.
+
+# Server-side endpoints — no HTML, nothing to index.
+Disallow: /api/
+
+# Ad wrapper documents. Each is a bare <script> tag for one Adsterra format,
+# framed same-origin by the page. Unlike /embed above these carry no meta
+# robots tag of their own (they are not React pages), so the block is done
+# here and reinforced by X-Robots-Tag in public/adsterra/.htaccess.
+Disallow: /adsterra/
 
 # AI Search & Answer Engine Optimization (GEO/AEO)
 User-agent: GPTBot
@@ -12,22 +28,63 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
 User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
 Allow: /
 
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: Perplexity-User
+Allow: /
+
 User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
 Allow: /
 
 User-agent: Bytespider
 Allow: /
+Crawl-delay: 2
 
 User-agent: CCBot
 Allow: /
+Crawl-delay: 2
 
-Sitemap: https://dcprosens.com/sitemap.xml
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# Structured reference data written for LLM retrieval:
+#   https://dcprosens.com/llms.txt       — summary + tool index
+#   https://dcprosens.com/llms-full.txt  — full yaw dataset with sourcing notes
+#   https://dcprosens.com/llms.json      — full structured JSON dataset
+#   https://dcprosens.com/ai.txt         — AI usage policy and endpoints
+
 Sitemap: https://dcprosens.com/sitemap-index.xml
-Sitemap: https://dcprosens.com/news-sitemap.xml
+Sitemap: https://dcprosens.com/sitemap.xml
 Sitemap: https://dcprosens.com/image-sitemap.xml
+Sitemap: https://dcprosens.com/sitemap-webstories.xml

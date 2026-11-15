@@ -1,0 +1,895 @@
+{
+  "name": "DCPROSENS",
+  "description": "Gaming Sensitivity Converter, Pro Player Database, and Aim Calibration Tools",
+  "url": "https://dcprosens.com/",
+  "lastUpdated": "2026-11-15",
+  "articlesCount": 446,
+  "license": "cite with attribution to https://dcprosens.com",
+  "formulas": {
+    "sensitivityConversion": "Sensitivity_B = Sensitivity_A * (Yaw_A / Yaw_B)",
+    "cm360": "cm/360 = (360 * 2.54) / (Sensitivity * DPI * Yaw)",
+    "eDPI": "eDPI = InGameSensitivity * MouseDPI"
+  },
+  "supportedGamesCount": 87,
+  "games": [
+    {
+      "id": "valorant",
+      "name": "Valorant",
+      "yaw": 0.07
+    },
+    {
+      "id": "csgo",
+      "name": "CS:GO / CS2",
+      "yaw": 0.022
+    },
+    {
+      "id": "apex",
+      "name": "Apex Legends",
+      "yaw": 0.022
+    },
+    {
+      "id": "overwatch",
+      "name": "Overwatch 2",
+      "yaw": 0.0066
+    },
+    {
+      "id": "cod",
+      "name": "Call of Duty: Warzone / MW3",
+      "yaw": 0.0066
+    },
+    {
+      "id": "rainbow6",
+      "name": "Rainbow Six Siege",
+      "yaw": 0.00572
+    },
+    {
+      "id": "fortnite",
+      "name": "Fortnite",
+      "yaw": 0.005555
+    },
+    {
+      "id": "bf2042",
+      "name": "Battlefield 2042",
+      "yaw": 0.022
+    },
+    {
+      "id": "pubg",
+      "name": "PUBG",
+      "yaw": 0.00707
+    },
+    {
+      "id": "destiny2",
+      "name": "Destiny 2",
+      "yaw": 0.0066
+    },
+    {
+      "id": "quake",
+      "name": "Quake / Source Engine",
+      "yaw": 0.022
+    },
+    {
+      "id": "roblox",
+      "name": "Roblox",
+      "yaw": 0.2
+    },
+    {
+      "id": "minecraft",
+      "name": "Minecraft (Java)",
+      "yaw": 0.6
+    },
+    {
+      "id": "marvelrivals",
+      "name": "Marvel Rivals",
+      "yaw": 0.022
+    },
+    {
+      "id": "thefinals",
+      "name": "THE FINALS",
+      "yaw": 0.0066
+    },
+    {
+      "id": "rust",
+      "name": "Rust",
+      "yaw": 0.11247
+    },
+    {
+      "id": "deadlock",
+      "name": "Deadlock",
+      "yaw": 0.022
+    },
+    {
+      "id": "tf2",
+      "name": "Team Fortress 2",
+      "yaw": 0.022
+    },
+    {
+      "id": "l4d2",
+      "name": "Left 4 Dead 2",
+      "yaw": 0.022
+    },
+    {
+      "id": "titanfall2",
+      "name": "Titanfall 2",
+      "yaw": 0.022
+    },
+    {
+      "id": "halo",
+      "name": "Halo Infinite",
+      "yaw": 0.0225
+    },
+    {
+      "id": "tarkov",
+      "name": "Escape from Tarkov",
+      "yaw": 0.113636
+    },
+    {
+      "id": "gtav",
+      "name": "Grand Theft Auto V",
+      "yaw": 0.0066
+    },
+    {
+      "id": "insurgency",
+      "name": "Insurgency: Sandstorm",
+      "yaw": 0.14
+    },
+    {
+      "id": "squad",
+      "name": "Squad",
+      "yaw": 0.175
+    },
+    {
+      "id": "huntshowdown",
+      "name": "Hunt: Showdown",
+      "yaw": 0.022
+    },
+    {
+      "id": "dayz",
+      "name": "DayZ",
+      "yaw": 0.179
+    },
+    {
+      "id": "warframe",
+      "name": "Warframe",
+      "yaw": 0.014
+    },
+    {
+      "id": "arksurvival",
+      "name": "ARK: Survival Evolved",
+      "yaw": 0.175
+    },
+    {
+      "id": "diabotical",
+      "name": "Diabotical",
+      "yaw": 0.01667
+    },
+    {
+      "id": "hl2",
+      "name": "Half-Life 2",
+      "yaw": 0.022
+    },
+    {
+      "id": "portal2",
+      "name": "Portal 2",
+      "yaw": 0.022
+    },
+    {
+      "id": "gmod",
+      "name": "Garry's Mod",
+      "yaw": 0.022
+    },
+    {
+      "id": "cssource",
+      "name": "Counter-Strike: Source",
+      "yaw": 0.022
+    },
+    {
+      "id": "l4d1",
+      "name": "Left 4 Dead",
+      "yaw": 0.022
+    },
+    {
+      "id": "blackmesa",
+      "name": "Black Mesa",
+      "yaw": 0.022
+    },
+    {
+      "id": "quakechampions",
+      "name": "Quake Champions",
+      "yaw": 0.022
+    },
+    {
+      "id": "back4blood",
+      "name": "Back 4 Blood",
+      "yaw": 0.175
+    },
+    {
+      "id": "splitgate",
+      "name": "Splitgate",
+      "yaw": 0.009501
+    },
+    {
+      "id": "helldivers2",
+      "name": "Helldivers 2",
+      "yaw": 0.0175
+    },
+    {
+      "id": "cs16",
+      "name": "Counter-Strike 1.6",
+      "yaw": 0.022
+    },
+    {
+      "id": "halflife",
+      "name": "Half-Life",
+      "yaw": 0.022
+    },
+    {
+      "id": "codbo6",
+      "name": "Call of Duty: Black Ops 6",
+      "yaw": 0.0066
+    },
+    {
+      "id": "paladins",
+      "name": "Paladins",
+      "yaw": 0.0092
+    },
+    {
+      "id": "quake3",
+      "name": "Quake III Arena",
+      "yaw": 0.022
+    },
+    {
+      "id": "doometernal",
+      "name": "DOOM Eternal",
+      "yaw": 0.022
+    },
+    {
+      "id": "csconditionzero",
+      "name": "Counter-Strike: Condition Zero",
+      "yaw": 0.022
+    },
+    {
+      "id": "tfc",
+      "name": "Team Fortress Classic",
+      "yaw": 0.022
+    },
+    {
+      "id": "fallout76",
+      "name": "Fallout 76",
+      "yaw": 0.0175
+    },
+    {
+      "id": "battalion1944",
+      "name": "Battalion 1944",
+      "yaw": 0.0175
+    },
+    {
+      "id": "reflexarena",
+      "name": "Reflex Arena",
+      "yaw": 0.00573
+    },
+    {
+      "id": "krunker",
+      "name": "Krunker.io",
+      "yaw": 0.1376
+    },
+    {
+      "id": "doom2016",
+      "name": "DOOM (2016)",
+      "yaw": 0.022
+    },
+    {
+      "id": "wolfnewcolossus",
+      "name": "Wolfenstein II: The New Colossus",
+      "yaw": 0.022
+    },
+    {
+      "id": "wolfyoungblood",
+      "name": "Wolfenstein: Youngblood",
+      "yaw": 0.022
+    },
+    {
+      "id": "rtcw",
+      "name": "Return to Castle Wolfenstein",
+      "yaw": 0.022
+    },
+    {
+      "id": "wolfet",
+      "name": "Wolfenstein: Enemy Territory",
+      "yaw": 0.022
+    },
+    {
+      "id": "jediknight2",
+      "name": "Star Wars Jedi Knight II: Jedi Outcast",
+      "yaw": 0.022
+    },
+    {
+      "id": "jediacademy",
+      "name": "Star Wars Jedi Knight: Jedi Academy",
+      "yaw": 0.022
+    },
+    {
+      "id": "xonotic",
+      "name": "Xonotic",
+      "yaw": 0.022
+    },
+    {
+      "id": "openarena",
+      "name": "OpenArena",
+      "yaw": 0.022
+    },
+    {
+      "id": "quake1",
+      "name": "Quake",
+      "yaw": 0.022
+    },
+    {
+      "id": "quake2",
+      "name": "Quake II",
+      "yaw": 0.022
+    },
+    {
+      "id": "quakelive",
+      "name": "Quake Live",
+      "yaw": 0.022
+    },
+    {
+      "id": "quake4",
+      "name": "Quake 4",
+      "yaw": 0.022
+    },
+    {
+      "id": "drg",
+      "name": "Deep Rock Galactic",
+      "yaw": 0.0134
+    },
+    {
+      "id": "riskofrain2",
+      "name": "Risk of Rain 2",
+      "yaw": 0.5
+    },
+    {
+      "id": "splitgate2",
+      "name": "Splitgate 2",
+      "yaw": 0.01116
+    },
+    {
+      "id": "readyornot",
+      "name": "Ready or Not",
+      "yaw": 0.011
+    },
+    {
+      "id": "roboquest",
+      "name": "Roboquest",
+      "yaw": 0.00042
+    },
+    {
+      "id": "insurgency2014",
+      "name": "Insurgency (2014)",
+      "yaw": 0.022
+    },
+    {
+      "id": "payday2",
+      "name": "Payday 2",
+      "yaw": 0.0156
+    },
+    {
+      "id": "deltaforce",
+      "name": "Delta Force",
+      "yaw": 0.005555
+    },
+    {
+      "id": "arcraiders",
+      "name": "Arc Raiders",
+      "yaw": 0.0066
+    },
+    {
+      "id": "marathon",
+      "name": "Marathon",
+      "yaw": 0.0066
+    },
+    {
+      "id": "farlight84",
+      "name": "Farlight 84",
+      "yaw": 0.005555
+    },
+    {
+      "id": "repo",
+      "name": "R.E.P.O.",
+      "yaw": 0.022
+    },
+    {
+      "id": "peak",
+      "name": "PEAK",
+      "yaw": 0.022
+    },
+    {
+      "id": "fragpunk",
+      "name": "FragPunk",
+      "yaw": 0.005555
+    },
+    {
+      "id": "combatmaster",
+      "name": "Combat Master",
+      "yaw": 0.022
+    },
+    {
+      "id": "bloodstrike",
+      "name": "Blood Strike",
+      "yaw": 0.005555
+    },
+    {
+      "id": "strinova",
+      "name": "Strinova",
+      "yaw": 0.005555
+    },
+    {
+      "id": "seaofthieves",
+      "name": "Sea of Thieves",
+      "yaw": 0.005555
+    },
+    {
+      "id": "deadbydaylight",
+      "name": "Dead by Daylight",
+      "yaw": 0.005555
+    },
+    {
+      "id": "ultrakill",
+      "name": "Ultrakill",
+      "yaw": 0.022
+    },
+    {
+      "id": "enlisted",
+      "name": "Enlisted",
+      "yaw": 0.0175
+    },
+    {
+      "id": "crossfire",
+      "name": "Crossfire",
+      "yaw": 0.022
+    }
+  ],
+  "proPlayersCount": 22,
+  "proPlayers": [
+    {
+      "name": "TenZ",
+      "game": "Valorant",
+      "team": "Sentinels",
+      "dpi": 800,
+      "sens": 0.3,
+      "edpi": 240,
+      "cm360": 54.43,
+      "mouse": "Lamzu Atlantis"
+    },
+    {
+      "name": "Aspas",
+      "game": "Valorant",
+      "team": "Leviatán",
+      "dpi": 800,
+      "sens": 0.4,
+      "edpi": 320,
+      "cm360": 40.82,
+      "mouse": "Logitech G Pro X Superlight 2"
+    },
+    {
+      "name": "Demon1",
+      "game": "Valorant",
+      "team": "NRG",
+      "dpi": 1600,
+      "sens": 0.1,
+      "edpi": 160,
+      "cm360": 81.64,
+      "mouse": "G-Wolves HTS+ 4K"
+    },
+    {
+      "name": "Boaster",
+      "game": "Valorant",
+      "team": "Fnatic",
+      "dpi": 800,
+      "sens": 0.25,
+      "edpi": 200,
+      "cm360": 65.31,
+      "mouse": "Logitech G Pro X Superlight"
+    },
+    {
+      "name": "Chronicle",
+      "game": "Valorant",
+      "team": "Fnatic",
+      "dpi": 400,
+      "sens": 0.65,
+      "edpi": 260,
+      "cm360": 50.24,
+      "mouse": "Logitech G Pro X Superlight 2"
+    },
+    {
+      "name": "yay",
+      "game": "Valorant",
+      "team": "G2 Esports",
+      "dpi": 800,
+      "sens": 0.279,
+      "edpi": 223,
+      "cm360": 58.53,
+      "mouse": "Logitech G Pro X Superlight 2"
+    },
+    {
+      "name": "nAts",
+      "game": "Valorant",
+      "team": "Team Spirit",
+      "dpi": 400,
+      "sens": 0.86,
+      "edpi": 344,
+      "cm360": 37.97,
+      "mouse": "Logitech G Pro X Superlight 2"
+    },
+    {
+      "name": "zekken",
+      "game": "Valorant",
+      "team": "MIBR",
+      "dpi": 1600,
+      "sens": 0.175,
+      "edpi": 280,
+      "cm360": 46.65,
+      "mouse": "Razer Viper V3 Pro"
+    },
+    {
+      "name": "Sacy",
+      "game": "Valorant",
+      "team": "LOUD (former)",
+      "dpi": 800,
+      "sens": 0.48,
+      "edpi": 384,
+      "cm360": 34.02,
+      "mouse": "Logitech G Pro X Superlight 2"
+    },
+    {
+      "name": "s1mple",
+      "game": "CS2",
+      "team": "Team Falcons",
+      "dpi": 400,
+      "sens": 3.09,
+      "edpi": 1236,
+      "cm360": 33.63,
+      "mouse": "Logitech G Pro X Superlight 2"
+    },
+    {
+      "name": "NiKo",
+      "game": "CS2",
+      "team": "G2 Esports",
+      "dpi": 400,
+      "sens": 1.4,
+      "edpi": 560,
+      "cm360": 74.22,
+      "mouse": "Zowie EC2-GW"
+    },
+    {
+      "name": "ZywOo",
+      "game": "CS2",
+      "team": "Team Vitality",
+      "dpi": 400,
+      "sens": 2,
+      "edpi": 800,
+      "cm360": 51.95,
+      "mouse": "Pulsar Xlite V3"
+    },
+    {
+      "name": "m0NESY",
+      "game": "CS2",
+      "team": "G2 Esports",
+      "dpi": 400,
+      "sens": 2.3,
+      "edpi": 920,
+      "cm360": 45.18,
+      "mouse": "Logitech G Pro X Superlight 2"
+    },
+    {
+      "name": "dev1ce",
+      "game": "CS2",
+      "team": "Astralis",
+      "dpi": 400,
+      "sens": 1.9,
+      "edpi": 760,
+      "cm360": 54.69,
+      "mouse": "Astralis Fnatic ZOWIE SFK2-NE"
+    },
+    {
+      "name": "ropz",
+      "game": "CS2",
+      "team": "FaZe Clan",
+      "dpi": 400,
+      "sens": 1.09,
+      "edpi": 436,
+      "cm360": 95.33,
+      "mouse": "Logitech G Pro X Superlight 2"
+    },
+    {
+      "name": "broky",
+      "game": "CS2",
+      "team": "FaZe Clan",
+      "dpi": 400,
+      "sens": 1.55,
+      "edpi": 620,
+      "cm360": 67.04,
+      "mouse": "Logitech G Pro X Superlight"
+    },
+    {
+      "name": "karrigan",
+      "game": "CS2",
+      "team": "FaZe Clan",
+      "dpi": 400,
+      "sens": 2.2,
+      "edpi": 880,
+      "cm360": 47.23,
+      "mouse": "Logitech G Pro X Superlight 2"
+    },
+    {
+      "name": "electronic",
+      "game": "CS2",
+      "team": "NAVI",
+      "dpi": 400,
+      "sens": 1.75,
+      "edpi": 700,
+      "cm360": 59.38,
+      "mouse": "Logitech G Pro X Superlight 2"
+    },
+    {
+      "name": "ImperialHal",
+      "game": "Apex Legends",
+      "team": "TSM",
+      "dpi": 400,
+      "sens": 2,
+      "edpi": 800,
+      "cm360": 51.95,
+      "mouse": "Logitech G Pro X Superlight 2"
+    },
+    {
+      "name": "SweetDreams",
+      "game": "Apex Legends",
+      "team": "Sentinels",
+      "dpi": 800,
+      "sens": 1.2,
+      "edpi": 960,
+      "cm360": 43.3,
+      "mouse": "Logitech G Pro X Superlight 2"
+    },
+    {
+      "name": "Someone",
+      "game": "Overwatch 2",
+      "team": "Seoul Dynasty",
+      "dpi": 800,
+      "sens": 5.5,
+      "edpi": 4400,
+      "cm360": 31.49,
+      "mouse": "Logitech G Pro X Superlight 2"
+    },
+    {
+      "name": "Bugha",
+      "game": "Fortnite",
+      "team": "Sentinels",
+      "dpi": 400,
+      "sens": 0.08,
+      "edpi": 32,
+      "cm360": 5144.01,
+      "mouse": "Logitech G Pro X Superlight 2"
+    }
+  ],
+  "tools": [
+    {
+      "name": "Sensitivity Converter",
+      "path": "/"
+    },
+    {
+      "name": "Sens Finder",
+      "path": "/sens-finder/"
+    },
+    {
+      "name": "PSA Calculator",
+      "path": "/psa-calculator/"
+    },
+    {
+      "name": "DPI Guide & eDPI Calculator",
+      "path": "/dpi/"
+    },
+    {
+      "name": "Aim Trainer",
+      "path": "/aim-trainer/"
+    },
+    {
+      "name": "Aim Lab",
+      "path": "/aim-lab/"
+    },
+    {
+      "name": "Mousepad Chart",
+      "path": "/mousepad-chart/"
+    },
+    {
+      "name": "Pro Setups",
+      "path": "/setups/"
+    },
+    {
+      "name": "Gaming Mice Database",
+      "path": "/mouse-database/"
+    },
+    {
+      "name": "Pro Gear Database",
+      "path": "/gear/"
+    },
+    {
+      "name": "CS2 Bind Generator",
+      "path": "/bind-generator/"
+    },
+    {
+      "name": "Crosshair Generator",
+      "path": "/crosshair/"
+    },
+    {
+      "name": "Esports Field Guides Catalog",
+      "path": "/ebooks/"
+    },
+    {
+      "name": "Pro Community & Telemetry Hub",
+      "path": "/community/"
+    }
+  ],
+  "fieldGuides": [
+    {
+      "id": "master-bundle",
+      "title": "The Complete 18-Volume Master Omnibus",
+      "priceUSD": 49.99,
+      "regularPriceUSD": 270.0,
+      "path": "/ebooks/",
+      "stripeUrl": "https://buy.stripe.com/28EcN4fnzarU5xg92c1ck07"
+    },
+    {
+      "id": "valorant-bundle",
+      "title": "Valorant Radiant Protocol (4-Vol Bundle)",
+      "priceUSD": 24.99,
+      "regularPriceUSD": 59.96,
+      "path": "/ebooks/",
+      "stripeUrl": "https://buy.stripe.com/dRm14mfnz6bE8Js3HS1ck09"
+    },
+    {
+      "id": "cs2-bundle",
+      "title": "CS2 Sub-Tick & Counter-Strafe Mastery (3-Vol Bundle)",
+      "priceUSD": 21.99,
+      "regularPriceUSD": 44.97,
+      "path": "/ebooks/",
+      "stripeUrl": "https://buy.stripe.com/3cI8wO1wJcA25xg6U41ck08"
+    },
+    {
+      "id": "apex-warzone-bundle",
+      "title": "Apex & Warzone Rotational Tracking (3-Vol Bundle)",
+      "priceUSD": 21.99,
+      "regularPriceUSD": 44.97,
+      "path": "/ebooks/",
+      "stripeUrl": "https://buy.stripe.com/00w8wOdfreIa6Bk3HS1ck06"
+    },
+    {
+      "id": "hardware-bundle",
+      "title": "Hardware, Glass Pads & Zero-Latency Lab (4-Vol Bundle)",
+      "priceUSD": 24.99,
+      "regularPriceUSD": 59.96,
+      "path": "/ebooks/",
+      "stripeUrl": "https://buy.stripe.com/5kQ28qcbn8jM4tcces1ck05"
+    },
+    {
+      "id": "the-architect-of-precision",
+      "title": "The Architect of Precision (Vol 01)",
+      "priceUSD": 14.99,
+      "path": "/ebooks/the-architect-of-precision/"
+    },
+    {
+      "id": "crosshair-placement-angle-control",
+      "title": "Crosshair Placement & Angle Control (Vol 02)",
+      "priceUSD": 14.99,
+      "path": "/ebooks/crosshair-placement-angle-control/"
+    },
+    {
+      "id": "the-15-minute-aim-warm-up",
+      "title": "The 15-Minute Aim Warm-Up (Vol 03)",
+      "priceUSD": 14.99,
+      "path": "/ebooks/the-15-minute-aim-warm-up/"
+    },
+    {
+      "id": "friction-control-matrix",
+      "title": "Friction & Control Matrix (Vol 04)",
+      "priceUSD": 14.99,
+      "path": "/ebooks/friction-control-matrix/"
+    },
+    {
+      "id": "fps-input-lag-playbook",
+      "title": "FPS & Input Lag Playbook (Vol 05)",
+      "priceUSD": 14.99,
+      "path": "/ebooks/fps-input-lag-playbook/"
+    },
+    {
+      "id": "controller-precision-guide",
+      "title": "Controller Precision Guide (Vol 06)",
+      "priceUSD": 14.99,
+      "path": "/ebooks/controller-precision-guide/"
+    },
+    {
+      "id": "gta-vi-precision-bible",
+      "title": "GTA VI Precision Bible (Vol 07)",
+      "priceUSD": 19.99,
+      "path": "/ebooks/gta-vi-precision-bible/"
+    },
+    {
+      "id": "bf6-ballistics-vehicle-sens",
+      "title": "BF6 Ballistics & Vehicle Sens (Vol 08)",
+      "priceUSD": 14.99,
+      "path": "/ebooks/bf6-ballistics-vehicle-sens/"
+    },
+    {
+      "id": "deadlock-vertical-tracking-handbook",
+      "title": "Deadlock Vertical Tracking Handbook (Vol 09)",
+      "priceUSD": 14.99,
+      "path": "/ebooks/deadlock-vertical-tracking-handbook/"
+    },
+    {
+      "id": "8khz-polling-glass-skates-truth",
+      "title": "The 8000Hz & Glass Skates Truth (Vol 10)",
+      "priceUSD": 14.99,
+      "path": "/ebooks/8khz-polling-glass-skates-truth/"
+    },
+    {
+      "id": "esports-vision-oled-calibration",
+      "title": "Esports Vision & OLED Calibration (Vol 11)",
+      "priceUSD": 14.99,
+      "path": "/ebooks/esports-vision-oled-calibration/"
+    },
+    {
+      "id": "flow-state-anti-tilt-protocol",
+      "title": "Flow State & Anti-Tilt Protocol (Vol 12)",
+      "priceUSD": 14.99,
+      "path": "/ebooks/flow-state-anti-tilt-protocol/"
+    },
+    {
+      "id": "valorant-radiant-micro-adjustments",
+      "title": "Valorant Radiant Micro-Adjustments (Vol 13)",
+      "priceUSD": 14.99,
+      "path": "/ebooks/valorant-radiant-micro-adjustments/"
+    },
+    {
+      "id": "cs2-subtick-counter-strafe-mastery",
+      "title": "CS2 Sub-Tick & Counter-Strafe Mastery (Vol 14)",
+      "priceUSD": 14.99,
+      "path": "/ebooks/cs2-subtick-counter-strafe-mastery/"
+    },
+    {
+      "id": "warzone-bo6-omnimovement-aim",
+      "title": "Warzone & BO6 Omnimovement Aim (Vol 15)",
+      "priceUSD": 14.99,
+      "path": "/ebooks/warzone-bo6-omnimovement-aim/"
+    },
+    {
+      "id": "apex-legends-recoil-smoothing-bible",
+      "title": "Apex Legends Recoil Smoothing Bible (Vol 16)",
+      "priceUSD": 14.99,
+      "path": "/ebooks/apex-legends-recoil-smoothing-bible/"
+    },
+    {
+      "id": "marvel-rivals-overwatch-hero-tracking",
+      "title": "Marvel Rivals & OW2 Hero Tracking (Vol 17)",
+      "priceUSD": 14.99,
+      "path": "/ebooks/marvel-rivals-overwatch-hero-tracking/"
+    },
+    {
+      "id": "fortnite-piece-control-edit-sens",
+      "title": "Fortnite Piece Control & Edit Sens (Vol 18)",
+      "priceUSD": 14.99,
+      "path": "/ebooks/fortnite-piece-control-edit-sens/"
+    }
+  ],
+  "founder": {
+    "name": "Dalto Cardoso",
+    "alternateName": "Dalto Outlier",
+    "role": "Founder & Lead Engineer",
+    "url": "https://dcprosens.com/about/",
+    "sameAs": [
+      "https://www.linkedin.com/in/dalto-cardoso-2a47ab122/",
+      "https://www.instagram.com/dcprosensofficial/",
+      "https://www.tiktok.com/@dcprosens",
+      "https://x.com/dcprosens",
+      "https://dcoutlier.com"
+    ]
+  }
+}

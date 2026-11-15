@@ -88,19 +88,19 @@ export default function NotFound() {
                         desc: 'Valorant → CS2 and more',
                     },
                     {
-                        href: '/sens-finder',
+                        href: '/sens-finder/',
                         icon: '📐',
                         title: 'Sens Finder',
                         desc: 'cm/360 → every game',
                     },
                     {
-                        href: '/mouse-database',
+                        href: '/mouse-database/',
                         icon: '🖱️',
                         title: 'Mouse Database',
                         desc: 'Find your perfect mouse',
                     },
                     {
-                        href: '/pros',
+                        href: '/pros/',
                         icon: '🏆',
                         title: 'Pro Players',
                         desc: 'Copy pro settings',

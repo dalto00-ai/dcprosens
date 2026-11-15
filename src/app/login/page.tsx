@@ -136,7 +136,7 @@ export default function LoginPage() {
     return (
       <div className={styles.loadingContainer}>
         <h1 className={styles.title}>
-          DC<span>PROSENS</span> SaaS
+          DC<span>PROSENS</span>
         </h1>
         <div className={styles.spinner}></div>
         <p>Verifying authentication...</p>
@@ -152,7 +152,7 @@ export default function LoginPage() {
         </Link>
         
         <h1 className={styles.title}>
-          DC<span>PROSENS</span> SaaS
+          DC<span>PROSENS</span>
         </h1>
         <p className={styles.subtitle}>
           {isRegister 

@@ -2,6 +2,8 @@
 // Submits a review — always lands as `status: pending`. Reviews only ever
 // become visible on the site after a human approves them in the Firestore
 // console (see secrets/README.md-adjacent docs / project notes for how).
+require_once __DIR__ . '/lib/secrets.php';
+require_once __DIR__ . '/lib/ratelimit.php';
 require_once __DIR__ . '/lib/firestore.php';
 
 header('Content-Type: application/json; charset=utf-8');
@@ -25,6 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(['error' => 'Method not allowed']);
     exit();
 }
+
+// Reviews land as `status: pending` and need human approval, but an unlimited
+// endpoint still lets a script bury the moderation queue.
+rate_limit_gc();
+rate_limit('submit-review', 3, 3600);
 
 $firebaseClientEmail = getenv('FIREBASE_CLIENT_EMAIL');
 $firebasePrivateKeyB64 = getenv('FIREBASE_PRIVATE_KEY_B64');

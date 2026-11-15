@@ -2,7 +2,15 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import { useAuth } from '@/components/AuthProvider';
+import { trackEvent } from '@/lib/analytics';
 import styles from './StripeCheckoutModal.module.css';
+
+const PLAN_PRICES: Record<StripeCheckoutModalProps['plan'], number> = {
+  monthly: 7.99,
+  annual: 49.00,
+  lifetime: 129,
+  aimlab: 1,
+};
 
 interface StripeCheckoutModalProps {
   isOpen: boolean;
@@ -48,13 +56,11 @@ export const StripeCheckoutModal: React.FC<StripeCheckoutModalProps> = ({
     setLoading(true);
     setError(null);
 
-    // A payment must be tied to a logged-in account — otherwise there is no
-    // way to know who to grant access to once the webhook confirms payment.
-    if (!user) {
-      setError('Please log in first, then come back to subscribe.');
-      setLoading(false);
-      return;
-    }
+    trackEvent('begin_checkout', {
+      currency: 'USD',
+      value: PLAN_PRICES[plan],
+      items: [{ item_id: plan, item_name: `DCPROSENS Pro — ${plan}`, price: PLAN_PRICES[plan] }],
+    });
 
     const initCheckout = async () => {
       try {
@@ -77,17 +83,23 @@ export const StripeCheckoutModal: React.FC<StripeCheckoutModalProps> = ({
 
         // Call Hostinger PHP endpoint for clientSecret
         const currentOrigin = typeof window !== 'undefined' ? window.location.origin : 'https://dcprosens.com';
+        const idToken = user ? await user.getIdToken().catch(() => '') : '';
+        const headers: Record<string, string> = {
+          'Content-Type': 'application/json',
+        };
+        if (idToken) {
+          headers['Authorization'] = `Bearer ${idToken}`;
+        }
+
         const response = await fetch('https://dcprosens.com/api/create-checkout-session.php', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          headers,
           body: JSON.stringify({
             plan,
             origin: currentOrigin,
-            userId: user.uid,
-            email: user.email,
+            email: user?.email || undefined,
             trial: !!trial,
+            idToken: idToken || undefined,
           }),
         });
 
@@ -119,9 +131,10 @@ export const StripeCheckoutModal: React.FC<StripeCheckoutModalProps> = ({
       } catch (err) {
         console.error('Stripe Checkout Error:', err);
         if (isMounted) {
-          const message = err instanceof Error ? err.message : 'Unable to load payment form. Please try again.';
+          const message = err instanceof Error ? err.message : 'We could not open the payment page. Try the button below.';
           setError(message);
           setLoading(false);
+          trackEvent('checkout_failed', { plan, error_message: message });
         }
       }
     };
@@ -170,7 +183,7 @@ export const StripeCheckoutModal: React.FC<StripeCheckoutModalProps> = ({
           {loading && (
             <div className={styles.loadingContainer}>
               <div className={styles.spinner} />
-              <p>Preparing secure checkout...</p>
+              <p>Preparing secure payment...</p>
             </div>
           )}
 
@@ -179,7 +192,7 @@ export const StripeCheckoutModal: React.FC<StripeCheckoutModalProps> = ({
               <p>⚠️ {error}</p>
               {!user ? (
                 <a
-                  href="/login"
+                  href="/login/"
                   style={{
                     display: 'inline-block',
                     marginTop: '0.75rem',
@@ -194,20 +207,46 @@ export const StripeCheckoutModal: React.FC<StripeCheckoutModalProps> = ({
                   Log In
                 </a>
               ) : (
-                <button
-                  onClick={onClose}
-                  style={{
-                    marginTop: '0.75rem',
-                    padding: '0.5rem 1rem',
-                    background: 'rgba(255,255,255,0.1)',
-                    border: '1px solid rgba(255,255,255,0.2)',
-                    color: '#fff',
-                    borderRadius: '8px',
-                    cursor: 'pointer',
-                  }}
-                >
-                  Close
-                </button>
+                <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center', marginTop: '1rem', flexWrap: 'wrap' }}>
+                  <button
+                    onClick={() => {
+                      setError(null);
+                      setLoading(true);
+                      // Trigger re-mount
+                      if (typeof window !== 'undefined') {
+                        const directUrl =
+                          plan === 'annual'
+                            ? process.env.NEXT_PUBLIC_STRIPE_LINK_ANNUAL || 'https://buy.stripe.com/14AcN44IV9nQbVEfqA1ck02'
+                            : process.env.NEXT_PUBLIC_STRIPE_LINK_MONTHLY || 'https://buy.stripe.com/6oUcN44IV9nQcZI4LW1ck00';
+                        window.location.href = directUrl;
+                      }
+                    }}
+                    style={{
+                      padding: '0.6rem 1.2rem',
+                      background: 'var(--primary, #00ff9d)',
+                      color: '#000',
+                      border: 'none',
+                      fontWeight: 700,
+                      borderRadius: '8px',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    Continue to Secure Payment ⚡
+                  </button>
+                  <button
+                    onClick={onClose}
+                    style={{
+                      padding: '0.6rem 1rem',
+                      background: 'rgba(255,255,255,0.1)',
+                      border: '1px solid rgba(255,255,255,0.2)',
+                      color: '#fff',
+                      borderRadius: '8px',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    Close
+                  </button>
+                </div>
               )}
             </div>
           )}

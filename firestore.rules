@@ -1,0 +1,52 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── users/{userId} ──────────────────────────────────
+    match /users/{userId} {
+      // Leitura: apenas o próprio usuário autenticado
+      allow read: if request.auth != null && request.auth.uid == userId;
+
+      // Criação da conta: próprio usuário, forçando subscriptionStatus = "free"
+      allow create: if request.auth != null && request.auth.uid == userId
+                    && request.resource.data.subscriptionStatus == 'free';
+
+      // Atualização: próprio usuário, APENAS campos client-safe.
+      // Bloqueia subscriptionStatus, subscriptionPlan, stripeCustomerId,
+      // stripeSubscriptionId, trialUsedAt, aimLabAccess, aimLabPurchasedAt,
+      // welcomeEmailSentAt, etc. (esses só mudam via Admin SDK / Service Account)
+      allow update: if request.auth != null && request.auth.uid == userId
+                    && request.resource.data.diff(resource.data).affectedKeys()
+                         .hasOnly(['savedSettings', 'savedProfiles', 'aimLabHistory', 'displayName']);
+
+      allow delete: if false;
+    }
+
+    // ── referrals ───────────────────────────────────────
+    match /referrals/{referralId} {
+      allow read: if request.auth != null && request.auth.uid == resource.data.referrerUid;
+      allow write: if false;
+    }
+
+    // ── Coleções exclusivas do backend PHP ───────────────
+    // O backend PHP usa Service Account REST API que ignora Security Rules.
+    // O browser/cliente não pode ler nem escrever diretamente.
+    match /reviews/{doc} {
+      allow read, write: if false;
+    }
+
+    match /leaderboard/{doc} {
+      allow read, write: if false;
+    }
+
+    match /waitlist/{doc} {
+      allow read, write: if false;
+    }
+
+    // ── Default deny para qualquer outra coleção ─────────
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

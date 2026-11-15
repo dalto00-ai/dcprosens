@@ -9,31 +9,31 @@ export interface AffiliateProduct {
 export const mouseProducts: AffiliateProduct[] = [
     {
         id: 'superlight2',
-        badge: '🏆 Escolha dos Pro Players (60g)',
+        badge: '🏆 #1 Pro Player Choice (60g)',
         title: 'Logitech G Pro X Superlight 2',
-        description: 'O mouse mais vencedor do cenário competitivo. Shape icônico, sensor HERO 2 e switches ópticos-mecânicos híbridos.',
-        link: 'https://amzn.to/3PEwF13',
+        description: 'The most winning wireless mouse in competitive esports. Iconic shape, HERO 2 sensor, and hybrid optical-mechanical switches.',
+        link: 'https://www.amazon.com/s?k=Logitech+G+Pro+X+Superlight+2&crid=2W05ETDSY5A47&sprefix=logitech+g+pro+x+superlight+2%2Caps%2C283&linkCode=ll2&tag=dcoutlier-20&linkId=241a3b086376d576196fe5cb5965d762&language=en_US&ref_=as_li_ss_tl',
     },
     {
         id: 'viper-v3-pro',
-        badge: '⚡ Ultra-Leve Campeão de FPS (54g)',
+        badge: '⚡ Ultralight FPS Champion (54g)',
         title: 'Razer Viper V3 Pro',
-        description: 'Rastreador preciso com polling rate sem fio nativo de 8.000 Hz e formato simétrico ergonômico moderno.',
-        link: 'https://amzn.to/3RQtILr',
+        description: 'Flawless sensor with native 8,000Hz wireless polling rate and a modern symmetrical shape built for elite tracking.',
+        link: 'https://www.amazon.com/dp/B0D6PBTCGV?tag=dcoutlier-20&linkCode=ll1&language=en_US&ref_=as_li_ss_tl',
     },
     {
         id: 'deathadder-v3-pro',
-        badge: '👑 Melhor Ergonômico de FPS (63g)',
+        badge: '👑 Best Ergonomic FPS Mouse (63g)',
         title: 'Razer DeathAdder V3 Pro',
-        description: 'Excelente para pegadas palm ou claw que querem apoio anatômico. Sensor Focus Pro 30K de última geração.',
-        link: 'https://amzn.to/4agdh1h',
+        description: 'Engineered for palm and claw grip players needing anatomical support. Flagship Focus Pro 30K optical sensor.',
+        link: 'https://www.amazon.com/s?k=Razer+DeathAdder+V3+Pro&crid=2Z1ISXDJ31S3Q&sprefix=razer+deathadder+v3+pro%2Caps%2C306&linkCode=ll2&tag=dcoutlier-20&linkId=54c54461303a0b73ee33a986c2278f5a&language=en_US&ref_=as_li_ss_tl',
     },
     {
         id: 'lamzu-atlantis-thorn',
-        badge: '🎯 Favorito dos Aimers de Elite (55g)',
+        badge: '🎯 Elite Aimers Favorite (55g)',
         title: 'Lamzu Atlantis OG V2 / Thorn',
-        description: 'Mouse boutique com peso irrisório e base vazada. Pegada traseira perfeita para controle agressivo de claw grip.',
-        link: 'https://amzn.to/4uA6Lut',
+        description: 'Boutique ultralight mouse with locked-in rear hump. Perfect for aggressive claw grip and micro-adjustments.',
+        link: 'https://www.amazon.com/s?k=Lamzu+Atlantis+OG+V2+%2F+Thorn&crid=1P8GVMO3OJXGS&sprefix=lamzu+atlantis+og+v2+%2F+thorn%2Caps%2C316&linkCode=ll2&tag=dcoutlier-20&linkId=e6a607e03c8c2469e84ce990e868fc70&language=en_US&ref_=as_li_ss_tl',
     },
 ];
 
@@ -41,6 +41,6 @@ export const keyboardProduct: AffiliateProduct = {
     id: 'huntsman-v3-pro',
     badge: '⚡ Hall Effect Switches + Rapid Trigger',
     title: 'Razer Huntsman V3 Pro TKL / Wooting 60HE',
-    description: 'Teclado analógico magnético de última geração que ativa e reseta teclas ao menor sinal de toque físico. Recomendação definitiva do cenário profissional de Valorant e CS2.',
-    link: 'https://amzn.to/4dxQksG',
+    description: 'Next-gen magnetic analog switches with instant actuation and rapid reset. The definitive pro choice for CS2 counter-strafing and Valorant movement.',
+    link: 'https://www.amazon.com/s?k=Razer+Huntsman+V3+Pro+TKL+%2F+Wooting+60HE&crid=3JQDK10XU68KN&sprefix=razer+huntsman+v3+pro+tkl+%2F+wooting+60he%2Caps%2C275&linkCode=ll2&tag=dcoutlier-20&linkId=556778575e46f7e86ccb275a12efa92e&language=en_US&ref_=as_li_ss_tl',
 };

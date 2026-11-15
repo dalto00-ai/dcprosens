@@ -2,44 +2,42 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import SensFinderClient from '@/components/SensFinderClient';
 import { sensFinderContent } from '@/lib/sensFinderContent';
-import PremiumGuard from '@/components/PremiumGuard';
+import TrialGate from '@/components/TrialGate';
 
 export const metadata: Metadata = {
-    title: "Sensitivity Finder — cm/360 Calculator",
-    description: "Enter your ideal cm/360 and instantly get your exact in-game sensitivity for Valorant, CS2, Apex Legends, Overwatch 2 and more. One cm/360, all games.",
+    title: "Sensitivity Finder — cm/360 to All Games Calculator | DCPROSENS",
+    description: "Enter your ideal cm/360 and instantly get your exact in-game sensitivity for Valorant, CS2, Apex Legends, Overwatch 2 and 80+ games. One cm/360, all games.",
     keywords: [
-        // Reverse calculator core
         'find my sensitivity', 'sensitivity finder', 'reverse sensitivity calculator',
         'cm360 to sensitivity', 'cm per 360 calculator', 'cm360 calculator all games',
         'find in-game sensitivity from cm360', 'sensitivity from cm per 360',
         'cm360 to valorant sensitivity', 'cm360 to cs2 sensitivity', 'cm360 to apex sensitivity',
-        // Concepts
         'what is cm360', 'cm per 360 gaming', 'centimeters per 360 explained',
         'universal sensitivity standard', 'hardware independent sensitivity', 'physical sensitivity gaming',
         'cm360 pro players', 'what cm360 do pros use', 'best cm360 fps games',
         'pro cm360 valorant', 'pro cm360 cs2', 'cm360 apex legends pros',
-        // Tool features
         'sensitivity calculator all games at once', 'one sensitivity all games',
-        'convert cm360 to all games', 'sensitivity for every game', 'sensitivity calculator free 2025',
+        'convert cm360 to all games', 'sensitivity for every game', 'sensitivity calculator free 2026',
         'dpi 400 sensitivity finder', 'dpi 800 sensitivity finder', 'sensitivity by cm360',
-        // Long tail
-        'how many cm to do 360 gaming', 'mouse movement per 360 degrees',
-        'what cm360 should i use', 'best cm360 for valorant', 'ideal cm360 for cs2',
-        '40cm360 sensitivity valorant', '45cm360 sensitivity', '50cm360 sensitivity cs2',
     ],
     alternates: {
-        canonical: "https://dcprosens.com/sens-finder",
+        canonical: "https://dcprosens.com/sens-finder/",
     },
     openGraph: {
-        title: "Find My Sensitivity — cm/360 Reverse Calculator | DCPROSENS",
+        // Inherited from the root layout only when this page omits openGraph
+        // entirely — declaring the object here replaces the parent's, so the
+        // image has to be restated or the page ships with no og:image at all.
+        images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
+        title: "Sensitivity Finder — cm/360 to All Games Calculator | DCPROSENS",
         description: "Convert your cm/360 to perfect in-game sensitivity settings across all major FPS games instantly.",
         type: "website",
-        url: "https://dcprosens.com/sens-finder",
+        url: "https://dcprosens.com/sens-finder/",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Find My Sensitivity — cm/360 to All Games | DCPROSENS",
+        title: "Sensitivity Finder — cm/360 to All Games | DCPROSENS",
         description: "Enter cm/360, get sensitivities for every game instantly.",
+        images: ["/og-image.png"],
     },
 };
 
@@ -142,9 +140,9 @@ export default function SensFinderPage() {
                 ))}
             </div>
 
-            <PremiumGuard previewTitle="Sens Finder">
+            <TrialGate toolId="sens-finder" previewTitle="Sens Finder">
                 <SensFinderClient />
-            </PremiumGuard>
+            </TrialGate>
 
             {/* PER-GAME DEDICATED PAGES */}
             <div style={{ marginTop: '4rem' }}>
@@ -159,7 +157,7 @@ export default function SensFinderPage() {
                     {sensFinderContent.map((g) => (
                         <Link
                             key={g.gameId}
-                            href={`/sens-finder/${g.gameId}`}
+                            href={`/sens-finder/${g.gameId}/`}
                             style={{
                                 background: 'var(--bg-card)',
                                 border: '1px solid var(--border-color)',

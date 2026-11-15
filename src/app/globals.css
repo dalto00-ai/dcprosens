@@ -1182,3 +1182,60 @@ body.light-theme .home-preview-blur-overlay {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.75) 100%);
 }
 
+
+/* ─────────────────────────────────────────────────────────────────────
+   Accessibility baseline
+   ─────────────────────────────────────────────────────────────────────
+   26 `outline: none` declarations across the CSS modules removed the
+   browser's default focus ring to style inputs, and nothing replaced it —
+   so a keyboard user had no way to see where they were on the page (WCAG
+   2.4.7 Focus Visible). These rules come last in the cascade and use
+   :focus-visible, so the ring appears for keyboard/AT navigation only and
+   never on a plain mouse click. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Skip link — lets keyboard and screen-reader users jump past the nav
+   instead of tabbing through every menu item on every page. Visually
+   hidden until it receives focus. */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 10000;
+  padding: 0.75rem 1.25rem;
+  background: var(--primary);
+  color: #050507;
+  font-weight: 700;
+  border-radius: 0 0 var(--radius-md) 0;
+  text-decoration: none;
+}
+
+.skip-to-content:focus {
+  left: 0;
+}
+
+/* The site runs 19 keyframe animations (floating particles, counters,
+   scroll reveals, gradient shifts). Only one of them honoured a reduced-
+   motion preference; this covers the rest in one place for users who get
+   motion sickness or vestibular symptoms from them. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Partnership Skyscraper side rails for desktop viewports >= 1500px */
+@media (min-width: 1500px) {
+  .partner-rail {
+    display: block !important;
+  }
+}

@@ -4,7 +4,7 @@ export const metadata: Metadata = {
     title: "Privacy Policy",
     description: "Privacy Policy for DCPROSENS. Learn how we handle your data, cookies, analytics and affiliate links.",
     alternates: {
-        canonical: "https://dcprosens.com/privacy",
+        canonical: "https://dcprosens.com/privacy/",
     },
     robots: {
         index: true,
@@ -50,47 +50,68 @@ export default function PrivacyPage() {
                     Most browsers let you refuse or delete cookies through their settings; doing so may affect how some features of the site behave, but the core converter tools will continue to work.
                 </p>
 
-                <h2 style={h2Style}>4. Affiliate Links (Amazon Associates)</h2>
+                <h2 style={h2Style}>4. Google AdSense &amp; DoubleClick DART Cookies</h2>
+                <p>
+                    Google is one of our third-party advertising partners. Google uses cookies, including the <strong>DoubleClick DART cookie</strong>, to serve ads to visitors based upon their visit to <a href="https://dcprosens.com" style={{ color: 'var(--primary)' }}>dcprosens.com</a> and other websites on the internet.
+                </p>
+                <p>
+                    The DART cookie enables Google and its partner ad networks to display relevant advertisements to our users based on their browsing patterns and interests.
+                </p>
+                <p>
+                    Visitors may opt out of the use of the DoubleClick DART cookie and personalized advertising by visiting the official Google Ad and Content Network Privacy Policy and Ads Settings at{' '}
+                    <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)' }}>
+                        adssettings.google.com
+                    </a>. You may also opt out of third-party vendor cookies for personalized advertising through the Digital Advertising Alliance (DAA) opt-out tool at{' '}
+                    <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)' }}>
+                        aboutads.info/choices/
+                    </a>{' '}
+                    and the Network Advertising Initiative (NAI) at{' '}
+                    <a href="https://optout.networkadvertising.org/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)' }}>
+                        optout.networkadvertising.org
+                    </a>.
+                </p>
+
+                <h2 style={h2Style}>5. Affiliate Links (Amazon Associates)</h2>
                 <p>
                     Some pages — such as our gear recommendations and pro-settings guides — contain links to products on Amazon (e.g., mice, mousepads, monitors). DCPROSENS participates in the <strong>Amazon Associates Program</strong>,
                     an affiliate advertising program. If you click one of these links and make a qualifying purchase, we may earn a small commission at no extra cost to you. We only recommend gear we believe is genuinely useful to competitive FPS players,
                     and our recommendations are independent of any commission we may receive.
                 </p>
 
-                <h2 style={h2Style}>5. The Free Ebook Download Form</h2>
+                <h2 style={h2Style}>6. The Free Ebook Download Form</h2>
                 <p>
                     If you choose to download our free ebook (&quot;The Architect of Precision&quot;), we ask for your <strong>name</strong>, <strong>e-mail address</strong>, and <strong>main game</strong>. This information is stored securely on our servers
                     so we can provide the download and, where you have not objected, occasionally share related gaming-sensitivity content. We do not sell this information to third parties.
                     You can request that we delete your data at any time by emailing us at the address below — we will action the request promptly.
                 </p>
 
-                <h2 style={h2Style}>6. Children&apos;s Privacy</h2>
+                <h2 style={h2Style}>7. Children&apos;s Privacy</h2>
                 <p>
                     DCPROSENS is not directed at children under 13 (or the equivalent minimum age in your jurisdiction), and we do not knowingly collect personal information from them.
                     If you believe a child has provided us with personal information, please contact us so we can remove it.
                 </p>
 
-                <h2 style={h2Style}>7. CCPA Privacy Rights (California)</h2>
+                <h2 style={h2Style}>8. CCPA Privacy Rights (California)</h2>
                 <p>
                     Under the CCPA/CPRA, California residents have the right to request that we disclose the categories and specific pieces of personal data we have collected about them, request deletion of that data,
                     and opt out of the sale or sharing of personal information (DCPROSENS does not sell personal information). To exercise any of these rights, please contact us — we aim to respond within one month.
                 </p>
 
-                <h2 style={h2Style}>8. GDPR Data Protection Rights (EEA/UK)</h2>
+                <h2 style={h2Style}>9. GDPR Data Protection Rights (EEA/UK)</h2>
                 <p>
                     If you are located in the EEA or UK, you have the right to access, rectify, erase, restrict or object to the processing of your personal data, and the right to data portability.
                     To exercise any of these rights regarding data you have submitted to us (for example, through the ebook form), please contact us using the details below.
                 </p>
 
-                <h2 style={h2Style}>9. Changes to This Policy</h2>
+                <h2 style={h2Style}>10. Changes to This Policy</h2>
                 <p>
                     We may update this Privacy Policy from time to time to reflect changes in our practices or for legal/regulatory reasons. The &quot;Effective Date&quot; at the top of this page indicates when it was last revised.
                     We encourage you to review this page periodically.
                 </p>
 
-                <h2 style={h2Style}>10. Contact Us</h2>
+                <h2 style={h2Style}>11. Contact Us</h2>
                 <p>
-                    If you have any questions about this Privacy Policy or how your data is handled, please reach us via our <a href="/contact" style={{ color: 'var(--primary)' }}>Contact page</a> or by emailing{' '}
+                    If you have any questions about this Privacy Policy or how your data is handled, please reach us via our <a href="/contact/" style={{ color: 'var(--primary)' }}>Contact page</a> or by emailing{' '}
                     <a href="mailto:support@dcprosens.com" style={{ color: 'var(--primary)' }}>support@dcprosens.com</a>.
                 </p>
             </div>

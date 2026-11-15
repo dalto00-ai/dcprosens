@@ -1,0 +1,9 @@
+# Scoped override for /web-stories/* — these pages are standalone AMP
+# documents (amp-story). The AMP runtime loads from cdn.ampproject.org,
+# which the site-wide CSP in the root .htaccess does not allow. This
+# directory-level policy replaces it just for this subtree so the rest
+# of the site (Stripe checkout, Firebase auth, ads) keeps the stricter,
+# unmodified policy.
+<IfModule mod_headers.c>
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' https://cdn.ampproject.org; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob:; font-src 'self' data:; connect-src 'self' https://cdn.ampproject.org; frame-src 'self' https://cdn.ampproject.org; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+</IfModule>

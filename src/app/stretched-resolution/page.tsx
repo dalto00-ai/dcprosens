@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
     title: "Stretched Resolution Calculator — 4:3 FOV",
-    description: "Calculate how stretching your resolution (e.g., 4:3 in CS2 or R6 Siege) affects your mouse sensitivity. Adjust FOV and calculate m_yaw corrections for a perfect 1:1 feel.",
+    description: "See how a 4:3 stretched resolution in CS2 or Siege changes your effective sensitivity, and get the m_yaw correction for a 1:1 feel.",
     keywords: [
         'stretched resolution sensitivity',
         'cs2 m_yaw calculator',
@@ -28,11 +28,15 @@ export const metadata: Metadata = {
         'horizontal mouse sensitivity stretched'
     ],
     alternates: {
-        canonical: "https://dcprosens.com/stretched-resolution",
+        canonical: "https://dcprosens.com/stretched-resolution/",
     },
     openGraph: {
+        // Inherited from the root layout only when this page omits openGraph
+        // entirely — declaring the object here replaces the parent's, so the
+        // image has to be restated or the page ships with no og:image at all.
+        images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
         title: "Stretched Resolution Sensitivity Calculator — 4:3 FOV & m_yaw | DCPROSENS",
-        description: "Calculate how stretching your resolution (e.g., 4:3 in CS2 or R6 Siege) affects your mouse sensitivity. Adjust FOV and calculate m_yaw corrections for a perfect 1:1 feel.",
+        description: "See how a 4:3 stretched resolution in CS2 or Siege changes your effective sensitivity, and get the m_yaw correction for a 1:1 feel.",
         type: "website",
         url: "https://dcprosens.com/stretched-resolution",
     },
@@ -40,6 +44,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Stretched Resolution Sensitivity Calculator — 4:3 & m_yaw | DCPROSENS",
         description: "Calculate stretch factor, perceived horizontal sensitivity speedup, and m_yaw adjustments for stretched resolution gaming.",
+        images: ["/og-image.png"],
     },
     robots: { index: true, follow: true },
 };
@@ -53,7 +58,7 @@ export default function StretchedResolutionPage() {
                 name: 'DCPROSENS Stretched Resolution Calculator',
                 applicationCategory: 'GameApplication',
                 operatingSystem: 'Web',
-                url: 'https://dcprosens.com/stretched-resolution',
+                url: 'https://dcprosens.com/stretched-resolution/',
                 description: 'Free online stretched resolution sensitivity and m_yaw calculator for CS2, CS:GO, R6 Siege, Valorant and Apex Legends.',
                 featureList: [
                     'Physical stretch factor calculation',
@@ -214,7 +219,7 @@ export default function StretchedResolutionPage() {
                             }}>
                                 Sensitivity Converter
                             </Link>
-                            <Link href="/mouse-database" style={{
+                            <Link href="/mouse-database/" style={{
                                 display: 'inline-block',
                                 border: '1px solid var(--border-color)',
                                 color: 'var(--text-primary)',

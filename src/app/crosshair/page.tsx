@@ -1,17 +1,18 @@
 import type { Metadata } from 'next';
 import CrosshairGenerator from '@/components/CrosshairGenerator';
 import Link from 'next/link';
-import PremiumGuard from '@/components/PremiumGuard';
+import TrialGate from '@/components/TrialGate';
+import ToolExplainer, { type ToolExplainerSection, type ToolExplainerFaq } from '@/components/ToolExplainer';
 
 export const metadata: Metadata = {
     title: 'Crosshair Generator — Valorant & CS2',
-    description: 'Create your perfect gaming crosshair for Valorant and CS2. Customize color, size, gap, thickness and dot. Generate crosshair code instantly. Pro crosshair presets: TenZ, aspas, yay, s1mple.',
+    description: 'Build a Valorant or CS2 crosshair: colour, size, gap, thickness and dot, with an instant share code. Includes pro presets from TenZ, aspas and s1mple.',
     keywords: [
         'valorant crosshair generator',
         'cs2 crosshair generator',
         'custom crosshair maker',
         'valorant crosshair code',
-        'best crosshair valorant 2025',
+        'best crosshair valorant 2026',
         'tenz crosshair code',
         'aspas crosshair',
         'pro crosshair settings',
@@ -23,21 +24,64 @@ export const metadata: Metadata = {
         'crosshair color valorant',
     ],
     alternates: {
-        canonical: 'https://dcprosens.com/crosshair',
+        canonical: 'https://dcprosens.com/crosshair/',
     },
     openGraph: {
-        title: 'Crosshair Generator 2025 — Valorant & CS2 | DCPROSENS',
+        // Inherited from the root layout only when this page omits openGraph
+        // entirely — declaring the object here replaces the parent's, so the
+        // image has to be restated or the page ships with no og:image at all.
+        images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
+        title: 'Crosshair Generator 2026 — Valorant & CS2 | DCPROSENS',
         description: 'Build and copy your perfect crosshair for Valorant and CS2. Pro presets from TenZ, aspas, yay, s1mple. Instant code generation.',
         type: 'website',
-        url: 'https://dcprosens.com/crosshair',
+        url: 'https://dcprosens.com/crosshair/',
     },
     twitter: {
         card: 'summary_large_image',
         title: 'Custom Crosshair Generator — Valorant & CS2 | DCPROSENS',
         description: 'Create & copy pro-level crosshairs for Valorant and CS2. Free online tool.',
+        images: ["/og-image.png"],
     },
     robots: { index: true, follow: true },
 };
+
+
+// Written copy for this page, kept beside the component that renders it.
+// These tool pages shipped with a widget and almost no text, which is what
+// Google's "crawled, not indexed" bucket and AdSense's thin-content rejection
+// were both pointing at.
+const explainerSections: ToolExplainerSection[] = [
+        {
+            heading: "What each property does",
+            body: [
+                <>Gap is the distance between the centre and the start of each line. A wider gap keeps the exact centre of your screen clear, so a distant head is not hidden behind your own crosshair. A tighter gap gives a more precise reference at close range.</>,
+                <>Thickness and length control visibility against busy backgrounds. Thicker survives bright maps; thinner obscures less. Outlines are the compromise — they cost a little cleanliness for a guarantee that the crosshair never disappears into a sandy wall.</>,
+                <>The centre dot helps while you are still learning crosshair placement, because it gives your eye an exact anchor. Many players remove it later, once placement is automatic and the dot is only covering the head they are aiming at.</>,
+            ],
+        },
+        {
+            heading: "Static versus dynamic",
+            body: [
+                <>A dynamic crosshair expands when you move or fire, which is meant to communicate your current inaccuracy. In practice it adds movement to the screen at precisely the moment you need to read it clearly.</>,
+                <>Almost every professional in both games uses a static crosshair. The information a dynamic one provides is something you learn to feel within a few weeks anyway.</>,
+                <>If you are coming from a dynamic crosshair, expect the first few days to feel like you have lost information. That feeling passes; the visual noise it replaces does not come back.</>,
+            ],
+        },
+        {
+            heading: "Colour, which matters more than it looks",
+            body: [
+                <>Cyan and magenta test best across the widest range of maps and vision types, because neither appears often in game environments.</>,
+                <>Green is the most popular choice and collides with foliage on several maps. Red collides with ability effects and with the damage indicator in both games.</>,
+                <>Colourblind players should try the game&apos;s colourblind presets alongside a high-contrast crosshair. Both settings solve the same problem — separating you from the background — from different directions.</>,
+            ],
+        },
+];
+
+const explainerFaqs: ToolExplainerFaq[] = [
+        { q: "How do I use the generated crosshair code?", a: "In Valorant, paste it into Settings, Crosshair, Import Profile Code. In CS2, paste it into the crosshair share code field. Both apply immediately with no restart." },
+        { q: "Should I use a static or dynamic crosshair?", a: "Static, for almost everyone. A dynamic crosshair animates on movement and firing, adding visual noise exactly when you need to read the screen. Nearly every professional in both games uses static." },
+        { q: "Does crosshair size affect accuracy?", a: "Only through visibility — the shot lands where the centre points regardless. Too large and it hides the head you are aiming at; too small and you lose it during fast movement." },
+];
 
 export default function CrosshairPage() {
     const jsonLd = {
@@ -48,7 +92,7 @@ export default function CrosshairPage() {
                 name: 'DCPROSENS Crosshair Generator',
                 applicationCategory: 'GameApplication',
                 operatingSystem: 'Web',
-                url: 'https://dcprosens.com/crosshair',
+                url: 'https://dcprosens.com/crosshair/',
                 description: 'Free online crosshair generator for Valorant and CS2. Customize and copy crosshair codes instantly.',
                 featureList: [
                     'Real-time crosshair preview',
@@ -127,9 +171,9 @@ export default function CrosshairPage() {
 
             {/* Tool */}
             <div className="container" style={{ maxWidth: 1100 }}>
-                <PremiumGuard previewTitle="Crosshair Generator">
+                <TrialGate toolId="crosshair-generator" previewTitle="Crosshair Generator">
                     <CrosshairGenerator />
-                </PremiumGuard>
+                </TrialGate>
             </div>
 
             {/* SEO Article */}
@@ -170,7 +214,7 @@ export default function CrosshairPage() {
                     </ol>
 
                     <h2 style={{ color: 'var(--text-primary)', fontSize: '1.8rem', fontWeight: 700, marginTop: '3rem', marginBottom: '1.5rem' }}>
-                        Pro Crosshair Settings — Valorant 2025
+                        Pro Crosshair Settings — Valorant 2026
                     </h2>
                     <div style={{ overflowX: 'auto', marginBottom: '2rem' }}>
                         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
@@ -237,6 +281,12 @@ export default function CrosshairPage() {
                     </div>
                 </article>
             </div>
+            <ToolExplainer
+                intro={<>Build a Valorant or CS2 crosshair property by property and watch it update live, then copy the share code straight into the game. Every setting here maps to one the game exposes — nothing is invented, and nothing is smoothed over.</>}
+                sections={explainerSections}
+                faqs={explainerFaqs}
+            />
+
         </div>
     );
 }

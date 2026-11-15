@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
-import Script from "next/script";
 import SiteChrome from "@/components/SiteChrome";
 import AnalyticsLoader from "@/components/AnalyticsLoader";
+import CookieConsentBanner from "@/components/CookieConsentBanner";
 import { AuthProvider } from "@/components/AuthProvider";
 import "./globals.css";
 
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
     "fps sensitivity tool",
     "valorant to cs2 converter",
   ],
-  authors: [{ name: "DCPROSENS", url: "https://dcprosens.com" }],
-  creator: "DCPROSENS",
+  authors: [{ name: "Dalto Cardoso", url: "https://dcprosens.com/about/" }],
+  creator: "Dalto Cardoso",
   publisher: "DCPROSENS",
   category: "Gaming Tools",
   classification: "Gaming / FPS / Esports",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://dcprosens.com",
+    url: "https://dcprosens.com/",
     siteName: "DCPROSENS",
     title: "DCPROSENS | Ultimate Sensitivity Converter & DPI Tool",
     description:
@@ -85,17 +85,24 @@ export const metadata: Metadata = {
     },
   },
   other: {
-    "google-adsense-account": "ca-pub-1743865545749571",
+    // AdSense is off. The site was rejected again (thin content, same finding
+    // as Search's "discovered - currently not indexed" bucket), so the account
+    // meta and the adsbygoogle loader in the body were both removed and
+    // Adsterra put in their place. To re-apply, restore this line:
+    //   "google-adsense-account": "ca-pub-1743865545749571",
+    // and the <Script src="...adsbygoogle.js?client=ca-pub-1743865545749571">
+    // that used to sit at the top of <body>. public/ads.txt still carries the
+    // publisher record, so nothing needs doing there.
     "geo.region": "US",
     "geo.placename": "United States",
     "geo.position": "37.0902;-95.7129",
     "ICBM": "37.0902, -95.7129",
   },
   alternates: {
-    canonical: "https://dcprosens.com",
+    canonical: "https://dcprosens.com/",
     languages: {
-      "en-US": "https://dcprosens.com",
-      "x-default": "https://dcprosens.com",
+      "en-US": "https://dcprosens.com/",
+      "x-default": "https://dcprosens.com/",
     },
   },
   manifest: "/manifest.json",
@@ -117,14 +124,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${outfit.variable}`}>
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1743865545749571"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
         <AuthProvider>
           <SiteChrome>{children}</SiteChrome>
+          <CookieConsentBanner />
           <AnalyticsLoader />
         </AuthProvider>
       </body>

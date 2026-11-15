@@ -33,7 +33,7 @@ const MOUSEPADS_DATABASE: Mousepad[] = [
     bestFor: "Control/Medium",
     bestGames: "CS2, Valorant, R6 Siege",
     price: "$65",
-    affiliateLink: "https://www.amazon.com/dp/B07YNQPXJ9",
+    affiliateLink: "https://www.amazon.com/s?k=Artisan+Zero+FX+L&__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=U32I6NZQ1LQ&sprefix=artisan+zero+fx+l%2Caps%2C288&linkCode=ll2&tag=dcoutlier-20&linkId=4e9aa90bb9aab55a7987856146bb6b9a&language=en_US&ref_=as_li_ss_tl",
   },
   {
     id: "artisan-hien",
@@ -47,7 +47,7 @@ const MOUSEPADS_DATABASE: Mousepad[] = [
     speedCategory: "Speed",
     bestFor: "Speed/Hybrid",
     price: "$65",
-    affiliateLink: "https://www.amazon.com/dp/B07YNQPXJ9",
+    affiliateLink: "https://www.amazon.com/s?k=Artisan+Zero+FX+L&__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=U32I6NZQ1LQ&sprefix=artisan+zero+fx+l%2Caps%2C288&linkCode=ll2&tag=dcoutlier-20&linkId=4e9aa90bb9aab55a7987856146bb6b9a&language=en_US&ref_=as_li_ss_tl",
   },
   {
     id: "artisan-otsu",
@@ -61,7 +61,7 @@ const MOUSEPADS_DATABASE: Mousepad[] = [
     speedCategory: "Balanced",
     bestFor: "Balanced",
     price: "$69",
-    affiliateLink: "https://www.amazon.com/dp/B07YNQPXJ9",
+    affiliateLink: "https://www.amazon.com/s?k=Artisan+Zero+FX+L&__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=U32I6NZQ1LQ&sprefix=artisan+zero+fx+l%2Caps%2C288&linkCode=ll2&tag=dcoutlier-20&linkId=4e9aa90bb9aab55a7987856146bb6b9a&language=en_US&ref_=as_li_ss_tl",
   },
   {
     id: "logitech-g640",
@@ -75,7 +75,7 @@ const MOUSEPADS_DATABASE: Mousepad[] = [
     speedCategory: "Control",
     bestFor: "Control",
     price: "$39",
-    affiliateLink: "https://www.amazon.com/dp/B07CX8ZB6J",
+    affiliateLink: "https://www.amazon.com/dp/B0BHMKVF1P?tag=dcoutlier-20&linkCode=ll1&language=en_US&ref_=as_li_ss_tl",
   },
   {
     id: "steelseries-qck-heavy",
@@ -89,7 +89,7 @@ const MOUSEPADS_DATABASE: Mousepad[] = [
     speedCategory: "Pure Control",
     bestFor: "Pure Control",
     price: "$29",
-    affiliateLink: "https://www.amazon.com/dp/B000UEZ36W",
+    affiliateLink: "https://www.amazon.com/s?k=SteelSeries+QcK+Heavy+Large&crid=DXSX0IACYHAN&sprefix=logitech+g840+xl%2Caps%2C312&linkCode=ll2&tag=dcoutlier-20&linkId=a48cafe39b4635e5ac2fa8a5e65b61f2&language=en_US&ref_=as_li_ss_tl",
   },
   {
     id: "zowie-gsr-ii",
@@ -103,7 +103,7 @@ const MOUSEPADS_DATABASE: Mousepad[] = [
     speedCategory: "Pure Control",
     bestFor: "Pure Control",
     price: "$49",
-    affiliateLink: "https://www.amazon.com/dp/B01CQCL5SG",
+    affiliateLink: "https://www.amazon.com/s?k=Zowie+G-SR&crid=2TKWZ6NPUCB7A&sprefix=zowie+g-sr%2Caps%2C324&linkCode=ll2&tag=dcoutlier-20&linkId=2730e4b466fd298ff205f13f23efa60f&language=en_US&ref_=as_li_ss_tl",
   },
   {
     id: "lgg-saturn-pro",
@@ -117,7 +117,7 @@ const MOUSEPADS_DATABASE: Mousepad[] = [
     speedCategory: "Control",
     bestFor: "Control/Medium",
     price: "$59",
-    affiliateLink: "https://www.amazon.com/dp/B0BPMMQYRL",
+    affiliateLink: "https://www.amazon.com/s?k=Lethal+Gaming+Gear+Saturn+Pro&crid=2BFR16P8CWK95&sprefix=lethal+gaming+gear+saturn+pro%2Caps%2C274&linkCode=ll2&tag=dcoutlier-20&linkId=dc58c1950ed239cf2439341974c895fa&language=en_US&ref_=as_li_ss_tl",
   },
   {
     id: "fnatic-dash",
@@ -131,7 +131,7 @@ const MOUSEPADS_DATABASE: Mousepad[] = [
     speedCategory: "Speed",
     bestFor: "Speed",
     price: "$39",
-    affiliateLink: "https://fnatic.com/gear/mousepads",
+    affiliateLink: "https://www.amazon.com/s?k=Fnatic+Dash+gaming+mousepad&tag=dcoutlier-20&language=en_US&ref_=as_li_ss_tl",
   },
   {
     id: "pulsar-es2",
@@ -145,7 +145,7 @@ const MOUSEPADS_DATABASE: Mousepad[] = [
     speedCategory: "Balanced",
     bestFor: "Balanced",
     price: "$45",
-    affiliateLink: "https://www.amazon.com/dp/B0BY4FC5WW",
+    affiliateLink: "https://www.amazon.com/s?k=Logitech+G+PRO+X+2+Lightspeed&__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=3L2SKPEPXI6VY&sprefix=logitech+g+pro+x+2+lightspeed%2Caps%2C277&linkCode=ll2&tag=dcoutlier-20&linkId=e1183a9f6040b0e264a0ec152b2c873e&language=pt_BR&ref_=as_li_ss_tl",
   },
   {
     id: "skypad-glass-3",
@@ -159,7 +159,7 @@ const MOUSEPADS_DATABASE: Mousepad[] = [
     speedCategory: "Pure Speed",
     bestFor: "Pure Speed (Glass)",
     price: "$119",
-    affiliateLink: "https://www.amazon.com/dp/B0B68L8X5C",
+    affiliateLink: "https://www.amazon.com/s?k=SkyPAD+Glass+3.0&crid=1OJNJD4GO53PC&sprefix=skypad+glass+3.0%2Caps%2C284&linkCode=ll2&tag=dcoutlier-20&linkId=4d86c671c29f2b1fa23efd9e2d8a8eb1&language=en_US&ref_=as_li_ss_tl",
   },
   {
     id: "razer-gigantus-v2",
@@ -173,7 +173,7 @@ const MOUSEPADS_DATABASE: Mousepad[] = [
     speedCategory: "Control",
     bestFor: "Control",
     price: "$15",
-    affiliateLink: "https://www.amazon.com/dp/B0885F14KL",
+    affiliateLink: "https://www.amazon.com/s?k=Razer+Gigantus+V2&crid=2C6H67O6UM338&sprefix=razer+gigantus+v2%2Caps%2C275&linkCode=ll2&tag=dcoutlier-20&linkId=0d261bcca918900177c6838d8b2d5043&language=en_US&ref_=as_li_ss_tl",
   },
   {
     id: "artisan-shidenkai-v2",
@@ -187,7 +187,7 @@ const MOUSEPADS_DATABASE: Mousepad[] = [
     speedCategory: "Pure Speed",
     bestFor: "Speed",
     price: "$75",
-    affiliateLink: "https://www.amazon.com/dp/B07YNQPXJ9",
+    affiliateLink: "https://www.amazon.com/s?k=Artisan+Zero+FX+L&__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=U32I6NZQ1LQ&sprefix=artisan+zero+fx+l%2Caps%2C288&linkCode=ll2&tag=dcoutlier-20&linkId=4e9aa90bb9aab55a7987856146bb6b9a&language=en_US&ref_=as_li_ss_tl",
   },
   {
     id: "endgame-emc",
@@ -201,7 +201,7 @@ const MOUSEPADS_DATABASE: Mousepad[] = [
     speedCategory: "Pure Control",
     bestFor: "Pure Control",
     price: "$39",
-    affiliateLink: "https://www.amazon.com/dp/B0C3MBJ64J",
+    affiliateLink: "https://www.amazon.com/s?k=Endgame+Gear+EMC&crid=1XJT5QW83PT3B&sprefix=endgame+gear+emc%2Caps%2C270&linkCode=ll2&tag=dcoutlier-20&linkId=c3039cd5d01f3c5488f5b55c0ac87910&language=en_US&ref_=as_li_ss_tl",
   },
 ];
 

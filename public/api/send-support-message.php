@@ -1,5 +1,7 @@
 <?php
 // Hostinger PHP Endpoint — sends a dashboard support request to support@dcprosens.com
+require_once __DIR__ . '/lib/secrets.php';
+require_once __DIR__ . '/lib/ratelimit.php';
 header('Content-Type: application/json; charset=utf-8');
 
 // CORS: Only allow requests from our own domains
@@ -23,6 +25,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(['error' => 'Method not allowed']);
     exit();
 }
+
+// This one sends real outbound mail from support@dcprosens.com. Abuse here costs
+// the sending domain's reputation, which is slow and expensive to repair.
+rate_limit_gc();
+rate_limit('support-form', 3, 3600);
 
 $hostingerMcpToken = getenv('HOSTINGER_MCP_TOKEN');
 if (!$hostingerMcpToken) {

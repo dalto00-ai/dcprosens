@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
+import { useState } from 'react';
 import { pros, getProGames } from '@/lib/pros';
 
 // ─── Game Badge Colors ─────────────────────────────────────────────────────────
@@ -16,8 +16,13 @@ const GAME_COLORS: Record<string, { bg: string; color: string }> = {
 const ALL_GAMES = ['All', 'Valorant', 'CS2', 'Apex Legends', 'Overwatch 2', 'Fortnite'];
 
 export default function ProsList() {
-    const searchParams = useSearchParams();
-    const activeGame = searchParams.get('game') || 'All';
+    // Local state, not useSearchParams. Reading search params opts a route out
+    // of prerendering, so this page's static HTML contained nothing but the
+    // Suspense fallback — 15 words, with all 24 players missing from the markup
+    // Google receives. Filtering is a client-side view preference; it does not
+    // need to live in the URL, and the ?game= URLs it produced were themselves
+    // being crawled and filed as redirects in Search Console.
+    const [activeGame, setActiveGame] = useState('All');
 
     const filteredPros =
         activeGame === 'All' ? pros : pros.filter((p) => p.game === activeGame);
@@ -32,7 +37,7 @@ export default function ProsList() {
                 '@type': 'WebPage',
                 '@id': 'https://dcprosens.com/pros',
                 url: 'https://dcprosens.com/pros',
-                name: 'Pro Player Sensitivity Settings 2025 — DCPROSENS',
+                name: 'Pro Player Sensitivity Settings 2026 — DCPROSENS',
                 description:
                     'Database of exact sensitivity, DPI, eDPI and cm/360 settings for 20+ professional FPS players in Valorant, CS2, Apex Legends, Overwatch 2 and Fortnite.',
                 inLanguage: 'en-US',
@@ -47,7 +52,7 @@ export default function ProsList() {
             },
             {
                 '@type': 'ItemList',
-                name: 'Pro Player Sensitivity Settings Database 2025',
+                name: 'Pro Player Sensitivity Settings Database 2026',
                 description: 'Complete list of pro player sensitivity, DPI, eDPI and gear settings for top FPS professionals.',
                 url: 'https://dcprosens.com/pros',
                 numberOfItems: pros.length,
@@ -140,9 +145,11 @@ export default function ProsList() {
                 {ALL_GAMES.map(game => {
                     const isActive = activeGame === game;
                     return (
-                        <Link
+                        <button
                             key={game}
-                            href={game === 'All' ? '/pros' : `/pros?game=${encodeURIComponent(game)}`}
+                            type="button"
+                            onClick={() => setActiveGame(game)}
+                            aria-pressed={isActive}
                             style={{
                                 padding: '0.45rem 1.1rem',
                                 borderRadius: 'var(--radius-sm)',
@@ -159,7 +166,7 @@ export default function ProsList() {
                             }}
                         >
                             {game}
-                        </Link>
+                        </button>
                     );
                 })}
             </div>
@@ -176,7 +183,7 @@ export default function ProsList() {
                     return (
                         <Link
                             key={pro.slug}
-                            href={`/pros/${pro.slug}`}
+                            href={`/pros/${pro.slug}/`}
                             style={{ textDecoration: 'none', display: 'block' }}
                         >
                             <article className="pro-card">
@@ -337,7 +344,7 @@ export default function ProsList() {
                         Learn the exact method pros use to calibrate and maintain perfect sensitivity consistency.
                         4-Part Technical Manifesto — only $9.
                     </p>
-                    <Link href="/ebook" style={{
+                    <Link href="/ebook/" style={{
                         display: 'inline-block',
                         padding: '0.8rem 2rem',
                         background: 'var(--primary)',

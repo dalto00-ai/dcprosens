@@ -121,45 +121,45 @@ export default function CpsTest() {
                 >
                     {state === 'idle' ? (
                         <>
-                            <div className={styles.padLabel}>Clique para começar</div>
+                            <div className={styles.padLabel}>Click to start</div>
                             <div className={styles.timeLeft}>{duration}s</div>
                         </>
                     ) : (
                         <>
                             <div className={styles.bigNumber}>{clicks}</div>
-                            <div className={styles.timeLeft}>{timeLeft.toFixed(1)}s restantes</div>
+                            <div className={styles.timeLeft}>{timeLeft.toFixed(1)}s remaining</div>
                         </>
                     )}
                 </div>
             ) : (
                 <div className={styles.resultBox}>
                     <div className={styles.resultValue}>{finalCps.toFixed(2)} CPS</div>
-                    <div className={styles.resultSub}>{clicks} cliques em {duration}s</div>
+                    <div className={styles.resultSub}>{clicks} clicks in {duration}s</div>
 
                     <div className={styles.statsGrid}>
                         <div className={styles.stat}>
-                            <div className={styles.statLabel}>Cliques</div>
+                            <div className={styles.statLabel}>Clicks</div>
                             <div className={styles.statValue}>{clicks}</div>
                         </div>
                         <div className={styles.stat}>
-                            <div className={styles.statLabel}>CPS Médio</div>
+                            <div className={styles.statLabel}>Average CPS</div>
                             <div className={styles.statValue}>{finalCps.toFixed(2)}</div>
                         </div>
                         <div className={styles.stat}>
-                            <div className={styles.statLabel}>Recorde ({duration}s)</div>
+                            <div className={styles.statLabel}>Best ({duration}s)</div>
                             <div className={styles.statValue}>{best ? best.toFixed(2) : finalCps.toFixed(2)}</div>
                         </div>
                     </div>
 
                     <button type="button" className={styles.primaryBtn} onClick={handleReset}>
-                        Tentar Novamente 🔄
+                        Try Again 🔄
                     </button>
                 </div>
             )}
 
             {best !== null && state === 'idle' && (
                 <p style={{ marginTop: '1.25rem', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-                    🏆 Seu recorde em {duration}s: <strong style={{ color: 'var(--primary)' }}>{best.toFixed(2)} CPS</strong>
+                    🏆 Your record in {duration}s: <strong style={{ color: 'var(--primary)' }}>{best.toFixed(2)} CPS</strong>
                 </p>
             )}
         </div>

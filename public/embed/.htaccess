@@ -1,0 +1,21 @@
+# Scoped override for /embed/* — the streamer sensitivity widget.
+#
+# /widget hands people an <iframe src="https://dcprosens.com/embed?..."> to
+# paste into a Twitch panel or a bio link, so this one route has to be
+# framable from any origin. The site-wide policy in the root .htaccess sends
+# X-Frame-Options: DENY plus frame-ancestors 'self', which made that iframe
+# render blank on every site that is not dcprosens.com.
+#
+# The root file tries to carve out this exception with SetEnvIf + env= on the
+# Header directives. That works on Apache but is silently ignored by the
+# LiteSpeed server this site actually runs on — verified against the live
+# response, which still carried DENY on /embed/ after deploying it. A
+# directory-level .htaccess is honoured, which is the same mechanism
+# /web-stories already relies on for its AMP policy.
+#
+# Framing this route is safe: it carries <meta name="robots" content="noindex">,
+# reads only from its own query string, and exposes no account state.
+<IfModule mod_headers.c>
+  Header always unset X-Frame-Options
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://dcprosens.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors *; upgrade-insecure-requests"
+</IfModule>

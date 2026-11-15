@@ -20,19 +20,24 @@ export const metadata: Metadata = {
     'perfect sens for desk space',
   ],
   alternates: {
-    canonical: 'https://dcprosens.com/desk-space-calculator',
+    canonical: 'https://dcprosens.com/desk-space-calculator/',
   },
   openGraph: {
+    // Inherited from the root layout only when this page omits openGraph
+    // entirely — declaring the object here replaces the parent's, so the
+    // image has to be restated or the page ships with no og:image at all.
+    images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
     title: 'Desk Space Sensitivity Calculator — Match DPI & Desk Size | DCPROSENS',
     description: 'Calculate the ideal mouse sensitivity and mousepad size for your physical desk space. Avoid sliding off your desk or hitting your keyboard during intense gaming sessions.',
     type: 'website',
-    url: 'https://dcprosens.com/desk-space-calculator',
+    url: 'https://dcprosens.com/desk-space-calculator/',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Desk Space Sensitivity Calculator | DCPROSENS',
     description: 'Match your mouse sensitivity and DPI with your available desk space. Free gaming tool.',
-  },
+    images: ["/og-image.png"],
+},
   robots: { index: true, follow: true },
 };
 
@@ -45,7 +50,7 @@ export default function DeskSpaceCalculatorPage() {
         name: 'DCPROSENS Desk Space Sensitivity Calculator',
         applicationCategory: 'UtilitiesApplication',
         operatingSystem: 'Web',
-        url: 'https://dcprosens.com/desk-space-calculator',
+        url: 'https://dcprosens.com/desk-space-calculator/',
         description: 'Calculate maximum cm/360 and minimum in-game sensitivity bounds to avoid running out of mousepad space on your desk.',
         featureList: [
           'Desk width input slider (15cm to 100cm)',
@@ -166,7 +171,7 @@ export default function DeskSpaceCalculatorPage() {
           <div style={{ marginTop: '3.5rem', textAlign: 'center', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-lg)', padding: '2rem' }}>
             <h4 style={{ color: 'var(--text-primary)', fontSize: '1.25rem', marginBottom: '0.75rem' }}>Want to check if your computer is bottlenecking your games?</h4>
             <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '0.9rem' }}>Check CPU/GPU compatibility and estimate FPS benchmarks for Valorant, CS2, and Apex Legends.</p>
-            <Link href="/fps-calculator" style={{
+            <Link href="/fps-calculator/" style={{
               display: 'inline-block',
               background: 'var(--primary)',
               color: '#000',

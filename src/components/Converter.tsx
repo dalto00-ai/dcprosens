@@ -32,13 +32,16 @@ function getSensCategory(cm360: number): { label: string; icon: string; color: s
 
 interface ConverterProps {
     initialFromGame?: string;
+    initialToGame?: string;
+    initialSens?: number;
+    initialDpi?: number;
 }
 
-export default function Converter({ initialFromGame }: ConverterProps = {}) {
+export default function Converter({ initialFromGame, initialToGame, initialSens, initialDpi }: ConverterProps = {}) {
     const [fromGame, setFromGame] = useState(initialFromGame ?? 'valorant');
-    const [toGame, setToGame] = useState(initialFromGame === 'csgo' ? 'valorant' : 'csgo');
-    const [sens, setSens] = useState<number | string>(0.5);
-    const [dpi, setDpi] = useState<number | string>(800);
+    const [toGame, setToGame] = useState(initialToGame ?? (initialFromGame === 'csgo' ? 'valorant' : 'csgo'));
+    const [sens, setSens] = useState<number | string>(initialSens ?? 0.5);
+    const [dpi, setDpi] = useState<number | string>(initialDpi ?? 800);
     const [showAllEquivalents, setShowAllEquivalents] = useState(false);
     const [pollingRate, setPollingRate] = useState(1000);
     const [copied, setCopied] = useState(false);
@@ -311,8 +314,18 @@ export default function Converter({ initialFromGame }: ConverterProps = {}) {
                                 {copied ? '✓ Copied' : '📋 Copy'}
                             </button>
                         </div>
+                        <p style={{ fontSize: '0.72rem', color: 'var(--text-secondary)', margin: '0.6rem 0 0' }}>
+                            Calculated from {games.find(g => g.id === fromGame)?.name}&apos;s real yaw constant — <strong style={{ color: 'var(--text-primary)' }}>{games.find(g => g.id === fromGame)?.yaw}°</strong> of camera rotation per mouse count — not a generic multiplier table.
+                        </p>
                     </div>
                 </div>
+
+                <a
+                    href={`/aim-trainer/?dpi=${numericDpi}&sens=${resultSens}`}
+                    className={styles.testInTrainerBtn}
+                >
+                    🎯 Test this sensitivity now in Aim Trainer (free) →
+                </a>
             </div>
 
             {/* QUICK STATS + SENSITIVITY CATEGORY */}
@@ -345,6 +358,23 @@ export default function Converter({ initialFromGame }: ConverterProps = {}) {
                 <div className={styles.sensProAvg}>
                     <span className={styles.sensProAvgLabel}>Pro Average</span>
                     <span className={styles.sensProAvgValue}>42 cm/360°</span>
+                </div>
+            </div>
+
+            {/* VISUAL cm/360 GAUGE — where this lands relative to the pro zone */}
+            <div className={styles.gaugeWrap}>
+                <div className={styles.gaugeTrack}>
+                    <div className={styles.gaugeProZone} style={{ left: '50%', width: '25%' }} />
+                    <div
+                        className={styles.gaugeMarker}
+                        style={{ left: `${Math.min(100, Math.max(0, (Number(fromCm360) / 80) * 100))}%` }}
+                        title={`${fromCm360} cm/360°`}
+                    />
+                </div>
+                <div className={styles.gaugeLabels}>
+                    <span>0 cm</span>
+                    <span className={styles.gaugeProZoneLabel}>Pro Zone (40–60cm)</span>
+                    <span>80cm+</span>
                 </div>
             </div>
 

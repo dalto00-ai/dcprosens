@@ -148,14 +148,14 @@ export default function FpsCalculator() {
         type: 'CPU Upgrade Needed',
         productName: 'AMD Ryzen 7 7800X3D',
         reason: `Your ${cpu.name} is bottlenecks the performance of your ${gpu.name}. To unlock the full potential of your graphics card in ${game.name}, we strongly recommend upgrading to the Ryzen 7 7800X3D — currently the world's best gaming CPU due to its massive 3D V-Cache.`,
-        amazonLink: 'https://www.amazon.com/dp/B0BTZB7F88?tag=dcprosens-20',
+        amazonLink: 'https://www.amazon.com/dp/B0BTZB7F88?tag=dcoutlier-20',
         badge: 'Highly CPU Bound',
       };
     } else if (bottleneckType === 'gpu') {
       const targetGpu = gpu.score < 40 ? 'GeForce RTX 4060' : 'GeForce RTX 4070 Super';
       const targetLink = gpu.score < 40 
-        ? 'https://www.amazon.com/dp/B0C7YPF1K5?tag=dcprosens-20' 
-        : 'https://www.amazon.com/dp/B0CSBDV15F?tag=dcprosens-20';
+        ? 'https://www.amazon.com/dp/B0C7YPGFFW?tag=dcoutlier-20' 
+        : 'https://www.amazon.com/dp/B0CSBDWT1W?tag=dcoutlier-20';
       return {
         type: 'GPU Upgrade Needed',
         productName: `NVIDIA ${targetGpu}`,
@@ -168,7 +168,7 @@ export default function FpsCalculator() {
         type: 'Balanced Setup',
         productName: 'Monitor / RAM Upgrade',
         reason: `Your CPU and GPU are running in great harmony! You have less than 8% bottleneck. If you want further improvements, consider getting low-latency high-speed DDR5 RAM or investing in a premium gaming monitor to match your stellar frame rates.`,
-        amazonLink: 'https://www.amazon.com/s?k=240hz+gaming+monitor&tag=dcprosens-20',
+        amazonLink: 'https://www.amazon.com/s?k=240hz+gaming+monitor&tag=dcoutlier-20',
         badge: 'Perfectly Balanced',
       };
     }

@@ -1,40 +1,48 @@
 import type { Metadata } from 'next';
 import MousepadChart from '@/components/MousepadChart';
 import Link from 'next/link';
+import AffiliateDisclosure from '@/components/AffiliateDisclosure';
 
 export const metadata: Metadata = {
-    title: 'Mousepad Speed Chart — Control vs Speed',
-    description: 'Compare mousepad static friction, dynamic friction, and stopping power. View the ultimate interactive mousepad database with Artisan, SteelSeries, Logitech, and Zowie.',
+    title: "Mousepad Speed Chart & Friction Tier List (Artisan, Zowie, Glass Pads) | DCPROSENS",
+    description: "Interactive Mousepad Speed Chart & Friction Master Sheet. Compare static and dynamic friction across 45+ esports pads including Artisan Zero/Hien/Raiden, Zowie G-SR, LGG Saturn Pro, and Wallhack SP-004.",
     keywords: [
-        'mousepad friction chart',
         'mousepad speed chart',
+        'artisan mousepad chart',
+        'mousepad friction chart',
+        'mousepad tier list',
+        'control vs speed mousepad',
+        'esports mousepad comparison',
         'artisan zero friction',
         'steelseries qck heavy review',
         'zowie gsr ii stopping power',
         'mousepad comparison database',
-        'control vs speed mousepad',
         'gaming mousepad glide test',
         'skypad glass 3.0 friction',
         'best control mousepad',
         'best speed mousepad',
-        'mousepad database 2025',
-        'low friction gaming pad',
+        'mousepad database 2026',
         'artisan hien speed level',
         'stopping power mousepad',
     ],
     alternates: {
-        canonical: 'https://dcprosens.com/mousepad-chart',
+        canonical: 'https://dcprosens.com/mousepad-chart/',
     },
     openGraph: {
-        title: 'Mousepad Friction & Speed Chart 2025 — Control vs Speed | DCPROSENS',
+        // Inherited from the root layout only when this page omits openGraph
+        // entirely — declaring the object here replaces the parent's, so the
+        // image has to be restated or the page ships with no og:image at all.
+        images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
+        title: 'Mousepad Speed Chart & Friction Tier List | DCPROSENS',
         description: 'Compare static friction, dynamic friction, and stopping power of Artisan, SteelSeries, Logitech, and Zowie mousepads. Find the perfect balance.',
         type: 'website',
-        url: 'https://dcprosens.com/mousepad-chart',
+        url: 'https://dcprosens.com/mousepad-chart/',
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Mousepad Friction & Speed Chart | DCPROSENS',
+        title: 'Mousepad Speed Chart & Friction Tier List | DCPROSENS',
         description: 'Compare mousepad friction and stopping power. Artisan, Logitech, Zowie, SteelSeries, and more.',
+        images: ["/og-image.png"],
     },
     robots: { index: true, follow: true },
 };
@@ -54,7 +62,7 @@ export default function MousepadChartPage() {
                 '@type': 'ListItem',
                 'position': 2,
                 'name': 'Mousepad Friction & Speed Chart',
-                'item': 'https://dcprosens.com/mousepad-chart',
+                'item': 'https://dcprosens.com/mousepad-chart/',
             },
         ],
     };
@@ -196,7 +204,7 @@ export default function MousepadChartPage() {
                         <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', marginBottom: '1.5rem' }}>
                             Our Mousepad Size Calculator estimates the minimum physical surface width and height you need based on your exact DPI and sensitivity.
                         </p>
-                        <Link href="/mousepad-calculator" style={{
+                        <Link href="/mousepad-calculator/" style={{
                             display: 'inline-block',
                             background: 'var(--primary)',
                             color: '#000',
@@ -210,6 +218,7 @@ export default function MousepadChartPage() {
                     </div>
                 </article>
             </div>
+            <AffiliateDisclosure />
         </div>
     );
 }

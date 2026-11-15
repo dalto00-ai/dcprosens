@@ -22,22 +22,27 @@ export const metadata: Metadata = {
         'logitech mouse finder',
         'razer mouse finder',
         'mouse size calculator',
-        'fps mouse selector 2025',
+        'fps mouse selector 2026',
         'pro gaming mouse matches'
     ],
     alternates: {
-        canonical: "https://dcprosens.com/mouse-finder",
+        canonical: "https://dcprosens.com/mouse-finder/",
     },
     openGraph: {
-        title: "Mouse Finder Quiz 2025 — Find the Best Gaming Mouse for Your Hand | DCPROSENS",
+        // Inherited from the root layout only when this page omits openGraph
+        // entirely — declaring the object here replaces the parent's, so the
+        // image has to be restated or the page ships with no og:image at all.
+        images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
+        title: "Mouse Finder Quiz 2026 — Find the Best Gaming Mouse for Your Hand | DCPROSENS",
         description: "Take our 4-step ergonomic quiz to find the perfect gaming mouse. Input your hand size and grip style to match with top mice used by FPS professionals.",
         type: "website",
         url: "https://dcprosens.com/mouse-finder",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Mouse Finder Quiz 2025 — Find the Best Gaming Mouse | DCPROSENS",
+        title: "Mouse Finder Quiz 2026 — Find the Best Gaming Mouse | DCPROSENS",
         description: "Take our 4-step ergonomic quiz to find the perfect gaming mouse. Input your hand size and grip style to match with top mice used by FPS professionals.",
+        images: ["/og-image.png"],
     },
     robots: { index: true, follow: true },
 };
@@ -51,7 +56,7 @@ export default function MouseFinderPage() {
                 name: 'DCPROSENS Mouse Finder Quiz',
                 applicationCategory: 'GameApplication',
                 operatingSystem: 'Web',
-                url: 'https://dcprosens.com/mouse-finder',
+                url: 'https://dcprosens.com/mouse-finder/',
                 description: 'Interactive 4-step quiz that matches your hand measurements, grip style, weight preferences, and budget to the best professional gaming mice on the market.',
                 featureList: [
                     'Hand length and width measurement sliders',
@@ -189,7 +194,7 @@ export default function MouseFinderPage() {
                     <div style={{ marginTop: '3.5rem', textAlign: 'center' }}>
                         <p style={{ marginBottom: '1.25rem', color: 'var(--text-secondary)' }}>Want to browse the complete hardware database?</p>
                         <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-                            <Link href="/mouse-database" style={{
+                            <Link href="/mouse-database/" style={{
                                 display: 'inline-block',
                                 background: 'linear-gradient(135deg, #b070ff, var(--primary))',
                                 color: '#000',
@@ -200,7 +205,7 @@ export default function MouseFinderPage() {
                             }}>
                                 View Mouse Database
                             </Link>
-                            <Link href="/sens-finder" style={{
+                            <Link href="/sens-finder/" style={{
                                 display: 'inline-block',
                                 border: '1px solid var(--border-color)',
                                 color: 'var(--text-primary)',

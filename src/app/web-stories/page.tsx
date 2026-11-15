@@ -1,20 +1,51 @@
 import { stories } from '@/lib/stories';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import ToolExplainer, { type ToolExplainerSection, type ToolExplainerFaq } from '@/components/ToolExplainer';
 
 export const metadata: Metadata = {
     title: 'Web Stories — Gaming Sensitivity Tips',
     description: 'Quick visual guides on gaming sensitivity, pro settings, and FPS optimization. Tap through our Web Stories for bite-sized gaming knowledge.',
-    alternates: { canonical: 'https://dcprosens.com/web-stories' },
+    alternates: { canonical: 'https://dcprosens.com/web-stories/' },
     openGraph: {
         title: 'DCPROSENS Web Stories — Gaming Sensitivity Guides',
         description: 'Swipe through quick visual guides on DPI, eDPI, pro sensitivity settings and more.',
         type: 'website',
-        url: 'https://dcprosens.com/web-stories',
+        url: 'https://dcprosens.com/web-stories/',
         siteName: 'DCPROSENS',
         images: [{ url: 'https://dcprosens.com/og-image.png', width: 1024, height: 1024, alt: 'DCPROSENS Web Stories' }],
     },
 };
+
+
+// Written copy for this page, kept beside the component that renders it.
+// These tool pages shipped with a widget and almost no text, which is what
+// Google's "crawled, not indexed" bucket and AdSense's thin-content rejection
+// were both pointing at.
+const explainerSections: ToolExplainerSection[] = [
+        {
+            heading: "What these are for",
+            body: [
+                <>A Web Story is a mobile-first format made of tappable full-screen panels. It suits a concept that has three or four steps and benefits from an image at each one.</>,
+                <>They are not a replacement for the written guides. A story explains what cm/360 is in thirty seconds; the guide explains how to choose yours and why the choice matters.</>,
+                <>Every story links to its full article, so the format is a way in rather than a destination.</>,
+            ],
+        },
+        {
+            heading: "What is covered",
+            body: [
+                <>Fundamentals: what eDPI is, what cm/360 measures, how a mouse sensor actually reads movement.</>,
+                <>Gear: mouse skates and glide, wireless setup, choosing between pads, building a desk that supports the sensitivity you want to use.</>,
+                <>Play: crosshair placement, training your aim like a professional, reading ranked progress honestly.</>,
+            ],
+        },
+];
+
+const explainerFaqs: ToolExplainerFaq[] = [
+        { q: "What is a Web Story?", a: "A mobile-first format made of tappable full-screen panels, designed to be read in under a minute. Each story here links back to the full written guide on the same topic." },
+        { q: "Do I need an app to view them?", a: "No. They open in any browser on any device, though they are designed for a phone screen." },
+        { q: "Are the stories the same as the blog posts?", a: "No. A story covers the core idea in a handful of panels; the article covers the detail, the maths and the edge cases. The story links to the article it summarises." },
+];
 
 export default function WebStoriesIndex() {
     // ✅ ItemList JSON-LD — helps Google index the stories collection
@@ -23,7 +54,7 @@ export default function WebStoriesIndex() {
         '@type': 'ItemList',
         name: 'DCPROSENS Web Stories — Gaming Sensitivity',
         description: 'Visual guides for FPS sensitivity, pro settings and gameplay optimization.',
-        url: 'https://dcprosens.com/web-stories',
+        url: 'https://dcprosens.com/web-stories/',
         numberOfItems: stories.length,
         itemListElement: stories.map((story, i) => ({
             '@type': 'ListItem',
@@ -102,9 +133,14 @@ export default function WebStoriesIndex() {
                     gap: '1.5rem',
                 }}>
                     {stories.map((story) => (
-                        <Link
+                        // Plain <a>, not next/link: these routes are standalone
+                        // AMP HTML files (route.ts), not Next.js pages — the
+                        // client-side router has no RSC data for them, so a
+                        // <Link> soft-navigation fails. A full browser
+                        // navigation is required.
+                        <a
                             key={story.slug}
-                            href={`/web-stories/${story.slug}`}
+                            href={`/web-stories/${story.slug}/`}
                             style={{ textDecoration: 'none', display: 'block' }}
                             aria-label={`Watch Web Story: ${story.title}`}
                         >
@@ -196,7 +232,7 @@ export default function WebStoriesIndex() {
                                     </p>
                                 </div>
                             </article>
-                        </Link>
+                        </a>
                     ))}
                 </div>
             </div>
@@ -212,7 +248,7 @@ export default function WebStoriesIndex() {
                 <h3 style={{ color: '#fff', fontWeight: 800, fontSize: '1.5rem', marginBottom: '1.5rem' }}>
                     Read Our Full Articles
                 </h3>
-                <Link href="/blog" style={{
+                <Link href="/blog/" style={{
                     display: 'inline-block',
                     background: 'linear-gradient(135deg, #00ff9d, #00d4ff)',
                     color: '#000',
@@ -225,6 +261,12 @@ export default function WebStoriesIndex() {
                     Browse 75 Articles →
                 </Link>
             </div>
+            <ToolExplainer
+                intro={<>Short, visual walkthroughs of the topics that are quicker to show than to read: how a mouse sensor works, what eDPI means, how crosshair placement changes a fight. Each is a handful of full-screen panels built for a phone, and each links back to the full written guide if you want the detail.</>}
+                sections={explainerSections}
+                faqs={explainerFaqs}
+            />
+
         </div>
     );
 }

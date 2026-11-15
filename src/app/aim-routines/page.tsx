@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import AimRoutineGenerator from '@/components/AimRoutineGenerator';
 import Link from 'next/link';
-import PremiumGuard from '@/components/PremiumGuard';
+import TrialGate from '@/components/TrialGate';
 
 export const metadata: Metadata = {
     title: "Aim Training Routine Generator",
@@ -14,9 +14,13 @@ export const metadata: Metadata = {
         'how to improve aim', 'aim training spreadsheet', 'mouse control exercises'
     ],
     alternates: {
-        canonical: "https://dcprosens.com/aim-routines",
+        canonical: "https://dcprosens.com/aim-routines/",
     },
     openGraph: {
+        // Inherited from the root layout only when this page omits openGraph
+        // entirely — declaring the object here replaces the parent's, so the
+        // image has to be restated or the page ships with no og:image at all.
+        images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
         title: "Custom Aim Training Routine Generator — Aimlabs & KovaaKs | DCPROSENS",
         description: "Generate a personalized 30-minute aim training routine for KovaaKs and Aimlabs based on your game, rank, and weaknesses.",
         type: "website",
@@ -26,6 +30,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Custom Aim Training Routine Generator — Aimlabs & KovaaKs",
         description: "Get a personalized 30-minute aim training routine for KovaaKs and Aimlabs based on your game and rank.",
+        images: ["/og-image.png"],
     },
     robots: {
         index: true,
@@ -117,9 +122,9 @@ export default function AimRoutinesPage() {
                 Generate a custom 30-minute daily aim training playlist for KovaaKs or Aimlabs optimized for your main game, rank, and mechanical weaknesses.
             </p>
 
-            <PremiumGuard previewTitle="Aim Routine Generator">
+            <TrialGate toolId="aim-routines" previewTitle="Aim Routine Generator">
                 <AimRoutineGenerator />
-            </PremiumGuard>
+            </TrialGate>
 
             <article style={{ marginTop: '5rem', color: 'var(--text-secondary)', lineHeight: 1.8 }}>
                 <h2 style={{ color: 'var(--text-primary)', fontSize: '2rem', fontWeight: 700, marginBottom: '1.5rem' }}>

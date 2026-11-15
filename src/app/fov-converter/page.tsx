@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import FovConverter from '@/components/FovConverter';
+import AdsterraInContent from '@/components/AdsterraInContent';
+import ToolExplainer, { type ToolExplainerSection, type ToolExplainerFaq } from '@/components/ToolExplainer';
 
 export const metadata: Metadata = {
     title: 'FOV Converter — Field of View Calculator',
@@ -12,13 +14,17 @@ export const metadata: Metadata = {
         'aspect ratio fov calculator', 'fov degrees converter',
     ],
     alternates: {
-        canonical: 'https://dcprosens.com/fov-converter',
+        canonical: 'https://dcprosens.com/fov-converter/',
     },
     openGraph: {
+        // Inherited from the root layout only when this page omits openGraph
+        // entirely — declaring the object here replaces the parent's, so the
+        // image has to be restated or the page ships with no og:image at all.
+        images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
         title: 'FOV Converter — Convert Field of View Between Aspect Ratios | DCPROSENS',
         description:
             'Convert your horizontal field of view (FOV) between aspect ratios using the Hor+ scaling formula used by most modern game engines.',
-        url: 'https://dcprosens.com/fov-converter',
+        url: 'https://dcprosens.com/fov-converter/',
         type: 'website',
         siteName: 'DCPROSENS',
     },
@@ -27,8 +33,47 @@ export const metadata: Metadata = {
         title: 'FOV Converter | DCPROSENS',
         description: 'Convert your field of view between aspect ratios instantly.',
         creator: '@dcprosens',
+        images: ["/og-image.png"],
     },
 };
+
+
+// Written copy for this page, kept beside the component that renders it.
+// These tool pages shipped with a widget and almost no text, which is what
+// Google's "crawled, not indexed" bucket and AdSense's thin-content rejection
+// were both pointing at.
+const explainerSections: ToolExplainerSection[] = [
+        {
+            heading: "Why the same FOV number looks different",
+            body: [
+                <>Games measure FOV along different axes. Source games including CS2 quote horizontal FOV; Unreal Engine titles often quote horizontal at a fixed 16:9 and scale from there; several console-first shooters quote vertical.</>,
+                <>That means 90 in one game and 90 in another can produce visibly different amounts of visible world, which is why copying a number between games so often feels wrong.</>,
+                <>Aspect ratio compounds it. A horizontal FOV at 4:3 shows less to the sides than the same figure at 16:9, which is why stretched-resolution players have to think about FOV and sensitivity together.</>,
+            ],
+        },
+        {
+            heading: "How FOV interacts with sensitivity",
+            body: [
+                <>Changing FOV does not change your cm/360 — the camera still rotates the same degrees per mouse count. What changes is how much of your screen a given rotation covers, so the same sensitivity feels slower at a wider FOV.</>,
+                <>This is the most common reason a correctly converted sensitivity feels wrong. The conversion preserved turn distance; the FOV changed how that distance reads.</>,
+                <>If you change FOV, expect roughly a week of recalibration and resist adjusting your sensitivity during it. Changing both at once means you will not know which one to blame.</>,
+            ],
+        },
+        {
+            heading: "Choosing a value",
+            body: [
+                <>Higher FOV shows more of the map and renders every target smaller; lower FOV does the reverse. Players who rely on reacting to flanks tend to prefer higher, players who hold long angles prefer lower.</>,
+                <>Very high FOV introduces noticeable edge distortion, which makes tracking at the screen edges harder rather than easier.</>,
+                <>CS2 fixes FOV for competitive integrity. What you can adjust there is the viewmodel, which changes how much screen your weapon occupies — a real visibility gain often mistaken for an FOV setting.</>,
+            ],
+        },
+];
+
+const explainerFaqs: ToolExplainerFaq[] = [
+        { q: "Does changing FOV change my sensitivity?", a: "Not the number — your cm/360 is identical. But a wider FOV means each degree of rotation covers less of your screen, so the same sensitivity feels slower. Expect about a week of recalibration." },
+        { q: "Why does the same FOV number look different in two games?", a: "Because games measure it along different axes. Some quote horizontal FOV, some vertical, some diagonal, and aspect ratio changes all three. Converting between them is what this tool does." },
+        { q: "What FOV should I use?", a: "Higher shows more of the map with smaller targets; lower does the reverse. Most competitive players sit in the middle of the available range and then leave it alone, because changing it resets how your sensitivity feels." },
+];
 
 export default function FovConverterPage() {
     const jsonLd = {
@@ -39,7 +84,7 @@ export default function FovConverterPage() {
                 name: 'DCPROSENS FOV Converter',
                 applicationCategory: 'GameApplication',
                 operatingSystem: 'Web',
-                url: 'https://dcprosens.com/fov-converter',
+                url: 'https://dcprosens.com/fov-converter/',
                 description: 'Convert horizontal field of view between aspect ratios using Hor+ scaling.',
                 offers: {
                     '@type': 'Offer',
@@ -51,7 +96,7 @@ export default function FovConverterPage() {
                 '@type': 'BreadcrumbList',
                 itemListElement: [
                     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://dcprosens.com' },
-                    { '@type': 'ListItem', position: 2, name: 'FOV Converter', item: 'https://dcprosens.com/fov-converter' },
+                    { '@type': 'ListItem', position: 2, name: 'FOV Converter', item: 'https://dcprosens.com/fov-converter/' },
                 ],
             },
             {
@@ -112,6 +157,8 @@ export default function FovConverterPage() {
 
             <FovConverter />
 
+            <AdsterraInContent />
+
             <div
                 style={{
                     marginTop: '5rem',
@@ -162,6 +209,12 @@ export default function FovConverterPage() {
                     </div>
                 </div>
             </div>
+            <ToolExplainer
+                intro={<>Field of view is quoted three different ways by three different games, and the same number can describe genuinely different images. This converter translates between horizontal, vertical and diagonal FOV at any aspect ratio, so you can carry the same view from one game to another instead of guessing at a slider.</>}
+                sections={explainerSections}
+                faqs={explainerFaqs}
+            />
+
         </div>
     );
 }

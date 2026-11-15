@@ -4,7 +4,7 @@ export const metadata: Metadata = {
     title: "Terms of Service",
     description: "Read the Terms of Service for DCPROSENS. Understand your rights and obligations when using our sensitivity converter and gaming tools.",
     alternates: {
-        canonical: "https://dcprosens.com/terms",
+        canonical: "https://dcprosens.com/terms/",
     },
     robots: {
         index: true,
@@ -63,6 +63,35 @@ export default function TermsPage() {
                 <h2 style={{ color: 'var(--text-primary)', marginTop: '2.5rem', marginBottom: '1.2rem' }}>7. Modifications</h2>
                 <p>
                     DCPROSENS may revise these terms of service for its website at any time without notice. By using this website you are agreeing to be bound by the then current version of these terms of service.
+                </p>
+
+                <h2 style={{ color: 'var(--text-primary)', marginTop: '2.5rem', marginBottom: '1.2rem' }}>8. Subscriptions, Billing &amp; Cancellation</h2>
+                <p>
+                    DCPROSENS offers paid subscription tiers (Monthly, Annual VIP Pass, and Lifetime Founder VIP) that unlock premium features including custom crosshair generators, aim training routines, and ad-free browsing.
+                </p>
+                <p>
+                    All payments are securely processed by Stripe. Subscriptions renew automatically at the end of each billing cycle (monthly or annually) unless cancelled prior to the renewal date. You can cancel your subscription at any time directly through your <a href="/dashboard/" style={{ color: 'var(--primary)' }}>Account Dashboard</a> via the customer billing portal link. Upon cancellation, you will retain full Pro access until the end of your current paid billing period.
+                </p>
+
+                <h2 style={{ color: 'var(--text-primary)', marginTop: '2.5rem', marginBottom: '1.2rem' }}>9. Refund Policy (Digital Goods &amp; Memberships)</h2>
+                <p>
+                    Due to the immediate digital delivery and non-tangible nature of our downloadable PDFs, optimizer scripts, and instant Pro software unlocks, all sales are generally final once access is granted.
+                </p>
+                <p>
+                    However, customer satisfaction is our top priority. We offer a <strong>7-day money-back guarantee</strong> under the following conditions:
+                </p>
+                <ul style={{ listStyle: 'disc', paddingLeft: '2rem', marginTop: '1rem' }}>
+                    <li>You encountered a verified technical defect or billing duplicate that our support team could not resolve;</li>
+                    <li>You request the refund within 7 calendar days of your initial purchase;</li>
+                    <li>For consultation sessions, cancellation must be requested at least 24 hours prior to the scheduled 1:1 call.</li>
+                </ul>
+                <p style={{ marginTop: '1rem' }}>
+                    To request a refund or report a billing issue, email us at <a href="mailto:support@dcprosens.com" style={{ color: 'var(--primary)' }}>support@dcprosens.com</a> with your order email and Stripe invoice reference.
+                </p>
+
+                <h2 style={{ color: 'var(--text-primary)', marginTop: '2.5rem', marginBottom: '1.2rem' }}>10. Contact Us</h2>
+                <p>
+                    For inquiries regarding these Terms of Service or our refund policy, please contact us via our <a href="/contact/" style={{ color: 'var(--primary)' }}>Contact page</a> or directly at <a href="mailto:support@dcprosens.com" style={{ color: 'var(--primary)' }}>support@dcprosens.com</a>.
                 </p>
             </div>
         </div>

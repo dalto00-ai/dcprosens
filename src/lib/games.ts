@@ -177,4 +177,34 @@ export const games: Game[] = [
     { id: 'insurgency2014', name: 'Insurgency (2014)', yaw: 0.022 },
     // Directly reported numeric yaw value (Diesel engine).
     { id: 'payday2', name: 'Payday 2', yaw: 0.0156 },
+    // Unreal Engine 5 tactical extraction shooter - standard 0.005555 scale
+    { id: 'deltaforce', name: 'Delta Force', yaw: 0.005555 },
+    // Embark Studios (same engine technology as THE FINALS) - 0.0066 scale
+    { id: 'arcraiders', name: 'Arc Raiders', yaw: 0.0066 },
+    // Bungie Tiger Engine lineage (same convention as Destiny 2) - 0.0066 scale
+    { id: 'marathon', name: 'Marathon', yaw: 0.0066 },
+    // Unreal Engine 4 Battle Royale - standard 0.005555 scale
+    { id: 'farlight84', name: 'Farlight 84', yaw: 0.005555 },
+    // Tactical cooperative extraction shooter - 0.022 standard scale
+    { id: 'repo', name: 'R.E.P.O.', yaw: 0.022 },
+    // Precision mountain survival FPS - 0.022 standard scale
+    { id: 'peak', name: 'PEAK', yaw: 0.022 },
+    // Unreal Engine 5 rule-bending 5v5 hero shooter - 0.005555 standard scale
+    { id: 'fragpunk', name: 'FragPunk', yaw: 0.005555 },
+    // High-octane cross-play arcade shooter - 0.022 standard scale
+    { id: 'combatmaster', name: 'Combat Master', yaw: 0.022 },
+    // NetEase high-mobility battle royale - 0.005555 standard scale
+    { id: 'bloodstrike', name: 'Blood Strike', yaw: 0.005555 },
+    // Anime tactical shooter with 2D/3D transformation - 0.005555 standard scale
+    { id: 'strinova', name: 'Strinova', yaw: 0.005555 },
+    // Rare / Unreal Engine 4 naval FPS adventure - 0.005555 standard scale
+    { id: 'seaofthieves', name: 'Sea of Thieves', yaw: 0.005555 },
+    // Asymmetrical multiplayer survival horror - 0.005555 standard scale
+    { id: 'deadbydaylight', name: 'Dead by Daylight', yaw: 0.005555 },
+    // Fast-paced retro movement FPS - 0.022 standard scale
+    { id: 'ultrakill', name: 'Ultrakill', yaw: 0.022 },
+    // Dagor Engine WW2 squad tactical shooter - 0.0175 standard scale
+    { id: 'enlisted', name: 'Enlisted', yaw: 0.0175 },
+    // Classic competitive tactical shooter - 0.022 standard scale
+    { id: 'crossfire', name: 'Crossfire', yaw: 0.022 },
 ];

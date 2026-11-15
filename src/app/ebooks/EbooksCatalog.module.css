@@ -1,0 +1,376 @@
+.catalogWrapper {
+  min-height: 100vh;
+  background-color: #07090e;
+  color: #f8fafc;
+  padding: 3rem 1rem 6rem 1rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.headerBlock {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.topBadge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #00ff9d;
+  background: rgba(0, 255, 157, 0.1);
+  border: 1px solid rgba(0, 255, 157, 0.3);
+  padding: 0.35rem 0.85rem;
+  border-radius: 30px;
+  display: inline-block;
+  margin-bottom: 1.25rem;
+}
+
+.headline {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 768px) {
+  .headline {
+    font-size: 2.2rem;
+  }
+}
+
+.subheadline {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+/* MASTER BUNDLE HERO CARD (HIGH TICKET ANCHOR) */
+.bundleHeroCard {
+  background: radial-gradient(circle at 80% 20%, rgba(0, 229, 255, 0.15) 0%, rgba(12, 16, 26, 0.98) 70%);
+  border: 1.5px solid #00ff9d;
+  border-radius: 16px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 0 50px rgba(0, 255, 157, 0.2);
+  margin-bottom: 5rem;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .bundleHeroCard {
+    grid-template-columns: 1fr;
+    padding: 2rem 1.5rem;
+    gap: 2rem;
+  }
+}
+
+.bundleBadge {
+  position: absolute;
+  top: 18px;
+  right: 25px;
+  background: #ff2a5f;
+  color: #fff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(255, 42, 95, 0.4);
+}
+
+.bundleInfo h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+.bundleSubtitle {
+  font-size: 1rem;
+  color: #00e5ff;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.bundleIncludesList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 600px) {
+  .bundleIncludesList {
+    grid-template-columns: 1fr;
+  }
+}
+
+.includeItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #cbd5e1;
+}
+
+.includeItem span:first-child {
+  color: #00ff9d;
+  font-weight: 800;
+}
+
+.bundlePriceBox {
+  background: #090d16;
+  border: 1px solid rgba(0, 255, 157, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+.bundlePriceOld {
+  font-size: 1.1rem;
+  color: #64748b;
+  text-decoration: line-through;
+  margin-bottom: 0.25rem;
+}
+
+.bundlePriceMain {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #00ff9d;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 20px rgba(0, 255, 157, 0.4);
+}
+
+.bundlePriceNote {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+}
+
+.bundleCTA {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #00ff9d 0%, #00e5ff 100%);
+  color: #07090e;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  padding: 1.1rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 0 30px rgba(0, 255, 157, 0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.bundleCTA:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 45px rgba(0, 255, 157, 0.7);
+}
+
+/* SECTION HEADER */
+.catalogHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.catalogH2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.catalogSub {
+  font-size: 0.95rem;
+  color: #94a3b8;
+}
+
+/* THE 6 BOOKS GRID */
+.booksGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+
+@media (max-width: 400px) {
+  .booksGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bookCard {
+  background: #0c101a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.25s, border-color 0.25s;
+  position: relative;
+}
+
+.bookCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 255, 157, 0.35);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.cardMockupWrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.cardMockup {
+  height: 260px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.6));
+}
+
+.cardMetaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.volBadge {
+  color: #00ff9d;
+  font-weight: 700;
+}
+
+.pagesBadge {
+  color: #64748b;
+}
+
+.bookCardTitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+  line-height: 1.2;
+}
+
+.bookCardSubtitle {
+  font-size: 0.85rem;
+  color: #00e5ff;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.bookCardDesc {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.cardActionRow {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cardPriceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.cardPrice {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #00ff9d;
+}
+
+.cardBuyBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #00ff9d;
+  color: #07090e;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  padding: 0.75rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s;
+  text-align: center;
+}
+
+.cardBuyBtn:hover {
+  background: #00e5ff;
+}
+
+.cardDetailsLink {
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.cardDetailsLink:hover {
+  color: #00e5ff;
+}
+
+/* Trust Bar */
+.trustBar {
+  background: #0c101a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.trustItem h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+.trustItem p {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}

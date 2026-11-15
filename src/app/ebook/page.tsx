@@ -1,17 +1,22 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './EbookSales.module.css';
 
 export const metadata: Metadata = {
     title: "The Precision Aim System Ebook",
     description: "Lock in 1:1 aim translation, calibrate angle geometry, and master pro-level muscle memory. Complete 4-part Technical Aim System for just $9.00 USD.",
     alternates: {
-        canonical: "https://dcprosens.com/ebook",
+        canonical: "https://dcprosens.com/ebook/",
     },
     openGraph: {
+        // Inherited from the root layout only when this page omits openGraph
+        // entirely — declaring the object here replaces the parent's, so the
+        // image has to be restated or the page ships with no og:image at all.
+        images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
         title: "The Precision Aim System - 1:1 Aim & Pro Muscle Memory | DCPROSENS",
         description: "Complete 4-part Technical Aim System for tactical FPS. Lock in 1:1 aim for just $9.00 USD.",
-        url: "https://dcprosens.com/ebook",
+        url: "https://dcprosens.com/ebook/",
         type: "website",
     },
     robots: {
@@ -58,6 +63,23 @@ export default function EbookSalesPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
+            {/* NEW RELEASES NOTICE */}
+            <div style={{
+                background: 'rgba(0, 255, 157, 0.1)',
+                border: '1px solid #00ff9d',
+                borderRadius: '8px',
+                padding: '0.85rem 1.25rem',
+                marginBottom: '2rem',
+                textAlign: 'center',
+                fontFamily: "'Space Grotesk', sans-serif"
+            }}>
+                <span style={{ color: '#00ff9d', fontWeight: 800 }}>⚡ NEW 2026 FIELD GUIDES AVAILABLE: </span>
+                <span style={{ color: '#fff' }}>Looking for our individual specialized editions (Input Lag, Aim Warm-Up, Pad Friction, Controller)? </span>
+                <Link href="/ebooks/" style={{ color: '#00e5ff', fontWeight: 700, textDecoration: 'underline', marginLeft: '6px' }}>
+                    Explore All 6 Volumes &amp; Master Bundle ➔
+                </Link>
+            </div>
+
             {/* HERO / VSL HEADLINE */}
             <div className={styles.heroSection}>
                 <span className={styles.promoBadge}>
@@ -97,7 +119,7 @@ export default function EbookSalesPage() {
                     <div style={{ marginBottom: '1.5rem' }}>
                         <span className={styles.priceAnchor}>Regular Price: $49.00 USD</span>
                         <span className={styles.activePrice}>$9.00 USD</span>
-                        <span className={styles.priceSub}>One-time payment • Instant Download via Stripe SSL</span>
+                        <span className={styles.priceSub}>One-time payment • Instant download • Secure encrypted checkout</span>
                     </div>
 
                     <a 
@@ -214,7 +236,7 @@ export default function EbookSalesPage() {
                     Get the 4-Part System for $9 ⚡
                 </a>
                 <p className={styles.scarcityText} style={{ marginTop: '1.25rem' }}>
-                    *Instant global access. Secured with Stripe SSL 256-bit encryption.
+                    *Instant global access. Secured with 256-bit SSL encryption.
                 </p>
             </div>
         </div>

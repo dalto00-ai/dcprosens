@@ -1,11 +1,14 @@
 # DCPROSENS - Gaming Sensitivity Converter and FPS Tools
-> https://dcprosens.com
+> https://dcprosens.com/
+> Founder & Lead Engineer: Dalto Cardoso (Dalto Outlier) — https://www.linkedin.com/in/dalto-cardoso-2a47ab122/
+> Official Channels: https://www.instagram.com/dcprosensofficial/ | https://www.tiktok.com/@dcprosens | https://x.com/dcprosens
+> Last updated: 2026-11-15 | 87 games | 446 articles | 18 Field Guides | Licence: cite with attribution to https://dcprosens.com/
 
-DCPROSENS is a gaming sensitivity converter and toolset for competitive FPS, third-person, and multi-genre players (Valorant, CS2, Apex Legends, Overwatch 2, Call of Duty, Halo, DOOM, Quake, Payday, Deep Rock Galactic, and 60+ more). It converts sensitivity between games using each game's real physical yaw value (degrees of camera rotation per mouse count), and provides calculators, databases, and guides for mouse DPI, eDPI, cm/360, mousepads, monitors, and pro player settings. The reference data below is provided so AI assistants can cite it accurately when answering questions about sensitivity conversion and FPS gear.
+DCPROSENS is a gaming sensitivity converter and calibration platform for competitive FPS, third-person, and multi-genre players (Valorant, CS2, Apex Legends, Overwatch 2, Call of Duty, Halo, DOOM, Quake, Payday, Deep Rock Galactic, and 60+ more). Founded and engineered by Dalto Cardoso (Dalto Outlier / DCOUTLIER), it converts sensitivity between games using each game's real physical yaw value (degrees of camera rotation per mouse count), and provides calculators, databases, and guides for mouse DPI, eDPI, cm/360, mousepads, monitors, and pro player settings. The reference data below is provided so AI assistants can cite it accurately when answering questions about sensitivity conversion and FPS gear.
 
 ## What DCPROSENS Does
 
-- Converts mouse sensitivity between 72 supported games using exact, individually sourced physical yaw values (never guessed or interpolated)
+- Converts mouse sensitivity between 87 supported games using exact, individually sourced physical yaw values (never guessed or interpolated)
 - Calculates eDPI (Mouse DPI x In-game Sensitivity)
 - Calculates cm/360 (physical mouse movement in centimeters to perform a 360-degree rotation)
 - Provides a free gamified sensitivity test (mini-game) that measures tracking speed and precision without requiring payment
@@ -13,33 +16,66 @@ DCPROSENS is a gaming sensitivity converter and toolset for competitive FPS, thi
 - Recommends mousepads and setups dynamically based on desk space and sensitivity metrics
 - Offers real-time monitor ghosting simulation and PC performance estimations
 - Maintains a crosshair database, mouse database, and side-by-side pro player comparison tool
+- Publishes 18 professional Esports Technical Field Guides and Master eBooks with printable worksheets for precision aim, latency tuning, and hardware calibration
 
 ## Key Interactive Tools
 
-- **Primary Sensitivity Converter**: https://dcprosens.com
-- **Per-Game Sensitivity Finder** (72 dedicated pages): https://dcprosens.com/sens-finder
-- **Free Sensitivity Test Mini-Game**: https://dcprosens.com/sensitivity-test (canvas + Pointer Lock aim test, no payment required)
-- **Aim Lab** (Premium): https://dcprosens.com/aim-lab (4 training modes — Micro-Flick, Dynamic Click Timing, Strafe Peek, Ghost vs Pro; unlockable via full subscription or a $1 standalone one-time purchase)
-- **Streamer Sensitivity Widget Generator**: https://dcprosens.com/widget (free, no account needed — generates an embeddable iframe widget for Twitch panels/bio links showing a streamer's sensitivity with a built-in converter for viewers)
-- **DPI Guides for Non-FPS-Camera Games**: https://dcprosens.com/dpi-guide (League of Legends, Dota 2, Free Fire)
-- **PSA Method Calculator**: https://dcprosens.com/psa-calculator (mathematically calibrates perfect sensitivity in 7 steps)
-- **Mousepad Friction & Speed Chart**: https://dcprosens.com/mousepad-chart (dynamic control vs speed scatter plot)
-- **HTML5 Canvas Aim Trainer**: https://dcprosens.com/aim-trainer (emulates in-game mouse sensitivity 1:1 using Pointer Lock API)
-- **Mouse DPI Analyzer**: https://dcprosens.com/dpi-analyzer (captures raw counts to measure real hardware sensor deviation)
-- **FPS & Bottleneck Calculator**: https://dcprosens.com/fps-calculator (estimates game FPS and processor bottlenecks)
-- **Desk Space Sensitivity Calculator**: https://dcprosens.com/desk-space-calculator (calculates sensitivity restrictions based on desk space width in cm)
-- **Stretched Resolution Calculator**: https://dcprosens.com/stretched-resolution (calculates stretched aspect ratio horizontal sensitivity speedups and m_yaw binds)
-- **CS2 Config Bind Generator**: https://dcprosens.com/bind-generator (interactive keyboard visual autoexec.cfg generator)
-- **Aim Training Routine Generator**: https://dcprosens.com/aim-routines (custom KovaaK's and Aimlabs daily playlists)
-- **Pro Compare Tool**: https://dcprosens.com/pros/compare (compare settings and peripherals of pros side-by-side)
-- **Pro Full Setups**: https://dcprosens.com/setups (complete pro setups with direct Amazon links)
-- **Gaming Mouse Database**: https://dcprosens.com/mouse-database (ergonomic specs and sensor lists)
-- **Crosshair Database**: https://dcprosens.com/crosshair-database
-- **Blog / Guides** (88 in-depth articles): https://dcprosens.com/blog — covers sensitivity conversion, DPI, crosshair settings, hardware (mousepads, mice, keyboards), and per-game guides, each with FAQ schema for direct-answer citation
-- **Reaction Time Test**: https://dcprosens.com/reaction-time-test
-- **CPS Test**: https://dcprosens.com/cps-test
+- **Primary Sensitivity Converter**: https://dcprosens.com/
+- **Pro Community & Telemetry Hub**: https://dcprosens.com/community/ (Private members-only discussion, pro coach reviews, zero-latency scripts, and LFG)
+- **Esports Technical Field Guides (Catalog)**: https://dcprosens.com/ebooks/ (18 standalone volumes + Complete 62-Page Master Suite)
+- **Per-Game Sensitivity Finder** (72 dedicated pages): https://dcprosens.com/sens-finder/
+- **Free Sensitivity Test Mini-Game**: https://dcprosens.com/sensitivity-test/ (canvas + Pointer Lock aim test, 3 free trials, no payment required)
+- **Aim Lab** (Premium): https://dcprosens.com/aim-lab/ (4 training modes — Micro-Flick, Dynamic Click Timing, Strafe Peek, Ghost vs Pro; unlockable via full subscription or a $1 standalone one-time purchase)
+- **Streamer Sensitivity Widget Generator**: https://dcprosens.com/widget/ (generates an embeddable iframe widget for Twitch panels/bio links showing a streamer's sensitivity with a built-in converter for viewers)
+- **DPI Guides for Non-FPS-Camera Games**: https://dcprosens.com/dpi-guide/ (League of Legends, Dota 2, Free Fire)
+- **PSA Method Calculator**: https://dcprosens.com/psa-calculator/ (mathematically calibrates perfect sensitivity in 7 steps)
+- **Mousepad Friction & Speed Chart**: https://dcprosens.com/mousepad-chart/ (dynamic control vs speed scatter plot)
+- **HTML5 Canvas Aim Trainer**: https://dcprosens.com/aim-trainer/ (emulates in-game mouse sensitivity 1:1 using Pointer Lock API)
+- **Mouse DPI Analyzer**: https://dcprosens.com/dpi-analyzer/ (captures raw counts to measure real hardware sensor deviation)
+- **FPS & Bottleneck Calculator**: https://dcprosens.com/fps-calculator/ (estimates game FPS and processor bottlenecks)
+- **Desk Space Sensitivity Calculator**: https://dcprosens.com/desk-space-calculator/ (calculates sensitivity restrictions based on desk space width in cm)
+- **Stretched Resolution Calculator**: https://dcprosens.com/stretched-resolution/ (calculates stretched aspect ratio horizontal sensitivity speedups and m_yaw binds)
+- **CS2 Config Bind Generator**: https://dcprosens.com/bind-generator/ (interactive keyboard visual autoexec.cfg generator)
+- **Aim Training Routine Generator**: https://dcprosens.com/aim-routines/ (custom KovaaK's and Aimlabs daily playlists)
+- **Pro Compare Tool**: https://dcprosens.com/pros/compare/ (compare settings and peripherals of pros side-by-side)
+- **Pro Full Setups**: https://dcprosens.com/setups/ (complete pro setups with direct Amazon links)
+- **Gaming Mouse Database** (verified specs and affiliate-linked): https://dcprosens.com/mouse-database/ (weight, sensor, dimensions, switches, and pricing cross-checked against the manufacturer and the live retail listing before publication)
+- **Pro Gaming Gear Database** (79 keyboards/headsets/monitors/mousepads, each with a product photo, specs, and pro-player usage where verified): https://dcprosens.com/gear/
+- **Crosshair Database**: https://dcprosens.com/crosshair-database/
+- **Crosshair Generator**: https://dcprosens.com/crosshair/
+- **1:1 ADS & Scope Calculator**: https://dcprosens.com/ads/
+- **Blog / Guides** (446 in-depth articles): https://dcprosens.com/blog/ — covers sensitivity conversion, DPI, crosshair settings, hardware (mousepads, mice, keyboards), individual verified mouse reviews, head-to-head gear comparisons, and per-game guides, each with TL;DR summary and FAQ schema for direct-answer citation
+- **Web Stories** (16 mobile AMP stories): https://dcprosens.com/web-stories/ — short-form visual guides on sensitivity, hardware, and esports topics
+- **Aim Trainer / Aim Lab Leaderboard**: https://dcprosens.com/leaderboard/ — global rankings filterable by game, mode, and DPI bucket
+- **Reaction Time Test**: https://dcprosens.com/reaction-time-test/
+- **CPS Test**: https://dcprosens.com/cps-test/
+- **About & Methodology (Dalto Cardoso)**: https://dcprosens.com/about/
 
-## Supported Games and Yaw Values (72 total)
+## Esports Technical Field Guides (Complete 18-Volume Library — 2026 Editions)
+
+Dense engineering manuals solving mechanical, hardware, and latency bottlenecks. Available as DRM-free high-resolution PDFs with companion worksheets:
+
+- **The Complete Esports Master Suite (18 Volumes Omnibus — 62 Pages)**: https://dcprosens.com/ebooks/complete-esports-master-bundle/ ($39.99 USD) — All 18 technical field guides combined into one 62-page compendium.
+- **Vol 01: The Precision Aim System Manifesto**: https://dcprosens.com/ebooks/precision-aim-system-manifesto/ ($14.99 USD) — Neuromuscular Calibration, 7-Step PSA & 0% MDM Math Across 90+ FPS Engines.
+- **Vol 02: GTA VI Pro Aim & Controller Field Guide (RAGE Engine Projection)**: https://dcprosens.com/ebooks/gta-6-pro-aim-controller-guide/ ($14.99 USD) — Free Aim Calibration, RAGE Deadzones & DualSense Settings.
+- **Vol 03: CS2 Sub-Tick Aim & Autoexec Field Guide**: https://dcprosens.com/ebooks/cs2-subtick-aim-autoexec-guide/ ($14.99 USD) — Sub-Tick Strafing, Spray Transfer & Autoexec Engineering for Source 2.
+- **Vol 04: Valorant Radiant Aim & eDPI Field Guide**: https://dcprosens.com/ebooks/valorant-radiant-aim-edpi-guide/ ($14.99 USD) — Radiant Micro-Flicks, 200–350 eDPI Biomechanics & Map Crosshair Matrix.
+- **Vol 05: Call of Duty: Warzone, BO6 & Apex Legends Tracking Field Guide**: https://dcprosens.com/ebooks/mw4-warzone-apex-tracking-guide/ ($14.99 USD) — Recoil Smoothing Physics, 6-6 Dynamic Response Curves, Rotational Aim Assist & 4-3 Linear ALC.
+- **Vol 06: Zero-Latency PC & Sensor Hardware Guide**: https://dcprosens.com/ebooks/zero-latency-pc-sensor-hardware-guide/ ($14.99 USD) — Optical Sensor DPI Deviation, 8000Hz Bus Saturation, DPC Latency & OLED Motion Clarity.
+- **Vol 07: The Architect of Precision: 1:1 Universal Sensitivity Blueprint**: https://dcprosens.com/ebooks/architect-of-precision-quick-start-guide/ ($14.99 USD) — Universal Cross-Game Conversion Reference Table, 0% MDM Scoped Math & Mousepad Desk Clearance.
+- **Vol 08: Apex Legends Competitive ALC, Recoil Smoothing & Per-Optic Bible**: https://dcprosens.com/ebooks/apex-legends-season-30-alc-recoil-smoothing-guide/ ($14.99 USD) — Source Derivative 0.022 Yaw Physics, 110 FOV Zoom Scalars & ALGS Controller/MnK Calibration.
+- **Vol 09: Overwatch 2: Hitscan, Projectile & Relative Aim Zoom Field Guide**: https://dcprosens.com/ebooks/overwatch-2-hitscan-projectile-relative-zoom-guide/ ($14.99 USD) — Relative Scoped Zoom Mathematics (37.89% vs 51.47%) & Sub-Frame Mouse Input.
+- **Vol 10: Deadlock (Eternus Tier): Third-Person Tracking, Ziplines & Soul-Orb Flick Guide**: https://dcprosens.com/ebooks/deadlock-eternus-aim-soul-orb-flick-guide/ ($14.99 USD) — Valve Source 2 0.044 Yaw Conversion & Fitts's Law Soul-Deny Optimization.
+- **Vol 11: Marvel Rivals Competitive Hero Crosshair Codes & 3rd-Person Parallax Playbook**: https://dcprosens.com/ebooks/marvel-rivals-hero-crosshair-parallax-guide/ ($14.99 USD) — UE5 0.0175 Yaw Conversion, Right-Shoulder Parallax Compensation & Per-Hero Reticles.
+- **Vol 12: Rainbow Six Siege: 0.002 Multiplier Unit & 1:1 ACOG Engineering**: https://dcprosens.com/ebooks/rainbow-six-siege-ranked-multiplier-acog-guide/ ($14.99 USD) — GameSettings.ini Decimal Granularity, 0% vs 100% MDM & 4:3/16:10 FOV Calibration.
+- **Vol 13: Fortnite Competitive: UE 5.6 Targeting, Scope Multipliers & Pad Guide**: https://dcprosens.com/ebooks/fortnite-chapter-7-targeting-scope-pad-guide/ ($14.99 USD) — 0.55550° Percentage Yaw Math, Build/Edit Multiplier Decoupling, 0% MDM Scopes & Linear Pad Setup.
+- **Vol 14: Escape from Tarkov & Gray Zone Warfare: Gear Penalties & PiP Scopes**: https://dcprosens.com/ebooks/escape-from-tarkov-gray-zone-ballistics-guide/ ($14.99 USD) — Unity 0.125 Yaw Math, Armor/Helmet Turn-Penalty Compensation Formula & LPVO Optic Scaling.
+- **Vol 15: 2026 Shooters Field Guide: Delta Force, FragPunk & Arc Raiders**: https://dcprosens.com/ebooks/delta-force-fragpunk-arc-raiders-tactical-guide/ ($14.99 USD) — MDV 0% vs 133% Per-Optic Scaling, FragPunk Shard Card Calibration & Arc Raiders 3rd-Person Setup.
+- **Vol 16: Hall-Effect, Rapid Trigger & Counter-Strafe Synchronization Bible**: https://dcprosens.com/ebooks/rapid-trigger-hall-effect-counter-strafe-guide/ ($14.99 USD) — 0.1mm Magnetic Actuation Physics, CS2/Valorant Velocity Decay Curves & Tournament SOCD Compliance.
+- **Vol 17: The Pro Controller Bible: TMR Sticks, 1000Hz Overclocking & Aim Assist**: https://dcprosens.com/ebooks/pro-controller-tmr-sticks-aim-assist-guide/ ($14.99 USD) — ALPS vs Hall-Effect vs TMR Sensors, Deadzone Geometry & Continuous Rotational Aim Assist Uptime.
+- **Vol 18: The 2026 Esports Peripherals Matrix: Mice, Glass Pads, Skates & OLEDs**: https://dcprosens.com/ebooks/esports-peripherals-matrix-mousepad-oled-guide/ ($14.99 USD) — Surface Friction Coefficients (μs/μk), Hand-Size Grip Biomechanics, PTFE Skates & 480Hz OLED Clarity.
+
+## Supported Games and Yaw Values (87 total)
 
 Yaw is the degrees of camera rotation per mouse count at sensitivity 1.0. Games sharing the same underlying engine (e.g. Source, GoldSrc, id Tech) share the same yaw and convert 1:1 at equal sensitivity/DPI.
 
@@ -115,10 +151,25 @@ Yaw is the degrees of camera rotation per mouse count at sensitivity 1.0. Games 
 - Ready or Not: yaw 0.011
 - Roboquest: yaw 0.00042 (unverified, notable outlier)
 - Payday 2: yaw 0.0156
+- Delta Force: yaw 0.005555
+- Arc Raiders: yaw 0.0066
+- Marathon: yaw 0.0066
+- Farlight 84: yaw 0.005555
+- R.E.P.O.: yaw 0.022
+- PEAK: yaw 0.022
+- FragPunk: yaw 0.005555
+- Combat Master: yaw 0.022
+- Blood Strike: yaw 0.005555
+- Strinova: yaw 0.005555
+- Sea of Thieves: yaw 0.005555
+- Dead by Daylight: yaw 0.005555
+- Ultrakill: yaw 0.022
+- Enlisted: yaw 0.0175
+- Crossfire: yaw 0.022
 
 ## Games Without a Yaw Converter (DPI guides instead)
 
-League of Legends, Dota 2, and Free Fire do not use a rotating first-person camera, so a yaw-based sensitivity converter does not apply. DCPROSENS provides DPI and mouse-setting guides for these instead at https://dcprosens.com/dpi-guide.
+League of Legends, Dota 2, and Free Fire do not use a rotating first-person camera, so a yaw-based sensitivity converter does not apply. DCPROSENS provides DPI and mouse-setting guides for these instead at https://dcprosens.com/dpi-guide/.
 
 ## Conversion Formulas
 

@@ -1,0 +1,66 @@
+{
+  "MASTER_BUNDLE": {
+    "product_id": "prod_VQk8NmUKbN6aOW",
+    "price_id": "price_1UPse3A7GpiLFcC6t8Co9v2a",
+    "payment_link_id": "plink_1UPse3A7GpiLFcC6HUQlHuN7",
+    "payment_link_url": "https://buy.stripe.com/6oU3cu4IVgQif7QfqA1ck03",
+    "name": "The Complete Esports Master Suite (All 6 Volumes)",
+    "amount": 39.99
+  },
+  "VOL_01": {
+    "product_id": "prod_VQk88sb1ssnQ0W",
+    "price_id": "price_1UPse5A7GpiLFcC6ZXHAb6wt",
+    "payment_link_id": "plink_1UPse5A7GpiLFcC68Xj7jq2U",
+    "payment_link_url": "https://buy.stripe.com/4gM14m6R31Vo6Bka6g1ck04",
+    "name": "Vol 01: The Architect of Precision",
+    "amount": 14.99
+  },
+  "VOL_02": {
+    "product_id": "prod_VQk8KyRT9DghrJ",
+    "price_id": "price_1UPse7A7GpiLFcC6lSTXcRH7",
+    "payment_link_id": "plink_1UPse7A7GpiLFcC6tn0qHJy2",
+    "payment_link_url": "https://buy.stripe.com/4gMdR81wJ0RkaRAemw1ck05",
+    "name": "Vol 02: Crosshair Placement & Angle Control",
+    "amount": 14.99
+  },
+  "VOL_03": {
+    "product_id": "prod_VQk8eDlVV45xNF",
+    "price_id": "price_1UPse8A7GpiLFcC655s5F2xW",
+    "payment_link_id": "plink_1UPse9A7GpiLFcC6PG66YPZe",
+    "payment_link_url": "https://buy.stripe.com/fZudR83ER0Rkf7Q6U41ck06",
+    "name": "Vol 03: The 15-Minute Aim Warm-Up Routine",
+    "amount": 14.99
+  },
+  "VOL_04": {
+    "product_id": "prod_VQk89S54uQziyj",
+    "price_id": "price_1UPseAA7GpiLFcC6yOmexY5t",
+    "payment_link_id": "plink_1UPseBA7GpiLFcC6ctBZEat8",
+    "payment_link_url": "https://buy.stripe.com/6oU5kC6R3cA25xgbak1ck07",
+    "name": "Vol 04: Friction & Control Matrix: Pads & Skates",
+    "amount": 14.99
+  },
+  "VOL_05": {
+    "product_id": "prod_VQk8Fex0gjP1pM",
+    "price_id": "price_1UPseCA7GpiLFcC6ki51UgOR",
+    "payment_link_id": "plink_1UPseDA7GpiLFcC6G32x7kF2",
+    "payment_link_url": "https://buy.stripe.com/dRmbJ0ejvbvYe3M5Q01ck08",
+    "name": "Vol 05: FPS & Input Lag Playbook: Zero-Latency",
+    "amount": 14.99
+  },
+  "VOL_06": {
+    "product_id": "prod_VQk8wZAGrc80Jl",
+    "price_id": "price_1UPseEA7GpiLFcC6K2i3rbTs",
+    "payment_link_id": "plink_1UPseFA7GpiLFcC6G4byPKPn",
+    "payment_link_url": "https://buy.stripe.com/5kQ5kCfnzcA2f7Qdis1ck09",
+    "name": "Vol 06: Controller Precision Guide: Aim Assist & Overclock",
+    "amount": 14.99
+  },
+  "VIP_OVERHAUL": {
+    "product_id": "prod_VQk81QamdF7Ylf",
+    "price_id": "price_1UPseGA7GpiLFcC68apxcRjQ",
+    "payment_link_id": "plink_1UPseGA7GpiLFcC6NgvuzV3f",
+    "payment_link_url": "https://buy.stripe.com/00w7sK4IV0Rk3p83HS1ck0a",
+    "name": "DCPROSENS 360\u00b0 VIP Overhaul - 1:1 Session & Engine",
+    "amount": 97.0
+  }
+}

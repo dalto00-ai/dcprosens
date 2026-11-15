@@ -73,37 +73,40 @@ export default function Navbar() {
                             <Link href="/" className={`${styles.dropdownItem} ${pathname === '/' ? styles.activeItem : ''}`} prefetch={false}>
                                 🎯 Sensitivity Converter
                             </Link>
-                            <Link href="/aim-trainer" className={`${styles.dropdownItem} ${pathname === '/aim-trainer' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/aim-trainer/" className={`${styles.dropdownItem} ${(pathname === '/aim-trainer' || pathname === '/aim-trainer/') ? styles.activeItem : ''}`} prefetch={false}>
                                 🎮 Online 3D Aim Trainer <span style={{ fontSize: '0.68rem', background: '#00ff9d', color: '#000', padding: '0.15rem 0.4rem', borderRadius: '4px', fontWeight: 800, marginLeft: '0.4rem' }}>FREE</span>
                             </Link>
-                            <Link href="/aim-lab" className={`${styles.dropdownItem} ${pathname === '/aim-lab' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/aim-lab/" className={`${styles.dropdownItem} ${(pathname === '/aim-lab' || pathname === '/aim-lab/') ? styles.activeItem : ''}`} prefetch={false}>
                                 ⚡ Aim Lab Pro <span style={{ fontSize: '0.68rem', background: 'linear-gradient(135deg, #ff4757, #ff6b81)', color: '#fff', padding: '0.15rem 0.4rem', borderRadius: '4px', fontWeight: 800, marginLeft: '0.4rem' }}>PREMIUM</span>
                             </Link>
-                            <Link href="/sensitivity-test" className={`${styles.dropdownItem} ${pathname === '/sensitivity-test' ? styles.activeItem : ''}`} prefetch={false}>
-                                🕹️ Sensitivity Test <span style={{ fontSize: '0.68rem', background: 'rgba(0,255,157,0.15)', color: '#00ff9d', border: '1px solid #00ff9d', padding: '0.1rem 0.35rem', borderRadius: '4px', fontWeight: 700, marginLeft: '0.4rem' }}>2 TRIALS</span>
+                            <Link href="/sensitivity-test/" className={`${styles.dropdownItem} ${(pathname === '/sensitivity-test' || pathname === '/sensitivity-test/') ? styles.activeItem : ''}`} prefetch={false}>
+                                🕹️ Sensitivity Test <span style={{ fontSize: '0.68rem', background: 'rgba(0,255,157,0.15)', color: '#00ff9d', border: '1px solid #00ff9d', padding: '0.1rem 0.35rem', borderRadius: '4px', fontWeight: 700, marginLeft: '0.4rem' }}>3 TRIALS</span>
                             </Link>
-                            <Link href="/widget" className={`${styles.dropdownItem} ${pathname === '/widget' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/widget/" className={`${styles.dropdownItem} ${(pathname === '/widget' || pathname === '/widget/') ? styles.activeItem : ''}`} prefetch={false}>
                                 📡 Streamer Sens Widget <span style={{ fontSize: '0.68rem', background: '#3b82f6', color: '#fff', padding: '0.15rem 0.4rem', borderRadius: '4px', fontWeight: 800, marginLeft: '0.4rem' }}>PRO</span>
                             </Link>
-                            <Link href="/psa-calculator" className={`${styles.dropdownItem} ${pathname === '/psa-calculator' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/leaderboard/" className={`${styles.dropdownItem} ${(pathname === '/leaderboard' || pathname === '/leaderboard/') ? styles.activeItem : ''}`} prefetch={false}>
+                                🏆 Leaderboard
+                            </Link>
+                            <Link href="/psa-calculator/" className={`${styles.dropdownItem} ${(pathname === '/psa-calculator' || pathname === '/psa-calculator/') ? styles.activeItem : ''}`} prefetch={false}>
                                 📐 PSA Method Calculator
                             </Link>
-                            <Link href="/sens-finder" className={`${styles.dropdownItem} ${pathname === '/sens-finder' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/sens-finder/" className={`${styles.dropdownItem} ${(pathname === '/sens-finder' || pathname === '/sens-finder/') ? styles.activeItem : ''}`} prefetch={false}>
                                 🔍 cm/360 Sensitivity Finder
                             </Link>
-                            <Link href="/ads" className={`${styles.dropdownItem} ${pathname === '/ads' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/ads/" className={`${styles.dropdownItem} ${(pathname === '/ads' || pathname === '/ads/') ? styles.activeItem : ''}`} prefetch={false}>
                                 🔭 ADS &amp; Scope 1:1
                             </Link>
-                            <Link href="/dpi" className={`${styles.dropdownItem} ${pathname === '/dpi' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/dpi/" className={`${styles.dropdownItem} ${(pathname === '/dpi' || pathname === '/dpi/') ? styles.activeItem : ''}`} prefetch={false}>
                                 📏 DPI &amp; eDPI Calc
                             </Link>
-                            <Link href="/aim-routines" className={`${styles.dropdownItem} ${pathname === '/aim-routines' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/aim-routines/" className={`${styles.dropdownItem} ${(pathname === '/aim-routines' || pathname === '/aim-routines/') ? styles.activeItem : ''}`} prefetch={false}>
                                 📅 Custom Aim Routines
                             </Link>
-                            <Link href="/fov-converter" className={`${styles.dropdownItem} ${pathname === '/fov-converter' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/fov-converter/" className={`${styles.dropdownItem} ${(pathname === '/fov-converter' || pathname === '/fov-converter/') ? styles.activeItem : ''}`} prefetch={false}>
                                 🖥️ FOV Converter
                             </Link>
-                            <Link href="/stretched-resolution" className={`${styles.dropdownItem} ${pathname === '/stretched-resolution' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/stretched-resolution/" className={`${styles.dropdownItem} ${(pathname === '/stretched-resolution' || pathname === '/stretched-resolution/') ? styles.activeItem : ''}`} prefetch={false}>
                                 📺 Stretched Resolution Calc
                             </Link>
                         </div>
@@ -113,19 +116,19 @@ export default function Navbar() {
                     <div className={styles.dropdown}>
                         <span className={styles.dropdownToggle}>Pro Players</span>
                         <div className={styles.dropdownMenu}>
-                            <Link href="/pros" className={`${styles.dropdownItem} ${pathname.startsWith('/pros') && pathname !== '/pros/compare' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/pros/" className={`${styles.dropdownItem} ${pathname.startsWith('/pros') && pathname !== '/pros/compare' ? styles.activeItem : ''}`} prefetch={false}>
                                 👤 Pro Settings Database
                             </Link>
-                            <Link href="/pros/compare" className={`${styles.dropdownItem} ${pathname === '/pros/compare' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/pros/compare/" className={`${styles.dropdownItem} ${(pathname === '/pros/compare' || pathname === '/pros/compare/') ? styles.activeItem : ''}`} prefetch={false}>
                                 ⚖️ Pro Compare Tool
                             </Link>
-                            <Link href="/setups" className={`${styles.dropdownItem} ${pathname === '/setups' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/setups/" className={`${styles.dropdownItem} ${(pathname === '/setups' || pathname === '/setups/') ? styles.activeItem : ''}`} prefetch={false}>
                                 🏆 Pro Full Setups
                             </Link>
-                            <Link href="/crosshair-database" className={`${styles.dropdownItem} ${pathname === '/crosshair-database' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/crosshair-database/" className={`${styles.dropdownItem} ${(pathname === '/crosshair-database' || pathname === '/crosshair-database/') ? styles.activeItem : ''}`} prefetch={false}>
                                 📋 Pro Crosshairs List
                             </Link>
-                            <Link href="/crosshair" className={`${styles.dropdownItem} ${pathname === '/crosshair' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/crosshair/" className={`${styles.dropdownItem} ${(pathname === '/crosshair' || pathname === '/crosshair/') ? styles.activeItem : ''}`} prefetch={false}>
                                 ✛ Crosshair Generator
                             </Link>
                         </div>
@@ -135,22 +138,22 @@ export default function Navbar() {
                     <div className={styles.dropdown}>
                         <span className={styles.dropdownToggle}>Gear &amp; Databases</span>
                         <div className={styles.dropdownMenu}>
-                            <Link href="/mouse-database" className={`${styles.dropdownItem} ${pathname === '/mouse-database' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/mouse-database/" className={`${styles.dropdownItem} ${(pathname === '/mouse-database' || pathname === '/mouse-database/') ? styles.activeItem : ''}`} prefetch={false}>
                                 🖱️ Gaming Mouse Specs
                             </Link>
-                            <Link href="/gear" className={`${styles.dropdownItem} ${pathname === '/gear' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/gear/" className={`${styles.dropdownItem} ${(pathname === '/gear' || pathname === '/gear/') ? styles.activeItem : ''}`} prefetch={false}>
                                 ⚙️ Keyboard, Monitors &amp; Headsets
                             </Link>
-                            <Link href="/mouse-finder" className={`${styles.dropdownItem} ${pathname === '/mouse-finder' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/mouse-finder/" className={`${styles.dropdownItem} ${(pathname === '/mouse-finder' || pathname === '/mouse-finder/') ? styles.activeItem : ''}`} prefetch={false}>
                                 🔍 Ergonomic Mouse Finder
                             </Link>
-                            <Link href="/mousepad-calculator" className={`${styles.dropdownItem} ${pathname === '/mousepad-calculator' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/mousepad-calculator/" className={`${styles.dropdownItem} ${(pathname === '/mousepad-calculator' || pathname === '/mousepad-calculator/') ? styles.activeItem : ''}`} prefetch={false}>
                                 📐 Mousepad Size Calculator
                             </Link>
-                            <Link href="/mousepad-chart" className={`${styles.dropdownItem} ${pathname === '/mousepad-chart' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/mousepad-chart/" className={`${styles.dropdownItem} ${(pathname === '/mousepad-chart' || pathname === '/mousepad-chart/') ? styles.activeItem : ''}`} prefetch={false}>
                                 📊 Mousepad Friction Chart
                             </Link>
-                            <Link href="/monitor-simulator" className={`${styles.dropdownItem} ${pathname === '/monitor-simulator' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/monitor-simulator/" className={`${styles.dropdownItem} ${(pathname === '/monitor-simulator' || pathname === '/monitor-simulator/') ? styles.activeItem : ''}`} prefetch={false}>
                                 🖥️ Refresh Rate Hz Simulator
                             </Link>
                         </div>
@@ -160,31 +163,34 @@ export default function Navbar() {
                     <div className={styles.dropdown}>
                         <span className={styles.dropdownToggle}>More</span>
                         <div className={styles.dropdownMenu}>
-                            <Link href="/fps-calculator" className={`${styles.dropdownItem} ${pathname === '/fps-calculator' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/fps-calculator/" className={`${styles.dropdownItem} ${(pathname === '/fps-calculator' || pathname === '/fps-calculator/') ? styles.activeItem : ''}`} prefetch={false}>
                                 ⚡ Bottleneck &amp; FPS Calc
                             </Link>
-                            <Link href="/desk-space-calculator" className={`${styles.dropdownItem} ${pathname === '/desk-space-calculator' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/desk-space-calculator/" className={`${styles.dropdownItem} ${(pathname === '/desk-space-calculator' || pathname === '/desk-space-calculator/') ? styles.activeItem : ''}`} prefetch={false}>
                                 📐 Desk Space Required Calc
                             </Link>
-                            <Link href="/dpi-analyzer" className={`${styles.dropdownItem} ${pathname === '/dpi-analyzer' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/dpi-analyzer/" className={`${styles.dropdownItem} ${(pathname === '/dpi-analyzer' || pathname === '/dpi-analyzer/') ? styles.activeItem : ''}`} prefetch={false}>
                                 🧪 Mouse DPI Analyzer
                             </Link>
-                            <Link href="/cps-test" className={`${styles.dropdownItem} ${pathname === '/cps-test' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/cps-test/" className={`${styles.dropdownItem} ${(pathname === '/cps-test' || pathname === '/cps-test/') ? styles.activeItem : ''}`} prefetch={false}>
                                 🖱️ CPS Click Speed Test
                             </Link>
-                            <Link href="/reaction-time-test" className={`${styles.dropdownItem} ${pathname === '/reaction-time-test' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/reaction-time-test/" className={`${styles.dropdownItem} ${(pathname === '/reaction-time-test' || pathname === '/reaction-time-test/') ? styles.activeItem : ''}`} prefetch={false}>
                                 ⚡ Reaction Time Test
                             </Link>
-                            <Link href="/bind-generator" className={`${styles.dropdownItem} ${pathname === '/bind-generator' ? styles.activeItem : ''}`} prefetch={false}>
+                            <Link href="/bind-generator/" className={`${styles.dropdownItem} ${(pathname === '/bind-generator' || pathname === '/bind-generator/') ? styles.activeItem : ''}`} prefetch={false}>
                                 🎛️ CS2 Bind Generator
                             </Link>
-                            <Link href="/ebook" className={`${styles.dropdownItem} ${pathname === '/ebook' ? styles.activeItem : ''}`} prefetch={false}>
-                                📚 Precision Aim System Ebook
+                            <Link href="/ebooks/" className={`${styles.dropdownItem} ${pathname.startsWith('/ebook') ? styles.activeItem : ''}`} prefetch={false}>
+                                📚 Esports Field Guides &amp; Ebooks
+                            </Link>
+                            <Link href="/community/" className={`${styles.dropdownItem} ${pathname.startsWith('/community') ? styles.activeItem : ''}`} prefetch={false}>
+                                👑 Pro Community &amp; Hub
                             </Link>
                         </div>
                     </div>
 
-                    <Link href="/blog" className={`${styles.link} ${pathname.startsWith('/blog') ? styles.activeLink : ''}`}>Blog</Link>
+                    <Link href="/blog/" className={`${styles.link} ${pathname.startsWith('/blog') ? styles.activeLink : ''}`}>Blog</Link>
 
                     {/* THEME TOGGLE BUTTON */}
                     <button 
@@ -282,107 +288,113 @@ export default function Navbar() {
                     <Link href="/" className={`${styles.drawerLink} ${pathname === '/' ? styles.drawerActive : ''}`} onClick={closeDrawer}>
                         🏠 Primary Converter
                     </Link>
-                    <Link href="/aim-trainer" className={`${styles.drawerLink} ${pathname === '/aim-trainer' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/aim-trainer/" className={`${styles.drawerLink} ${(pathname === '/aim-trainer' || pathname === '/aim-trainer/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         🎮 Online 3D Aim Trainer (FREE)
                     </Link>
-                    <Link href="/aim-lab" className={`${styles.drawerLink} ${pathname === '/aim-lab' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/aim-lab/" className={`${styles.drawerLink} ${(pathname === '/aim-lab' || pathname === '/aim-lab/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         ⚡ Aim Lab Pro (PREMIUM)
                     </Link>
-                    <Link href="/sensitivity-test" className={`${styles.drawerLink} ${pathname === '/sensitivity-test' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
-                        🕹️ Sensitivity Test (2 TRIALS)
+                    <Link href="/sensitivity-test/" className={`${styles.drawerLink} ${(pathname === '/sensitivity-test' || pathname === '/sensitivity-test/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        🕹️ Sensitivity Test (3 TRIALS)
                     </Link>
-                    <Link href="/widget" className={`${styles.drawerLink} ${pathname === '/widget' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/widget/" className={`${styles.drawerLink} ${(pathname === '/widget' || pathname === '/widget/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         📡 Streamer Sens Widget (PRO)
                     </Link>
-                    <Link href="/ads" className={`${styles.drawerLink} ${pathname === '/ads' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/leaderboard/" className={`${styles.drawerLink} ${(pathname === '/leaderboard' || pathname === '/leaderboard/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        🏆 Leaderboard
+                    </Link>
+                    <Link href="/ads/" className={`${styles.drawerLink} ${(pathname === '/ads' || pathname === '/ads/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         🎯 Scopes / ADS 1:1
                     </Link>
-                    <Link href="/dpi" className={`${styles.drawerLink} ${pathname === '/dpi' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/dpi/" className={`${styles.drawerLink} ${(pathname === '/dpi' || pathname === '/dpi/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         📏 eDPI Calculator
                     </Link>
-                    <Link href="/sens-finder" className={`${styles.drawerLink} ${pathname === '/sens-finder' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/sens-finder/" className={`${styles.drawerLink} ${(pathname === '/sens-finder' || pathname === '/sens-finder/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         🔍 Find My Sensitivity
                     </Link>
-                    <Link href="/psa-calculator" className={`${styles.drawerLink} ${pathname === '/psa-calculator' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/psa-calculator/" className={`${styles.drawerLink} ${(pathname === '/psa-calculator' || pathname === '/psa-calculator/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         📐 PSA Method Calc
                     </Link>
-                    <Link href="/aim-routines" className={`${styles.drawerLink} ${pathname === '/aim-routines' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/aim-routines/" className={`${styles.drawerLink} ${(pathname === '/aim-routines' || pathname === '/aim-routines/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         📅 Custom Aim Routines
                     </Link>
-                    <Link href="/fov-converter" className={`${styles.drawerLink} ${pathname === '/fov-converter' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/fov-converter/" className={`${styles.drawerLink} ${(pathname === '/fov-converter' || pathname === '/fov-converter/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         🖥️ FOV Converter
                     </Link>
-                    <Link href="/stretched-resolution" className={`${styles.drawerLink} ${pathname === '/stretched-resolution' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/stretched-resolution/" className={`${styles.drawerLink} ${(pathname === '/stretched-resolution' || pathname === '/stretched-resolution/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         🖥️ Stretched Resolution
                     </Link>
 
                     <div className={styles.drawerCategory}>👤 Pro Settings</div>
-                    <Link href="/pros" className={`${styles.drawerLink} ${pathname.startsWith('/pros') && pathname !== '/pros/compare' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/pros/" className={`${styles.drawerLink} ${pathname.startsWith('/pros') && pathname !== '/pros/compare' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         👤 Pro Player Database
                     </Link>
-                    <Link href="/pros/compare" className={`${styles.drawerLink} ${pathname === '/pros/compare' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/pros/compare/" className={`${styles.drawerLink} ${(pathname === '/pros/compare' || pathname === '/pros/compare/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         ⚖️ Settings Compare Tool
                     </Link>
-                    <Link href="/setups" className={`${styles.drawerLink} ${pathname === '/setups' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/setups/" className={`${styles.drawerLink} ${(pathname === '/setups' || pathname === '/setups/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         🏆 Pro Full Setups
                     </Link>
-                    <Link href="/crosshair-database" className={`${styles.drawerLink} ${pathname === '/crosshair-database' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/crosshair-database/" className={`${styles.drawerLink} ${(pathname === '/crosshair-database' || pathname === '/crosshair-database/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         📋 Pro Crosshairs
                     </Link>
-                    <Link href="/crosshair" className={`${styles.drawerLink} ${pathname === '/crosshair' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/crosshair/" className={`${styles.drawerLink} ${(pathname === '/crosshair' || pathname === '/crosshair/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         ✛ Crosshair Generator
                     </Link>
 
                     <div className={styles.drawerCategory}>🔌 Gear &amp; Specs</div>
-                    <Link href="/mouse-database" className={`${styles.drawerLink} ${pathname === '/mouse-database' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/mouse-database/" className={`${styles.drawerLink} ${(pathname === '/mouse-database' || pathname === '/mouse-database/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         🖱️ Gaming Mouse Specs
                     </Link>
-                    <Link href="/gear" className={`${styles.drawerLink} ${pathname === '/gear' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/gear/" className={`${styles.drawerLink} ${(pathname === '/gear' || pathname === '/gear/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         ⚙️ Peripherals Database
                     </Link>
-                    <Link href="/mouse-finder" className={`${styles.drawerLink} ${pathname === '/mouse-finder' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/mouse-finder/" className={`${styles.drawerLink} ${(pathname === '/mouse-finder' || pathname === '/mouse-finder/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         🔍 Mouse Finder
                     </Link>
-                    <Link href="/mousepad-calculator" className={`${styles.drawerLink} ${pathname === '/mousepad-calculator' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/mousepad-calculator/" className={`${styles.drawerLink} ${(pathname === '/mousepad-calculator' || pathname === '/mousepad-calculator/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         📐 Mousepad Size Calc
                     </Link>
-                    <Link href="/mousepad-chart" className={`${styles.drawerLink} ${pathname === '/mousepad-chart' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/mousepad-chart/" className={`${styles.drawerLink} ${(pathname === '/mousepad-chart' || pathname === '/mousepad-chart/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         📊 Friction Speed Chart
                     </Link>
-                    <Link href="/monitor-simulator" className={`${styles.drawerLink} ${pathname === '/monitor-simulator' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/monitor-simulator/" className={`${styles.drawerLink} ${(pathname === '/monitor-simulator' || pathname === '/monitor-simulator/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         🖥️ Refresh Rate Simulator
                     </Link>
 
                     <div className={styles.drawerCategory}>⚡ Extra Utilities</div>
-                    <Link href="/fps-calculator" className={`${styles.drawerLink} ${pathname === '/fps-calculator' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/fps-calculator/" className={`${styles.drawerLink} ${(pathname === '/fps-calculator' || pathname === '/fps-calculator/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         ⚡ FPS &amp; Bottleneck Calc
                     </Link>
-                    <Link href="/desk-space-calculator" className={`${styles.drawerLink} ${pathname === '/desk-space-calculator' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/desk-space-calculator/" className={`${styles.drawerLink} ${(pathname === '/desk-space-calculator' || pathname === '/desk-space-calculator/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         📐 Desk Space Required
                     </Link>
-                    <Link href="/dpi-analyzer" className={`${styles.drawerLink} ${pathname === '/dpi-analyzer' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/dpi-analyzer/" className={`${styles.drawerLink} ${(pathname === '/dpi-analyzer' || pathname === '/dpi-analyzer/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         🧪 Mouse DPI Analyzer
                     </Link>
-                    <Link href="/cps-test" className={`${styles.drawerLink} ${pathname === '/cps-test' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/cps-test/" className={`${styles.drawerLink} ${(pathname === '/cps-test' || pathname === '/cps-test/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         🖱️ CPS Click Test
                     </Link>
-                    <Link href="/reaction-time-test" className={`${styles.drawerLink} ${pathname === '/reaction-time-test' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/reaction-time-test/" className={`${styles.drawerLink} ${(pathname === '/reaction-time-test' || pathname === '/reaction-time-test/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         ⚡ Reaction Time Test
                     </Link>
-                    <Link href="/bind-generator" className={`${styles.drawerLink} ${pathname === '/bind-generator' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                    <Link href="/bind-generator/" className={`${styles.drawerLink} ${(pathname === '/bind-generator' || pathname === '/bind-generator/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         🎛️ CS2 Bind Generator
                     </Link>
-                    <Link href="/ebook" className={`${styles.drawerLink} ${pathname === '/ebook' ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
-                        📚 Aim System Ebook ($9)
+                    <Link href="/ebooks/" className={`${styles.drawerLink} ${pathname.startsWith('/ebook') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        📚 Esports Field Guides (6 Volumes)
                     </Link>
-                    <Link href="/blog" className={`${styles.drawerLink} ${pathname.startsWith('/blog') ? styles.drawerActive : ''}`} onClick={closeDrawer}>
+                    <Link href="/community/" className={`${styles.drawerLink} ${pathname.startsWith('/community') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        👑 Pro Community &amp; Hub
+                    </Link>
+                    <Link href="/blog/" className={`${styles.drawerLink} ${pathname.startsWith('/blog') ? styles.drawerActive : ''}`} onClick={closeDrawer}>
                         📰 Blog Articles
                     </Link>
 
                     {!loading && (
                         user ? (
                             <Link href={dashboardUrl} className={`${styles.drawerLink} ${pathname === '/dashboard' ? styles.drawerActive : ''}`} onClick={closeDrawer}>
-                                💻 Dashboard SaaS
+                                💻 Dashboard
                             </Link>
                         ) : (
                             <Link href={loginUrl} className={`${styles.drawerLink} ${pathname === '/login' ? styles.drawerActive : ''}`} onClick={closeDrawer}>

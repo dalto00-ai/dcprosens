@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
 import MouseDatabaseClient from '@/components/MouseDatabaseClient';
 import { mouseDatabase } from '@/lib/mouseDatabase';
+import AffiliateDisclosure from '@/components/AffiliateDisclosure';
 
 export const metadata: Metadata = {
     title: "Best Gaming Mice 2026 — Mouse Database",
     description: "Browse the ultimate database of pro gaming mice. Filter by weight, sensor, shape and connectivity. Find the perfect mouse used by top FPS professionals.",
     keywords: [
         // Core gaming mouse
-        'best gaming mouse 2025', 'pro gaming mouse', 'gaming mouse database', 'gaming mouse comparison',
+        'best gaming mouse 2026', 'pro gaming mouse', 'gaming mouse database', 'gaming mouse comparison',
         'best fps gaming mouse', 'competitive gaming mouse', 'pro player mouse', 'esports mouse',
         'gaming mouse filter', 'gaming mouse weight', 'lightweight gaming mouse', 'ultralight gaming mouse',
         // Specific models
@@ -16,23 +17,27 @@ export const metadata: Metadata = {
         'g-wolves hts', 'vaxee np-01s', 'endgame gear xm2we',
         'best logitech gaming mouse', 'best razer gaming mouse', 'best zowie mouse',
         // What mouse do pros use
-        'what mouse does tenz use', 'what mouse does s1mple use 2025', 'what mouse does zywoo use',
+        'what mouse does tenz use', 'what mouse does s1mple use 2026', 'what mouse does zywoo use',
         'what mouse does aspas use', 'imperialhal mouse', 'niko cs2 mouse',
         'valorant pro mouse', 'cs2 pro mouse', 'apex legends pro mouse setup',
         // Specs & features
         'gaming mouse sensor', 'PixArt 3395 gaming mouse', 'hero sensor mouse', 'focus pro sensor',
         'gaming mouse polling rate', '4000hz gaming mouse', '8000hz gaming mouse',
-        'wired vs wireless gaming mouse', 'best wireless gaming mouse 2025',
+        'wired vs wireless gaming mouse', 'best wireless gaming mouse 2026',
         'gaming mouse shape symmetrical', 'ergonomic gaming mouse', 'claw grip mouse', 'fingertip grip mouse',
         // Long tail
-        'best mouse for valorant 2025', 'best mouse for cs2 2025', 'best mouse for apex legends',
+        'best mouse for valorant 2026', 'best mouse for cs2 2026', 'best mouse for apex legends',
         'gaming mouse under 50 grams', 'gaming mouse under 60 grams',
         'gaming mouse buying guide', 'how to choose gaming mouse', 'mouse for fps games',
     ],
     alternates: {
-        canonical: "https://dcprosens.com/mouse-database",
+        canonical: "https://dcprosens.com/mouse-database/",
     },
     openGraph: {
+        // Inherited from the root layout only when this page omits openGraph
+        // entirely — declaring the object here replaces the parent's, so the
+        // image has to be restated or the page ships with no og:image at all.
+        images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
         title: "Best Gaming Mice for Pro FPS Players — Mouse Database | DCPROSENS",
         description: "Filter and compare top gaming mice by weight, sensor, shape, and what pro players use. Affiliate links to Amazon included.",
         type: "website",
@@ -40,8 +45,9 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Best Gaming Mice 2025 — Pro Player Database | DCPROSENS",
+        title: "Best Gaming Mice 2026 — Pro Player Database | DCPROSENS",
         description: "Find the perfect gaming mouse used by pro players. Filter by specs, shape and budget.",
+        images: ["/og-image.png"],
     },
 };
 
@@ -58,7 +64,7 @@ export default function MouseDatabasePage() {
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "ItemList",
-        "name": "Best Pro Gaming Mice 2025 — DCPROSENS Database",
+        "name": "Best Pro Gaming Mice 2026 — DCPROSENS Database",
         "description": "Comprehensive database of professional gaming mice with specs, pro player usage and affiliate links.",
         "url": "https://dcprosens.com/mouse-database",
         "numberOfItems": mouseDatabase.length,
@@ -66,7 +72,7 @@ export default function MouseDatabasePage() {
             "@type": "ListItem",
             "position": index + 1,
             "name": mouse.name,
-            "url": mouse.affiliateLink,
+            "url": `https://dcprosens.com/mouse-database#${mouse.id}`,
         })),
     };
 
@@ -166,6 +172,7 @@ export default function MouseDatabasePage() {
                     Wired mice remain slightly cheaper and require zero battery management.
                 </p>
             </div>
+            <AffiliateDisclosure />
         </div>
     );
 }

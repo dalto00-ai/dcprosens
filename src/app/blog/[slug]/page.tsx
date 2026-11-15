@@ -3,8 +3,14 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import SEOImage from '@/components/SEOImage';
+import { resolveBlogImage } from '@/utils/blogImageResolver';
+import { seoTitle, seoDescription } from '@/utils/seoText';
 import { mouseProducts, keyboardProduct } from '@/lib/affiliates';
+import AdvertiseBanner from '@/components/AdvertiseBanner';
+import AdsterraInContent from '@/components/AdsterraInContent';
 import '../prose.css';
+import AffiliateDisclosure from '@/components/AffiliateDisclosure';
+import ArticleEbookFunnel from '@/components/ArticleEbookFunnel';
 
 interface TocEntry {
     id: string;
@@ -74,28 +80,35 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         ...post.slug.split('-').filter((w) => w.length > 3),
     ];
 
+    // The <h1> keeps post.title in full; search results only ever render the
+    // first ~60 characters, and on the longest headlines here the cut lands
+    // before the part that identifies the article. Same for the excerpt.
+    const metaTitle = seoTitle(post.title);
+    const metaDescription = seoDescription(post.excerpt);
+
     return {
-        title: post.title,
-        description: post.excerpt,
+        title: metaTitle,
+        description: metaDescription,
         keywords,
-        authors: [{ name: 'DCPROSENS', url: 'https://dcprosens.com' }],
+        authors: [{ name: 'Dalto Cardoso', url: 'https://dcprosens.com/about/' }],
         alternates: {
-            canonical: `https://dcprosens.com/blog/${post.slug}`,
+            canonical: `https://dcprosens.com/blog/${post.slug}/`,
         },
         openGraph: {
+            // Social cards have more room than a SERP, so they keep the full headline.
             title: post.title,
             description: post.excerpt,
             type: 'article',
             publishedTime: new Date(post.date).toISOString(),
             modifiedTime: new Date(post.date).toISOString(),
-            url: `https://dcprosens.com/blog/${post.slug}`,
+            url: `https://dcprosens.com/blog/${post.slug}/`,
             siteName: 'DCPROSENS',
             locale: 'en_US',
-            authors: ['https://dcprosens.com'],
+            authors: ['https://dcprosens.com/about/'],
             tags: keywords,
             images: [
                 {
-                    url: `https://dcprosens.com${post.image}`,
+                    url: `https://dcprosens.com${resolveBlogImage(post.image)}`,
                     width: 1200,
                     height: 630,
                     alt: post.title,
@@ -106,7 +119,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             card: 'summary_large_image',
             title: post.title,
             description: post.excerpt,
-            images: [`https://dcprosens.com${post.image}`],
+            images: [`https://dcprosens.com${resolveBlogImage(post.image)}`],
             creator: '@dcprosens',
         },
     };
@@ -121,42 +134,60 @@ export default async function BlogPost({ params }: Props) {
         notFound();
     }
 
-    // JSON-LD Structured Data — NewsArticle + ImageObject + BreadcrumbList
-    const canonicalUrl = `https://dcprosens.com/blog/${post.slug}`;
-    const imageUrl = `https://dcprosens.com${post.image}`;
+    // JSON-LD Structured Data — Article + ImageObject + BreadcrumbList
+    // Trailing slash matters: `trailingSlash: true` means the served canonical
+    // is /blog/<slug>/, so the schema @id and mainEntityOfPage have to carry it
+    // too or they point at a URL that only 301s to the real one.
+    const canonicalUrl = `https://dcprosens.com/blog/${post.slug}/`;
+    const imageUrl = `https://dcprosens.com${resolveBlogImage(post.image)}`;
     const publishDate = new Date(post.date).toISOString();
+    // Falls back to the publish date when a post has never been revised, but
+    // reflects a real revision the moment `updated` is set on the post.
+    const modifiedDate = post.updated ? new Date(post.updated).toISOString() : publishDate;
     const { toc, html: anchoredContent } = buildTocAndAnchoredContent(post.content);
 
     const jsonLd = {
         '@context': 'https://schema.org',
         '@graph': [
             {
-                // ✅ NewsArticle — required for Google News indexing
-                '@type': 'NewsArticle',
+                // Article, not NewsArticle — this blog is evergreen guides/reference
+                // content, not news. Google's own guidance says NewsArticle is for
+                // the news cycle only; using it on evergreen content "confuses the
+                // parser" and can trigger a manual action for structured data misuse,
+                // and evergreen content performs poorly in Discover under NewsArticle
+                // regardless. Switched 2026-08-23 after confirming via Search Central docs.
+                '@type': 'Article',
                 '@id': `${canonicalUrl}#article`,
                 headline: post.title,
                 description: post.excerpt,
-                articleBody: post.excerpt,
                 url: canonicalUrl,
                 datePublished: publishDate,
-                dateModified: publishDate,
+                dateModified: modifiedDate,
                 inLanguage: 'en-US',
                 isAccessibleForFree: true,
                 author: {
                     '@type': 'Person',
-                    name: 'Dalto Outlier',
-                    url: 'https://dcprosens.com/about',
-                    jobTitle: 'Lead Aim Coach & Hardware Analyst',
-                    sameAs: ['https://dcoutlier.com'],
+                    '@id': 'https://dcprosens.com/about/#author',
+                    name: 'Dalto Cardoso',
+                    alternateName: 'Dalto Outlier',
+                    url: 'https://dcprosens.com/about/',
+                    jobTitle: 'Founder & Lead Engineer, DCPROSENS',
+                    sameAs: [
+                        'https://www.linkedin.com/in/dalto-cardoso-2a47ab122/',
+                        'https://www.instagram.com/dcprosensofficial/',
+                        'https://www.tiktok.com/@dcprosens',
+                        'https://x.com/dcprosens',
+                        'https://dcoutlier.com',
+                    ],
                 },
                 publisher: {
                     '@type': 'Organization',
                     '@id': 'https://dcprosens.com#organization',
                     name: 'DCPROSENS',
-                    url: 'https://dcprosens.com',
+                    url: 'https://dcprosens.com/',
                     logo: {
                         '@type': 'ImageObject',
-                        url: 'https://dcprosens.com/logo.png',
+                        url: 'https://dcprosens.com/logo.webp',
                         width: 200,
                         height: 60,
                     },
@@ -174,8 +205,15 @@ export default async function BlogPost({ params }: Props) {
                     description: post.excerpt,
                     inLanguage: 'en-US',
                     representativeOfPage: true,
-                    license: 'https://dcprosens.com/terms',
-                    acquireLicensePage: 'https://dcprosens.com/contact',
+                    license: 'https://dcprosens.com/terms/',
+                    acquireLicensePage: 'https://dcprosens.com/contact/',
+                    creator: {
+                        '@type': 'Organization',
+                        name: 'DCPROSENS',
+                        url: 'https://dcprosens.com/',
+                    },
+                    creditText: 'DCPROSENS',
+                    copyrightNotice: `© ${new Date(post.date).getFullYear()} DCPROSENS`,
                 },
                 mainEntityOfPage: {
                     '@type': 'WebPage',
@@ -199,8 +237,8 @@ export default async function BlogPost({ params }: Props) {
                 // ✅ BreadcrumbList — navigational schema
                 '@type': 'BreadcrumbList',
                 itemListElement: [
-                    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://dcprosens.com' },
-                    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://dcprosens.com/blog' },
+                    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://dcprosens.com/' },
+                    { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://dcprosens.com/blog/' },
                     { '@type': 'ListItem', position: 3, name: post.title, item: canonicalUrl },
                 ],
             },
@@ -240,7 +278,7 @@ export default async function BlogPost({ params }: Props) {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
 
-            <Link href="/blog" style={{
+            <Link href="/blog/" style={{
                 display: 'inline-block',
                 marginBottom: '2rem',
                 color: 'var(--text-muted)',
@@ -330,6 +368,8 @@ export default async function BlogPost({ params }: Props) {
                 </nav>
             )}
 
+            <AdsterraInContent />
+
             <div
                 className="prose"
                 dangerouslySetInnerHTML={{ __html: anchoredContent }}
@@ -381,11 +421,11 @@ export default async function BlogPost({ params }: Props) {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
                         <span style={{ fontSize: '1.5rem' }}>🔥</span>
                         <h3 style={{ margin: 0, fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)' }}>
-                            Equipamentos de Elite Recomendados
+                            Pro-Recommended Esports Gear
                         </h3>
                     </div>
                     <p style={{ margin: '0 0 2rem 0', color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.5' }}>
-                        Mouses ultra-leves topo de linha recomendados pelo Treinador Dalto para máxima precisão de sensor e consistência física no seu mousepad:
+                        Top-tier ultralight mice recommended for tournament sensor precision and mousepad tracking consistency:
                     </p>
 
                     <div style={{
@@ -418,7 +458,7 @@ export default async function BlogPost({ params }: Props) {
                                 <a 
                                     href={prod.link} 
                                     target="_blank" 
-                                    rel="noopener noreferrer"
+                                    rel="noopener noreferrer sponsored"
                                     style={{
                                         display: 'block',
                                         textAlign: 'center',
@@ -432,7 +472,7 @@ export default async function BlogPost({ params }: Props) {
                                         transition: 'transform 0.2s'
                                     }}
                                 >
-                                    Ver Preço na Amazon 🛒
+                                    Check Price on Amazon 🛒
                                 </a>
                             </div>
                         ))}
@@ -453,11 +493,11 @@ export default async function BlogPost({ params }: Props) {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
                         <span style={{ fontSize: '1.5rem' }}>⌨️</span>
                         <h3 style={{ margin: 0, fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)' }}>
-                            Teclado Analógico Recomendado
+                            Pro-Recommended Magnetic Keyboard
                         </h3>
                     </div>
                     <p style={{ margin: '0 0 1.5rem 0', color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.5' }}>
-                        Para atirar com precisão milimétrica e parar de andar instantaneamente (Counter-Strafe), o recurso de **Rapid Trigger** magnético é indispensável no cenário competitivo:
+                        For pixel-perfect counter-strafing and instant movement reset, analog magnetic <strong>Rapid Trigger</strong> switches are essential in competitive FPS:
                     </p>
 
                     <div style={{
@@ -483,7 +523,7 @@ export default async function BlogPost({ params }: Props) {
                         <a 
                             href={keyboardProduct.link} 
                             target="_blank" 
-                            rel="noopener noreferrer"
+                            rel="noopener noreferrer sponsored"
                             style={{
                                 display: 'inline-block',
                                 alignSelf: 'flex-start',
@@ -497,45 +537,14 @@ export default async function BlogPost({ params }: Props) {
                                 transition: 'transform 0.2s'
                             }}
                         >
-                            Ver Teclado na Amazon 🛒
+                            Check Keyboard on Amazon 🛒
                         </a>
                     </div>
                 </div>
             )}
 
-            {/* Dynamic Interactive Conversion CTA Box (Drive Tool Traffic) */}
-            <div style={{
-                marginTop: '3.5rem',
-                background: 'linear-gradient(135deg, rgba(0, 255, 157, 0.05) 0%, rgba(0, 242, 254, 0.02) 100%)',
-                border: '1px solid var(--primary)',
-                borderRadius: 'var(--radius-lg, 12px)',
-                padding: '2.25rem',
-                textAlign: 'center',
-                boxShadow: '0 8px 32px var(--primary-glow)'
-            }}>
-                <h4 style={{ margin: '0 0 0.5rem 0', color: 'var(--primary)', fontSize: '1.35rem', fontWeight: 800 }}>
-                    🎯 Lock In Perfect 1:1 Aim & Pro Consistency
-                </h4>
-                <p style={{ margin: '0 0 1.75rem 0', color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.5' }}>
-                    Tired of daily aim inconsistency? Calibrate your physical cm/360, scope matching, and sensor latency. Get the complete <strong>Precision Aim System (4-Part Technical Manifestos)</strong> today for only <strong>$9.00 USD</strong>!
-                </p>
-                <Link href="/ebook" style={{
-                    display: 'inline-block',
-                    padding: '0.85rem 2.25rem',
-                    background: 'var(--primary)',
-                    color: '#000',
-                    fontWeight: 800,
-                    borderRadius: 'var(--radius-full, 50px)',
-                    textDecoration: 'none',
-                    fontSize: '0.95rem',
-                    boxShadow: '0 4px 14px var(--primary-glow)',
-                    transition: 'transform 0.2s ease',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.5px'
-                }}>
-                    Unlock Elite Precision ($9) ⚡
-                </Link>
-            </div>
+            {/* Dynamic Contextual eBook Conversion Funnel */}
+            <ArticleEbookFunnel slug={post.slug} category={post.category} />
 
 
             {/* Author Bio Section (E-E-A-T) */}
@@ -570,7 +579,11 @@ export default async function BlogPost({ params }: Props) {
                 </div>
                 <div style={{ flex: '1', minWidth: '250px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
-                        <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)' }}>Dalto Outlier</h3>
+                        <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)' }}>
+                            <Link href="/about/" style={{ color: 'inherit', textDecoration: 'none' }}>
+                                Dalto Cardoso (Dalto Outlier)
+                            </Link>
+                        </h3>
                         <span style={{
                             background: 'rgba(0, 242, 254, 0.1)',
                             color: 'var(--primary, #00f2fe)',
@@ -579,13 +592,29 @@ export default async function BlogPost({ params }: Props) {
                             padding: '0.2rem 0.6rem',
                             borderRadius: '4px',
                             border: '1px solid rgba(0, 242, 254, 0.2)'
-                        }}>Lead Aim Coach &amp; Hardware Expert</span>
+                        }}>✓ Verified Founder, DCPROSENS</span>
                     </div>
-                    <p style={{ margin: 0, fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-                        Dalto is a veteran FPS aim coach and hardware analyst. Having trained hundreds of competitive players in Valorant and CS2, he specializes in mouse sensor technology, perfect sensitivity calibrations, and cognitive muscle memory optimization.
+                    <p style={{ margin: '0 0 0.75rem 0', fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
+                        Software developer and founder of DCPROSENS (DCOUTLIER). Dalto engineers precision sensitivity calculators, yaw telemetry databases, and hardware calibration guides for competitive FPS players.
                     </p>
+                    <div style={{ display: 'flex', gap: '0.85rem', flexWrap: 'wrap', fontSize: '0.82rem', fontWeight: 700 }}>
+                        <a href="https://www.linkedin.com/in/dalto-cardoso-2a47ab122/" target="_blank" rel="me noopener noreferrer" style={{ color: '#00ff9d', textDecoration: 'none' }}>
+                            💼 LinkedIn ↗
+                        </a>
+                        <a href="https://www.instagram.com/dcprosensofficial/" target="_blank" rel="me noopener noreferrer" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>
+                            📸 Instagram ↗
+                        </a>
+                        <a href="https://www.tiktok.com/@dcprosens" target="_blank" rel="me noopener noreferrer" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>
+                            🎵 TikTok ↗
+                        </a>
+                        <Link href="/about/" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>
+                            📖 Editorial Methodology →
+                        </Link>
+                    </div>
                 </div>
             </div>
+
+            <AdvertiseBanner />
 
             {/* Related Articles Section */}
             <div style={{ marginTop: '4rem' }}>
@@ -599,7 +628,7 @@ export default async function BlogPost({ params }: Props) {
                     marginBottom: '2rem'
                 }}>
                     {relatedPosts.map((rPost) => (
-                        <Link href={`/blog/${rPost.slug}`} key={rPost.slug} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
+                        <Link href={`/blog/${rPost.slug}/`} key={rPost.slug} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
                             <div style={{
                                 background: 'var(--bg-card, #121214)',
                                 border: '1px solid var(--border-color, #232326)',
@@ -640,6 +669,7 @@ export default async function BlogPost({ params }: Props) {
                     ))}
                 </div>
             </div>
+            <AffiliateDisclosure />
         </article>
     );
 }

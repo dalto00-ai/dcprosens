@@ -5,6 +5,8 @@ import { games } from '@/lib/games';
 import { sensFinderContent, getSensFinderContent } from '@/lib/sensFinderContent';
 import { getProsByGame } from '@/lib/pros';
 import Converter from '@/components/Converter';
+import AdsterraInContent from '@/components/AdsterraInContent';
+import { seoDescription } from '@/utils/seoText';
 
 interface Props {
     params: Promise<{ game: string }>;
@@ -31,7 +33,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         content.displayName,
     ];
     const title = titleTiers.find((t) => t.length <= 47) ?? titleTiers[titleTiers.length - 1];
-    const description = `Convert your ${content.displayName} sensitivity to any other FPS game (or vice versa) with an exact cm/360 match. Yaw: ${game.yaw}, engine: ${content.engine}.`;
+    // Trimmed centrally: the engine string runs long for a few games, which
+    // pushed the description past what a search result shows.
+    const description = seoDescription(
+        `Convert ${content.displayName} sensitivity to or from any other game with an exact cm/360 match. Yaw ${game.yaw}, ${content.engine}.`
+    );
 
     return {
         title,
@@ -44,9 +50,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             `convert ${content.displayName.toLowerCase()} sensitivity`,
         ],
         alternates: {
-            canonical: `https://dcprosens.com/sens-finder/${gameId}`,
+            canonical: `https://dcprosens.com/sens-finder/${gameId}/`,
         },
         openGraph: {
+            // Inherited from the root layout only when this page omits openGraph
+            // entirely — declaring the object here replaces the parent's, so the
+            // image has to be restated or the page ships with no og:image at all.
+            images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
             title,
             description,
             url: `https://dcprosens.com/sens-finder/${gameId}`,
@@ -58,6 +68,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             title,
             description,
             creator: '@dcprosens',
+            images: ["/og-image.png"],
         },
     };
 }
@@ -94,7 +105,7 @@ export default async function SensFinderGamePage({ params }: Props) {
                 '@type': 'BreadcrumbList',
                 itemListElement: [
                     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://dcprosens.com' },
-                    { '@type': 'ListItem', position: 2, name: 'Sens Finder', item: 'https://dcprosens.com/sens-finder' },
+                    { '@type': 'ListItem', position: 2, name: 'Sens Finder', item: 'https://dcprosens.com/sens-finder/' },
                     { '@type': 'ListItem', position: 3, name: content.displayName, item: canonicalUrl },
                 ],
             },
@@ -148,13 +159,15 @@ export default async function SensFinderGamePage({ params }: Props) {
 
             <Converter initialFromGame={gameId} />
 
+            <AdsterraInContent />
+
             {relatedPros.length > 0 && (
                 <div style={{ maxWidth: '800px', margin: '3rem auto 0', textAlign: 'center' }}>
                     <p style={{ color: 'var(--text-secondary)' }}>
                         See what the pros use:{' '}
                         {relatedPros.map((p, i) => (
                             <span key={p.slug}>
-                                <Link href={`/pros/${p.slug}`} style={{ color: 'var(--primary)' }}>{p.name}</Link>
+                                <Link href={`/pros/${p.slug}/`} style={{ color: 'var(--primary)' }}>{p.name}</Link>
                                 {i < relatedPros.length - 1 ? ', ' : ''}
                             </span>
                         ))}
@@ -186,7 +199,7 @@ export default async function SensFinderGamePage({ params }: Props) {
                 </div>
 
                 <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
-                    <Link href="/sens-finder" style={{ color: 'var(--primary)' }}>← Back to all games</Link>
+                    <Link href="/sens-finder/" style={{ color: 'var(--primary)' }}>← Back to all games</Link>
                 </div>
             </div>
         </div>

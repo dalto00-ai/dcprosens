@@ -3,12 +3,18 @@ import type { BlogPost } from './types';
 export const postsChunk02: BlogPost[] = [
   {
     slug: 'wireless-vs-wired-gaming-mouse-fps-2026',
+    faqs: [
+        { q: 'Is wireless still slower than wired in 2026?', a: 'Not in any way you can feel. Modern 2.4 GHz gaming receivers add well under a millisecond over USB, and several wireless mice now measure faster end-to-end than older wired models because their sensors and MCUs are newer. The wired-versus-wireless latency argument was settled several hardware generations ago.' },
+        { q: 'Does Bluetooth count as wireless for gaming?', a: 'No. Bluetooth adds enough latency and polling instability to be genuinely noticeable in a shooter. When people say wireless gaming mice are fine now, they mean a dedicated 2.4 GHz dongle, not Bluetooth. Use Bluetooth for travel and the dongle for play.' },
+        { q: 'What actually changes when I go wireless?', a: 'Weight distribution and cable drag. Removing the cable eliminates a small, variable resistance that your hand had been silently compensating for, so the same sensitivity often feels slightly faster on the first day. Give it a week before deciding to change any settings.' },
+    ],
     title: 'Wireless vs Wired Gaming Mouse for FPS',
     excerpt: 'In 2026, wireless gaming mice have eliminated all meaningful latency differences vs wired. This guide presents the data, reveals which pros have switched to wireless, and explains when wired still makes sense.',
+        summary: 'In 2026, wireless gaming mice have eliminated all meaningful latency differences vs wired. This guide presents the data, reveals which pros have switched to wireless, and explains when wired still makes sense.',
     date: 'April 23, 2026',
     readTime: '11 min read',
     category: 'Gear',
-    image: '/blog/wireless-vs-wired-mouse.webp',
+    image: '/blog/wireless-vs-wired-gaming-mouse-fps-2026.webp',
     content: `<h2>The Wireless Latency Myth: Debunked in 2026</h2>
       <p>For years, the conventional wisdom was "wired mouse = lower latency = better for competitive FPS." In 2024–2026, this is no longer true. Modern wireless gaming mice using 2.4GHz dedicated dongles (not Bluetooth) have achieved wireless latency of <strong>0.5–1ms</strong> — indistinguishable from wired at any testing methodology available to consumers.</p>
 
@@ -53,7 +59,7 @@ Difference: statistically unmeasurable in human performance.
         </tbody>
       </table>
 
-      <p>The majority of pro players at tier-1 events now use wireless mice. The sensitivity calibration process is identical regardless of wired vs. wireless — use our <a href="/dpi">eDPI calculator</a> and <a href="/">converter</a> normally.</p>
+      <p>The majority of pro players at tier-1 events now use wireless mice. The sensitivity calibration process is identical regardless of wired vs. wireless — use our <a href="/dpi/">eDPI calculator</a> and <a href="/">converter</a> normally.</p>
 
       <h2>Top Wireless Gaming Mice for FPS (2026)</h2>
       <ul>
@@ -63,29 +69,27 @@ Difference: statistically unmeasurable in human performance.
         <li><strong>Pulsar X2H Wireless:</strong> 55g, symmetrical shell, Focus Pro sensor. Strong mid-tier wireless option.</li>
       </ul>
 
-    <h2>Pro-Level Testing & Empirical Analysis (Experience)</h2>
-    <p>Our team of competitive FPS analysts and high-rank players (Immortal 3 / CS2 20K+ ELO) conducted over 50 hours of controlled in-game testing using high-speed optical tracking sensors, 1000Hz to 8000Hz polling rate mice (Logitech G Pro X Superlight 2, Razer Viper V3 Pro), and 360Hz OLED monitors. We tested physical crosshair displacement across 30cm to 50cm sweeps to measure raw muscle memory retention and focal accuracy under tournament conditions.</p>
-    
-    <h2>Mathematical Mechanics & Engine Formulas (Expertise)</h2>
+    <h2>Mathematical Mechanics & Engine Formulas</h2>
     <p>Understanding aim physics requires breaking down how rendering engines calculate rotation vectors. In 3D space, mouse movement inputs map to angular rotation per count based on the game engine's specific yaw constant:</p>
     <div class="code-block">
     • Valorant Yaw Constant: 0.07° per count<br>
     • CS2 / Source Engine Yaw Constant: 0.022° per count<br>
-    • Overwatch 2 / Apex Legends Yaw Constant: 0.022° per count<br>
+    • Apex Legends Yaw Constant: 0.022° per count<br>
+    • Overwatch 2 Yaw Constant: 0.0066° per count<br>
     • Fortnite Yaw Constant: 0.005555° per count<br>
     • Formula: eDPI = Hardware DPI × In-Game Sensitivity<br>
     • Formula: cm/360 = (360 × 2.54) / (DPI × Sensitivity × Yaw)
     </div>
     <p>By keeping your physical centimeters per 360 rotation (cm/360) consistent, you maintain identical physical hand travel across titles. However, when switching between different aspect ratios (16:9 vs 4:3 stretched) or vertical FOVs, you must apply 0% Monitor Distance Matching (Focal Length Scaling) to match optical tracking speed at screen center.</p>
 
-    <h2>Esports Meta & Pro Player Benchmark Data (Authoritativeness)</h2>
-    <p>Based on our database of over 250 active professional FPS players across VCT Americas/EMEA, BLAST Premier, and ALGS:</p>
+    <h2>Esports Meta & Pro Player Benchmark Data</h2>
+    <p>Looking at publicly available pro settings and general esports sensitivity trends:</p>
     <ul>
       <li><strong>Tactical Shooters (Valorant / CS2):</strong> The median pro eDPI sits between 200 and 320 eDPI (approx. 40cm/360 to 65cm/360). Pro players prefer lower sensitivity to maximize micro-correction accuracy and first-bullet headshot precision.</li>
       <li><strong>Tracking & Dynamic Shooters (Apex / OW2 / Fortnite):</strong> The median pro eDPI ranges from 2400 to 4800 eDPI in Source/OW2 terms (approx. 28cm/360 to 38cm/360). Higher sensitivity allows rapid 180° sweeps and smooth target tracking during erratic movement.</li>
     </ul>
 
-    <h2>Step-by-Step Calibration & Actionable Implementation (Trustworthiness)</h2>
+    <h2>Step-by-Step Calibration & Actionable Implementation</h2>
     <ol>
       <li><strong>Disable Windows Mouse Acceleration:</strong> Open Windows Control Panel → Mouse Properties → Pointer Options → Uncheck "Enhance Pointer Precision". This ensures 1:1 raw input without non-linear velocity scaling.</li>
       <li><strong>Set Native Mouse DPI:</strong> Use 800 or 1600 DPI on modern optical sensors (PMW3395 / HERO 25K) to minimize sensor input latency by up to 2.5ms compared to 400 DPI while avoiding sensor smoothing.</li>
@@ -100,19 +104,25 @@ Difference: statistically unmeasurable in human performance.
     </div>
     <div class="faq-item">
       <h3>Should I match my hipfire sensitivity to my ADS sensitivity?</h3>
-      <p>Yes! Utilizing 1:1 focal matching (0.747 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
+      <p>Yes! Utilizing 1:1 focal matching (0.847 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
     </div>
     `
   },
 
   {
     slug: 'cs2-practice-commands-guide-2026',
+    faqs: [
+        { q: 'What are the essential CS2 practice commands?', a: 'sv_cheats 1 first, then sv_infinite_ammo 1, ammo_grenade_limit_total 5, mp_buy_anywhere 1, mp_roundtime_defuse 60 and bot_kick. Those five turn an empty map into a usable range. Bind sv_rethrow_last_grenade to a key and you can iterate on a single lineup without walking back to the spawn every attempt.' },
+        { q: 'How do I practise spray control without a server?', a: 'An offline map with bots kicked is enough. Set sv_cheats 1 and sv_infinite_ammo 2 so the magazine refills without reloading, then spray a single wall from a fixed distance and study the pattern rather than the result. The goal is to feel the pull, not to hit a target.' },
+        { q: 'Do practice commands transfer to a real match?', a: 'The mechanical part does; the decision-making part does not. A range gives you a clean pattern with no pressure and no timing, which is exactly what you want when learning the motion. Build the motion offline, then deliberately use it in deathmatch where the timing and pressure come back.' },
+    ],
     title: 'CS2 Practice Commands: Complete Config Guide',
     excerpt: 'The complete list of CS2 console commands for practice servers: infinite ammo, grenade trajectory, bot control, freeze time, and the full practice.cfg file ready to copy and use.',
+        summary: 'The complete list of CS2 console commands for practice servers: infinite ammo, grenade trajectory, bot control, freeze time, and the full practice.cfg file ready to copy and use.',
     date: 'April 22, 2026',
     readTime: '13 min read',
     category: 'Guide',
-    image: '/blog/cs2-practice-commands.webp',
+    image: '/blog/cs2-practice-commands-guide-2026.webp',
     content: `<h2>Why a Practice Config is Essential in CS2</h2>
       <p>CS2's default server settings are designed for competitive play, not practice. To properly train nades, study map positions, practice spray control with unlimited ammo, or review counter-strafe timing — you need a custom practice configuration. This guide provides a complete, ready-to-use practice.cfg file and explains every command.</p>
 
@@ -202,31 +212,29 @@ bind "q" "quit"      // Quick quit shortcut</div>
       <p>File location: <code>C:/Program Files (x86)/Steam/steamapps/common/Counter-Strike Global Offensive/game/csgo/cfg/</code></p>
 
       <h2>Sensitivity Verification in Practice Mode</h2>
-      <p>Practice mode is also the best place to verify your sensitivity settings. With <code>sv_showimpacts 1</code>, you can check first-bullet accuracy after counter-strafing and see whether your strafing movements are causing bullet deviation. Use our <a href="/dpi">eDPI calculator</a> to set your target sensitivity before starting a practice session.</p>
+      <p>Practice mode is also the best place to verify your sensitivity settings. With <code>sv_showimpacts 1</code>, you can check first-bullet accuracy after counter-strafing and see whether your strafing movements are causing bullet deviation. Use our <a href="/dpi/">eDPI calculator</a> to set your target sensitivity before starting a practice session.</p>
 
-    <h2>Pro-Level Testing & Empirical Analysis (Experience)</h2>
-    <p>Our team of competitive FPS analysts and high-rank players (Immortal 3 / CS2 20K+ ELO) conducted over 50 hours of controlled in-game testing using high-speed optical tracking sensors, 1000Hz to 8000Hz polling rate mice (Logitech G Pro X Superlight 2, Razer Viper V3 Pro), and 360Hz OLED monitors. We tested physical crosshair displacement across 30cm to 50cm sweeps to measure raw muscle memory retention and focal accuracy under tournament conditions.</p>
-    
-    <h2>Mathematical Mechanics & Engine Formulas (Expertise)</h2>
+    <h2>Mathematical Mechanics & Engine Formulas</h2>
     <p>Understanding aim physics requires breaking down how rendering engines calculate rotation vectors. In 3D space, mouse movement inputs map to angular rotation per count based on the game engine's specific yaw constant:</p>
     <div class="code-block">
     • Valorant Yaw Constant: 0.07° per count<br>
     • CS2 / Source Engine Yaw Constant: 0.022° per count<br>
-    • Overwatch 2 / Apex Legends Yaw Constant: 0.022° per count<br>
+    • Apex Legends Yaw Constant: 0.022° per count<br>
+    • Overwatch 2 Yaw Constant: 0.0066° per count<br>
     • Fortnite Yaw Constant: 0.005555° per count<br>
     • Formula: eDPI = Hardware DPI × In-Game Sensitivity<br>
     • Formula: cm/360 = (360 × 2.54) / (DPI × Sensitivity × Yaw)
     </div>
     <p>By keeping your physical centimeters per 360 rotation (cm/360) consistent, you maintain identical physical hand travel across titles. However, when switching between different aspect ratios (16:9 vs 4:3 stretched) or vertical FOVs, you must apply 0% Monitor Distance Matching (Focal Length Scaling) to match optical tracking speed at screen center.</p>
 
-    <h2>Esports Meta & Pro Player Benchmark Data (Authoritativeness)</h2>
-    <p>Based on our database of over 250 active professional FPS players across VCT Americas/EMEA, BLAST Premier, and ALGS:</p>
+    <h2>Esports Meta & Pro Player Benchmark Data</h2>
+    <p>Looking at publicly available pro settings and general esports sensitivity trends:</p>
     <ul>
       <li><strong>Tactical Shooters (Valorant / CS2):</strong> The median pro eDPI sits between 200 and 320 eDPI (approx. 40cm/360 to 65cm/360). Pro players prefer lower sensitivity to maximize micro-correction accuracy and first-bullet headshot precision.</li>
       <li><strong>Tracking & Dynamic Shooters (Apex / OW2 / Fortnite):</strong> The median pro eDPI ranges from 2400 to 4800 eDPI in Source/OW2 terms (approx. 28cm/360 to 38cm/360). Higher sensitivity allows rapid 180° sweeps and smooth target tracking during erratic movement.</li>
     </ul>
 
-    <h2>Step-by-Step Calibration & Actionable Implementation (Trustworthiness)</h2>
+    <h2>Step-by-Step Calibration & Actionable Implementation</h2>
     <ol>
       <li><strong>Disable Windows Mouse Acceleration:</strong> Open Windows Control Panel → Mouse Properties → Pointer Options → Uncheck "Enhance Pointer Precision". This ensures 1:1 raw input without non-linear velocity scaling.</li>
       <li><strong>Set Native Mouse DPI:</strong> Use 800 or 1600 DPI on modern optical sensors (PMW3395 / HERO 25K) to minimize sensor input latency by up to 2.5ms compared to 400 DPI while avoiding sensor smoothing.</li>
@@ -241,19 +249,25 @@ bind "q" "quit"      // Quick quit shortcut</div>
     </div>
     <div class="faq-item">
       <h3>Should I match my hipfire sensitivity to my ADS sensitivity?</h3>
-      <p>Yes! Utilizing 1:1 focal matching (0.747 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
+      <p>Yes! Utilizing 1:1 focal matching (0.847 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
     </div>
     `
   },
 
   {
     slug: 'aim-guide-beginners-fps-2026',
+    faqs: [
+        { q: 'What should a complete beginner fix first?', a: 'Sensitivity and crosshair placement, in that order, before any aim trainer. A sensitivity you keep changing means nothing else can stabilise, and crosshair placement decides how much aiming you have to do in the first place. Both are free and both matter more than any amount of flick practice.' },
+        { q: 'How long before I see improvement?', a: 'Two to four weeks of consistent play with a fixed sensitivity, for most people. The single biggest thing that resets that clock is changing settings. Improvement in aim is your nervous system learning one mapping between hand distance and screen distance; changing the mapping restarts the process.' },
+        { q: 'Do I need an aim trainer to get better?', a: 'No, but it compresses the learning. An aim trainer removes everything except the mechanical skill, so twenty focused minutes there can be worth an hour of matches. It is a supplement, not a replacement — trainers do not teach positioning, timing or decision-making, which is most of what wins rounds.' },
+    ],
     title: 'Beginner\'s Aim Guide for FPS Games',
     excerpt: 'New to FPS gaming? This complete beginner\'s guide to aim covers the 5 fundamentals, how to pick your first sensitivity, the biggest beginner mistakes, and a simple 2-week practice plan to build your foundation.',
+        summary: 'New to FPS gaming? This complete beginner\'s guide to aim covers the 5 fundamentals, how to pick your first sensitivity, the biggest beginner mistakes, and a simple 2-week practice plan to build your foundation.',
     date: 'April 21, 2026',
     readTime: '15 min read',
     category: 'Guide',
-    image: '/blog/aim-guide-beginners.webp',
+    image: '/blog/aim-guide-beginners-fps-2026.webp',
     content: `<h2>The 5 Foundations of FPS Aim</h2>
       <p>Before worrying about sensitivity numbers, aim trainers, or pro settings, beginners must understand the 5 fundamentals. These are the skills that separate a player who can't hit anything from a player who wins gunfights consistently. In order of importance:</p>
 
@@ -318,31 +332,29 @@ You can refine later — but start here.</div>
       </table>
 
       <h2>When to Start Worrying About Sensitivity Optimization</h2>
-      <p>Don't start precision sensitivity optimization until you have 50+ hours in your first FPS game. Before that, the limiting factor is knowledge and habit, not sensitivity. After 50 hours, use our <a href="/dpi">eDPI calculator</a> to verify your sensitivity is in a competitive range for your game, and use our <a href="/">converter</a> if you switch games. The fundamentals chain above is all you need to go from no experience to a solid bronze-silver equivalent in any FPS game.</p>
+      <p>Don't start precision sensitivity optimization until you have 50+ hours in your first FPS game. Before that, the limiting factor is knowledge and habit, not sensitivity. After 50 hours, use our <a href="/dpi/">eDPI calculator</a> to verify your sensitivity is in a competitive range for your game, and use our <a href="/">converter</a> if you switch games. The fundamentals chain above is all you need to go from no experience to a solid bronze-silver equivalent in any FPS game.</p>
 
-    <h2>Pro-Level Testing & Empirical Analysis (Experience)</h2>
-    <p>Our team of competitive FPS analysts and high-rank players (Immortal 3 / CS2 20K+ ELO) conducted over 50 hours of controlled in-game testing using high-speed optical tracking sensors, 1000Hz to 8000Hz polling rate mice (Logitech G Pro X Superlight 2, Razer Viper V3 Pro), and 360Hz OLED monitors. We tested physical crosshair displacement across 30cm to 50cm sweeps to measure raw muscle memory retention and focal accuracy under tournament conditions.</p>
-    
-    <h2>Mathematical Mechanics & Engine Formulas (Expertise)</h2>
+    <h2>Mathematical Mechanics & Engine Formulas</h2>
     <p>Understanding aim physics requires breaking down how rendering engines calculate rotation vectors. In 3D space, mouse movement inputs map to angular rotation per count based on the game engine's specific yaw constant:</p>
     <div class="code-block">
     • Valorant Yaw Constant: 0.07° per count<br>
     • CS2 / Source Engine Yaw Constant: 0.022° per count<br>
-    • Overwatch 2 / Apex Legends Yaw Constant: 0.022° per count<br>
+    • Apex Legends Yaw Constant: 0.022° per count<br>
+    • Overwatch 2 Yaw Constant: 0.0066° per count<br>
     • Fortnite Yaw Constant: 0.005555° per count<br>
     • Formula: eDPI = Hardware DPI × In-Game Sensitivity<br>
     • Formula: cm/360 = (360 × 2.54) / (DPI × Sensitivity × Yaw)
     </div>
     <p>By keeping your physical centimeters per 360 rotation (cm/360) consistent, you maintain identical physical hand travel across titles. However, when switching between different aspect ratios (16:9 vs 4:3 stretched) or vertical FOVs, you must apply 0% Monitor Distance Matching (Focal Length Scaling) to match optical tracking speed at screen center.</p>
 
-    <h2>Esports Meta & Pro Player Benchmark Data (Authoritativeness)</h2>
-    <p>Based on our database of over 250 active professional FPS players across VCT Americas/EMEA, BLAST Premier, and ALGS:</p>
+    <h2>Esports Meta & Pro Player Benchmark Data</h2>
+    <p>Looking at publicly available pro settings and general esports sensitivity trends:</p>
     <ul>
       <li><strong>Tactical Shooters (Valorant / CS2):</strong> The median pro eDPI sits between 200 and 320 eDPI (approx. 40cm/360 to 65cm/360). Pro players prefer lower sensitivity to maximize micro-correction accuracy and first-bullet headshot precision.</li>
       <li><strong>Tracking & Dynamic Shooters (Apex / OW2 / Fortnite):</strong> The median pro eDPI ranges from 2400 to 4800 eDPI in Source/OW2 terms (approx. 28cm/360 to 38cm/360). Higher sensitivity allows rapid 180° sweeps and smooth target tracking during erratic movement.</li>
     </ul>
 
-    <h2>Step-by-Step Calibration & Actionable Implementation (Trustworthiness)</h2>
+    <h2>Step-by-Step Calibration & Actionable Implementation</h2>
     <ol>
       <li><strong>Disable Windows Mouse Acceleration:</strong> Open Windows Control Panel → Mouse Properties → Pointer Options → Uncheck "Enhance Pointer Precision". This ensures 1:1 raw input without non-linear velocity scaling.</li>
       <li><strong>Set Native Mouse DPI:</strong> Use 800 or 1600 DPI on modern optical sensors (PMW3395 / HERO 25K) to minimize sensor input latency by up to 2.5ms compared to 400 DPI while avoiding sensor smoothing.</li>
@@ -357,19 +369,25 @@ You can refine later — but start here.</div>
     </div>
     <div class="faq-item">
       <h3>Should I match my hipfire sensitivity to my ADS sensitivity?</h3>
-      <p>Yes! Utilizing 1:1 focal matching (0.747 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
+      <p>Yes! Utilizing 1:1 focal matching (0.847 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
     </div>
     `
   },
 
   {
     slug: 'gaming-mouse-sensor-guide-optical-vs-laser-2026',
-    title: 'Gaming Mouse Sensor Guide: Optical vs Laser',
-    excerpt: 'PMW3395, HERO 25K, TrueMove Pro — which mouse sensor is best for FPS in 2026? This guide explains how sensors work, the optical vs laser debate, and which sensors competitive players actually use.',
+    faqs: [
+        { q: 'Is optical always better than laser for gaming?', a: 'For competitive FPS, yes, and it is not close. Laser sensors read deeper into the surface texture, which historically produced acceleration and jitter that optical does not. Every serious gaming mouse released in recent years uses an optical sensor, and the laser-versus-optical debate is effectively over for this use case.' },
+        { q: 'What sensor specs actually matter?', a: 'Tracking speed in IPS and maximum acceleration in g, far more than maximum DPI. A sensor rated for 650 IPS will not lose your movement on a fast low-sensitivity swipe; a 26,000 DPI ceiling is a marketing number nobody uses. Lift-off distance matters too if you reposition often.' },
+        { q: 'Does a better sensor make me aim better?', a: 'Only by removing a ceiling you may not be hitting. If your current mouse tracks your fastest swipe without breaking, a newer sensor changes nothing about your aim. Sensors matter most for low-sensitivity players who move fast enough to exceed an older sensor\'s rated speed.' },
+    ],
+    title: 'Gaming Mouse Sensor Guide: Optical vs Laser Sensors (2026)',
+    excerpt: 'Optical vs laser gaming mouse sensors explained (2026). PAW3395 vs HERO 2 25K vs Focus Pro 35K compared: IPS tracking speed, acceleration, jitter, and lift-off distance.',
+        summary: 'Optical vs laser gaming mouse sensors explained (2026). PAW3395 vs HERO 2 25K vs Focus Pro 35K compared: IPS tracking speed, acceleration, jitter, and lift-off distance.',
     date: 'April 20, 2026',
     readTime: '12 min read',
     category: 'Gear',
-    image: '/blog/mouse-sensor-guide.webp',
+    image: '/blog/gaming-mouse-sensor-guide-optical-vs-laser-2026.webp',
     content: `<h2>How Gaming Mouse Sensors Work</h2>
       <p>All modern gaming mice use optical sensors — a tiny camera that takes thousands of photos of the surface per second and calculates displacement between frames. The key metrics:</p>
       <ul>
@@ -410,31 +428,29 @@ You can refine later — but start here.</div>
 
       <h2>Does Sensor Quality Actually Affect Your Aim?</h2>
       <p>For players below the top 2% of competitive players: <strong>not meaningfully.</strong> The PMW3360 (a "B-tier" sensor from 2018) is still used by professional CS2 players today. The marginal improvements in jitter performance between S-tier and B-tier sensors are measurable in lab conditions but invisible in gameplay.</p>
-      <p>Priority order for competitive FPS: <strong>Sensitivity/DPI settings → Mouse shape → Mousepad surface → Sensor choice.</strong> Sensor is last on the list because modern sensors are all competition-viable above $40 retail price. Use our <a href="/dpi">eDPI calculator</a> to optimize your sensitivity, then match it across games with our <a href="/">converter</a> — far more impactful than sensor choice.</p>
+      <p>Priority order for competitive FPS: <strong>Sensitivity/DPI settings → Mouse shape → Mousepad surface → Sensor choice.</strong> Sensor is last on the list because modern sensors are all competition-viable above $40 retail price. Use our <a href="/dpi/">eDPI calculator</a> to optimize your sensitivity, then match it across games with our <a href="/">converter</a> — far more impactful than sensor choice.</p>
 
-    <h2>Pro-Level Testing & Empirical Analysis (Experience)</h2>
-    <p>Our team of competitive FPS analysts and high-rank players (Immortal 3 / CS2 20K+ ELO) conducted over 50 hours of controlled in-game testing using high-speed optical tracking sensors, 1000Hz to 8000Hz polling rate mice (Logitech G Pro X Superlight 2, Razer Viper V3 Pro), and 360Hz OLED monitors. We tested physical crosshair displacement across 30cm to 50cm sweeps to measure raw muscle memory retention and focal accuracy under tournament conditions.</p>
-    
-    <h2>Mathematical Mechanics & Engine Formulas (Expertise)</h2>
+    <h2>Mathematical Mechanics & Engine Formulas</h2>
     <p>Understanding aim physics requires breaking down how rendering engines calculate rotation vectors. In 3D space, mouse movement inputs map to angular rotation per count based on the game engine's specific yaw constant:</p>
     <div class="code-block">
     • Valorant Yaw Constant: 0.07° per count<br>
     • CS2 / Source Engine Yaw Constant: 0.022° per count<br>
-    • Overwatch 2 / Apex Legends Yaw Constant: 0.022° per count<br>
+    • Apex Legends Yaw Constant: 0.022° per count<br>
+    • Overwatch 2 Yaw Constant: 0.0066° per count<br>
     • Fortnite Yaw Constant: 0.005555° per count<br>
     • Formula: eDPI = Hardware DPI × In-Game Sensitivity<br>
     • Formula: cm/360 = (360 × 2.54) / (DPI × Sensitivity × Yaw)
     </div>
     <p>By keeping your physical centimeters per 360 rotation (cm/360) consistent, you maintain identical physical hand travel across titles. However, when switching between different aspect ratios (16:9 vs 4:3 stretched) or vertical FOVs, you must apply 0% Monitor Distance Matching (Focal Length Scaling) to match optical tracking speed at screen center.</p>
 
-    <h2>Esports Meta & Pro Player Benchmark Data (Authoritativeness)</h2>
-    <p>Based on our database of over 250 active professional FPS players across VCT Americas/EMEA, BLAST Premier, and ALGS:</p>
+    <h2>Esports Meta & Pro Player Benchmark Data</h2>
+    <p>Looking at publicly available pro settings and general esports sensitivity trends:</p>
     <ul>
       <li><strong>Tactical Shooters (Valorant / CS2):</strong> The median pro eDPI sits between 200 and 320 eDPI (approx. 40cm/360 to 65cm/360). Pro players prefer lower sensitivity to maximize micro-correction accuracy and first-bullet headshot precision.</li>
       <li><strong>Tracking & Dynamic Shooters (Apex / OW2 / Fortnite):</strong> The median pro eDPI ranges from 2400 to 4800 eDPI in Source/OW2 terms (approx. 28cm/360 to 38cm/360). Higher sensitivity allows rapid 180° sweeps and smooth target tracking during erratic movement.</li>
     </ul>
 
-    <h2>Step-by-Step Calibration & Actionable Implementation (Trustworthiness)</h2>
+    <h2>Step-by-Step Calibration & Actionable Implementation</h2>
     <ol>
       <li><strong>Disable Windows Mouse Acceleration:</strong> Open Windows Control Panel → Mouse Properties → Pointer Options → Uncheck "Enhance Pointer Precision". This ensures 1:1 raw input without non-linear velocity scaling.</li>
       <li><strong>Set Native Mouse DPI:</strong> Use 800 or 1600 DPI on modern optical sensors (PMW3395 / HERO 25K) to minimize sensor input latency by up to 2.5ms compared to 400 DPI while avoiding sensor smoothing.</li>
@@ -449,19 +465,25 @@ You can refine later — but start here.</div>
     </div>
     <div class="faq-item">
       <h3>Should I match my hipfire sensitivity to my ADS sensitivity?</h3>
-      <p>Yes! Utilizing 1:1 focal matching (0.747 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
+      <p>Yes! Utilizing 1:1 focal matching (0.847 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
     </div>
     `
   },
 
   {
     slug: 'halo-infinite-sensitivity-converter-guide',
-    title: 'Halo Infinite Sensitivity Converter Guide',
+    faqs: [
+        { q: 'How do I convert my sensitivity to Halo Infinite?', a: 'Halo uses a sensitivity scale rather than a direct yaw multiplier, so the reliable route is to convert through cm/360 rather than through the slider number. Work out your cm/360 in your current game, then find the Halo value that produces the same distance. That preserves the physical motion your hands already know.' },
+        { q: 'Does Halo have separate ADS sensitivity?', a: 'Yes, and it is exposed per zoom level for weapons with multiple magnifications. Set your hipfire value first and only then match the zoomed levels — deriving a scope multiplier from a hipfire number you are still changing means redoing both.' },
+        { q: 'Why does Halo feel different at the same cm/360?', a: 'Halo\'s movement speed, jump height and time-to-kill are all slower than most modern tactical shooters, so the same physical turn distance produces a very different rhythm. The conversion is correct; the game is asking for a different pace of aiming.' },
+    ],
+    title: 'Halo Infinite Sensitivity: Yaw, ADS and How to Convert It',
     excerpt: 'Halo Infinite uses a non-standard sensitivity system tied to its FOV. This guide covers the conversion from CS2, Valorant, and Apex, recommended settings for each weapon class, and why Halo aim feels different after a perfect conversion.',
+        summary: 'Halo Infinite uses a non-standard sensitivity system tied to its FOV. This guide covers the conversion from CS2, Valorant, and Apex, recommended settings for each weapon class, and why Halo aim feels different after a perfect conversion.',
     date: 'April 19, 2026',
     readTime: '10 min read',
     category: 'Guide',
-    image: '/blog/halo-infinite-sensitivity.webp',
+    image: '/blog/halo-infinite-sensitivity-converter-guide.webp',
     content: `<h2>Halo Infinite's Sensitivity System</h2>
       <p>Halo Infinite uses a sensitivity scale from 1.0 to 10.0 (with 0.5 increments possible through console). Unlike CS2 and Valorant which use a single yaw value, Halo's sensitivity is tied to its FOV setting (80° default at 16:9 on PC). Changing FOV changes how sensitivity feels even if the slider value stays the same.</p>
 
@@ -508,29 +530,27 @@ Raw Input: On (ensures Windows accel doesn't interfere)</div>
 
       <p>Convert your main FPS sensitivity to Halo Infinite with our <a href="/">DCPROSENS converter</a>. Allow 10–15 hours of Halo play before evaluating the converted settings — Halo's movement rhythm is distinct enough to require an adaptation period.</p>
 
-    <h2>Pro-Level Testing & Empirical Analysis (Experience)</h2>
-    <p>Our team of competitive FPS analysts and high-rank players (Immortal 3 / CS2 20K+ ELO) conducted over 50 hours of controlled in-game testing using high-speed optical tracking sensors, 1000Hz to 8000Hz polling rate mice (Logitech G Pro X Superlight 2, Razer Viper V3 Pro), and 360Hz OLED monitors. We tested physical crosshair displacement across 30cm to 50cm sweeps to measure raw muscle memory retention and focal accuracy under tournament conditions.</p>
-    
-    <h2>Mathematical Mechanics & Engine Formulas (Expertise)</h2>
+    <h2>Mathematical Mechanics & Engine Formulas</h2>
     <p>Understanding aim physics requires breaking down how rendering engines calculate rotation vectors. In 3D space, mouse movement inputs map to angular rotation per count based on the game engine's specific yaw constant:</p>
     <div class="code-block">
     • Valorant Yaw Constant: 0.07° per count<br>
     • CS2 / Source Engine Yaw Constant: 0.022° per count<br>
-    • Overwatch 2 / Apex Legends Yaw Constant: 0.022° per count<br>
+    • Apex Legends Yaw Constant: 0.022° per count<br>
+    • Overwatch 2 Yaw Constant: 0.0066° per count<br>
     • Fortnite Yaw Constant: 0.005555° per count<br>
     • Formula: eDPI = Hardware DPI × In-Game Sensitivity<br>
     • Formula: cm/360 = (360 × 2.54) / (DPI × Sensitivity × Yaw)
     </div>
     <p>By keeping your physical centimeters per 360 rotation (cm/360) consistent, you maintain identical physical hand travel across titles. However, when switching between different aspect ratios (16:9 vs 4:3 stretched) or vertical FOVs, you must apply 0% Monitor Distance Matching (Focal Length Scaling) to match optical tracking speed at screen center.</p>
 
-    <h2>Esports Meta & Pro Player Benchmark Data (Authoritativeness)</h2>
-    <p>Based on our database of over 250 active professional FPS players across VCT Americas/EMEA, BLAST Premier, and ALGS:</p>
+    <h2>Esports Meta & Pro Player Benchmark Data</h2>
+    <p>Looking at publicly available pro settings and general esports sensitivity trends:</p>
     <ul>
       <li><strong>Tactical Shooters (Valorant / CS2):</strong> The median pro eDPI sits between 200 and 320 eDPI (approx. 40cm/360 to 65cm/360). Pro players prefer lower sensitivity to maximize micro-correction accuracy and first-bullet headshot precision.</li>
       <li><strong>Tracking & Dynamic Shooters (Apex / OW2 / Fortnite):</strong> The median pro eDPI ranges from 2400 to 4800 eDPI in Source/OW2 terms (approx. 28cm/360 to 38cm/360). Higher sensitivity allows rapid 180° sweeps and smooth target tracking during erratic movement.</li>
     </ul>
 
-    <h2>Step-by-Step Calibration & Actionable Implementation (Trustworthiness)</h2>
+    <h2>Step-by-Step Calibration & Actionable Implementation</h2>
     <ol>
       <li><strong>Disable Windows Mouse Acceleration:</strong> Open Windows Control Panel → Mouse Properties → Pointer Options → Uncheck "Enhance Pointer Precision". This ensures 1:1 raw input without non-linear velocity scaling.</li>
       <li><strong>Set Native Mouse DPI:</strong> Use 800 or 1600 DPI on modern optical sensors (PMW3395 / HERO 25K) to minimize sensor input latency by up to 2.5ms compared to 400 DPI while avoiding sensor smoothing.</li>
@@ -545,19 +565,25 @@ Raw Input: On (ensures Windows accel doesn't interfere)</div>
     </div>
     <div class="faq-item">
       <h3>Should I match my hipfire sensitivity to my ADS sensitivity?</h3>
-      <p>Yes! Utilizing 1:1 focal matching (0.747 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
+      <p>Yes! Utilizing 1:1 focal matching (0.847 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
     </div>
     `
   },
 
   {
     slug: 'gaming-ergonomics-setup-guide-aim-posture',
+    faqs: [
+        { q: 'What is the correct desk height for aiming?', a: 'Low enough that your forearm rests roughly level with the desk surface and your elbow sits at or slightly above 90 degrees. Most desks are built for typing and sit too high for arm aiming, which forces the shoulder to carry the movement — the single most common cause of long-session aim fatigue.' },
+        { q: 'Should my arm rest on the desk while aiming?', a: 'Yes, if you aim with your arm. The forearm should have a stable pivot point on the desk edge or on the desk surface, which is what makes large movements repeatable. Aiming with an unsupported arm means the pivot moves between shots and no two identical hand motions produce identical results.' },
+        { q: 'How does monitor distance affect aim?', a: 'Closer means each degree of camera rotation covers more of your visual field, which makes the same sensitivity feel faster without any setting changing. Most players sit between 50 and 70 cm from a 24-inch panel. Moving the monitor is a legitimate way to fine-tune feel without touching a number you have already trained on.' },
+    ],
     title: 'Gaming Ergonomics Guide: Setup Posture & Aim',
     excerpt: 'Bad desk posture doesn\'t just cause back pain — it directly impairs your aim. This guide covers the optimal monitor position, desk height, chair setup, and wrist position for FPS gaming performance and long-term health.',
+        summary: 'Bad desk posture doesn\'t just cause back pain — it directly impairs your aim. This guide covers the optimal monitor position, desk height, chair setup, and wrist position for FPS gaming performance and long-term health.',
     date: 'April 18, 2026',
     readTime: '12 min read',
     category: 'Guide',
-    image: '/blog/gaming-ergonomics-setup.webp',
+    image: '/blog/gaming-ergonomics-setup-guide-aim-posture.webp',
     content: `<h2>Ergonomics is a Performance Issue, Not Just a Comfort Issue</h2>
       <p>Most gamers think of ergonomics as something older office workers worry about. In competitive gaming, bad ergonomics is a performance limiter: hunched posture restricts arm movement range (directly impacting arm-aiming players), elevated shoulders cause muscle tension that reduces mouse precision, and poor wrist angles increase RSI risk that can end gaming careers.</p>
 
@@ -602,31 +628,29 @@ If elbows must rise above desk to reach mouse = desk too high or chair too low.<
       <p>Every 20 minutes: look at something 20 feet (6m) away for 20 seconds. This relaxes eye focus muscles and prevents digital eye strain which causes headaches and reduced reaction sharpness. Set a timer. It interrupts nothing at 20 seconds and pays dividends in late-session performance quality.</p>
 
       <h2>Sensitivity and Ergonomics: The Connection</h2>
-      <p>Your sensitivity and ergonomics interact directly: if you're an arm-aimer but your desk is too high (causing shoulder elevation), you will unconsciously compensate by using more wrist movement — effectively becoming a wrist-aimer with a sensitivity calibrated for arm-aiming. Fix the desk height, and your arm-aimed sensitivity will suddenly feel correct. Always verify ergonomics before concluding your sensitivity is wrong, then recalibrate with our <a href="/dpi">eDPI calculator</a>.</p>
+      <p>Your sensitivity and ergonomics interact directly: if you're an arm-aimer but your desk is too high (causing shoulder elevation), you will unconsciously compensate by using more wrist movement — effectively becoming a wrist-aimer with a sensitivity calibrated for arm-aiming. Fix the desk height, and your arm-aimed sensitivity will suddenly feel correct. Always verify ergonomics before concluding your sensitivity is wrong, then recalibrate with our <a href="/dpi/">eDPI calculator</a>.</p>
 
-    <h2>Pro-Level Testing & Empirical Analysis (Experience)</h2>
-    <p>Our team of competitive FPS analysts and high-rank players (Immortal 3 / CS2 20K+ ELO) conducted over 50 hours of controlled in-game testing using high-speed optical tracking sensors, 1000Hz to 8000Hz polling rate mice (Logitech G Pro X Superlight 2, Razer Viper V3 Pro), and 360Hz OLED monitors. We tested physical crosshair displacement across 30cm to 50cm sweeps to measure raw muscle memory retention and focal accuracy under tournament conditions.</p>
-    
-    <h2>Mathematical Mechanics & Engine Formulas (Expertise)</h2>
+    <h2>Mathematical Mechanics & Engine Formulas</h2>
     <p>Understanding aim physics requires breaking down how rendering engines calculate rotation vectors. In 3D space, mouse movement inputs map to angular rotation per count based on the game engine's specific yaw constant:</p>
     <div class="code-block">
     • Valorant Yaw Constant: 0.07° per count<br>
     • CS2 / Source Engine Yaw Constant: 0.022° per count<br>
-    • Overwatch 2 / Apex Legends Yaw Constant: 0.022° per count<br>
+    • Apex Legends Yaw Constant: 0.022° per count<br>
+    • Overwatch 2 Yaw Constant: 0.0066° per count<br>
     • Fortnite Yaw Constant: 0.005555° per count<br>
     • Formula: eDPI = Hardware DPI × In-Game Sensitivity<br>
     • Formula: cm/360 = (360 × 2.54) / (DPI × Sensitivity × Yaw)
     </div>
     <p>By keeping your physical centimeters per 360 rotation (cm/360) consistent, you maintain identical physical hand travel across titles. However, when switching between different aspect ratios (16:9 vs 4:3 stretched) or vertical FOVs, you must apply 0% Monitor Distance Matching (Focal Length Scaling) to match optical tracking speed at screen center.</p>
 
-    <h2>Esports Meta & Pro Player Benchmark Data (Authoritativeness)</h2>
-    <p>Based on our database of over 250 active professional FPS players across VCT Americas/EMEA, BLAST Premier, and ALGS:</p>
+    <h2>Esports Meta & Pro Player Benchmark Data</h2>
+    <p>Looking at publicly available pro settings and general esports sensitivity trends:</p>
     <ul>
       <li><strong>Tactical Shooters (Valorant / CS2):</strong> The median pro eDPI sits between 200 and 320 eDPI (approx. 40cm/360 to 65cm/360). Pro players prefer lower sensitivity to maximize micro-correction accuracy and first-bullet headshot precision.</li>
       <li><strong>Tracking & Dynamic Shooters (Apex / OW2 / Fortnite):</strong> The median pro eDPI ranges from 2400 to 4800 eDPI in Source/OW2 terms (approx. 28cm/360 to 38cm/360). Higher sensitivity allows rapid 180° sweeps and smooth target tracking during erratic movement.</li>
     </ul>
 
-    <h2>Step-by-Step Calibration & Actionable Implementation (Trustworthiness)</h2>
+    <h2>Step-by-Step Calibration & Actionable Implementation</h2>
     <ol>
       <li><strong>Disable Windows Mouse Acceleration:</strong> Open Windows Control Panel → Mouse Properties → Pointer Options → Uncheck "Enhance Pointer Precision". This ensures 1:1 raw input without non-linear velocity scaling.</li>
       <li><strong>Set Native Mouse DPI:</strong> Use 800 or 1600 DPI on modern optical sensors (PMW3395 / HERO 25K) to minimize sensor input latency by up to 2.5ms compared to 400 DPI while avoiding sensor smoothing.</li>
@@ -641,7 +665,7 @@ If elbows must rise above desk to reach mouse = desk too high or chair too low.<
     </div>
     <div class="faq-item">
       <h3>Should I match my hipfire sensitivity to my ADS sensitivity?</h3>
-      <p>Yes! Utilizing 1:1 focal matching (0.747 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
+      <p>Yes! Utilizing 1:1 focal matching (0.847 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
     </div>
     `
   },
@@ -652,12 +676,18 @@ If elbows must rise above desk to reach mouse = desk too high or chair too low.<
 
   {
     slug: 'how-to-escape-elo-hell-valorant-cs2-2026',
+    faqs: [
+        { q: 'Does ELO hell actually exist?', a: 'Not as a system that traps you, but the frustration behind the phrase is real. Over a large number of games your rank converges on your impact, and teammates average out. What genuinely holds players at a rank is a small number of repeated, fixable mistakes — usually positioning and over-peeking — that feel like bad luck because they are invisible from inside the round.' },
+        { q: 'What is the fastest way to climb?', a: 'Review your own deaths, not your kills. Watch five of your own demos and write down what you were doing in the two seconds before each death. The pattern that appears is almost always narrower than you expect, and fixing one repeated positioning error moves rank faster than any amount of aim training.' },
+        { q: 'Should I play fewer games to climb faster?', a: 'Yes, when you are tilted. Performance falls measurably after a loss streak, and the games you play in that state cost you more rank than the ones you win in a good state gain. Two focused games beat six frustrated ones, and the ladder rewards consistency over volume.' },
+    ],
     title: 'How to Escape ELO Hell in Valorant & CS2',
     excerpt: 'ELO hell is real — but it\'s fixable. This guide explains the ranked matchmaking science, the 5 controllable factors that get you stuck, and the exact system to climb consistently in Valorant and CS2.',
+        summary: 'ELO hell is real — but it\'s fixable. This guide explains the ranked matchmaking science, the 5 controllable factors that get you stuck, and the exact system to climb consistently in Valorant and CS2.',
     date: 'April 23, 2026',
     readTime: '14 min read',
     category: 'Guide',
-    image: '/blog/escape-elo-hell-guide.webp',
+    image: '/blog/how-to-escape-elo-hell-valorant-cs2-2026.webp',
     content: `<h2>Does ELO Hell Actually Exist?</h2>
       <p>The debate is settled: ELO hell exists as a <em>statistical phenomenon</em>, but not in the way most players believe. You are not stuck because of bad teammates assigned by some conspiracy. You are stuck because of a specific, measurable gap between your mechanical skill ceiling and the consistent, repeatable performance your ranked system requires to climb. The good news: this gap has identifiable causes and proven solutions.</p>
 
@@ -673,7 +703,7 @@ If elbows must rise above desk to reach mouse = desk too high or chair too low.<
       <h2>The 5 Controllable Factors That Keep You in ELO Hell</h2>
 
       <h3>1. Sensitivity Inconsistency</h3>
-      <p>Players who change sensitivity frequently never build consolidated muscle memory. At every rank below Diamond/Faceit Level 8, sensitivity switching is one of the top 3 reasons for plateau. Pick a sensitivity, calculate it with our <a href="/dpi">eDPI calculator</a>, and commit for 45 days minimum with zero changes.</p>
+      <p>Players who change sensitivity frequently never build consolidated muscle memory. At every rank below Diamond/Faceit Level 8, sensitivity switching is one of the top 3 reasons for plateau. Pick a sensitivity, calculate it with our <a href="/dpi/">eDPI calculator</a>, and commit for 45 days minimum with zero changes.</p>
 
       <h3>2. Agent/Role Mislocking (Valorant)</h3>
       <p>Playing a different role every match prevents specialization. The fastest climbers in Immortal+ data lock 1–2 agents per map, mastering their lineups, angles, and ability interactions. Duelist one-tricks frequently outclimb "flexible" players by 2–3 act periods.</p>
@@ -705,31 +735,29 @@ If elbows must rise above desk to reach mouse = desk too high or chair too low.<
       </table>
 
       <h2>Why Mechanical Aim Is Only 40% of Rank</h2>
-      <p>Countless data analyses of rank distribution confirm: at every rank up to Ascendant (Valorant) or Faceit Level 9 (CS2), <strong>game sense and crosshair placement account for more kills than raw flick speed</strong>. A player with average mechanical aim and excellent positioning consistently outperforms a mechanical-aim prodigy with poor game sense. Your sensitivity being correctly calibrated (use our <a href="/dpi">eDPI calculator</a>) is table stakes — the differentiator is where you aim, not how fast you move the mouse.</p>
+      <p>Countless data analyses of rank distribution confirm: at every rank up to Ascendant (Valorant) or Faceit Level 9 (CS2), <strong>game sense and crosshair placement account for more kills than raw flick speed</strong>. A player with average mechanical aim and excellent positioning consistently outperforms a mechanical-aim prodigy with poor game sense. Your sensitivity being correctly calibrated (use our <a href="/dpi/">eDPI calculator</a>) is table stakes — the differentiator is where you aim, not how fast you move the mouse.</p>
 
-    <h2>Pro-Level Testing & Empirical Analysis (Experience)</h2>
-    <p>Our team of competitive FPS analysts and high-rank players (Immortal 3 / CS2 20K+ ELO) conducted over 50 hours of controlled in-game testing using high-speed optical tracking sensors, 1000Hz to 8000Hz polling rate mice (Logitech G Pro X Superlight 2, Razer Viper V3 Pro), and 360Hz OLED monitors. We tested physical crosshair displacement across 30cm to 50cm sweeps to measure raw muscle memory retention and focal accuracy under tournament conditions.</p>
-    
-    <h2>Mathematical Mechanics & Engine Formulas (Expertise)</h2>
+    <h2>Mathematical Mechanics & Engine Formulas</h2>
     <p>Understanding aim physics requires breaking down how rendering engines calculate rotation vectors. In 3D space, mouse movement inputs map to angular rotation per count based on the game engine's specific yaw constant:</p>
     <div class="code-block">
     • Valorant Yaw Constant: 0.07° per count<br>
     • CS2 / Source Engine Yaw Constant: 0.022° per count<br>
-    • Overwatch 2 / Apex Legends Yaw Constant: 0.022° per count<br>
+    • Apex Legends Yaw Constant: 0.022° per count<br>
+    • Overwatch 2 Yaw Constant: 0.0066° per count<br>
     • Fortnite Yaw Constant: 0.005555° per count<br>
     • Formula: eDPI = Hardware DPI × In-Game Sensitivity<br>
     • Formula: cm/360 = (360 × 2.54) / (DPI × Sensitivity × Yaw)
     </div>
     <p>By keeping your physical centimeters per 360 rotation (cm/360) consistent, you maintain identical physical hand travel across titles. However, when switching between different aspect ratios (16:9 vs 4:3 stretched) or vertical FOVs, you must apply 0% Monitor Distance Matching (Focal Length Scaling) to match optical tracking speed at screen center.</p>
 
-    <h2>Esports Meta & Pro Player Benchmark Data (Authoritativeness)</h2>
-    <p>Based on our database of over 250 active professional FPS players across VCT Americas/EMEA, BLAST Premier, and ALGS:</p>
+    <h2>Esports Meta & Pro Player Benchmark Data</h2>
+    <p>Looking at publicly available pro settings and general esports sensitivity trends:</p>
     <ul>
       <li><strong>Tactical Shooters (Valorant / CS2):</strong> The median pro eDPI sits between 200 and 320 eDPI (approx. 40cm/360 to 65cm/360). Pro players prefer lower sensitivity to maximize micro-correction accuracy and first-bullet headshot precision.</li>
       <li><strong>Tracking & Dynamic Shooters (Apex / OW2 / Fortnite):</strong> The median pro eDPI ranges from 2400 to 4800 eDPI in Source/OW2 terms (approx. 28cm/360 to 38cm/360). Higher sensitivity allows rapid 180° sweeps and smooth target tracking during erratic movement.</li>
     </ul>
 
-    <h2>Step-by-Step Calibration & Actionable Implementation (Trustworthiness)</h2>
+    <h2>Step-by-Step Calibration & Actionable Implementation</h2>
     <ol>
       <li><strong>Disable Windows Mouse Acceleration:</strong> Open Windows Control Panel → Mouse Properties → Pointer Options → Uncheck "Enhance Pointer Precision". This ensures 1:1 raw input without non-linear velocity scaling.</li>
       <li><strong>Set Native Mouse DPI:</strong> Use 800 or 1600 DPI on modern optical sensors (PMW3395 / HERO 25K) to minimize sensor input latency by up to 2.5ms compared to 400 DPI while avoiding sensor smoothing.</li>
@@ -744,19 +772,25 @@ If elbows must rise above desk to reach mouse = desk too high or chair too low.<
     </div>
     <div class="faq-item">
       <h3>Should I match my hipfire sensitivity to my ADS sensitivity?</h3>
-      <p>Yes! Utilizing 1:1 focal matching (0.747 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
+      <p>Yes! Utilizing 1:1 focal matching (0.847 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
     </div>
     `
   },
 
   {
     slug: 'mouse-weight-guide-light-vs-heavy-fps-2026',
+    faqs: [
+        { q: 'Is a lighter mouse always better?', a: 'No. Light mice (under 60 g) start and stop with less effort, which suits fast flicking and high-sensitivity play. Heavier mice carry momentum, which some players find steadier for slow tracking. The weight that suits you depends on your grip and sensitivity far more than on any absolute number.' },
+        { q: 'What weight should I look for?', a: 'Most competitive mice now sit between 45 and 70 g. If you aim with your arm at low sensitivity, the difference across that range is small because your forearm is doing the work. If you aim with your wrist and fingers at higher sensitivity, every gram is carried by smaller muscles and the difference is much more noticeable.' },
+        { q: 'Does mouse weight change my sensitivity?', a: 'Not mathematically — cm/360 is identical. But a lighter mouse accelerates faster for the same force, so the same sensitivity feels quicker for the first few days. Expect a short recalibration period and resist changing your sensitivity during it.' },
+    ],
     title: 'Mouse Weight Guide: Light vs Heavy for FPS',
     excerpt: 'Gaming mice now range from 38g to 130g. Does lighter always mean better? This data-driven guide explains how mouse weight affects sensitivity feel, fatigue, precision, and what the pros actually use.',
+        summary: 'Gaming mice now range from 38g to 130g. Does lighter always mean better? This data-driven guide explains how mouse weight affects sensitivity feel, fatigue, precision, and what the pros actually use.',
     date: 'April 22, 2026',
     readTime: '11 min read',
     category: 'Gear',
-    image: '/blog/mouse-weight-guide.webp',
+    image: '/blog/mouse-weight-guide-light-vs-heavy-fps-2026.webp',
     content: `<h2>The Mouse Weight Revolution</h2>
       <p>Between 2019 and 2026, the average competitive gaming mouse dropped from ~95g to ~55g. The Finalmouse Air58 Ninja (58g) in 2018 started a weight race that led to current ultralight designs like the Lamzu Atlantis Mini (38g), Pulsar X2H (52g), and Logitech G Pro X Superlight 2 (60g). But lighter is not universally better — weight affects aim in nuanced ways that depend on your sensitivity and grip style.</p>
 
@@ -824,31 +858,29 @@ If elbows must rise above desk to reach mouse = desk too high or chair too low.<
         <li><strong>Sensor second:</strong> Modern sensors (HERO 25K, Focus Pro 30K, PMW3395) are all competition-viable. Sensor choice rarely matters after this tier.</li>
         <li><strong>Weight third:</strong> After shape and sensor, weight optimization provides marginal but measurable improvement in fatigue and feel.</li>
       </ol>
-      <p>Calibrate your sensitivity to your new mouse with our <a href="/dpi">eDPI calculator</a> — even switching to the same DPI on a lighter mouse may feel slightly different due to reduced resistance.</p>
+      <p>Calibrate your sensitivity to your new mouse with our <a href="/dpi/">eDPI calculator</a> — even switching to the same DPI on a lighter mouse may feel slightly different due to reduced resistance.</p>
 
-    <h2>Pro-Level Testing & Empirical Analysis (Experience)</h2>
-    <p>Our team of competitive FPS analysts and high-rank players (Immortal 3 / CS2 20K+ ELO) conducted over 50 hours of controlled in-game testing using high-speed optical tracking sensors, 1000Hz to 8000Hz polling rate mice (Logitech G Pro X Superlight 2, Razer Viper V3 Pro), and 360Hz OLED monitors. We tested physical crosshair displacement across 30cm to 50cm sweeps to measure raw muscle memory retention and focal accuracy under tournament conditions.</p>
-    
-    <h2>Mathematical Mechanics & Engine Formulas (Expertise)</h2>
+    <h2>Mathematical Mechanics & Engine Formulas</h2>
     <p>Understanding aim physics requires breaking down how rendering engines calculate rotation vectors. In 3D space, mouse movement inputs map to angular rotation per count based on the game engine's specific yaw constant:</p>
     <div class="code-block">
     • Valorant Yaw Constant: 0.07° per count<br>
     • CS2 / Source Engine Yaw Constant: 0.022° per count<br>
-    • Overwatch 2 / Apex Legends Yaw Constant: 0.022° per count<br>
+    • Apex Legends Yaw Constant: 0.022° per count<br>
+    • Overwatch 2 Yaw Constant: 0.0066° per count<br>
     • Fortnite Yaw Constant: 0.005555° per count<br>
     • Formula: eDPI = Hardware DPI × In-Game Sensitivity<br>
     • Formula: cm/360 = (360 × 2.54) / (DPI × Sensitivity × Yaw)
     </div>
     <p>By keeping your physical centimeters per 360 rotation (cm/360) consistent, you maintain identical physical hand travel across titles. However, when switching between different aspect ratios (16:9 vs 4:3 stretched) or vertical FOVs, you must apply 0% Monitor Distance Matching (Focal Length Scaling) to match optical tracking speed at screen center.</p>
 
-    <h2>Esports Meta & Pro Player Benchmark Data (Authoritativeness)</h2>
-    <p>Based on our database of over 250 active professional FPS players across VCT Americas/EMEA, BLAST Premier, and ALGS:</p>
+    <h2>Esports Meta & Pro Player Benchmark Data</h2>
+    <p>Looking at publicly available pro settings and general esports sensitivity trends:</p>
     <ul>
       <li><strong>Tactical Shooters (Valorant / CS2):</strong> The median pro eDPI sits between 200 and 320 eDPI (approx. 40cm/360 to 65cm/360). Pro players prefer lower sensitivity to maximize micro-correction accuracy and first-bullet headshot precision.</li>
       <li><strong>Tracking & Dynamic Shooters (Apex / OW2 / Fortnite):</strong> The median pro eDPI ranges from 2400 to 4800 eDPI in Source/OW2 terms (approx. 28cm/360 to 38cm/360). Higher sensitivity allows rapid 180° sweeps and smooth target tracking during erratic movement.</li>
     </ul>
 
-    <h2>Step-by-Step Calibration & Actionable Implementation (Trustworthiness)</h2>
+    <h2>Step-by-Step Calibration & Actionable Implementation</h2>
     <ol>
       <li><strong>Disable Windows Mouse Acceleration:</strong> Open Windows Control Panel → Mouse Properties → Pointer Options → Uncheck "Enhance Pointer Precision". This ensures 1:1 raw input without non-linear velocity scaling.</li>
       <li><strong>Set Native Mouse DPI:</strong> Use 800 or 1600 DPI on modern optical sensors (PMW3395 / HERO 25K) to minimize sensor input latency by up to 2.5ms compared to 400 DPI while avoiding sensor smoothing.</li>
@@ -863,19 +895,25 @@ If elbows must rise above desk to reach mouse = desk too high or chair too low.<
     </div>
     <div class="faq-item">
       <h3>Should I match my hipfire sensitivity to my ADS sensitivity?</h3>
-      <p>Yes! Utilizing 1:1 focal matching (0.747 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
+      <p>Yes! Utilizing 1:1 focal matching (0.847 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
     </div>
     `
   },
 
   {
     slug: 'apex-legends-controller-vs-mouse-keyboard-2026',
+    faqs: [
+        { q: 'Is controller better than mouse and keyboard in Apex?', a: 'They are strong at different ranges. Controller aim assist helps most in close-range tracking, where a moving target is hard to follow by hand. Mouse and keyboard wins clearly at range, on flicks, and on the movement tech Apex rewards. Neither is simply better across the whole game.' },
+        { q: 'How strong is Apex aim assist?', a: 'Strong enough to matter in close quarters and weak enough to be irrelevant past mid range. It works by slowing your reticle near a target rather than moving it for you, which is why it helps tracking and not target acquisition. It does not replace the need to place your aim correctly first.' },
+        { q: 'Should I switch inputs to climb?', a: 'Almost never. Switching resets years of motor learning, and the rank you lose during the transition usually exceeds anything the new input offers. The exception is a player with a physical reason to switch — everything else is better solved by fixing your settings on the input you already know.' },
+    ],
     title: 'Apex Legends Controller vs Mouse & Keyboard',
     excerpt: 'Apex Legends\' aim assist for controllers has been debated for years. This guide presents the 2026 data on controller vs. MnK performance at different ranks, when each input dominates, and what the top ALGS players use.',
+        summary: 'Apex Legends\' aim assist for controllers has been debated for years. This guide presents the 2026 data on controller vs. MnK performance at different ranks, when each input dominates, and what the top ALGS players use.',
     date: 'April 21, 2026',
     readTime: '13 min read',
     category: 'Guide',
-    image: '/blog/apex-controller-vs-mouse.webp',
+    image: '/blog/apex-legends-controller-vs-mouse-keyboard-2026.webp',
     content: `<h2>The Apex Aim Assist Controversy in 2026</h2>
       <p>The controller vs. Mouse & Keyboard debate in Apex Legends is the most contentious input discussion in competitive FPS gaming. In 2026, the situation evolved significantly: Respawn adjusted controller aim assist (Rotational Aim Assist, or RAA) in the Season 21 patch, reducing magnetism strength from 0.6 to 0.4 on PC. This change significantly impacted the balance between inputs at high ranks.</p>
 
@@ -940,29 +978,27 @@ Zoom Sensitivity Multiplier: 1.0</div>
 
       <p>If switching from controller to MnK in Apex, use our <a href="/">DCPROSENS converter</a> to find your starting sensitivity from another FPS game. Allow 30+ hours of adaptation time before judging MnK performance — the first two weeks are always a significant performance dip as muscle memory transitions.</p>
 
-    <h2>Pro-Level Testing & Empirical Analysis (Experience)</h2>
-    <p>Our team of competitive FPS analysts and high-rank players (Immortal 3 / CS2 20K+ ELO) conducted over 50 hours of controlled in-game testing using high-speed optical tracking sensors, 1000Hz to 8000Hz polling rate mice (Logitech G Pro X Superlight 2, Razer Viper V3 Pro), and 360Hz OLED monitors. We tested physical crosshair displacement across 30cm to 50cm sweeps to measure raw muscle memory retention and focal accuracy under tournament conditions.</p>
-    
-    <h2>Mathematical Mechanics & Engine Formulas (Expertise)</h2>
+    <h2>Mathematical Mechanics & Engine Formulas</h2>
     <p>Understanding aim physics requires breaking down how rendering engines calculate rotation vectors. In 3D space, mouse movement inputs map to angular rotation per count based on the game engine's specific yaw constant:</p>
     <div class="code-block">
     • Valorant Yaw Constant: 0.07° per count<br>
     • CS2 / Source Engine Yaw Constant: 0.022° per count<br>
-    • Overwatch 2 / Apex Legends Yaw Constant: 0.022° per count<br>
+    • Apex Legends Yaw Constant: 0.022° per count<br>
+    • Overwatch 2 Yaw Constant: 0.0066° per count<br>
     • Fortnite Yaw Constant: 0.005555° per count<br>
     • Formula: eDPI = Hardware DPI × In-Game Sensitivity<br>
     • Formula: cm/360 = (360 × 2.54) / (DPI × Sensitivity × Yaw)
     </div>
     <p>By keeping your physical centimeters per 360 rotation (cm/360) consistent, you maintain identical physical hand travel across titles. However, when switching between different aspect ratios (16:9 vs 4:3 stretched) or vertical FOVs, you must apply 0% Monitor Distance Matching (Focal Length Scaling) to match optical tracking speed at screen center.</p>
 
-    <h2>Esports Meta & Pro Player Benchmark Data (Authoritativeness)</h2>
-    <p>Based on our database of over 250 active professional FPS players across VCT Americas/EMEA, BLAST Premier, and ALGS:</p>
+    <h2>Esports Meta & Pro Player Benchmark Data</h2>
+    <p>Looking at publicly available pro settings and general esports sensitivity trends:</p>
     <ul>
       <li><strong>Tactical Shooters (Valorant / CS2):</strong> The median pro eDPI sits between 200 and 320 eDPI (approx. 40cm/360 to 65cm/360). Pro players prefer lower sensitivity to maximize micro-correction accuracy and first-bullet headshot precision.</li>
       <li><strong>Tracking & Dynamic Shooters (Apex / OW2 / Fortnite):</strong> The median pro eDPI ranges from 2400 to 4800 eDPI in Source/OW2 terms (approx. 28cm/360 to 38cm/360). Higher sensitivity allows rapid 180° sweeps and smooth target tracking during erratic movement.</li>
     </ul>
 
-    <h2>Step-by-Step Calibration & Actionable Implementation (Trustworthiness)</h2>
+    <h2>Step-by-Step Calibration & Actionable Implementation</h2>
     <ol>
       <li><strong>Disable Windows Mouse Acceleration:</strong> Open Windows Control Panel → Mouse Properties → Pointer Options → Uncheck "Enhance Pointer Precision". This ensures 1:1 raw input without non-linear velocity scaling.</li>
       <li><strong>Set Native Mouse DPI:</strong> Use 800 or 1600 DPI on modern optical sensors (PMW3395 / HERO 25K) to minimize sensor input latency by up to 2.5ms compared to 400 DPI while avoiding sensor smoothing.</li>
@@ -977,19 +1013,25 @@ Zoom Sensitivity Multiplier: 1.0</div>
     </div>
     <div class="faq-item">
       <h3>Should I match my hipfire sensitivity to my ADS sensitivity?</h3>
-      <p>Yes! Utilizing 1:1 focal matching (0.747 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
+      <p>Yes! Utilizing 1:1 focal matching (0.847 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
     </div>
     `
   },
 
   {
     slug: 'colorblind-mode-settings-valorant-cs2-2026',
+    faqs: [
+        { q: 'Which colorblind setting should I use in Valorant?', a: 'Valorant offers Protanopia, Deuteranopia and Tritanopia presets that recolour abilities and outlines. Pick the one matching your type; if you are unsure, Deuteranopia covers the most common form of red-green deficiency. The setting changes ability effects and enemy outlines, both of which matter more than the map colours.' },
+        { q: 'Does colorblind mode help players with normal vision?', a: 'Sometimes, and it is worth trying. These modes raise contrast between the enemy and the background as a side effect of separating hues, which can make players easier to pick out of a cluttered scene. There is no competitive penalty to using one.' },
+        { q: 'What crosshair colour is most visible?', a: 'Cyan and magenta test best across the widest range of maps and vision types, because neither appears often in game environments. Green is popular but collides with foliage; red collides with common ability effects and with the damage indicator in several games.' },
+    ],
     title: 'Best Colorblind Settings for Valorant & CS2',
     excerpt: '8% of men have some form of color blindness. This guide covers the best colorblind mode settings for Valorant, CS2, and other FPS games — including crosshair colors, enemy highlight settings, and third-party tools.',
+        summary: '8% of men have some form of color blindness. This guide covers the best colorblind mode settings for Valorant, CS2, and other FPS games — including crosshair colors, enemy highlight settings, and third-party tools.',
     date: 'April 20, 2026',
     readTime: '11 min read',
     category: 'Guide',
-    image: '/blog/colorblind-gaming-settings.webp',
+    image: '/blog/colorblind-mode-settings-valorant-cs2-2026.webp',
     content: `<h2>Color Blindness Types and Their FPS Impact</h2>
       <p>Color vision deficiency affects approximately 8% of men and 0.5% of women. In competitive FPS games, color blindness creates specific disadvantages:</p>
       <ul>
@@ -1052,31 +1094,29 @@ cl_crosshaircolor_b 255</div>
       </ul>
 
       <h2>Sensitivity Is Not Affected by Colorblind Mode</h2>
-      <p>Confirming for players who may wonder: colorblind filters, modes, and color adjustments have <strong>zero effect</strong> on mouse sensitivity, polling rate, or input latency. These are purely display-layer adjustments. Use our <a href="/dpi">eDPI calculator</a> normally alongside any colorblind settings.</p>
+      <p>Confirming for players who may wonder: colorblind filters, modes, and color adjustments have <strong>zero effect</strong> on mouse sensitivity, polling rate, or input latency. These are purely display-layer adjustments. Use our <a href="/dpi/">eDPI calculator</a> normally alongside any colorblind settings.</p>
 
-    <h2>Pro-Level Testing & Empirical Analysis (Experience)</h2>
-    <p>Our team of competitive FPS analysts and high-rank players (Immortal 3 / CS2 20K+ ELO) conducted over 50 hours of controlled in-game testing using high-speed optical tracking sensors, 1000Hz to 8000Hz polling rate mice (Logitech G Pro X Superlight 2, Razer Viper V3 Pro), and 360Hz OLED monitors. We tested physical crosshair displacement across 30cm to 50cm sweeps to measure raw muscle memory retention and focal accuracy under tournament conditions.</p>
-    
-    <h2>Mathematical Mechanics & Engine Formulas (Expertise)</h2>
+    <h2>Mathematical Mechanics & Engine Formulas</h2>
     <p>Understanding aim physics requires breaking down how rendering engines calculate rotation vectors. In 3D space, mouse movement inputs map to angular rotation per count based on the game engine's specific yaw constant:</p>
     <div class="code-block">
     • Valorant Yaw Constant: 0.07° per count<br>
     • CS2 / Source Engine Yaw Constant: 0.022° per count<br>
-    • Overwatch 2 / Apex Legends Yaw Constant: 0.022° per count<br>
+    • Apex Legends Yaw Constant: 0.022° per count<br>
+    • Overwatch 2 Yaw Constant: 0.0066° per count<br>
     • Fortnite Yaw Constant: 0.005555° per count<br>
     • Formula: eDPI = Hardware DPI × In-Game Sensitivity<br>
     • Formula: cm/360 = (360 × 2.54) / (DPI × Sensitivity × Yaw)
     </div>
     <p>By keeping your physical centimeters per 360 rotation (cm/360) consistent, you maintain identical physical hand travel across titles. However, when switching between different aspect ratios (16:9 vs 4:3 stretched) or vertical FOVs, you must apply 0% Monitor Distance Matching (Focal Length Scaling) to match optical tracking speed at screen center.</p>
 
-    <h2>Esports Meta & Pro Player Benchmark Data (Authoritativeness)</h2>
-    <p>Based on our database of over 250 active professional FPS players across VCT Americas/EMEA, BLAST Premier, and ALGS:</p>
+    <h2>Esports Meta & Pro Player Benchmark Data</h2>
+    <p>Looking at publicly available pro settings and general esports sensitivity trends:</p>
     <ul>
       <li><strong>Tactical Shooters (Valorant / CS2):</strong> The median pro eDPI sits between 200 and 320 eDPI (approx. 40cm/360 to 65cm/360). Pro players prefer lower sensitivity to maximize micro-correction accuracy and first-bullet headshot precision.</li>
       <li><strong>Tracking & Dynamic Shooters (Apex / OW2 / Fortnite):</strong> The median pro eDPI ranges from 2400 to 4800 eDPI in Source/OW2 terms (approx. 28cm/360 to 38cm/360). Higher sensitivity allows rapid 180° sweeps and smooth target tracking during erratic movement.</li>
     </ul>
 
-    <h2>Step-by-Step Calibration & Actionable Implementation (Trustworthiness)</h2>
+    <h2>Step-by-Step Calibration & Actionable Implementation</h2>
     <ol>
       <li><strong>Disable Windows Mouse Acceleration:</strong> Open Windows Control Panel → Mouse Properties → Pointer Options → Uncheck "Enhance Pointer Precision". This ensures 1:1 raw input without non-linear velocity scaling.</li>
       <li><strong>Set Native Mouse DPI:</strong> Use 800 or 1600 DPI on modern optical sensors (PMW3395 / HERO 25K) to minimize sensor input latency by up to 2.5ms compared to 400 DPI while avoiding sensor smoothing.</li>
@@ -1091,19 +1131,25 @@ cl_crosshaircolor_b 255</div>
     </div>
     <div class="faq-item">
       <h3>Should I match my hipfire sensitivity to my ADS sensitivity?</h3>
-      <p>Yes! Utilizing 1:1 focal matching (0.747 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
+      <p>Yes! Utilizing 1:1 focal matching (0.847 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
     </div>
     `
   },
 
   {
     slug: 'best-fov-settings-valorant-cs2-apex-2026',
+    faqs: [
+        { q: 'Does a higher FOV make me better?', a: 'It trades information for size. A wider field of view shows you more of the map at once but renders every target smaller, which makes precise shots harder at range. Players who rely on reacting to flanks tend to prefer higher; players who hold long angles tend to prefer lower.' },
+        { q: 'Does changing FOV change my sensitivity?', a: 'Not the number, but it changes how that number feels. A wider FOV means each degree of camera rotation covers a smaller fraction of your screen, so the same cm/360 feels slower. If you change FOV, expect to spend a week recalibrating rather than immediately adjusting your sensitivity.' },
+        { q: 'Why does CS2 not let me change FOV?', a: 'CS2 fixes the field of view for competitive integrity, so every player sees the same amount of the map. What you can change is the viewmodel, which alters how much of the screen your weapon occupies — a genuine visibility gain that is often mistaken for an FOV setting.' },
+    ],
     title: 'Best FOV Settings for Valorant, CS2 & Apex',
     excerpt: 'Field of View directly affects how your sensitivity feels. This guide explains the ideal FOV for each major FPS game, how changing FOV requires a sensitivity adjustment, and what pro players use in 2026.',
+        summary: 'Field of View directly affects how your sensitivity feels. This guide explains the ideal FOV for each major FPS game, how changing FOV requires a sensitivity adjustment, and what pro players use in 2026.',
     date: 'April 19, 2026',
     readTime: '12 min read',
     category: 'Guide',
-    image: '/blog/best-fov-settings.webp',
+    image: '/blog/best-fov-settings-valorant-cs2-apex-2026.webp',
     content: `<h2>What FOV Does to Your Gameplay</h2>
       <p>Field of View (FOV) is the angular extent of the game world visible on your screen at one time. Higher FOV = wider view, more peripheral awareness, smaller enemies at equal distances. Lower FOV = narrower tunnel view, larger enemies, better long-range target visibility. FOV has two critical gameplay effects:</p>
       <ol>
@@ -1153,31 +1199,29 @@ At 105° FOV enemy size is balanced with awareness need.
 Use Field of View Affected: ON (for ADS FOV to scale with hipfire FOV)</div>
 
       <h2>How to Adjust Sensitivity After FOV Changes</h2>
-      <p>If you change your FOV in any game that allows it, recalculate your sensitivity with our <a href="/dpi">eDPI calculator</a>. Some advanced converters account for FOV-scaled sensitivity — use our <a href="/">DCPROSENS converter</a> when switching between games at different FOV settings to ensure your cm/360 transfers correctly. After any FOV change, spend 30 minutes in practice mode before returning to ranked — perceptual adaptation takes time.</p>
+      <p>If you change your FOV in any game that allows it, recalculate your sensitivity with our <a href="/dpi/">eDPI calculator</a>. Some advanced converters account for FOV-scaled sensitivity — use our <a href="/">DCPROSENS converter</a> when switching between games at different FOV settings to ensure your cm/360 transfers correctly. After any FOV change, spend 30 minutes in practice mode before returning to ranked — perceptual adaptation takes time.</p>
 
-    <h2>Pro-Level Testing & Empirical Analysis (Experience)</h2>
-    <p>Our team of competitive FPS analysts and high-rank players (Immortal 3 / CS2 20K+ ELO) conducted over 50 hours of controlled in-game testing using high-speed optical tracking sensors, 1000Hz to 8000Hz polling rate mice (Logitech G Pro X Superlight 2, Razer Viper V3 Pro), and 360Hz OLED monitors. We tested physical crosshair displacement across 30cm to 50cm sweeps to measure raw muscle memory retention and focal accuracy under tournament conditions.</p>
-    
-    <h2>Mathematical Mechanics & Engine Formulas (Expertise)</h2>
+    <h2>Mathematical Mechanics & Engine Formulas</h2>
     <p>Understanding aim physics requires breaking down how rendering engines calculate rotation vectors. In 3D space, mouse movement inputs map to angular rotation per count based on the game engine's specific yaw constant:</p>
     <div class="code-block">
     • Valorant Yaw Constant: 0.07° per count<br>
     • CS2 / Source Engine Yaw Constant: 0.022° per count<br>
-    • Overwatch 2 / Apex Legends Yaw Constant: 0.022° per count<br>
+    • Apex Legends Yaw Constant: 0.022° per count<br>
+    • Overwatch 2 Yaw Constant: 0.0066° per count<br>
     • Fortnite Yaw Constant: 0.005555° per count<br>
     • Formula: eDPI = Hardware DPI × In-Game Sensitivity<br>
     • Formula: cm/360 = (360 × 2.54) / (DPI × Sensitivity × Yaw)
     </div>
     <p>By keeping your physical centimeters per 360 rotation (cm/360) consistent, you maintain identical physical hand travel across titles. However, when switching between different aspect ratios (16:9 vs 4:3 stretched) or vertical FOVs, you must apply 0% Monitor Distance Matching (Focal Length Scaling) to match optical tracking speed at screen center.</p>
 
-    <h2>Esports Meta & Pro Player Benchmark Data (Authoritativeness)</h2>
-    <p>Based on our database of over 250 active professional FPS players across VCT Americas/EMEA, BLAST Premier, and ALGS:</p>
+    <h2>Esports Meta & Pro Player Benchmark Data</h2>
+    <p>Looking at publicly available pro settings and general esports sensitivity trends:</p>
     <ul>
       <li><strong>Tactical Shooters (Valorant / CS2):</strong> The median pro eDPI sits between 200 and 320 eDPI (approx. 40cm/360 to 65cm/360). Pro players prefer lower sensitivity to maximize micro-correction accuracy and first-bullet headshot precision.</li>
       <li><strong>Tracking & Dynamic Shooters (Apex / OW2 / Fortnite):</strong> The median pro eDPI ranges from 2400 to 4800 eDPI in Source/OW2 terms (approx. 28cm/360 to 38cm/360). Higher sensitivity allows rapid 180° sweeps and smooth target tracking during erratic movement.</li>
     </ul>
 
-    <h2>Step-by-Step Calibration & Actionable Implementation (Trustworthiness)</h2>
+    <h2>Step-by-Step Calibration & Actionable Implementation</h2>
     <ol>
       <li><strong>Disable Windows Mouse Acceleration:</strong> Open Windows Control Panel → Mouse Properties → Pointer Options → Uncheck "Enhance Pointer Precision". This ensures 1:1 raw input without non-linear velocity scaling.</li>
       <li><strong>Set Native Mouse DPI:</strong> Use 800 or 1600 DPI on modern optical sensors (PMW3395 / HERO 25K) to minimize sensor input latency by up to 2.5ms compared to 400 DPI while avoiding sensor smoothing.</li>
@@ -1192,19 +1236,25 @@ Use Field of View Affected: ON (for ADS FOV to scale with hipfire FOV)</div>
     </div>
     <div class="faq-item">
       <h3>Should I match my hipfire sensitivity to my ADS sensitivity?</h3>
-      <p>Yes! Utilizing 1:1 focal matching (0.747 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
+      <p>Yes! Utilizing 1:1 focal matching (0.847 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
     </div>
     `
   },
 
   {
     slug: 'how-to-stop-tilting-fps-games-mental-guide',
+    faqs: [
+        { q: 'What actually causes tilt?', a: 'A mismatch between expected and actual outcome, repeated. It is not caused by losing — it is caused by losing in a way that feels undeserved. That is why a close loss often tilts players less than a win where they played badly, and why reviewing your own mistakes reduces tilt more effectively than winning does.' },
+        { q: 'How many games should I play after a loss streak?', a: 'Stop at two consecutive losses where you played below your own standard. Measurable performance decline after a loss streak is well documented, and the rank you lose in that state usually exceeds what you would have gained by pushing through. The queue will still be there in an hour.' },
+        { q: 'Does changing settings when tilted help?', a: 'It is one of the most damaging habits in competitive gaming. Tilt makes normal variance feel like a settings problem, so you change your sensitivity, lose the muscle memory you had, and confirm the belief that something was wrong. Set a rule: no settings changes on a day you have lost more than you won.' },
+    ],
     title: 'How to Stop Tilting in FPS Games',
     excerpt: 'Tilt destroys aim, costs rank, and burns out players at every level. This science-backed guide covers what tilting does to your brain, the 5-second rule, and the exact protocols competitive players use to maintain mental performance.',
+        summary: 'Tilt destroys aim, costs rank, and burns out players at every level. This science-backed guide covers what tilting does to your brain, the 5-second rule, and the exact protocols competitive players use to maintain mental performance.',
     date: 'April 18, 2026',
     readTime: '13 min read',
     category: 'Guide',
-    image: '/blog/mental-game-fps-tilt.webp',
+    image: '/blog/how-to-stop-tilting-fps-games-mental-guide.webp',
     content: `<h2>What Tilting Actually Does to Your Performance</h2>
       <p>Tilt — the state of frustrated, reactionary play caused by consecutive losses, bad teammates, or critical mistakes — is not just a mood state. It produces measurable cognitive and physiological changes that impair FPS performance:</p>
       <ul>
@@ -1253,31 +1303,29 @@ Use Field of View Affected: ON (for ADS FOV to scale with hipfire FOV)</div>
       </ul>
 
       <h2>When Your Sensitivity Feels Wrong on Tilt Days</h2>
-      <p>A subtle but real phenomenon: on high-tilt days, your sensitivity feels "off." This is not the sensitivity — it's your fine motor control degrading due to cortisol. Do not change your sensitivity when tilted. The degradation is temporary and corrects itself when your emotional state stabilizes. Use our <a href="/dpi">eDPI calculator</a> to verify your settings haven't changed before concluding something is wrong with your setup.</p>
+      <p>A subtle but real phenomenon: on high-tilt days, your sensitivity feels "off." This is not the sensitivity — it's your fine motor control degrading due to cortisol. Do not change your sensitivity when tilted. The degradation is temporary and corrects itself when your emotional state stabilizes. Use our <a href="/dpi/">eDPI calculator</a> to verify your settings haven't changed before concluding something is wrong with your setup.</p>
 
-    <h2>Pro-Level Testing & Empirical Analysis (Experience)</h2>
-    <p>Our team of competitive FPS analysts and high-rank players (Immortal 3 / CS2 20K+ ELO) conducted over 50 hours of controlled in-game testing using high-speed optical tracking sensors, 1000Hz to 8000Hz polling rate mice (Logitech G Pro X Superlight 2, Razer Viper V3 Pro), and 360Hz OLED monitors. We tested physical crosshair displacement across 30cm to 50cm sweeps to measure raw muscle memory retention and focal accuracy under tournament conditions.</p>
-    
-    <h2>Mathematical Mechanics & Engine Formulas (Expertise)</h2>
+    <h2>Mathematical Mechanics & Engine Formulas</h2>
     <p>Understanding aim physics requires breaking down how rendering engines calculate rotation vectors. In 3D space, mouse movement inputs map to angular rotation per count based on the game engine's specific yaw constant:</p>
     <div class="code-block">
     • Valorant Yaw Constant: 0.07° per count<br>
     • CS2 / Source Engine Yaw Constant: 0.022° per count<br>
-    • Overwatch 2 / Apex Legends Yaw Constant: 0.022° per count<br>
+    • Apex Legends Yaw Constant: 0.022° per count<br>
+    • Overwatch 2 Yaw Constant: 0.0066° per count<br>
     • Fortnite Yaw Constant: 0.005555° per count<br>
     • Formula: eDPI = Hardware DPI × In-Game Sensitivity<br>
     • Formula: cm/360 = (360 × 2.54) / (DPI × Sensitivity × Yaw)
     </div>
     <p>By keeping your physical centimeters per 360 rotation (cm/360) consistent, you maintain identical physical hand travel across titles. However, when switching between different aspect ratios (16:9 vs 4:3 stretched) or vertical FOVs, you must apply 0% Monitor Distance Matching (Focal Length Scaling) to match optical tracking speed at screen center.</p>
 
-    <h2>Esports Meta & Pro Player Benchmark Data (Authoritativeness)</h2>
-    <p>Based on our database of over 250 active professional FPS players across VCT Americas/EMEA, BLAST Premier, and ALGS:</p>
+    <h2>Esports Meta & Pro Player Benchmark Data</h2>
+    <p>Looking at publicly available pro settings and general esports sensitivity trends:</p>
     <ul>
       <li><strong>Tactical Shooters (Valorant / CS2):</strong> The median pro eDPI sits between 200 and 320 eDPI (approx. 40cm/360 to 65cm/360). Pro players prefer lower sensitivity to maximize micro-correction accuracy and first-bullet headshot precision.</li>
       <li><strong>Tracking & Dynamic Shooters (Apex / OW2 / Fortnite):</strong> The median pro eDPI ranges from 2400 to 4800 eDPI in Source/OW2 terms (approx. 28cm/360 to 38cm/360). Higher sensitivity allows rapid 180° sweeps and smooth target tracking during erratic movement.</li>
     </ul>
 
-    <h2>Step-by-Step Calibration & Actionable Implementation (Trustworthiness)</h2>
+    <h2>Step-by-Step Calibration & Actionable Implementation</h2>
     <ol>
       <li><strong>Disable Windows Mouse Acceleration:</strong> Open Windows Control Panel → Mouse Properties → Pointer Options → Uncheck "Enhance Pointer Precision". This ensures 1:1 raw input without non-linear velocity scaling.</li>
       <li><strong>Set Native Mouse DPI:</strong> Use 800 or 1600 DPI on modern optical sensors (PMW3395 / HERO 25K) to minimize sensor input latency by up to 2.5ms compared to 400 DPI while avoiding sensor smoothing.</li>
@@ -1292,19 +1340,25 @@ Use Field of View Affected: ON (for ADS FOV to scale with hipfire FOV)</div>
     </div>
     <div class="faq-item">
       <h3>Should I match my hipfire sensitivity to my ADS sensitivity?</h3>
-      <p>Yes! Utilizing 1:1 focal matching (0.747 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
+      <p>Yes! Utilizing 1:1 focal matching (0.847 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
     </div>
     `
   },
 
   {
     slug: 'best-fps-games-to-improve-aim-2026',
+    faqs: [
+        { q: 'Which game builds aim fastest?', a: 'An arena shooter with fast respawns gives you the most aiming repetitions per hour, which is what mechanical skill is built from. CS2 deathmatch and Quake-lineage arena games both work. Tactical rounds with long downtime build decision-making, which matters just as much but trains a different thing.' },
+        { q: 'Should I play multiple shooters at once?', a: 'It works if you convert your sensitivity properly so cm/360 stays constant across all of them, and it fragments your progress badly if you do not. The physical motion is transferable; the game knowledge is not. Convert once, then treat the games as one aiming practice split across several environments.' },
+        { q: 'Is deathmatch better than an aim trainer?', a: 'They train different halves. A trainer isolates the mechanic with no distraction, which builds the movement faster. Deathmatch adds timing, unpredictability and pressure, which is what makes the mechanic survive contact with a real match. Most improvement comes from doing both.' },
+    ],
     title: 'Best FPS Games to Improve Your Aim',
     excerpt: 'Not all FPS games improve aim equally. This guide ranks the top games for aim development based on their mechanics, skill transfer, and what specific skills each game trains best.',
+        summary: 'Not all FPS games improve aim equally. This guide ranks the top games for aim development based on their mechanics, skill transfer, and what specific skills each game trains best.',
     date: 'April 17, 2026',
     readTime: '12 min read',
     category: 'Guide',
-    image: '/blog/best-fps-games-aim.webp',
+    image: '/blog/best-fps-games-to-improve-aim-2026.webp',
     content: `<h2>Why Your Game Choice Affects Aim Development</h2>
       <p>Different FPS games develop different aim subskills. Playing exclusively one game creates skill gaps that hurt you in other scenarios. Understanding which games train which skills lets you build a strategic practice portfolio — especially important for players who want to transfer skills between games or improve in a new title quickly.</p>
 
@@ -1360,29 +1414,27 @@ Use Field of View Affected: ON (for ADS FOV to scale with hipfire FOV)</div>
       <h2>Carrying Skills Between Games</h2>
       <p>When switching between games, use our <a href="/">DCPROSENS converter</a> to transfer your exact cm/360 so muscle memory for physical movement distance is preserved. The game-unique mechanics (spray patterns, TTK, movement speed) require game-specific adaptation, but crosshair placement habits and flick accuracy transfer directly once the sensitivity is correctly calibrated.</p>
 
-    <h2>Pro-Level Testing & Empirical Analysis (Experience)</h2>
-    <p>Our team of competitive FPS analysts and high-rank players (Immortal 3 / CS2 20K+ ELO) conducted over 50 hours of controlled in-game testing using high-speed optical tracking sensors, 1000Hz to 8000Hz polling rate mice (Logitech G Pro X Superlight 2, Razer Viper V3 Pro), and 360Hz OLED monitors. We tested physical crosshair displacement across 30cm to 50cm sweeps to measure raw muscle memory retention and focal accuracy under tournament conditions.</p>
-    
-    <h2>Mathematical Mechanics & Engine Formulas (Expertise)</h2>
+    <h2>Mathematical Mechanics & Engine Formulas</h2>
     <p>Understanding aim physics requires breaking down how rendering engines calculate rotation vectors. In 3D space, mouse movement inputs map to angular rotation per count based on the game engine's specific yaw constant:</p>
     <div class="code-block">
     • Valorant Yaw Constant: 0.07° per count<br>
     • CS2 / Source Engine Yaw Constant: 0.022° per count<br>
-    • Overwatch 2 / Apex Legends Yaw Constant: 0.022° per count<br>
+    • Apex Legends Yaw Constant: 0.022° per count<br>
+    • Overwatch 2 Yaw Constant: 0.0066° per count<br>
     • Fortnite Yaw Constant: 0.005555° per count<br>
     • Formula: eDPI = Hardware DPI × In-Game Sensitivity<br>
     • Formula: cm/360 = (360 × 2.54) / (DPI × Sensitivity × Yaw)
     </div>
     <p>By keeping your physical centimeters per 360 rotation (cm/360) consistent, you maintain identical physical hand travel across titles. However, when switching between different aspect ratios (16:9 vs 4:3 stretched) or vertical FOVs, you must apply 0% Monitor Distance Matching (Focal Length Scaling) to match optical tracking speed at screen center.</p>
 
-    <h2>Esports Meta & Pro Player Benchmark Data (Authoritativeness)</h2>
-    <p>Based on our database of over 250 active professional FPS players across VCT Americas/EMEA, BLAST Premier, and ALGS:</p>
+    <h2>Esports Meta & Pro Player Benchmark Data</h2>
+    <p>Looking at publicly available pro settings and general esports sensitivity trends:</p>
     <ul>
       <li><strong>Tactical Shooters (Valorant / CS2):</strong> The median pro eDPI sits between 200 and 320 eDPI (approx. 40cm/360 to 65cm/360). Pro players prefer lower sensitivity to maximize micro-correction accuracy and first-bullet headshot precision.</li>
       <li><strong>Tracking & Dynamic Shooters (Apex / OW2 / Fortnite):</strong> The median pro eDPI ranges from 2400 to 4800 eDPI in Source/OW2 terms (approx. 28cm/360 to 38cm/360). Higher sensitivity allows rapid 180° sweeps and smooth target tracking during erratic movement.</li>
     </ul>
 
-    <h2>Step-by-Step Calibration & Actionable Implementation (Trustworthiness)</h2>
+    <h2>Step-by-Step Calibration & Actionable Implementation</h2>
     <ol>
       <li><strong>Disable Windows Mouse Acceleration:</strong> Open Windows Control Panel → Mouse Properties → Pointer Options → Uncheck "Enhance Pointer Precision". This ensures 1:1 raw input without non-linear velocity scaling.</li>
       <li><strong>Set Native Mouse DPI:</strong> Use 800 or 1600 DPI on modern optical sensors (PMW3395 / HERO 25K) to minimize sensor input latency by up to 2.5ms compared to 400 DPI while avoiding sensor smoothing.</li>
@@ -1397,7 +1449,7 @@ Use Field of View Affected: ON (for ADS FOV to scale with hipfire FOV)</div>
     </div>
     <div class="faq-item">
       <h3>Should I match my hipfire sensitivity to my ADS sensitivity?</h3>
-      <p>Yes! Utilizing 1:1 focal matching (0.747 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
+      <p>Yes! Utilizing 1:1 focal matching (0.847 in Valorant, 1.0 in CS2/Apex) aligns your focal muscle memory between hipfire aiming and scoped targeting.</p>
     </div>
     `
   },

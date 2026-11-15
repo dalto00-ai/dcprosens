@@ -6,6 +6,7 @@ export const metadata: Metadata = {
     title: "Sensitivity Widget",
     description: "Embeddable sensitivity widget powered by DCPROSENS.",
     robots: { index: false, follow: false },
+    alternates: { canonical: "https://dcprosens.com/embed/" },
 };
 
 export default function EmbedPage() {

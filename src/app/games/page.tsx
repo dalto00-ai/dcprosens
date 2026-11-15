@@ -4,11 +4,15 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
     title: "Games Supported — Sensitivity Converter",
-    description: "Complete list of games supported by DCPROSENS sensitivity converter: Valorant, CS2, Apex Legends, Overwatch 2, Fortnite, CoD Warzone, Rainbow Six Siege, Marvel Rivals, THE FINALS and more.",
+    description: "Every game DCPROSENS converts, with each one's sourced yaw value — Valorant, CS2, Apex, Overwatch 2, Fortnite, Warzone, Siege and 80 more.",
     alternates: {
-        canonical: "https://dcprosens.com/games",
+        canonical: "https://dcprosens.com/games/",
     },
     openGraph: {
+        // Inherited from the root layout only when this page omits openGraph
+        // entirely — declaring the object here replaces the parent's, so the
+        // image has to be restated or the page ships with no og:image at all.
+        images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
         title: `Games Supported — Sensitivity Converter for ${games.length}+ FPS Games`,
         description: "Valorant, CS2, Apex Legends, Overwatch 2, Fortnite, Warzone, Marvel Rivals, THE FINALS and more. Free sensitivity converter.",
         type: "website",
@@ -94,15 +98,15 @@ export default function GamesPage() {
                 </h2>
                 <ul style={{ paddingLeft: '1.5rem', marginBottom: '2rem' }}>
                     <li style={{ marginBottom: '0.75rem' }}>
-                        <Link href="/blog/valorant-to-cs2-sensitivity" style={{ color: 'var(--primary)' }}>Valorant to CS2 sensitivity</Link>
+                        <Link href="/blog/valorant-to-cs2-sensitivity/" style={{ color: 'var(--primary)' }}>Valorant to CS2 sensitivity</Link>
                         {' '}— Multiply by 3.18
                     </li>
                     <li style={{ marginBottom: '0.75rem' }}>
-                        <Link href="/blog/overwatch-2-to-apex-legends-aim" style={{ color: 'var(--primary)' }}>Overwatch 2 to Apex Legends</Link>
+                        <Link href="/blog/overwatch-2-to-apex-legends-aim/" style={{ color: 'var(--primary)' }}>Overwatch 2 to Apex Legends</Link>
                         {' '}— Different yaw values require exact conversion
                     </li>
                     <li style={{ marginBottom: '0.75rem' }}>
-                        <Link href="/blog/fortnite-to-valorant-sensitivity-2026" style={{ color: 'var(--primary)' }}>Fortnite to Valorant</Link>
+                        <Link href="/blog/fortnite-to-valorant-sensitivity-2026/" style={{ color: 'var(--primary)' }}>Fortnite to Valorant</Link>
                         {' '}— FOV difference requires special math (our tool handles it)
                     </li>
                     <li style={{ marginBottom: '0.75rem' }}>

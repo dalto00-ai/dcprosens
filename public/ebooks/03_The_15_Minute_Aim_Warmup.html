@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 15-Minute Aim Warm-Up — DCPROSENS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-page: #06080d;
+            --bg-card: #0c101a;
+            --bg-card-alt: #101624;
+            --primary: #00ff9d;
+            --primary-glow: rgba(0, 255, 157, 0.25);
+            --secondary: #00e5ff;
+            --secondary-glow: rgba(0, 229, 255, 0.2);
+            --accent-red: #ff2a5f;
+            --accent-amber: #ffb703;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+            --border-subtle: rgba(255, 255, 255, 0.07);
+            --border-primary: rgba(0, 255, 157, 0.25);
+            --border-secondary: rgba(0, 229, 255, 0.25);
+        }
+
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #030407;
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            max-height: 297mm;
+            min-height: 297mm;
+            box-sizing: border-box;
+            padding: 13mm 15mm 11mm 15mm;
+            background: var(--bg-page);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            page-break-after: always;
+            break-after: page;
+        }
+
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                radial-gradient(circle at 85% 15%, rgba(0, 229, 255, 0.04) 0%, transparent 40%),
+                radial-gradient(circle at 15% 85%, rgba(0, 255, 157, 0.04) 0%, transparent 40%),
+                linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 20px 20px, 20px 20px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .page > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Running Header & Footer */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 2.8mm;
+            border-bottom: 1px solid var(--border-subtle);
+            margin-bottom: 3.2mm;
+        }
+
+        .header-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.8pt;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        .header-tag::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 6px var(--primary);
+        }
+
+        .header-sub {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.5pt;
+            letter-spacing: 0.08em;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        .page-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2.8mm;
+            border-top: 1px solid var(--border-subtle);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.5pt;
+            letter-spacing: 0.06em;
+            color: var(--text-dim);
+        }
+
+        .footer-brand { color: var(--text-muted); font-weight: 600; }
+        .footer-brand span { color: var(--primary); }
+        .footer-num { color: var(--secondary); font-weight: 700; }
+
+        /* Titles & Text */
+        .title-block { margin-bottom: 3.2mm; }
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.5pt;
+            font-weight: 700;
+            color: var(--secondary);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 1mm;
+        }
+        .page-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 19pt;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin-bottom: 1.5mm;
+        }
+        .page-desc {
+            font-size: 8.8pt;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* Cards & Layout */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5mm; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2mm; }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            padding: 3mm 4mm;
+        }
+        .card.glow-primary { border-color: var(--border-primary); box-shadow: 0 0 15px rgba(0, 255, 157, 0.04); }
+        .card.glow-secondary { border-color: var(--border-secondary); box-shadow: 0 0 15px rgba(0, 229, 255, 0.04); }
+
+        .card-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 10pt;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .card-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8pt;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        .card-desc {
+            font-size: 8.2pt;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+
+        /* Steps */
+        .step-list { display: flex; flex-direction: column; gap: 2.2mm; }
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 3mm;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            padding: 2.5mm 3.5mm;
+        }
+        .step-num {
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(0, 255, 157, 0.2), rgba(0, 229, 255, 0.2));
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8pt;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .step-content h4 { font-size: 9pt; font-weight: 700; color: #ffffff; margin-bottom: 0.8mm; }
+        .step-content p { font-size: 8pt; color: var(--text-muted); line-height: 1.35; }
+
+        /* Tables */
+        .spec-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+            background: var(--bg-card);
+            font-size: 8pt;
+        }
+        .spec-table th {
+            background: var(--bg-card-alt);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.2pt;
+            font-weight: 700;
+            color: var(--secondary);
+            text-align: left;
+            padding: 2.2mm 3mm;
+            border-bottom: 1px solid var(--border-subtle);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .spec-table td {
+            padding: 2.2mm 3mm;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--text-muted);
+            line-height: 1.3;
+        }
+        .spec-table tr:last-child td { border-bottom: none; }
+        .spec-table td strong { color: #ffffff; font-weight: 600; }
+
+        /* Callouts */
+        .callout {
+            border-left: 3px solid var(--primary);
+            background: linear-gradient(90deg, rgba(0, 255, 157, 0.06), transparent);
+            border-radius: 0 6px 6px 0;
+            padding: 2.5mm 3.2mm;
+            font-size: 8.2pt;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+        .callout strong { color: #ffffff; }
+        .callout.alert-red { border-left-color: var(--accent-red); background: linear-gradient(90deg, rgba(255, 42, 95, 0.08), transparent); }
+        .callout.alert-cyan { border-left-color: var(--secondary); background: linear-gradient(90deg, rgba(0, 229, 255, 0.06), transparent); }
+
+        /* Worksheet Fields */
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm; margin-bottom: 2mm; }
+        .field-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 5px;
+            padding: 1.8mm 2.8mm;
+        }
+        .field-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 6.8pt;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.2mm;
+        }
+        .field-line {
+            height: 16px;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.5pt;
+            color: var(--primary);
+        }
+
+        /* Checklists */
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 2.5mm;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 5px;
+            padding: 2.2mm 3mm;
+            margin-bottom: 1.8mm;
+        }
+        .check-box-mock {
+            width: 13px;
+            height: 13px;
+            min-width: 13px;
+            border: 1.5px solid var(--primary);
+            border-radius: 3px;
+            margin-top: 1.5px;
+        }
+        .check-text h5 { font-size: 8.5pt; font-weight: 700; color: #ffffff; margin-bottom: 0.5mm; }
+        .check-text p { font-size: 7.5pt; color: var(--text-muted); line-height: 1.25; }
+
+        .progress-pill {
+            background: var(--bg-card-alt);
+            border: 1px solid var(--border-primary);
+            border-radius: 5px;
+            padding: 2.2mm 3mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.5pt;
+        }
+        .progress-val { color: var(--primary); font-weight: 700; }
+
+        /* Cover Page Styling */
+        .cover-page {
+            padding: 0;
+            background: #06080d;
+            position: relative;
+        }
+        .cover-bg-img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+        .cover-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(6,8,13,0.85) 0%, rgba(6,8,13,0.2) 40%, rgba(6,8,13,0.1) 65%, rgba(6,8,13,0.95) 100%);
+            z-index: 2;
+        }
+        .cover-inner {
+            position: relative;
+            z-index: 3;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 14mm 16mm 12mm 16mm;
+        }
+        .cover-logo-brand {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13pt;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            color: #ffffff;
+        }
+        .cover-logo-brand span { color: var(--primary); }
+        .cover-badge-pill {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.5pt;
+            letter-spacing: 0.12em;
+            color: var(--secondary);
+            border: 1px solid var(--border-secondary);
+            padding: 1.5mm 3.5mm;
+            border-radius: 20px;
+            background: rgba(0, 229, 255, 0.08);
+        }
+        .cover-footer-box {
+            background: rgba(12, 16, 26, 0.88);
+            border: 1px solid var(--border-primary);
+            border-radius: 8px;
+            padding: 4.5mm 5.5mm;
+            backdrop-filter: blur(12px);
+        }
+        .cover-footer-box h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 25pt;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin-bottom: 2mm;
+            text-transform: uppercase;
+        }
+        .cover-footer-box h1 span {
+            background: linear-gradient(135deg, #00ff9d 0%, #00e5ff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .cover-footer-box p {
+            font-size: 9.5pt;
+            color: var(--text-muted);
+            line-height: 1.4;
+            margin-bottom: 3mm;
+        }
+        .cover-meta-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 2.5mm;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.5pt;
+            color: var(--text-dim);
+        }
+        .cover-meta-bar span { color: var(--primary); font-weight: 700; }
+    </style>
+</head>
+<body>
+
+<section class="page cover-page">
+    <img class="cover-bg-img" src="file:///home/usuario/Documentos/GOOGLE%20ANTIGRAVIY/DCPROSENS/public/ebooks/cover_15min_aim_warmup.jpg" alt="Cover Background">
+    <div class="cover-overlay"></div>
+    <div class="cover-inner">
+        <div class="cover-top">
+            <div class="cover-logo-brand">DCPROSENS<span>.</span></div>
+            <div class="cover-badge-pill">FIELD GUIDE 03 // PRE-MATCH ACTIVATION</div>
+        </div>
+        <div class="cover-footer-box">
+            <h1>THE 15-MINUTE<br><span>AIM WARM-UP.</span></h1>
+            <p>The scientific pre-match activation routine: 3 phases, zero fatigue, peak reaction speed, and unbreakable focus before ranked queue.</p>
+            <div class="cover-meta-bar">
+                <div>AUTHOR: <span>DALTO OUTLIER</span> // AIM &amp; PERFORMANCE LAB</div>
+                <div>01 / 10</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">03 / AIM WARM-UP</div>
+            <div class="header-sub">PHYSIOLOGY</div>
+        </div>
+        <div class="title-block">
+            <div class="section-label">STEP 00 // ACTIVATION SCIENCE</div>
+            <h2 class="page-title">The purpose of a 15-minute warm-up.</h2>
+            <p class="page-desc">Why extended aim training before ranked causes muscle fatigue, and how a short routine primes fast-twitch reaction.</p>
+        </div>
+        
+    <div class="grid-2" style="margin-bottom: 3.5mm;">
+        <div class="card glow-primary">
+            <div class="card-title"><span>Activation vs Fatigue</span><span class="card-num">01</span></div>
+            <p class="card-desc">Grinding Aim Lab or Deathmatch for 60+ minutes right before ranked exhausts your fast-twitch motor units and burns out dopamine. You enter competitive matches with sluggish reflexes and muscle fatigue.</p>
+        </div>
+        <div class="card glow-secondary">
+            <div class="card-title"><span>The 15-Minute Sweet Spot</span><span class="card-num">02</span></div>
+            <p class="card-desc">Sports physiology proves <strong>12 to 15 minutes</strong> is the optimal duration to raise intramuscular temperature, lubricate synovial joints, and prime optical tracking pathways without causing physical fatigue.</p>
+        </div>
+    </div>
+    <div class="card" style="margin-bottom: 3.5mm;">
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 10pt; font-weight: 700; color: #fff; margin-bottom: 1.5mm;">
+            The 3 Objectives of Every Successful Warm-Up
+        </div>
+        <div class="grid-3" style="gap: 2mm;">
+            <div style="background: var(--bg-card-alt); padding: 2mm; border-radius: 4px; font-size: 7.8pt;">
+                <strong style="color: var(--primary);">1. Synovial Fluid:</strong> Warm up wrist tendons to eliminate gritty mousepad friction.
+            </div>
+            <div style="background: var(--bg-card-alt); padding: 2mm; border-radius: 4px; font-size: 7.8pt;">
+                <strong style="color: var(--secondary);">2. Neural Sync:</strong> Calibrate hand speed with optical retinal refresh rates.
+            </div>
+            <div style="background: var(--bg-card-alt); padding: 2mm; border-radius: 4px; font-size: 7.8pt;">
+                <strong style="color: var(--accent-amber);">3. State of Flow:</strong> Induce relaxed competitive confidence and eliminate anxiety.
+            </div>
+        </div>
+    </div>
+    <div class="callout alert-cyan">
+        <strong>The Iron Law of Aim:</strong> Warm-up is for activation. Training is for growth. Warm up for 15 minutes before your match; do your heavy 45-minute training routines AFTER your matches.
+    </div>
+    
+    </div>
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>15-MINUTE AIM WARM-UP</span></div>
+        <div class="footer-meta">DCPROSENS RESEARCH LAB</div>
+        <div class="footer-num">02 / 10</div>
+    </div>
+</section>
+
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">03 / AIM WARM-UP</div>
+            <div class="header-sub">ROUTINE STRUCTURE</div>
+        </div>
+        <div class="title-block">
+            <div class="section-label">STEP 01 // THE 3-PHASE ARCHITECTURE</div>
+            <h2 class="page-title">The 3-phase warm-up breakdown.</h2>
+            <p class="page-desc">A balanced 15-minute progression from smooth tracking to micro-precision and dynamic tournament speed.</p>
+        </div>
+        
+    <div class="grid-3" style="margin-bottom: 3.5mm;">
+        <div class="card glow-primary">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--primary); font-weight: 700;">MINUTES 00 – 05</div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 12pt; color: #fff; font-weight: 700; margin: 1mm 0;">Phase 1: Smoothness</div>
+            <p style="font-size: 7.8pt; color: var(--text-muted);">Eliminate jagged wrist jitter. Trace moving targets smoothly without clicking. Sync hand speed with target velocity.</p>
+        </div>
+        <div class="card glow-secondary">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--secondary); font-weight: 700;">MINUTES 05 – 10</div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 12pt; color: #fff; font-weight: 700; margin: 1mm 0;">Phase 2: Precision Flicks</div>
+            <p style="font-size: 7.8pt; color: var(--text-muted);">Small-angle static clicks. Enforce the 95%+ accuracy rule. Train finger micro-adjustments and clean stopping power.</p>
+        </div>
+        <div class="card">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--accent-amber); font-weight: 700;">MINUTES 10 – 15</div>
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 12pt; color: #fff; font-weight: 700; margin: 1mm 0;">Phase 3: Dynamic Speed</div>
+            <p style="font-size: 7.8pt; color: var(--text-muted);">Wide target transfers, rapid target switching, and reactive counter-strafing. Match real in-game duel tempo.</p>
+        </div>
+    </div>
+    <div class="card" style="margin-bottom: 3.5mm;">
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 10pt; font-weight: 700; color: #fff; margin-bottom: 1.5mm;">
+            Where to Perform This Routine
+        </div>
+        <p style="font-size: 8.2pt; color: var(--text-muted); line-height: 1.35;">
+            You can run this routine in any dedicated aim trainer (Aim Lab, KovaaK's) or directly in your primary game's practice mode (Valorant Practice Range, CS2 Aim Botz / DM, Apex Firing Range).
+        </p>
+    </div>
+    <div class="callout">
+        <strong>Pacing Strategy:</strong> Do not play for high scores on a leaderboard. Play for relaxed, mechanical fluidity. Smooth is fast.
+    </div>
+    
+    </div>
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>15-MINUTE AIM WARM-UP</span></div>
+        <div class="footer-meta">DCPROSENS RESEARCH LAB</div>
+        <div class="footer-num">03 / 10</div>
+    </div>
+</section>
+
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">03 / AIM WARM-UP</div>
+            <div class="header-sub">PHASE 01 // MINUTES 00-05</div>
+        </div>
+        <div class="title-block">
+            <div class="section-label">STEP 02 // SMOOTHNESS TRACKING</div>
+            <h2 class="page-title">Phase 1: Smoothness & tracking activation.</h2>
+            <p class="page-desc">Eliminate jerky wrist micro-stutters and calibrate eye tracking with relaxed low-tension hand movements.</p>
+        </div>
+        
+    <div class="card glow-primary" style="margin-bottom: 3.5mm;">
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 10pt; font-weight: 700; color: #fff; margin-bottom: 1mm;">
+            Drill: The Zero-Fire Tracking Trace (5 Minutes)
+        </div>
+        <p style="font-size: 8.2pt; color: var(--text-muted); line-height: 1.35;">
+            Pick a moving bot or spherical tracking target. <strong>Do NOT shoot.</strong> Place your crosshair on the center dot of the target and follow it continuously for 5 minutes without letting your crosshair slip off the target.
+        </p>
+    </div>
+    <div class="step-list" style="margin-bottom: 3.5mm;">
+        <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-content"><h4>Consciously Relax Hand Grip</h4><p>Most players grip their mouse with 80% maximum tension. Lower your grip force to 25–30%. Excessive tension causes micro-stutters in optical tracking.</p></div>
+        </div>
+        <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-content"><h4>Lead With Your Eyes First</h4><p>Lock your gaze onto the target's leading edge, not your crosshair. Let your peripheral vision pull your hand naturally into alignment.</p></div>
+        </div>
+        <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-content"><h4>Continuous Elbow-Wrist Fluidity</h4><p>Feel the smooth transition between forearm glide and wrist steering. Eradicate all stepped, jerky micro-stops.</p></div>
+        </div>
+    </div>
+    <div class="callout alert-cyan">
+        <strong>Telemetry Benefit:</strong> Tracking drills calm the sympathetic nervous system and recalibrate your brain's spatial prediction engine before entering chaotic firefights.
+    </div>
+    
+    </div>
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>15-MINUTE AIM WARM-UP</span></div>
+        <div class="footer-meta">DCPROSENS RESEARCH LAB</div>
+        <div class="footer-num">04 / 10</div>
+    </div>
+</section>
+
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">03 / AIM WARM-UP</div>
+            <div class="header-sub">PHASE 02 // MINUTES 05-10</div>
+        </div>
+        <div class="title-block">
+            <div class="section-label">STEP 03 // MICRO-PRECISION</div>
+            <h2 class="page-title">Phase 2: Micro-flicks & stopping power.</h2>
+            <p class="page-desc">Develop razor-sharp first-bullet accuracy with static clicking drills, clean deceleration, and metronome pacing.</p>
+        </div>
+        
+    <div class="card glow-secondary" style="margin-bottom: 3.5mm;">
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 10pt; font-weight: 700; color: #fff; margin-bottom: 1mm;">
+            Drill: The 95% Accuracy Static Clicks (5 Minutes)
+        </div>
+        <p style="font-size: 8.2pt; color: var(--text-muted); line-height: 1.35;">
+            Spawn static targets (e.g. 1w6ts, Bardpill, or Valorant Bot Armor). Execute controlled flicks between targets. <strong>You must maintain 95%+ accuracy.</strong> If you miss more than 1 in 20 shots, you are flicking too fast.
+        </p>
+    </div>
+    <div class="grid-2" style="margin-bottom: 3.5mm;">
+        <div class="card">
+            <div class="card-title"><span>Step 1: The Initial Stroke</span><span class="card-num">90%</span></div>
+            <p class="card-desc">Move your hand briskly toward the target, covering 90% of the distance in a single straight line. Avoid curved or wavy flick trajectories.</p>
+        </div>
+        <div class="card glow-primary">
+            <div class="card-title"><span>Step 2: The Micro-Confirmation</span><span class="card-num">10%</span></div>
+            <p class="card-desc">Decelerate cleanly onto the head, visually confirm the dot is on target, then click. Never click while your mouse is still decelerating.</p>
+        </div>
+    </div>
+    <div class="card" style="margin-bottom: 3.5mm;">
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 9.5pt; font-weight: 700; color: #fff; margin-bottom: 1mm;">
+            The Metronome Pacing Protocol
+        </div>
+        <p style="font-size: 8pt; color: var(--text-muted); line-height: 1.35;">
+            Flick with a steady, rhythmic cadence (e.g. 120–140 clicks per minute). Rhythm eliminates panic clicks and trains reliable stopping power in your fingertips.
+        </p>
+    </div>
+    <div class="callout alert-red">
+        <strong>The Speed Trap:</strong> Speed is a byproduct of precision, not the goal. If you train fast with misses, you are reinforcing missed shots in your muscle memory.
+    </div>
+    
+    </div>
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>15-MINUTE AIM WARM-UP</span></div>
+        <div class="footer-meta">DCPROSENS RESEARCH LAB</div>
+        <div class="footer-num">05 / 10</div>
+    </div>
+</section>
+
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">03 / AIM WARM-UP</div>
+            <div class="header-sub">PHASE 03 // MINUTES 10-15</div>
+        </div>
+        <div class="title-block">
+            <div class="section-label">STEP 04 // MATCH TEMPO</div>
+            <h2 class="page-title">Phase 3: Dynamic target switching & speed.</h2>
+            <p class="page-desc">Bring your aim up to tournament intensity with rapid target transfers, counter-strafing rhythm, and emergency resets.</p>
+        </div>
+        
+    <div class="card glow-primary" style="margin-bottom: 3.5mm;">
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 10pt; font-weight: 700; color: #fff; margin-bottom: 1mm;">
+            Drill: Reactive Target Switching &amp; Counter-Strafing (5 Minutes)
+        </div>
+        <p style="font-size: 8.2pt; color: var(--text-muted); line-height: 1.35;">
+            Shift into match-intensity speed. Engage 2 to 3 targets in rapid succession, incorporating real movement keys (A-D counter-strafes, peeks, and resets).
+        </p>
+    </div>
+    <div class="step-list" style="margin-bottom: 3.5mm;">
+        <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-content"><h4>Target Transfer Bursting</h4><p>Eliminate target 1 with a 2-bullet burst, transfer immediately to target 2 with zero pause, reset your recoil, and eliminate target 3.</p></div>
+        </div>
+        <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-content"><h4>A-D Counter-Strafe Sync</h4><p>Fire only at the exact millisecond your character halts between A and D keypresses. Build mechanical synchronization between left and right hands.</p></div>
+        </div>
+        <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-content"><h4>180° Emergency Turn Drill</h4><p>Finish the last 60 seconds with 10 maximum-speed 180° turnaround snaps to calibrate emergency arm resets before loading into ranked.</p></div>
+        </div>
+    </div>
+    <div class="callout alert-cyan">
+        <strong>Phase Complete:</strong> Your brain is now operating at match speed. Shut down the training lobby immediately and jump directly into competitive queue while your neural pathways are hot.
+    </div>
+    
+    </div>
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>15-MINUTE AIM WARM-UP</span></div>
+        <div class="footer-meta">DCPROSENS RESEARCH LAB</div>
+        <div class="footer-num">06 / 10</div>
+    </div>
+</section>
+
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">03 / AIM WARM-UP</div>
+            <div class="header-sub">INJURY PREVENTION</div>
+        </div>
+        <div class="title-block">
+            <div class="section-label">STEP 05 // PHYSICAL ACTIVATION</div>
+            <h2 class="page-title">Physical stretches & tendon health.</h2>
+            <p class="page-desc">Protect your hands and wrists with quick physiotherapy stretches designed to eliminate strain and maximize agility.</p>
+        </div>
+        
+    <div class="card glow-secondary" style="margin-bottom: 3.5mm;">
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 10pt; font-weight: 700; color: #fff; margin-bottom: 1mm;">
+            Esports Physical Therapy: 3-Minute Wrist &amp; Hand Stretches
+        </div>
+        <p style="font-size: 8.2pt; color: var(--text-muted); line-height: 1.35;">
+            Perform these 4 stretches before touching your mouse. They increase blood circulation by 40% and prevent debilitating tendonitis and carpal tunnel syndrome.
+        </p>
+    </div>
+    <div class="grid-2" style="margin-bottom: 3.5mm;">
+        <div class="card">
+            <div class="card-title"><span>01 / The Prayer Stretch</span><span class="card-num">30s</span></div>
+            <p class="card-desc">Press palms together in front of your chest with fingers pointing upward. Slowly lower your hands while keeping palms touching until you feel a gentle stretch in your inner wrists.</p>
+        </div>
+        <div class="card">
+            <div class="card-title"><span>02 / Extensor Pull-Back</span><span class="card-num">30s</span></div>
+            <p class="card-desc">Extend your right arm straight forward, palm down. Use your left hand to gently pull fingers downward toward your body. Hold 15s per arm to stretch forearm extensor muscles.</p>
+        </div>
+        <div class="card">
+            <div class="card-title"><span>03 / Finger Splay &amp; Tendon Glides</span><span class="card-num">30s</span></div>
+            <p class="card-desc">Spread all fingers as wide as possible for 5 seconds, then curl them into a tight fist with your thumb wrapped outside. Repeat 10 times to release median nerve tension.</p>
+        </div>
+        <div class="card glow-primary">
+            <div class="card-title"><span>04 / Warm Water Flush</span><span class="card-num">60s</span></div>
+            <p class="card-desc">Run warm water over your hands and wrists for 60 seconds before cold-weather gaming. Warm tendons react 25ms faster than cold, stiff tendons.</p>
+        </div>
+    </div>
+    <div class="callout">
+        <strong>Joint Health Rule:</strong> If you feel sharp, burning nerve pain or tingling in your fingertips, stop immediately. Take a 24-hour break and inspect your chair and desk height.
+    </div>
+    
+    </div>
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>15-MINUTE AIM WARM-UP</span></div>
+        <div class="footer-meta">DCPROSENS RESEARCH LAB</div>
+        <div class="footer-num">07 / 10</div>
+    </div>
+</section>
+
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">03 / AIM WARM-UP</div>
+            <div class="header-sub">TELEMETRY TRACKER</div>
+        </div>
+        <div class="title-block">
+            <div class="section-label">STEP 06 // THE WORKSHEET</div>
+            <h2 class="page-title">Daily warm-up log & scorecard.</h2>
+            <p class="page-desc">Track your daily accuracy, smoothness rating, and physical readiness before every competitive session.</p>
+        </div>
+        
+    <div class="form-row">
+        <div class="field-box"><div class="field-label">DATE &amp; TIME</div><div class="field-line">e.g. 2026-10-12 // 15:00</div></div>
+        <div class="field-box"><div class="field-label">TRAINING PLATFORM</div><div class="field-line">Aim Lab / KovaaKs / In-Game Range</div></div>
+    </div>
+    <div class="form-row" style="margin-bottom: 3.5mm;">
+        <div class="field-box"><div class="field-label">ROOM TEMPERATURE / HAND WARMTH</div><div class="field-line">[  ] Warm &amp; Agile  [  ] Cold / Stiff</div></div>
+        <div class="field-box"><div class="field-label">TARGET COMPETITIVE TITLE</div><div class="field-line">Valorant / CS2 / Apex / Warzone</div></div>
+    </div>
+    <div style="margin-bottom: 3.5mm;">
+        <table class="spec-table">
+            <thead>
+                <tr><th style="width: 25%;">Phase</th><th style="width: 30%;">Focus Metric</th><th style="width: 25%;">Target Threshold</th><th style="width: 20%;">Score / Status</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Phase 1: Smoothness</strong></td><td>Tracking Accuracy %</td><td>&gt;85% Lock-On</td><td>_______ %</td></tr>
+                <tr><td><strong>Phase 2: Micro-Flicks</strong></td><td>Static Accuracy %</td><td>&gt;95% Accuracy</td><td>_______ %</td></tr>
+                <tr><td><strong>Phase 3: Speed</strong></td><td>Targets Per Minute</td><td>Match Pace</td><td>_______ TPM</td></tr>
+                <tr><td><strong>Post-Routine Check</strong></td><td>Physical Readiness</td><td>Scale 1–10</td><td>Rating: ___ / 10</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="card glow-primary">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5mm;">
+            <span style="font-family: 'Space Grotesk', sans-serif; font-size: 9.5pt; font-weight: 700; color: #fff;">READY-TO-QUEUE THRESHOLD</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--primary);">STATUS</span>
+        </div>
+        <div style="font-size: 8pt; color: var(--text-muted);">
+            If Readiness Rating is &ge; 8/10, proceed directly to Ranked Queue. If &lt; 5/10, take a 10-minute water break.
+        </div>
+    </div>
+    
+    </div>
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>15-MINUTE AIM WARM-UP</span></div>
+        <div class="footer-meta">DCPROSENS RESEARCH LAB</div>
+        <div class="footer-num">08 / 10</div>
+    </div>
+</section>
+
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">03 / AIM WARM-UP</div>
+            <div class="header-sub">MENTAL RESILIENCE</div>
+        </div>
+        <div class="title-block">
+            <div class="section-label">STEP 07 // ANTI-TILT PROTOCOL</div>
+            <h2 class="page-title">Pre-queue mental activation & tilt reset.</h2>
+            <p class="page-desc">Master the psychology of high-stakes duels, control physiological heart rate spikes, and bounce back from bad rounds.</p>
+        </div>
+        
+    <div class="card glow-primary" style="margin-bottom: 3.5mm;">
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 10pt; font-weight: 700; color: #fff; margin-bottom: 1mm;">
+            The 10-Second Mental Reset Protocol
+        </div>
+        <p style="font-size: 8.2pt; color: var(--text-muted); line-height: 1.35;">
+            Tilt does not happen in your hands; it happens in your amygdala. When an opponent gets a lucky shot or a teammate makes an error, your heart rate spikes and your adrenaline ruins fine motor control.
+        </p>
+    </div>
+    <div class="step-list" style="margin-bottom: 3.5mm;">
+        <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-content"><h4>The Physiological Sigh (2 Inhales, 1 Long Exhale)</h4><p>Take two quick deep inhales through your nose, followed by one long, slow exhale through your mouth. This immediately drops heart rate by 10–15 BPM.</p></div>
+        </div>
+        <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-content"><h4>Release Mouse Grip Between Rounds</h4><p>Take your right hand completely off the mouse during the 15-second buy phase. Shake out your fingers and drop your shoulders.</p></div>
+        </div>
+        <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-content"><h4>Focus Purely on The Next Crosshair Placement</h4><p>Wipe the previous round from your mind. Tell yourself: <em>"My only job this round is to clear my first angle cleanly."</em></p></div>
+        </div>
+    </div>
+    <div class="callout alert-red">
+        <strong>The 3-Loss Rule:</strong> If you lose 3 ranked games in a row, close the game immediately. Cognitive fatigue makes it statistically impossible to play at peak reaction speed.
+    </div>
+    
+    </div>
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>15-MINUTE AIM WARM-UP</span></div>
+        <div class="footer-meta">DCPROSENS RESEARCH LAB</div>
+        <div class="footer-num">09 / 10</div>
+    </div>
+</section>
+
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">03 / AIM WARM-UP</div>
+            <div class="header-sub">DIRECTORY & NEXT STEPS</div>
+        </div>
+        <div class="title-block">
+            <div class="section-label">FINAL SUMMARY // ACTIVATED</div>
+            <h2 class="page-title">Lock in your daily warm-up routine.</h2>
+            <p class="page-desc">Make this 15-minute protocol a non-negotiable pre-match ritual and watch your competitive consistency soar.</p>
+        </div>
+        
+    <div class="grid-2" style="margin-bottom: 3.5mm;">
+        <div class="card glow-primary">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 10pt; font-weight: 700; color: #fff; margin-bottom: 1.5mm;">
+                The 15-Minute Rules of Thumb
+            </div>
+            <ul style="font-size: 8pt; color: var(--text-muted); line-height: 1.4; padding-left: 3.5mm;">
+                <li><strong>15 Minutes Max:</strong> Never train to exhaustion before ranked play.</li>
+                <li><strong>Smoothness First:</strong> Fluid motion beats panicked flicking every time.</li>
+                <li><strong>95% Accuracy:</strong> Precision creates speed; speed without precision creates misses.</li>
+            </ul>
+        </div>
+        <div class="card glow-secondary">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 10pt; font-weight: 700; color: #fff; margin-bottom: 1.5mm;">
+                When to Schedule Deep Aim Training
+            </div>
+            <p style="font-size: 8pt; color: var(--text-muted); line-height: 1.35;">
+                Schedule your heavy 45-minute mechanical aim routines (KovaaK's/Aim Lab playlists) <strong>at the end of your day</strong> or on non-ranked days to build long-term neuromuscular adaptation.
+            </p>
+        </div>
+    </div>
+    <div class="card glow-primary" style="background: linear-gradient(135deg, rgba(0, 255, 157, 0.1), rgba(0, 229, 255, 0.05)); border-color: var(--primary); padding: 4mm 5mm;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <div style="font-family: 'Space Grotesk', sans-serif; font-size: 11pt; font-weight: 700; color: #fff;">
+                    Free Aim Lab &amp; KovaaKs DCPROSENS Routine Codes
+                </div>
+                <div style="font-size: 8.2pt; color: var(--text-muted); margin-top: 1mm;">
+                    Download verified benchmark playlists and track your rank progression at <strong>dcprosens.com</strong>
+                </div>
+            </div>
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 8pt; font-weight: 700; color: var(--primary); padding: 2mm 3.5mm; background: rgba(0, 255, 157, 0.15); border-radius: 4px; border: 1px solid var(--primary);">
+                DCPROSENS.COM ➔
+            </div>
+        </div>
+    </div>
+    
+    </div>
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>15-MINUTE AIM WARM-UP</span></div>
+        <div class="footer-meta">DCPROSENS RESEARCH LAB</div>
+        <div class="footer-num">10 / 10</div>
+    </div>
+</section>
+</body></html>

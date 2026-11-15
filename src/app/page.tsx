@@ -2,7 +2,8 @@ import Converter from '@/components/Converter';
 import ProSettings from '@/components/ProSettings';
 import HomeWiki from '@/components/HomeWiki';
 import VoiceSearch from '@/components/VoiceSearch';
-import { AnimatedCounter, LiveActivityFeed, FloatingParticles, CompetitorTable, ScrollReveal } from '@/components/HomeAnimations';
+import AdsterraInContent from '@/components/AdsterraInContent';
+import { AnimatedCounter, FloatingParticles, CompetitorTable, ScrollReveal } from '@/components/HomeAnimations';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { games as gameList } from '@/lib/games';
@@ -13,47 +14,48 @@ const toolCategories = [
         title: "🎯 Aim & Sensitivity",
         tools: [
             { icon: "🔄", name: "1:1 Sensitivity Converter", desc: "Convert across dozens of game engines with precise cm/360 matching.", href: "/", tag: "MOST POPULAR" },
-            { icon: "📐", name: "PSA Method Calculator", desc: "Find your scientifically perfect sensitivity using neuromuscular testing.", href: "/psa-calculator", tag: "EXCLUSIVE" },
-            { icon: "🔭", name: "Scopes & ADS 1:1", desc: "Match hip-fire and ADS sensitivity at every zoom level.", href: "/ads", tag: "" },
-            { icon: "🔎", name: "Sensitivity Finder", desc: "Guided sensitivity discovery through structured iterations.", href: "/sens-finder", tag: "" },
-            { icon: "📏", name: "FOV Converter", desc: "Convert field of view between horizontal, vertical, and diagonal formats.", href: "/fov-converter", tag: "" },
-            { icon: "📺", name: "Stretched Resolution Calc", desc: "Calculate effective FOV and pixel ratio for 4:3 stretched.", href: "/stretched-resolution", tag: "" },
+            { icon: "⚡", name: "Valorant to CS2 Converter", desc: "Locked-in converter, conversion table, and formula for the site's most-requested pair.", href: "/convert/valorant-to-cs2/", tag: "TOP CONVERSION" },
+            { icon: "📐", name: "PSA Method Calculator", desc: "Find your scientifically perfect sensitivity using neuromuscular testing.", href: "/psa-calculator/", tag: "EXCLUSIVE" },
+            { icon: "🔭", name: "Scopes & ADS 1:1", desc: "Match hip-fire and ADS sensitivity at every zoom level.", href: "/ads/", tag: "" },
+            { icon: "🔎", name: "Sensitivity Finder", desc: "Guided sensitivity discovery through structured iterations.", href: "/sens-finder/", tag: "" },
+            { icon: "📏", name: "FOV Converter", desc: "Convert field of view between horizontal, vertical, and diagonal formats.", href: "/fov-converter/", tag: "" },
+            { icon: "📺", name: "Stretched Resolution Calc", desc: "Calculate effective FOV and pixel ratio for 4:3 stretched.", href: "/stretched-resolution/", tag: "" },
         ],
     },
     {
         title: "🏆 Pro Players & Crosshairs",
         tools: [
-            { icon: "📊", name: "Pro Settings Database", desc: "DPI, sensitivity, eDPI, cm/360 and hardware of top pros.", href: "/pros", tag: "UPDATED DAILY" },
-            { icon: "⚖️", name: "Pro Compare Tool", desc: "Side-by-side comparison of pro configurations and gear.", href: "/pros/compare", tag: "" },
-            { icon: "🖥️", name: "Full Pro Setups", desc: "Complete rig breakdowns of elite players.", href: "/setups", tag: "" },
-            { icon: "✛", name: "Crosshair Generator", desc: "Design and export custom crosshairs for Valorant & CS2.", href: "/crosshair", tag: "EXCLUSIVE" },
-            { icon: "🗂️", name: "Crosshair Database", desc: "Browse and copy pro player crosshair codes instantly.", href: "/crosshair-database", tag: "" },
-            { icon: "📡", name: "Streamer Sensitivity Widget", desc: "Free embeddable widget for your Twitch panel or bio — viewers convert your sens to their game.", href: "/widget", tag: "NEW" },
+            { icon: "📊", name: "Pro Settings Database", desc: "DPI, sensitivity, eDPI, cm/360 and hardware of top pros.", href: "/pros/", tag: "UPDATED DAILY" },
+            { icon: "⚖️", name: "Pro Compare Tool", desc: "Side-by-side comparison of pro configurations and gear.", href: "/pros/compare/", tag: "" },
+            { icon: "🖥️", name: "Full Pro Setups", desc: "Complete rig breakdowns of elite players.", href: "/setups/", tag: "" },
+            { icon: "✛", name: "Crosshair Generator", desc: "Design and export custom crosshairs for Valorant & CS2.", href: "/crosshair/", tag: "EXCLUSIVE" },
+            { icon: "🗂️", name: "Crosshair Database", desc: "Browse and copy pro player crosshair codes instantly.", href: "/crosshair-database/", tag: "" },
+            { icon: "📡", name: "Streamer Sensitivity Widget", desc: "Free embeddable widget for your Twitch panel or bio — viewers convert your sens to their game.", href: "/widget/", tag: "NEW" },
         ],
     },
     {
         title: "🔌 Gear & Hardware",
         tools: [
-            { icon: "🖱️", name: "Mouse Spec Database", desc: "Sensor, dimension, weight and switch data for today's top competitive mice.", href: "/mouse-database", tag: "" },
-            { icon: "🤲", name: "Ergonomic Mouse Finder", desc: "Find the perfect mouse for your hand size and grip style.", href: "/mouse-finder", tag: "AI POWERED" },
-            { icon: "📐", name: "Mousepad Size Calculator", desc: "Calculate minimum pad dimensions based on cm/360.", href: "/mousepad-calculator", tag: "" },
-            { icon: "📊", name: "Mousepad Friction Chart", desc: "Compare friction of cloth, hybrid and glass pads.", href: "/mousepad-chart", tag: "EXCLUSIVE" },
-            { icon: "📈", name: "DPI Analyzer", desc: "Test your mouse actual DPI vs. advertised.", href: "/dpi-analyzer", tag: "EXCLUSIVE" },
+            { icon: "🖱️", name: "Mouse Spec Database", desc: "Sensor, dimension, weight and switch data for today's top competitive mice.", href: "/mouse-database/", tag: "" },
+            { icon: "🤲", name: "Ergonomic Mouse Finder", desc: "Find the perfect mouse for your hand size and grip style.", href: "/mouse-finder/", tag: "AI POWERED" },
+            { icon: "📐", name: "Mousepad Size Calculator", desc: "Calculate minimum pad dimensions based on cm/360.", href: "/mousepad-calculator/", tag: "" },
+            { icon: "📊", name: "Mousepad Friction Chart", desc: "Compare friction of cloth, hybrid and glass pads.", href: "/mousepad-chart/", tag: "EXCLUSIVE" },
+            { icon: "📈", name: "DPI Analyzer", desc: "Test your mouse actual DPI vs. advertised.", href: "/dpi-analyzer/", tag: "EXCLUSIVE" },
         ],
     },
     {
         title: "⚡ Training & Utilities",
         tools: [
-            { icon: "🕹️", name: "Sensitivity Test Game", desc: "Free mini-game that measures your flick speed and precision.", href: "/sensitivity-test", tag: "NEW" },
-            { icon: "🧪", name: "Aim Lab", desc: "4 premium training modes — Micro-Flick, Dynamic Click, Strafe Peek, and Ghost vs Pro.", href: "/aim-lab", tag: "PREMIUM" },
-            { icon: "🎮", name: "Online Aim Trainer", desc: "Practice flicking, tracking and reaction time in-browser.", href: "/aim-trainer", tag: "" },
-            { icon: "📝", name: "Custom Aim Routines", desc: "Structured daily training built around your weaknesses.", href: "/aim-routines", tag: "" },
-            { icon: "⚡", name: "Reaction Time Test", desc: "Benchmark your visual reaction time scientifically.", href: "/reaction-time-test", tag: "" },
-            { icon: "🖱️", name: "CPS Click Speed Test", desc: "Test clicks per second with jitter and drag modes.", href: "/cps-test", tag: "" },
-            { icon: "💻", name: "FPS & Bottleneck Calc", desc: "Estimate maximum FPS and identify hardware bottlenecks.", href: "/fps-calculator", tag: "" },
-            { icon: "📺", name: "Hz Refresh Simulator", desc: "See the visual difference between 60Hz to 360Hz.", href: "/monitor-simulator", tag: "" },
-            { icon: "📏", name: "Desk Space Calculator", desc: "Check if your desk supports your cm/360 for full arm sweeps.", href: "/desk-space-calculator", tag: "" },
-            { icon: "⌨️", name: "CS2 Bind Generator", desc: "Generate optimized key-bind configs for Counter-Strike 2.", href: "/bind-generator", tag: "" },
+            { icon: "🕹️", name: "Sensitivity Test Game", desc: "Free mini-game that measures your flick speed and precision.", href: "/sensitivity-test/", tag: "NEW" },
+            { icon: "🧪", name: "Aim Lab", desc: "4 premium training modes — Micro-Flick, Dynamic Click, Strafe Peek, and Ghost vs Pro.", href: "/aim-lab/", tag: "PREMIUM" },
+            { icon: "🎮", name: "Online Aim Trainer", desc: "Practice flicking, tracking and reaction time in-browser.", href: "/aim-trainer/", tag: "" },
+            { icon: "📝", name: "Custom Aim Routines", desc: "Structured daily training built around your weaknesses.", href: "/aim-routines/", tag: "" },
+            { icon: "⚡", name: "Reaction Time Test", desc: "Benchmark your visual reaction time scientifically.", href: "/reaction-time-test/", tag: "" },
+            { icon: "🖱️", name: "CPS Click Speed Test", desc: "Test clicks per second with jitter and drag modes.", href: "/cps-test/", tag: "" },
+            { icon: "💻", name: "FPS & Bottleneck Calc", desc: "Estimate maximum FPS and identify hardware bottlenecks.", href: "/fps-calculator/", tag: "" },
+            { icon: "📺", name: "Hz Refresh Simulator", desc: "See the visual difference between 60Hz to 360Hz.", href: "/monitor-simulator/", tag: "" },
+            { icon: "📏", name: "Desk Space Calculator", desc: "Check if your desk supports your cm/360 for full arm sweeps.", href: "/desk-space-calculator/", tag: "" },
+            { icon: "⌨️", name: "CS2 Bind Generator", desc: "Generate optimized key-bind configs for Counter-Strike 2.", href: "/bind-generator/", tag: "" },
         ],
     },
 ];
@@ -64,7 +66,7 @@ const toolCount = toolCategories.reduce((n, c) => n + c.tools.length, 0);
 
 export const metadata: Metadata = {
     title: "DCPROSENS — Gaming Sensitivity Converter & DPI Calculator",
-    description: `Convert mouse sensitivity between Valorant, CS2, Apex Legends, Overwatch 2 and ${gameCount}+ games. Pro player settings database, PSA calculator, crosshair creator, aim trainer, and ${toolCount}+ precision tools. Free.`,
+    description: `Convert mouse sensitivity between Valorant, CS2, Apex Legends, Overwatch 2 and ${gameCount}+ games using each game's real yaw value. ${toolCount}+ free precision tools.`,
     keywords: [
         'sensitivity converter', 'mouse sensitivity converter', 'gaming sensitivity calculator',
         'valorant to cs2 sensitivity', 'cs2 sensitivity converter', 'apex legends sensitivity converter',
@@ -72,7 +74,7 @@ export const metadata: Metadata = {
         'rainbow six siege sensitivity', 'pubg sensitivity converter', 'battlefield sensitivity',
         'edpi calculator', 'cm360 calculator', 'cm per 360 calculator', 'dpi calculator gaming',
         'mouse dpi calculator', 'true sensitivity calculator', 'game sensitivity calculator free',
-        'online sensitivity converter', 'sensitivity converter tool 2025',
+        'online sensitivity converter', 'sensitivity converter tool 2026', 'mouse sensitivity converter 2026',
         'pro player sensitivity settings', 'tenz sensitivity', 's1mple dpi settings',
         'zywoo cs2 settings', 'aspas valorant sens', 'what sensitivity do pros use',
         'copy pro player sensitivity', 'pro gamer mouse settings',
@@ -84,12 +86,16 @@ export const metadata: Metadata = {
         'mouse database gaming', 'gaming mousepad calculator', 'dpi analyzer',
     ],
     alternates: {
-        canonical: "https://dcprosens.com",
+        canonical: "https://dcprosens.com/",
     },
     openGraph: {
+        // Inherited from the root layout only when this page omits openGraph
+        // entirely — declaring the object here replaces the parent's, so the
+        // image has to be restated or the page ships with no og:image at all.
+        images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
         title: "DCPROSENS — #1 Gaming Sensitivity Calibration Platform",
         description: `Convert sensitivity between Valorant, CS2, Apex, Overwatch 2 and ${gameCount}+ games. Pro settings, aim tools & more.`,
-        url: "https://dcprosens.com",
+        url: "https://dcprosens.com/",
         type: "website",
     },
 };
@@ -103,7 +109,7 @@ export default function Home() {
                 "name": "DCPROSENS Sensitivity Converter",
                 "applicationCategory": "GameApplication",
                 "operatingSystem": "Web",
-                "url": "https://dcprosens.com",
+                "url": "https://dcprosens.com/",
                 "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
                 "description": "The ultimate gaming sensitivity converter for Valorant, CS2, Overwatch 2, Apex Legends and more.",
                 "featureList": [
@@ -130,17 +136,38 @@ export default function Home() {
             },
             {
                 "@type": "WebSite",
+                "@id": "https://dcprosens.com#website",
                 "name": "DCPROSENS",
-                "url": "https://dcprosens.com",
+                "url": "https://dcprosens.com/",
                 "description": `Free gaming sensitivity converter for Valorant, CS2, Apex Legends, Overwatch 2 and ${gameCount}+ FPS games.`,
-                "potentialAction": { "@type": "SearchAction", "target": { "@type": "EntryPoint", "urlTemplate": "https://dcprosens.com/blog?q={search_term_string}" }, "query-input": "required name=search_term_string" },
+                "publisher": { "@id": "https://dcprosens.com#organization" },
+                "inLanguage": "en-US",
+                // No SearchAction here on purpose. It used to declare
+                // `https://dcprosens.com/blog?q={search_term_string}`, but /blog
+                // has no search — this is a static export with no query handling.
+                // Google crawled the literal template URL and filed it under
+                // "Page with redirect" in Search Console. Declaring a sitewide
+                // search box the site does not have is a false capability claim;
+                // it belongs here only once a real /blog search endpoint exists.
             },
             {
                 "@type": "Organization",
                 "@id": "https://dcprosens.com#organization",
                 "name": "DCPROSENS",
-                "url": "https://dcprosens.com",
+                "url": "https://dcprosens.com/",
                 "logo": { "@type": "ImageObject", "url": "https://dcprosens.com/og-image.png", "width": 1024, "height": 1024 },
+                // sameAs is what lets Google (and LLM retrieval) tie this site to a
+                // single real-world entity instead of treating each surface as an
+                // unrelated domain. Only verified, live profiles belong here — an
+                // unreachable URL weakens the cluster rather than strengthening it.
+                "sameAs": [
+                    "https://www.linkedin.com/in/dalto-cardoso-2a47ab122/",
+                    "https://www.instagram.com/dcprosensofficial/",
+                    "https://www.tiktok.com/@dcprosens",
+                    "https://x.com/dcprosens",
+                    "https://chromewebstore.google.com/detail/dcprosens-sensitivity-con/hamlcadjopefnhcebjafcllomlphapbc",
+                    "https://play.google.com/store/apps/details?id=com.dcprosens.app",
+                ],
             },
         ],
     };
@@ -154,13 +181,11 @@ export default function Home() {
     return (
         <div className="container page-container">
             <script dangerouslySetInnerHTML={{ __html: `if(window.location.hostname==='app.dcprosens.com'){window.location.replace('/login/')}` }} />
-            <script type="application/ld+json;type=schema" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
             {/* ═══════════ HERO ═══════════ */}
             <div className="hero-section" style={{ position: 'relative' }}>
                 <FloatingParticles />
-
-                <LiveActivityFeed />
 
                 <div className="home-hero-badge">
                     <span className="home-hero-badge-dot"></span>
@@ -168,8 +193,8 @@ export default function Home() {
                 </div>
 
                 <h1 className="hero-title" style={{ marginBottom: '1rem' }}>
-                    The <span className="text-gradient-animated">#1 Sensitivity</span><br />
-                    Calibration Platform
+                    The <span className="text-gradient-animated">#1 Mouse Sensitivity Converter</span><br />
+                    & Aim Calibration Platform
                 </h1>
 
                 <p className="hero-subtitle" style={{ marginBottom: '2rem', maxWidth: '650px' }}>
@@ -202,6 +227,7 @@ export default function Home() {
 
                 <VoiceSearch />
                 <Converter />
+                <AdsterraInContent />
 
                 {/* ═══════════ GAMES TRUST BAR ═══════════ */}
                 <ScrollReveal>
@@ -228,13 +254,13 @@ export default function Home() {
                                 target tracking, and reflex drills. Free forever, no registration needed.
                             </p>
                             <div className="home-cta-buttons" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-                                <Link href="/aim-trainer" className="home-cta-btn-primary">
+                                <Link href="/aim-trainer/" className="home-cta-btn-primary">
                                     🎮 Play Free Aim Trainer →
                                 </Link>
-                                <Link href="/sensitivity-test" className="home-cta-btn-secondary" style={{ border: '1px solid #00ff9d', color: '#00ff9d' }}>
-                                    🕹️ Sensitivity Test (2 Free Trials)
+                                <Link href="/sensitivity-test/" className="home-cta-btn-secondary" style={{ border: '1px solid #00ff9d', color: '#00ff9d' }}>
+                                    🕹️ Sensitivity Test (3 Free Trials)
                                 </Link>
-                                <Link href="/aim-lab" className="home-cta-btn-secondary">
+                                <Link href="/aim-lab/" className="home-cta-btn-secondary">
                                     ⚡ Unlock Aim Lab Pro
                                 </Link>
                             </div>
@@ -393,79 +419,79 @@ export default function Home() {
                                 <p className="home-preview-desc">
                                     Visualize the physical distance your mouse travels on the mousepad compared to pros like TenZ, s1mple and NiKo. Includes AI coaching verdicts.
                                 </p>
-                                <Link href="/pricing" className="home-preview-cta">Unlock This Tool →</Link>
+                                <Link href="/pricing/" className="home-preview-cta">Unlock This Tool →</Link>
                             </div>
 
-                            {/* Preview Card 2: PSA Method */}
+                            {/* Preview Card 2: Aim Lab Pro (4 Advanced Modes) */}
                             <div className="home-preview-card">
                                 <div className="home-preview-card-header">
-                                    <span className="home-preview-icon">📐</span>
+                                    <span className="home-preview-icon">🧪</span>
                                     <div>
-                                        <h3>PSA Method Calculator</h3>
-                                        <span className="home-preview-badge">EXCLUSIVE</span>
+                                        <h3>Aim Lab Pro (4 Modes)</h3>
+                                        <span className="home-preview-badge">PRO EXCLUSIVE</span>
                                     </div>
                                 </div>
                                 <div className="home-preview-body">
                                     <div className="home-preview-mockup">
                                         <div className="home-preview-mockup-row">
-                                            <span className="home-preview-label">Step 1: Baseline</span>
+                                            <span className="home-preview-label">Mode 1: Micro-Flick</span>
                                             <span className="home-preview-value">✓</span>
                                         </div>
                                         <div className="home-preview-mockup-row">
-                                            <span className="home-preview-label">Step 2: Overshoot</span>
+                                            <span className="home-preview-label">Mode 2: Dynamic Click</span>
                                             <span className="home-preview-value">✓</span>
                                         </div>
                                         <div className="home-preview-mockup-row">
-                                            <span className="home-preview-label">Step 3: Undershoot</span>
+                                            <span className="home-preview-label">Mode 3: Strafe Peek</span>
                                             <span className="home-preview-value home-preview-green">→</span>
                                         </div>
                                         <div className="home-preview-mockup-row">
-                                            <span className="home-preview-label">Optimal Sens</span>
-                                            <span className="home-preview-value home-preview-green">0.328</span>
+                                            <span className="home-preview-label">Ghost vs. Pro (TenZ)</span>
+                                            <span className="home-preview-value home-preview-green">ACTIVE</span>
                                         </div>
                                     </div>
                                     <div className="home-preview-blur-overlay"></div>
                                 </div>
                                 <p className="home-preview-desc">
-                                    The PSA Method uses structured physical movement tests to mathematically converge on your scientifically perfect sensitivity.
+                                    Train across 4 competitive drill modes including Ghost vs. Pro pacing against TenZ, s1mple, and Aspas with live accuracy telemetry.
                                 </p>
-                                <Link href="/pricing" className="home-preview-cta">Unlock This Tool →</Link>
+                                <Link href="/pricing/" className="home-preview-cta">Unlock Pro Access →</Link>
                             </div>
 
-                            {/* Preview Card 3: Crosshair Generator */}
+                            {/* Preview Card 3: AI Daily Aim Routines & Cloud Sync */}
                             <div className="home-preview-card">
                                 <div className="home-preview-card-header">
-                                    <span className="home-preview-icon">✛</span>
+                                    <span className="home-preview-icon">🤖</span>
                                     <div>
-                                        <h3>Crosshair Generator</h3>
-                                        <span className="home-preview-badge">EXCLUSIVE</span>
+                                        <h3>AI Routines &amp; Cloud Sync</h3>
+                                        <span className="home-preview-badge">PRO EXCLUSIVE</span>
                                     </div>
                                 </div>
                                 <div className="home-preview-body">
-                                    <div className="home-preview-mockup home-preview-crosshair-mock">
-                                        <div className="home-preview-crosshair">
-                                            <div className="home-preview-ch-h"></div>
-                                            <div className="home-preview-ch-v"></div>
-                                        </div>
-                                        <div className="home-preview-mockup-row" style={{ marginTop: '1rem' }}>
-                                            <span className="home-preview-label">Size</span>
-                                            <span className="home-preview-value">3</span>
+                                    <div className="home-preview-mockup">
+                                        <div className="home-preview-mockup-row">
+                                            <span className="home-preview-label">Weakness Focus</span>
+                                            <span className="home-preview-value">Micro-Corrections</span>
                                         </div>
                                         <div className="home-preview-mockup-row">
-                                            <span className="home-preview-label">Gap</span>
-                                            <span className="home-preview-value">-2</span>
+                                            <span className="home-preview-label">Daily Schedule</span>
+                                            <span className="home-preview-value">20 Min / 4 Drills</span>
                                         </div>
                                         <div className="home-preview-mockup-row">
-                                            <span className="home-preview-label">Color</span>
-                                            <span className="home-preview-value home-preview-green">#00FF9D</span>
+                                            <span className="home-preview-label">Saved Cloud Profiles</span>
+                                            <span className="home-preview-value home-preview-green">UNLIMITED</span>
+                                        </div>
+                                        <div className="home-preview-mockup-row">
+                                            <span className="home-preview-label">18-Vol Field Guides</span>
+                                            <span className="home-preview-value home-preview-green">INCLUDED</span>
                                         </div>
                                     </div>
                                     <div className="home-preview-blur-overlay"></div>
                                 </div>
                                 <p className="home-preview-desc">
-                                    Design pixel-perfect crosshairs with live preview. Export code directly into Valorant or CS2. Browse pro crosshair presets.
+                                    Generate personalized daily training schedules tailored to your main game, sync unlimited sensitivity profiles in the cloud, and access all 18 Pro Field Guides.
                                 </p>
-                                <Link href="/pricing" className="home-preview-cta">Unlock This Tool →</Link>
+                                <Link href="/pricing/" className="home-preview-cta">Unlock Pro Access →</Link>
                             </div>
                         </div>
                     </section>
@@ -516,19 +542,36 @@ export default function Home() {
                             </h2>
                             <p className="home-cta-desc">
                                 Unlock all {toolCount}+ tools, advanced pro comparisons, custom aim routines, crosshair generator,
-                                mousepad analytics, DPI analyzer and more. Plans start at just $3.90/month.
+                                mousepad analytics, DPI analyzer and more. Plans start at just $4.08/month on the annual pass.
                             </p>
                             <div className="home-cta-buttons">
-                                <Link href="/pricing" className="home-cta-btn-primary">
+                                <Link href="/pricing/" className="home-cta-btn-primary">
                                     View Plans & Pricing →
                                 </Link>
-                                <Link href="/login" className="home-cta-btn-secondary">
+                                <Link href="/login/" className="home-cta-btn-secondary">
                                     Sign Up Free
                                 </Link>
                             </div>
                         </div>
                     </section>
                 </ScrollReveal>
+
+                {/* ═══════════ VIBERANK BADGE ═══════════ */}
+                <ScrollReveal>
+                    <section className="home-cta-section" style={{ textAlign: 'center' }}>
+                        <span className="home-section-badge">🏅 FEATURED ON</span>
+                        <p className="home-section-desc" style={{ marginTop: '0.75rem', marginBottom: '1.25rem' }}>
+                            Enjoying DCPROSENS? Leave us a vote and a review on VibeRank.
+                        </p>
+                        <a href="https://viberank.dev/apps/DCPROSENS" target="_blank" rel="noopener noreferrer">
+                            {/* eslint-disable-next-line @next/next/no-img-element -- external badge that updates itself server-side on viberank.dev, next/image's domain allowlist adds no value here */}
+                            <img src="https://viberank.dev/badge?app=DCPROSENS&theme=dark" alt="DCPROSENS on VibeRank" />
+                        </a>
+                    </section>
+                </ScrollReveal>
+
+                {/* ═══════════ MID/BOTTOM AD SLOT ═══════════ */}
+                <AdsterraInContent />
 
                 {/* ═══════════ SEO WIKI ═══════════ */}
                 <HomeWiki />

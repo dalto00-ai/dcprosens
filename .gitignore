@@ -64,3 +64,14 @@ android-app/www/
 # Firebase Admin service account key — full admin access to Firestore/Auth.
 # See secrets/README.md before touching anything in this folder.
 /secrets/
+
+# Local standby folder for superseded builds/scripts — see _archive/README.md
+/_archive/
+/source-images-archive/
+/scratch/
+/reports/
+/research/
+/social-media/
+**/__pycache__/
+*.pyc
+

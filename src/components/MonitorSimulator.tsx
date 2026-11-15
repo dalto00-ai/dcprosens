@@ -27,7 +27,7 @@ const RECOMMENDATIONS: MonitorRecommendation[] = [
     responseTime: "0.03ms",
     price: "$799",
     badge: "Ultimate Motion Clarity",
-    affiliateLink: "https://www.amazon.com/dp/B0BZR9T1M5",
+    affiliateLink: "https://www.amazon.com/s?k=ASUS+ROG+Swift+PG27AQDM&crid=27KS6VX4EILIB&sprefix=asus+rog+swift+pg27aqdm%2Caps%2C283&linkCode=ll2&tag=dcoutlier-20&linkId=470ea220c90d55f7d763752949b2d5e2&language=en_US&ref_=as_li_ss_tl",
   },
   {
     name: "BenQ ZOWIE XL2566K",
@@ -37,7 +37,7 @@ const RECOMMENDATIONS: MonitorRecommendation[] = [
     responseTime: "0.5ms",
     price: "$599",
     badge: "Esports Pro Choice",
-    affiliateLink: "https://www.amazon.com/dp/B0BGLV299V",
+    affiliateLink: "https://www.amazon.com/s?k=BenQ+ZOWIE+XL2566K&crid=112N6OX8SSXVQ&sprefix=benq+zowie+xl2566k%2Caps%2C285&linkCode=ll2&tag=dcoutlier-20&linkId=dcc5ae815b3bc058d1ee1c8025d96f8c&language=en_US&ref_=as_li_ss_tl",
   },
   {
     name: "LG UltraGear 27GR83Q-B",
@@ -47,7 +47,7 @@ const RECOMMENDATIONS: MonitorRecommendation[] = [
     responseTime: "1ms",
     price: "$349",
     badge: "Best Value 240Hz",
-    affiliateLink: "https://www.amazon.com/dp/B0C63HD5V8",
+    affiliateLink: "https://www.amazon.com/dp/B0C63HDHPR?tag=dcoutlier-20&linkCode=ll1&language=en_US&ref_=as_li_ss_tl",
   },
   {
     name: "Gigabyte G24F 2",
@@ -57,7 +57,7 @@ const RECOMMENDATIONS: MonitorRecommendation[] = [
     responseTime: "1ms",
     price: "$149",
     badge: "Best Budget Gaming",
-    affiliateLink: "https://www.amazon.com/dp/B0B586K79X",
+    affiliateLink: "https://www.amazon.com/s?k=Gigabyte+G24F+2&crid=3FK9YGT35UI8P&sprefix=gigabyte+g24f+2%2Caps%2C272&linkCode=ll2&tag=dcoutlier-20&linkId=1631ff47fecaf78e3b078cd93be903ad&language=en_US&ref_=as_li_ss_tl",
   },
 ];
 

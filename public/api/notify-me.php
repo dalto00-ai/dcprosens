@@ -1,6 +1,8 @@
 <?php
 // Generic "notify me" waitlist signup — writes to a Firestore `waitlist`
 // collection. Used today by the GTA VI sensitivity converter pre-launch page.
+require_once __DIR__ . '/lib/secrets.php';
+require_once __DIR__ . '/lib/ratelimit.php';
 require_once __DIR__ . '/lib/firestore.php';
 
 header('Content-Type: application/json; charset=utf-8');
@@ -24,6 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(['error' => 'Method not allowed']);
     exit();
 }
+
+// Waitlist signups: enough for a genuine person who mistypes their address,
+// far short of what a scripted flood needs.
+rate_limit_gc();
+rate_limit('notify-me', 5, 3600);
 
 $firebaseClientEmail = getenv('FIREBASE_CLIENT_EMAIL');
 $firebasePrivateKeyB64 = getenv('FIREBASE_PRIVATE_KEY_B64');

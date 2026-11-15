@@ -3,23 +3,23 @@ import Link from 'next/link';
 import { pros } from '@/lib/pros';
 
 export const metadata: Metadata = {
-    title: 'Pro Gaming Setups 2025 — What Gear Do Pros Use?',
+    title: 'Pro Gaming Setups 2026 — What Gear Do Pros Use?',
     description:
-        'Complete pro player gaming setups: mouse, keyboard, headset, monitor, and mousepad. Find out exactly what TenZ, s1mple, ZywOo, Aspas, ImperialHal and more use in 2025.',
+        'Complete pro rigs — mouse, keyboard, headset, monitor and mousepad — for TenZ, s1mple, ZywOo, Aspas, ImperialHal and more.',
     keywords: [
         // Core
-        'pro gaming setup', 'pro player gear', 'esports setup 2025', 'gaming setup pro players',
+        'pro gaming setup', 'pro player gear', 'esports setup 2026', 'gaming setup pro players',
         'pro gamer equipment', 'complete pro gaming setup', 'esports gear list',
         // Valorant specific
         'tenz gaming setup', 'what mouse does tenz use', 'tenz keyboard', 'tenz headset', 'tenz monitor',
         'aspas gaming gear', 'aspas mouse setup', 'demon1 gaming setup',
-        'valorant pro setup', 'valorant pro gear 2025', 'valorant pro peripherals',
+        'valorant pro setup', 'valorant pro gear 2026', 'valorant pro peripherals',
         'yay gaming setup', 'boaster setup', 'chronicle gaming gear',
         // CS2 specific
-        's1mple gaming setup 2025', 's1mple mouse 2025', 's1mple keyboard headset',
+        's1mple gaming setup 2026', 's1mple mouse 2026', 's1mple keyboard headset',
         'zywoo cs2 setup', 'zywoo gaming gear', 'niko gaming setup', 'niko g2 gear',
         'device astralis setup', 'ropz gaming gear', 'karrigan gaming setup',
-        'cs2 pro setup', 'cs2 pro gear 2025', 'cs2 pro peripherals',
+        'cs2 pro setup', 'cs2 pro gear 2026', 'cs2 pro peripherals',
         // Apex specific
         'imperialhal gaming setup', 'imperialhal mouse keyboard', 'imperialhal gear',
         'apex legends pro setup', 'apex legends pro gear',
@@ -29,25 +29,30 @@ export const metadata: Metadata = {
         'razer blackshark v2 pro review', 'benq zowie xl2546k review', 'artisan mousepad review',
         // Long tail
         'what gaming gear does tenz use', 'what gaming gear does s1mple use',
-        'copy pro player setup', 'best fps gaming peripherals 2025',
+        'copy pro player setup', 'best fps gaming peripherals 2026',
         'gaming setup for valorant', 'gaming setup for cs2', 'gaming setup for apex legends',
-        'pro player amazon setup links', 'best gaming gear amazon 2025',
+        'pro player amazon setup links', 'best gaming gear amazon 2026',
     ],
     alternates: {
-        canonical: 'https://dcprosens.com/setups',
+        canonical: 'https://dcprosens.com/setups/',
     },
     openGraph: {
-        title: 'Pro Gaming Setups 2025 — Mouse, Keyboard, Headset & More | DCPROSENS',
+        // Inherited from the root layout only when this page omits openGraph
+        // entirely — declaring the object here replaces the parent's, so the
+        // image has to be restated or the page ships with no og:image at all.
+        images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
+        title: 'Pro Gaming Setups 2026 — Mouse, Keyboard, Headset & More | DCPROSENS',
         description:
             'Discover the full gaming setups of top FPS pros: TenZ, s1mple, ZywOo, Aspas and more. Shop their exact gear on Amazon.',
-        url: 'https://dcprosens.com/setups',
+        url: 'https://dcprosens.com/setups/',
         type: 'website',
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Pro Gaming Setups 2025 | DCPROSENS',
+        title: 'Pro Gaming Setups 2026 | DCPROSENS',
         description:
             'What mouse, keyboard, headset and monitor do pro players use? Full gear list for TenZ, s1mple, ZywOo and more.',
+        images: ["/og-image.png"],
     },
     robots: { index: true, follow: true },
 };
@@ -55,41 +60,41 @@ export const metadata: Metadata = {
 // Affiliate links for common gear items
 const affiliateLinks: Record<string, string> = {
     'Logitech G Pro X Superlight 2':
-        'https://www.amazon.com/Logitech-Superlight-Lightspeed-Wireless-Gaming/dp/B09NBHGDLM?tag=dcprosens-20',
+        'https://www.amazon.com/Logitech-Superlight-Wireless-Pro-Grade-Programmable/dp/B09NBWL8J5?tag=dcoutlier-20',
     'Logitech G Pro X Superlight':
-        'https://www.amazon.com/Logitech-Superlight-Wireless-Gaming-Mouse/dp/B087LXCTFJ?tag=dcprosens-20',
+        'https://www.amazon.com/dp/B09B388RT4?tag=dcoutlier-20&linkCode=ll1&language=en_US&ref_=as_li_ss_tl',
     'Logitech G PRO X':
-        'https://www.amazon.com/Logitech-Mechanical-Gaming-Keyboard-Switches/dp/B07Y1YC8GG?tag=dcprosens-20',
+        'https://www.amazon.com/s?k=Logitech+Mechanical+Gaming+Keyboard+Switches&crid=2GZ29Q6IE9CHR&sprefix=logitech+mechanical+gaming+keyboard+switches%2Caps%2C244&linkCode=ll2&tag=dcoutlier-20&linkId=88246b09b7823a04708ca6f9cf21cf8a&language=en_US&ref_=as_li_ss_tl',
     'Logitech G PRO X 2':
-        'https://www.amazon.com/Logitech-Gaming-Headset-Microphone-Drivers/dp/B09Z7C66HN?tag=dcprosens-20',
+        'https://www.amazon.com/dp/B0G3V45SV1?tag=dcoutlier-20&linkCode=ll1&language=en_US&ref_=as_li_ss_tl',
     'BenQ ZOWIE XL2546K':
-        'https://www.amazon.com/BenQ-ZOWIE-XL2546K-Esports-Monitor/dp/B08ZHDRKDX?tag=dcprosens-20',
+        'https://www.amazon.com/s?k=BenQ+ZOWIE+XL2546K+Esports+Monitor&crid=14IQGX297M72S&sprefix=benq+zowie+xl2546k+esports+monitor%2Caps%2C232&linkCode=ll2&tag=dcoutlier-20&linkId=1d7ce9eb3fd32ec3317d7855f1aed662&language=en_US&ref_=as_li_ss_tl',
     'ASUS ROG Swift PG259QN':
-        'https://www.amazon.com/ASUS-ROG-PG259QN-1ms-Monitor/dp/B08PY82FMY?tag=dcprosens-20',
+        'https://www.amazon.com/s?k=ASUS+ROG+PG259QN+1ms+Monitor&crid=JOHIIDYFD3YG&sprefix=asus+rog+pg259qn+1ms+monitor%2Caps%2C276&linkCode=ll2&tag=dcoutlier-20&linkId=06f4282a39e0bb4696f3ee476335197a&language=en_US&ref_=as_li_ss_tl',
     'Razer BlackShark V2 Pro':
-        'https://www.amazon.com/Razer-BlackShark-V2-Pro-Wireless/dp/B08KFQZZ8R?tag=dcprosens-20',
+        'https://www.amazon.com/s?k=Razer+BlackShark+V2+Pro+Wireless&crid=16KL6B5Y880G1&sprefix=razer+blackshark+v2+pro+wireless%2Caps%2C292&linkCode=ll2&tag=dcoutlier-20&linkId=0f7d6ab4f22e3dd2a7976e81e61b1bba&language=en_US&ref_=as_li_ss_tl',
     'Razer BlackWidow V4 Pro':
-        'https://www.amazon.com/Razer-BlackWidow-Mechanical-Gaming-Keyboard/dp/B0BY2BQ1DV?tag=dcprosens-20',
+        'https://www.amazon.com/dp/B0FCTPBDP3?tag=dcoutlier-20&linkCode=ll1&language=en_US&ref_=as_li_ss_tl',
     'Zowie EC2-GW':
-        'https://www.amazon.com/BenQ-ZOWIE-EC2-GW-Professional-Gaming/dp/B09Y13TMJL?tag=dcprosens-20',
+        'https://www.amazon.com/s?k=BenQ+ZOWIE+EC2+GW+Professional+Gaming&crid=2RR2PZRP1ZFKV&sprefix=benq+zowie+ec2+gw+professional+gaming%2Caps%2C252&linkCode=ll2&tag=dcoutlier-20&linkId=f94b6090d4c2fedf1437023c45c0cb52&language=en_US&ref_=as_li_ss_tl',
     'Artisan Zero FX M':
-        'https://www.amazon.com/Artisan-Japan-Gaming-Mousepad-FX-ZERO/dp/B07WFQTC27?tag=dcprosens-20',
+        'https://www.amazon.com/s?k=Artisan+Japan+Gaming+Mousepad+FX+ZERO&crid=1UMUG3RKJRBIF&sprefix=artisan+japan+gaming+mousepad+fx+zero%2Caps%2C248&linkCode=ll2&tag=dcoutlier-20&linkId=092b7bc0b3956de46a8f81f93136aa21&language=en_US&ref_=as_li_ss_tl',
     'Artisan Zero FX L':
-        'https://www.amazon.com/Artisan-Japan-Gaming-Mousepad-FX-ZERO/dp/B07WFQTC28?tag=dcprosens-20',
+        'https://www.amazon.com/s?k=Artisan+Japan+Gaming+Mousepad+FX+ZERO&crid=1UMUG3RKJRBIF&sprefix=artisan+japan+gaming+mousepad+fx+zero%2Caps%2C248&linkCode=ll2&tag=dcoutlier-20&linkId=092b7bc0b3956de46a8f81f93136aa21&language=en_US&ref_=as_li_ss_tl',
     'Logitech G640':
-        'https://www.amazon.com/Logitech-G640-Cloth-Gaming-Mousepad/dp/B0794TLLX9?tag=dcprosens-20',
+        'https://www.amazon.com/dp/B0BHMKVF1P?tag=dcoutlier-20&linkCode=ll1&language=en_US&ref_=as_li_ss_tl',
     'Logitech G840':
-        'https://www.amazon.com/Logitech-Ultra-Thin-Gaming-Mouse-Pad/dp/B01LDTB5XY?tag=dcprosens-20',
+        'https://www.amazon.com/dp/B0BHMN52LY?tag=dcoutlier-20&linkCode=ll1&language=en_US&ref_=as_li_ss_tl',
     'Wooting 60HE':
-        'https://www.amazon.com/Wooting-60HE-Keyboard/dp/B0CJQFJK2F?tag=dcprosens-20',
+        'https://www.amazon.com/s?k=Wooting+60HE+Keyboard&crid=210PUMYONV20O&sprefix=wooting+60he+keyboard%2Caps%2C297&linkCode=ll2&tag=dcoutlier-20&linkId=fb192abdc39d6ef2b2cfc7dfa45b88a2&language=en_US&ref_=as_li_ss_tl',
     'HyperX Cloud Alpha':
-        'https://www.amazon.com/HyperX-Cloud-Alpha-Pro-Gaming/dp/B076955561?tag=dcprosens-20',
+        'https://www.amazon.com/s?k=HyperX+Cloud+Alpha+Pro+Gaming&crid=1FC1RPWE92SSZ&sprefix=hyperx+cloud+alpha+pro+gaming%2Caps%2C274&linkCode=ll2&tag=dcoutlier-20&linkId=72ce571b3a47253cf8cbf4e4cfeaee4a&language=en_US&ref_=as_li_ss_tl',
     'SteelSeries Arctis Pro':
-        'https://www.amazon.com/SteelSeries-Arctis-Pro-Gaming-Headset/dp/B079YBMS4M?tag=dcprosens-20',
+        'https://www.amazon.com/s?k=SteelSeries+Arctis+Pro+Gaming+Headset&crid=QS9K26EOAGSX&sprefix=steelseries+arctis+pro+gaming+headset%2Caps%2C284&linkCode=ll2&tag=dcoutlier-20&linkId=53450b939f38005694e11d1a2a6a15ef&language=en_US&ref_=as_li_ss_tl',
     'Pulsar Xlite V3':
-        'https://www.amazon.com/Pulsar-Gaming-Gears-Lightweight-Wireless/dp/B0C7Q7NZ3X?tag=dcprosens-20',
+        'https://www.amazon.com/dp/B0FVV7HYCP?tag=dcoutlier-20&linkCode=ll1&language=en_US&ref_=as_li_ss_tl',
     'Alienware AW2521H':
-        'https://www.amazon.com/Alienware-AW2521H-360Hz-IPS-Gaming-Monitor/dp/B08LXPJ5LP?tag=dcprosens-20',
+        'https://www.amazon.com/dp/B08XWKCC68?tag=dcoutlier-20&linkCode=ll1&language=en_US&ref_=as_li_ss_tl',
 };
 
 function getAffiliateLink(item: string): string {
@@ -102,7 +107,7 @@ function getAffiliateLink(item: string): string {
         }
     }
     // Fallback: Amazon search
-    return `https://www.amazon.com/s?k=${encodeURIComponent(item)}&tag=dcprosens-20`;
+    return `https://www.amazon.com/s?k=${encodeURIComponent(item)}&tag=dcoutlier-20`;
 }
 
 function GearItem({ label, value }: { label: string; value: string }) {
@@ -138,10 +143,10 @@ export default function SetupsPage() {
     const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'ItemList',
-        name: 'Pro Gaming Setups 2025 — DCPROSENS',
+        name: 'Pro Gaming Setups 2026 — DCPROSENS',
         description:
             'Complete gaming setups for top professional FPS players including mouse, keyboard, headset, monitor and mousepad.',
-        url: 'https://dcprosens.com/setups',
+        url: 'https://dcprosens.com/setups/',
         numberOfItems: pros.length,
         itemListElement: pros.map((pro, index) => ({
             '@type': 'ListItem',
@@ -157,7 +162,7 @@ export default function SetupsPage() {
         '@type': 'BreadcrumbList',
         itemListElement: [
             { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://dcprosens.com' },
-            { '@type': 'ListItem', position: 2, name: 'Pro Setups', item: 'https://dcprosens.com/setups' },
+            { '@type': 'ListItem', position: 2, name: 'Pro Setups', item: 'https://dcprosens.com/setups/' },
         ],
     };
 
@@ -216,7 +221,7 @@ export default function SetupsPage() {
                     { icon: '🎮', title: `${pros.length} Pros`, desc: 'Valorant, CS2, Apex & more' },
                     { icon: '🖱️', title: '5 Categories', desc: 'Mouse · KB · Headset · Monitor · Pad' },
                     { icon: '🛒', title: 'Amazon Links', desc: 'Direct purchase links for every item' },
-                    { icon: '🔄', title: 'Updated 2025', desc: 'Verified current season settings' },
+                    { icon: '🔄', title: 'Updated 2026', desc: 'Verified current season settings' },
                 ].map((item) => (
                     <div
                         key={item.title}
@@ -320,7 +325,7 @@ export default function SetupsPage() {
                                             >
                                                 <span style={{ fontSize: '1.25rem' }}>{pro.countryFlag}</span>
                                                 <Link
-                                                    href={`/pros/${pro.slug}`}
+                                                    href={`/pros/${pro.slug}/`}
                                                     style={{
                                                         fontSize: '1.25rem',
                                                         fontWeight: 800,
@@ -404,7 +409,7 @@ export default function SetupsPage() {
 
                                     {/* View full profile */}
                                     <Link
-                                        href={`/pros/${pro.slug}`}
+                                        href={`/pros/${pro.slug}/`}
                                         className="setup-profile-link"
                                     >
                                         Full Profile & Crosshair →
@@ -447,7 +452,7 @@ export default function SetupsPage() {
                         marginTop: '2rem',
                     }}
                 >
-                    The Most Popular Pro Gaming Gear in 2025
+                    The Most Popular Pro Gaming Gear in 2026
                 </h2>
                 <p>
                     The <strong style={{ color: 'var(--primary)' }}>Logitech G Pro X Superlight 2</strong> remains

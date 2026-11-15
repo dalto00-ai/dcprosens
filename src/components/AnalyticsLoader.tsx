@@ -17,11 +17,22 @@ export default function AnalyticsLoader() {
       window.removeEventListener("keydown", loadAnalytics);
       window.removeEventListener("touchstart", loadAnalytics);
 
-      // 1. Google Tag Manager Inline Script & DataLayer Initialization
+      // 1. Google Tag Manager Inline Script, Consent Mode v2 Default & DataLayer Initialization
       const gtmInline = document.createElement("script");
       gtmInline.innerHTML = `
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        var savedConsent = null;
+        try { savedConsent = localStorage.getItem('dc_cookie_consent'); } catch(e) {}
+        var isGranted = savedConsent === 'accepted' ? 'granted' : 'denied';
+        gtag('consent', 'default', {
+          'analytics_storage': isGranted,
+          'ad_storage': isGranted,
+          'ad_user_data': isGranted,
+          'ad_personalization': isGranted,
+          'wait_for_update': 500
+        });
         gtag('js', new Date());
         gtag('config', 'G-Y4EJZ062FD');
       `;

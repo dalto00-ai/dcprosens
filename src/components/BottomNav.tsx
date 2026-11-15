@@ -18,8 +18,8 @@ export default function BottomNav() {
             </Link>
 
             <Link 
-                href="/ads" 
-                className={`${styles.navItem} ${pathname === '/ads' ? styles.active : ''}`}
+                href="/ads/" 
+                className={`${styles.navItem} ${(pathname || '').startsWith('/ads') ? styles.active : ''}`}
             >
                 <span className={styles.navIcon}>🎯</span>
                 <span className={styles.navLabel}>ADS</span>
@@ -34,16 +34,16 @@ export default function BottomNav() {
             </Link>
 
             <Link 
-                href="/dpi" 
-                className={`${styles.navItem} ${pathname === '/dpi' ? styles.active : ''}`}
+                href="/dpi/" 
+                className={`${styles.navItem} ${(pathname || '').startsWith('/dpi') ? styles.active : ''}`}
             >
                 <span className={styles.navIcon}>📏</span>
                 <span className={styles.navLabel}>eDPI</span>
             </Link>
 
             <Link 
-                href="/blog" 
-                className={`${styles.navItem} ${pathname.startsWith('/blog') ? styles.active : ''}`}
+                href="/blog/" 
+                className={`${styles.navItem} ${(pathname || '').startsWith('/blog') ? styles.active : ''}`}
             >
                 <span className={styles.navIcon}>📰</span>
                 <span className={styles.navLabel}>Blog</span>

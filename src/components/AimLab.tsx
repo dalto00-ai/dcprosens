@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback, useMemo } from "react";
+import Link from "next/link";
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { useAuth } from "@/components/AuthProvider";
@@ -84,7 +85,13 @@ const STRAFE_SPOTS = [
     { x: 400, y: 90 },
 ];
 
-export default function AimLab() {
+interface AimLabProps {
+    /** Fires once per completed round, regardless of login state — used by
+     * AimLabGated to count free trials. */
+    onRoundFinish?: () => void;
+}
+
+export default function AimLab({ onRoundFinish }: AimLabProps = {}) {
     const { user, userData } = useAuth();
 
     const [mode, setMode] = useState<Mode>("microflick");
@@ -114,6 +121,10 @@ export default function AimLab() {
     const [uiStats, setUiStats] = useState<GameStats>(DEFAULT_STATS);
     const [gameOver, setGameOver] = useState(false);
     const [saved, setSaved] = useState(false);
+    // `saved` only covers the Firestore history write. The leaderboard POST used
+    // to end in `.catch(() => {})`, so a rejected submission still displayed as
+    // a success — tracked separately now.
+    const [boardState, setBoardState] = useState<'idle' | 'saving' | 'saved' | 'failed'>('idle');
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const requestRef = useRef<number | null>(null);
@@ -282,6 +293,24 @@ export default function AimLab() {
             const userRef = doc(db, "users", user.uid);
             await updateDoc(userRef, { aimLabHistory: nextHistory });
             setSaved(true);
+
+            setBoardState("saving");
+            const idToken = await user.getIdToken();
+            fetch("/api/submit-score.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json", Authorization: `Bearer ${idToken}` },
+                body: JSON.stringify({
+                    // Sent in the body too, because header forwarding varies by host.
+                    idToken,
+                    displayName: userData?.displayName || user.email?.split("@")[0] || "Anonymous",
+                    game: "aim-lab",
+                    mode: modeRef.current,
+                    score: scoreRef.current,
+                    dpi: dpiRef.current,
+                }),
+            })
+                .then((res) => setBoardState(res.ok ? "saved" : "failed"))
+                .catch(() => setBoardState("failed"));
         } catch (err) {
             console.error("Failed to save Aim Lab session:", err);
         }
@@ -548,6 +577,7 @@ export default function AimLab() {
         setUiStats(DEFAULT_STATS);
         setGameOver(false);
         setSaved(false);
+        setBoardState('idle');
 
         const canvas = canvasRef.current;
         if (canvas) {
@@ -564,6 +594,18 @@ export default function AimLab() {
             saveSession();
         }
     }, [gameOver, user, saved, saveSession]);
+
+    // Notify the trial gate once per completed round — fires regardless of
+    // login state, since trial counting shouldn't require an account.
+    const roundFinishNotifiedRef = useRef(false);
+    useEffect(() => {
+        if (gameOver && !roundFinishNotifiedRef.current) {
+            roundFinishNotifiedRef.current = true;
+            onRoundFinish?.();
+        } else if (!gameOver) {
+            roundFinishNotifiedRef.current = false;
+        }
+    }, [gameOver, onRoundFinish]);
 
     const savedSettings = userData?.savedSettings;
     const savedCm360 = savedSettings
@@ -733,9 +775,23 @@ export default function AimLab() {
                             </div>
                         </div>
                         {user ? (
-                            <p className={styles.saveNote}>{saved ? "✓ Saved to your history" : "Saving…"}</p>
+                            <p className={styles.saveNote}>
+                                {saved ? "✓ Saved to your history" : "Saving…"}
+                                {boardState === "failed" ? (
+                                    <span style={{ color: "#ff6b81" }}>
+                                        {" · Could not post to the leaderboard. Refresh and play one more round."}
+                                    </span>
+                                ) : (
+                                    <>
+                                        {" · "}
+                                        <Link href="/leaderboard/" style={{ color: "var(--primary)", fontWeight: 600 }}>See the leaderboard →</Link>
+                                    </>
+                                )}
+                            </p>
                         ) : (
-                            <p className={styles.saveNote}>Log in to track your progress over time.</p>
+                            <p className={styles.saveNote}>
+                                <Link href="/login/" style={{ color: "var(--primary)", fontWeight: 600 }}>Log in</Link> to track your progress and appear on the leaderboard.
+                            </p>
                         )}
                         <button className={styles.startBtn} onClick={startRound}>
                             Play Again

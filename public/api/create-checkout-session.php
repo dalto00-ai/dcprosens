@@ -1,5 +1,8 @@
 <?php
 // Hostinger PHP Endpoint for Stripe Embedded Checkout Session
+require_once __DIR__ . '/lib/secrets.php';
+require_once __DIR__ . '/lib/firebase-auth.php';
+require_once __DIR__ . '/lib/ratelimit.php';
 header('Content-Type: application/json; charset=utf-8');
 
 // CORS: Only allow requests from our own domains
@@ -11,7 +14,7 @@ if (in_array($requestOrigin, $allowedOrigins, true)) {
     header('Access-Control-Allow-Origin: https://dcprosens.com');
 }
 header('Access-Control-Allow-Methods: POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
+header('Access-Control-Allow-Headers: Content-Type, Authorization');
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
@@ -31,7 +34,11 @@ if (!$input) {
 
 $plan = isset($input['plan']) ? strtolower($input['plan']) : 'monthly';
 $origin = isset($input['origin']) ? $input['origin'] : 'https://dcprosens.com';
-$userId = isset($input['userId']) ? trim((string)$input['userId']) : '';
+// Verified uid, not a client-supplied string. The webhook grants premium to
+// whatever uid the session carries, so letting the browser choose it meant a
+// completed payment could be attributed to any account.
+$firebaseProjectId = getenv('FIREBASE_PROJECT_ID') ?: 'dcprosens-saas';
+$userId = firebase_uid_or_null($firebaseProjectId) ?? '';
 $userEmail = isset($input['email']) ? trim((string)$input['email']) : '';
 $wantsTrial = !empty($input['trial']);
 
@@ -40,49 +47,164 @@ if (!in_array($origin, $allowedOrigins, true)) {
     $origin = 'https://dcprosens.com';
 }
 
-// A logged-in user is required so the webhook can later tell which Firestore
-// account to grant access to — without this, a completed payment has no way
-// to be linked back to anyone.
-if ($plan !== 'ebook' && $userId === '') {
+// One-time products do not require a prior login session:
+// Stripe collects the buyer's email directly during checkout.
+$oneTimePlans = [
+    'ebook', 'ebook-vol1', 'ebook-vol2', 'ebook-vol3', 'ebook-vol4', 'ebook-vol5', 'ebook-vol6',
+    'ebook-vol7', 'ebook-vol8', 'ebook-vol9', 'ebook-vol10', 'ebook-vol11', 'ebook-vol12',
+    'ebook-vol13', 'ebook-vol14', 'ebook-vol15', 'ebook-vol16', 'ebook-vol17', 'ebook-vol18',
+    'ebook-bundle', 'master-bundle', 'master-omnibus-18vol', 'consultoria', 'vip-overhaul', 'aimlab', 'lifetime'
+];
+$isPaymentOneTime = in_array($plan, $oneTimePlans, true);
+
+// Plans that grant account-level subscriptions or persistent tools in Firebase
+// require the buyer to be logged in so their Firebase UID is linked to the session.
+$accountPlans = ['monthly', 'annual', 'lifetime', 'aimlab'];
+if (in_array($plan, $accountPlans, true) && $userId === '') {
     http_response_code(401);
-    echo json_encode(['error' => 'You must be logged in to subscribe.']);
+    echo json_encode([
+        'error' => 'Please sign in or create a free DCPROSENS account before upgrading to Pro.',
+        'code' => 'AUTH_REQUIRED'
+    ]);
     exit();
 }
 
-$isPaymentOneTime = false;
+rate_limit_gc();
+rate_limit('checkout', 15, 600, $userId !== '' ? $userId : null);
 
-// Price configuration (Live Stripe setup) — matches frontend pricing page & Ebook pricing
+// Price configuration (Live Stripe setup) — matches frontend pricing & Ebook catalog
 switch ($plan) {
+    case 'master-omnibus-18vol':
+    case 'ebook-bundle':
+    case 'master-bundle':
+        $amount = 3999;  // $39.99 USD
+        $planName = 'The Complete 18-Volume Esports Field Guides Master Omnibus';
+        $isPaymentOneTime = true;
+        break;
+    case 'consultoria':
+    case 'vip-overhaul':
+        $amount = 9700;  // $97.00 USD
+        $planName = 'DCPROSENS 360° VIP Overhaul Consultation + Optimizer Engine';
+        $isPaymentOneTime = true;
+        break;
+    case 'ebook-vol1':
+        $amount = 1499;
+        $planName = 'Vol 01: The Precision Aim System Manifesto (eBook & Calibration Guide)';
+        $isPaymentOneTime = true;
+        break;
+    case 'ebook-vol2':
+        $amount = 1499;
+        $planName = 'Vol 02: GTA VI Pro Aim & Controller Field Guide (eBook & Telemetry Guide)';
+        $isPaymentOneTime = true;
+        break;
+    case 'ebook-vol3':
+        $amount = 1499;
+        $planName = 'Vol 03: CS2 Sub-Tick Aim & Autoexec Field Guide';
+        $isPaymentOneTime = true;
+        break;
+    case 'ebook-vol4':
+        $amount = 1499;
+        $planName = 'Vol 04: Valorant Radiant Aim & eDPI Field Guide';
+        $isPaymentOneTime = true;
+        break;
+    case 'ebook-vol5':
+        $amount = 1499;
+        $planName = 'Vol 05: Warzone, BO6 & Apex Tracking Field Guide';
+        $isPaymentOneTime = true;
+        break;
+    case 'ebook-vol6':
+        $amount = 1499;
+        $planName = 'Vol 06: Zero-Latency PC & Sensor Hardware Guide';
+        $isPaymentOneTime = true;
+        break;
+    case 'ebook-vol7':
+        $amount = 1499;
+        $planName = 'Vol 07: The Architect of Precision: 1:1 Engine Yaw Blueprint';
+        $isPaymentOneTime = true;
+        break;
+    case 'ebook-vol8':
+        $amount = 1499;
+        $planName = 'Vol 08: Apex Legends Competitive ALC & Recoil Smoothing';
+        $isPaymentOneTime = true;
+        break;
+    case 'ebook-vol9':
+        $amount = 1499;
+        $planName = 'Vol 09: Overwatch 2 Hitscan, Projectile & Relative Zoom';
+        $isPaymentOneTime = true;
+        break;
+    case 'ebook-vol10':
+        $amount = 1499;
+        $planName = 'Vol 10: Deadlock Eternus Aim & Soul Orb Flick Guide';
+        $isPaymentOneTime = true;
+        break;
+    case 'ebook-vol11':
+        $amount = 1499;
+        $planName = 'Vol 11: Marvel Rivals Competitive Hero Crosshair & Aim';
+        $isPaymentOneTime = true;
+        break;
+    case 'ebook-vol12':
+        $amount = 1499;
+        $planName = 'Vol 12: Rainbow Six Siege Ranked 3.0 Multiplier & ACOG';
+        $isPaymentOneTime = true;
+        break;
+    case 'ebook-vol13':
+        $amount = 1499;
+        $planName = 'Vol 13: Fortnite Competitive Targeting Scope & Pad Guide';
+        $isPaymentOneTime = true;
+        break;
+    case 'ebook-vol14':
+        $amount = 1499;
+        $planName = 'Vol 14: Escape From Tarkov 1.0 & Gray Zone Ballistics';
+        $isPaymentOneTime = true;
+        break;
+    case 'ebook-vol15':
+        $amount = 1499;
+        $planName = 'Vol 15: Delta Force, FragPunk & Arc Raiders Tactical Guide';
+        $isPaymentOneTime = true;
+        break;
+    case 'ebook-vol16':
+        $amount = 1499;
+        $planName = 'Vol 16: Rapid Trigger, Hall Effect & Snap Tap Movement Bible';
+        $isPaymentOneTime = true;
+        break;
+    case 'ebook-vol17':
+        $amount = 1499;
+        $planName = 'Vol 17: The Pro Controller Bible: TMR Sticks, ALC & Aim Assist';
+        $isPaymentOneTime = true;
+        break;
+    case 'ebook-vol18':
+        $amount = 1499;
+        $planName = 'Vol 18: The 2026 Esports Peripherals Buyers Matrix & Setup';
+        $isPaymentOneTime = true;
+        break;
     case 'ebook':
-        $amount = 900;   // $9.00 USD
-        $planName = 'The Precision Aim System (4-Part Ebook & Training System)';
+        $amount = 1499;   // $14.99 USD
+        $planName = isset($input['title']) && trim($input['title']) !== '' ? trim($input['title']) : 'DCPROSENS Esports Field Guide (Instant PDF Download)';
         $isPaymentOneTime = true;
         break;
     case 'aimlab':
-        $amount = 100;   // $1.00 USD, one-time, standalone (not the full subscription)
+        $amount = 100;   // $1.00 USD, one-time, standalone
         $planName = 'DCPROSENS Aim Lab (Standalone Access)';
         $isPaymentOneTime = true;
         break;
     case 'lifetime':
-        $amount = 14900; // $149.00 one-time
-        $planName = 'DCPROSENS Pro Membership (Lifetime)';
+        $amount = 12900; // $129.00 one-time Founder VIP Pass
+        $planName = 'DCPROSENS Pro Membership & Community (Lifetime Founder VIP)';
         $isPaymentOneTime = true;
         break;
     case 'annual':
-        $amount = 3999;  // $39.99/year ($3.33/mo)
+        $amount = 4900;  // $49.00/year ($4.08/mo)
         $interval = 'year';
-        $planName = 'DCPROSENS Pro Membership (Annual — $3.33/mo)';
+        $planName = 'DCPROSENS Pro Membership & Community (Annual VIP Pass)';
         break;
     default: // monthly
-        $amount = 499;   // $4.99/month
+        $amount = 799;   // $7.99/month
         $interval = 'month';
-        $planName = 'DCPROSENS Pro Membership (Monthly)';
+        $planName = 'DCPROSENS Pro Membership & Community (Monthly Pass)';
         break;
 }
 
 // Read Stripe secret key from environment variable (set in Hostinger hPanel).
-// No hardcoded fallback: a live secret key must never live in a file served
-// from a public web root. Fail loudly instead of silently using a real key.
 $secretKey = getenv('STRIPE_SECRET_KEY');
 if (!$secretKey) {
     http_response_code(500);
@@ -90,19 +212,33 @@ if (!$secretKey) {
     exit();
 }
 
-$returnUrl = ($plan === 'ebook')
-    ? $origin . '/Ebooks/EBOOKS%20DCPROSENS.pdf?purchase=success'
-    : $origin . '/dashboard?payment=success&session_id={CHECKOUT_SESSION_ID}';
+// Define return URLs based on product
+if (strpos($plan, 'ebook') !== false || strpos($plan, 'bundle') !== false || strpos($plan, 'omnibus') !== false) {
+    $returnUrl = $origin . '/ebooks/download/?payment=success&session_id={CHECKOUT_SESSION_ID}';
+} elseif ($plan === 'consultoria' || $plan === 'vip-overhaul') {
+    $returnUrl = $origin . '/vip-overhaul/?payment=success&session_id={CHECKOUT_SESSION_ID}';
+} elseif ($plan === 'aimlab') {
+    $returnUrl = $origin . '/aim-lab/?payment=success&session_id={CHECKOUT_SESSION_ID}';
+} else {
+    $returnUrl = $origin . '/dashboard/?payment=success&session_id={CHECKOUT_SESSION_ID}';
+}
 
 $descriptions = [
-    'ebook' => 'Complete 4-Part Precision Aim System Ebook (Instant PDF Download)',
-    'lifetime' => 'One-time payment. Unlimited access to all pro tools, forever.',
-    'aimlab' => 'One-time payment. Permanent access to Aim Lab only (does not include other Pro tools).',
+    'master-omnibus-18vol' => 'Complete 18-Volume Esports Technical Field Guides Master Omnibus (62 Pages, Full Calibration Suite, Instant PDF Access)',
+    'ebook-bundle' => 'All Master Field Guides: Sensitivity, Crosshair, Warm-Up, Friction, Input Lag & Controller (Instant PDF Access)',
+    'master-bundle' => 'All Master Field Guides: Sensitivity, Crosshair, Warm-Up, Friction, Input Lag & Controller (Instant PDF Access)',
+    'ebook-vol1' => 'Vol 01: The Precision Aim System Manifesto — Neuromuscular Calibration, 7-Step PSA & 0% MDM Math',
+    'ebook-vol2' => 'Vol 02: GTA VI Pro Aim & Controller Field Guide — Free Aim Calibration, RAGE Deadzones & DualSense Settings',
+    'consultoria' => '45-Minute 1:1 VIP Session, DCPROSENS Optimizer Engine v1.0, Biomechanical Aim Calibration & All eBooks',
+    'vip-overhaul' => '45-Minute 1:1 VIP Session, DCPROSENS Optimizer Engine v1.0, Biomechanical Aim Calibration & All eBooks',
+    'ebook' => 'Tactical FPS Field Guide & Printable Worksheets (Instant PDF Download)',
+    'lifetime' => 'One-time payment. Permanent access to all pro tools & VIP lounge forever.',
+    'aimlab' => 'Permanent standalone access to Aim Lab.',
 ];
 $description = $descriptions[$plan] ?? 'Unlimited access to all pro tools, PSA method calculator, crosshair database & gear specs';
 
 $postFields = [
-    'ui_mode' => 'embedded_page',
+    'ui_mode' => 'embedded',
     'mode' => $isPaymentOneTime ? 'payment' : 'subscription',
     'return_url' => $returnUrl,
     'line_items[0][price_data][currency]' => 'usd',
@@ -120,24 +256,18 @@ if (!$isPaymentOneTime) {
         $postFields['line_items[0][price_data][recurring][interval_count]'] = $intervalCount;
     }
 
-    // 3-day free trial — Stripe still collects a card up front (standard,
-    // secure behavior) but doesn't charge it until the trial ends.
     if ($wantsTrial) {
         $isTrial = true;
         $postFields['subscription_data[trial_period_days]'] = 3;
     }
 }
 
-// Tag the session with the logged-in user so the webhook knows whose
-// Firestore record to update once payment completes. Session-level metadata
-// is what the webhook reads from `checkout.session.completed` — it's present
-// for both one-time and subscription mode. The subscription/payment-intent
-// metadata is a second copy, useful for later events (e.g. renewals) that
-// reference the subscription/payment-intent but not the original session.
+// Tag the session with product and user metadata so the webhook knows whose
+// Firestore record to update once payment completes.
+$postFields['metadata[plan]'] = $plan;
 if ($userId !== '') {
     $postFields['client_reference_id'] = $userId;
     $postFields['metadata[userId]'] = $userId;
-    $postFields['metadata[plan]'] = $plan;
     if ($isTrial) {
         $postFields['metadata[trial]'] = 'true';
     }
@@ -148,7 +278,13 @@ if ($userId !== '') {
         $postFields['subscription_data[metadata][userId]'] = $userId;
         $postFields['subscription_data[metadata][plan]'] = $plan;
     }
+} elseif ($isPaymentOneTime) {
+    $postFields['payment_intent_data[metadata][plan]'] = $plan;
 }
+$clientIp = rate_limit_client_ip();
+$postFields['billing_address_collection'] = 'auto';
+$postFields['metadata[clientIp]'] = $clientIp;
+
 if ($userEmail !== '' && filter_var($userEmail, FILTER_VALIDATE_EMAIL)) {
     $postFields['customer_email'] = $userEmail;
 }

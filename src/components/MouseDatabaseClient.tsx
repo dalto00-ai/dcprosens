@@ -17,6 +17,15 @@ export default function MouseDatabaseClient() {
     const [expandedId, setExpandedId] = useState<string | null>(null);
     const [searchQuery, setSearchQuery] = useState('');
 
+    // "Keep the same feel if I switch mice" — eDPI (DPI × sens) is what
+    // actually determines physical sensitivity, independent of which mouse
+    // it's set on, so once we know it we can show the matching sens for any
+    // mouse in the list at a fixed reference DPI.
+    const [currentDpi, setCurrentDpi] = useState<string>('');
+    const [currentSens, setCurrentSens] = useState<string>('');
+    const currentEdpi = (Number(currentDpi) || 0) * (Number(currentSens) || 0);
+    const REFERENCE_DPI = 800;
+
     const filtered = useMemo(() => {
         let mice = [...mouseDatabase];
 
@@ -107,6 +116,34 @@ export default function MouseDatabaseClient() {
                 </div>
             </div>
 
+            {/* SWITCHING MICE — KEEP THE SAME SENSITIVITY */}
+            <div className={styles.carryOverBox}>
+                <div>
+                    <strong className={styles.carryOverTitle}>🔁 Switching mice? Keep the exact same feel.</strong>
+                    <p className={styles.carryOverDesc}>Enter your current DPI and in-game sensitivity — every mouse below will show the sens to set at {REFERENCE_DPI} DPI for an identical eDPI.</p>
+                </div>
+                <div className={styles.carryOverInputs}>
+                    <input
+                        type="number"
+                        placeholder="Current DPI"
+                        className={styles.carryOverInput}
+                        value={currentDpi}
+                        onChange={(e) => setCurrentDpi(e.target.value)}
+                    />
+                    <input
+                        type="number"
+                        step="0.001"
+                        placeholder="Current sens"
+                        className={styles.carryOverInput}
+                        value={currentSens}
+                        onChange={(e) => setCurrentSens(e.target.value)}
+                    />
+                    {currentEdpi > 0 && (
+                        <span className={styles.carryOverEdpi}>eDPI: {currentEdpi.toFixed(0)}</span>
+                    )}
+                </div>
+            </div>
+
             {/* RESULTS COUNT */}
             <p className={styles.resultsCount}>
                 Showing <strong>{filtered.length}</strong> mice
@@ -157,6 +194,12 @@ export default function MouseDatabaseClient() {
                                 <strong className={styles.specValue} style={{ color: 'var(--primary)' }}>{mouse.price}</strong>
                             </div>
                         </div>
+
+                        {currentEdpi > 0 && (
+                            <p className={styles.carryOverNote}>
+                                🎯 Set <strong>{(currentEdpi / REFERENCE_DPI).toFixed(3)} sens</strong> at {REFERENCE_DPI} DPI on this mouse for your exact same feel.
+                            </p>
+                        )}
 
                         {/* EXPANDABLE DETAILS */}
                         {expandedId === mouse.id && (

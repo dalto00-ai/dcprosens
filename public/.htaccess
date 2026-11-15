@@ -11,6 +11,16 @@ DirectoryIndex index.html
 # live server). These were previously set there before the Hostinger
 # static-export migration and were silently dropped.
 <IfModule mod_headers.c>
+  # Framing is denied site-wide here. The one exception — /embed/, which the
+  # streamer widget needs to be iframe-able from any origin — is carved out by
+  # public/embed/.htaccess instead of by a condition on this rule.
+  #
+  # Why: this file first tried `SetEnvIf` + `env=` and `Header always edit` to
+  # scope the exception. Apache honours both; the LiteSpeed server this site
+  # actually runs on honours neither. Verified against the live response, which
+  # still sent DENY on /embed/ and additionally emitted a junk header literally
+  # named `edit:` carrying the directive's own arguments. A directory-level
+  # .htaccess is honoured — the same mechanism /web-stories already uses.
   Header always set X-Frame-Options "DENY"
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
@@ -18,12 +28,34 @@ DirectoryIndex index.html
   Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
   Header always set Permissions-Policy "camera=(), geolocation=(), usb=(), payment=(self)"
   Header always set X-DNS-Prefetch-Control "on"
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://js.stripe.com https://apis.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.stripe.com https://*.googlesyndication.com; frame-src 'self' https://www.googletagmanager.com https://googleads.g.doubleclick.net https://js.stripe.com https://*.firebaseapp.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+  # The pagead2/googleads/googleadservices hosts below are deliberately kept
+  # so restoring Google AdSense is a one-line change in layout.tsx rather than
+  # a CSP debugging session.
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://www.googleadservices.com https://js.stripe.com https://*.stripe.com https://apis.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob: https://*.stripe.com; connect-src 'self' https://dcprosens.com https://app.dcprosens.com https://www.google-analytics.com https://analytics.google.com https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://api.stripe.com https://r.stripe.com https://m.stripe.com https://m.stripe.network https://q.stripe.com https://*.stripe.com https://*.googlesyndication.com; frame-src 'self' https://www.googletagmanager.com https://googleads.g.doubleclick.net https://js.stripe.com https://checkout.stripe.com https://elements.stripe.com https://hooks.stripe.com https://*.stripe.com https://*.firebaseapp.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests"
 </IfModule>
 
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
+
+# Republish the Authorization header into the environment. PHP running behind
+# FastCGI — which is how LiteSpeed serves this host — drops it before the script
+# starts, so `$_SERVER['HTTP_AUTHORIZATION']` was empty for every signed-in user
+# and the checkout answered 401 to people who were plainly logged in.
+RewriteCond %{HTTP:Authorization} .
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+# Internal PHP includes (secrets loader, Firestore REST client) are never
+# meant to be requested directly — only required-in by the actual endpoint
+# scripts in /api/. Block direct hits before any other rule runs.
+RewriteRule ^api/lib/ - [F,L]
+
+# Redirect www to apex (non-www) — consolidates the two hosts that were
+# both serving the full site at 200, splitting crawl budget/link equity.
+# Preserves path and query string; fires before the HTTPS-force rule so
+# www+http resolves in a single 301 straight to https://dcprosens.com.
+RewriteCond %{HTTP_HOST} ^www\.dcprosens\.com$ [NC]
+RewriteRule ^(.*)$ https://dcprosens.com/$1 [L,R=301]
 
 # Force HTTPS
 RewriteCond %{HTTPS} off
@@ -36,26 +68,116 @@ RewriteRule ^ - [L]
 
 # Legacy bare-slug blog URLs (missing /blog/ prefix) still crawled by Google —
 # 301 to the real /blog/<slug> location instead of 404ing.
-RewriteRule ^cs2-spray-control-guide-ak47-m4/?$ /blog/cs2-spray-control-guide-ak47-m4 [L,R=301]
-RewriteRule ^minecraft-pvp-sensitivity-guide-2026/?$ /blog/minecraft-pvp-sensitivity-guide-2026 [L,R=301]
-RewriteRule ^aim-training-routine-fps-games-2026/?$ /blog/aim-training-routine-fps-games-2026 [L,R=301]
-RewriteRule ^aim-lab-kovaks-sensitivity-guide/?$ /blog/aim-lab-kovaks-sensitivity-guide [L,R=301]
-RewriteRule ^the-finals-sensitivity-settings-2026/?$ /blog/the-finals-sensitivity-settings-2026 [L,R=301]
-RewriteRule ^60hz-vs-144hz-vs-360hz-gaming-monitor-fps-guide/?$ /blog/60hz-vs-144hz-vs-360hz-gaming-monitor-fps-guide [L,R=301]
-RewriteRule ^how-to-improve-reaction-time-fps-gaming/?$ /blog/how-to-improve-reaction-time-fps-gaming [L,R=301]
-RewriteRule ^valorant-to-apex-sensitivity-converter/?$ /blog/valorant-to-apex-sensitivity-converter [L,R=301]
-RewriteRule ^speed-vs-control-mousepad-which-is-better/?$ /blog/speed-vs-control-mousepad-which-is-better [L,R=301]
-RewriteRule ^colorblind-mode-settings-valorant-cs2-2026/?$ /blog/colorblind-mode-settings-valorant-cs2-2026 [L,R=301]
-RewriteRule ^what-is-cm360-guide/?$ /blog/what-is-cm360-guide [L,R=301]
-RewriteRule ^best-fps-games-to-improve-aim-2026/?$ /blog/best-fps-games-to-improve-aim-2026 [L,R=301]
-RewriteRule ^fortnite-to-cs2-sensitivity-converter/?$ /blog/fortnite-to-cs2-sensitivity-converter [L,R=301]
-RewriteRule ^ptfe-mouse-skates-glass-guide-friction/?$ /blog/ptfe-mouse-skates-glass-guide-friction [L,R=301]
-RewriteRule ^overwatch-2-best-sensitivity-settings-2026/?$ /blog/overwatch-2-best-sensitivity-settings-2026 [L,R=301]
-RewriteRule ^what-is-edpi-gaming-guide/?$ /blog/what-is-edpi-gaming-guide [L,R=301]
-RewriteRule ^cs2-to-valorant-sensitivity-converter-guide/?$ /blog/cs2-to-valorant-sensitivity-converter-guide [L,R=301]
-RewriteRule ^best-mousepad-size-guide-2026/?$ /blog/best-mousepad-size-guide-2026 [L,R=301]
-RewriteRule ^valorant-crosshair-placement-guide-2026/?$ /blog/valorant-crosshair-placement-guide-2026 [L,R=301]
-RewriteRule ^find-perfect-mouse-sensitivity/?$ /blog/find-perfect-mouse-sensitivity [L,R=301]
+RewriteRule ^blog/page/[0-9]+/?$ /blog/ [L,R=301]
+RewriteRule ^[Ee]books?/(.*)$ /ebooks/ [L,R=301]
+RewriteRule ^pros/(fleta|jawgemo|genburten|less)-[a-z0-9-]+/?$ /pros/ [L,R=301]
+RewriteRule ^400-dpi-vs-800-dpi-fps-games/?$ /blog/400-dpi-vs-800-dpi-fps-games/ [L,R=301]
+RewriteRule ^best-fortnite-sensitivity-settings-2026/?$ /blog/best-fortnite-sensitivity-settings-2026/ [L,R=301]
+RewriteRule ^cs2-practice-commands-guide-2026/?$ /blog/cs2-practice-commands-guide-2026/ [L,R=301]
+RewriteRule ^overwatch-2-sensitivity-converter-guide/?$ /blog/overwatch-2-sensitivity-converter-guide/ [L,R=301]
+RewriteRule ^8khz-wireless-mouse-worth-it/?$ /blog/8khz-wireless-mouse-worth-it/ [L,R=301]
+RewriteRule ^dpi-for-monitor-resolution-1080p-1440p-4k/?$ /blog/dpi-for-monitor-resolution-1080p-1440p-4k/ [L,R=301]
+RewriteRule ^exploring-gaming-sensitivity-tips-tricks-and-gear/?$ / [L,R=301]
+RewriteRule ^riot-games-sensitivity-mastery/?$ /blog/riot-games-sensitivity-mastery/ [L,R=301]
+RewriteRule ^best-apex-legends-sensitivity-settings-2026/?$ /blog/best-apex-legends-sensitivity-settings-2026/ [L,R=301]
+RewriteRule ^cs2-to-apex-legends-sensitivity-converter/?$ /blog/cs2-to-apex-legends-sensitivity-converter/ [L,R=301]
+RewriteRule ^mouse-sensor-jitter-latency-muscle-memory/?$ /blog/mouse-sensor-jitter-latency-muscle-memory/ [L,R=301]
+RewriteRule ^halo-infinite-sensitivity-converter-guide/?$ /blog/halo-infinite-sensitivity-converter-guide/ [L,R=301]
+RewriteRule ^fortnite-to-valorant-sensitivity-2026/?$ /blog/fortnite-to-valorant-sensitivity-2026/ [L,R=301]
+RewriteRule ^cs2-spray-control-guide-ak47-m4/?$ /blog/cs2-spray-control-guide-ak47-m4/ [L,R=301]
+RewriteRule ^minecraft-pvp-sensitivity-guide-2026/?$ /blog/minecraft-pvp-sensitivity-guide-2026/ [L,R=301]
+RewriteRule ^aim-training-routine-fps-games-2026/?$ /blog/aim-training-routine-fps-games-2026/ [L,R=301]
+RewriteRule ^aim-lab-kovaks-sensitivity-guide/?$ /blog/aim-lab-kovaks-sensitivity-guide/ [L,R=301]
+RewriteRule ^the-finals-sensitivity-settings-2026/?$ /blog/the-finals-sensitivity-settings-2026/ [L,R=301]
+RewriteRule ^60hz-vs-144hz-vs-360hz-gaming-monitor-fps-guide/?$ /blog/60hz-vs-144hz-vs-360hz-gaming-monitor-fps-guide/ [L,R=301]
+RewriteRule ^how-to-improve-reaction-time-fps-gaming/?$ /blog/how-to-improve-reaction-time-fps-gaming/ [L,R=301]
+RewriteRule ^valorant-to-apex-sensitivity-converter/?$ /blog/valorant-to-apex-sensitivity-converter/ [L,R=301]
+RewriteRule ^speed-vs-control-mousepad-which-is-better/?$ /blog/speed-vs-control-mousepad-which-is-better/ [L,R=301]
+RewriteRule ^colorblind-mode-settings-valorant-cs2-2026/?$ /blog/colorblind-mode-settings-valorant-cs2-2026/ [L,R=301]
+RewriteRule ^what-is-cm360-guide/?$ /blog/what-is-cm360-guide/ [L,R=301]
+RewriteRule ^best-fps-games-to-improve-aim-2026/?$ /blog/best-fps-games-to-improve-aim-2026/ [L,R=301]
+RewriteRule ^fortnite-to-cs2-sensitivity-converter/?$ /blog/fortnite-to-cs2-sensitivity-converter/ [L,R=301]
+RewriteRule ^ptfe-mouse-skates-glass-guide-friction/?$ /blog/ptfe-mouse-skates-glass-guide-friction/ [L,R=301]
+RewriteRule ^overwatch-2-best-sensitivity-settings-2026/?$ /blog/overwatch-2-best-sensitivity-settings-2026/ [L,R=301]
+RewriteRule ^what-is-edpi-gaming-guide/?$ /blog/what-is-edpi-gaming-guide/ [L,R=301]
+RewriteRule ^cs2-to-valorant-sensitivity-converter-guide/?$ /blog/cs2-to-valorant-sensitivity-converter-guide/ [L,R=301]
+RewriteRule ^best-mousepad-size-guide-2026/?$ /blog/best-mousepad-size-guide-2026/ [L,R=301]
+RewriteRule ^valorant-crosshair-placement-guide-2026/?$ /blog/valorant-crosshair-placement-guide-2026/ [L,R=301]
+RewriteRule ^find-perfect-mouse-sensitivity/?$ /blog/find-perfect-mouse-sensitivity/ [L,R=301]
+
+# More legacy bare-slug blog URLs found 404ing in GSC coverage report (2026-08-17) —
+# same fix as above, just a second batch found later.
+RewriteRule ^why-counter-strafe-rapid-trigger-fps-meta/?$ /blog/why-counter-strafe-rapid-trigger-fps-meta/ [L,R=301]
+RewriteRule ^apex-legends-ads-sensitivity-guide/?$ /blog/apex-legends-ads-sensitivity-guide/ [L,R=301]
+RewriteRule ^gta-vi-aim-settings-pc/?$ /blog/gta-vi-aim-settings-pc/ [L,R=301]
+RewriteRule ^best-gaming-mouse-for-fps-2026/?$ /blog/best-gaming-mouse-for-fps-2026/ [L,R=301]
+RewriteRule ^valorant-to-cs2-sensitivity/?$ /blog/valorant-to-cs2-sensitivity/ [L,R=301]
+RewriteRule ^best-fov-settings-valorant-cs2-apex-2026/?$ /blog/best-fov-settings-valorant-cs2-apex-2026/ [L,R=301]
+RewriteRule ^best-keyboard-keybinds-fps-games-2026/?$ /blog/best-keyboard-keybinds-fps-games-2026/ [L,R=301]
+RewriteRule ^dpi-vs-sensitivity-difference/?$ /blog/dpi-vs-sensitivity-difference/ [L,R=301]
+RewriteRule ^polling-rate-explained-1000hz-vs-4000hz-vs-8000hz/?$ /blog/polling-rate-explained-1000hz-vs-4000hz-vs-8000hz/ [L,R=301]
+RewriteRule ^cs2-peeking-guide-wide-swing-jiggle-2026/?$ /blog/cs2-peeking-guide-wide-swing-jiggle-2026/ [L,R=301]
+RewriteRule ^gaming-mouse-sensor-guide-optical-vs-laser-2026/?$ /blog/gaming-mouse-sensor-guide-optical-vs-laser-2026/ [L,R=301]
+RewriteRule ^best-cs2-crosshair-settings-pro-codes-2026/?$ /blog/best-cs2-crosshair-settings-pro-codes-2026/ [L,R=301]
+RewriteRule ^pubg-sensitivity-converter-guide/?$ /blog/pubg-sensitivity-converter-guide/ [L,R=301]
+RewriteRule ^apex-legends-ranked-tier-list-2026-meta/?$ /blog/apex-legends-ranked-tier-list-2026-meta/ [L,R=301]
+RewriteRule ^xdefiant-sensitivity-settings-converter-2026/?$ /blog/xdefiant-sensitivity-settings-converter-2026/ [L,R=301]
+RewriteRule ^counter-strafing-guide-cs2-2026/?$ /blog/counter-strafing-guide-cs2-2026/ [L,R=301]
+RewriteRule ^overwatch-2-to-apex-legends-aim/?$ /blog/overwatch-2-to-apex-legends-aim/ [L,R=301]
+RewriteRule ^warzone-sensitivity-converter-guide/?$ /blog/warzone-sensitivity-converter-guide/ [L,R=301]
+RewriteRule ^glass-mousepad-vs-cloth-2026/?$ /blog/glass-mousepad-vs-cloth-2026/ [L,R=301]
+RewriteRule ^why-you-are-not-improving-at-aiming-sensitivity-plateau/?$ /blog/why-you-are-not-improving-at-aiming-sensitivity-plateau/ [L,R=301]
+RewriteRule ^hunt-showdown-sensitivity-converter-guide/?$ /blog/hunt-showdown-sensitivity-converter-guide/ [L,R=301]
+RewriteRule ^how-to-stop-tilting-fps-games-mental-guide/?$ /blog/how-to-stop-tilting-fps-games-mental-guide/ [L,R=301]
+RewriteRule ^mouse-acceleration-gaming-turn-off/?$ /blog/mouse-acceleration-gaming-turn-off/ [L,R=301]
+RewriteRule ^battlefield-2042-sensitivity-converter-guide/?$ /blog/battlefield-2042-sensitivity-converter-guide/ [L,R=301]
+RewriteRule ^the-math-behind-operator-awp-focal-matching/?$ /blog/the-math-behind-operator-awp-focal-matching/ [L,R=301]
+RewriteRule ^snap-tap-rapid-trigger-keyboards/?$ /blog/snap-tap-rapid-trigger-keyboards/ [L,R=301]
+RewriteRule ^wireless-vs-wired-gaming-mouse-fps-2026/?$ /blog/wireless-vs-wired-gaming-mouse-fps-2026/ [L,R=301]
+RewriteRule ^how-to-escape-elo-hell-valorant-cs2-2026/?$ /blog/how-to-escape-elo-hell-valorant-cs2-2026/ [L,R=301]
+RewriteRule ^cs2-recoil-control-spray-transfer-guide/?$ /blog/cs2-recoil-control-spray-transfer-guide/ [L,R=301]
+RewriteRule ^games-factory-sens-perfect-aim-guide/?$ /blog/games-factory-sens-perfect-aim-guide/ [L,R=301]
+# Old/renamed slug — closest real match
+RewriteRule ^best-gaming-mouse-2026/?$ /blog/best-gaming-mouse-for-fps-2026/ [L,R=301]
+
+# Misc legacy URLs found 404ing (wrong prefix, old naming, or hyphenation)
+RewriteRule ^pros/niko-cs2-settings/?$ /pros/niko/ [L,R=301]
+RewriteRule ^pros-compare/?$ /pros/compare/ [L,R=301]
+RewriteRule ^web-stories/top-5-mice-2026/?$ /web-stories/top-5-gaming-mice-2026/ [L,R=301]
+RewriteRule ^converter/?$ / [L,R=301]
+RewriteRule ^consultoria/?$ /vip-overhaul/ [L,R=301]
+
+# ── Batch 3: remaining 404s from the GSC coverage export (2026-09-03) ──────
+# Every target below was verified to exist in out/ before being added.
+RewriteRule ^best-cs2-sensitivity-settings-2026/?$ /blog/best-cs2-sensitivity-settings-2026/ [L,R=301]
+RewriteRule ^blog/best-gaming-mouse-2026/?$ /blog/best-gaming-mouse-for-fps-2026/ [L,R=301]
+RewriteRule ^pros/zekken-valorant-settings/?$ /pros/zekken/ [L,R=301]
+# /pros/<game> was never a route — the game filter is a query param on /pros.
+RewriteRule ^pros/(apex|cs2|valorant|fortnite|overwatch)/?$ /pros/ [L,R=301]
+
+# Slugs from the WordPress era of this domain: /posts/<slug> was the old
+# permalink structure before the Next.js rebuild moved everything to /blog/.
+RewriteRule ^posts/valorant-to-cs2-sensitivity-converter-guide/?$ /blog/valorant-to-cs2-sensitivity/ [L,R=301]
+RewriteRule ^posts/perfect-sensitivity-approximation-psa-method/?$ /psa-calculator/ [L,R=301]
+RewriteRule ^posts/(.*)$ /blog/ [L,R=301]
+
+# GTA VI articles were removed; the standing GTA VI page is the right target.
+RewriteRule ^blog/gta-vi-(world-map-vice-city-leonida|gameplay-first-impressions-vice-city|best-vehicles-cars-bikes-boats)/?$ /gta-vi-sensitivity/ [L,R=301]
+RewriteRule ^web-stories/gta-vi-first-look-in-pictures/?$ /web-stories/ [L,R=301]
+RewriteRule ^exploring-the-world-of-gaming-tips-and-trends/?$ / [L,R=301]
+
+# ── 410 Gone for the dead WordPress/WooCommerce surface ───────────────────
+# This domain previously ran WordPress with WooCommerce. Google is still
+# retrying /cart/, /checkout/, /product/*, /category/*, feeds and wp-* paths
+# and filing each as a 404 crawl error. A 410 tells it the URL is permanently
+# gone, so it stops retrying and drops them — a 404 keeps it coming back.
+# These are matched before the clean-URL rules so nothing real is affected.
+RewriteRule ^(cart|checkout|my-account)/?$ - [G,L]
+RewriteRule ^(product|product-category|category|tag|author)(/.*)?$ - [G,L]
+RewriteRule ^wp-(admin|content|includes|login|json)(/.*)?$ - [G,L]
+RewriteRule ^wp-[a-z0-9-]*\.php$ - [G,L]
+RewriteRule ^xmlrpc\.php$ - [G,L]
+RewriteRule ^.*/feed/?$ - [G,L]
 
 # Clean URL to HTML mapping
 # e.g., /pricing -> /pricing.html

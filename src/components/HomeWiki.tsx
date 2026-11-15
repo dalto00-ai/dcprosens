@@ -38,7 +38,7 @@ export default function HomeWiki() {
                     <div className={styles.card}>
                         <h4>Valorant → CS2</h4>
                         <p>Most popular conversion. Multiply Valorant sens by <strong>3.18</strong>. Our tool handles this
-                            automatically. <Link href="/blog/valorant-to-cs2-sensitivity">Full Valorant to CS2 guide →</Link></p>
+                            automatically. <Link href="/blog/valorant-to-cs2-sensitivity/">Full Valorant to CS2 guide →</Link></p>
                     </div>
                     <div className={styles.card}>
                         <h4>Apex Legends → Valorant</h4>
@@ -65,7 +65,7 @@ export default function HomeWiki() {
                     </details>
                     <details>
                         <summary>Does DPI affect latency in games?</summary>
-                        <p>Slightly. As covered in our <Link href="/blog/dpi-vs-sensitivity-difference">DPI vs Sensitivity guide</Link>, higher DPI (1600+)
+                        <p>Slightly. As covered in our <Link href="/blog/dpi-vs-sensitivity-difference/">DPI vs Sensitivity guide</Link>, higher DPI (1600+)
                             can reduce input rounding errors and may improve perceived smoothness on high-refresh monitors (240Hz+).
                             However, the eDPI is what truly determines aim feel.</p>
                     </details>
@@ -73,7 +73,7 @@ export default function HomeWiki() {
                         <summary>How do I convert Fortnite sensitivity to Valorant?</summary>
                         <p>Fortnite uses a slider percentage that corresponds to a raw multiplier. Our tool handles this third-person FOV
                             complexity automatically. Select Fortnite as input, enter your percentage, and select Valorant as output.
-                            Read our <Link href="/blog/fortnite-to-valorant-sensitivity-2026">complete Fortnite to Valorant guide</Link>.</p>
+                            Read our <Link href="/blog/fortnite-to-valorant-sensitivity-2026/">complete Fortnite to Valorant guide</Link>.</p>
                     </details>
                     <details>
                         <summary>What is cm/360 and why does it matter?</summary>
@@ -100,9 +100,9 @@ export default function HomeWiki() {
 
                 <p style={{ marginTop: '1.5rem' }}>
                     Want to go deeper? Read our guides on{' '}
-                    <Link href="/blog/what-is-edpi-gaming-guide">what eDPI means</Link>,{' '}
-                    <Link href="/blog/find-perfect-mouse-sensitivity">how to find your perfect mouse sensitivity</Link>,{' '}
-                    and <Link href="/blog/dpi-vs-sensitivity-difference">DPI vs in-game sensitivity</Link>.
+                    <Link href="/blog/what-is-edpi-gaming-guide/">what eDPI means</Link>,{' '}
+                    <Link href="/blog/find-perfect-mouse-sensitivity/">how to find your perfect mouse sensitivity</Link>,{' '}
+                    and <Link href="/blog/dpi-vs-sensitivity-difference/">DPI vs in-game sensitivity</Link>.
                 </p>
             </article>
 
@@ -111,15 +111,15 @@ export default function HomeWiki() {
             <article className={styles.content}>
                 <h3 className={styles.h3}>Latest Web Stories</h3>
                 <div className={styles.grid}>
-                    <Link href="/web-stories/top-5-gaming-mice-2026" className={styles.card} style={{ textDecoration: 'none' }}>
+                    <Link href="/web-stories/top-5-gaming-mice-2026/" className={styles.card} style={{ textDecoration: 'none' }}>
                         <h4>Top 5 Gaming Mice 2026</h4>
                         <p>The best wireless mice for competitive gaming this year.</p>
                     </Link>
-                    <Link href="/web-stories/valorant-vs-cs2-sensitivity-differences" className={styles.card} style={{ textDecoration: 'none' }}>
+                    <Link href="/web-stories/valorant-vs-cs2-sensitivity-differences/" className={styles.card} style={{ textDecoration: 'none' }}>
                         <h4>Valorant vs CS2</h4>
                         <p>Key differences in movement and mechanics explaining the switch.</p>
                     </Link>
-                    <Link href="/web-stories/what-is-edpi-quick-guide" className={styles.card} style={{ textDecoration: 'none' }}>
+                    <Link href="/web-stories/what-is-edpi-quick-guide/" className={styles.card} style={{ textDecoration: 'none' }}>
                         <h4>What is eDPI?</h4>
                         <p>A quick visual guide to understanding effective sensitivity.</p>
                     </Link>

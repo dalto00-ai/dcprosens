@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPS & Input Lag Playbook — DCPROSENS Field Guide 05</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-page: #06080d;
+            --bg-card: #0c101a;
+            --bg-card-alt: #101624;
+            --bg-elevated: #151d30;
+            --primary: #00ff9d;
+            --primary-glow: rgba(0, 255, 157, 0.25);
+            --secondary: #00e5ff;
+            --secondary-glow: rgba(0, 229, 255, 0.2);
+            --accent-red: #ff2a5f;
+            --accent-amber: #ffb703;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+            --border-subtle: rgba(255, 255, 255, 0.07);
+            --border-primary: rgba(0, 255, 157, 0.25);
+            --border-secondary: rgba(0, 229, 255, 0.25);
+        }
+
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #030407;
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* ---------------- PAGE CONTAINER ---------------- */
+        .page {
+            width: 210mm;
+            height: 297mm;
+            max-height: 297mm;
+            min-height: 297mm;
+            box-sizing: border-box;
+            padding: 14mm 16mm 12mm 16mm;
+            background: var(--bg-page);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            page-break-after: always;
+            break-after: page;
+        }
+
+        /* Grid background subtle effect */
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 85% 15%, rgba(0, 229, 255, 0.04) 0%, transparent 40%),
+                radial-gradient(circle at 15% 85%, rgba(0, 255, 157, 0.04) 0%, transparent 40%),
+                linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 20px 20px, 20px 20px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .page > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ---------------- RUNNING HEADER & FOOTER ---------------- */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 3.5mm;
+            border-bottom: 1px solid var(--border-subtle);
+            margin-bottom: 4mm;
+        }
+
+        .header-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8pt;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        .header-tag::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 6px var(--primary);
+        }
+
+        .header-sub {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.5pt;
+            letter-spacing: 0.08em;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        .page-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 3.5mm;
+            border-top: 1px solid var(--border-subtle);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.5pt;
+            letter-spacing: 0.06em;
+            color: var(--text-dim);
+        }
+
+        .footer-brand {
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .footer-brand span {
+            color: var(--primary);
+        }
+
+        .footer-num {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        /* ---------------- COMMON CONTENT ELEMENTS ---------------- */
+        .title-block {
+            margin-bottom: 4.5mm;
+        }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8pt;
+            font-weight: 700;
+            color: var(--secondary);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 1.5mm;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .page-title {
+            font-family: 'Space Grotesk', 'Outfit', sans-serif;
+            font-size: 21pt;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin-bottom: 2mm;
+        }
+
+        .page-desc {
+            font-size: 9.5pt;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 3.5mm 4.5mm;
+            position: relative;
+        }
+
+        .card.glow-primary {
+            border-color: var(--border-primary);
+            box-shadow: 0 0 15px rgba(0, 255, 157, 0.05);
+        }
+
+        .card.glow-secondary {
+            border-color: var(--border-secondary);
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.05);
+        }
+
+        .card-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 10.5pt;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1.5mm;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8pt;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .card-desc {
+            font-size: 8.5pt;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* ---------------- STEP LIST (1, 2, 3, 4) ---------------- */
+        .step-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5mm;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 3.5mm;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            padding: 3mm 3.5mm;
+        }
+
+        .step-num {
+            width: 22px;
+            height: 22px;
+            min-width: 22px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(0, 255, 157, 0.2), rgba(0, 229, 255, 0.2));
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8.5pt;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .step-content h4 {
+            font-size: 9.5pt;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1mm;
+        }
+
+        .step-content p {
+            font-size: 8.2pt;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+
+        /* ---------------- TABLES ---------------- */
+        .spec-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+            background: var(--bg-card);
+            font-size: 8.2pt;
+        }
+
+        .spec-table th {
+            background: var(--bg-card-alt);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.5pt;
+            font-weight: 700;
+            color: var(--secondary);
+            text-align: left;
+            padding: 2.5mm 3.5mm;
+            border-bottom: 1px solid var(--border-subtle);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .spec-table td {
+            padding: 2.5mm 3.5mm;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+
+        .spec-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .spec-table td strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* ---------------- CALLOUT BOXES ---------------- */
+        .callout {
+            border-left: 3px solid var(--primary);
+            background: linear-gradient(90deg, rgba(0, 255, 157, 0.06), transparent);
+            border-radius: 0 6px 6px 0;
+            padding: 2.8mm 3.5mm;
+            font-size: 8.5pt;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .callout strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .callout.alert-red {
+            border-left-color: var(--accent-red);
+            background: linear-gradient(90deg, rgba(255, 42, 95, 0.08), transparent);
+        }
+
+        .callout.alert-cyan {
+            border-left-color: var(--secondary);
+            background: linear-gradient(90deg, rgba(0, 229, 255, 0.06), transparent);
+        }
+
+        /* ---------------- PAGE 1: COVER SPECIFIC ---------------- */
+        .cover-page {
+            justify-content: space-between;
+            background: radial-gradient(circle at 50% 30%, #0d1624 0%, #06080d 70%);
+        }
+
+        .cover-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cover-brand-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13pt;
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            color: #ffffff;
+        }
+
+        .cover-brand-logo span {
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        .cover-field-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.5pt;
+            letter-spacing: 0.1em;
+            color: var(--secondary);
+            border: 1px solid var(--border-secondary);
+            padding: 1.5mm 3mm;
+            border-radius: 20px;
+            background: rgba(0, 229, 255, 0.05);
+        }
+
+        .cover-title-group {
+            margin-top: 4mm;
+            margin-bottom: 4mm;
+        }
+
+        .cover-tagline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8pt;
+            letter-spacing: 0.15em;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 2mm;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cover-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 38pt;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.03em;
+            line-height: 0.95;
+            margin-bottom: 3.5mm;
+            text-transform: uppercase;
+        }
+
+        .cover-title span {
+            color: transparent;
+            background: linear-gradient(135deg, #00ff9d 0%, #00e5ff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .cover-subtitle {
+            font-size: 12pt;
+            font-weight: 400;
+            color: var(--text-muted);
+            letter-spacing: -0.01em;
+            max-width: 480px;
+            line-height: 1.4;
+        }
+
+        /* Cover Diagram Graphic */
+        .cover-graphic-box {
+            background: #090d16;
+            border: 1px solid rgba(0, 255, 157, 0.2);
+            border-radius: 12px;
+            padding: 5mm;
+            position: relative;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(0, 255, 157, 0.03);
+            margin: 3mm 0;
+        }
+
+        .graphic-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.5pt;
+            letter-spacing: 0.1em;
+            color: var(--secondary);
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 3mm;
+        }
+
+        .cover-pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3mm;
+            margin-top: 2mm;
+        }
+
+        .pillar-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            padding: 3mm;
+            text-align: center;
+        }
+
+        .pillar-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8pt;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1mm;
+        }
+
+        .pillar-desc {
+            font-size: 7.5pt;
+            color: var(--text-muted);
+            line-height: 1.3;
+        }
+
+        .cover-footer-note {
+            font-size: 8.5pt;
+            color: var(--text-muted);
+            line-height: 1.4;
+            border-left: 2px solid var(--primary);
+            padding-left: 3mm;
+            margin-top: 2mm;
+        }
+
+        /* ---------------- GRID UTILITIES ---------------- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3mm;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3mm;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5mm;
+        }
+
+        /* ---------------- HUD METRIC TILES ---------------- */
+        .metric-tile {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            padding: 3mm 3.5mm;
+            text-align: center;
+        }
+
+        .metric-tile.active {
+            border-color: var(--primary);
+            background: linear-gradient(180deg, rgba(0, 255, 157, 0.08), var(--bg-card));
+        }
+
+        .metric-val {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15pt;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.1;
+        }
+
+        .metric-tile.active .metric-val {
+            color: var(--primary);
+            text-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        .metric-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7pt;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 1mm;
+        }
+
+        .metric-sub {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.5pt;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-top: 0.5mm;
+        }
+
+        /* ---------------- LATENCY PIPELINE ---------------- */
+        .pipeline-flow {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2mm;
+            position: relative;
+            margin: 2mm 0;
+        }
+
+        .pipe-node {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            padding: 2.5mm 3mm;
+            position: relative;
+        }
+
+        .pipe-node::after {
+            content: '→';
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+            font-size: 10pt;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        .pipe-node:last-child::after {
+            display: none;
+        }
+
+        .pipe-num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7.5pt;
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        .pipe-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 9.5pt;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0.5mm 0;
+        }
+
+        .pipe-detail {
+            font-size: 7pt;
+            color: var(--text-muted);
+            line-height: 1.25;
+        }
+
+        /* ---------------- WORKSHEET FIELDS ---------------- */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3mm;
+            margin-bottom: 2.5mm;
+        }
+
+        .field-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            padding: 2mm 3mm;
+        }
+
+        .field-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 7pt;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5mm;
+        }
+
+        .field-line {
+            height: 18px;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8pt;
+            color: var(--primary);
+        }
+
+        /* Checklist */
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 3mm;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 6px;
+            padding: 2.5mm 3.5mm;
+            margin-bottom: 2mm;
+        }
+
+        .check-box-mock {
+            width: 14px;
+            height: 14px;
+            min-width: 14px;
+            border: 1.5px solid var(--primary);
+            border-radius: 3px;
+            margin-top: 1.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .check-text h5 {
+            font-size: 8.8pt;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5mm;
+        }
+
+        .check-text p {
+            font-size: 7.8pt;
+            color: var(--text-muted);
+            line-height: 1.3;
+        }
+
+        /* Progress Bar */
+        .progress-pill {
+            background: var(--bg-card-alt);
+            border: 1px solid var(--border-primary);
+            border-radius: 6px;
+            padding: 2.5mm 3.5mm;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8pt;
+        }
+
+        .progress-val {
+            color: var(--primary);
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========================================================================= -->
+<!-- PAGE 1: COVER                                                             -->
+<!-- ========================================================================= -->
+
+<section class="page cover-page">
+    <img class="cover-bg-img" src="file:///home/usuario/Documentos/GOOGLE%20ANTIGRAVIY/DCPROSENS/public/ebooks/cover_fps_input_lag.jpg" alt="Cover Background">
+    <div class="cover-overlay"></div>
+    <div class="cover-inner">
+        <div class="cover-top">
+            <div class="cover-logo-brand">DCPROSENS<span>.</span></div>
+            <div class="cover-badge-pill">FIELD GUIDE 05 // SYSTEM TUNING</div>
+        </div>
+        <div class="cover-footer-box">
+            <h1>FPS &amp; INPUT LAG<br><span>PLAYBOOK.</span></h1>
+            <p>Find the true bottleneck. Test one variable at a time. Keep only what delivers measurable, repeatable ms reductions.</p>
+            <div class="cover-meta-bar">
+                <div>AUTHOR: <span>DALTO OUTLIER</span> // AIM &amp; PERFORMANCE LAB</div>
+                <div>01 / 10</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ========================================================================= -->
+<!-- PAGE 2: 02 / START HERE: WHAT FEELS WRONG?                                -->
+<!-- ========================================================================= -->
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">02 / DIAGNOSTIC ROUTE</div>
+            <div class="header-sub">INITIAL TRIAGE PROTOCOL</div>
+        </div>
+
+        <div class="title-block">
+            <div class="section-label">STEP 00 // SYMPTOM ISOLATION</div>
+            <h2 class="page-title">What feels wrong?</h2>
+            <p class="page-desc">
+                Select the primary symptom you experience. This is a scientific triage route, not an automatic assumption.
+            </p>
+        </div>
+
+        <!-- 4 Symptom Cards -->
+        <div class="grid-2" style="margin-bottom: 3.5mm;">
+            <div class="card glow-primary">
+                <div class="card-title">
+                    <span>Small Freezes &amp; Hitching</span>
+                    <span class="card-num">01</span>
+                </div>
+                <div class="card-desc">
+                    High average FPS counters, but mouse tracking stutters during rapid 180° turns or gunfights.
+                </div>
+                <div style="margin-top: 2mm; font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--primary);">
+                    ➔ Target: Frame delivery &amp; background DPC spikes
+                </div>
+            </div>
+
+            <div class="card glow-secondary">
+                <div class="card-title">
+                    <span>Heavy / Floaty Input</span>
+                    <span class="card-num">02</span>
+                </div>
+                <div class="card-desc">
+                    Crosshair feels delayed, like moving through water. Crosshair lags behind physical hand motion.
+                </div>
+                <div style="margin-top: 2mm; font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--secondary);">
+                    ➔ Target: Render queue buffer &amp; display sync state
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    <span>Consistently Low FPS</span>
+                    <span class="card-num">03</span>
+                </div>
+                <div class="card-desc">
+                    System consistently fails to hit target monitor refresh rate regardless of game scene intensity.
+                </div>
+                <div style="margin-top: 2mm; font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--accent-amber);">
+                    ➔ Target: GPU compute &amp; CPU draw-call limits
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">
+                    <span>Online Rubber-Banding</span>
+                    <span class="card-num">04</span>
+                </div>
+                <div class="card-desc">
+                    Hit registration fails, players warp, or inputs register late only during live multiplayer matches.
+                </div>
+                <div style="margin-top: 2mm; font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--accent-red);">
+                    ➔ Target: Network bufferbloat &amp; server tick variance
+                </div>
+            </div>
+        </div>
+
+        <!-- Core Diagnostic Callout -->
+        <div class="card glow-primary" style="background: var(--bg-card-alt); margin-bottom: 3.5mm;">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 10.5pt; font-weight: 700; color: #ffffff; margin-bottom: 1.5mm;">
+                Immediate Priority: Start with Frame Delivery
+            </div>
+            <p style="font-size: 8.5pt; color: var(--text-muted); line-height: 1.4; margin-bottom: 2mm;">
+                Record a repeatable baseline scene and inspect the frame-time trace before updating or rolling back graphics drivers. Stutter is almost always inconsistent frame intervals, not raw driver flaws.
+            </p>
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 7.8pt; color: var(--primary); font-weight: 600;">
+                ➔ Jump to Baseline Protocol Worksheet: Page 04 &amp; 08
+            </div>
+        </div>
+
+        <!-- Comparison Scope Box -->
+        <div class="grid-2" style="margin-bottom: 3.5mm;">
+            <div class="card">
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; font-weight: 700; color: var(--primary); margin-bottom: 1.5mm; text-transform: uppercase;">
+                    ✓ THIS PLAYBOOK CAN:
+                </div>
+                <p style="font-size: 8pt; color: var(--text-muted); line-height: 1.35;">
+                    Guide structured A/B comparisons, explain telemetry metrics, eliminate placebo tweaks, and give you an empirical testing standard.
+                </p>
+            </div>
+
+            <div class="card">
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; font-weight: 700; color: var(--accent-red); margin-bottom: 1.5mm; text-transform: uppercase;">
+                    ✕ THIS PLAYBOOK CANNOT:
+                </div>
+                <p style="font-size: 8pt; color: var(--text-muted); line-height: 1.35;">
+                    Automatically probe your local silicon, simulate external photodiode probes, or replace physical hardware limitations.
+                </p>
+            </div>
+        </div>
+
+        <div class="callout alert-cyan">
+            <strong>Golden Rule of Esports Optimization:</strong> Name and record the exact problem before touching any control panel. A dropped frame, high render latency, and packet loss produce similar subjective sensations but have completely divergent physical origins.
+        </div>
+    </div>
+
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>START HERE</span></div>
+        <div class="footer-meta">ROUTING: FREEZES (P04) | HEAVY (P03, P06) | LOW FPS (P04)</div>
+        <div class="footer-num">02 / 10</div>
+    </div>
+</section>
+
+<!-- ========================================================================= -->
+<!-- PAGE 3: 03 / UNDERSTAND THE SIGNAL: FPS IS NOT INPUT LAG                  -->
+<!-- ========================================================================= -->
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">03 / SIGNAL INTEGRITY</div>
+            <div class="header-sub">THE LATENCY CHAIN ARCHITECTURE</div>
+        </div>
+
+        <div class="title-block">
+            <div class="section-label">TELEMETRY DECONSTRUCTION</div>
+            <h2 class="page-title">FPS is not input lag.</h2>
+            <p class="page-desc">
+                High frames per second does not guarantee low latency. Three distinct questions require three different types of empirical evidence.
+            </p>
+        </div>
+
+        <!-- 4-Stage Pipeline -->
+        <div style="margin-bottom: 4mm;">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--secondary); margin-bottom: 1.5mm; text-transform: uppercase; font-weight: 700;">
+                THE 4-STAGE LOCAL LATENCY PIPELINE
+            </div>
+            <div class="pipeline-flow">
+                <div class="pipe-node">
+                    <div class="pipe-num">01 / INPUT</div>
+                    <div class="pipe-name">Device Sensor</div>
+                    <div class="pipe-detail">Microswitch contact, MCU debounce filter, USB polling interval (1000–8000Hz).</div>
+                </div>
+                <div class="pipe-node">
+                    <div class="pipe-num">02 / ENGINE</div>
+                    <div class="pipe-name">Game Simulation</div>
+                    <div class="pipe-detail">OS message pump, DirectX input poll, game tick calculation, player position state.</div>
+                </div>
+                <div class="pipe-node">
+                    <div class="pipe-num">03 / RENDER</div>
+                    <div class="pipe-name">GPU Pipeline</div>
+                    <div class="pipe-detail">Driver command queue, shader execution, rasterization, swapchain back-buffer flip.</div>
+                </div>
+                <div class="pipe-node">
+                    <div class="pipe-num">04 / DISPLAY</div>
+                    <div class="pipe-name">Photon Scanout</div>
+                    <div class="pipe-detail">Display scaler buffer, vertical scanout lines, liquid crystal GtG transition.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Telemetry Metrics Table -->
+        <div style="margin-bottom: 4mm;">
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Metric</th>
+                        <th style="width: 40%;">What It Actually Proves</th>
+                        <th style="width: 35%;">What It Does NOT Prove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Average FPS</strong></td>
+                        <td>Raw throughput: how many total frames were rendered across the entire sample window.</td>
+                        <td>Does not prove frame consistency, zero stutter, or low input latency.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Frame Times / 1% Low</strong></td>
+                        <td>Pacing consistency: reveals hitching, render queue stalls, and micro-stutters.</td>
+                        <td>Does not measure end-to-end mouse-to-display photon latency.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>End-to-End Latency</strong></td>
+                        <td>True latency: duration between physical microswitch click and photon emission on monitor.</td>
+                        <td>Does not prove network tickrate stability or server-side hitreg.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Metric Conversion Tiles -->
+        <div style="margin-bottom: 3.5mm;">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--primary); margin-bottom: 1.5mm; text-transform: uppercase; font-weight: 700;">
+                MATHEMATICAL FRAME INTERVAL VS MEASURED DELAY
+            </div>
+            <div class="grid-4">
+                <div class="metric-tile">
+                    <div class="metric-val">16.67<span style="font-size: 9pt;">ms</span></div>
+                    <div class="metric-label">60 FPS</div>
+                    <div class="metric-sub">Base Line</div>
+                </div>
+                <div class="metric-tile">
+                    <div class="metric-val">6.94<span style="font-size: 9pt;">ms</span></div>
+                    <div class="metric-label">144 FPS</div>
+                    <div class="metric-sub">-58.4% Frame Gap</div>
+                </div>
+                <div class="metric-tile active">
+                    <div class="metric-val">4.17<span style="font-size: 9pt;">ms</span></div>
+                    <div class="metric-label">240 FPS</div>
+                    <div class="metric-sub">Esports Sweetspot</div>
+                </div>
+                <div class="metric-tile">
+                    <div class="metric-val">2.78<span style="font-size: 9pt;">ms</span></div>
+                    <div class="metric-label">360 FPS</div>
+                    <div class="metric-sub">Pro Tournament</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="callout">
+            <strong>Formula Note:</strong> <code>Frame Interval (ms) = 1,000 ÷ FPS</code>. This calculates mathematical frame spacing under perfect conditions. It does not include sensor polling, driver buffer queues, or monitor pixel response. Never confuse high FPS with instantaneous response. [Ref: 1]
+        </div>
+    </div>
+
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>UNDERSTAND THE SIGNAL</span></div>
+        <div class="footer-meta">CORE CONVERSIONS: 1000ms / FPS</div>
+        <div class="footer-num">03 / 10</div>
+    </div>
+</section>
+
+<!-- ========================================================================= -->
+<!-- PAGE 4: 04 / EXPERIMENT 01: BUILD A REPEATABLE BASELINE                  -->
+<!-- ========================================================================= -->
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">04 / BENCHMARK LAB</div>
+            <div class="header-sub">EXPERIMENT 01 // PROTOCOL BASELINE</div>
+        </div>
+
+        <div class="title-block">
+            <div class="section-label">SCIENTIFIC METHODOLOGY</div>
+            <h2 class="page-title">Build a baseline you can repeat.</h2>
+            <p class="page-desc">
+                Testing during a live multiplayer match yields random noise, not clean data. Establish a strictly controlled practice run first.
+            </p>
+        </div>
+
+        <!-- Frame Time Graph Box -->
+        <div class="card glow-primary" style="margin-bottom: 3.5mm; padding: 3mm 4mm;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2mm;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--secondary); text-transform: uppercase; font-weight: 700;">
+                    FRAME-TIME PACING COMPARISON (SYNTHETIC BENCHMARK TRACE)
+                </span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 7pt; color: var(--text-dim);">
+                    VERTICAL AXIS = MS PER FRAME (LOWER IS BETTER)
+                </span>
+            </div>
+            <svg viewBox="0 0 600 95" width="100%" height="80" xmlns="http://www.w3.org/2000/svg">
+                <!-- Grid -->
+                <line x1="40" y1="20" x2="580" y2="20" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                <line x1="40" y1="50" x2="580" y2="50" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                <line x1="40" y1="80" x2="580" y2="80" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+                
+                <text x="30" y="23" font-family="'JetBrains Mono', monospace" font-size="7" fill="#64748b" text-anchor="end">24ms</text>
+                <text x="30" y="53" font-family="'JetBrains Mono', monospace" font-size="7" fill="#64748b" text-anchor="end">12ms</text>
+                <text x="30" y="83" font-family="'JetBrains Mono', monospace" font-size="7" fill="#64748b" text-anchor="end">4.1ms</text>
+
+                <!-- Unstable trace (Red hitching) -->
+                <path d="M 45 75 L 100 75 L 120 20 L 140 75 L 200 75 L 215 35 L 230 75 L 280 75" fill="none" stroke="#ff2a5f" stroke-width="1.8"/>
+                <text x="120" y="14" font-family="'JetBrains Mono', monospace" font-size="6.5" fill="#ff2a5f" text-anchor="middle">1% LOW SPIKE (24ms)</text>
+
+                <!-- Stable trace (Neon Green flatline) -->
+                <path d="M 290 80 L 350 80 L 380 78 L 410 80 L 470 80 L 520 80 L 575 80" fill="none" stroke="#00ff9d" stroke-width="2.2"/>
+                <text x="440" y="72" font-family="'JetBrains Mono', monospace" font-size="6.5" fill="#00ff9d" text-anchor="middle">OPTIMIZED FRAME PACING (FLAT)</text>
+            </svg>
+        </div>
+
+        <!-- 4 Step Protocol -->
+        <div class="step-list" style="margin-bottom: 3.5mm;">
+            <div class="step-item">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h4>Select a 100% Repeatable Benchmark Scene</h4>
+                    <p>Use an integrated game benchmark tool or a fixed empty practice map route. Keep resolution, FOV, viewing angles, and capture duration identical.</p>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <h4>Allow Thermal &amp; Shader Equilibrium</h4>
+                    <p>Never record immediately upon launching. Let shaders finish caching and wait 5 minutes until GPU/CPU clocks reach stable operating temperatures.</p>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h4>Capture Three 60-Second Runs (Median Rule)</h4>
+                    <p>Run three distinct 60-second telemetry passes (CapFrameX or PresentMon). Take the median result, never cherry-pick the single best score.</p>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-num">4</div>
+                <div class="step-content">
+                    <h4>Log Full Context Metadata</h4>
+                    <p>Document GPU driver version, Windows build number, background capture processes, and in-game render resolution scale alongside your numbers.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Strategy Advice Grid -->
+        <div class="grid-2">
+            <div class="card">
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; font-weight: 700; color: var(--primary); margin-bottom: 1mm; text-transform: uppercase;">
+                    MEASURE CONSISTENTLY
+                </div>
+                <p style="font-size: 8pt; color: var(--text-muted); line-height: 1.35;">
+                    Different tools calculate 1% lows differently (pure percentiles vs average of lower percentiles). Always use the exact same software version for both Baseline and Test.
+                </p>
+            </div>
+
+            <div class="card">
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; font-weight: 700; color: var(--secondary); margin-bottom: 1mm; text-transform: uppercase;">
+                    THE A/B/A VERIFICATION RULE
+                </div>
+                <p style="font-size: 8pt; color: var(--text-muted); line-height: 1.35;">
+                    If an apparent gain is within standard run-to-run noise (±2-3%), treat it as inconclusive. Revert back to A and re-test to verify causation.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>BASELINE METHODOLOGY</span></div>
+        <div class="footer-meta">MINIMUM 3 CAPTURES // 60-SECOND WINDOW</div>
+        <div class="footer-num">04 / 10</div>
+    </div>
+</section>
+
+<!-- ========================================================================= -->
+<!-- PAGE 5: 05 / EXPERIMENT 02: REVERSIBLE WINDOWS OPTIMIZATIONS             -->
+<!-- ========================================================================= -->
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">05 / SYSTEM ENVIRONMENT</div>
+            <div class="header-sub">EXPERIMENT 02 // WINDOWS GRAPHICS STACK</div>
+        </div>
+
+        <div class="title-block">
+            <div class="section-label">OPERATING SYSTEM TUNING</div>
+            <h2 class="page-title">Make reversible Windows changes.</h2>
+            <p class="page-desc">
+                Tune official, documented OS presentation pipelines. Always preserve your default configuration before modifying flags.
+            </p>
+        </div>
+
+        <!-- Schematic Card -->
+        <div class="card glow-secondary" style="margin-bottom: 3.5mm; padding: 3mm 4mm;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2mm;">
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--secondary); font-weight: 700; text-transform: uppercase;">
+                    WINDOWS 11 GRAPHICS PIPELINE ARCHITECTURE (OFFICIAL SETTINGS)
+                </span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 7pt; color: var(--text-dim);">
+                    WDDM 3.0+ COMPATIBLE
+                </span>
+            </div>
+            
+            <div class="grid-3" style="gap: 2mm;">
+                <div style="background: var(--bg-card-alt); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 2.5mm;">
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 7pt; color: var(--primary); font-weight: 700; margin-bottom: 0.5mm;">
+                        OPTIMIZATIONS FOR WINDOWED GAMES
+                    </div>
+                    <div style="font-size: 7.5pt; color: var(--text-muted);">
+                        Upgrades legacy DirectX 11 presentation to modern DXGI flip-model presentation, reducing borderless latency to match exclusive fullscreen. [Ref: 2]
+                    </div>
+                </div>
+
+                <div style="background: var(--bg-card-alt); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 2.5mm;">
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 7pt; color: var(--secondary); font-weight: 700; margin-bottom: 0.5mm;">
+                        HARDWARE-ACCELERATED SCHEDULING (HAGS)
+                    </div>
+                    <div style="font-size: 7.5pt; color: var(--text-muted);">
+                        Hands thread command arbitration directly to dedicated GPU scheduling processors, bypassing Windows CPU scheduler overhead.
+                    </div>
+                </div>
+
+                <div style="background: var(--bg-card-alt); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 2.5mm;">
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 7pt; color: var(--text-main); font-weight: 700; margin-bottom: 0.5mm;">
+                        WINDOWS GAME MODE
+                    </div>
+                    <div style="font-size: 7.5pt; color: var(--text-muted);">
+                        Prioritizes CPU thread allocation to the foreground game process while strictly throttling background telemetry and update services.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4 Step Protocol -->
+        <div class="step-list" style="margin-bottom: 3.5mm;">
+            <div class="step-item">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h4>Snapshot Your Default OS State</h4>
+                    <p>Document Windows 11 build number, active refresh rate, and HDR status before modifying any toggle.</p>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <h4>Isolate Exactly One OS Toggle</h4>
+                    <p>Toggle Optimizations for Windowed Games ON. Do not alter GPU driver settings during the same test.</p>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h4>Reboot &amp; Repeat Your Route</h4>
+                    <p>Restart the operating system to allow WDDM drivers to re-initialize graphics swapchains cleanly.</p>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-num">4</div>
+                <div class="step-content">
+                    <h4>Revert Immediately if Disproved</h4>
+                    <p>If frame pacing standard deviation increases or input feels floaty, revert immediately to baseline.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Warning Callout Box -->
+        <div class="callout alert-red">
+            <strong>STRICTLY EXCLUDED FROM OUR COMPETITIVE WORKFLOW:</strong> This playbook categorically rejects unofficial registry debloat scripts, dangerous boot-timer tweaks (e.g. <code>bcdedit /set useplatformclock</code>), and disabling Windows Core Isolation (HVCI). Microsoft officially documents these as kernel debugging flags, not universal 0.5ms gaming presets. [Ref: 3]
+        </div>
+    </div>
+
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>OS PRESENTATION LAYER</span></div>
+        <div class="footer-meta">FLIP MODEL VS EXCLUSIVE FULLSCREEN</div>
+        <div class="footer-num">05 / 10</div>
+    </div>
+</section>
+
+<!-- ========================================================================= -->
+<!-- PAGE 6: 06 / EXPERIMENT 03: CHOOSE YOUR GRAPHICS ROUTE                   -->
+<!-- ========================================================================= -->
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">06 / GPU PIPELINE</div>
+            <div class="header-sub">EXPERIMENT 03 // GRAPHICS ARCHITECTURE</div>
+        </div>
+
+        <div class="title-block">
+            <div class="section-label">RENDER QUEUE MANAGEMENT</div>
+            <h2 class="page-title">Choose your graphics route.</h2>
+            <p class="page-desc">
+                Define your primary objective: absolute lowest local delay, perfect tear-free visual clarity, or an optimal competitive compromise.
+            </p>
+        </div>
+
+        <!-- 2 Route Cards -->
+        <div class="grid-2" style="margin-bottom: 3.5mm;">
+            <div class="card glow-primary">
+                <div class="card-title">
+                    <span>ROUTE A // NVIDIA REFLEX</span>
+                    <span class="card-num">NVIDIA</span>
+                </div>
+                <p class="card-desc" style="margin-bottom: 2mm;">
+                    <strong>When game supports Reflex:</strong> Enable Reflex On inside the game menu. Reflex dynamically paces CPU render submissions just before GPU execution, preventing render queue overflow when GPU load hits 99%.
+                </p>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 7.2pt; color: var(--primary);">
+                    ★ Note: Reflex completely overrides driver-level Ultra Low Latency Mode. Test 'Reflex + Boost' separately to verify GPU clock behavior. [Ref: 1]
+                </div>
+            </div>
+
+            <div class="card glow-secondary">
+                <div class="card-title">
+                    <span>ROUTE B // GENERAL / AMD RADEON</span>
+                    <span class="card-num">RADEON</span>
+                </div>
+                <p class="card-desc" style="margin-bottom: 2mm;">
+                    <strong>When Reflex is absent:</strong> Utilize driver-level Anti-Lag or establish a manual frame-rate cap using the game's internal engine limiter to prevent GPU utilization from locking at 100%.
+                </p>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 7.2pt; color: var(--secondary);">
+                    ★ Note: Avoid stacking driver limiters and 3rd party limiters (e.g. RTSS) simultaneously during your comparison run.
+                </div>
+            </div>
+        </div>
+
+        <!-- Experiment Matrix Table -->
+        <div style="margin-bottom: 3.5mm;">
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">Core Question</th>
+                        <th style="width: 35%;">Controlled Comparison</th>
+                        <th style="width: 35%;">Metric to Log</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Is workload GPU bound?</strong></td>
+                        <td>Lower volumetric shadows and texture effects or set render scale to 90%.</td>
+                        <td>Measure GPU utilization % and frame-time stability in intense fights.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Does an FPS cap stabilize latency?</strong></td>
+                        <td>Compare uncapped framerate against a cap at your sustainable 99th percentile.</td>
+                        <td>Inspect frame-time variance and standard deviation (lower = smoother).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Is screen tearing unacceptable?</strong></td>
+                        <td>G-Sync/FreeSync + V-Sync (Driver) + Cap (Hz - 3) vs completely uncapped.</td>
+                        <td>Evaluate smoothness vs 1-2ms theoretical input latency trade-off.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Myth Buster Callout -->
+        <div class="card" style="background: var(--bg-card-alt); border-left: 3px solid var(--accent-amber); margin-bottom: 3mm;">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 9.5pt; font-weight: 700; color: #ffffff; margin-bottom: 1mm;">
+                The Myth of the Universal "Hz Minus 3" Frame Cap Rule
+            </div>
+            <p style="font-size: 8pt; color: var(--text-muted); line-height: 1.35;">
+                The "Refresh Rate - 3" rule is strictly valid only when pairing G-Sync/FreeSync with V-Sync to keep the framerate inside the variable refresh rate range. In purely uncapped esports setups or when using NVIDIA Reflex, the Reflex engine automatically manages the optimal cap dynamically.
+            </p>
+        </div>
+
+        <div class="callout alert-cyan">
+            <strong>Write an Empirical Decision:</strong> <em>"I retained Setting B because 1% lows improved by 14% and frame-time spikes were eliminated across 3 consecutive runs"</em> is scientific evidence. <em>"It felt crisper"</em> is subjective placebo.
+        </div>
+    </div>
+
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>GRAPHICS &amp; GPU PIPELINE</span></div>
+        <div class="footer-meta">NVIDIA REFLEX // RADEON ANTI-LAG // VRR</div>
+        <div class="footer-num">06 / 10</div>
+    </div>
+</section>
+
+<!-- ========================================================================= -->
+<!-- PAGE 7: 07 / EXPERIMENT 04: TEST MOUSE POLLING WITHOUT THE HYPE           -->
+<!-- ========================================================================= -->
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">07 / PERIPHERAL TELEMETRY</div>
+            <div class="header-sub">EXPERIMENT 04 // MOUSE POLLING &amp; SENSORS</div>
+        </div>
+
+        <div class="title-block">
+            <div class="section-label">HARDWARE INTERRUPT BENCHMARK</div>
+            <h2 class="page-title">Test mouse reporting without the hype.</h2>
+            <p class="page-desc">
+                A shorter reporting interval is only one component of a responsive setup. Understand diminishing returns and CPU interrupt overhead.
+            </p>
+        </div>
+
+        <!-- Polling Rate Visual Interval Bars -->
+        <div class="card glow-primary" style="margin-bottom: 3.5mm; padding: 3mm 4mm;">
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--secondary); font-weight: 700; margin-bottom: 2.5mm; text-transform: uppercase;">
+                POLLING INTERVAL COMPARISON (NOMINAL DELAY BETWEEN PACKETS)
+            </div>
+            
+            <div style="display: flex; flex-direction: column; gap: 2mm;">
+                <!-- 125 Hz -->
+                <div style="display: flex; align-items: center; gap: 3mm;">
+                    <div style="width: 65px; font-family: 'JetBrains Mono', monospace; font-size: 8pt; color: var(--text-dim);">125 Hz</div>
+                    <div style="flex: 1; height: 12px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden;">
+                        <div style="width: 100%; height: 100%; background: #475569;"></div>
+                    </div>
+                    <div style="width: 60px; font-family: 'JetBrains Mono', monospace; font-size: 8pt; color: #94a3b8; text-align: right;">8.00 ms</div>
+                </div>
+
+                <!-- 500 Hz -->
+                <div style="display: flex; align-items: center; gap: 3mm;">
+                    <div style="width: 65px; font-family: 'JetBrains Mono', monospace; font-size: 8pt; color: var(--text-dim);">500 Hz</div>
+                    <div style="flex: 1; height: 12px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden;">
+                        <div style="width: 25%; height: 100%; background: var(--secondary);"></div>
+                    </div>
+                    <div style="width: 60px; font-family: 'JetBrains Mono', monospace; font-size: 8pt; color: var(--secondary); text-align: right;">2.00 ms</div>
+                </div>
+
+                <!-- 1000 Hz -->
+                <div style="display: flex; align-items: center; gap: 3mm;">
+                    <div style="width: 65px; font-family: 'JetBrains Mono', monospace; font-size: 8pt; color: var(--primary); font-weight: 700;">1000 Hz</div>
+                    <div style="flex: 1; height: 12px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden;">
+                        <div style="width: 12.5%; height: 100%; background: var(--primary);"></div>
+                    </div>
+                    <div style="width: 60px; font-family: 'JetBrains Mono', monospace; font-size: 8pt; color: var(--primary); text-align: right; font-weight: 700;">1.00 ms</div>
+                </div>
+
+                <!-- 4000 Hz -->
+                <div style="display: flex; align-items: center; gap: 3mm;">
+                    <div style="width: 65px; font-family: 'JetBrains Mono', monospace; font-size: 8pt; color: var(--primary); font-weight: 700;">4000 Hz</div>
+                    <div style="flex: 1; height: 12px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden;">
+                        <div style="width: 3.1%; height: 100%; background: linear-gradient(90deg, #00ff9d, #00e5ff);"></div>
+                    </div>
+                    <div style="width: 60px; font-family: 'JetBrains Mono', monospace; font-size: 8pt; color: var(--secondary); text-align: right; font-weight: 700;">0.25 ms</div>
+                </div>
+
+                <!-- 8000 Hz -->
+                <div style="display: flex; align-items: center; gap: 3mm;">
+                    <div style="width: 65px; font-family: 'JetBrains Mono', monospace; font-size: 8pt; color: #ffffff; font-weight: 700;">8000 Hz</div>
+                    <div style="flex: 1; height: 12px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden;">
+                        <div style="width: 1.5%; height: 100%; background: #ffffff;"></div>
+                    </div>
+                    <div style="width: 60px; font-family: 'JetBrains Mono', monospace; font-size: 8pt; color: #ffffff; text-align: right; font-weight: 700;">0.125 ms</div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 2.5mm; font-family: 'JetBrains Mono', monospace; font-size: 7pt; color: var(--text-dim); text-align: right;">
+                *Nominal report interval = 1,000 ÷ Polling Rate in Hz. Does not include total click-to-photon latency.
+            </div>
+        </div>
+
+        <!-- 4 Step Protocol -->
+        <div class="step-list" style="margin-bottom: 3.5mm;">
+            <div class="step-item">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h4>Lock DPI &amp; Sensitivity Values</h4>
+                    <p>Keep DPI and in-game sensitivity completely untouched throughout the test. Polling rate and movement scaling are independent variables.</p>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <h4>Test 1,000 Hz Against Higher Supported Rates</h4>
+                    <p>Compare standard 1,000 Hz against 4,000 Hz or 8,000 Hz on the same USB port without moving your wireless receiver.</p>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h4>Capture High-Speed Arc Sweeps</h4>
+                    <p>Record a 60s benchmark while executing continuous high-frequency mouse sweeps. Monitor CPU single-thread DPC/ISR load.</p>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-num">4</div>
+                <div class="step-content">
+                    <h4>Retain the Stablest Telemetry Profile</h4>
+                    <p>If 4K or 8K causes frame-time hitching or stutter in CPU-heavy engines, 1,000 Hz remains the rock-solid esports gold standard.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2 Side Cards -->
+        <div class="grid-2">
+            <div class="card">
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; font-weight: 700; color: var(--primary); margin-bottom: 1mm; text-transform: uppercase;">
+                    DO NOT CONFUSE POLLING WITH SENSITIVITY
+                </div>
+                <p style="font-size: 8pt; color: var(--text-muted); line-height: 1.35;">
+                    Reporting frequency and distance counts per inch are separate mechanisms. Changing both concurrently invalidates your test data completely.
+                </p>
+            </div>
+
+            <div class="card">
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; font-weight: 700; color: var(--secondary); margin-bottom: 1mm; text-transform: uppercase;">
+                    WIRELESS 2.4GHz RECEIVER PLACEMENT
+                </div>
+                <p style="font-size: 8pt; color: var(--text-muted); line-height: 1.35;">
+                    Position your wireless dongle 15–20cm from the mousepad using the extender cable. Never plug into rear motherboard ports adjacent to noisy USB 3.0 ports.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>PERIPHERAL SIGNAL</span></div>
+        <div class="footer-meta">1000Hz (1.0ms) // 4000Hz (0.25ms) // 8000Hz (0.125ms)</div>
+        <div class="footer-num">07 / 10</div>
+    </div>
+</section>
+
+<!-- ========================================================================= -->
+<!-- PAGE 8: 08 / YOUR EXPERIMENT LOG: TURN TWEAKS INTO DATA                  -->
+<!-- ========================================================================= -->
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">08 / TELEMETRY WORKSHEET</div>
+            <div class="header-sub">EXPERIMENT LOG // EMPIRICAL RECORD</div>
+        </div>
+
+        <div class="title-block">
+            <div class="section-label">INTERACTIVE TOURNAMENT LOG</div>
+            <h2 class="page-title">Turn a tweak into a decision.</h2>
+            <p class="page-desc">
+                Log the median of three identical runs for both Baseline and Test. Fill this worksheet to verify real gains.
+            </p>
+        </div>
+
+        <!-- Metadata Form Fields -->
+        <div class="form-row">
+            <div class="field-box">
+                <div class="field-label">GAME TITLE + BUILD VERSION</div>
+                <div class="field-line">Valorant / Counter-Strike 2 / Apex Legends</div>
+            </div>
+            <div class="field-box">
+                <div class="field-label">GPU MODEL + DRIVER VERSION</div>
+                <div class="field-line">NVIDIA GeForce RTX / AMD Radeon Driver #</div>
+            </div>
+        </div>
+
+        <div class="form-row" style="margin-bottom: 3.5mm;">
+            <div class="field-box">
+                <div class="field-label">THE SINGLE VARIABLE TESTED</div>
+                <div class="field-line">e.g. Reflex ON vs BOOST / 1000Hz vs 4000Hz</div>
+            </div>
+            <div class="field-box">
+                <div class="field-label">BENCHMARK SCENE + CAPTURE TOOL</div>
+                <div class="field-line">CapFrameX / PresentMon (Fixed Route)</div>
+            </div>
+        </div>
+
+        <!-- Telemetry Data Table -->
+        <div style="margin-bottom: 3.5mm;">
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">TELEMETRY METRIC</th>
+                        <th style="width: 25%;">BASELINE A (CURRENT)</th>
+                        <th style="width: 25%;">TEST B (MODIFIED)</th>
+                        <th style="width: 20%;">NET DELTA (B - A)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Average FPS</strong></td>
+                        <td><div class="field-line">___ FPS</div></td>
+                        <td><div class="field-line">___ FPS</div></td>
+                        <td><div class="field-line">___ %</div></td>
+                    </tr>
+                    <tr>
+                        <td><strong>1% Low FPS</strong></td>
+                        <td><div class="field-line">___ FPS</div></td>
+                        <td><div class="field-line">___ FPS</div></td>
+                        <td><div class="field-line">___ %</div></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Frame-Time Variance</strong></td>
+                        <td><div class="field-line">___ ms</div></td>
+                        <td><div class="field-line">___ ms</div></td>
+                        <td><div class="field-line">___ ms</div></td>
+                    </tr>
+                    <tr>
+                        <td><strong>System Latency (if logged)</strong></td>
+                        <td><div class="field-line">___ ms</div></td>
+                        <td><div class="field-line">___ ms</div></td>
+                        <td><div class="field-line">___ ms</div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Verdict Selector -->
+        <div class="card glow-primary" style="margin-bottom: 3mm;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2mm;">
+                <span style="font-family: 'Space Grotesk', sans-serif; font-size: 9.5pt; font-weight: 700; color: #ffffff;">
+                    FINAL COMPETITIVE VERDICT
+                </span>
+                <span style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--primary);">
+                    CHOOSE ONE
+                </span>
+            </div>
+            
+            <div style="display: flex; gap: 3mm; margin-bottom: 2.5mm;">
+                <div style="flex: 1; background: var(--bg-card-alt); border: 1px solid var(--border-primary); border-radius: 4px; padding: 2mm; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--primary);">
+                    [  ] KEEP TEST B (Verified Gain)
+                </div>
+                <div style="flex: 1; background: var(--bg-card-alt); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 2mm; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--accent-red);">
+                    [  ] REVERT TO A (Worse / Stutter)
+                </div>
+                <div style="flex: 1; background: var(--bg-card-alt); border: 1px solid var(--border-subtle); border-radius: 4px; padding: 2mm; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: var(--accent-amber);">
+                    [  ] INCONCLUSIVE (Repeat Test)
+                </div>
+            </div>
+
+            <div class="field-box">
+                <div class="field-label">SUBJECTIVE &amp; SYSTEM OBSERVATIONS (SMOOTHNESS, TEARING, MICRO-STUTTERS)</div>
+                <div class="field-line" style="height: 24px;"></div>
+            </div>
+        </div>
+
+        <div class="callout">
+            <strong>Evidence Boundary:</strong> A percentage delta is not conclusive proof of causation unless repeatable across 3 runs. Complete this worksheet by hand or with your PDF annotator to track your competitive hardware journey.
+        </div>
+    </div>
+
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>TELEMETRY WORKSHEET</span></div>
+        <div class="footer-meta">PRINTABLE &amp; ANNOTATABLE // FIELD LOG 08</div>
+        <div class="footer-num">08 / 10</div>
+    </div>
+</section>
+
+<!-- ========================================================================= -->
+<!-- PAGE 9: 09 / KEEP IT REPEATABLE: TOURNAMENT CHECKLIST                    -->
+<!-- ========================================================================= -->
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">09 / PRE-COMPETITIVE STACK</div>
+            <div class="header-sub">REPRODUCIBILITY CHECKLIST</div>
+        </div>
+
+        <div class="title-block">
+            <div class="section-label">PROTOCOL DISCIPLINE</div>
+            <h2 class="page-title">Your next-session checklist.</h2>
+            <p class="page-desc">
+                Execute a disciplined experiment before you queue competitive ranked. Optimization is a deliberate protocol, not random trial-and-error.
+            </p>
+        </div>
+
+        <!-- 6 Step Checklist -->
+        <div style="margin-bottom: 3.5mm;">
+            <div class="check-item">
+                <div class="check-box-mock"></div>
+                <div class="check-text">
+                    <h5>01 / Standardize the Scene Route</h5>
+                    <p>Select the identical game build, offline custom map, and exact 60-second capture movement pattern.</p>
+                </div>
+            </div>
+
+            <div class="check-item">
+                <div class="check-box-mock"></div>
+                <div class="check-text">
+                    <h5>02 / Snapshot Original Settings</h5>
+                    <p>Take full screenshots of your current control panel and in-game settings prior to touching any value.</p>
+                </div>
+            </div>
+
+            <div class="check-item">
+                <div class="check-box-mock"></div>
+                <div class="check-text">
+                    <h5>03 / Quarantine Background Processes</h5>
+                    <p>Disable Discord hardware acceleration, browser tabs, antivirus active scans, and cloud sync services.</p>
+                </div>
+            </div>
+
+            <div class="check-item">
+                <div class="check-box-mock"></div>
+                <div class="check-text">
+                    <h5>04 / Change Exactly One Variable</h5>
+                    <p>Modify strictly one setting per cycle. Changing two variables simultaneously renders your conclusions completely meaningless.</p>
+                </div>
+            </div>
+
+            <div class="check-item">
+                <div class="check-box-mock"></div>
+                <div class="check-text">
+                    <h5>05 / Record 3 Comparable Passes</h5>
+                    <p>Archive all telemetry captures, including passes where performance decreased. Negative data is vital information.</p>
+                </div>
+            </div>
+
+            <div class="check-item">
+                <div class="check-box-mock"></div>
+                <div class="check-text">
+                    <h5>06 / Keep, Revert, or Quarantine</h5>
+                    <p>Document the rationale. Stop tweaking immediately if telemetry variance fails to exceed ordinary run-to-run noise.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Tracker -->
+        <div class="progress-pill" style="margin-bottom: 3.5mm;">
+            <span>SESSION VALIDATION STATUS</span>
+            <span class="progress-val">6 / 6 CRITERIA VERIFIED // READY FOR MATCH</span>
+        </div>
+
+        <!-- Support Callout Box -->
+        <div class="card glow-secondary">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 9.5pt; font-weight: 700; color: #ffffff; margin-bottom: 1.5mm;">
+                Formulating an Actionable Hardware Support Request
+            </div>
+            <p style="font-size: 8pt; color: var(--text-muted); line-height: 1.4; margin-bottom: 2mm;">
+                If stutter persists, avoid posting vague messages like <em>"my game feels laggy"</em>. Post structured empirical evidence:
+            </p>
+            <div style="background: var(--bg-card-alt); border-left: 2px solid var(--secondary); padding: 2mm 3mm; font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: #ffffff;">
+                "Issue: 1% low frame-time spikes in CS2 Mirage B Site. Tested Reflex ON vs BOOST across 3 runs. GPU load 92%, driver 551.86. Attached CapFrameX telemetry logs."
+            </div>
+        </div>
+    </div>
+
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>PRE-MATCH CHECKLIST</span></div>
+        <div class="footer-meta">TOURNAMENT DISCIPLINE // ZERO PLACEBO</div>
+        <div class="footer-num">09 / 10</div>
+    </div>
+</section>
+
+<!-- ========================================================================= -->
+<!-- PAGE 10: 10 / EVIDENCE & NEXT STEPS: SCIENTIFIC REFERENCES                -->
+<!-- ========================================================================= -->
+<section class="page">
+    <div>
+        <div class="page-header">
+            <div class="header-tag">10 / LAB DIRECTORY</div>
+            <div class="header-sub">SCIENTIFIC CITATIONS &amp; ECOSYSTEM</div>
+        </div>
+
+        <div class="title-block">
+            <div class="section-label">EVIDENCE-BASED METHODOLOGY</div>
+            <h2 class="page-title">Know what your evidence can support.</h2>
+            <p class="page-desc">
+                This field guide provides transparent methodology for competitive players. We do not claim laboratory miracles or unverified gains.
+            </p>
+        </div>
+
+        <!-- 2 Status Cards -->
+        <div class="grid-2" style="margin-bottom: 3.5mm;">
+            <div class="card glow-primary">
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; font-weight: 700; color: var(--primary); margin-bottom: 1mm; text-transform: uppercase;">
+                    DOCUMENTED ARCHITECTURE
+                </div>
+                <p style="font-size: 8pt; color: var(--text-muted); line-height: 1.35;">
+                    Operating system APIs, NVIDIA Reflex documentation, and WDDM graphics specifications cited below reflect verified developer standards.
+                </p>
+            </div>
+
+            <div class="card glow-secondary">
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; font-weight: 700; color: var(--secondary); margin-bottom: 1mm; text-transform: uppercase;">
+                    PROPOSED TEST PROTOCOLS
+                </div>
+                <p style="font-size: 8pt; color: var(--text-muted); line-height: 1.35;">
+                    The 3-run median protocol and worksheets are practical optimization workflows designed for esports players seeking repeatable clarity.
+                </p>
+            </div>
+        </div>
+
+        <!-- Official References -->
+        <div class="card" style="margin-bottom: 3.5mm; padding: 3mm 4mm;">
+            <div style="font-family: 'Space Grotesk', sans-serif; font-size: 9.5pt; font-weight: 700; color: #ffffff; margin-bottom: 2mm;">
+                Official Technical References &amp; Standards
+            </div>
+            
+            <div style="display: flex; flex-direction: column; gap: 2mm;">
+                <div style="font-size: 8pt; line-height: 1.35;">
+                    <strong style="color: var(--primary); font-family: 'JetBrains Mono', monospace;">[1] NVIDIA System Latency Optimization &amp; Reflex SDK Guide</strong><br>
+                    <span style="color: var(--text-muted);">Defines latency boundaries, CPU-GPU render queue synchronization, and Reflex dynamic clock boost behavior.</span>
+                </div>
+                <div style="font-size: 8pt; line-height: 1.35;">
+                    <strong style="color: var(--secondary); font-family: 'JetBrains Mono', monospace;">[2] Microsoft DirectX &amp; Windows 11 Windowed-Game Optimizations</strong><br>
+                    <span style="color: var(--text-muted);">Documents DXGI modern flip-model swapchains, borderless latency elimination, and presentation queues.</span>
+                </div>
+                <div style="font-size: 8pt; line-height: 1.35;">
+                    <strong style="color: #ffffff; font-family: 'JetBrains Mono', monospace;">[3] Microsoft Learn: BCDEdit Boot Configuration Specification</strong><br>
+                    <span style="color: var(--text-muted);">Clarifies high-precision event timers (HPET) and timing flags as kernel debugging tools rather than gaming presets.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Terminology Glossary -->
+        <div style="margin-bottom: 3.5mm;">
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th style="width: 30%;">Esports Term</th>
+                        <th style="width: 70%;">Precise Engineering Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Frame Time (ms)</strong></td>
+                        <td>The precise duration required to render an individual frame (1,000 / FPS under uniform spacing).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Polling Interval</strong></td>
+                        <td>The nominal packet transmission interval of the USB peripheral (1.0ms @ 1K, 0.25ms @ 4K).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Click-to-Photon</strong></td>
+                        <td>Total elapsed physical duration between microswitch closure and first visible pixel luminescence.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- CTA Banner to Ecosystem -->
+        <div class="card glow-primary" style="background: linear-gradient(135deg, rgba(0, 255, 157, 0.1), rgba(0, 229, 255, 0.05)); border-color: var(--primary);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <div style="font-family: 'Space Grotesk', sans-serif; font-size: 10.5pt; font-weight: 700; color: #ffffff;">
+                        Next Step: Calibrate Your Sensitivity &amp; Friction Matrix
+                    </div>
+                    <div style="font-size: 8pt; color: var(--text-muted); margin-top: 0.5mm;">
+                        Once system latency is stable, synchronize your DPI, cm/360, and pad friction at <strong>dcprosens.com</strong>
+                    </div>
+                </div>
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 8pt; font-weight: 700; color: var(--primary); padding: 2mm 3.5mm; background: rgba(0, 255, 157, 0.15); border-radius: 4px; border: 1px solid var(--primary);">
+                    DCPROSENS.COM ➔
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-footer">
+        <div class="footer-brand">DCPROSENS // <span>RESEARCH LAB &amp; REFERENCES</span></div>
+        <div class="footer-meta">OCTOBER 2026 // FIELD GUIDE 05 COMPLETE</div>
+        <div class="footer-num">10 / 10</div>
+    </div>
+</section>
+
+</body>
+</html>

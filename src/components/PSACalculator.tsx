@@ -1,7 +1,13 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import styles from "./PSACalculator.module.css";
+import { useAuth } from "@/components/AuthProvider";
+import PremiumGuard from "@/components/PremiumGuard";
+import { readTrialCount, writeTrialCount } from "@/utils/useTrialCount";
+
+const PSA_TRIAL_KEY = 'dcprosens_trial_psa-calculator';
+const PSA_FREE_LIMIT = 3;
 
 interface HistoryStep {
     step: number;
@@ -23,6 +29,15 @@ const GAME_DEFAULTS = [
 const PSA_FACTORS = [0.5, 0.4, 0.3, 0.2, 0.1, 0.05, 0.025]; // 7 iterations
 
 export default function PSACalculator() {
+    const { userData } = useAuth();
+    const isUnlocked = userData?.subscriptionStatus === 'active' || userData?.subscriptionStatus === 'premium';
+    const [trialsUsed, setTrialsUsed] = useState<number>(0);
+    const [showPaywall, setShowPaywall] = useState<boolean>(false);
+
+    useEffect(() => {
+        setTrialsUsed(readTrialCount(PSA_TRIAL_KEY));
+    }, []);
+
     // Game selection and starting setup
     const [selectedGame, setSelectedGame] = useState(GAME_DEFAULTS[0].name);
     const [startingSens, setStartingSens] = useState<string>("0.4");
@@ -68,6 +83,18 @@ export default function PSACalculator() {
             alert("Please enter a valid starting sensitivity.");
             return;
         }
+
+        if (!isUnlocked) {
+            const currentCount = readTrialCount(PSA_TRIAL_KEY);
+            if (currentCount >= PSA_FREE_LIMIT) {
+                setShowPaywall(true);
+                return;
+            }
+            const nextCount = currentCount + 1;
+            writeTrialCount(PSA_TRIAL_KEY, nextCount);
+            setTrialsUsed(nextCount);
+        }
+
         setCurrentBase(parsed);
         setStep(1);
         setHistory([]);
@@ -119,6 +146,12 @@ export default function PSACalculator() {
 
     // Reset everything
     const handleReset = () => {
+        const currentCount = readTrialCount(PSA_TRIAL_KEY);
+        setTrialsUsed(currentCount);
+        if (!isUnlocked && currentCount >= PSA_FREE_LIMIT) {
+            setShowPaywall(true);
+            return;
+        }
         setIsCalibrating(false);
         setStep(1);
         setHistory([]);
@@ -138,8 +171,39 @@ export default function PSACalculator() {
         setTimeout(() => setCopied(false), 2000);
     };
 
+    if (showPaywall && !isUnlocked) {
+        return (
+            <PremiumGuard previewTitle="PSA Method Calculator">
+                <div className={styles.psaCard} />
+            </PremiumGuard>
+        );
+    }
+
+    const remainingTrials = Math.max(0, PSA_FREE_LIMIT - trialsUsed);
+
     return (
         <div className={styles.psaCard}>
+            {!isUnlocked && (
+                <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    flexWrap: 'wrap',
+                    gap: '0.5rem',
+                    background: 'rgba(0, 255, 157, 0.08)',
+                    border: '1px solid rgba(0, 255, 157, 0.25)',
+                    borderRadius: '10px',
+                    padding: '0.75rem 1.25rem',
+                    marginBottom: '1.5rem',
+                    fontSize: '0.88rem',
+                    color: '#e2e8f0',
+                }}>
+                    <span>⚡ <strong>Free PSA Calibrations:</strong> {remainingTrials} of {PSA_FREE_LIMIT} remaining.</span>
+                    <span style={{ fontSize: '0.75rem', background: '#00ff9d', color: '#000', padding: '0.2rem 0.6rem', borderRadius: '4px', fontWeight: 800 }}>
+                        {remainingTrials} LEFT
+                    </span>
+                </div>
+            )}
             {!isCalibrating ? (
                 /* ── SETUP SCREEN ── */
                 <div className={styles.setupScreen}>

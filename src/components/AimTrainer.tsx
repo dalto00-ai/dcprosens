@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useRef, useEffect, useCallback } from 'react';
+import Link from 'next/link';
+import { useAuth } from '@/components/AuthProvider';
 import styles from './AimTrainer.module.css';
 
 interface Target {
@@ -49,6 +51,8 @@ const DEFAULT_STATS: GameStats = {
 };
 
 export default function AimTrainer() {
+    const { user, userData } = useAuth();
+
     // Config states
     const [dpi, setDpi] = useState<number>(800);
     const [sensitivity, setSensitivity] = useState<number>(0.35);
@@ -60,6 +64,22 @@ export default function AimTrainer() {
     const [isLocked, setIsLocked] = useState<boolean>(false);
     const [uiStats, setUiStats] = useState<GameStats>(DEFAULT_STATS);
     const [gameOver, setGameOver] = useState<boolean>(false);
+    const [scoreSubmitted, setScoreSubmitted] = useState<boolean>(false);
+    // The submission used to end in `.catch(() => {})` while the UI said
+    // "Score saved." unconditionally, so a rejected request looked identical to
+    // a successful one — which is how an empty leaderboard went unnoticed.
+    const [saveState, setSaveState] = useState<'idle' | 'saving' | 'saved' | 'failed'>('idle');
+
+    // Prefill DPI/sensitivity when arriving from the sensitivity converter's
+    // "Test this now" link (?dpi=800&sens=0.35), so the values you just
+    // calculated carry straight into the trainer instead of being retyped.
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        const paramDpi = Number(params.get('dpi'));
+        const paramSens = Number(params.get('sens'));
+        if (paramDpi > 0) setDpi(paramDpi);
+        if (paramSens > 0) setSensitivity(paramSens);
+    }, []);
 
     // Canvas references
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -582,6 +602,7 @@ export default function AimTrainer() {
 
         // Start game loop
         setGameOver(false);
+        setScoreSubmitted(false);
         setUiStats({
             score: 0,
             hits: 0,
@@ -597,6 +618,35 @@ export default function AimTrainer() {
             canvasRef.current.requestPointerLock();
         }
     }, [gameMode, spawnGridshotTarget, spawnTrackingTarget, spawnReflexTarget]);
+
+    // Submit the run to the leaderboard once a round ends, if logged in.
+    useEffect(() => {
+        if (!gameOver || !user || scoreSubmitted) return;
+        setScoreSubmitted(true);
+
+        // The uid is derived from this token server-side, so it is required.
+        // Sent in the body as well because header forwarding varies by host.
+        user
+            .getIdToken()
+            .then((idToken) =>
+                fetch('/api/submit-score.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${idToken}` },
+                    body: JSON.stringify({
+                        idToken,
+                        displayName: userData?.displayName || user.email?.split('@')[0] || 'Anonymous',
+                        game: 'aim-trainer',
+                        mode: gameMode,
+                        score: uiStats.score,
+                        dpi,
+                    }),
+                })
+            )
+            .then((res) => setSaveState(res.ok ? 'saved' : 'failed'))
+            .catch(() => setSaveState('failed'));
+
+        setSaveState('saving');
+    }, [gameOver, user, userData, scoreSubmitted, gameMode, uiStats.score, dpi]);
 
     // Pointer lock state events
     useEffect(() => {
@@ -817,6 +867,30 @@ export default function AimTrainer() {
                                 </div>
                             </div>
                             
+                            {user ? (
+                                <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', margin: '0 0 1rem' }}>
+                                    {saveState === 'saved' ? (
+                                        <>
+                                            Score saved.{' '}
+                                            <Link href="/leaderboard/" onClick={(e) => e.stopPropagation()} style={{ color: 'var(--primary)', fontWeight: 600 }}>
+                                                See the leaderboard →
+                                            </Link>
+                                        </>
+                                    ) : saveState === 'failed' ? (
+                                        <span style={{ color: '#ff6b81' }}>
+                                            Could not save this score. Refresh the page and play one more round — if you
+                                            were signed in already, your session may have expired.
+                                        </span>
+                                    ) : (
+                                        'Saving your score…'
+                                    )}
+                                </p>
+                            ) : (
+                                <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', margin: '0 0 1rem' }}>
+                                    <Link href="/login/" onClick={(e) => e.stopPropagation()} style={{ color: 'var(--primary)', fontWeight: 600 }}>Log in</Link> to save this score and appear on the leaderboard.
+                                </p>
+                            )}
+
                             <button className={styles.restartBtn} onClick={startGame}>
                                 🔄 Click to Train Again
                             </button>

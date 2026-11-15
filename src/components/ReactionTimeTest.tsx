@@ -82,22 +82,22 @@ export default function ReactionTimeTest() {
     const padContent = () => {
         switch (phase) {
             case 'idle':
-                return <span>Clique para começar</span>;
+                return <span>Click to start</span>;
             case 'armed':
-                return <span>Espere pelo verde...</span>;
+                return <span>Wait for green...</span>;
             case 'go':
-                return <span>CLIQUE AGORA!</span>;
+                return <span>CLICK NOW!</span>;
             case 'tooSoon':
-                return <span>Cedo demais! Clique para tentar de novo</span>;
+                return <span>Too soon! Click to try again</span>;
             case 'result':
                 return (
                     <>
                         <div className={styles.msValue}>{lastMs} ms</div>
-                        <span>Clique para a próxima tentativa</span>
+                        <span>Click for next attempt</span>
                     </>
                 );
             case 'done':
-                return <span>Clique para reiniciar</span>;
+                return <span>Click to restart</span>;
         }
     };
 
@@ -105,7 +105,7 @@ export default function ReactionTimeTest() {
         <div className={styles.card}>
             {phase !== 'done' && (
                 <p className={styles.attemptsInfo}>
-                    Tentativa {Math.min(attempts.length + 1, TOTAL_ATTEMPTS)} de {TOTAL_ATTEMPTS}
+                    Attempt {Math.min(attempts.length + 1, TOTAL_ATTEMPTS)} of {TOTAL_ATTEMPTS}
                 </p>
             )}
 
@@ -124,19 +124,19 @@ export default function ReactionTimeTest() {
             ) : (
                 <div className={styles.resultBox}>
                     <div className={styles.resultValue}>{Math.round(average)} ms</div>
-                    <div className={styles.resultSub}>Tempo de reação médio em {TOTAL_ATTEMPTS} tentativas</div>
+                    <div className={styles.resultSub}>Average reaction time across {TOTAL_ATTEMPTS} attempts</div>
 
                     <div className={styles.statsGrid}>
                         <div className={styles.stat}>
-                            <div className={styles.statLabel}>Melhor</div>
+                            <div className={styles.statLabel}>Best</div>
                             <div className={styles.statValue}>{best} ms</div>
                         </div>
                         <div className={styles.stat}>
-                            <div className={styles.statLabel}>Média</div>
+                            <div className={styles.statLabel}>Average</div>
                             <div className={styles.statValue}>{Math.round(average)} ms</div>
                         </div>
                         <div className={styles.stat}>
-                            <div className={styles.statLabel}>Tentativas</div>
+                            <div className={styles.statLabel}>Attempts</div>
                             <div className={styles.statValue}>{attempts.length}</div>
                         </div>
                     </div>
@@ -148,7 +148,7 @@ export default function ReactionTimeTest() {
                     </div>
 
                     <button type="button" className={styles.primaryBtn} onClick={handlePadClick}>
-                        Tentar Novamente 🔄
+                        Try Again 🔄
                     </button>
                 </div>
             )}

@@ -16,6 +16,16 @@ const eslintConfig = defineConfig([
     "android-app/**",
     "chrome-extension/**",
   ]),
+  {
+    rules: {
+      // A leading underscore is the project's existing marker for "kept on
+      // purpose, not used yet" (see convertSensitivity's _dpi parameter).
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_", caughtErrorsIgnorePattern: "^_" },
+      ],
+    },
+  },
 ]);
 
 export default eslintConfig;

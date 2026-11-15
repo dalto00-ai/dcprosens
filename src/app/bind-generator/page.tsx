@@ -6,24 +6,29 @@ export const metadata: Metadata = {
     title: "CS2 Bind Generator 2026",
     description: "Generate custom CS2 console binds instantly. Create jumpthrow binds, radar toggles, drop bomb binds, and download your autoexec.cfg file free.",
     keywords: [
-        'cs2 bind generator', 'cs2 config generator', 'cs2 jumpthrow bind 2025', 'cs2 radar toggle bind',
+        'cs2 bind generator', 'cs2 config generator', 'cs2 jumpthrow bind 2026', 'cs2 radar toggle bind',
         'cs2 drop bomb bind', 'cs2 autoexec generator', 'counter strike 2 binds', 'cs2 console commands',
         'clear decals cs2 bind', 'crosshair toggle bind cs2', 'voice toggle bind cs2', 'cs2 autoexec config',
         'how to create autoexec cs2', 'cs2 buy binds generator', 'cs2 crosshair alignment bind'
     ],
     alternates: {
-        canonical: "https://dcprosens.com/bind-generator",
+        canonical: "https://dcprosens.com/bind-generator/",
     },
     openGraph: {
-        title: "CS2 Bind Generator 2025 — Jumpthrow, Radar Zoom, Autoexec CFG | DCPROSENS",
+        // Inherited from the root layout only when this page omits openGraph
+        // entirely — declaring the object here replaces the parent's, so the
+        // image has to be restated or the page ships with no og:image at all.
+        images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
+        title: "CS2 Bind Generator 2026 — Jumpthrow, Radar Zoom, Autoexec CFG | DCPROSENS",
         description: "Generate and download your custom CS2 autoexec.cfg with jumpthrow, radar toggle, and drop bomb binds instantly.",
         type: "website",
         url: "https://dcprosens.com/bind-generator",
     },
     twitter: {
         card: "summary_large_image",
-        title: "CS2 Bind Generator 2025 — Jumpthrow, Radar Zoom, Autoexec CFG",
+        title: "CS2 Bind Generator 2026 — Jumpthrow, Radar Zoom, Autoexec CFG",
         description: "Custom CS2 console binds generator. Instantly create jumpthrow, radar toggle, and drop bomb binds.",
+        images: ["/og-image.png"],
     },
     robots: {
         index: true,
@@ -186,7 +191,7 @@ export default function BindGeneratorPage() {
 
                 <div style={{ marginTop: '3rem', textAlign: 'center' }}>
                     <p style={{ marginBottom: '1rem' }}>Need to check your mouse DPI deviation before calibrating your binds?</p>
-                    <Link href="/dpi-analyzer" style={{
+                    <Link href="/dpi-analyzer/" style={{
                         display: 'inline-block',
                         background: 'var(--primary)',
                         color: '#000',

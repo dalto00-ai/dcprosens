@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import DpiCalculator from '@/components/DpiCalculator';
+import AdsterraInContent from '@/components/AdsterraInContent';
 import Link from 'next/link';
-import PremiumGuard from '@/components/PremiumGuard';
+import TrialGate from '@/components/TrialGate';
 
 export const metadata: Metadata = {
-    title: "DPI Calculator — What is DPI & eDPI?",
-    description: "Free DPI & eDPI calculator for gamers. Learn what DPI means, what eDPI is, and find your perfect mouse sensitivity for Valorant, CS2, Apex Legends and more.",
+    title: "What is a DPI Setting? DPI Calculator & Mouse DPI Guide (2026)",
+    description: "What is a DPI setting on a mouse? Learn what DPI means, how mouse DPI affects gaming aim, 400 vs 800 vs 1600 DPI differences, and calculate your exact eDPI instantly.",
     keywords: [
         // Core DPI keywords
         'dpi calculator', 'edpi calculator', 'dpi calculator gaming', 'mouse dpi calculator',
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
         // Game-specific
         'valorant dpi calculator', 'cs2 dpi calculator', 'apex legends dpi', 'overwatch 2 dpi',
         'what dpi for valorant', 'best dpi for cs2', 'best dpi for apex legends',
-        'tenz dpi', 's1mple dpi', 'zywoo dpi', 'aspas dpi', 'best valorant dpi 2025',
+        'tenz dpi', 's1mple dpi', 'zywoo dpi', 'aspas dpi', 'best valorant dpi 2026',
         // Settings & comparisons
         '400 dpi vs 800 dpi', '400 dpi gaming', '800 dpi gaming', '1600 dpi gaming',
         'what dpi should i use', 'what dpi do pros use', 'pro player dpi settings',
@@ -23,12 +24,16 @@ export const metadata: Metadata = {
         'how to calculate edpi', 'edpi formula', 'dpi sensitivity calculator free',
         'mouse sensitivity edpi', 'change dpi without affecting aim', 'dpi vs sensitivity',
         'how does dpi affect gaming', 'is higher dpi better for gaming', 'low dpi high sens vs high dpi low sens',
-        'mouse polling rate vs dpi', 'gaming mouse dpi guide 2025',
+        'mouse polling rate vs dpi', 'gaming mouse dpi guide 2026',
     ],
     alternates: {
-        canonical: "https://dcprosens.com/dpi",
+        canonical: "https://dcprosens.com/dpi/",
     },
     openGraph: {
+        // Inherited from the root layout only when this page omits openGraph
+        // entirely — declaring the object here replaces the parent's, so the
+        // image has to be restated or the page ships with no og:image at all.
+        images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
         title: "DPI Calculator — What is DPI & eDPI? Mouse Sensitivity Explained",
         description: "Free DPI & eDPI calculator. Understand what DPI is and find your perfect mouse sensitivity for competitive gaming.",
         type: "website",
@@ -38,6 +43,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "DPI Calculator — What is DPI & eDPI?",
         description: "Free DPI & eDPI calculator for Valorant, CS2, Apex Legends.",
+        images: ["/og-image.png"],
     },
     robots: {
         index: true,
@@ -169,9 +175,11 @@ export default function DpiPage() {
                 Enter your mouse DPI and in-game sensitivity to calculate your eDPI instantly.
             </p>
 
-            <PremiumGuard previewTitle="DPI / eDPI Calculator">
+            <TrialGate toolId="dpi-calculator" previewTitle="DPI / eDPI Calculator">
                 <DpiCalculator />
-            </PremiumGuard>
+            </TrialGate>
+
+            <AdsterraInContent />
 
             {/* --- SEO Content Section: What is DPI? --- */}
             <article style={{ marginTop: '5rem', color: 'var(--text-secondary)', lineHeight: 1.8 }}>

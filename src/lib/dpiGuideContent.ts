@@ -9,6 +9,12 @@ export interface DpiGuideContent {
     proExamples: { name: string; dpi: string }[];
     tips: string[];
     faqs: { q: string; a: string }[];
+    /**
+     * Long-form sections rendered under the tips. Added because the guide
+     * pages were the thinnest on the site: a spec line and four bullets is
+     * not an answer to "what DPI should I use and why".
+     */
+    deepDive?: { heading: string; paragraphs: string[] }[];
 }
 
 export const dpiGuideContent: DpiGuideContent[] = [
@@ -26,6 +32,32 @@ export const dpiGuideContent: DpiGuideContent[] = [
             'Higher DPI (1200–1600) suits players who rely on fast map awareness and quick skillshot flicks.',
             'Lower DPI (800 and below) suits players who prioritize precise last-hitting and clean camera control — Faker being the most famous example.',
             'Whatever you pick, keep it consistent — MOBA precision comes from muscle memory, not a "correct" number.',
+        ],
+        deepDive: [
+            {
+                heading: 'Why MOBA players run higher DPI than FPS players',
+                paragraphs: [
+                    'In a shooter, DPI feeds a camera rotation, and a low value gives you finer control over a small angular movement. In League there is no rotation — the mouse crosses a screen. The useful movement is the distance from your champion to the far edge of your vision, and covering it quickly is what a higher DPI buys.',
+                    'That is why the typical League range of 1200 to 1600 DPI would be extremely high for a CS2 player and is unremarkable here. The two numbers are doing different jobs, and comparing them directly is a category error.',
+                    'Screen resolution genuinely matters in this context, unlike in FPS aim. A 1440p display has more pixels to cross than a 1080p one, so the same DPI covers proportionally less of the screen. Players moving up in resolution often need to raise DPI to keep the same feel.',
+                ],
+            },
+            {
+                heading: 'What precision actually means in League',
+                paragraphs: [
+                    'Two distinct tasks compete for your DPI setting. Last-hitting and spell targeting want precision: small, exact cursor placements on a minion or a champion model. Map awareness and camera panning want speed: covering distance quickly to check a lane or land a long skillshot.',
+                    'Faker famously plays at 800 DPI, toward the low end, which suits a precision-first style with heavy camera-lock usage. Players who rely on unlocked camera and constant panning tend upward from there.',
+                    'Neither is correct. What is correct is picking one and keeping it, because click precision in a MOBA is muscle memory in exactly the same way aim is in a shooter.',
+                ],
+            },
+            {
+                heading: 'The Windows settings that matter first',
+                paragraphs: [
+                    'Set the Windows pointer speed slider to the sixth notch of eleven and turn off Enhance Pointer Precision before you touch DPI. The sixth notch is the only position where Windows applies no scaling to the counts your mouse reports; every other setting multiplies or divides them before League ever sees the movement.',
+                    'Enhance Pointer Precision is mouse acceleration by another name. It makes a fast hand movement travel further than a slow one covering the same distance, which is precisely what destroys the consistency last-hitting depends on.',
+                    'Once both are correct, your DPI setting means what it says, and any adjustment you make is measuring the thing you intended to measure.',
+                ],
+            },
         ],
         faqs: [
             {
@@ -52,6 +84,32 @@ export const dpiGuideContent: DpiGuideContent[] = [
             'Disable mouse acceleration for consistent click behavior.',
             'Lower DPI (400) gives finer control for last-hitting and accurate spell casting, at the cost of needing more physical mouse movement.',
             '800 DPI is the most common "sweet spot" balancing camera movement speed with precision.',
+        ],
+        deepDive: [
+            {
+                heading: 'Why Dota pros sit lower than League pros',
+                paragraphs: [
+                    'The 400 to 800 DPI range common in Dota is noticeably lower than League\'s 1200 to 1600, and the reason is the game rather than the players. Dota\'s last-hitting window is tighter, denying is a mechanic League does not have, and several spells require placing a cursor precisely inside a small radius under time pressure.',
+                    'All of those reward a cursor that moves less per centimetre of hand movement. The cost is more physical travel to cross the screen, which Dota players absorb because the precision matters more than the panning speed.',
+                    'If you are coming from League, expect your first hour in Dota at your usual DPI to feel twitchy rather than fast. That is the game asking for a different kind of accuracy, not a settings problem.',
+                ],
+            },
+            {
+                heading: 'Camera control and why it changes the answer',
+                paragraphs: [
+                    'How you move the camera changes how much cursor travel you actually need. Players who use edge-pan cover the map with the mouse itself, which makes a low DPI tiring. Players who bind camera movement to keys or use camera grip rarely move the cursor far, which makes a low DPI comfortable.',
+                    'Deciding your camera control method first and your DPI second is the right order. Doing it the other way round produces a setting that fights the way you actually play.',
+                    'Most professionals use a mix, leaning on hotkeys for the big movements and reserving cursor travel for targeting. That is the pattern the lower DPI range grew around.',
+                ],
+            },
+            {
+                heading: 'Setting it up correctly',
+                paragraphs: [
+                    'Windows pointer speed goes to the sixth notch of eleven, and Enhance Pointer Precision goes off. Those two decide whether the DPI you set is the DPI the game receives; everything else is downstream of them.',
+                    'Pick a DPI from the range, play twenty games, and change nothing in between. Click precision is motor learning, and it needs the same uninterrupted run that FPS aim does.',
+                    'If you also play a shooter, keep the same DPI across both and let each game\'s own settings carry the difference. One hardware setting across everything means your hand only has to learn one thing about the mouse.',
+                ],
+            },
         ],
         faqs: [
             {
