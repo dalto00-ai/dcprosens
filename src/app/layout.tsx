@@ -85,14 +85,7 @@ export const metadata: Metadata = {
     },
   },
   other: {
-    // AdSense is off. The site was rejected again (thin content, same finding
-    // as Search's "discovered - currently not indexed" bucket), so the account
-    // meta and the adsbygoogle loader in the body were both removed and
-    // Adsterra put in their place. To re-apply, restore this line:
-    //   "google-adsense-account": "ca-pub-1743865545749571",
-    // and the <Script src="...adsbygoogle.js?client=ca-pub-1743865545749571">
-    // that used to sit at the top of <body>. public/ads.txt still carries the
-    // publisher record, so nothing needs doing there.
+    "google-adsense-account": "ca-pub-1743865545749571",
     "geo.region": "US",
     "geo.placename": "United States",
     "geo.position": "37.0902;-95.7129",
@@ -123,6 +116,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1743865545749571"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className={`${outfit.variable}`}>
         <AuthProvider>
           <SiteChrome>{children}</SiteChrome>

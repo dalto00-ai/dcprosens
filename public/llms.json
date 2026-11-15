@@ -761,10 +761,9 @@
     {
       "id": "master-bundle",
       "title": "The Complete 18-Volume Master Omnibus",
-      "priceUSD": 49.99,
-      "regularPriceUSD": 270.0,
-      "path": "/ebooks/",
-      "stripeUrl": "https://buy.stripe.com/28EcN4fnzarU5xg92c1ck07"
+      "priceUSD": 39.99,
+      "regularPriceUSD": 269.82,
+      "path": "/ebooks/"
     },
     {
       "id": "valorant-bundle",

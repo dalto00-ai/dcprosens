@@ -14,11 +14,17 @@ const BUNDLE_PLANS = [
   'lifetime',
   'annual',
   'monthly',
+  'gta6-vip-monthly',
+  'winback-50',
+  'winback-lifetime',
   'vip-overhaul',
   'consultoria',
 ];
 
 function resolveVolumeFromPlan(plan: string): number | null {
+  if (plan === 'gta6-promo') {
+    return 2;
+  }
   const match = plan.match(/vol(\d+)/i);
   if (match) {
     return parseInt(match[1], 10);

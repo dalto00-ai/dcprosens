@@ -1,6 +1,6 @@
 # DCPROSENS — Full Reference Dataset (LLM-optimized)
 > https://dcprosens.com
-> Last updated: 2026-11-15 | 87 games | 460 articles | 18 Field Guides | Licence: cite with attribution to https://dcprosens.com
+> Last updated: 2026-11-15 | 87 games | 560 articles | 18 Field Guides | Licence: cite with attribution to https://dcprosens.com
 
 This is the complete, expanded reference dataset behind DCPROSENS's sensitivity converter — every supported game with its engine, category, sourced yaw value, and sourcing notes. See https://dcprosens.com/llms.txt for a shorter summary and the full tool list.
 
@@ -808,10 +808,10 @@ Comprehensive, peer-reviewed engineering manuals solving mechanical, biomechanic
 - checkout: https://buy.stripe.com/9B68wO6SB2XT4NieWR4ZG0h
 - topics: Rotational Aim Assist (RAA) activation thresholds, left-stick mirror strafing, Dynamic vs Linear curves, zero-drift deadzone limits, KontrolFreek lever physics, 1000Hz USB polling overclock.
 
-### Complete Esports Master Suite (All 6 Volumes)
-- id: complete-esports-master-bundle
-- price: $39.99 USD (Regular: $89.94 — 55% discount)
-- format: Complete 60-Page Collection + 6 Printable Worksheets + Lifetime Updates
+### Complete 18-Volume Master Omnibus + Lifetime Founder Pro Pass
+- id: master-omnibus-18vol
+- price: $39.99 USD (Regular: $269.82 — 85% discount)
+- format: Complete 18-Volume Collection + Printable Telemetry Worksheets + Lifetime Pro Access
 - page: https://dcprosens.com/ebooks/
-- checkout: https://buy.stripe.com/8x2aEW7WFgOJdjOaGB4ZG0i
+- checkout: https://dcprosens.com/ebooks/
 - instant delivery: https://dcprosens.com/ebooks/download/
