@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useAuth } from '@/components/AuthProvider';
-import { StripeCheckoutModal } from '@/components/StripeCheckoutModal';
+import { StripeCheckoutModal, type CheckoutPlanId } from '@/components/StripeCheckoutModal';
 import styles from './Community.module.css';
 
 interface CommunityPost {
@@ -98,10 +98,37 @@ const SEED_POSTS: CommunityPost[] = [
     replies: 64,
     upvotes: 89,
   },
+  {
+    id: 'post-7',
+    title: '🌴 GTA VI Leonida Syndicate: PS5 & Xbox Free-Aim Heist Squads (Zero Auto-Aim Lobbies)',
+    excerpt:
+      'Recruiting calibrated console players running 3%–6% DualSense/Xbox deadzones and 85%+ drive-by camera for Day-One Vice City missions and clean Free-Aim PVP.',
+    author: 'Dalto Outlier',
+    badge: 'founder',
+    channel: 'gta6',
+    game: 'GTA VI (PS5 / Xbox)',
+    timeAgo: '1 hour ago',
+    replies: 52,
+    upvotes: 248,
+  },
+  {
+    id: 'post-8',
+    title: 'GTA VI 120 MPH Drive-By & Car Meet Crew Roster (NA / EU / BR Regions)',
+    excerpt:
+      'Drop your PSN / Xbox Gamertag, preferred role (Driver, Gunner, Sniper OverWatch), and verified DCPROSENS Command Center setup below.',
+    author: 'ViceSyndicate',
+    badge: 'coach',
+    channel: 'gta6',
+    game: 'GTA VI Crews',
+    timeAgo: '4 hours ago',
+    replies: 39,
+    upvotes: 176,
+  },
 ];
 
 const CHANNELS = [
   { id: 'all', label: 'All Discussions', icon: '🌐' },
+  { id: 'gta6', label: 'GTA VI Leonida Syndicate', icon: '🌴' },
   { id: 'aim', label: 'Aim Mechanics & Drills', icon: '🎯' },
   { id: 'latency', label: 'Zero-Latency & PC Tuning', icon: '⚡' },
   { id: 'controller', label: 'Controller & Aim Assist', icon: '🕹️' },
@@ -114,13 +141,19 @@ export default function CommunityPage() {
   const { user, userData } = useAuth();
   const [activeChannel, setActiveChannel] = useState('all');
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'annual' | 'lifetime'>('annual');
+  const [selectedPlan, setSelectedPlan] = useState<CheckoutPlanId>('gta6-vip-monthly');
+  const [showWinbackOffer, setShowWinbackOffer] = useState(false);
   const [newPostModal, setNewPostModal] = useState(false);
   const [postTitle, setPostTitle] = useState('');
   const [postContent, setPostContent] = useState('');
-  const [postChannel, setPostChannel] = useState('aim');
+  const [postChannel, setPostChannel] = useState('gta6');
   const [posts, setPosts] = useState<CommunityPost[]>(SEED_POSTS);
   const [copiedReferral, setCopiedReferral] = useState(false);
+
+  // Owner Admin Control state
+  const [adminTargetUid, setAdminTargetUid] = useState('');
+  const [adminStatusMsg, setAdminStatusMsg] = useState<string | null>(null);
+  const [adminBusy, setAdminBusy] = useState(false);
 
   // Check if member has paid membership
   const isMember =
@@ -128,14 +161,52 @@ export default function CommunityPage() {
     userData?.subscriptionStatus === 'pro' ||
     userData?.subscriptionStatus === 'lifetime';
 
+  const isExMember =
+    !isMember &&
+    Boolean(userData?.stripeSubscriptionId || userData?.trialUsedAt || userData?.subscriptionPlan === 'free');
+
+  const isOwnerAdmin =
+    user?.email?.toLowerCase() === 'dalto00@gmail.com' ||
+    userData?.subscriptionPlan === 'admin';
+
   const filteredPosts =
     activeChannel === 'all'
       ? posts
       : posts.filter((p) => p.channel === activeChannel);
 
-  const handleOpenCheckout = (plan: 'monthly' | 'annual' | 'lifetime') => {
+  const handleOpenCheckout = (plan: CheckoutPlanId) => {
     setSelectedPlan(plan);
     setModalOpen(true);
+  };
+
+  const handleAdminAction = async (action: 'grant_lifetime' | 'grant_vip_monthly' | 'grant_video_100' | 'revoke_access') => {
+    if (!user || !adminTargetUid.trim()) return;
+    setAdminBusy(true);
+    setAdminStatusMsg(null);
+    try {
+      const idToken = await user.getIdToken();
+      const res = await fetch('https://dcprosens.com/api/admin-member-control.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${idToken}`,
+        },
+        body: JSON.stringify({
+          targetUid: adminTargetUid.trim(),
+          action,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setAdminStatusMsg(`⚠️ ${data.error || 'Request failed'}`);
+      } else {
+        setAdminStatusMsg(`✓ Applied "${action}" to UID ${data.targetUid}`);
+      }
+    } catch {
+      setAdminStatusMsg('⚠️ Network error reaching admin endpoint');
+    } finally {
+      setAdminBusy(false);
+    }
   };
 
   const handleCreatePost = (e: React.FormEvent) => {
@@ -184,6 +255,80 @@ export default function CommunityPage() {
             share verified hardware friction ratings, debug sub-millisecond PC latency, and run pro VOD analyses.
           </p>
         </header>
+
+        {/* OWNER ADMIN CONTROL PANEL (VISIBLE ONLY TO ADMIN) */}
+        {isOwnerAdmin && (
+          <section
+            style={{
+              marginBottom: '1.75rem',
+              padding: '1.25rem 1.5rem',
+              borderRadius: '14px',
+              background: 'rgba(112, 0, 255, 0.08)',
+              border: '1px solid rgba(192, 132, 252, 0.45)',
+            }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '0.9rem' }}>
+              <div>
+                <strong style={{ color: '#e9d5ff', fontSize: '1rem' }}>👑 Owner Member Control Panel</strong>
+                <div style={{ fontSize: '0.8rem', color: '#cbd5e1' }}>
+                  Grant permanent Lifetime VIP, monthly VIP, 100 Video Studio credits, or revoke access for any Firebase User UID.
+                </div>
+              </div>
+              {adminStatusMsg && (
+                <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#00ff9d' }}>{adminStatusMsg}</span>
+              )}
+            </div>
+            <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap', alignItems: 'center' }}>
+              <input
+                type="text"
+                value={adminTargetUid}
+                onChange={(e) => setAdminTargetUid(e.target.value)}
+                placeholder="Paste target Firebase User UID..."
+                style={{
+                  flex: '1 1 240px',
+                  padding: '0.6rem 0.85rem',
+                  borderRadius: '8px',
+                  background: '#07090e',
+                  border: '1px solid rgba(255,255,255,0.18)',
+                  color: '#fff',
+                  fontSize: '0.85rem',
+                }}
+              />
+              <button
+                type="button"
+                disabled={adminBusy || !adminTargetUid.trim()}
+                onClick={() => handleAdminAction('grant_lifetime')}
+                style={{ padding: '0.6rem 0.9rem', borderRadius: '8px', border: 'none', background: '#00ff9d', color: '#000', fontWeight: 800, cursor: 'pointer', fontSize: '0.8rem' }}
+              >
+                Grant Lifetime VIP
+              </button>
+              <button
+                type="button"
+                disabled={adminBusy || !adminTargetUid.trim()}
+                onClick={() => handleAdminAction('grant_vip_monthly')}
+                style={{ padding: '0.6rem 0.9rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.2)', background: 'transparent', color: '#fff', fontWeight: 700, cursor: 'pointer', fontSize: '0.8rem' }}
+              >
+                Grant Monthly VIP
+              </button>
+              <button
+                type="button"
+                disabled={adminBusy || !adminTargetUid.trim()}
+                onClick={() => handleAdminAction('grant_video_100')}
+                style={{ padding: '0.6rem 0.9rem', borderRadius: '8px', border: '1px solid rgba(56, 189, 248, 0.45)', background: 'transparent', color: '#38bdf8', fontWeight: 700, cursor: 'pointer', fontSize: '0.8rem' }}
+              >
+                +100 Video Credits
+              </button>
+              <button
+                type="button"
+                disabled={adminBusy || !adminTargetUid.trim()}
+                onClick={() => handleAdminAction('revoke_access')}
+                style={{ padding: '0.6rem 0.9rem', borderRadius: '8px', border: '1px solid rgba(248, 113, 113, 0.5)', background: 'transparent', color: '#f87171', fontWeight: 700, cursor: 'pointer', fontSize: '0.8rem' }}
+              >
+                Revoke Access
+              </button>
+            </div>
+          </section>
+        )}
 
         {/* Channel Navigation Tabs */}
         <nav className={styles.channelNav} aria-label="Community Channels">
@@ -285,29 +430,18 @@ export default function CommunityPage() {
                     {/* Monthly Option */}
                     <div className={styles.pricingOption}>
                       <div>
-                        <div className={styles.planName}>Monthly Pass</div>
+                        <div className={styles.planName}>GTA VI &amp; FPS Monthly</div>
                         <div className={styles.planBilling}>Billed monthly • Cancel anytime</div>
                         <div className={styles.planPrice}>
-                          $7.99 <span>/mo</span>
+                          $4.99 <span>/mo</span>
                         </div>
                       </div>
-                      {user ? (
-                        <button
-                          onClick={() => handleOpenCheckout('monthly')}
-                          className={styles.altCheckoutBtn}
-                        >
-                          Join Monthly
-                        </button>
-                      ) : (
-                        <a
-                          href="https://buy.stripe.com/3cIaEW2CldCxgw04id4ZG0j"
-                          className={styles.altCheckoutBtn}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Join Monthly
-                        </a>
-                      )}
+                      <button
+                        onClick={() => handleOpenCheckout('gta6-vip-monthly')}
+                        className={styles.altCheckoutBtn}
+                      >
+                        Join Monthly ($4.99)
+                      </button>
                     </div>
 
                     {/* Annual VIP Option (Featured) */}
@@ -320,53 +454,87 @@ export default function CommunityPage() {
                           $4.08 <span>/mo</span>
                         </div>
                       </div>
-                      {user ? (
-                        <button
-                          onClick={() => handleOpenCheckout('annual')}
-                          className={styles.checkoutBtn}
-                        >
-                          Claim Annual VIP ⚡
-                        </button>
-                      ) : (
-                        <a
-                          href="https://buy.stripe.com/cNidR81yh9mhgw08yt4ZG0k"
-                          className={styles.checkoutBtn}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Claim Annual VIP ⚡
-                        </a>
-                      )}
+                      <button
+                        onClick={() => handleOpenCheckout('annual')}
+                        className={styles.checkoutBtn}
+                      >
+                        Claim Annual VIP ⚡
+                      </button>
                     </div>
 
                     {/* Lifetime Founder Option */}
                     <div className={styles.pricingOption}>
                       <div>
-                        <div className={styles.planName}>Lifetime Founder</div>
-                        <div className={styles.planBilling}>One-time payment • Never renews</div>
+                        <div className={styles.planName}>Lifetime Founder + 18 Vols</div>
+                        <div className={styles.planBilling}>One-time payment • Yours forever</div>
                         <div className={styles.planPrice}>
-                          $129 <span>once</span>
+                          $39.99 <span>once</span>
                         </div>
                       </div>
-                      {user ? (
-                        <button
-                          onClick={() => handleOpenCheckout('lifetime')}
-                          className={styles.altCheckoutBtn}
-                        >
-                          Get Lifetime Pass
-                        </button>
-                      ) : (
-                        <a
-                          href="https://buy.stripe.com/00wdR8dgZaql2Fa6ql4ZG0l"
-                          className={styles.altCheckoutBtn}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Get Lifetime Pass
-                        </a>
-                      )}
+                      <button
+                        onClick={() => handleOpenCheckout('master-omnibus-18vol')}
+                        className={styles.altCheckoutBtn}
+                      >
+                        Get Lifetime ($39.99)
+                      </button>
                     </div>
                   </div>
+
+                  {/* AUTOMATED 50% OFF RETENTION / WIN-BACK OFFER */}
+                  {(isExMember || showWinbackOffer) ? (
+                    <div
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(0, 255, 157, 0.12), rgba(112, 0, 255, 0.14))',
+                        border: '1px solid rgba(0, 255, 157, 0.45)',
+                        borderRadius: '12px',
+                        padding: '1rem 1.25rem',
+                        marginBottom: '1.25rem',
+                        textAlign: 'left',
+                      }}
+                    >
+                      <div style={{ fontSize: '0.78rem', fontWeight: 800, color: '#00ff9d', textTransform: 'uppercase', marginBottom: '0.3rem' }}>
+                        🔥 Exclusive 50% OFF Retention Deal Unlocked
+                      </div>
+                      <p style={{ margin: '0 0 0.75rem', fontSize: '0.86rem', color: '#e2e8f0' }}>
+                        Keep your VIP Syndicate role, GTA VI Free-Aim squads, and unlimited Viral Studio access at half price:
+                      </p>
+                      <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+                        <button
+                          type="button"
+                          onClick={() => handleOpenCheckout('winback-50')}
+                          className={styles.checkoutBtn}
+                          style={{ width: 'auto', padding: '0.55rem 1rem', fontSize: '0.84rem' }}
+                        >
+                          Reactivate for $3.99/mo (50% OFF)
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => handleOpenCheckout('winback-lifetime')}
+                          className={styles.altCheckoutBtn}
+                          style={{ width: 'auto', padding: '0.55rem 1rem', fontSize: '0.84rem' }}
+                        >
+                          Lock Lifetime Forever for $24.99
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    <div style={{ marginBottom: '1.1rem' }}>
+                      <button
+                        type="button"
+                        onClick={() => setShowWinbackOffer(true)}
+                        style={{
+                          background: 'transparent',
+                          border: 'none',
+                          color: '#94a3b8',
+                          textDecoration: 'underline',
+                          cursor: 'pointer',
+                          fontSize: '0.82rem',
+                        }}
+                      >
+                        Former member or looking for a launch discount? Claim 50% OFF retention pricing
+                      </button>
+                    </div>
+                  )}
 
                   {/* Competitor Comparison Note */}
                   <div
@@ -693,6 +861,7 @@ export default function CommunityPage() {
                     fontFamily: 'inherit',
                   }}
                 >
+                  <option value="gta6">🌴 GTA VI Leonida Syndicate</option>
                   <option value="aim">🎯 Aim Mechanics &amp; Drills</option>
                   <option value="latency">⚡ Zero-Latency &amp; PC Tuning</option>
                   <option value="controller">🕹️ Controller &amp; Aim Assist</option>
