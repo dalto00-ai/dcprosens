@@ -58,6 +58,8 @@ import { postsChunk56 } from './posts-data/chunk-56';
 import { postsChunk57 } from './posts-data/chunk-57';
 import { postsChunk58 } from './posts-data/chunk-58';
 import { postsChunk59 } from './posts-data/chunk-59';
+import { postsChunk60 } from './posts-data/chunk-60';
+import { postsChunk61 } from './posts-data/chunk-61';
 
 export type { BlogPost };
 
@@ -123,4 +125,6 @@ export const posts: BlogPost[] = [
   ...postsChunk57,
   ...postsChunk58,
   ...postsChunk59,
+  ...postsChunk60,
+  ...postsChunk61,
 ];
