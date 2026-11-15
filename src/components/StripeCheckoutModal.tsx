@@ -5,17 +5,39 @@ import { useAuth } from '@/components/AuthProvider';
 import { trackEvent } from '@/lib/analytics';
 import styles from './StripeCheckoutModal.module.css';
 
-const PLAN_PRICES: Record<StripeCheckoutModalProps['plan'], number> = {
+export type CheckoutPlanId =
+  | 'monthly'
+  | 'annual'
+  | 'lifetime'
+  | 'aimlab'
+  | 'gta6-promo'
+  | 'gta6-vip-monthly'
+  | 'master-omnibus-18vol'
+  | 'winback-50'
+  | 'winback-lifetime'
+  | 'creator-25'
+  | 'creator-100'
+  | 'sponsor-weekly';
+
+const PLAN_PRICES: Record<CheckoutPlanId, number> = {
   monthly: 7.99,
   annual: 49.00,
   lifetime: 129,
   aimlab: 1,
+  'gta6-promo': 7.99,
+  'gta6-vip-monthly': 4.99,
+  'master-omnibus-18vol': 39.99,
+  'winback-50': 3.99,
+  'winback-lifetime': 24.99,
+  'creator-25': 9.99,
+  'creator-100': 14.99,
+  'sponsor-weekly': 49.00,
 };
 
 interface StripeCheckoutModalProps {
   isOpen: boolean;
   onClose: () => void;
-  plan: 'monthly' | 'annual' | 'lifetime' | 'aimlab';
+  plan: CheckoutPlanId;
   /** Adds a 3-day free trial (still collects a card; only valid for monthly/annual). */
   trial?: boolean;
 }
@@ -161,10 +183,36 @@ export const StripeCheckoutModal: React.FC<StripeCheckoutModalProps> = ({
       <div className={styles.modalContainer} onClick={(e) => e.stopPropagation()}>
         <div className={styles.modalHeader}>
           <h3>
-            {plan === 'aimlab' ? '🧪 Aim Lab' : '⚡ DCPROSENS Pro'}{' '}
+            {plan === 'aimlab'
+              ? '🧪 Aim Lab'
+              : plan === 'gta6-promo'
+              ? '🌴 GTA VI Day-One Pack'
+              : plan === 'creator-25' || plan === 'creator-100'
+              ? '🎬 Viral Video Studio'
+              : plan === 'sponsor-weekly'
+              ? '📢 Featured Partner Slot'
+              : '⚡ DCPROSENS Pro'}{' '}
             <span className={styles.badge}>
               {plan === 'aimlab'
                 ? 'Standalone — $1'
+                : plan === 'gta6-promo'
+                ? 'Launch 50% OFF — $7.99'
+                : plan === 'gta6-vip-monthly'
+                ? trial
+                  ? '3-Day Free Trial ($4.99/mo)'
+                  : 'VIP Monthly — $4.99/mo'
+                : plan === 'master-omnibus-18vol'
+                ? 'All-In Lifetime + 18 Vols — $39.99'
+                : plan === 'winback-50'
+                ? '50% OFF Win-Back — $3.99/mo'
+                : plan === 'winback-lifetime'
+                ? '50% OFF Lifetime — $24.99'
+                : plan === 'creator-25'
+                ? '25 HD Video Credits — $9.99'
+                : plan === 'creator-100'
+                ? '100 HD Videos (50% OFF) — $14.99'
+                : plan === 'sponsor-weekly'
+                ? '7-Day Placement — $49'
                 : trial
                 ? '3-Day Free Trial'
                 : plan === 'lifetime'

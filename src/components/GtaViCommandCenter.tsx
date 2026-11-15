@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
+import { StripeCheckoutModal, type CheckoutPlanId } from "@/components/StripeCheckoutModal";
 import styles from "./HardwareTools.module.css";
 
 type ActiveTab = "converter" | "deadzone" | "weapons" | "checklist";
@@ -281,6 +282,15 @@ export default function GtaViCommandCenter() {
     chk_120hz: true,
     chk_driveby: true,
   });
+
+  // Stripe Checkout Modal state (Triple Pricing Ladder + Self-Serve Sponsor)
+  const [checkoutOpen, setCheckoutOpen] = useState(false);
+  const [checkoutPlan, setCheckoutPlan] = useState<CheckoutPlanId>("gta6-promo");
+
+  const openStripePlan = (plan: CheckoutPlanId) => {
+    setCheckoutPlan(plan);
+    setCheckoutOpen(true);
+  };
 
   useEffect(() => {
     try {
@@ -1251,6 +1261,209 @@ export default function GtaViCommandCenter() {
           </div>
         </div>
       )}
+
+      {/* TRIPLE PRICING LADDER (PROMO + VIP SUBSCRIPTION + LIFETIME MASTER) */}
+      <div
+        style={{
+          marginTop: "2.25rem",
+          padding: "2rem 1.5rem",
+          borderRadius: "16px",
+          background: "linear-gradient(180deg, rgba(15, 16, 22, 0.96) 0%, rgba(8, 9, 13, 0.98) 100%)",
+          border: "1px solid rgba(0, 255, 157, 0.25)",
+        }}
+      >
+        <div style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto 1.75rem" }}>
+          <span
+            style={{
+              display: "inline-block",
+              padding: "0.28rem 0.9rem",
+              borderRadius: "999px",
+              fontSize: "0.72rem",
+              fontWeight: 800,
+              letterSpacing: "0.06em",
+              textTransform: "uppercase",
+              background: "rgba(0, 255, 157, 0.14)",
+              color: "var(--primary, #00ff9d)",
+              marginBottom: "0.65rem",
+            }}
+          >
+            🔥 GTA VI Launch Special — Instant Access
+          </span>
+          <h2 style={{ margin: "0 0 0.5rem", fontSize: "1.6rem", fontWeight: 800, color: "#fff" }}>
+            Unlock Pro Vice City Presets, PDF Field Guides &amp; Syndicate Hub
+          </h2>
+          <p style={{ margin: 0, fontSize: "0.9rem", color: "var(--text-secondary)" }}>
+            Choose the tier that fits your setup — one-time Day-One Pack, monthly VIP access, or Lifetime Founder unlock.
+          </p>
+        </div>
+
+        <div className={styles.grid3}>
+          {/* 1. LAUNCH PROMO ($7.99) */}
+          <div
+            style={{
+              background: "#0a0b10",
+              border: "1px solid rgba(255, 255, 255, 0.12)",
+              borderRadius: "14px",
+              padding: "1.5rem",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              gap: "1rem",
+            }}
+          >
+            <div>
+              <div style={{ fontSize: "0.74rem", fontWeight: 800, color: "#facc15", textTransform: "uppercase", marginBottom: "0.35rem" }}>
+                ⚡ 50% OFF Launch Flash Deal
+              </div>
+              <h3 style={{ margin: "0 0 0.4rem", fontSize: "1.15rem", fontWeight: 800, color: "#fff" }}>
+                Day-One Calibration Pack
+              </h3>
+              <div style={{ display: "flex", alignItems: "baseline", gap: "0.5rem", marginBottom: "0.9rem" }}>
+                <span style={{ fontSize: "2rem", fontWeight: 900, color: "var(--primary, #00ff9d)" }}>$7.99</span>
+                <span style={{ fontSize: "0.85rem", color: "#64748b", textDecoration: "line-through" }}>$14.99</span>
+                <span style={{ fontSize: "0.78rem", color: "var(--text-secondary)" }}>one-time</span>
+              </div>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.55rem", fontSize: "0.84rem", color: "#cbd5e1" }}>
+                <li>✓ Vol 02: GTA VI Pro Aim &amp; Controller PDF</li>
+                <li>✓ DualSense Edge &amp; Xbox Elite Curve Sheets</li>
+                <li>✓ 120 MPH Drive-By &amp; Free-Aim Presets</li>
+                <li>✓ Instant Download — No Subscription</li>
+              </ul>
+            </div>
+            <button
+              type="button"
+              onClick={() => openStripePlan("gta6-promo")}
+              className={styles.btnSecondary}
+              style={{ width: "100%", textAlign: "center", fontWeight: 700 }}
+            >
+              Get Launch Pack ($7.99)
+            </button>
+          </div>
+
+          {/* 2. VIP MONTHLY ($4.99/mo) */}
+          <div
+            style={{
+              background: "#0a0b10",
+              border: "2px solid var(--primary, #00ff9d)",
+              borderRadius: "14px",
+              padding: "1.5rem",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              gap: "1rem",
+              boxShadow: "0 8px 30px rgba(0, 255, 157, 0.08)",
+            }}
+          >
+            <div>
+              <div style={{ fontSize: "0.74rem", fontWeight: 800, color: "var(--primary, #00ff9d)", textTransform: "uppercase", marginBottom: "0.35rem" }}>
+                💎 Most Popular — Leonida VIP
+              </div>
+              <h3 style={{ margin: "0 0 0.4rem", fontSize: "1.15rem", fontWeight: 800, color: "#fff" }}>
+                Pro + Syndicate VIP Pass
+              </h3>
+              <div style={{ display: "flex", alignItems: "baseline", gap: "0.35rem", marginBottom: "0.9rem" }}>
+                <span style={{ fontSize: "2rem", fontWeight: 900, color: "#fff" }}>$4.99</span>
+                <span style={{ fontSize: "0.85rem", color: "var(--text-secondary)" }}>/ month</span>
+              </div>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.55rem", fontSize: "0.84rem", color: "#fff" }}>
+                <li>✓ Full GTA VI Syndicate &amp; Crew LFG Hub</li>
+                <li>✓ Weekly GTA VI Meta &amp; Patch Updates</li>
+                <li>✓ Full Aim Lab 3D + Cloud Config Sync</li>
+                <li>✓ Cancel Anytime — Multi-Game Channels</li>
+              </ul>
+            </div>
+            <button
+              type="button"
+              onClick={() => openStripePlan("gta6-vip-monthly")}
+              className={styles.btnPrimary}
+              style={{ width: "100%", textAlign: "center" }}
+            >
+              Unlock VIP Pass ($4.99/mo)
+            </button>
+          </div>
+
+          {/* 3. LIFETIME ALL-IN ($39.99) */}
+          <div
+            style={{
+              background: "#0a0b10",
+              border: "1px solid rgba(112, 0, 255, 0.45)",
+              borderRadius: "14px",
+              padding: "1.5rem",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-between",
+              gap: "1rem",
+            }}
+          >
+            <div>
+              <div style={{ fontSize: "0.74rem", fontWeight: 800, color: "#c084fc", textTransform: "uppercase", marginBottom: "0.35rem" }}>
+                👑 Best Value — Zero Monthly Fees
+              </div>
+              <h3 style={{ margin: "0 0 0.4rem", fontSize: "1.15rem", fontWeight: 800, color: "#fff" }}>
+                Founder Lifetime + 18 eBooks
+              </h3>
+              <div style={{ display: "flex", alignItems: "baseline", gap: "0.5rem", marginBottom: "0.9rem" }}>
+                <span style={{ fontSize: "2rem", fontWeight: 900, color: "#c084fc" }}>$39.99</span>
+                <span style={{ fontSize: "0.85rem", color: "#64748b", textDecoration: "line-through" }}>$129.00</span>
+                <span style={{ fontSize: "0.78rem", color: "var(--text-secondary)" }}>lifetime</span>
+              </div>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.55rem", fontSize: "0.84rem", color: "#cbd5e1" }}>
+                <li>✓ Permanent Founder VIP Community Access</li>
+                <li>✓ All 18 Esports Technical Field Guides PDF</li>
+                <li>✓ All Future GTA VI Online &amp; PC Tools</li>
+                <li>✓ Gold Founder Badge — Pay Once Forever</li>
+              </ul>
+            </div>
+            <button
+              type="button"
+              onClick={() => openStripePlan("master-omnibus-18vol")}
+              className={styles.btnSecondary}
+              style={{ width: "100%", textAlign: "center", borderColor: "rgba(192, 132, 252, 0.5)", color: "#e9d5ff", fontWeight: 700 }}
+            >
+              Claim Lifetime + 18 Vols ($39.99)
+            </button>
+          </div>
+        </div>
+
+        {/* SELF-SERVE FEATURED PARTNER / SPONSOR BANNER */}
+        <div
+          style={{
+            marginTop: "1.5rem",
+            padding: "1rem 1.25rem",
+            borderRadius: "12px",
+            background: "rgba(255, 255, 255, 0.03)",
+            border: "1px dashed rgba(255, 255, 255, 0.2)",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            flexWrap: "wrap",
+            gap: "1rem",
+          }}
+        >
+          <div>
+            <strong style={{ color: "#fff", fontSize: "0.95rem" }}>
+              📢 Sponsor the GTA VI Command Center (Discord Crews, Brands &amp; Streamers)
+            </strong>
+            <div style={{ fontSize: "0.82rem", color: "var(--text-secondary)", marginTop: "0.2rem" }}>
+              Reserve a 7-day Featured Partner placement across our GTA VI &amp; Hardware diagnostic suite with instant Stripe booking.
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => openStripePlan("sponsor-weekly")}
+            className={styles.btnSecondary}
+            style={{ fontSize: "0.85rem", fontWeight: 700 }}
+          >
+            ⚡ Book 7-Day Slot ($49)
+          </button>
+        </div>
+      </div>
+
+      <StripeCheckoutModal
+        isOpen={checkoutOpen}
+        onClose={() => setCheckoutOpen(false)}
+        plan={checkoutPlan}
+      />
     </div>
   );
 }

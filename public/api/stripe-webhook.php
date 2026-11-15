@@ -91,7 +91,11 @@ try {
  */
 function plan_grants_access(string $plan): bool
 {
-    return in_array($plan, ['monthly', 'annual', 'lifetime'], true);
+    return in_array($plan, [
+        'monthly', 'annual', 'lifetime',
+        'gta6-vip-monthly', 'winback-50', 'winback-lifetime',
+        'master-omnibus-18vol', 'master-bundle', 'ebook-bundle'
+    ], true);
 }
 
 try {
@@ -116,13 +120,37 @@ try {
                 break;
             }
 
+            // Viral Video Studio credit packs (25 or 100 watermark-free HD exports)
+            if ($plan === 'creator-100' || $plan === 'creator-25') {
+                $credits = $plan === 'creator-100' ? 100 : 25;
+                firestore_update_user($firebaseProjectId, $accessToken, $userId, [
+                    'videoCreditsPack' => $plan,
+                    'videoCreditsGranted' => $credits,
+                    'videoCreditsPurchasedAt' => gmdate('c'),
+                ]);
+                break;
+            }
+
+            // GTA VI Day-One Promo unlocks GTA VI Pro Pack flag on user record
+            if ($plan === 'gta6-promo') {
+                firestore_update_user($firebaseProjectId, $accessToken, $userId, [
+                    'gta6ProPack' => true,
+                    'gta6PromoPurchasedAt' => gmdate('c'),
+                ]);
+                break;
+            }
+
             if (!plan_grants_access($plan)) {
                 break; // e.g. the ebook purchase — not a premium plan, nothing to grant
             }
 
+            $normalizedPlan = in_array($plan, ['lifetime', 'winback-lifetime', 'master-omnibus-18vol', 'master-bundle', 'ebook-bundle'], true)
+                ? 'lifetime'
+                : $plan;
+
             $fields = [
                 'subscriptionStatus' => 'active',
-                'subscriptionPlan' => $plan,
+                'subscriptionPlan' => $normalizedPlan,
                 'stripeCustomerId' => $session['customer'] ?? '',
                 'stripeSubscriptionId' => $session['subscription'] ?? '',
             ];
