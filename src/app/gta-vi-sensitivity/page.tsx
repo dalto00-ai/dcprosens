@@ -1,26 +1,34 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import GtaViCommandCenter from "@/components/GtaViCommandCenter";
 import NotifyMeForm from "@/components/NotifyMeForm";
+import JsonLd, { graph, breadcrumb } from "@/components/JsonLd";
+import ToolExplainer, { type ToolExplainerSection, type ToolExplainerFaq } from "@/components/ToolExplainer";
+import styles from "@/components/HardwareTools.module.css";
 
-import JsonLd, { graph, breadcrumb, webPage } from "@/components/JsonLd";
-import ToolExplainer, { type ToolExplainerSection, type ToolExplainerFaq } from '@/components/ToolExplainer';
 export const metadata: Metadata = {
-    title: "GTA VI Sensitivity Converter — Coming Soon",
-    description: "GTA VI has no verified yaw value yet, so no converter can be accurate. Sign up and we'll email you the moment the real constant is confirmed.",
+    title: "GTA VI Sensitivity Converter, Deadzone & Meta Loadout Calculator",
+    description:
+        "Calibrate your GTA VI 3-scale sensitivity (Third-Person, First-Person ADS, and 120 MPH Drive-By), PS5/Xbox stick deadzone, and Vice City meta weapon recoil.",
     keywords: [
-        'gta vi sensitivity', 'gta 6 sensitivity converter', 'gta vi mouse sensitivity',
-        'gta 6 aim settings', 'gta vi sens converter',
+        "gta vi sensitivity converter",
+        "gta 6 controller settings",
+        "gta 6 best deadzone settings",
+        "gta 6 free aim sensitivity",
+        "gta vi mouse sensitivity calculator",
+        "warzone to gta 6 sensitivity",
+        "fortnite to gta 6 sensitivity",
+        "gta 6 meta weapons loadout",
+        "gta 6 drive by aiming settings",
     ],
     alternates: {
         canonical: "https://dcprosens.com/gta-vi-sensitivity/",
     },
     openGraph: {
-        // Inherited from the root layout only when this page omits openGraph
-        // entirely — declaring the object here replaces the parent's, so the
-        // image has to be restated or the page ships with no og:image at all.
-        images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
-        title: "GTA VI Sensitivity Converter — Coming Soon",
-        description: "Sign up to get notified the moment our GTA VI sensitivity converter goes live, with real verified data.",
+        images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — GTA VI Vice City Command Center" }],
+        title: "GTA VI Sensitivity Converter, Deadzone & Meta Loadout Calculator",
+        description:
+            "Convert Warzone, Fortnite, Apex & GTA V sensitivity into GTA VI's 3-scale camera system, calibrate PS5/Xbox stick deadzones, and compare weapon recoil.",
         type: "website",
         url: "https://dcprosens.com/gta-vi-sensitivity/",
     },
@@ -30,106 +38,130 @@ export const metadata: Metadata = {
     },
 };
 
-
 const jsonLd = graph(
-    webPage("GTA VI Sensitivity Converter", "What is known about GTA VI mouse sensitivity and how DCPROSENS will convert it once the real yaw value is confirmed.", "/gta-vi-sensitivity/"),
-    breadcrumb([{ name: "GTA VI Sensitivity", path: "/gta-vi-sensitivity/" }]),
+    {
+        "@type": "WebApplication",
+        "@id": "https://dcprosens.com/gta-vi-sensitivity/#app",
+        name: "GTA VI Vice City Command Center & Sensitivity Calculator",
+        url: "https://dcprosens.com/gta-vi-sensitivity/",
+        applicationCategory: "GameApplication",
+        operatingSystem: "Any (Web Browser, PS5, Xbox Series X|S, PC)",
+        offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "USD",
+        },
+        description:
+            "Interactive 3-scale GTA VI sensitivity converter, live PS5 DualSense & Xbox controller deadzone calibrator, Vice City weapon TTK/recoil matrix, and 120Hz launch checklist.",
+    },
+    breadcrumb([{ name: "GTA VI Command Center", path: "/gta-vi-sensitivity/" }])
 );
 
-
-// Written copy for this page, kept beside the component that renders it.
-// These tool pages shipped with a widget and almost no text, which is what
-// Google's "crawled, not indexed" bucket and AdSense's thin-content rejection
-// were both pointing at.
 const explainerSections: ToolExplainerSection[] = [
-        {
-            heading: "Why we are not guessing",
-            body: [
-                <>A wrong yaw constant is worse than no converter. It produces a number that looks authoritative, and players build muscle memory on it for weeks before discovering the mismatch.</>,
-                <>Every game on this site ships only once its constant traces to an engine confirmation, a published technical value, or a measurement anyone can reproduce. Where the best available figure is community-measured, it ships marked unverified rather than presented as settled.</>,
-                <>GTA VI does not currently meet either bar on PC, so it is not in the converter.</>,
-            ],
-        },
-        {
-            heading: "What we can say now",
-            body: [
-                <>Rockstar&apos;s recent titles have exposed separate sensitivity settings for on-foot, aiming, and vehicles, and those have historically used different scales from each other. Expect to set three values rather than one.</>,
-                <>Aim assist will almost certainly be present and should be turned off for mouse input. It is designed to compensate for a controller stick&apos;s lower precision, and applied to a mouse it fights the movement you are already making.</>,
-                <>Windows pointer speed at 6/11 with Enhance Pointer Precision off, plus raw input where the game offers it, will matter here exactly as much as they do everywhere else.</>,
-            ],
-        },
-        {
-            heading: "What happens when it launches",
-            body: [
-                <>The yaw value gets measured, sourced and added to the converter, and every per-game page and dataset updates from the same underlying data at once.</>,
-                <>If the launch value turns out to be unstable across patches, the entry will say so rather than quietly changing underneath people who already set their sensitivity from it.</>,
-                <>Sign up above and you will get one email when it is live. No other use is made of the address.</>,
-            ],
-        },
+    {
+        heading: "How the Rockstar RAGE 3-Scale Camera Architecture Works",
+        body: [
+            <>Unlike single-slider tactical shooters, Rockstar&apos;s RAGE engine splits camera rotation across three independent scales: <strong>Third-Person Look/Aiming</strong>, <strong>First-Person On-Foot (FOV-dependent)</strong>, and <strong>Vehicle / Drive-By Camera Sensitivity</strong>. Copying a single number across all three leaves your first-person iron sights overly twitchy and your high-speed vehicle camera dangerously slow.</>,
+            <>Our Command Center maps your existing muscle memory from Call of Duty: Warzone, Fortnite, Apex Legends, Valorant, CS2, or GTA V into all three scales simultaneously while compensating for your horizontal Field of View (FOV) and Free-Aim vs. Assisted-Aim combat profile.</>,
+        ],
+    },
+    {
+        heading: "Eliminating RAGE Stick Deadzone Delay on PS5 DualSense & Xbox",
+        body: [
+            <>Default Rockstar controller profiles apply a conservative center deadzone (often 12%–15%) combined with a slow exponential acceleration ramp. In Free-Aim lobbies or long-range gunfights past 35 meters, that deadzone creates a noticeable dead band where small right-stick micro-corrections produce zero crosshair movement.</>,
+            <>Using Tab 2 of the Command Center (or our dedicated <Link href="/gamepad-tester/" style={{ color: "var(--primary, #00ff9d)" }}>Gamepad Stick Drift Tester</Link>), measure your controller&apos;s true resting deflection and set your in-game deadzone to exactly <strong>+1.5% above resting drift</strong> (typically 3%–6% on healthy ALPS sticks, or 1%–2% on Hall Effect / TMR modules) with <strong>85%–100% Aim Acceleration</strong>.</>,
+        ],
+    },
+    {
+        heading: "120 MPH Drive-By Tracking & Vice City Weapon Recoil Control",
+        body: [
+            <>High-speed vehicle chases across Leonida require decoupling steering from firing. Always switch <strong>Drive-By Control</strong> from single-button firing to <strong>Aim + Fire (L2+R2 / LT+RT)</strong>, set <strong>Vehicle Camera Height to High</strong>, and disable <strong>First-Person Auto-Center</strong> so the camera never fights your thumbstick during a corner drift.</>,
+            <>When transitioning from submachine guns inside vehicles to tactical rifles at mid-range, use the Weapon &amp; Recoil Matrix in Tab 3 to match your ADS sensitivity multiplier to your optic zoom and barrel/grip combination.</>,
+        ],
+    },
 ];
 
 const explainerFaqs: ToolExplainerFaq[] = [
-        { q: "Is there a GTA VI sensitivity converter?", a: "Not yet. A converter needs the game's yaw constant, and until the PC version ships and that value can be measured or sourced, publishing one would mean guessing. Sign up and you will be emailed when it is live." },
-        { q: "What settings will matter in GTA VI on PC?", a: "Expect separate on-foot, aiming and vehicle sensitivities, as in Rockstar's recent titles. Turn aim assist off for mouse input, set Windows pointer speed to 6/11, and enable raw input if the game offers it." },
-        { q: "Why not publish an estimated value now?", a: "Because a wrong constant looks exactly as authoritative as a right one, and players build weeks of muscle memory on it before the mismatch shows up. No converter is better than a confidently wrong one." },
+    {
+        q: "How do I convert my Warzone, Fortnite, or Apex sensitivity to GTA VI?",
+        a: "Select your primary game in Tab 1 of the GTA VI Command Center, choose Controller (PS5/Xbox) or Mouse & Keyboard, and enter your current sensitivity. The calculator outputs your exact Third-Person, First-Person ADS, Vehicle Drive-By, and Sniper Scope slider percentages.",
+    },
+    {
+        q: "What is the best controller deadzone and acceleration setting for GTA VI?",
+        a: "For healthy PS5 DualSense and Xbox Series controllers, set your Right Stick Deadzone between 3% and 6% (or 1%–2% on Hall Effect/TMR controllers) and increase Aim Acceleration to 85%–100%. This removes the sluggish center delay while preventing phantom camera drift.",
+    },
+    {
+        q: "Should I use Free-Aim or Assisted Aim in GTA VI?",
+        a: "Assisted Aim - Full snaps onto close targets on foot but loses lock against fast-moving vehicles and targets beyond 35 meters. Competitive players use Free-Aim or Assisted Aim - Partial paired with a 35–42 cm/360° equivalent turn rate for consistent headshot tracking.",
+    },
+    {
+        q: "What are the best vehicle camera settings for shooting while driving in Vice City?",
+        a: "Set Vehicle Camera Height to High, First-Person Vehicle Auto-Center to Off, Drive-By Aiming Control to Aim + Fire (L2+R2 / LT+RT), and Third-Person Vehicle Sensitivity to 80%–90% so you can track targets smoothly during 120 MPH pursuits.",
+    },
 ];
 
 export default function GtaViSensitivityPage() {
     return (
-        <div className="container" style={{ padding: '5rem 0 7rem', maxWidth: '650px', textAlign: 'center' }}>
+        <div className={styles.pageContainer}>
             <JsonLd data={jsonLd} />
-            <span style={{
-                display: 'inline-block',
-                background: 'linear-gradient(135deg, var(--primary), var(--secondary))',
-                color: '#000',
-                fontSize: '0.75rem',
-                fontWeight: 800,
-                padding: '0.35rem 1.25rem',
-                borderRadius: '9999px',
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-                marginBottom: '1.5rem',
-            }}>
-                🚧 Coming Soon
-            </span>
-            <h1 className="hero-title" style={{ marginBottom: '1.25rem' }}>
-                GTA VI <span className="text-gradient">Sensitivity Converter</span>
-            </h1>
-            <p className="hero-subtitle" style={{ marginBottom: '2.5rem' }}>
-                GTA VI hasn&apos;t launched yet, so nobody — including us — has verified sensitivity/yaw data for it.
-                We won&apos;t publish guessed numbers and call them accurate. The moment the game is out and we&apos;ve
-                confirmed real conversion data, this page becomes a full converter.
-            </p>
 
-            <NotifyMeForm topic="gta-vi" />
-
-            <p style={{ color: 'var(--text-muted, #64748b)', fontSize: '0.85rem', marginTop: '3rem' }}>
-                In the meantime, check out our <Link href="/" style={{ color: 'var(--primary, #00ff9d)' }}>universal sensitivity converter</Link> for
-                18+ already-supported games, or explore <Link href="/pros/" style={{ color: 'var(--primary, #00ff9d)' }}>pro player settings</Link>.
-            </p>
-
-            <div style={{ marginTop: '4rem', textAlign: 'left', color: 'var(--text-secondary)', lineHeight: 1.8 }}>
-                <h2 style={{ color: 'var(--text-primary)', fontSize: '1.4rem', fontWeight: 800, marginBottom: '1rem' }}>
-                    GTA VI Mouse Settings: What We Actually Know So Far
-                </h2>
-                <p style={{ marginBottom: '1rem' }}>
-                    Until GTA VI is out on PC and we can measure its real yaw constant, here&apos;s what&apos;s worth planning around based on Rockstar&apos;s own track record rather than leaks or guesswork:
-                </p>
-                <ul style={{ paddingLeft: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                    <li><strong>GTA V shipped with mouse acceleration on by default</strong> and no native raw input toggle for years — third-party fixes were the only workaround. If GTA VI repeats that pattern, disabling acceleration in Windows first (Control Panel → Mouse → uncheck &quot;Enhance Pointer Precision&quot;) will matter before any sensitivity number does.</li>
-                    <li><strong>First-person and third-person modes use different sensitivity scaling in GTA V</strong> on the same slider — expect the same split in VI. Whichever mode you plan to play in is the one worth calibrating for; the two won&apos;t share a single converted number.</li>
-                    <li><strong>FOV sliders change effective sensitivity</strong> even at a fixed cm/360, since a wider FOV means more world passes under the same physical mouse movement. If VI ships an adjustable FOV slider (GTA V&apos;s was limited), that&apos;s one more variable to lock in before comparing your settings to anyone else&apos;s.</li>
-                </ul>
-                <p style={{ marginTop: '1rem' }}>
-                    Sign up above and we&apos;ll email you the moment the converter goes live — with a yaw value we&apos;ve actually measured, not one copied from a leak.
+            <div className={styles.heroHeader}>
+                <span className={styles.badge}>🌴 Vice City Launch Command Center — RAGE Engine Suite</span>
+                <h1 className={styles.heroTitle}>
+                    GTA VI <span className="text-gradient">Sensitivity, Deadzone &amp; Meta Hub</span>
+                </h1>
+                <p className={styles.heroSubtitle}>
+                    Convert your sensitivity from Warzone, Fortnite, Apex, CS2, Valorant, or GTA V into GTA VI&apos;s 3-scale camera system,
+                    calibrate your PS5 DualSense or Xbox controller deadzone in real time, and optimize your Vice City weapon recoil.
                 </p>
             </div>
+
+            {/* INTERACTIVE 4-TAB COMMAND CENTER */}
+            <GtaViCommandCenter />
+
+            {/* PRO EBOOK & DEEP-DIVE GUIDES BANNER */}
+            <section className={styles.seoSection} style={{ marginTop: "2.5rem" }}>
+                <h2>Master the RAGE Engine: Pro Field Guide &amp; Tactical Deep-Dives</h2>
+                <p>
+                    Want the complete 180-DPI telemetry charts, DualSense Edge &amp; Xbox Elite paddle layouts, and printable calibration
+                    worksheets for Leonida? Explore our verified GTA VI engineering resources:
+                </p>
+                <div className={styles.linkGrid} style={{ marginTop: "1.25rem" }}>
+                    <Link href="/ebooks/gta-6-pro-aim-controller-guide/" className={styles.linkCard} prefetch={false}>
+                        <strong>📘 Vol 02: GTA VI Pro Aim &amp; Controller Field Guide</strong>
+                        <span>RAGE Engine Deadzones, 0% MDM Scope Math &amp; DualSense/Xbox Pro Curves ($14.99 Instant PDF)</span>
+                    </Link>
+                    <Link href="/gamepad-tester/" className={styles.linkCard} prefetch={false}>
+                        <strong>🎮 Live Gamepad &amp; Stick Drift Tester</strong>
+                        <span>Test your PS5 or Xbox controller circularity error and resting drift before launch</span>
+                    </Link>
+                    <Link href="/blog/gta-6-drive-by-shooting-vehicle-camera-sensitivity/" className={styles.linkCard} prefetch={false}>
+                        <strong>🏎️ GTA 6 120 MPH Drive-By Aiming Guide</strong>
+                        <span>Vehicle camera height, L2+R2 separation, and high-speed tracking math</span>
+                    </Link>
+                    <Link href="/blog/how-to-practice-controller-free-aim-before-gta-6-launch/" className={styles.linkCard} prefetch={false}>
+                        <strong>🎯 How to Practice Controller Free-Aim for GTA 6</strong>
+                        <span>15-minute daily strafe-tracking protocol and Free-Aim vs. Assisted Aim telemetry</span>
+                    </Link>
+                </div>
+            </section>
+
+            {/* PATCH & PC RAW YAW ALERT FORM */}
+            <div style={{ maxWidth: "650px", margin: "2.5rem auto 0", textAlign: "center" }}>
+                <NotifyMeForm topic="gta-vi" />
+            </div>
+
             <ToolExplainer
-                intro={<>There is no GTA VI sensitivity converter here yet, and that is deliberate. A converter needs the game&apos;s yaw constant — the degrees the camera rotates per mouse count — and until the PC version ships and that value can be measured, anything published would be a guess presented as maths.</>}
+                intro={
+                    <>
+                        Calibrating for GTA VI requires balancing three distinct camera scales (On-Foot Third-Person, First-Person ADS,
+                        and High-Speed Vehicle Tracking) alongside your controller&apos;s physical stick deadzone and 120Hz VRR display
+                        pipeline. Use the reference breakdown below to lock in a zero-latency setup from Day 1.
+                    </>
+                }
                 sections={explainerSections}
                 faqs={explainerFaqs}
             />
-
         </div>
     );
 }

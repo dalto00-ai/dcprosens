@@ -109,6 +109,9 @@ export default function Navbar() {
                             <Link href="/stretched-resolution/" className={`${styles.dropdownItem} ${(pathname === '/stretched-resolution' || pathname === '/stretched-resolution/') ? styles.activeItem : ''}`} prefetch={false}>
                                 📺 Stretched Resolution Calc
                             </Link>
+                            <Link href="/gta-vi-sensitivity/" className={`${styles.dropdownItem} ${(pathname === '/gta-vi-sensitivity' || pathname === '/gta-vi-sensitivity/') ? styles.activeItem : ''}`} prefetch={false}>
+                                🌴 GTA VI Command Center
+                            </Link>
                         </div>
                     </div>
 
@@ -338,6 +341,9 @@ export default function Navbar() {
                     </Link>
                     <Link href="/stretched-resolution/" className={`${styles.drawerLink} ${(pathname === '/stretched-resolution' || pathname === '/stretched-resolution/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         🖥️ Stretched Resolution
+                    </Link>
+                    <Link href="/gta-vi-sensitivity/" className={`${styles.drawerLink} ${(pathname === '/gta-vi-sensitivity' || pathname === '/gta-vi-sensitivity/') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        🌴 GTA VI Command Center (HOT)
                     </Link>
 
                     <div className={styles.drawerCategory}>👤 Pro Settings</div>

@@ -14,6 +14,7 @@ const toolCategories = [
         title: "🎯 Aim & Sensitivity",
         tools: [
             { icon: "🔄", name: "1:1 Sensitivity Converter", desc: "Convert across dozens of game engines with precise cm/360 matching.", href: "/", tag: "MOST POPULAR" },
+            { icon: "🌴", name: "GTA VI Command Center", desc: "3-scale RAGE sensitivity converter, PS5/Xbox stick deadzone lab, and Vice City meta weapons.", href: "/gta-vi-sensitivity/", tag: "LAUNCH READY" },
             { icon: "⚡", name: "Valorant to CS2 Converter", desc: "Locked-in converter, conversion table, and formula for the site's most-requested pair.", href: "/convert/valorant-to-cs2/", tag: "TOP CONVERSION" },
             { icon: "📐", name: "PSA Method Calculator", desc: "Find your scientifically perfect sensitivity using neuromuscular testing.", href: "/psa-calculator/", tag: "EXCLUSIVE" },
             { icon: "🔭", name: "Scopes & ADS 1:1", desc: "Match hip-fire and ADS sensitivity at every zoom level.", href: "/ads/", tag: "" },
