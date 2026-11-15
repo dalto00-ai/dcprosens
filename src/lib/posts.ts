@@ -60,6 +60,14 @@ import { postsChunk58 } from './posts-data/chunk-58';
 import { postsChunk59 } from './posts-data/chunk-59';
 import { postsChunk60 } from './posts-data/chunk-60';
 import { postsChunk61 } from './posts-data/chunk-61';
+import { postsChunk62 } from './posts-data/chunk-62';
+import { postsChunk63 } from './posts-data/chunk-63';
+import { postsChunk64 } from './posts-data/chunk-64';
+import { postsChunk65 } from './posts-data/chunk-65';
+import { postsChunk66 } from './posts-data/chunk-66';
+import { postsChunk67 } from './posts-data/chunk-67';
+import { postsChunk68 } from './posts-data/chunk-68';
+import { postsChunk69 } from './posts-data/chunk-69';
 
 export type { BlogPost };
 
@@ -127,4 +135,12 @@ export const posts: BlogPost[] = [
   ...postsChunk59,
   ...postsChunk60,
   ...postsChunk61,
+  ...postsChunk62,
+  ...postsChunk63,
+  ...postsChunk64,
+  ...postsChunk65,
+  ...postsChunk66,
+  ...postsChunk67,
+  ...postsChunk68,
+  ...postsChunk69,
 ];

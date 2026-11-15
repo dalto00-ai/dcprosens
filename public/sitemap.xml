@@ -50,13 +50,31 @@
   </url>
   <url>
     <loc>https://dcprosens.com/blog/</loc>
-    <lastmod>2026-10-19</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://dcprosens.com/blog/0-percent-vs-75-vs-100-monitor-distance-match-mdm-zoom-guide/</loc>
     <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/0-vs-100-monitor-distance-match-ads-sensitivity-math/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/1000hz-vs-4000hz-vs-8000hz-polling-rate-test/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/15-minute-daily-aim-training-routine-valorant-cs2/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -97,8 +115,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/240hz-vs-360hz-vs-480hz-oled-vs-540hz-tn-fps/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/4-3-stretched-resolution-m-yaw-0-0165-myth-cs2/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/400-dpi-vs-800-dpi-fps-games/</loc>
     <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/400-vs-800-vs-1600-dpi-input-latency-comparison/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -205,6 +241,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/apex-legends-pro-mouse-sensitivity-edpi-2027/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/apex-legends-ranked-tier-list-2026-meta/</loc>
     <lastmod>2026-04-19</lastmod>
     <changefreq>monthly</changefreq>
@@ -235,6 +277,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/apex-legends-to-valorant-sensitivity-2027/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/apex-loba-rampart-buffs-guide/</loc>
     <lastmod>2026-03-07</lastmod>
     <changefreq>monthly</changefreq>
@@ -243,6 +291,12 @@
   <url>
     <loc>https://dcprosens.com/blog/arc-raiders-live-update-142-settings-guide/</loc>
     <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/arc-raiders-mouse-sensitivity-guide/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -289,6 +343,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/aspas-valorant-settings-sensitivity-crosshair-2027/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/asus-rog-oled-esports-monitor-guide/</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -303,6 +363,12 @@
   <url>
     <loc>https://dcprosens.com/blog/battlefield-2042-sensitivity-converter-guide/</loc>
     <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/battlefield-6-sensitivity-converter-guide/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -355,8 +421,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/best-crosshair-color-visibility-science-fps/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/best-cs2-crosshair-settings-pro-codes-2026/</loc>
     <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/best-cs2-pro-crosshair-codes-console-commands-2027/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -421,6 +499,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/best-iems-vs-headsets-pro-players-use-2027/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/best-keyboard-keybinds-fps-games-2026/</loc>
     <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
@@ -451,14 +535,32 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/best-mousepads-for-valorant-and-cs2-friction-chart/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/best-polling-rate-for-gaming-budget-8k-mice/</loc>
     <lastmod>2026-01-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/best-rapid-trigger-settings-valorant-cs2-2027/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/best-refresh-rate-fps-gaming-guide/</loc>
     <lastmod>2026-02-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/best-ultralight-gaming-mice-under-50g-2027/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -471,6 +573,18 @@
   <url>
     <loc>https://dcprosens.com/blog/best-valorant-crosshair-settings-2026/</loc>
     <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/best-valorant-pro-crosshair-codes-2027/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/best-valorant-sensitivity-by-agent-role-duelist-sentinel/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -493,6 +607,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/black-ops-6-warzone-sensitivity-converter/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/blood-strike-sensitivity-converter-guide/</loc>
     <lastmod>2026-02-13</lastmod>
     <changefreq>monthly</changefreq>
@@ -511,6 +631,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/browser-sandbox-sensitivity-converter-privacy/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/bugha-and-peterbot-fortnite-chapter-7-pro-settings-edit-and-build/</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
@@ -525,6 +651,12 @@
   <url>
     <loc>https://dcprosens.com/blog/check-monitor-active-refresh-rate/</loc>
     <lastmod>2026-04-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/circadian-rhythm-fatigue-reaction-time-fps/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -620,6 +752,12 @@
   </url>
   <url>
     <loc>https://dcprosens.com/blog/controller-stick-drift-calibration-fix-2026/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/convert-aimlabs-kovaaks-sensitivity-to-valorant-cs2/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -871,6 +1009,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/counter-strafing-movement-aim-sync-cs2-valorant/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/cps-click-speed-test-jitter-butterfly-drag-guide/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/cpu-bottleneck-fps-games-x3d-cache-frame-pacing/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/crossfire-sensitivity-converter-guide/</loc>
     <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
@@ -925,8 +1081,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/cs2-best-competitive-settings-pro-config-2027/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/cs2-bind-generator-guide/</loc>
     <lastmod>2026-02-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/cs2-essential-binds-autoexec-cfg-generator-2027/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -957,6 +1125,12 @@
   <url>
     <loc>https://dcprosens.com/blog/cs2-pro-autoexec-cfg-2026-sub-tick-radar-and-network-guide/</loc>
     <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/cs2-pro-edpi-average-riflers-vs-awpers-2027/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1003,6 +1177,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/cs2-to-deadlock-sensitivity-guide/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/cs2-to-valorant-sensitivity-converter-guide/</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
@@ -1017,6 +1197,12 @@
   <url>
     <loc>https://dcprosens.com/blog/cs2-vs-valorant-settings-comparison-guide/</loc>
     <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/cs2-zoom-sensitivity-ratio-0-818933-explained/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1063,8 +1249,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/deadlock-best-pc-settings-fps-crosshair-guide-2027/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/deadlock-celeste-nerf-settings-guide/</loc>
     <lastmod>2026-03-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/deadlock-pro-settings-sensitivity-crosshairs-2027/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1111,14 +1309,32 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/delta-force-hawk-ops-sensitivity-converter/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/delta-force-sensitivity-converter-guide/</loc>
     <lastmod>2026-02-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/demon1-160-edpi-low-sensitivity-analysis/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/demon1-low-sensitivity-valorant-biomechanics-160-edpi-wrist-pivot/</loc>
     <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/desk-height-elbow-angle-aim-ergonomics/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1141,8 +1357,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/donk-vs-m0nesy-vs-zywoo-cs2-settings-comparison/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/donk-zowie-mouse-2026-status-guide/</loc>
     <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/dot-crosshair-vs-cross-reticle-headshot-accuracy/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1207,8 +1435,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/escape-from-tarkov-sensitivity-converter-armor-math/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/esports-oled-360hz-vs-540hz-motion-clarity-guide/</loc>
     <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/eye-tracking-focus-target-vs-crosshair-fps/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1255,6 +1495,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/fix-8000hz-polling-rate-fps-drops-stuttering/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/fix-mouse-input-lag-dpc-latency-windows-11-fps/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/fix-overshooting-and-undershooting-aim-guide/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/fncs-global-championship-antwerp-date-guide/</loc>
     <lastmod>2026-03-14</lastmod>
     <changefreq>monthly</changefreq>
@@ -1291,6 +1549,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/fortnite-pro-sensitivity-edpi-building-editing-2027/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/fortnite-ranks-explained-2026/</loc>
     <lastmod>2026-01-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -1309,8 +1573,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/fortnite-to-valorant-sensitivity-converter/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/fov-converter-horizontal-vs-vertical-aspect-ratio-math/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/fragpunk-blitz-ballet-mode-settings-guide/</loc>
     <lastmod>2026-03-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/fragpunk-sensitivity-converter-settings/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1363,6 +1645,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/gaming-arm-sleeve-friction-test-glass-cloth-pads/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/gaming-ergonomics-setup-guide-aim-posture/</loc>
     <lastmod>2026-04-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -1383,6 +1671,12 @@
   <url>
     <loc>https://dcprosens.com/blog/glass-mousepad-vs-cloth-2026/</loc>
     <lastmod>2026-01-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/glass-mousepad-vs-cloth-pad-sensitivity-adjustment/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1507,6 +1801,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/gta-6-mouse-sensitivity-converter-guide/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/gta-6-online-pvp-and-rp-competitive-aim-settings/</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -1597,6 +1897,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/high-sensitivity-pro-players-under-25-cm-360/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/horizontal-vs-vertical-mouse-sensitivity-ratio/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/how-often-change-sensitivity-guide/</loc>
     <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
@@ -1651,6 +1963,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/how-to-measure-hand-size-for-gaming-mouse-60-percent-rule/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/how-to-measure-mouse-dpi-deviation-with-10cm-ruler-analyzer/</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
@@ -1677,6 +1995,12 @@
   <url>
     <loc>https://dcprosens.com/blog/how-to-use-sensitivity-converter/</loc>
     <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/humidity-mousepad-mud-spot-aim-consistency/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1759,6 +2083,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/lan-tournament-mouse-dpi-sensitivity-setup-checklist/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/logitech-g-pro-x-superlight-2-and-dex-8000hz-calibration-guide/</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
@@ -1801,6 +2131,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/marvel-rivals-best-pc-settings-fps-mouse-guide/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/marvel-rivals-crosshair-settings-guide/</loc>
     <lastmod>2026-01-27</lastmod>
     <changefreq>monthly</changefreq>
@@ -1815,6 +2151,12 @@
   <url>
     <loc>https://dcprosens.com/blog/marvel-rivals-peni-parker-rework-guide/</loc>
     <lastmod>2026-03-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/marvel-rivals-pro-sensitivity-crosshair-settings-2027/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1837,7 +2179,19 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/master-yaw-constant-cm-360-table-all-fps-games-2027/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/mechanical-keyboard-switch-guide-blue-red-brown/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/minecraft-java-mouse-sensitivity-converter/</loc>
     <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1861,6 +2215,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/most-used-esports-gaming-gear-statistics-2027/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/motion-sync-on-vs-off-input-lag-paw3950/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/mouse-acceleration-gaming-turn-off/</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
@@ -1869,6 +2235,12 @@
   <url>
     <loc>https://dcprosens.com/blog/mouse-dpi-deviation-analyzer-ruler-benchmark/</loc>
     <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/mouse-dpi-deviation-test-and-compensation-formula/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1887,6 +2259,18 @@
   <url>
     <loc>https://dcprosens.com/blog/mouse-grip-styles-explained-guide/</loc>
     <lastmod>2026-02-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/mouse-grip-styles-fingertip-claw-palm-edpi/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/mouse-lift-off-distance-lod-calibration-guide/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1933,6 +2317,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/mouse-tension-management-smooth-tracking-guide/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/mouse-weight-biomechanics-35g-ultralight-vs-55g-balanced-vs-65g-control/</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
@@ -1945,8 +2335,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/mouse-weight-vs-sensitivity-inertia-math/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/mousepad-humidity-temperature-glide-consistency-guide/</loc>
     <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/mousepad-size-calculator-by-cm-360-guide/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1959,6 +2361,12 @@
   <url>
     <loc>https://dcprosens.com/blog/mousepad-too-small-for-sensitivity/</loc>
     <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/muscle-memory-myth-changing-mouse-sensitivity/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1981,8 +2389,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/niko-cs2-sensitivity-settings-deagle-biomechanics/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/nvidia-reflex-boost-plus-gsync-vsync-blur-busters-zero-latency-guide/</loc>
     <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/nvidia-reflex-boost-vs-amd-anti-lag-2-aim-latency/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2011,6 +2431,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/optical-vs-mechanical-mouse-switches-click-latency/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/optical-vs-mechanical-mouse-switches-latency-guide/</loc>
     <lastmod>2026-10-18</lastmod>
     <changefreq>monthly</changefreq>
@@ -2031,6 +2457,12 @@
   <url>
     <loc>https://dcprosens.com/blog/overwatch-2-hitscan-projectile-zoom-calibration-guide/</loc>
     <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/overwatch-2-pro-edpi-hitscan-vs-flex-dps/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2065,6 +2497,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/overwatch-2-to-marvel-rivals-sensitivity/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/overwatch-dmon-tank-settings-guide/</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>monthly</changefreq>
@@ -2085,6 +2523,12 @@
   <url>
     <loc>https://dcprosens.com/blog/paw3395-vs-paw3399-sensor-comparison/</loc>
     <lastmod>2026-01-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/paw3950-vs-focus-pro-35k-vs-hero-2-sensor-guide/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2131,6 +2575,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/psa-method-calculator-scientific-guide/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/psa-method-more-games-guide/</loc>
     <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
@@ -2151,6 +2601,12 @@
   <url>
     <loc>https://dcprosens.com/blog/ptfe-mouse-skates-glass-guide-friction/</loc>
     <lastmod>2026-04-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/ptfe-vs-glass-mouse-skates-friction-dpi-deviation/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2215,6 +2671,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/rainbow-six-siege-sensitivity-converter-2027/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/rainbow-six-siege-sensitivity-converter/</loc>
     <lastmod>2026-04-13</lastmod>
     <changefreq>monthly</changefreq>
@@ -2241,6 +2703,12 @@
   <url>
     <loc>https://dcprosens.com/blog/rapid-trigger-too-sensitive/</loc>
     <lastmod>2026-04-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/raw-accel-mouse-acceleration-valorant-cs2-guide/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2305,8 +2773,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/roblox-fps-sensitivity-converter-valorant-cs2/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/rust-mouse-sensitivity-converter-recoil-guide/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/rust-power-trip-update-settings-guide/</loc>
     <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/s1mple-high-sensitivity-cs2-awp-analysis/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2331,6 +2817,12 @@
   <url>
     <loc>https://dcprosens.com/blog/sensitivity-converter-explained/</loc>
     <lastmod>2026-02-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/sensitivity-randomizer-aim-training-science/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2361,6 +2853,12 @@
   <url>
     <loc>https://dcprosens.com/blog/speed-vs-control-mousepad-which-is-better/</loc>
     <lastmod>2026-04-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/splitgate-2-sensitivity-converter-guide/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2407,8 +2905,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/strinova-mouse-sensitivity-converter/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/strinova-sensitivity-converter-guide/</loc>
     <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/superlight-2-vs-viper-v3-pro-vs-zowie-comparison/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2467,6 +2977,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/tenz-sensitivity-dpi-crosshair-mouse-breakdown/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/tenz-valorant-settings-breakdown-guide/</loc>
     <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
@@ -2479,6 +2995,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/the-finals-sensitivity-converter-guide/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/the-finals-sensitivity-settings-2026/</loc>
     <lastmod>2026-04-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -2487,6 +3009,12 @@
   <url>
     <loc>https://dcprosens.com/blog/the-math-behind-operator-awp-focal-matching/</loc>
     <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/three-pillars-of-fps-aim-click-timing-tracking-switching/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2505,6 +3033,18 @@
   <url>
     <loc>https://dcprosens.com/blog/tmr-vs-hall-effect-vs-alps-controller-thumbsticks-and-1000hz-overclock/</loc>
     <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/twitch-streamer-sensitivity-widget-setup-guide/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/ultra-low-sensitivity-guide-demon1-niko-ropz/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2529,6 +3069,12 @@
   <url>
     <loc>https://dcprosens.com/blog/valorant-abyss-act5-crosshair-guide/</loc>
     <lastmod>2026-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/valorant-best-competitive-settings-pro-config-2027/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2563,6 +3109,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/valorant-operator-zoom-sensitivity-0-847-math/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/valorant-pro-edpi-average-distribution-2027/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/valorant-radiant-edpi-golden-corridor-240-to-320-analysis/</loc>
     <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
@@ -2587,8 +3145,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/valorant-to-deadlock-sensitivity-converter/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/valorant-to-marvel-rivals-sensitivity/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/viewsonic-oled-esports-mode-fov-guide/</loc>
     <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/visual-reaction-time-fps-benchmarks-2027/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2689,6 +3265,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/why-copying-pro-sensitivity-fails-biomechanics/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/why-counter-strafe-rapid-trigger-fps-meta/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>monthly</changefreq>
@@ -2707,6 +3289,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://dcprosens.com/blog/windows-11-mouse-settings-for-gaming-6-11-raw-input/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://dcprosens.com/blog/windows-mouse-speed-raw-input/</loc>
     <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -2721,6 +3309,12 @@
   <url>
     <loc>https://dcprosens.com/blog/wired-vs-wireless-headset-latency/</loc>
     <lastmod>2026-01-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/wireless-mouse-dongle-distance-polling-stability/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2757,6 +3351,12 @@
   <url>
     <loc>https://dcprosens.com/blog/wrist-extension-vs-pronation-aim-strain-prevention-guide/</loc>
     <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dcprosens.com/blog/wrist-vs-arm-aiming-cm-360-biomechanics/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
