@@ -257,6 +257,46 @@ export default function DealsPage() {
                 </div>
             </div>
 
+            {/* Editorial Buyer's Guide (E-E-A-T & AdSense Compliance) */}
+            <section
+                style={{
+                    background: 'var(--bg-card, rgba(20, 24, 33, 0.7))',
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    borderRadius: '16px',
+                    padding: '2.25rem 2rem',
+                    marginBottom: '2.5rem',
+                    lineHeight: 1.7,
+                }}
+            >
+                <h2 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#fff', marginBottom: '1rem' }}>
+                    How to Choose Tournament-Grade FPS Hardware (Engineering Checklist)
+                </h2>
+                <p style={{ color: 'var(--text-secondary, #a0aec0)', marginBottom: '1.25rem', fontSize: '0.96rem' }}>
+                    Hardware does not replace crosshair placement or aim discipline, but eliminating physical bottlenecks—sensor jitter, high static pad friction, switch debounce delay, and motion blur—ensures your muscle memory translates 1:1 on screen. Before upgrading, match each peripheral to your actual <Link href="/sens-finder/" style={{ color: 'var(--primary, #00ff9d)' }}>cm/360 sensitivity</Link> and grip style.
+                </p>
+
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.25rem', marginBottom: '1.25rem' }}>
+                    <div style={{ background: 'rgba(255,255,255,0.03)', padding: '1.25rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.06)' }}>
+                        <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#fff', marginBottom: '0.5rem' }}>1. Mouse Weight, Shape &amp; Sensor Polling</h3>
+                        <p style={{ color: 'var(--text-secondary, #a0aec0)', fontSize: '0.9rem', margin: 0 }}>
+                            Shape and hand-size fit dictate comfort and micro-correction stability more than raw DPI numbers. Ultralight wireless mice between 45g and 60g with flagship sensors (HERO 2, Focus Pro 35K, PAW3950) reduce starting inertia on rapid flicks. If you run 4000Hz or 8000Hz polling, pair it with 1600 DPI to saturate USB packets without stutter. Use our <Link href="/mouse-finder/" style={{ color: 'var(--primary, #00ff9d)' }}>Ergonomic Mouse Finder</Link> to match dimensions to your hand.
+                        </p>
+                    </div>
+                    <div style={{ background: 'rgba(255,255,255,0.03)', padding: '1.25rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.06)' }}>
+                        <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#fff', marginBottom: '0.5rem' }}>2. Rapid Trigger Hall Effect Keyboards</h3>
+                        <p style={{ color: 'var(--text-secondary, #a0aec0)', fontSize: '0.9rem', margin: 0 }}>
+                            In tactical shooters like Counter-Strike 2 and Valorant, firing accuracy depends on stopping your movement velocity immediately. Hall Effect magnetic switches reset the actuation point the instant your finger lifts by 0.1mm, making counter-strafes sharper than fixed mechanical leaf switches. Verify your keyboard&apos;s rollover and chatter in our <Link href="/keyboard-test/" style={{ color: 'var(--primary, #00ff9d)' }}>Keyboard &amp; NKRO Tester</Link>.
+                        </p>
+                    </div>
+                    <div style={{ background: 'rgba(255,255,255,0.03)', padding: '1.25rem', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.06)' }}>
+                        <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#fff', marginBottom: '0.5rem' }}>3. Mousepad Friction &amp; 240Hz+ Motion Clarity</h3>
+                        <p style={{ color: 'var(--text-secondary, #a0aec0)', fontSize: '0.9rem', margin: 0 }}>
+                            Low-sensitivity arm aimers (&gt;45 cm/360) need XL 490×420mm surfaces with controlled stopping power such as Poron-backed cloth pads, while high-tracking players often prefer lower-friction speed weaves or glass. Pair your pad with a true 240Hz–480Hz display tested in our <Link href="/monitor-simulator/" style={{ color: 'var(--primary, #00ff9d)' }}>Monitor Ghosting Simulator</Link> and compare glide coefficients in the <Link href="/mousepad-chart/" style={{ color: 'var(--primary, #00ff9d)' }}>Mousepad Friction Chart</Link>.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
             <AffiliateDisclosure />
         </div>
     );
