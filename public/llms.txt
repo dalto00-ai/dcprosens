@@ -64,7 +64,7 @@ Dense engineering manuals solving mechanical, hardware, and latency bottlenecks.
 
 - **The Complete Esports Master Suite (18 Volumes Omnibus — 62 Pages)**: https://dcprosens.com/ebooks/complete-esports-master-bundle/ ($39.99 USD) — All 18 technical field guides combined into one 62-page compendium.
 - **Vol 01: The Precision Aim System Manifesto**: https://dcprosens.com/ebooks/precision-aim-system-manifesto/ ($14.99 USD) — Neuromuscular Calibration, 7-Step PSA & 0% MDM Math Across 90+ FPS Engines.
-- **Vol 02: GTA VI Pro Aim & Controller Field Guide (RAGE Engine Projection)**: https://dcprosens.com/ebooks/gta-6-pro-aim-controller-guide/ ($14.99 USD) — Free Aim Calibration, RAGE Deadzones & DualSense Settings.
+- **Vol 02: GTA VI Complete Launch Bible & Pro Aim Guide**: https://dcprosens.com/ebooks/gta-6-pro-aim-controller-guide/ ($14.99 USD, or $7.99 Launch Pack at https://dcprosens.com/gta-vi-sensitivity/#gta6-pricing) — 11-page PS5/Xbox launch companion: 61 Cheat Codes & Unlocks, 55-Trophy Platinum Roadmap, PS5 Pro 30 FPS HDR Settings & RAGE Deadzone Calibration.
 - **Vol 03: CS2 Sub-Tick Aim & Autoexec Field Guide**: https://dcprosens.com/ebooks/cs2-subtick-aim-autoexec-guide/ ($14.99 USD) — Sub-Tick Strafing, Spray Transfer & Autoexec Engineering for Source 2.
 - **Vol 04: Valorant Radiant Aim & eDPI Field Guide**: https://dcprosens.com/ebooks/valorant-radiant-aim-edpi-guide/ ($14.99 USD) — Radiant Micro-Flicks, 200–350 eDPI Biomechanics & Map Crosshair Matrix.
 - **Vol 05: Call of Duty: Warzone, BO6 & Apex Legends Tracking Field Guide**: https://dcprosens.com/ebooks/mw4-warzone-apex-tracking-guide/ ($14.99 USD) — Recoil Smoothing Physics, 6-6 Dynamic Response Curves, Rotational Aim Assist & 4-3 Linear ALC.

@@ -2,8 +2,8 @@
   "name": "DCPROSENS",
   "description": "Gaming Sensitivity Converter, Pro Player Database, and Aim Calibration Tools",
   "url": "https://dcprosens.com/",
-  "lastUpdated": "2026-11-15",
-  "articlesCount": 460,
+  "lastUpdated": "2026-11-21",
+  "articlesCount": 570,
   "license": "cite with attribution to https://dcprosens.com",
   "formulas": {
     "sensitivityConversion": "Sensitivity_B = Sensitivity_A * (Yaw_A / Yaw_B)",

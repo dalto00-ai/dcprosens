@@ -1531,7 +1531,7 @@ export default function ArticleEbookFunnel({ slug }: ArticleEbookFunnelProps) {
             lineHeight: 1.25,
           }}
         >
-          GTA VI Pro Aim &amp; Controller Field Guide
+          GTA VI Complete Launch Bible &amp; Pro Aim Companion (11-Page PDF)
         </h3>
 
         <p
@@ -1543,31 +1543,50 @@ export default function ArticleEbookFunnel({ slug }: ArticleEbookFunnelProps) {
             maxWidth: '680px',
           }}
         >
-          Eliminate Rockstar&apos;s 250ms thumbstick acceleration delay, zero your deadzones (5% ALPS / 2% Hall-Effect), convert your FPS sensitivity 1:1 from Call of Duty, Apex, or Valorant, and dominate Vice City Free Aim lobbies.
+          Instant second-screen playbook for PS5, PS5 Pro &amp; Xbox Series X|S: unlock all 61 cheat codes safely, follow the 55-trophy Platinum roadmap (with Chapter 1 missable alerts), fix L3 Sprint &amp; 18% RAGE deadzones, and dial in PS5 Pro 30 FPS HDR settings.
         </p>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
           <Link
-            href="/ebooks/gta-6-pro-aim-controller-guide/"
+            href="/gta-vi-sensitivity/#gta6-pricing"
             style={{
-              background: 'linear-gradient(135deg, #ec4899 0%, #06b6d4 100%)',
-              color: '#ffffff',
+              background: 'linear-gradient(135deg, #00ff9d 0%, #06b6d4 100%)',
+              color: '#050810',
               fontFamily: "'Space Grotesk', sans-serif",
               fontSize: '0.95rem',
               fontWeight: 800,
               padding: '0.85rem 1.85rem',
               borderRadius: '8px',
               textDecoration: 'none',
-              boxShadow: '0 0 20px rgba(236, 72, 153, 0.35)',
+              boxShadow: '0 0 20px rgba(0, 255, 157, 0.3)',
               display: 'inline-flex',
               alignItems: 'center',
               gap: '0.5rem',
             }}
           >
-            Unlock GTA VI Pro Aim Guide ($14.99) ➔
+            Get GTA VI Launch Pack ($7.99 — 50% OFF) ➔
+          </Link>
+          <Link
+            href="/ebooks/gta-6-pro-aim-controller-guide/"
+            style={{
+              background: 'rgba(255, 255, 255, 0.08)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              color: '#ffffff',
+              fontFamily: "'Space Grotesk', sans-serif",
+              fontSize: '0.9rem',
+              fontWeight: 700,
+              padding: '0.85rem 1.4rem',
+              borderRadius: '8px',
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+            }}
+          >
+            Full Guide Specs
           </Link>
           <span style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
-            Instant PDF &bull; PS5, Xbox &amp; PC Ready &bull; 14-Day Guarantee
+            Instant PDF Download &bull; No Account Required &bull; PS5 &amp; Xbox Ready
           </span>
         </div>
       </div>

@@ -1272,7 +1272,7 @@ export default function GtaViCommandCenter() {
           border: "1px solid rgba(0, 255, 157, 0.25)",
         }}
       >
-        <div style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto 1.75rem" }}>
+        <div id="gta6-pricing" style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto 1.75rem", scrollMarginTop: "5rem" }}>
           <span
             style={{
               display: "inline-block",
@@ -1324,9 +1324,9 @@ export default function GtaViCommandCenter() {
                 <span style={{ fontSize: "0.78rem", color: "var(--text-secondary)" }}>one-time</span>
               </div>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.55rem", fontSize: "0.84rem", color: "#cbd5e1" }}>
-                <li>✓ Vol 02: GTA VI Pro Aim &amp; Controller PDF</li>
-                <li>✓ DualSense Edge &amp; Xbox Elite Curve Sheets</li>
-                <li>✓ 120 MPH Drive-By &amp; Free-Aim Presets</li>
+                <li>✓ 11-Page GTA VI Complete Launch Bible PDF</li>
+                <li>✓ 61 Cheat Codes &amp; 55-Trophy Platinum Roadmap</li>
+                <li>✓ PS5 Pro 30 FPS HDR, Deadzone &amp; Classic Fix</li>
                 <li>✓ Instant Download — No Subscription</li>
               </ul>
             </div>

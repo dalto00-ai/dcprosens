@@ -258,7 +258,7 @@ if (strpos($plan, 'ebook') !== false || strpos($plan, 'bundle') !== false || str
 }
 
 $descriptions = [
-    'gta6-promo' => 'GTA VI Day-One Pro Calibration Pack + Vol 02 Field Guide PDF, DualSense/Xbox Deadzone Curves & 120 MPH Drive-By Presets',
+    'gta6-promo' => 'GTA VI Complete Launch Bible & Pro Aim Companion PDF (11 Pages): 61 Cheat Codes & Unlocks, 55-Trophy Platinum Roadmap, PS5 Pro/Xbox Settings & Deadzone Curves',
     'gta6-vip-monthly' => 'Full access to GTA VI Command Center Pro Presets, Leonida Syndicate VIP Community, Aim Lab & Cloud Sync',
     'winback-50' => '50% OFF Ex-Member Retention Offer: Full VIP Community Channels, Pro Calibration Tools & Weekly Meta Updates',
     'winback-lifetime' => '50% OFF Lifetime Founder Pass: Permanent access to all VIP Community channels and Pro tools forever',
@@ -269,7 +269,7 @@ $descriptions = [
     'ebook-bundle' => 'All Master Field Guides: Sensitivity, Crosshair, Warm-Up, Friction, Input Lag & Controller (Instant PDF Access)',
     'master-bundle' => 'All Master Field Guides: Sensitivity, Crosshair, Warm-Up, Friction, Input Lag & Controller (Instant PDF Access)',
     'ebook-vol1' => 'Vol 01: The Precision Aim System Manifesto — Neuromuscular Calibration, 7-Step PSA & 0% MDM Math',
-    'ebook-vol2' => 'Vol 02: GTA VI Pro Aim & Controller Field Guide — Free Aim Calibration, RAGE Deadzones & DualSense Settings',
+    'ebook-vol2' => 'Vol 02: GTA VI Complete Launch Bible & Pro Aim Guide — Cheats, 55 Trophies, PS5/Xbox Settings & RAGE Deadzone Calibration',
     'consultoria' => '45-Minute 1:1 VIP Session, DCPROSENS Optimizer Engine v1.0, Biomechanical Aim Calibration & All eBooks',
     'vip-overhaul' => '45-Minute 1:1 VIP Session, DCPROSENS Optimizer Engine v1.0, Biomechanical Aim Calibration & All eBooks',
     'ebook' => 'Tactical FPS Field Guide & Printable Worksheets (Instant PDF Download)',
@@ -279,7 +279,7 @@ $descriptions = [
 $description = $descriptions[$plan] ?? 'Unlimited access to all pro tools, PSA method calculator, crosshair database & gear specs';
 
 $postFields = [
-    'ui_mode' => 'embedded',
+    'ui_mode' => 'embedded_page',
     'mode' => $isPaymentOneTime ? 'payment' : 'subscription',
     'return_url' => $returnUrl,
     'line_items[0][price_data][currency]' => 'usd',
