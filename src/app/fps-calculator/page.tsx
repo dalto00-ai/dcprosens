@@ -3,7 +3,7 @@ import FpsCalculator from '@/components/FpsCalculator';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: "FPS Calculator — Valorant, CS2 & Apex PC Benchmark",
+  title: "FPS Calculator — Valorant, CS2 & Apex",
   description: "Free Valorant FPS Calculator, CS2 FPS Calculator & Fortnite FPS Estimator. Select your CPU, GPU, RAM and resolution (1080p, 1440p, 4K) to calculate average FPS, 1% lows, and hardware bottlenecks.",
   keywords: [
     "fps calculator",
@@ -26,14 +26,14 @@ export const metadata: Metadata = {
   },
   openGraph: {
     images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — FPS & Bottleneck Calculator" }],
-    title: "FPS Calculator — Valorant, CS2, Fortnite & Apex PC Benchmark | DCPROSENS",
+    title: "FPS Calculator — Valorant, CS2 & Apex | DCPROSENS",
     description: "Check if your CPU or GPU is bottlenecking your gaming PC. Estimate FPS for Valorant, CS2, Fortnite and Apex Legends instantly.",
     type: "website",
     url: "https://dcprosens.com/fps-calculator/",
   },
   twitter: {
     card: "summary_large_image",
-    title: "FPS Calculator — Valorant, CS2, Fortnite & Apex | DCPROSENS",
+    title: "FPS Calculator — Valorant, CS2 & Apex | DCPROSENS",
     description: "Check CPU/GPU bottlenecks and estimate Valorant, CS2, Fortnite & Apex FPS.",
     images: ["/og-image.png"],
   },

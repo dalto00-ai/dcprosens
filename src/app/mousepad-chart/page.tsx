@@ -4,7 +4,7 @@ import Link from 'next/link';
 import AffiliateDisclosure from '@/components/AffiliateDisclosure';
 
 export const metadata: Metadata = {
-    title: "Mousepad Speed Chart & Friction Tier List (2026)",
+    title: "Mousepad Speed Chart & Tier List (2026)",
     description: "Interactive Mousepad Speed Chart & Friction Master Sheet. Compare static and dynamic friction across 45+ esports pads including Artisan Zero/Hien/Raiden, Zowie G-SR, LGG Saturn Pro, and Wallhack SP-004.",
     keywords: [
         'mousepad speed chart',
@@ -33,14 +33,14 @@ export const metadata: Metadata = {
         // entirely — declaring the object here replaces the parent's, so the
         // image has to be restated or the page ships with no og:image at all.
         images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
-        title: 'Mousepad Speed Chart & Friction Tier List | DCPROSENS',
+        title: 'Mousepad Speed Chart & Tier List (2026) | DCPROSENS',
         description: 'Compare static friction, dynamic friction, and stopping power of Artisan, SteelSeries, Logitech, and Zowie mousepads. Find the perfect balance.',
         type: 'website',
         url: 'https://dcprosens.com/mousepad-chart/',
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Mousepad Speed Chart & Friction Tier List | DCPROSENS',
+        title: 'Mousepad Speed Chart & Tier List (2026) | DCPROSENS',
         description: 'Compare mousepad friction and stopping power. Artisan, Logitech, Zowie, SteelSeries, and more.',
         images: ["/og-image.png"],
     },

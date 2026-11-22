@@ -3,7 +3,7 @@ import AdsCalculator from './AdsCalculator';
 import TrialGate from '@/components/TrialGate';
 
 export const metadata: Metadata = {
-    title: "1:1 ADS Sensitivity Calculator — Apex, R6 & Valorant",
+    title: "1:1 ADS Scope Sensitivity Calculator (Free)",
     description: "Calculate true 1:1 ADS & scope sensitivity multipliers for Apex Legends, Rainbow Six Siege, Valorant, CS2, PUBG, and Warzone using focal-length Monitor Distance Matching (0% MDH).",
     keywords: [
         'ads sensitivity calculator', 'apex legends ads sensitivity 1 to 1', '1 to 1 ads sensitivity rainbow six siege',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         // entirely — declaring the object here replaces the parent's, so the
         // image has to be restated or the page ships with no og:image at all.
         images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
-        title: "1:1 ADS Scope Sensitivity Calculator — Valorant, CS2, Apex, R6 | DCPROSENS",
+        title: "1:1 ADS Scope Sensitivity Calculator | DCPROSENS",
         description: "Calculate the perfect 1:1 zoom sensitivity for Valorant, CS2, Apex Legends, R6 Siege, and CoD Warzone.",
         url: "https://dcprosens.com/ads/",
         type: "website",

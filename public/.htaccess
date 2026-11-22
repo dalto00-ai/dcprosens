@@ -175,7 +175,7 @@ RewriteRule ^exploring-the-world-of-gaming-tips-and-trends/?$ / [L,R=301]
 RewriteRule ^(cart|checkout|my-account)/?$ - [G,L]
 RewriteRule ^(product|product-category|category|tag|author)(/.*)?$ - [G,L]
 RewriteRule ^wp-(admin|content|includes|login|json)(/.*)?$ - [G,L]
-RewriteRule ^wp-[a-z0-9-]*\.php$ - [G,L]
+RewriteRule ^wp-.*\.php$ - [G,L]
 RewriteRule ^xmlrpc\.php$ - [G,L]
 RewriteRule ^.*/feed/?$ - [G,L]
 

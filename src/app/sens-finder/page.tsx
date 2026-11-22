@@ -5,7 +5,7 @@ import { sensFinderContent } from '@/lib/sensFinderContent';
 import TrialGate from '@/components/TrialGate';
 
 export const metadata: Metadata = {
-    title: "Sensitivity Finder — cm/360 to All Games Calculator",
+    title: "Sensitivity Finder — cm/360 Game Converter",
     description: "Enter your ideal cm/360 and instantly get your exact in-game sensitivity for Valorant, CS2, Apex Legends, Overwatch 2 and 80+ games. One cm/360, all games.",
     keywords: [
         'find my sensitivity', 'sensitivity finder', 'reverse sensitivity calculator',
@@ -28,14 +28,14 @@ export const metadata: Metadata = {
         // entirely — declaring the object here replaces the parent's, so the
         // image has to be restated or the page ships with no og:image at all.
         images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — Gaming Sensitivity Converter" }],
-        title: "Sensitivity Finder — cm/360 to All Games Calculator | DCPROSENS",
+        title: "Sensitivity Finder — cm/360 Converter | DCPROSENS",
         description: "Convert your cm/360 to perfect in-game sensitivity settings across all major FPS games instantly.",
         type: "website",
         url: "https://dcprosens.com/sens-finder/",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Sensitivity Finder — cm/360 to All Games | DCPROSENS",
+        title: "Sensitivity Finder — cm/360 Converter | DCPROSENS",
         description: "Enter cm/360, get sensitivities for every game instantly.",
         images: ["/og-image.png"],
     },

@@ -4,7 +4,7 @@ import TrialGate from '@/components/TrialGate';
 import JsonLd, { breadcrumb, howTo, graph } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
-    title: 'PSA Method Calculator (Free) — Valorant, CS2 & Apex',
+    title: 'PSA Method Calculator — Valorant & CS2 Sens',
     description:
         'Free PSA Method Calculator (Perfect Sensitivity Approximation). Find your exact natural mouse sensitivity, eDPI, and cm/360 in 7 steps for Valorant, CS2, Apex Legends, Overwatch 2, Warzone & Minecraft.',
     keywords: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
         // entirely — declaring the object here replaces the parent's, so the
         // image has to be restated or the page ships with no og:image at all.
         images: [{ url: "/og-image.png", width: 1024, height: 1024, alt: "DCPROSENS — PSA Method Calculator" }],
-        title: 'PSA Method Calculator (Free) — Find Your Perfect Sensitivity | DCPROSENS',
+        title: 'PSA Method Calculator (Free) | DCPROSENS',
         description:
             'Find your natural mouse sensitivity in 7 binary steps using the PSA Method Calculator for Valorant, CS2, Apex Legends, Overwatch 2 & more.',
         url: 'https://dcprosens.com/psa-calculator/',
