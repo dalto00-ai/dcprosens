@@ -9,42 +9,46 @@ PACOTE PRONTO PARA UPLOAD NA LOJA:
 /home/usuario/Documentos/GOOGLE ANTIGRAVIY/DCPROSENS/chrome-extension/dcprosens-extension-v2.2.0.zip
 
 ====================================================================
-TEXTOS OTIMIZADOS (ASO) — COPIE E COLE NO PAINEL DA CHROME WEB STORE:
+TEXTOS LIMPOS (SEM LISTAS DE PALAVRAS-CHAVE — APROVADO YELLOW ARGON):
 ====================================================================
 
 TÍTULO DO PACOTE (Title):
-DCPROSENS - Sensitivity Converter & Aim Lab
+DCPROSENS - Sensitivity Converter
 
 RESUMO DO PACOTE (Short Description - max 132 caracteres):
-Free 1:1 mouse sensitivity converter, ADS scope calculator, cm/360, eDPI & pro crosshair codes across 87+ FPS games + GTA VI.
+Instantly convert mouse sensitivity and calculate physical cm/360 distance across 87+ shooter game engines from your side panel.
 
-DESCRIÇÃO COMPLETA (Detailed Description):
-Convert mouse sensitivity 1:1 instantly from your Chrome Side Panel without leaving your game tab or web browser.
+DESCRIÇÃO COMPLETA (Detailed Description — SEM LISTAS DE JOGOS OU JOGADORES):
+Convert mouse sensitivity 1:1 directly from your Chrome browser side panel without leaving your active tab.
 
-DCPROSENS preserves your physical muscle memory by calculating exact cm/360°, inches/360°, eDPI, and 0% Monitor Distance Matching across 87+ competitive shooters and action games—100% free with zero paywalls on core conversions.
+DCPROSENS preserves your physical muscle memory by calculating exact distance per 360-degree rotation across more than 87 first-person and third-person shooter game engines.
 
-WHAT'S NEW IN v2.2.0
-• All 87+ Games Synced (Valorant, CS2, Apex Legends, Fortnite, Overwatch 2, Deadlock, Marvel Rivals, Battlefield, Delta Force, FragPunk, Splitgate 2, GTA V & GTA VI Companion)
-• Instant Search Filter + 1-Click Copy Sensitivity
-• Unlocked cm/360°, in/360°, eDPI & Biomechanical Speed Classification
-• 0% MDM Scope / ADS Reference (Valorant, CS2, Apex, OW2)
-• Pro Player Database & 1-Click Copy Valorant Crosshair Codes
-• GTA VI Launch Companion (Classic Sprint Fix, Deadzone & Cheat Trigger)
+WHAT'S NEW IN VERSION 2.2.0
+• Expanded engine database supporting over 87 shooter titles with instant search filtering.
+• Fully unlocked 1:1 sensitivity results, one-click copy, physical cm/360°, inches/360°, and eDPI telemetry.
+• Added 0% Monitor Distance Matching reference for scoped and ADS aiming.
+• Added searchable professional player configuration presets and one-click crosshair code copying.
+• Added console controller calibration reference and quick-launch links to browser hardware diagnostics.
 
 FEATURES
-• 1:1 Sensitivity Converter — Exact engine yaw math across 87+ games.
-• Match a Pro's Feel — Match TenZ, Aspas, Demon1, s1mple, NiKo, ZywOo, m0NESY, ImperialHal, and Bugha at your exact mouse DPI.
-• Pro Crosshair Codes — Copy tournament Valorant crosshair strings in 1 click.
-• Hardware & Aim Lab Shortcuts — Jump straight to Gamepad Stick Drift Test, Keyboard NKRO Test, PSA Method Calculator, and 3D Aim Trainer.
-• Side Panel Shortcut — Press Ctrl+Shift+S (Cmd+Shift+S on Mac) anytime.
-• Dark & Light Modes — Automatically saved locally.
+• Precise Engine Conversions — Match sensitivity accurately between different camera rotation scales using verified engine yaw ratios.
+• cm/360° & Inches/360° Calculator — Instantly measure the physical mouse travel required for a full 360-degree turn.
+• eDPI & Speed Classification — Compare effective sensitivity independently of hardware DPI settings.
+• Pro Feel Matcher — Calculate the matching in-game sensitivity for your mouse DPI against verified competitive presets.
+• Side Panel Integration — Open anytime via toolbar icon or keyboard shortcut (Ctrl+Shift+S / Cmd+Shift+S).
+• Dark & Light Themes — Clean interface with automatic local storage saving.
+
+HOW TO USE
+1. Click the DCPROSENS icon in your Chrome toolbar or press Ctrl+Shift+S (Cmd+Shift+S on Mac).
+2. Choose your source and target game engines and enter your sensitivity and mouse DPI.
+3. Copy your converted sensitivity and physical distance metrics in one click.
 
 PRIVACY & SECURITY
-DCPROSENS runs 100% locally inside your browser sandbox. It does not track, collect, or transmit browsing history.
+DCPROSENS runs locally inside your browser sandbox. It does not track, collect, or transmit browsing history or personal data.
 
 SUPPORT
-Full tools, 570+ technical guides & cloud sync at https://dcprosens.com/
-Support: support@dcprosens.com
+Access browser aim training, hardware testers, and full guides at https://dcprosens.com/
+Questions or feedback? Contact support@dcprosens.com.
 
 CATEGORIA*:
 Ferramentas (Utilitários)
@@ -53,5 +57,5 @@ IDIOMA*:
 Inglês (English)
 
 PROPÓSITO ÚNICO (Single Purpose):
-Convert mouse sensitivity, calculate physical cm/360 distance, and copy verified pro player crosshair settings across 87+ games from the browser side panel.
+Convert mouse sensitivity and calculate physical distance across shooter game engines in a browser side panel.
 ====================================================================
