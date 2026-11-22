@@ -205,6 +205,9 @@ export default function Navbar() {
                             <Link href="/community/" className={`${styles.dropdownItem} ${pathname.startsWith('/community') ? styles.activeItem : ''}`} prefetch={false}>
                                 👑 Pro Community &amp; Hub
                             </Link>
+                            <Link href="/match/" className={`${styles.dropdownItem} ${pathname.startsWith('/match') ? styles.activeItem : ''}`} prefetch={false}>
+                                💘 Gamer Duo &amp; Squad Match
+                            </Link>
                             <Link href="/viral-studio/" className={`${styles.dropdownItem} ${(pathname === '/viral-studio' || pathname === '/viral-studio/') ? styles.activeItem : ''}`} prefetch={false}>
                                 🎬 Viral 9:16 Video Studio
                             </Link>
@@ -428,6 +431,9 @@ export default function Navbar() {
                     </Link>
                     <Link href="/community/" className={`${styles.drawerLink} ${pathname.startsWith('/community') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
                         👑 Pro Community &amp; Hub
+                    </Link>
+                    <Link href="/match/" className={`${styles.drawerLink} ${pathname.startsWith('/match') ? styles.drawerActive : ''}`} prefetch={false} onClick={closeDrawer}>
+                        💘 Duo &amp; Squad Match
                     </Link>
                     <Link href="/blog/" className={`${styles.drawerLink} ${pathname.startsWith('/blog') ? styles.drawerActive : ''}`} onClick={closeDrawer}>
                         📰 Blog Articles

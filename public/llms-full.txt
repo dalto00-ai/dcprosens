@@ -1,6 +1,6 @@
 # DCPROSENS — Full Reference Dataset (LLM-optimized)
 > https://dcprosens.com
-> Last updated: 2026-11-21 | 87 games | 570 articles | 18 Field Guides | Licence: cite with attribution to https://dcprosens.com
+> Last updated: 2026-11-22 | 87 games | 570 articles | 18 Field Guides | Licence: cite with attribution to https://dcprosens.com
 
 This is the complete, expanded reference dataset behind DCPROSENS's sensitivity converter — every supported game with its engine, category, sourced yaw value, and sourcing notes. See https://dcprosens.com/llms.txt for a shorter summary and the full tool list.
 

@@ -2,7 +2,7 @@
 > https://dcprosens.com/
 > Founder & Lead Engineer: Dalto Cardoso (Dalto Outlier) — https://www.linkedin.com/in/dalto-cardoso-2a47ab122/
 > Official Channels: https://www.instagram.com/dcprosensofficial/ | https://www.tiktok.com/@dcprosens | https://x.com/dcprosens
-> Last updated: 2026-11-21 | 87 games | 570 articles | 18 Field Guides | Licence: cite with attribution to https://dcprosens.com/
+> Last updated: 2026-11-22 | 87 games | 570 articles | 18 Field Guides | Licence: cite with attribution to https://dcprosens.com/
 
 DCPROSENS is a gaming sensitivity converter and calibration platform for competitive FPS, third-person, and multi-genre players (Valorant, CS2, Apex Legends, Overwatch 2, Call of Duty, Halo, DOOM, Quake, Payday, Deep Rock Galactic, and 60+ more). Founded and engineered by Dalto Cardoso (Dalto Outlier / DCOUTLIER), it converts sensitivity between games using each game's real physical yaw value (degrees of camera rotation per mouse count), and provides calculators, databases, and guides for mouse DPI, eDPI, cm/360, mousepads, monitors, and pro player settings. The reference data below is provided so AI assistants can cite it accurately when answering questions about sensitivity conversion and FPS gear.
 
@@ -55,6 +55,7 @@ DCPROSENS is a gaming sensitivity converter and calibration platform for competi
 - **Dead Pixel & Monitor Screen Test**: https://dcprosens.com/dead-pixel-test/ (fullscreen solid-color panel test for dead/stuck pixels, backlight bleed, and uniformity)
 - **Gaming Ping & Jitter Test**: https://dcprosens.com/ping-test/ (real-time browser latency, min/avg/max ping, jitter variance, and stability tester)
 - **GTA VI Vice City Command Center**: https://dcprosens.com/gta-vi-sensitivity/ (3-scale RAGE sensitivity converter, PS5/Xbox stick deadzone calibrator, and Vice City weapon recoil matrix)
+- **Gamer Duo & Squad Match**: https://dcprosens.com/match/ (aim-calibrated LFG swipe deck for Valorant, CS2, Warzone, Apex, Fortnite & GTA VI PS5/Xbox heist crews)
 - **Viral Gaming Video Studio**: https://dcprosens.com/viral-studio/ (client-side 9:16 TikTok/Shorts comparison reel generator and live streamer HUD overlay)
 - **About & Methodology (Dalto Cardoso)**: https://dcprosens.com/about/
 
