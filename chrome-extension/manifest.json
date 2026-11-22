@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "DCPROSENS - Sensitivity Converter",
-  "version": "2.1.0",
-  "description": "Convert mouse sensitivity across 17+ FPS games in a full-height side panel. Free pro sens matcher, Pro database, dark/light mode.",
+  "name": "DCPROSENS - Sensitivity Converter & Aim Lab",
+  "version": "2.2.0",
+  "description": "Free 1:1 mouse sensitivity converter, ADS scope calculator, cm/360, eDPI & pro crosshair codes across 87+ FPS games + GTA VI.",
   "permissions": [
     "storage",
     "sidePanel"
@@ -16,7 +16,7 @@
       "48": "icon-48.png",
       "128": "icon-128.png"
     },
-    "default_title": "Open DCPROSENS Sensitivity Converter"
+    "default_title": "Open DCPROSENS Sensitivity Converter (87+ Games)"
   },
   "side_panel": {
     "default_path": "popup.html"

@@ -3,195 +3,193 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DCPROSENS Converter</title>
+  <title>DCPROSENS — 1:1 Sensitivity Converter</title>
   <link rel="stylesheet" href="popup.css">
 </head>
 <body>
   <div class="container">
-    <div class="header">
+    <header class="header">
       <div class="header-brand">
-        <img src="icon-48.png" alt="Logo" class="logo-icon">
+        <img src="icon-48.png" alt="DCPROSENS" class="logo-icon">
         <h1>DC<span>PROSENS</span></h1>
       </div>
       <div class="header-actions">
-        <span class="pro-tag">17 GAMES</span>
-        <button type="button" id="theme-toggle" class="theme-toggle" title="Toggle light / dark mode" aria-label="Toggle light / dark mode">🌙</button>
+        <span class="pro-tag">87+ GAMES</span>
+        <button type="button" id="theme-toggle" class="theme-toggle" title="Toggle light / dark mode" aria-label="Toggle theme">🌙</button>
       </div>
-    </div>
+    </header>
 
-    <!-- Quick Converter Form -->
-    <div class="converter-box">
-      <div class="input-group">
-        <label for="from-game">Source Game</label>
-        <select id="from-game">
-          <option value="valorant">Valorant</option>
-          <option value="csgo">CS2 / CS:GO</option>
-          <option value="apex">Apex Legends</option>
-          <option value="overwatch">Overwatch 2</option>
-          <option value="fortnite">Fortnite</option>
-          <option value="rainbow6">Rainbow Six Siege</option>
-          <option value="cod">Call of Duty</option>
-          <option value="bf2042">Battlefield 2042</option>
-          <option value="pubg">PUBG</option>
-          <option value="destiny2">Destiny 2</option>
-          <option value="quake">Quake / Source</option>
-          <option value="roblox">Roblox</option>
-          <option value="minecraft">Minecraft</option>
-          <option value="marvelrivals">Marvel Rivals</option>
-          <option value="thefinals">THE FINALS</option>
-          <option value="rust">Rust</option>
-          <option value="deadlock">Deadlock</option>
-        </select>
-      </div>
+    <!-- 3-Tab Navigation -->
+    <nav class="tab-nav" role="tablist">
+      <button type="button" class="tab-btn active" data-tab="converter" role="tab" aria-selected="true">⚡ Converter</button>
+      <button type="button" class="tab-btn" data-tab="pros" role="tab" aria-selected="false">👑 Pros &amp; Codes</button>
+      <button type="button" class="tab-btn" data-tab="gta6" role="tab" aria-selected="false">🎮 GTA VI &amp; Tools</button>
+    </nav>
 
-      <button type="button" id="swap-btn" class="swap-btn" title="Swap games" aria-label="Swap source and target games">
-        <span>⇅</span> Swap
-      </button>
-
-      <div class="input-row">
+    <!-- TAB 1: FREE 1:1 CONVERTER + ADS SCOPE -->
+    <section id="tab-converter" class="tab-panel active">
+      <div class="card">
         <div class="input-group">
-          <label for="sens-input">Sensitivity</label>
-          <input type="number" id="sens-input" step="0.001" value="0.5">
+          <label for="game-search">Quick Filter (87+ Games)</label>
+          <input type="text" id="game-search" placeholder="Search Valorant, CS2, GTA, Apex, Delta Force..." autocomplete="off">
         </div>
+
         <div class="input-group">
-          <label for="dpi-input">DPI</label>
-          <input type="number" id="dpi-input" step="50" value="800">
+          <label for="from-game">Source Game</label>
+          <select id="from-game"></select>
         </div>
-      </div>
 
-      <div class="input-group">
-        <label for="to-game">Target Game</label>
-        <select id="to-game">
-          <option value="csgo">CS2 / CS:GO</option>
-          <option value="valorant" selected>Valorant</option>
-          <option value="apex">Apex Legends</option>
-          <option value="overwatch">Overwatch 2</option>
-          <option value="fortnite">Fortnite</option>
-          <option value="rainbow6">Rainbow Six Siege</option>
-          <option value="cod">Call of Duty</option>
-          <option value="bf2042">Battlefield 2042</option>
-          <option value="pubg">PUBG</option>
-          <option value="destiny2">Destiny 2</option>
-          <option value="quake">Quake / Source</option>
-          <option value="roblox">Roblox</option>
-          <option value="minecraft">Minecraft</option>
-          <option value="marvelrivals">Marvel Rivals</option>
-          <option value="thefinals">THE FINALS</option>
-          <option value="rust">Rust</option>
-          <option value="deadlock">Deadlock</option>
-        </select>
-      </div>
+        <button type="button" id="swap-btn" class="swap-btn" title="Swap source and target games">
+          <span>⇅</span> Swap Games
+        </button>
 
-      <!-- Result Box: value is always computed but blurred until Pro -->
-      <div id="result-box" class="result-box result-locked">
-        <div class="result-label">Converted Sensitivity</div>
-        <div class="result-row">
-          <div class="result-value blurred" id="result-sens">1.590</div>
-          <button type="button" id="copy-btn" class="copy-btn" title="Copy full result">📋 Copy</button>
-        </div>
-        <div class="result-lock-overlay">
-          <span>🔒</span> Unlock to see your converted sensitivity
-          <small>e.g. 0.5 sens in Valorant → 1.591 in CS2</small>
-        </div>
-      </div>
-
-      <!-- Extension Extra Stats (all Pro-gated — a real example sits next to
-           each lock so visitors see exactly what unlocking gives them). -->
-      <div class="stats-box">
-        <div class="stat-item stat-locked" data-lock="1">
-          <span class="stat-label">CM/360</span>
-          <div class="stat-main">
-            <span class="stat-value blurred" id="stat-cm">32.4 cm</span>
-            <span class="lock-badge">🔒 PRO</span>
+        <div class="input-row">
+          <div class="input-group">
+            <label for="sens-input">Sensitivity</label>
+            <input type="number" id="sens-input" step="0.001" value="0.314">
           </div>
-          <span class="lock-example">TenZ: 54.4cm</span>
-        </div>
-        <div class="stat-item stat-locked" data-lock="1">
-          <span class="stat-label">Inches/360</span>
-          <div class="stat-main">
-            <span class="stat-value blurred" id="stat-inches">12.8"</span>
-            <span class="lock-badge">🔒 PRO</span>
+          <div class="input-group">
+            <label for="dpi-input">Mouse DPI</label>
+            <input type="number" id="dpi-input" step="50" value="800">
           </div>
-          <span class="lock-example">TenZ: 21.4"</span>
         </div>
-        <div class="stat-item stat-locked" data-lock="1">
-          <span class="stat-label">eDPI</span>
-          <div class="stat-main">
-            <span class="stat-value blurred" id="stat-edpi">400</span>
-            <span class="lock-badge">🔒 PRO</span>
+
+        <div class="input-group">
+          <label for="to-game">Target Game</label>
+          <select id="to-game"></select>
+        </div>
+
+        <!-- UNLOCKED Result Box -->
+        <div class="result-box">
+          <div class="result-label">Exact 1:1 Converted Sensitivity <span class="free-pill">FREE</span></div>
+          <div class="result-row">
+            <div class="result-value" id="result-sens">1.000</div>
+            <button type="button" id="copy-btn" class="copy-btn" title="Copy sensitivity">📋 Copy</button>
           </div>
-          <span class="lock-example">TenZ: 240</span>
+          <div class="multiplier-line" id="multiplier-info">Multiplier: 3.1818×</div>
+        </div>
+
+        <!-- UNLOCKED Physical Telemetry -->
+        <div class="stats-box">
+          <div class="stat-item">
+            <span class="stat-label">cm / 360°</span>
+            <span class="stat-value" id="stat-cm">52.0 cm</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">in / 360°</span>
+            <span class="stat-value" id="stat-inches">20.5"</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">eDPI</span>
+            <span class="stat-value" id="stat-edpi">251</span>
+          </div>
+        </div>
+
+        <!-- Speed & Biomechanics Badge -->
+        <div class="badge-row" id="sens-badge">
+          <span class="badge-icon">🎯</span>
+          <div class="badge-text-col">
+            <span class="badge-text" id="badge-title">Balanced Hybrid / Tactical Rifle</span>
+            <span class="badge-example" id="badge-desc">Recommended pad: 450×400mm+ XL</span>
+          </div>
         </div>
       </div>
 
-      <!-- Sensitivity Category Badge -->
-      <div id="sens-badge" class="badge-row badge-locked" title="Unlock Classification in Pro Tier">
-        <span class="badge-icon">🔒</span>
-        <div class="badge-text-col">
-          <span class="badge-text">Speed Category (PRO Only)</span>
-          <span class="badge-example">e.g. TenZ = 💪 Low (Pro Average Zone)</span>
+      <!-- ADS / 0% MDM Quick Reference -->
+      <div class="card compact-card">
+        <div class="card-title">🔭 0% MDM Scope / ADS Reference</div>
+        <div class="ads-grid">
+          <div class="ads-chip"><span>Valorant ADS</span><strong>0.847</strong></div>
+          <div class="ads-chip"><span>CS2 Zoom</span><strong>0.818933</strong></div>
+          <div class="ads-chip"><span>Apex 1x</span><strong>1.00</strong></div>
+          <div class="ads-chip"><span>OW2 Widow</span><strong>37.89%</strong></div>
         </div>
+        <a href="https://dcprosens.com/ads/" target="_blank" rel="noopener" class="inline-link">Open Full Scope &amp; FOV Calculator →</a>
       </div>
-    </div>
+    </section>
 
-    <!-- PRICING CARD — real Stripe Payment Links -->
-    <div class="pro-teaser-card">
-      <div class="pro-teaser-header">
-        <span class="pro-teaser-title">👑 UNLOCK DCPROSENS PRO</span>
-      </div>
-      <ul class="pro-teaser-list">
-        <li>🔒 All 17 games — instant conversion, no limits</li>
-        <li>🔒 250+ Pro Player Setups & Gear Database</li>
-        <li>🔒 Step-by-Step PSA Aim Calibration Suite</li>
-        <li>🔒 Crosshair Code Generator & Aim Trainer</li>
-      </ul>
-
-      <div class="pricing-tiers">
-        <a href="https://buy.stripe.com/6oUcN44IV9nQcZI4LW1ck00" id="plan-monthly" target="_blank" rel="noopener" class="pricing-tier">
-          <span class="pricing-tier-name">Monthly</span>
-          <span class="pricing-tier-price">$9.99<small>/mo</small></span>
-        </a>
-        <a href="https://buy.stripe.com/bJe6oGb7jarUgbU7Y81ck01" id="plan-semiannual" target="_blank" rel="noopener" class="pricing-tier pricing-tier-best">
-          <span class="pricing-tier-badge">Best Value</span>
-          <span class="pricing-tier-name">Semi-Annual</span>
-          <span class="pricing-tier-price">$4.99<small>/mo</small></span>
-        </a>
-        <a href="https://buy.stripe.com/14AcN44IV9nQbVEfqA1ck02" id="plan-annual" target="_blank" rel="noopener" class="pricing-tier">
-          <span class="pricing-tier-name">Annual</span>
-          <span class="pricing-tier-price">$2.99<small>/mo</small></span>
-        </a>
-      </div>
-    </div>
-
-    <!-- MINI PRO DATABASE (free teaser, drives interest in the full site database) -->
-    <div class="pro-db-card">
-      <div class="pro-db-header">🎮 Real Pro Player Settings</div>
-      <div class="pro-db-list" id="pro-db-list"></div>
-
-      <!-- Free mini calculator: matches eDPI so the physical mouse distance
-           for a 360° turn is identical to the chosen pro, in their own game. -->
-      <div class="pro-match-box">
-        <div class="pro-match-title">🎯 Match a Pro's Feel <span class="free-pill">FREE</span></div>
+    <!-- TAB 2: PRO PLAYERS & 1-CLICK CROSSHAIR CODES -->
+    <section id="tab-pros" class="tab-panel">
+      <div class="card">
+        <div class="card-title">🎯 Match a Pro&apos;s Feel (1:1 eDPI)</div>
         <div class="pro-match-row">
           <select id="match-pro-select"></select>
           <input type="number" id="match-dpi-input" step="50" value="800" aria-label="Your mouse DPI">
         </div>
         <div class="pro-match-result">
-          Your sens to move like <strong id="match-pro-name"></strong> in <span id="match-pro-game"></span>:
-          <span class="pro-match-value" id="match-result">0.000</span>
+          <span>Your sens to match <strong id="match-pro-name">TenZ</strong> (<span id="match-pro-game">Valorant</span>):</span>
+          <div class="match-copy-row">
+            <strong class="pro-match-value" id="match-result">0.300</strong>
+            <button type="button" id="copy-match-btn" class="mini-copy-btn">Copy</button>
+          </div>
         </div>
-        <p class="pro-match-note">Matches eDPI (DPI × sens) — same physical mouse distance for a 360° turn.</p>
       </div>
 
-      <a href="https://dcprosens.com/pros" target="_blank" class="pro-db-link">See full 250+ database →</a>
-    </div>
+      <div class="card">
+        <div class="pro-header-row">
+          <span class="card-title">👑 Pro Database &amp; Crosshairs</span>
+          <select id="pro-filter" class="mini-select" aria-label="Filter pros by game">
+            <option value="all">All Games</option>
+            <option value="Valorant">Valorant</option>
+            <option value="CS2">CS2</option>
+            <option value="Apex Legends">Apex Legends</option>
+            <option value="Fortnite">Fortnite</option>
+            <option value="Overwatch 2">Overwatch 2</option>
+          </select>
+        </div>
+        <div class="pro-db-list" id="pro-db-list"></div>
+        <a href="https://dcprosens.com/pros/" target="_blank" rel="noopener" class="inline-link">Browse Full Pro &amp; Gear Database →</a>
+      </div>
+    </section>
 
-    <!-- Footer Links -->
-    <div class="footer">
-      <a href="https://dcprosens.com" target="_blank" class="dashboard-btn">
-        🌍 Visit dcprosens.com
+    <!-- TAB 3: GTA VI COMPANION & PRO TOOLS -->
+    <section id="tab-gta6" class="tab-panel">
+      <div class="card gta-card">
+        <div class="gta-badge">🔥 GTA VI LAUNCH COMPANION (PS5 &amp; XBOX)</div>
+        <h2 class="gta-title">Day-1 Settings, Cheats &amp; 55 Trophies</h2>
+        <ul class="gta-tips">
+          <li><strong>Fix L3 Sprint:</strong> Settings &rarr; Controls &rarr; Scheme &rarr; <strong>Classic</strong></li>
+          <li><strong>Deadzone:</strong> <code>3%–5%</code> (ALPS) / <code>1%–2%</code> (Hall/TMR) + <code>100%</code> Aim Accel</li>
+          <li><strong>Cheat Trigger:</strong> Phone &rarr; Hold <code>L1/LB</code> + Tap <code>R1/RB</code> (Save Slot 4!)</li>
+          <li><strong>Cap. 1 Missable:</strong> Clear <em>Positive Mental Attitude</em> at Jason&apos;s house</li>
+        </ul>
+        <div class="cta-stack">
+          <a href="https://dcprosens.com/gta-vi-sensitivity/" target="_blank" rel="noopener" class="btn-primary">
+            🎛️ Open GTA VI 3-Scale Converter
+          </a>
+          <a href="https://dcprosens.com/gta-vi-sensitivity/#gta6-pricing" target="_blank" rel="noopener" class="btn-promo">
+            📘 Get 11-Page Launch Bible + Cheats ($7.99)
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🛠️ Instant Browser Hardware &amp; Aim Labs</div>
+        <div class="tools-grid">
+          <a href="https://dcprosens.com/gamepad-tester/" target="_blank" rel="noopener" class="tool-tile">🎮 Stick Drift Test</a>
+          <a href="https://dcprosens.com/keyboard-test/" target="_blank" rel="noopener" class="tool-tile">⌨️ Keyboard NKRO</a>
+          <a href="https://dcprosens.com/psa-calculator/" target="_blank" rel="noopener" class="tool-tile">📐 PSA Method</a>
+          <a href="https://dcprosens.com/aim-trainer/" target="_blank" rel="noopener" class="tool-tile">🎯 3D Aim Trainer</a>
+          <a href="https://dcprosens.com/crosshair/" target="_blank" rel="noopener" class="tool-tile">✛ Crosshair Lab</a>
+          <a href="https://dcprosens.com/reaction-time-test/" target="_blank" rel="noopener" class="tool-tile">⚡ Reaction Test</a>
+        </div>
+      </div>
+
+      <div class="card upgrade-card">
+        <div class="upgrade-head">👑 DCPROSENS Pro &amp; 18-Book Omnibus</div>
+        <p class="upgrade-desc">Cloud profile sync, 3D Aim Lab Pro modes, and all 18 technical eBooks.</p>
+        <div class="upgrade-links">
+          <a href="https://dcprosens.com/pricing/" target="_blank" rel="noopener" class="btn-outline">Monthly $7.99 · Annual $49/yr</a>
+          <a href="https://dcprosens.com/ebooks/" target="_blank" rel="noopener" class="btn-outline">18 Field Guides ($39.99)</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <a href="https://dcprosens.com/" target="_blank" rel="noopener" class="dashboard-btn">
+        🌍 Open Full Platform — dcprosens.com
       </a>
-    </div>
+    </footer>
   </div>
   <script src="popup.js"></script>
 </body>

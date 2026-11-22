@@ -4,9 +4,9 @@
   "webDir": "www",
   "server": {
     "url": "https://app.dcprosens.com",
-    "cleartext": true
+    "cleartext": false
   },
   "android": {
-    "allowMixedContent": true
+    "allowMixedContent": false
   }
 }

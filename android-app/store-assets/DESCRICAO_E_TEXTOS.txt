@@ -1,34 +1,48 @@
 ====================================================================
-  GUIA DE PREENCHIMENTO DA FICHA DA LOJA — GOOGLE PLAY CONSOLE
+  GUIA DE PREENCHIMENTO DA FICHA DA LOJA — GOOGLE PLAY CONSOLE (v1.0.4)
 ====================================================================
 
 PASTA DOS ARQUIVOS DE IMAGEM:
-/home/usuario/Documentos/GOOGLE ANTIGRAVIY/DCPROSENS/PLAY_STORE_FILES/
+/home/usuario/Documentos/GOOGLE ANTIGRAVIY/DCPROSENS/android-app/store-assets/
+
+APP SIGNING / BUNDLE ASSINADO (.AAB):
+/home/usuario/Documentos/GOOGLE ANTIGRAVIY/DCPROSENS/android-app/store-assets/dcprosens-app-release-signed.aab
 
 ====================================================================
-1. DETALHES PRINCIPAIS (COPIE E COLE):
+1. DETALHES PRINCIPAIS (ASO OTIMIZADO — COPIE E COLE):
 ====================================================================
 
 NOME DA APLICAÇÃO* (Máx 30 caracteres):
-DCPROSENS - Aim Calibration
+DCPROSENS: Sens & Aim Lab
 
 BREVE DESCRIÇÃO* (Short description - Máx 80 caracteres):
-Calculate your perfect sensitivity, convert settings, and copy pro setups.
+87+ Games 1:1 Sens Converter, GTA VI Settings, Stick Drift & Pro Crosshairs!
 
 DESCRIÇÃO COMPLETA* (Full description - Máx 4000 caracteres):
-DCPROSENS is the leading neuromuscular aim calibration suite designed for competitive FPS gamers. Replicate your muscle memory 1-to-1 across 15+ major gaming engines (Valorant, Counter-Strike 2, Apex Legends, Overwatch 2, Fortnite, Call of Duty, and more) and find your optimal mouse settings scientifically.
+Dominate PC, Console, and Mobile shooters with DCPROSENS—the all-in-one 1:1 Sensitivity Converter, Pro Settings Database, GTA VI Companion, and Hardware Diagnostic Lab.
 
-Core Features:
-- 1:1 Sensitivity Converter: Translate your sensitivity between games using exact engine yaw constants and focal length matching. Keep your physical cm/360° identical.
-- PSA Method Calculator: Stop guessing your sensitivity. Our step-by-step Perfect Sensitivity Approximation (PSA) method guides you through structured neuromuscular tests to discover your natural physical sweet spot.
-- Pro Settings Database: Study, compare, and align your setups with the gear, DPI, eDPI, cm/360, polling rates, and resolutions used by VCT Champions and Major Winners.
-- Crosshairs & Gear Databases: Generate pro crosshair codes and compare gaming mice, mousepads, keyboards, and monitors.
-- Online Aim Trainer & Tools: Practice flicking and tracking, test reaction time, CPS, and calculate hardware bottlenecks.
+Whether you play Valorant, CS2, Call of Duty: Warzone, Fortnite, Apex Legends, Overwatch 2, Free Fire, PUBG, Deadlock, Marvel Rivals, or GTA VI on PS5/Xbox, DCPROSENS locks your muscle memory 1:1 with mathematical precision.
 
-Optimize your hardware, master your muscle memory, and bridge your physical movements with digital aim today. Completely free and runs client-side.
+KEY FEATURES:
+• 1:1 Sensitivity Converter (87+ Games) — Match exact cm/360° and eDPI across PC, Console, and Mobile engines using verified yaw ratios.
+• ADS & Scope Multiplier (0% MDM) — Dial in exact Red Dot, 2x, 4x, 8x, and Sniper zoom sensitivities without losing muscle memory.
+• GTA VI Console Companion — Fix the L3 Sprint change, calibrate PS5 DualSense & Xbox stick deadzones, tune 30 FPS HDR display settings, and check unlock checklists.
+• Live Gamepad Stick Drift Tester — Connect your PS5 DualSense or Xbox controller to your phone via Bluetooth/USB and measure resting stick drift in real time.
+• PSA Method Calculator — Stop guessing your sensitivity. Run the scientific Perfect Sensitivity Approximation protocol to find your true sweet spot.
+• Pro Player Database & Crosshair Codes — Copy verified DPI, eDPI, cm/360°, and Valorant/CS2 crosshair codes from TenZ, Aspas, s1mple, NiKo, ZywOo, m0NESY, Demon1, and more.
+• Reflex, CPS & Hardware Tests — Measure your visual reaction time (ms), click speed, and monitor response right from your pocket.
+• 570+ Pro Technical Guides — Deep-dive sensitivity, gear, and input lag optimization guides updated for 2026–2027.
+
+WHAT'S NEW IN v1.0.4:
+• Added GTA VI Command Center (3-Scale Converter, Deadzone Lab & Launch Checklist)
+• Expanded to 87+ Games (including Battlefield, Delta Force, FragPunk, Splitgate 2, Blood Strike)
+• Added Live Gamepad Stick Drift & Keyboard NKRO Testers
+• Hardened HTTPS-only WebView security & faster mobile navigation
+
+Completely free core tools. Support: support@dcprosens.com
 
 ====================================================================
-2. IMAGENS (ENVIO DOS ARQUIVOS DA PASTA PLAY_STORE_FILES):
+2. IMAGENS (ENVIO DOS ARQUIVOS DA PASTA store-assets):
 ====================================================================
 
 A. ÍCONE DA APLICAÇÃO* (512x512 px):
@@ -37,11 +51,9 @@ A. ÍCONE DA APLICAÇÃO* (512x512 px):
 B. GRÁFICO DE FUNCIONALIDADES* (1024x500 px):
    - Envie o arquivo: 2_GRAFICO_DE_FUNCIONALIDADES_1024x500.png
 
-C. TELEMÓVEL -> IMAGENS DO TELEMÓVEL* (Capturas de ecrã do telemóvel):
-   - Envie o arquivo: 3_PRINT_TELEMOVEL_1_1080x1920.png
-   - Envie também o arquivo: 4_PRINT_TELEMOVEL_2_1080x1920.png
-
-D. TABLET (7 e 10 polegadas) / CHROMEBOOK (Opcional):
-   - Pode enviar os mesmos arquivos (3_PRINT_TELEMOVEL_1_1080x1920.png e 4_PRINT_TELEMOVEL_2_1080x1920.png) se desejar preenchê-los.
-
+C. TELEMÓVEL -> IMAGENS DO TELEMÓVEL* (Capturas de ecrã 1080x1920):
+   - 3_PRINT_TELEMOVEL_1_1080x1920.png
+   - 4_PRINT_TELEMOVEL_2_1080x1920.png
+   - 5_PRINT_TELEMOVEL_3_1080x1920.png
+   - 6_PRINT_TELEMOVEL_4_1080x1920.png
 ====================================================================
