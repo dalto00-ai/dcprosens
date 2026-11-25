@@ -5,7 +5,7 @@ import { games } from '@/lib/games';
 import { sensFinderContent, getSensFinderContent } from '@/lib/sensFinderContent';
 import { getProsByGame } from '@/lib/pros';
 import Converter from '@/components/Converter';
-import AdsterraInContent from '@/components/AdsterraInContent';
+import PartnerBanner from '@/components/PartnerBanner';
 import { seoDescription } from '@/utils/seoText';
 
 interface Props {
@@ -159,7 +159,7 @@ export default async function SensFinderGamePage({ params }: Props) {
 
             <Converter initialFromGame={gameId} />
 
-            <AdsterraInContent />
+            <PartnerBanner slot="inContent" />
 
             {relatedPros.length > 0 && (
                 <div style={{ maxWidth: '800px', margin: '3rem auto 0', textAlign: 'center' }}>

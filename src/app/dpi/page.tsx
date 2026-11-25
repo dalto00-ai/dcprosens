@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import DpiCalculator from '@/components/DpiCalculator';
-import AdsterraInContent from '@/components/AdsterraInContent';
+import PartnerBanner from '@/components/PartnerBanner';
 import Link from 'next/link';
-import TrialGate from '@/components/TrialGate';
 
 export const metadata: Metadata = {
     title: "What is DPI? DPI Calculator & Mouse Guide (2026)",
@@ -175,11 +174,9 @@ export default function DpiPage() {
                 Enter your mouse DPI and in-game sensitivity to calculate your eDPI instantly.
             </p>
 
-            <TrialGate toolId="dpi-calculator" previewTitle="DPI / eDPI Calculator">
-                <DpiCalculator />
-            </TrialGate>
+            <DpiCalculator />
 
-            <AdsterraInContent />
+            <PartnerBanner slot="inContent" />
 
             {/* --- SEO Content Section: What is DPI? --- */}
             <article style={{ marginTop: '5rem', color: 'var(--text-secondary)', lineHeight: 1.8 }}>

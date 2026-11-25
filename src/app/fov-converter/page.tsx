@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import FovConverter from '@/components/FovConverter';
-import AdsterraInContent from '@/components/AdsterraInContent';
+import PartnerBanner from '@/components/PartnerBanner';
 import ToolExplainer, { type ToolExplainerSection, type ToolExplainerFaq } from '@/components/ToolExplainer';
 
 export const metadata: Metadata = {
@@ -157,7 +157,7 @@ export default function FovConverterPage() {
 
             <FovConverter />
 
-            <AdsterraInContent />
+            <PartnerBanner slot="inContent" />
 
             <div
                 style={{

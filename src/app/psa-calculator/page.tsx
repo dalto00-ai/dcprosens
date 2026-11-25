@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import PSACalculator from '@/components/PSACalculator';
-import TrialGate from '@/components/TrialGate';
 import JsonLd, { breadcrumb, howTo, graph } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
@@ -141,7 +140,7 @@ export default function PSACalculatorPage() {
                         marginBottom: '1.25rem',
                     }}
                 >
-                    📐 Free Scientific Calibration Tool — 3 Free Runs
+                    📐 Free Scientific Calibration Tool — Unlimited Access
                 </span>
                 <h1 className="hero-title" style={{ marginBottom: '1.25rem' }}>
                     PSA Method <span className="text-gradient">Calculator</span>
@@ -152,9 +151,7 @@ export default function PSACalculatorPage() {
             </div>
 
             {/* Interactive component */}
-            <TrialGate toolId="psa-calculator" previewTitle="PSA Method Calculator" manualIncrement={true}>
-                <PSACalculator />
-            </TrialGate>
+            <PSACalculator />
 
             {/* Explanatory Copy & FAQs */}
             <div

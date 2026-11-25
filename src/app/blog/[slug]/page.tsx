@@ -7,7 +7,7 @@ import { resolveBlogImage } from '@/utils/blogImageResolver';
 import { seoTitle, seoDescription } from '@/utils/seoText';
 import { mouseProducts, keyboardProduct } from '@/lib/affiliates';
 import AdvertiseBanner from '@/components/AdvertiseBanner';
-import AdsterraInContent from '@/components/AdsterraInContent';
+import PartnerBanner from '@/components/PartnerBanner';
 import '../prose.css';
 import AffiliateDisclosure from '@/components/AffiliateDisclosure';
 import ArticleEbookFunnel from '@/components/ArticleEbookFunnel';
@@ -368,7 +368,7 @@ export default async function BlogPost({ params }: Props) {
                 </nav>
             )}
 
-            <AdsterraInContent />
+            <PartnerBanner slot="inContent" />
 
             <div
                 className="prose"

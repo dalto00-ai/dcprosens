@@ -2,7 +2,7 @@ import Converter from '@/components/Converter';
 import ProSettings from '@/components/ProSettings';
 import HomeWiki from '@/components/HomeWiki';
 import VoiceSearch from '@/components/VoiceSearch';
-import AdsterraInContent from '@/components/AdsterraInContent';
+import PartnerBanner from '@/components/PartnerBanner';
 import { AnimatedCounter, FloatingParticles, CompetitorTable, ScrollReveal } from '@/components/HomeAnimations';
 import Link from 'next/link';
 import type { Metadata } from 'next';
@@ -234,7 +234,7 @@ export default function Home() {
 
                 <VoiceSearch />
                 <Converter />
-                <AdsterraInContent />
+                <PartnerBanner slot="inContent" />
 
                 {/* ═══════════ GAMES TRUST BAR ═══════════ */}
                 <ScrollReveal>
@@ -577,8 +577,8 @@ export default function Home() {
                     </section>
                 </ScrollReveal>
 
-                {/* ═══════════ MID/BOTTOM AD SLOT ═══════════ */}
-                <AdsterraInContent />
+                {/* ═══════════ MID/BOTTOM PARTNER SLOT ═══════════ */}
+                <PartnerBanner slot="inContent" />
 
                 {/* ═══════════ SEO WIKI ═══════════ */}
                 <HomeWiki />

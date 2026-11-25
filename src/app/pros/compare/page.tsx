@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import ProCompare from '@/components/ProCompare';
-import TrialGate from '@/components/TrialGate';
 import ToolExplainer, { type ToolExplainerSection, type ToolExplainerFaq } from '@/components/ToolExplainer';
 
 export const metadata: Metadata = {
@@ -137,9 +136,7 @@ export default function ProComparePage() {
             </div>
 
             {/* Interactive component */}
-            <TrialGate toolId="pro-compare" previewTitle="Pro Player Compare">
-                <ProCompare />
-            </TrialGate>
+            <ProCompare />
 
             {/* Technical SEO Copy */}
             <div

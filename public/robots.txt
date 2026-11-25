@@ -15,12 +15,6 @@ Allow: /
 # Server-side endpoints — no HTML, nothing to index.
 Disallow: /api/
 
-# Ad wrapper documents. Each is a bare <script> tag for one Adsterra format,
-# framed same-origin by the page. Unlike /embed above these carry no meta
-# robots tag of their own (they are not React pages), so the block is done
-# here and reinforced by X-Robots-Tag in public/adsterra/.htaccess.
-Disallow: /adsterra/
-
 # AI Search & Answer Engine Optimization (GEO/AEO)
 User-agent: GPTBot
 Allow: /

@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import CrosshairGenerator from '@/components/CrosshairGenerator';
 import Link from 'next/link';
-import TrialGate from '@/components/TrialGate';
 import ToolExplainer, { type ToolExplainerSection, type ToolExplainerFaq } from '@/components/ToolExplainer';
 
 export const metadata: Metadata = {
@@ -171,9 +170,7 @@ export default function CrosshairPage() {
 
             {/* Tool */}
             <div className="container" style={{ maxWidth: 1100 }}>
-                <TrialGate toolId="crosshair-generator" previewTitle="Crosshair Generator">
-                    <CrosshairGenerator />
-                </TrialGate>
+                <CrosshairGenerator />
             </div>
 
             {/* SEO Article */}

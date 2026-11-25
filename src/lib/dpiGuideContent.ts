@@ -135,6 +135,31 @@ export const dpiGuideContent: DpiGuideContent[] = [
             'Disable Windows pointer acceleration regardless of which client you use.',
             'Because the touch-to-mouse translation differs per emulator, a setting that feels right on BlueStacks may not feel identical on MEmu or LDPlayer — expect to re-tune if you switch.',
         ],
+        deepDive: [
+            {
+                heading: 'Why emulator X/Y sensitivity differs from native FPS yaw',
+                paragraphs: [
+                    'Native PC shooters convert raw Windows mouse counts directly into spherical camera degrees using a single linear yaw scalar. Android emulators playing Free Fire cannot talk to a native Raw Input look loop—instead, they translate physical mouse movement into virtual finger swipes inside a bounded right-side touch box on an emulated phone screen.',
+                    'Because a virtual swipe stops or resets whenever it hits the edge of that simulated viewport box (requiring automated virtual finger-lift resets), changing emulator resolution, FPS cap, or touch-box size alters how fast a 1-centimeter flick rotates your character.',
+                    'Separate horizontal (X) and vertical (Y) sensitivity multipliers inside BlueStacks or MSI App Player exist specifically to compensate for asymmetric touch-screen drag curves—boosting Y lets you drag upward toward the headbox quickly without making horizontal 180-degree turns uncontrollable.',
+                ],
+            },
+            {
+                heading: 'Tuning Windows DPI, emulator speed, and in-game sliders',
+                paragraphs: [
+                    'Always lock Windows pointer speed at 6/11 with Enhance Pointer Precision disabled before opening your emulator. If Windows applies dynamic acceleration before the emulator samples cursor deltas, your upward one-tap drag distance changes depending on how fast you flick your wrist.',
+                    'Set a single consistent hardware mouse DPI (800 DPI is standard across most competitive PC emulator setups) and avoid changing mouse DPI per weapon. Keep in-game General sensitivity lower (often 0 to 30 depending on your emulator) and let your emulator X/Y values handle the coarse turn speed.',
+                    'For Red Dot, 2x, and 4x scopes, drop multipliers progressively only if overshooting headshots at mid-to-long range; aggressive close-range SMG rushers usually keep Red Dot closer to General speed.',
+                ],
+            },
+            {
+                heading: 'Native x86 client vs third-party emulators',
+                paragraphs: [
+                    'Garena’s native x86 PC build eliminates virtual Android frame pacing and reduces mouse-to-photon latency compared to full VM emulators, giving cleaner stop consistency during fast crouch-stand shots.',
+                    'However, many tournament players still tune BlueStacks or LDPlayer setups because they offer granular X/Y curves and key-mapping tweaks. Whichever platform you choose, stick to one build and one DPI for at least two full weeks before tweaking X/Y decimals again.',
+                ],
+            },
+        ],
         faqs: [
             {
                 q: 'Is there an exact Free Fire sensitivity converter?',

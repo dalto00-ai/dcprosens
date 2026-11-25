@@ -5,7 +5,7 @@ import { games } from '@/lib/games';
 import { convertPairs, getConvertPair } from '@/lib/convertPairs';
 import { getProsByGame } from '@/lib/pros';
 import Converter from '@/components/Converter';
-import AdsterraInContent from '@/components/AdsterraInContent';
+import PartnerBanner from '@/components/PartnerBanner';
 import { seoTitle } from '@/utils/seoText';
 
 interface Props {
@@ -123,7 +123,7 @@ export default async function ConvertPairPage({ params }: Props) {
                 initialDpi={pair.defaultDpi}
             />
 
-            <AdsterraInContent />
+            <PartnerBanner slot="inContent" />
 
             <div style={{ maxWidth: '800px', margin: '4rem auto 0', color: 'var(--text-secondary)', lineHeight: 1.85 }}>
                 <h2 style={{ color: 'var(--text-primary)', fontSize: '1.6rem', fontWeight: 800, marginBottom: '1rem' }}>

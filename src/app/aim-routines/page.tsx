@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import AimRoutineGenerator from '@/components/AimRoutineGenerator';
 import Link from 'next/link';
-import TrialGate from '@/components/TrialGate';
 
 export const metadata: Metadata = {
     title: "Aim Training Routine Generator",
@@ -122,9 +121,7 @@ export default function AimRoutinesPage() {
                 Generate a custom 30-minute daily aim training playlist for KovaaKs or Aimlabs optimized for your main game, rank, and mechanical weaknesses.
             </p>
 
-            <TrialGate toolId="aim-routines" previewTitle="Aim Routine Generator">
-                <AimRoutineGenerator />
-            </TrialGate>
+            <AimRoutineGenerator />
 
             <article style={{ marginTop: '5rem', color: 'var(--text-secondary)', lineHeight: 1.8 }}>
                 <h2 style={{ color: 'var(--text-primary)', fontSize: '2rem', fontWeight: 700, marginBottom: '1.5rem' }}>

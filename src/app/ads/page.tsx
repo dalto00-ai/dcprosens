@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import AdsCalculator from './AdsCalculator';
-import TrialGate from '@/components/TrialGate';
 
 export const metadata: Metadata = {
     title: "1:1 ADS Scope Sensitivity Calculator (Free)",
@@ -115,9 +114,7 @@ export default function AdsPage() {
                 Calculate the perfect Aim Down Sights (ADS) multiplier for scopes (AWP, Operator, optical sights) and match your hipfire muscle memory.
             </p>
 
-            <TrialGate toolId="ads-calculator" previewTitle="ADS Sensitivity Calculator">
-                <AdsCalculator />
-            </TrialGate>
+            <AdsCalculator />
 
             {/* HIGH-INTENT EEAT WIKI SECTION */}
             <div style={{ marginTop: '4rem', borderTop: '1px solid var(--border-color)', paddingTop: '3rem' }}>

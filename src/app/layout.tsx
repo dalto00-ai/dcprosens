@@ -122,10 +122,6 @@ export default function RootLayout({
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1743865545749571"
           crossOrigin="anonymous"
         />
-        <script
-          async
-          src="https://jsc.adskeeper.com/site/1120939.js"
-        />
       </head>
       <body className={`${outfit.variable}`}>
         <AuthProvider>

@@ -5,7 +5,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BottomNav from "@/components/BottomNav";
 import PartnerBanner from "@/components/PartnerBanner";
-import AdsKeeperWidget from "@/components/AdsKeeperWidget";
 
 // The /embed widget is designed to be dropped into a streamer's page via
 // <iframe>, so it must never carry the full site chrome (nav, footer) —
@@ -31,11 +30,6 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
             <main className="main-content" id="main-content" tabIndex={-1}>
                 {children}
             </main>
-            <div style={{ maxWidth: "1200px", margin: "1.5rem auto", padding: "0 1rem", width: "100%" }}>
-                <AdsKeeperWidget widgetId="2122080" style={{ marginBottom: "1rem" }} />
-                <AdsKeeperWidget widgetId="2122067" />
-            </div>
-            <AdsKeeperWidget widgetId="2122068" />
             <PartnerBanner slot="bottomRail" />
             <Footer />
             <PartnerBanner slot="sideRailLeft" />

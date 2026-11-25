@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import SensFinderClient from '@/components/SensFinderClient';
 import { sensFinderContent } from '@/lib/sensFinderContent';
-import TrialGate from '@/components/TrialGate';
 
 export const metadata: Metadata = {
     title: "Sensitivity Finder — cm/360 Game Converter",
@@ -140,9 +139,7 @@ export default function SensFinderPage() {
                 ))}
             </div>
 
-            <TrialGate toolId="sens-finder" previewTitle="Sens Finder">
-                <SensFinderClient />
-            </TrialGate>
+            <SensFinderClient />
 
             {/* PER-GAME DEDICATED PAGES */}
             <div style={{ marginTop: '4rem' }}>
